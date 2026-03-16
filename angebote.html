@@ -1,0 +1,306 @@
+<!--
+  linja.me/angebote – Angebotsseite
+  Design System: Vanille-Heidelbeer (gedämpft)
+  Brand Kit: ../brand-kit.md
+  Stand: 2026-03-16
+  Version: 1 – 4-Stufen-Angebotsleiter
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angebote – Linja Scharffetter</title>
+    <meta name="description"
+        content="Vier klare Formate: Strategy Clarity Workshop, Diagnose-Sprint, Strategy-to-Execution Sprint, Sparring-Retainer. Vom ersten Kennenlernen bis zur laufenden Zusammenarbeit.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <!-- ======== NAV ======== -->
+    <nav class="fixed top-0 left-0 right-0 z-50"
+        style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">
+        <div class="max-w-[860px] mx-auto px-8 py-3 flex items-center justify-between">
+            <a href="/" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>
+            <div class="flex items-center gap-6 text-[0.8rem] text-stone-500">
+                <a href="index.html#ueber" class="hover:text-stone-800 transition-colors hidden sm:inline">Über mich</a>
+                <a href="index.html#ergebnisse" class="hover:text-stone-800 transition-colors hidden sm:inline">Ergebnisse</a>
+                <a href="angebote.html" class="text-stone-800 font-medium transition-colors hidden sm:inline">Angebote</a>
+                <a href="#kontakt"
+                    class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors"
+                    style="background: #7b6ba5;">Gespräch vereinbaren</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-[860px] mx-auto px-8">
+
+        <!-- ======== HEADER ======== -->
+        <header class="pt-36 pb-20">
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-5 max-w-[18em]">
+                Vier klare Formate –<br>vom ersten Kennenlernen bis zur laufenden Zusammenarbeit.
+            </h1>
+            <p class="text-[1rem] text-stone-500 max-w-[36em] leading-relaxed">
+                Jedes Engagement endet mit etwas, das Ihr Team selbst weitertragen kann.
+                Kein dauerhaftes Embedding, keine Abhängigkeit.
+                Alle Formate sind individuell anpassbar – Preise verstehen sich als Orientierung.
+            </p>
+        </header>
+
+        <!-- ======== ANGEBOTSLEITER ======== -->
+        <section class="pb-28">
+
+            <div class="space-y-6">
+
+                <!-- Stufe 1: Strategy Clarity Workshop -->
+                <div class="bg-white border-2 rounded-lg p-8" style="border-color: #5b8a72;">
+                    <div class="flex items-start justify-between gap-8 flex-col md:flex-row">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #5b8a72;"></span>
+                                <span
+                                    class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase">Strategy
+                                    Clarity Workshop · Halber Tag</span>
+                            </div>
+                            <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">
+                                In 4 Stunden wissen Sie, wo Ihre Strategie bricht
+                            </h3>
+                            <p class="text-[0.9rem] text-stone-600 mb-5 max-w-[32em]">
+                                Ich arbeite einen halben Tag mit Ihrem Führungsteam und stelle die Fragen,
+                                die intern niemand stellt. Danach wissen Sie, ob Ihr Problem
+                                Richtung, Alignment, Messbarkeit oder Kommunikation ist –
+                                und was der nächste Schritt sein sollte.
+                            </p>
+                            <div class="mb-4">
+                                <p class="text-[0.82rem] text-stone-400">
+                                    <span class="font-medium text-stone-500">Sie erhalten:</span>
+                                </p>
+                                <ul class="text-[0.82rem] text-stone-400 mt-1 space-y-1">
+                                    <li>Priorisierte Diagnose: Wo genau bricht Strategie → Umsetzung?</li>
+                                    <li>Dokumentierte Spannungsfelder im Führungsteam</li>
+                                    <li>Konkrete Empfehlung für den nächsten Schritt</li>
+                                </ul>
+                            </div>
+                            <p class="text-[0.78rem] font-medium" style="color: #5b8a72;">Idealer Einstieg – lernen Sie meine Arbeitsweise kennen</p>
+                        </div>
+                        <div class="flex-shrink-0 md:text-right">
+                            <p class="font-mono text-[1.1rem] text-stone-900 font-medium">1.500 – 2.500 €</p>
+                            <p class="text-[0.72rem] text-stone-400 mt-1">Halber Tag, vor Ort oder remote</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stufe 2: Diagnose-Sprint -->
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db;">
+                    <div class="flex items-start justify-between gap-8 flex-col md:flex-row">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #7b6ba5;"></span>
+                                <span
+                                    class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase">Diagnose-Sprint
+                                    · 2 Wochen</span>
+                            </div>
+                            <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">
+                                Die Muster sichtbar machen, die Ihre Organisation blockieren
+                            </h3>
+                            <p class="text-[0.9rem] text-stone-600 mb-5 max-w-[32em]">
+                                Stakeholder-Interviews, Strukturanalyse und – wenn nötig – Kundengespräche.
+                                Ich erkenne schnell, ob ein Problem operativ oder strukturell ist,
+                                und liefere einen klaren Report mit priorisierten Hypothesen.
+                            </p>
+                            <div class="mb-4">
+                                <p class="text-[0.82rem] text-stone-400">
+                                    <span class="font-medium text-stone-500">Sie erhalten:</span>
+                                </p>
+                                <ul class="text-[0.82rem] text-stone-400 mt-1 space-y-1">
+                                    <li>Diagnose-Report mit Ursachenanalyse</li>
+                                    <li>Stakeholder-Map: Wer blockiert, wer treibt, wer fehlt</li>
+                                    <li>Priorisierte Handlungsempfehlung</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 md:text-right">
+                            <p class="font-mono text-[1.1rem] text-stone-900 font-medium">4.000 – 6.000 €</p>
+                            <p class="text-[0.72rem] text-stone-400 mt-1">2 Wochen, 4–6 Interviews</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stufe 3: Strategy-to-Execution Sprint -->
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db;">
+                    <div class="flex items-start justify-between gap-8 flex-col md:flex-row">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #7b6ba5;"></span>
+                                <span
+                                    class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase">Strategy-to-Execution
+                                    Sprint · 4–8 Wochen</span>
+                            </div>
+                            <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">
+                                Von der Strategie zu einer Geschichte, hinter der alle stehen
+                            </h3>
+                            <p class="text-[0.9rem] text-stone-600 mb-5 max-w-[32em]">
+                                Ich übersetze Ihre Strategie in eine Sprache, die jedes Team versteht.
+                                Wir erarbeiten messbare Ziele, klären Verantwortlichkeiten und bauen
+                                eine Entscheidungsarchitektur, die Ihr Team selbst tragen kann.
+                                Bei Bedarf bringe ich die Kundenperspektive als neutralen Boden ein.
+                            </p>
+                            <div class="mb-4">
+                                <p class="text-[0.82rem] text-stone-400">
+                                    <span class="font-medium text-stone-500">Sie erhalten:</span>
+                                </p>
+                                <ul class="text-[0.82rem] text-stone-400 mt-1 space-y-1">
+                                    <li>Übersetzte Strategie: Von CEO-Sprech zu Team-Sprech</li>
+                                    <li>OKRs oder Zielframework mit messbaren Team-Beiträgen</li>
+                                    <li>Entscheidungsarchitektur: Wer entscheidet was, auf welcher Basis</li>
+                                    <li>Dokumentierte Übergabe an Ihr Team</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 md:text-right">
+                            <p class="font-mono text-[1.1rem] text-stone-900 font-medium">12.000 – 25.000 €</p>
+                            <p class="text-[0.72rem] text-stone-400 mt-1">4–8 Wochen, inkl. Übergabe</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stufe 4: Sparring-Retainer -->
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db;">
+                    <div class="flex items-start justify-between gap-8 flex-col md:flex-row">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-2 h-2 rounded-full flex-shrink-0" style="background: #D4714E;"></span>
+                                <span
+                                    class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase">Sparring-Retainer
+                                    · Laufend</span>
+                            </div>
+                            <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">
+                                Eine strategische Sparringspartnerin auf Abruf
+                            </h3>
+                            <p class="text-[0.9rem] text-stone-600 mb-5 max-w-[32em]">
+                                Regelmäßiges Sparring für Geschäftsführung oder Produktleitung.
+                                Ich challenge Ihre Annahmen, helfe priorisieren und bringe die Außenperspektive ein,
+                                die im Tagesgeschäft verloren geht. Keine operative Verantwortung, maximale Klarheit.
+                            </p>
+                            <div class="mb-4">
+                                <p class="text-[0.82rem] text-stone-400">
+                                    <span class="font-medium text-stone-500">Sie erhalten:</span>
+                                </p>
+                                <ul class="text-[0.82rem] text-stone-400 mt-1 space-y-1">
+                                    <li>2–4 Stunden strategisches Sparring pro Monat</li>
+                                    <li>Priorisierungs-Support bei schwierigen Entscheidungen</li>
+                                    <li>Außenperspektive und konstruktive Challenge</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 md:text-right">
+                            <p class="font-mono text-[1.1rem] text-stone-900 font-medium">1.500 – 2.500 € / Monat</p>
+                            <p class="text-[0.72rem] text-stone-400 mt-1">Monatlich kündbar</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ======== PASST DAS? ======== -->
+        <section class="pb-28">
+            <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-8">Nicht sicher, welches Format passt?</p>
+
+            <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db;">
+                <div class="max-w-[38em]">
+                    <p class="text-stone-600 text-[0.95rem] mb-4">
+                        Die meisten Zusammenarbeiten starten mit dem <strong>Strategy Clarity Workshop</strong>.
+                        In einem halben Tag sehen wir beide, ob die Chemie stimmt und wo der größte Hebel liegt.
+                        Alles Weitere ergibt sich daraus.
+                    </p>
+                    <p class="text-stone-600 text-[0.95rem]">
+                        Sie können auch direkt ein unverbindliches Gespräch buchen – 30 Minuten,
+                        in denen wir klären, ob und wie ich helfen kann.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== KONTAKT ======== -->
+        <section id="kontakt" class="pb-28">
+            <div class="bg-white border rounded-lg text-center py-14 px-8" style="border-color: #e5e2db;">
+                <h2 class="source-serif text-[1.5rem] text-stone-900 mb-4">Lassen Sie uns sprechen</h2>
+                <p class="text-stone-500 text-[0.95rem] mb-10 max-w-[28em] mx-auto">
+                    30 Minuten, unverbindlich. Wir klären, ob und wie ich helfen kann – bevor irgendwas kostet.
+                </p>
+                <div class="flex flex-col items-center gap-5">
+                    <a href="mailto:scharffetter@linja.me"
+                        class="inline-block px-7 py-3 rounded text-white text-[0.9rem] font-medium transition-colors hover:opacity-90"
+                        style="background: #7b6ba5;">scharffetter@linja.me</a>
+                    <div class="flex items-center gap-4 text-[0.85rem] text-stone-400">
+                        <span>+49 172 472 5757</span>
+                        <span class="text-stone-300">&middot;</span>
+                        <span>NRW / Ruhrgebiet</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ======== FOOTER ======== -->
+    <footer style="background: #F5F3EF;" class="py-8">
+        <div class="max-w-[860px] mx-auto px-8 flex items-center justify-between text-[0.78rem] text-stone-400">
+            <span>&copy; 2026 Linja Scharffetter</span>
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="hover:text-stone-600 transition-colors">Startseite</a>
+                <a href="https://cv.linja.me" class="hover:text-stone-600 transition-colors">CV</a>
+                <a href="https://linkedin.com/in/linjascharffetter"
+                    class="hover:text-stone-600 transition-colors">LinkedIn</a>
+                <a href="mailto:scharffetter@linja.me" class="hover:text-stone-600 transition-colors">E-Mail</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

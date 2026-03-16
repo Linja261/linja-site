@@ -1,0 +1,417 @@
+<!--
+  linja.me – Freelance Landing Page
+  Design System: Vanille-Heidelbeer (gedämpft)
+  Brand Kit: ../brand-kit.md
+  Portrait: profile.jpg
+  Stand: 2026-03-16
+  Version: 4 – 2-Seiten-Struktur: Positionierung (index) + Angebote (angebote)
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linja Scharffetter – Strategische Klarheit für wachsende Organisationen</title>
+    <meta name="description"
+        content="Fractional Chief of Staff & Strategy Consultant. Ich mache Strategie verständlich, richte Teams aus und baue Strukturen, die ohne mich funktionieren.">
+    <meta name="keywords"
+        content="Fractional Chief of Staff, Strategy Consultant, Strategische Klarheit, OKRs, Stakeholder Alignment, Product Strategy, Organisationsentwicklung, DACH">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <!-- ======== NAV ======== -->
+    <nav class="fixed top-0 left-0 right-0 z-50"
+        style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">
+        <div class="max-w-[860px] mx-auto px-8 py-3 flex items-center justify-between">
+            <a href="/" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>
+            <div class="flex items-center gap-6 text-[0.8rem] text-stone-500">
+                <a href="#ueber" class="hover:text-stone-800 transition-colors hidden sm:inline">Über mich</a>
+                <a href="#ergebnisse" class="hover:text-stone-800 transition-colors hidden sm:inline">Ergebnisse</a>
+                <a href="angebote.html" class="hover:text-stone-800 transition-colors hidden sm:inline">Angebote</a>
+                <a href="#kontakt"
+                    class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors"
+                    style="background: #7b6ba5;">Gespräch vereinbaren</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-[860px] mx-auto px-8">
+
+        <!-- ======== HERO ======== -->
+        <header class="pt-36 pb-28">
+            <div class="flex-1">
+                <div class="flex items-center gap-5 mb-8">
+                    <img src="profile.jpg" alt="Linja Scharffetter"
+                        class="w-20 h-20 rounded-full object-cover border-2 flex-shrink-0"
+                        style="border-color: #e5e2db;">
+                    <div>
+                        <h2 class="text-stone-900 font-semibold text-[1.1rem]">Linja Scharffetter</h2>
+                        <p class="text-stone-500 text-[0.85rem]">Fractional Chief of Staff · Strategy Consultant</p>
+                    </div>
+                </div>
+                <h1 class="source-serif text-[2.2rem] text-stone-900 leading-[1.18] mb-6 max-w-[18em]">
+                    Ihre Strategie ist klar.<br>Aber versteht jeder im Team, was sie bedeutet?
+                </h1>
+                <p class="text-[1rem] text-stone-500 max-w-[34em] mb-10 leading-relaxed">
+                    Ich höre zu, verstehe schnell, wie Ihr Unternehmen tickt, und finde Methoden,
+                    die genau für Sie funktionieren – nicht generisch, sondern passend.
+                    13+ Jahre Erfahrung an der Schnittstelle von Strategie, Produkt und Organisation.
+                </p>
+                <div class="flex items-center gap-4">
+                    <a href="#kontakt"
+                        class="inline-block px-6 py-3 rounded text-white text-[0.88rem] font-medium transition-colors hover:opacity-90"
+                        style="background: #7b6ba5;">Unverbindliches Gespräch vereinbaren</a>
+                    <a href="angebote.html"
+                        class="inline-block px-6 py-3 rounded text-[0.88rem] font-medium transition-colors border hover:bg-white"
+                        style="border-color: #d9d1e5; color: #7b6ba5;">Angebote ansehen</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- ======== WAS ICH LÖSE ======== -->
+        <section class="pb-28">
+            <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-8">Kommt Ihnen das bekannt
+                vor?</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="bg-white border rounded-lg p-6" style="border-color: #e5e2db;">
+                    <p class="text-stone-900 font-medium text-[0.92rem] mb-2">Es wird genickt – aber die Ergebnisse
+                        stimmen nicht</p>
+                    <p class="text-[0.85rem] text-stone-500">Im Kopf des CEOs ist die Strategie klar. Aber die Teams
+                        sind unsicher, welchen Beitrag sie leisten sollen – und outen sich nicht, weil es
+                        unprofessionell wirkt.</p>
+                </div>
+                <div class="bg-white border rounded-lg p-6" style="border-color: #e5e2db;">
+                    <p class="text-stone-900 font-medium text-[0.92rem] mb-2">Teams beschweren sich über unklare
+                        Aufgaben</p>
+                    <p class="text-[0.85rem] text-stone-500">Der CEO beschwert sich über unklare Ergebnisse. Beide haben
+                        recht – es fehlt die gemeinsame Sprache zwischen Strategie und Alltag.</p>
+                </div>
+                <div class="bg-white border rounded-lg p-6" style="border-color: #e5e2db;">
+                    <p class="text-stone-900 font-medium text-[0.92rem] mb-2">Autonomie funktioniert nur mit Klarheit
+                    </p>
+                    <p class="text-[0.85rem] text-stone-500">Der CEO will sich nicht in den Alltag einmischen. Aber ohne
+                        messbare Beiträge pro Team kann er nicht führen, ohne zu kontrollieren.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== ÜBER MICH ======== -->
+        <section id="ueber" class="pb-28">
+            <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-8">Über mich</p>
+
+            <div class="max-w-[42em]">
+                <p class="text-stone-600 text-[0.95rem] mb-5">
+                    Ich denke in Systemen – und schaue auf die Menschen darin. In 13+ Jahren habe ich gelernt,
+                    schnell zu erkennen, ob ein Problem operativ oder strukturell ist. Und ich habe gelernt,
+                    dass die Antwort fast nie ein neues Framework ist, sondern Zuhören, Einordnen und die
+                    richtigen Gespräche führen.
+                </p>
+                <p class="text-stone-600 text-[0.95rem] mb-5">
+                    Mein Weg führte von Customer Insights über Innovation und Change Management
+                    zu strategischer Produktverantwortung – immer an der Schnittstelle von Business,
+                    Produkt, Technologie und Kultur. Bei ista war ich de facto interne Beraterin für
+                    30 Ländergesellschaften – jede mit eigener Agenda, eigenen Stakeholdern,
+                    eigenen politischen Realitäten. Bei ABS Safety habe ich als Produktstrategin
+                    ein 8-köpfiges Team geführt und +3,5 Mio. € Mehrumsatz verantwortet.
+                </p>
+                <p class="text-stone-600 text-[0.95rem] mb-8">
+                    Was mich unterscheidet: Ich übersetze zwischen Welten. Zwischen Geschäftsführung und Teams.
+                    Zwischen Strategie und Alltag. Zwischen dem, was gesagt wird, und dem, was gemeint ist.
+                    Und wenn interne Diskussionen sich im Kreis drehen, bringe ich die Kundenperspektive
+                    als neutralen Boden ein – mit echten Daten, nicht mit Meinungen.
+                </p>
+                <div class="flex gap-5 text-[0.85rem]">
+                    <a href="https://cv.linja.me" target="_blank"
+                        class="font-medium transition-colors hover:opacity-80"
+                        style="color: #7b6ba5;">Vollständiger CV &rarr;</a>
+                    <a href="https://linkedin.com/in/linjascharffetter" target="_blank"
+                        class="font-medium transition-colors hover:opacity-80"
+                        style="color: #7b6ba5;">LinkedIn &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== HALTUNG ======== -->
+        <section class="pb-28">
+            <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-3">Haltung</p>
+            <p class="text-stone-600 text-[1rem] mb-12 max-w-[38em]">
+                Methoden lassen sich erlernen. Haltung lässt sich nur leben.
+                Drei Prinzipien leiten meine Arbeit – unabhängig von Branche, Rolle oder Komplexitätsgrad.
+            </p>
+
+            <div class="space-y-8">
+                <div class="flex gap-6 items-start">
+                    <div class="w-1 flex-shrink-0 rounded-full self-stretch" style="background: #7b6ba5;"></div>
+                    <div>
+                        <h3 class="text-stone-900 font-semibold text-[1rem] mb-2">Verstehen vor Handeln</h3>
+                        <p class="text-[0.9rem] text-stone-600 max-w-[34em]">
+                            Bevor ich gestalte, sorge ich für Klarheit über Kontext, Ursachen und Wirkzusammenhänge –
+                            durch Zuhören, Beobachten und gezielte Analyse. Nachhaltige Lösungen entstehen aus echtem
+                            Verständnis, nicht aus schnellen Antworten.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 items-start">
+                    <div class="w-1 flex-shrink-0 rounded-full self-stretch" style="background: #D4714E;"></div>
+                    <div>
+                        <h3 class="text-stone-900 font-semibold text-[1rem] mb-2">Klarheit vor Kontrolle</h3>
+                        <p class="text-[0.9rem] text-stone-600 max-w-[34em]">
+                            Gute Entscheidungen entstehen dort, wo Zusammenhänge nachvollziehbar sind –
+                            nicht dort, wo Kontrolle Sicherheit simuliert.
+                            Ich setze auf transparente Entscheidungslogik und gemeinsame Entscheidungsfähigkeit.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 items-start">
+                    <div class="w-1 flex-shrink-0 rounded-full self-stretch" style="background: #5b8a72;"></div>
+                    <div>
+                        <h3 class="text-stone-900 font-semibold text-[1rem] mb-2">Leistung & Kultur als Einheit</h3>
+                        <p class="text-[0.9rem] text-stone-600 max-w-[34em]">
+                            Tragfähige Systeme entstehen dort, wo Rollen klar sind, Verantwortung geteilt wird
+                            und Zusammenarbeit auf Augenhöhe stattfindet. Leistung und Kultur sind keine Gegensätze –
+                            sie bedingen sich.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== WIE ICH ARBEITE ======== -->
+        <section class="pb-28">
+            <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-3">Wie ich arbeite</p>
+            <p class="text-stone-600 text-[1rem] mb-12 max-w-[38em]">
+                Jedes Engagement folgt demselben Rhythmus – egal ob halber Tag oder acht Wochen.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center px-4">
+                    <div class="w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-[0.85rem] font-semibold"
+                        style="background: #7b6ba5;">1</div>
+                    <h3 class="text-stone-900 font-semibold text-[0.95rem] mb-2">Verstehen</h3>
+                    <p class="text-[0.85rem] text-stone-500">
+                        Zuhören, Stakeholder-Gespräche, System verstehen.
+                        Ich erkenne schnell, ob das Problem Richtung, Alignment,
+                        Messbarkeit oder Kommunikation ist.
+                    </p>
+                </div>
+                <div class="text-center px-4">
+                    <div class="w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-[0.85rem] font-semibold"
+                        style="background: #D4714E;">2</div>
+                    <h3 class="text-stone-900 font-semibold text-[0.95rem] mb-2">Übersetzen</h3>
+                    <p class="text-[0.85rem] text-stone-500">
+                        Implizites sichtbar machen, Perspektiven verbinden.
+                        Strategie in eine Sprache bringen, die jedes Team versteht –
+                        und in messbare Beiträge überführen.
+                    </p>
+                </div>
+                <div class="text-center px-4">
+                    <div class="w-10 h-10 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-[0.85rem] font-semibold"
+                        style="background: #5b8a72;">3</div>
+                    <h3 class="text-stone-900 font-semibold text-[0.95rem] mb-2">Übergeben</h3>
+                    <p class="text-[0.85rem] text-stone-500">
+                        Strukturen bauen, die das Team selbst tragen kann.
+                        Dokumentierte Übergabe, klare Exit-Kriterien.
+                        Mein Erfolg misst sich daran, dass Sie mich nicht mehr brauchen.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== ERGEBNISSE ======== -->
+        <section id="ergebnisse" class="pb-28">
+            <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-12">Bisherige Ergebnisse</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white border rounded-lg p-7" style="border-color: #e5e2db;">
+                    <p class="text-[0.78rem] text-stone-400 mb-3">B2B SaaS · Baubranche</p>
+                    <h3 class="font-semibold text-stone-900 text-[1rem] mb-2">Produktstrategie & Go-to-Market</h3>
+                    <p class="text-[0.88rem] text-stone-500 mb-5">
+                        Digitale Bestellstrecke von der ersten Hypothese bis zum Launch.
+                        Nutzerforschung mit 50+ Interviews, Stakeholder-Alignment über
+                        alle Abteilungen, Go-to-Market-Strategie und Rollout.
+                    </p>
+                    <div class="flex gap-8">
+                        <div>
+                            <p class="font-mono text-[1.05rem] text-stone-900 font-semibold">+3,5 Mio. €</p>
+                            <p class="text-[0.72rem] text-stone-400">Mehrumsatz</p>
+                        </div>
+                        <div>
+                            <p class="font-mono text-[1.05rem] text-stone-900 font-semibold">+132%</p>
+                            <p class="text-[0.72rem] text-stone-400">Aktive Nutzer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border rounded-lg p-7" style="border-color: #e5e2db;">
+                    <p class="text-[0.78rem] text-stone-400 mb-3">Strategische Beratung · 30 Ländergesellschaften</p>
+                    <h3 class="font-semibold text-stone-900 text-[1rem] mb-2">Internationale Strategieübersetzung</h3>
+                    <p class="text-[0.88rem] text-stone-500 mb-5">
+                        Zentrale Strategie für 30 Ländergesellschaften übersetzt und operationalisiert.
+                        Jede mit eigenen Prioritäten, Stakeholdern und politischen Realitäten.
+                        EU-Direktive über 17 Märkte ausgerollt.
+                    </p>
+                    <div class="flex gap-8">
+                        <div>
+                            <p class="font-mono text-[1.05rem] text-stone-900 font-semibold">17 Länder</p>
+                            <p class="text-[0.72rem] text-stone-400">Koordiniert</p>
+                        </div>
+                        <div>
+                            <p class="font-mono text-[1.05rem] text-stone-900 font-semibold">40+</p>
+                            <p class="text-[0.72rem] text-stone-400">Stakeholder</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border rounded-lg p-7" style="border-color: #e5e2db;">
+                    <p class="text-[0.78rem] text-stone-400 mb-3">Kundenzentrierung · Validierung</p>
+                    <h3 class="font-semibold text-stone-900 text-[1rem] mb-2">Von Hypothese zu Ausgründung</h3>
+                    <p class="text-[0.88rem] text-stone-500 mb-5">
+                        Zwei Geschäftsideen von der ersten Hypothese über Kundeninterviews
+                        bis zur Ausgründung begleitet. Kundenperspektive als neutraler Boden,
+                        um interne Blockaden aufzulösen.
+                    </p>
+                    <div>
+                        <p class="font-mono text-[1.05rem] text-stone-900 font-semibold">2 Ausgründungen</p>
+                        <p class="text-[0.72rem] text-stone-400">Tooltime & Objego – aus eigener Validierungsarbeit</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border rounded-lg p-7" style="border-color: #e5e2db;">
+                    <p class="text-[0.78rem] text-stone-400 mb-3">Geschäftsmodell-Innovation · UK</p>
+                    <h3 class="font-semibold text-stone-900 text-[1rem] mb-2">Marktanteil durch Strategie-Wechsel
+                        gesichert</h3>
+                    <p class="text-[0.88rem] text-stone-500 mb-5">
+                        Regulatorischer Marktumbruch drohte, den Hauptmarkt zu kippen.
+                        Kundenperspektive als Entscheidungsgrundlage für die strategische
+                        Neuausrichtung des Geschäftsmodells.
+                    </p>
+                    <div>
+                        <p class="font-mono text-[1.05rem] text-stone-900 font-semibold">~90%</p>
+                        <p class="text-[0.72rem] text-stone-400">Marktanteil UK gesichert</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== METHODIK ======== -->
+        <section class="pb-28">
+            <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-3">Werkzeuge</p>
+            <p class="text-stone-600 text-[1rem] mb-10 max-w-[38em]">
+                Ich starte nicht mit Frameworks, sondern mit Ursachen. Methoden setze ich gezielt dort ein,
+                wo sie Wirkung entfalten – nicht als Ritual.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white border rounded-lg p-5" style="border-color: #e5e2db;">
+                    <div class="w-2 h-2 rounded-full mb-3" style="background: #D4714E;"></div>
+                    <p class="text-stone-900 font-medium text-[0.82rem] mb-2">Forschung & Strategie</p>
+                    <p class="text-[0.78rem] text-stone-400 leading-relaxed">Design Thinking · User Research · JTBD ·
+                        OKRs · Lean Canvas · Go-to-Market</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5" style="border-color: #e5e2db;">
+                    <div class="w-2 h-2 rounded-full mb-3" style="background: #7b6ba5;"></div>
+                    <p class="text-stone-900 font-medium text-[0.82rem] mb-2">Produkt & Umsetzung</p>
+                    <p class="text-[0.78rem] text-stone-400 leading-relaxed">Scrum · Kanban · Prototyping & MVP ·
+                        RICE-Priorisierung · A/B Testing</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5" style="border-color: #e5e2db;">
+                    <div class="w-2 h-2 rounded-full mb-3" style="background: #5b8a72;"></div>
+                    <p class="text-stone-900 font-medium text-[0.82rem] mb-2">Führung & Zusammenarbeit</p>
+                    <p class="text-[0.78rem] text-stone-400 leading-relaxed">Stakeholder Management · Change Management
+                        · Laterale Führung · Facilitation</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5" style="border-color: #e5e2db;">
+                    <div class="w-2 h-2 rounded-full mb-3" style="background: #7b6ba5; opacity: 0.5;"></div>
+                    <p class="text-stone-900 font-medium text-[0.82rem] mb-2">Metriken & Lernen</p>
+                    <p class="text-[0.78rem] text-stone-400 leading-relaxed">North Star Metric · Product Analytics ·
+                        Funnel-/Cohort-Analyse · KPI-Frameworks</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== KONTAKT ======== -->
+        <section id="kontakt" class="pb-28">
+            <div class="bg-white border rounded-lg text-center py-14 px-8" style="border-color: #e5e2db;">
+                <h2 class="source-serif text-[1.5rem] text-stone-900 mb-4">Lassen Sie uns sprechen</h2>
+                <p class="text-stone-500 text-[0.95rem] mb-10 max-w-[28em] mx-auto">
+                    30 Minuten, unverbindlich. Wir klären, ob und wie ich helfen kann – bevor irgendwas kostet.
+                </p>
+                <div class="flex flex-col items-center gap-5">
+                    <a href="mailto:scharffetter@linja.me"
+                        class="inline-block px-7 py-3 rounded text-white text-[0.9rem] font-medium transition-colors hover:opacity-90"
+                        style="background: #7b6ba5;">scharffetter@linja.me</a>
+                    <div class="flex items-center gap-4 text-[0.85rem] text-stone-400">
+                        <span>+49 172 472 5757</span>
+                        <span class="text-stone-300">&middot;</span>
+                        <span>NRW / Ruhrgebiet</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ======== FOOTER ======== -->
+    <footer style="background: #F5F3EF;" class="py-8">
+        <div class="max-w-[860px] mx-auto px-8 flex items-center justify-between text-[0.78rem] text-stone-400">
+            <span>&copy; 2026 Linja Scharffetter</span>
+            <div class="flex items-center gap-4">
+                <a href="angebote.html" class="hover:text-stone-600 transition-colors">Angebote</a>
+                <a href="https://cv.linja.me" class="hover:text-stone-600 transition-colors">CV</a>
+                <a href="https://linkedin.com/in/linjascharffetter"
+                    class="hover:text-stone-600 transition-colors">LinkedIn</a>
+                <a href="mailto:scharffetter@linja.me" class="hover:text-stone-600 transition-colors">E-Mail</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
