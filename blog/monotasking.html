@@ -1,0 +1,324 @@
+<!--
+  linja.me/blog/monotasking – Artikel: Monotasking ist langweilig. Bis es funktioniert.
+  Design System: Vanille-Heidelbeer (gedämpft)
+  Brand Kit: ../../brand-kit.md
+  Stand: 2026-03-20
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monotasking ist langweilig. Bis es funktioniert. – Linja Scharffetter</title>
+    <meta name="description"
+        content="Multitasking hat besseres Marketing als Monotasking. Aber schlechtere Ergebnisse. Ein Selbstversuch mit Tageslog, fünf Bausteinen und 65 Minuten pro Woche.">
+    <meta property="og:title" content="Monotasking ist langweilig. Bis es funktioniert.">
+    <meta property="og:description" content="Multitasking hat besseres Marketing als Monotasking. Aber schlechtere Ergebnisse. Ein Selbstversuch mit Tageslog, fünf Bausteinen und 65 Minuten pro Woche.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles */
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <!-- ======== NAV ======== -->
+    <nav class="fixed top-0 left-0 right-0 z-50"
+        style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">
+        <div class="max-w-[860px] mx-auto px-8 py-3 flex items-center justify-between">
+            <a href="../index.html" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>
+            <div class="flex items-center gap-6 text-[0.8rem] text-stone-500">
+                <a href="../index.html#ueber" class="hover:text-stone-800 transition-colors hidden sm:inline">Über mich</a>
+                <a href="../angebote.html" class="hover:text-stone-800 transition-colors hidden sm:inline">Angebot</a>
+                <a href="../blog.html" class="text-stone-800 font-medium transition-colors hidden sm:inline">Blog</a>
+                <a href="../index.html#kontakt"
+                    class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors hidden sm:inline-block"
+                    style="background: #7b6ba5;">Gespräch buchen</a>
+                <button id="menu-toggle" class="sm:hidden p-1" aria-label="Menü öffnen">
+                    <svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="sm:hidden border-t px-8 py-4 space-y-3 text-[0.85rem]" style="border-color: #e5e2db; background: rgba(250,250,248,0.98);">
+            <a href="../index.html" class="block text-stone-600 hover:text-stone-900">Startseite</a>
+            <a href="../index.html#ueber" class="block text-stone-600 hover:text-stone-900">Über mich</a>
+            <a href="../angebote.html" class="block text-stone-600 hover:text-stone-900">Angebot</a>
+            <a href="../blog.html" class="block font-medium text-stone-900">Blog</a>
+            <a href="../index.html#kontakt" class="block font-medium" style="color: #7b6ba5;">Gespräch buchen</a>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('open');
+            });
+        });
+    </script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Werkstatt & Werkzeuge</span>
+                <span class="text-[0.72rem] text-stone-400">20. März 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Monotasking ist langweilig. Bis es funktioniert.
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <p>Multitasking hat besseres Marketing als Monotasking. Aber schlechtere Ergebnisse. Was die Forschung seit Jahrzehnten zeigt, lässt sich auch im Arbeitsalltag einer Produktmanagerin in zwei Wochen nachweisen — mit einem Logbuch und fünf Minuten Routine am Tag.</p>
+
+            <h2>Was die Forschung sagt</h2>
+
+            <p>Die kognitive Psychologie ist sich erstaunlich einig: Echtes Multitasking existiert bei komplexen Aufgaben nicht. Was als Multitasking empfunden wird, ist in Wahrheit schnelles Hin- und Herwechseln zwischen Aufgaben — sogenanntes Task-Switching. Jeder Wechsel kostet kognitive Ressourcen. Die American Psychological Association beziffert den Produktivitätsverlust durch häufiges Task-Switching auf bis zu 40 %. Gloria Mark von der UC Irvine hat gemessen, dass es nach einer Unterbrechung durchschnittlich 23 Minuten dauert, bis die volle Konzentration auf die ursprüngliche Aufgabe wiederhergestellt ist.</p>
+
+            <p>Die Gegenstrategie ist bekannt: Monotasking — die bewusste Entscheidung, in einem definierten Zeitraum nur an einer Sache zu arbeiten. Die Theorie ist nicht neu. Die Umsetzung im Alltag dagegen erstaunlich schwer. Nicht weil die Methode komplex wäre, sondern weil das Gefühl von Multitasking sich produktiver anfühlt als die Realität von Monotasking.</p>
+
+            <h2>Ein Selbstversuch mit Tageslog</h2>
+
+            <p>Um die Theorie am eigenen Alltag zu prüfen, habe ich vor einigen Wochen angefangen, ein Tageslog zu führen. Die Mechanik ist simpel: Morgens drei Prioritäten definieren, abends dokumentieren, was davon erledigt ist. Nach zwei Wochen zeigt sich ein Muster, das sich nicht mehr wegdiskutieren lässt.</p>
+
+            <p><strong>An Tagen mit Check-in und klarem Tagesthema</strong> waren 3 von 3 Prioritäten erledigt — teilweise sogar eine vierte. Die Ergebnisse waren am Abend nicht nur "fertig im Kopf", sondern zeigbar: Ein Dokument, das verschickt werden kann. Ein Review, das keine Nacharbeit braucht. Eine klare Übergabe an den nächsten Tag.</p>
+
+            <p><strong>An Tagen ohne Morgenroutine</strong> — nicht geplant, einfach ausgefallen — sah es anders aus. Viel gearbeitet, aber am Abend war nicht klar, woran genau. Keine definierten Prioritäten, kein messbares Ergebnis. Der Eintrag im Logbuch an einem dieser Tage liest sich nüchtern: <em>"Tage ohne Routinen = spürbar weniger produktiv."</em></p>
+
+            <p>Der Befund deckt sich mit dem, was Baumeister und Tierney in ihrer Forschung zur Selbstregulation beschreiben: Entscheidungsqualität sinkt im Tagesverlauf. Wer morgens nicht festlegt, was heute zählt, überlässt die Priorisierung dem erschöpften Gehirn am Nachmittag.</p>
+
+            <h2>Das System: Fünf Bausteine, 65 Minuten pro Woche</h2>
+
+            <p>Monotasking funktioniert nicht durch Willenskraft. Es funktioniert durch Infrastruktur. Die folgenden fünf Bausteine bilden einen geschlossenen Kreislauf — keiner davon dauert länger als fünf Minuten.</p>
+
+            <h3>1. Morgen-Check-in (5 Minuten)</h3>
+
+            <p>Drei Tagesprioritäten festlegen. Nicht fünf. Drei. Die kognitive Forschung zur Goal-Setting-Theorie von Locke &amp; Latham zeigt: Wenige, spezifische Ziele führen zu besserer Leistung als vage oder zu viele Ziele. Der Check-in beginnt mit dem Wochenplan, sortiert Captures vom Vorabend ein und endet mit drei Sätzen, die "erledigt" definieren.</p>
+
+            <h3>2. Thementage</h3>
+
+            <p>Jeder Wochentag hat einen Schwerpunkt. Montag: Projekt A. Mittwoch: Lernen. Donnerstag: Projekt B. Kein Tag hat zwei große Themen.</p>
+
+            <p>Was auf den ersten Blick starr wirkt, hat einen neuropsychologischen Hintergrund: Context-Switching — das Wechseln zwischen inhaltlich verschiedenen Aufgabenbereichen — ist kognitiv teurer als das Vertiefen innerhalb eines Themas. Thementage eliminieren den teuersten Teil des Multitaskings: den ständigen Kontextwechsel zwischen Projekten.</p>
+
+            <h3>3. Abend-Check-out (5 Minuten)</h3>
+
+            <p>Drei Fragen: Was geschafft? Was gelernt? Was bleibt offen — und warum? Dieser Schritt schließt den offenen Loop des Tages. Die Zeigarnik-Effekt-Forschung zeigt, dass unabgeschlossene Aufgaben im Arbeitsgedächtnis aktiv bleiben und kognitive Kapazität binden. Der Check-out externalisiert diese offenen Punkte und gibt dem Gehirn die Erlaubnis, loszulassen.</p>
+
+            <h3>4. Bewusstes Verschieben</h3>
+
+            <p>Störungen sind nicht die Ausnahme, sondern der Normalfall. Der entscheidende Unterschied liegt in der Reaktion: Aktiv verschieben ("Artikel-Review auf morgen, weil externer Termin dazwischenkam") statt passiv vergessen ("Artikel-Review irgendwie nicht geschafft"). Das eine ist eine dokumentierte Entscheidung. Das andere ist Kontrollverlust — und erzeugt genau die diffuse Unzufriedenheit, die an Nicht-Routine-Tagen im Logbuch auftaucht.</p>
+
+            <h3>5. Capture-Box für abends</h3>
+
+            <p>Ideen und Aufgaben, die nach Feierabend hochkommen, landen in einer Capture-Box. Nicht sortieren, nicht priorisieren — nur externalisieren. Die Einsortierung passiert am nächsten Morgen im Check-in.</p>
+
+            <p>David Allen hat dieses Prinzip in "Getting Things Done" als "Mind Sweep" beschrieben: Solange Gedanken nicht externalisiert sind, beanspruchen sie Arbeitsgedächtnis. Die Capture-Box ist das Werkzeug, das den Feierabend tatsächlich zum Feierabend macht.</p>
+
+            <h2>Was ich vorher anders gemacht habe</h2>
+
+            <p>Vor dem System habe ich morgens den Laptop aufgeklappt und losgelegt — mit dem, was gerade am lautesten war. E-Mails, Slack, das letzte offene Dokument. Abends wusste ich oft nicht, was ich eigentlich geschafft hatte. Nicht weil ich wenig gearbeitet habe, sondern weil die Arbeit keinen Rahmen hatte. Kein definiertes "Genug", kein dokumentiertes Ergebnis. Das Tageslog hat dieses Muster sichtbar gemacht — und damit änderbar.</p>
+
+            <h2>Die Rolle von KI im System</h2>
+
+            <p>In meinem Setup übernimmt eine KI die Rolle des Check-in-Partners. Morgens: Plan anschauen, Captures sortieren, Prioritäten setzen. Abends: Review, Learnings festhalten, offene Punkte qualifizieren. Freitags: Wochen-Review in 15 Minuten — Wochenziele prüfen, Learnings verdichten, Folgewoche vorbereiten.</p>
+
+            <p>Das adressiert ein strukturelles Problem: Wer allein arbeitet — ohne Team, ohne Standup, ohne Sparringspartner — hat keine externe Instanz, die Rechenschaft einfordert. In der Organisationspsychologie ist der Effekt von Accountability auf Zielerreichung gut dokumentiert. Die KI ersetzt kein Team. Sie liefert die minimale externe Struktur, die Selbstständige und Solo-Wissensarbeiter:innen sonst nicht haben.</p>
+
+            <h2>Zeitaufwand</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Baustein</th>
+                        <th>Frequenz</th>
+                        <th>Dauer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Morgen-Check-in</td>
+                        <td>Täglich</td>
+                        <td>5 Min</td>
+                    </tr>
+                    <tr>
+                        <td>Abend-Check-out</td>
+                        <td>Täglich</td>
+                        <td>5 Min</td>
+                    </tr>
+                    <tr>
+                        <td>Capture-Box</td>
+                        <td>Laufend</td>
+                        <td>0 Min (passiert nebenbei)</td>
+                    </tr>
+                    <tr>
+                        <td>Wochen-Review</td>
+                        <td>Freitags</td>
+                        <td>15 Min</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gesamt pro Woche</strong></td>
+                        <td></td>
+                        <td><strong>~65 Min</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>These:</strong> 65 Minuten pro Woche für Struktur. Dem steht gegenüber: Laut Gloria Marks Forschung verliert eine durchschnittliche Wissensarbeiterin über 6 Stunden pro Woche allein durch die Erholungszeit nach Unterbrechungen. Die Rechnung ist eindeutig — aber nur, wenn die Routine tatsächlich durchgehalten wird.</p>
+
+            <p><strong>Die Bruchstelle:</strong> An 2 von 10 beobachteten Tagen ist die Routine ausgefallen — nicht weil sie nicht funktioniert, sondern weil ein externer Termin, ein krankes Kind oder schlicht Vergessen dazwischenkam. An genau diesen Tagen zeigt das Logbuch: keine definierten Prioritäten, kein messbares Ergebnis. Das System funktioniert nicht durch Willenskraft. Es bricht, wenn die Infrastruktur aussetzt. Die ehrliche Erkenntnis: Monotasking braucht Schutz, nicht Disziplin.</p>
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Dieses System funktioniert für mich als Solo-Wissensarbeiterin mit planbaren Zeitblöcken. In einem Team mit Standups und geteilten Kanälen übernimmt das Team einen Teil der Accountability — der Check-in-Partner ist dann weniger nötig. Und wer in einem Umfeld arbeitet, in dem ständige Erreichbarkeit erwartet wird, kann Thementage nicht einfach durchsetzen. Das System setzt voraus, dass man Kontrolle über den eigenen Tag hat — oder sich diese Kontrolle erkämpft.</p>
+
+            <p>Auch die Dreier-Regel ist keine Universallösung. An manchen Tagen sind drei Prioritäten zu viel, an anderen zu wenig. Der Wert liegt nicht in der Zahl, sondern im Akt des Entscheidens: Morgens festlegen, was zählt.</p>
+
+            <h2>Fazit</h2>
+
+            <ol>
+                <li><strong>Morgens entscheiden</strong> — nicht im Laufe des Tages</li>
+                <li><strong>Ein Thema pro Tag</strong> — Kontextwechsel eliminieren</li>
+                <li><strong>Abends dokumentieren</strong> — offene Loops schließen</li>
+                <li><strong>Captures externalisieren</strong> — Arbeitsgedächtnis freiräumen</li>
+                <li><strong>Routine schützen</strong> — auch wenn der Tag anders läuft</li>
+            </ol>
+
+            <p>Der Effekt zeigt sich nicht nach drei Wochen Eingewöhnung. Er zeigt sich am ersten Tag mit Routine. Und er zeigt sich am ersten Tag ohne.</p>
+
+            <p><em>Monotasking + Routine: 65 Minuten pro Woche. Wissenschaftlich fundiert, praktisch erprobt, ästhetisch fragwürdig.</em></p>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <!-- ======== FOOTER ======== -->
+    <footer style="background: #F5F3EF;" class="py-8">
+        <div class="max-w-[860px] mx-auto px-8 flex items-center justify-center gap-4 text-[0.72rem] text-stone-300">
+            <a href="../index.html" class="hover:text-stone-500 transition-colors">Start</a>
+            <a href="../angebote.html" class="hover:text-stone-500 transition-colors">Angebot</a>
+            <a href="../blog.html" class="text-stone-500">Blog</a>
+            <a href="https://cv.linja.me" class="hover:text-stone-500 transition-colors">CV</a>
+            <a href="../impressum.html" class="hover:text-stone-500 transition-colors">Impressum</a>
+            <a href="../agb.html" class="hover:text-stone-500 transition-colors">AGB</a>
+            <a href="../datenschutz.html" class="hover:text-stone-500 transition-colors">Datenschutz</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
