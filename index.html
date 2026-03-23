@@ -3,8 +3,8 @@
   Design System: Vanille-Heidelbeer (gedämpft)
   Brand Kit: ../brand-kit.md
   Portrait: profile.jpg
-  Stand: 2026-03-16
-  Version: 5 – Social Proof, Firmennamen, Mobile Nav, Impressum, Booking
+  Stand: 2026-03-23
+  Version: 6 – Zwei-Track-Positionierung, Language Toggle DE/EN
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -14,9 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linja Scharffetter – Strategische Klarheit für den Mittelstand</title>
     <meta name="description"
-        content="Ich schließe die Lücke zwischen Strategie und Umsetzung. 13+ Jahre Erfahrung an der Schnittstelle von Strategie, Produkt und Organisation. Externe Partnerin auf Zeit – kein Framework, sondern das, was für Ihr Unternehmen funktioniert.">
-    <meta name="keywords"
-        content="Strategische Klarheit, Strategy Consultant, OKRs, Stakeholder Alignment, Product Strategy, Organisationsentwicklung, DACH, Fractional Chief of Staff">
+        content="Ich schließe die Lücke zwischen Strategie und Umsetzung. 13+ Jahre Erfahrung an der Schnittstelle von Strategie, Produkt und Organisation.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
@@ -59,7 +57,10 @@
             scroll-behavior: smooth;
         }
 
-        /* Mobile menu */
+        .lang-hidden {
+            display: none !important;
+        }
+
         #mobile-menu {
             display: none;
         }
@@ -77,12 +78,19 @@
         <div class="max-w-[860px] mx-auto px-8 py-5 flex items-center justify-between">
             <a href="/" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>
             <div class="flex items-center gap-6 text-[0.8rem] text-stone-500">
-                <a href="angebote.html" class="hover:text-stone-800 transition-colors hidden sm:inline">Angebot</a>
+                <a href="angebote.html" class="hover:text-stone-800 transition-colors hidden sm:inline">
+                    <span class="nav-de">Angebot</span><span class="nav-en lang-hidden">Services</span>
+                </a>
                 <a href="blog.html" class="hover:text-stone-800 transition-colors hidden sm:inline">Blog</a>
+                <button id="lang-toggle" onclick="toggleLanguage()" style="background: #FAFAF8;"
+                    class="flex items-center text-xs px-2 py-1.5 border border-stone-200 rounded text-stone-400 hover:text-stone-600 hover:border-stone-400 cursor-pointer transition-colors font-mono tracking-wide hidden sm:flex">
+                    <span id="lang-label">EN</span>
+                </button>
                 <a href="#kontakt"
                     class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors hidden sm:inline-block"
-                    style="background: #7b6ba5;">Gespräch buchen</a>
-                <!-- Mobile hamburger -->
+                    style="background: #7b6ba5;">
+                    <span class="nav-de">Gespräch buchen</span><span class="nav-en lang-hidden">Book a call</span>
+                </a>
                 <button id="menu-toggle" class="sm:hidden p-1" aria-label="Menü öffnen">
                     <svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
@@ -90,18 +98,23 @@
                 </button>
             </div>
         </div>
-        <!-- Mobile menu dropdown -->
         <div id="mobile-menu" class="sm:hidden border-t px-8 py-4 space-y-3 text-[0.85rem]" style="border-color: #e5e2db; background: rgba(250,250,248,0.98);">
-            <a href="angebote.html" class="block text-stone-600 hover:text-stone-900">Angebot</a>
+            <a href="angebote.html" class="block text-stone-600 hover:text-stone-900">
+                <span class="nav-de">Angebot</span><span class="nav-en lang-hidden">Services</span>
+            </a>
             <a href="blog.html" class="block text-stone-600 hover:text-stone-900">Blog</a>
-            <a href="#kontakt" class="block font-medium" style="color: #7b6ba5;">Gespräch buchen</a>
+            <button onclick="toggleLanguage()" class="block text-stone-400 hover:text-stone-600 font-mono text-xs tracking-wide">
+                <span id="lang-label-mobile">EN</span>
+            </button>
+            <a href="#kontakt" class="block font-medium" style="color: #7b6ba5;">
+                <span class="nav-de">Gespräch buchen</span><span class="nav-en lang-hidden">Book a call</span>
+            </a>
         </div>
     </nav>
     <script>
         document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('open');
         });
-        // Close mobile menu on link click
         document.querySelectorAll('#mobile-menu a').forEach(function(link) {
             link.addEventListener('click', function() {
                 document.getElementById('mobile-menu').classList.remove('open');
@@ -109,9 +122,11 @@
         });
     </script>
 
+    <!-- ======== GERMAN CONTENT ======== -->
+    <div id="site-de">
+
     <div class="max-w-[860px] mx-auto px-8">
 
-        <!-- ======== HERO ======== -->
         <header class="pt-36 pb-8">
             <div class="flex flex-col sm:flex-row items-stretch gap-10">
                 <img src="profile.jpg" alt="Linja Scharffetter"
@@ -130,7 +145,6 @@
             </div>
         </header>
 
-        <!-- ======== ZAHLEN ======== -->
         <section class="pt-8 pb-8">
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
                 <div>
@@ -154,10 +168,7 @@
 
         <hr style="border-color: #e5e2db; border-top-width: 1px;">
 
-        <!-- ======== METHODIK & HANDWERK ======== -->
         <section class="pt-12 pb-8">
-
-            <!-- Methodik & Handwerk -->
             <h2 class="source-serif text-stone-900 text-[1.4rem] mb-3">Methodik & Handwerk.</h2>
             <p class="text-[0.9rem] text-stone-600 mb-8">
                 Fundierte Entscheidungen auf exzellentem handwerklichen Niveau.
@@ -181,22 +192,18 @@
                     <p class="text-[0.85rem] text-stone-600 leading-relaxed">Ich messe, um Entscheidungsqualität zu erhöhen, nicht um Ergebnisse zu rechtfertigen. Explorative Signale in der Discovery, belastbare KPIs im Scale. Analyse dient Steuerung und Lernen, nicht Reporting.</p>
                 </div>
             </div>
-
         </section>
 
-        <!-- ======== CTA ANGEBOT ======== -->
         <section class="pb-12">
             <a href="angebote.html"
                 class="block text-center px-6 py-4 rounded-lg text-white text-[0.9rem] font-medium transition-colors hover:opacity-90"
                 style="background: #7b6ba5;">Hier finden Sie meine Angebote &rarr;</a>
         </section>
 
-        <!-- ======== TESTIMONIALS (violett, Container) ======== -->
         <section class="pb-20">
             <div class="rounded-lg py-12 px-8" style="background: #f6f4f9;">
             <div class="relative">
-                <div class="overflow-hidden">
-                    <!-- Slide 1 -->
+                <div class="overflow-hidden testimonial-container">
                     <div class="testimonial-slide transition-opacity duration-500" data-slide="0">
                         <div class="border-l-3 pl-8 py-6" style="border-color: #7b6ba5;">
                             <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">
@@ -209,7 +216,6 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Slide 2 -->
                     <div class="testimonial-slide transition-opacity duration-500 hidden" data-slide="1">
                         <div class="border-l-3 pl-8 py-6" style="border-color: #7b6ba5;">
                             <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">
@@ -223,7 +229,6 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Slide 3 -->
                     <div class="testimonial-slide transition-opacity duration-500 hidden" data-slide="2">
                         <div class="border-l-3 pl-8 py-6" style="border-color: #7b6ba5;">
                             <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">
@@ -238,7 +243,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Dots -->
                 <div class="flex justify-center gap-2 mt-5">
                     <button class="testimonial-dot w-2 h-2 rounded-full transition-colors" data-dot="0" style="background: #7b6ba5;" aria-label="Zitat 1"></button>
                     <button class="testimonial-dot w-2 h-2 rounded-full transition-colors" data-dot="1" style="background: #d9d1e5;" aria-label="Zitat 2"></button>
@@ -246,62 +250,12 @@
                 </div>
             </div>
             </div>
-            </div>
         </section>
-        <script>
-        (function() {
-            var current = 0;
-            var slides = document.querySelectorAll('.testimonial-slide');
-            var dots = document.querySelectorAll('.testimonial-dot');
-            var container = document.querySelector('.overflow-hidden');
-            var total = slides.length;
 
-            // Set fixed height based on tallest slide
-            function setFixedHeight() {
-                container.style.height = 'auto';
-                slides.forEach(function(s) { s.classList.remove('hidden'); s.style.position = 'static'; });
-                var maxH = 0;
-                slides.forEach(function(s) { if (s.offsetHeight > maxH) maxH = s.offsetHeight; });
-                container.style.minHeight = maxH + 'px';
-                container.style.height = maxH + 'px';
-                slides.forEach(function(s, i) {
-                    s.style.position = 'absolute';
-                    s.style.top = '0';
-                    s.style.left = '0';
-                    s.style.right = '0';
-                    if (i !== current) s.classList.add('hidden');
-                });
-                container.style.position = 'relative';
-            }
-            setFixedHeight();
-            window.addEventListener('resize', setFixedHeight);
-
-            function show(index) {
-                slides.forEach(function(s) { s.classList.add('hidden'); });
-                slides[index].classList.remove('hidden');
-                dots.forEach(function(d) { d.style.background = '#d9d1e5'; });
-                dots[index].style.background = '#7b6ba5';
-                current = index;
-            }
-
-            dots.forEach(function(dot) {
-                dot.addEventListener('click', function() {
-                    show(parseInt(this.dataset.dot));
-                    clearInterval(timer);
-                    timer = setInterval(next, 6000);
-                });
-            });
-
-            function next() { show((current + 1) % total); }
-            var timer = setInterval(next, 6000);
-        })();
-    </script>
+    </div>
 
     <div class="max-w-[860px] mx-auto px-8">
-
         <hr class="my-0" style="border-color: #e5e2db; border-top-width: 1px;">
-
-        <!-- ======== BLOG ======== -->
         <section class="pt-20 pb-20">
             <h2 class="source-serif text-stone-900 text-[1.4rem] mb-6">Laut gedacht.</h2>
             <div class="space-y-4">
@@ -323,7 +277,6 @@
 
         <hr style="border-color: #e5e2db; border-top-width: 1px;">
 
-        <!-- ======== KONTAKT (violett, Container) ======== -->
         <section id="kontakt" class="pt-20 pb-20">
             <div class="rounded-lg py-12 px-8" style="background: #f6f4f9;">
                 <h2 class="source-serif text-[1.4rem] text-stone-900 mb-4">Lassen Sie uns gemeinsam herausfinden, wo unsere Zusammenarbeit startet.</h2>
@@ -345,21 +298,307 @@
                 </div>
             </div>
         </section>
+    </div>
+
+    </div><!-- /site-de -->
+
+    <!-- ======== ENGLISH CONTENT ======== -->
+    <div id="site-en" class="lang-hidden">
+
+    <div class="max-w-[860px] mx-auto px-8">
+
+        <header class="pt-36 pb-8">
+            <div class="flex flex-col sm:flex-row items-stretch gap-10">
+                <img src="profile.jpg" alt="Linja Scharffetter"
+                    class="w-full sm:w-56 h-56 rounded-lg object-cover flex-shrink-0"
+                    style="border: 2px solid #e5e2db; filter: grayscale(100%); object-position: center 15%;">
+                <div class="flex-1 flex flex-col justify-between">
+                    <h1 class="source-serif text-[2.4rem] text-stone-900 leading-[1.15] mb-4">
+                        I translate strategy into results every team can act on.
+                    </h1>
+                    <p class="text-[0.9rem] text-stone-600 leading-relaxed">
+                        13+ years at the intersection of strategy, product, and organization.
+                        I translate C-level decisions into something every team can execute —
+                        and I bring the customer perspective where it's missing.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <section class="pt-8 pb-8">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+                <div>
+                    <p class="source-serif text-[2.2rem] text-stone-900 leading-tight">13+</p>
+                    <p class="text-[0.78rem] text-stone-500 mt-1">Years of experience</p>
+                </div>
+                <div>
+                    <p class="source-serif text-[2.2rem] text-stone-900 leading-tight">3.5M</p>
+                    <p class="text-[0.78rem] text-stone-500 mt-1">EUR revenue impact</p>
+                </div>
+                <div>
+                    <p class="source-serif text-[2.2rem] text-stone-900 leading-tight">50+</p>
+                    <p class="text-[0.78rem] text-stone-500 mt-1">Customer interviews</p>
+                </div>
+                <div>
+                    <p class="source-serif text-[2.2rem] text-stone-900 leading-tight">2</p>
+                    <p class="text-[0.78rem] text-stone-500 mt-1">Spin-offs supported</p>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border-color: #e5e2db; border-top-width: 1px;">
+
+        <section class="pt-12 pb-8">
+            <h2 class="source-serif text-stone-900 text-[1.4rem] mb-3">Methodology & Craft.</h2>
+            <p class="text-[0.9rem] text-stone-600 mb-8">
+                Sound decisions built on excellent craftsmanship.
+                I deploy methods deliberately — where they create impact.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                    <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Research & Strategy</h3>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed">I don't start with frameworks — I start with root causes. First, clarify the impact we want to achieve. Then decide whether dialogue, data analysis, or experiments will yield the greatest insight.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                    <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Product Development & Execution</h3>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed">Build–measure–learn is a steering framework for me, not a ritual. I validate precisely where uncertainty arises, and use AI when it accelerates insight — without replacing craft with automation.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                    <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Leadership & Collaboration</h3>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed">Sustainable decisions emerge from clarity, not hierarchy. I make assumptions explicit, document reasoning, and create space for constructive disagreement — so teams can own their decisions.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                    <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Metrics & Learning</h3>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed">I measure to improve decision quality, not to justify outcomes. Exploratory signals in discovery, robust KPIs at scale. Analysis serves steering and learning, not reporting.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-12">
+            <a href="angebote.html"
+                class="block text-center px-6 py-4 rounded-lg text-white text-[0.9rem] font-medium transition-colors hover:opacity-90"
+                style="background: #7b6ba5;">View my services &rarr;</a>
+        </section>
+
+        <section class="pb-20">
+            <div class="rounded-lg py-12 px-8" style="background: #f6f4f9;">
+            <div class="relative">
+                <div class="overflow-hidden testimonial-container-en">
+                    <div class="testimonial-slide-en transition-opacity duration-500" data-slide="0">
+                        <div class="border-l-3 pl-8 py-6" style="border-color: #7b6ba5;">
+                            <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">
+                                &ldquo;Linja thinks strategically while staying human. She has the rare ability
+                                to make implicit assumptions visible and to act as a translator between disciplines.
+                                Even in difficult situations, she keeps her humor and clarity.&rdquo;
+                            </p>
+                            <p class="font-mono text-[0.72rem] text-stone-500 tracking-wider uppercase">
+                                <a href="https://linkedin.com/in/janhoelter" target="_blank" class="font-medium text-stone-600 hover:text-stone-800 transition-colors">Jan Hölter</a> · Head of Digital Products · ABS Safety
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide-en transition-opacity duration-500 hidden" data-slide="1">
+                        <div class="border-l-3 pl-8 py-6" style="border-color: #7b6ba5;">
+                            <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">
+                                &ldquo;What convinced me: Linja provides clear context — Why are we doing this?
+                                For whom? Based on what hypothesis? — then leaves room for the team to find their own solutions.
+                                She unites different disciplines under a shared vision without micromanaging.&rdquo;
+                            </p>
+                            <p class="font-mono text-[0.72rem] text-stone-500 tracking-wider uppercase">
+                                <a href="https://linkedin.com/in/davidlatz" target="_blank" class="font-medium text-stone-600 hover:text-stone-800 transition-colors">David Latz</a> · Team Lead UX/UI · ABS Safety
+                            </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide-en transition-opacity duration-500 hidden" data-slide="2">
+                        <div class="border-l-3 pl-8 py-6" style="border-color: #7b6ba5;">
+                            <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">
+                                &ldquo;Linja was the central point of contact in our international collaboration.
+                                She managed to mediate between country organizations, bridge cultural differences,
+                                and coordinate EU-wide governance across 17 markets with calm and structure.&rdquo;
+                            </p>
+                            <p class="font-mono text-[0.72rem] text-stone-500 tracking-wider uppercase">
+                                <a href="https://linkedin.com/in/marianpintea" target="_blank" class="font-medium text-stone-600 hover:text-stone-800 transition-colors">Marian Pintea</a> · AI Business Solutions Lead · Microsoft
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center gap-2 mt-5">
+                    <button class="testimonial-dot-en w-2 h-2 rounded-full transition-colors" data-dot="0" style="background: #7b6ba5;" aria-label="Quote 1"></button>
+                    <button class="testimonial-dot-en w-2 h-2 rounded-full transition-colors" data-dot="1" style="background: #d9d1e5;" aria-label="Quote 2"></button>
+                    <button class="testimonial-dot-en w-2 h-2 rounded-full transition-colors" data-dot="2" style="background: #d9d1e5;" aria-label="Quote 3"></button>
+                </div>
+            </div>
+            </div>
+        </section>
 
     </div>
+
+    <div class="max-w-[860px] mx-auto px-8">
+        <hr class="my-0" style="border-color: #e5e2db; border-top-width: 1px;">
+        <section class="pt-20 pb-20">
+            <h2 class="source-serif text-stone-900 text-[1.4rem] mb-6">Thinking out loud.</h2>
+            <div class="space-y-4">
+                <a href="blog/monotasking.html" class="flex items-baseline justify-between gap-4 group" style="border-bottom: 1px solid #f0ede8;">
+                    <span class="text-[0.9rem] text-stone-900 group-hover:text-violet-400 transition-colors pb-4">Monotasking is boring. Until it works.</span>
+                    <span class="font-mono text-[0.72rem] text-stone-400 whitespace-nowrap pb-4">Workshop & Tools</span>
+                </a>
+                <a href="#" class="flex items-baseline justify-between gap-4 group" style="border-bottom: 1px solid #f0ede8;">
+                    <span class="text-[0.9rem] text-stone-500 pb-4">Why your startup doesn't need a VP Product</span>
+                    <span class="font-mono text-[0.72rem] text-stone-400 whitespace-nowrap pb-4">Coming soon</span>
+                </a>
+                <a href="#" class="flex items-baseline justify-between gap-4 group">
+                    <span class="text-[0.9rem] text-stone-500">The invisible gap between strategy and execution</span>
+                    <span class="font-mono text-[0.72rem] text-stone-400 whitespace-nowrap">Coming soon</span>
+                </a>
+            </div>
+            <a href="blog.html" class="text-[0.82rem] font-medium hover:text-stone-800 transition-colors mt-6 inline-block" style="color: #7b6ba5;">All articles &rarr;</a>
+        </section>
+
+        <hr style="border-color: #e5e2db; border-top-width: 1px;">
+
+        <section id="kontakt-en" class="pt-20 pb-20">
+            <div class="rounded-lg py-12 px-8" style="background: #f6f4f9;">
+                <h2 class="source-serif text-[1.4rem] text-stone-900 mb-4">Let's find out where our collaboration starts.</h2>
+                <p class="text-[0.9rem] text-stone-600 mb-6">
+                    In 30 minutes, tell me about your challenges.
+                    We'll explore possible next steps together.
+                </p>
+                <ul class="text-[0.9rem] text-stone-600 space-y-2 mb-8 list-disc pl-5">
+                    <li>You share your challenge — whether it's strategy, product, or both.</li>
+                    <li>I give you an initial assessment and possible next steps.</li>
+                    <li>No commitment, 30 minutes, no preparation needed.</li>
+                </ul>
+                <div>
+                    <a href="https://calendly.com/linja-scharffetter/30min"
+                        class="inline-block px-7 py-3 rounded text-white text-[0.9rem] font-medium transition-colors hover:opacity-90"
+                        style="background: #7b6ba5;">Book a call</a>
+                    <p class="text-[0.9rem] text-stone-600 mt-4">or email me at
+                        <a href="mailto:info@linja.me" class="hover:text-stone-800 transition-colors" style="color: #7b6ba5;">info@linja.me</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    </div><!-- /site-en -->
 
     <!-- ======== FOOTER ======== -->
     <footer style="background: #F5F3EF;" class="py-8">
         <div class="max-w-[860px] mx-auto px-8 flex items-center justify-center gap-4 text-[0.72rem] text-stone-300">
             <a href="index.html" class="text-stone-500">Start</a>
-            <a href="angebote.html" class="hover:text-stone-500 transition-colors">Angebot</a>
+            <a href="angebote.html" class="hover:text-stone-500 transition-colors">
+                <span class="nav-de">Angebot</span><span class="nav-en lang-hidden">Services</span>
+            </a>
             <a href="blog.html" class="hover:text-stone-500 transition-colors">Blog</a>
             <a href="https://cv.linja.me" class="hover:text-stone-500 transition-colors">CV</a>
-            <a href="impressum.html" class="hover:text-stone-500 transition-colors">Impressum</a>
-            <a href="agb.html" class="hover:text-stone-500 transition-colors">AGB</a>
-            <a href="datenschutz.html" class="hover:text-stone-500 transition-colors">Datenschutz</a>
+            <a href="impressum.html" class="hover:text-stone-500 transition-colors">
+                <span class="nav-de">Impressum</span><span class="nav-en lang-hidden">Imprint</span>
+            </a>
+            <a href="agb.html" class="hover:text-stone-500 transition-colors">
+                <span class="nav-de">AGB</span><span class="nav-en lang-hidden">Terms</span>
+            </a>
+            <a href="datenschutz.html" class="hover:text-stone-500 transition-colors">
+                <span class="nav-de">Datenschutz</span><span class="nav-en lang-hidden">Privacy</span>
+            </a>
         </div>
     </footer>
+
+    <!-- ======== LANGUAGE TOGGLE + TESTIMONIAL SCRIPTS ======== -->
+    <script>
+    // Language toggle
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de');
+        var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label');
+        var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de');
+        var navEn = document.querySelectorAll('.nav-en');
+
+        if (lang === 'en') {
+            de.classList.add('lang-hidden');
+            en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE';
+            if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); });
+            navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden');
+            en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN';
+            if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); });
+            navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+
+    function toggleLanguage() {
+        var current = getLang();
+        var next = current === 'de' ? 'en' : 'de';
+        setLang(next);
+        applyLanguage(next);
+        initSliders();
+    }
+
+    // Apply saved language on load
+    applyLanguage(getLang());
+
+    // Testimonial slider (works for both DE and EN)
+    function initSliders() {
+        // DE slider
+        initSlider('.testimonial-slide', '.testimonial-dot', '.testimonial-container');
+        // EN slider
+        initSlider('.testimonial-slide-en', '.testimonial-dot-en', '.testimonial-container-en');
+    }
+
+    function initSlider(slideSelector, dotSelector, containerSelector) {
+        var slides = document.querySelectorAll(slideSelector);
+        var dots = document.querySelectorAll(dotSelector);
+        var container = document.querySelector(containerSelector);
+        if (!slides.length || !container) return;
+
+        var current = 0;
+        var total = slides.length;
+
+        function setFixedHeight() {
+            container.style.height = 'auto';
+            slides.forEach(function(s) { s.classList.remove('hidden'); s.style.position = 'static'; });
+            var maxH = 0;
+            slides.forEach(function(s) { if (s.offsetHeight > maxH) maxH = s.offsetHeight; });
+            container.style.minHeight = maxH + 'px';
+            container.style.height = maxH + 'px';
+            slides.forEach(function(s, i) {
+                s.style.position = 'absolute';
+                s.style.top = '0';
+                s.style.left = '0';
+                s.style.right = '0';
+                if (i !== current) s.classList.add('hidden');
+            });
+            container.style.position = 'relative';
+        }
+        setFixedHeight();
+        window.addEventListener('resize', setFixedHeight);
+
+        function show(index) {
+            slides.forEach(function(s) { s.classList.add('hidden'); });
+            slides[index].classList.remove('hidden');
+            dots.forEach(function(d) { d.style.background = '#d9d1e5'; });
+            dots[index].style.background = '#7b6ba5';
+            current = index;
+        }
+
+        dots.forEach(function(dot) {
+            dot.addEventListener('click', function() {
+                show(parseInt(this.dataset.dot));
+            });
+        });
+
+        setInterval(function() { show((current + 1) % total); }, 6000);
+    }
+
+    initSliders();
+    </script>
 
 </body>
 

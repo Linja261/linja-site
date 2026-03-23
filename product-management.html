@@ -1,7 +1,7 @@
 <!--
   linja.me/product-management – Unterseite Product Management
   Design System: Vanille-Heidelbeer (gedämpft)
-  Stand: 2026-03-22
+  Stand: 2026-03-23 – Language Toggle DE/EN
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -10,111 +10,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Management – Linja Scharffetter</title>
-    <meta name="description"
-        content="Vier Formate für Product Management: Vom Discovery Workshop bis zum laufenden PM-Retainer. Produktentscheidungen auf Basis von Evidenz, nicht Bauchgefühl.">
+    <meta name="description" content="Vier Formate für Product Management: Vom Discovery Workshop bis zum laufenden PM-Retainer. Produktentscheidungen auf Basis von Evidenz, nicht Bauchgefühl.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        serif: ['Source Serif 4', 'Georgia', 'serif'],
-                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-                    },
-                    colors: {
-                        violet: {
-                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
-                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
-                        },
-                        amber: {
-                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
-                            400: '#c27a52', 500: '#5B96B8', 600: '#a86340', 700: '#73402e',
-                        },
-                        emerald: {
-                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
-                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
-                        },
-                        sky: {
-                            50: '#f0f7fb', 100: '#ddeef7', 300: '#89bed8',
-                            400: '#5B96B8', 500: '#4a7d9e', 700: '#2d4d63',
-                        },
-                    },
-                },
-            },
-        }
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'], serif: ['Source Serif 4', 'Georgia', 'serif'], mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'] }, colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' }, amber: { 50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e', 400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e' }, emerald: { 50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa', 500: '#5b8a72', 600: '#476f5b', 700: '#31493d' }, sky: { 50: '#f0f7fb', 100: '#ddeef7', 300: '#89bed8', 400: '#5B96B8', 500: '#4a7d9e', 700: '#2d4d63' } } } } }
     </script>
     <style>
-        .source-serif {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 500;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        #mobile-menu {
-            display: none;
-        }
-        #mobile-menu.open {
-            display: block;
-        }
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
     </style>
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
     <!-- ======== NAV ======== -->
-    <nav class="fixed top-0 left-0 right-0 z-50"
-        style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">
+    <nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">
         <div class="max-w-[860px] mx-auto px-8 py-5 flex items-center justify-between">
             <a href="index.html" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>
             <div class="flex items-center gap-6 text-[0.8rem] text-stone-500">
-<a href="angebote.html" class="hover:text-stone-800 transition-colors hidden sm:inline">Angebot</a>
+                <a href="angebote.html" class="hover:text-stone-800 transition-colors hidden sm:inline">
+                    <span class="nav-de">Angebot</span><span class="nav-en lang-hidden">Services</span>
+                </a>
                 <a href="blog.html" class="hover:text-stone-800 transition-colors hidden sm:inline">Blog</a>
-                <a href="#kontakt"
-                    class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors hidden sm:inline-block"
-                    style="background: #7b6ba5;">Gespräch buchen</a>
-                <!-- Mobile hamburger -->
+                <button id="lang-toggle" onclick="toggleLanguage()" style="background: #FAFAF8;"
+                    class="flex items-center text-xs px-2 py-1.5 border border-stone-200 rounded text-stone-400 hover:text-stone-600 hover:border-stone-400 cursor-pointer transition-colors font-mono tracking-wide hidden sm:flex">
+                    <span id="lang-label">EN</span>
+                </button>
+                <a href="#kontakt" class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors hidden sm:inline-block" style="background: #7b6ba5;">
+                    <span class="nav-de">Gespräch buchen</span><span class="nav-en lang-hidden">Book a call</span>
+                </a>
                 <button id="menu-toggle" class="sm:hidden p-1" aria-label="Menü öffnen">
-                    <svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
+                    <svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
         </div>
-        <!-- Mobile menu dropdown -->
         <div id="mobile-menu" class="sm:hidden border-t px-8 py-4 space-y-3 text-[0.85rem]" style="border-color: #e5e2db; background: rgba(250,250,248,0.98);">
-            <a href="index.html" class="block text-stone-600 hover:text-stone-900">Startseite</a>
-            <a href="angebote.html" class="block text-stone-600 hover:text-stone-900">Angebot</a>
+            <a href="index.html" class="block text-stone-600 hover:text-stone-900"><span class="nav-de">Startseite</span><span class="nav-en lang-hidden">Home</span></a>
+            <a href="angebote.html" class="block text-stone-600 hover:text-stone-900"><span class="nav-de">Angebot</span><span class="nav-en lang-hidden">Services</span></a>
             <a href="blog.html" class="block text-stone-600 hover:text-stone-900">Blog</a>
-            <a href="#kontakt" class="block font-medium" style="color: #7b6ba5;">Gespräch buchen</a>
+            <button onclick="toggleLanguage()" class="block text-stone-400 hover:text-stone-600 font-mono text-xs tracking-wide"><span id="lang-label-mobile">EN</span></button>
+            <a href="#kontakt" class="block font-medium" style="color: #7b6ba5;"><span class="nav-de">Gespräch buchen</span><span class="nav-en lang-hidden">Book a call</span></a>
         </div>
     </nav>
     <script>
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('open');
-        });
-        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.remove('open');
-            });
-        });
+        document.getElementById('menu-toggle').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('open'); });
+        document.querySelectorAll('#mobile-menu a').forEach(function(link) { link.addEventListener('click', function() { document.getElementById('mobile-menu').classList.remove('open'); }); });
     </script>
 
+    <!-- ======== GERMAN CONTENT ======== -->
+    <div id="site-de">
     <div class="max-w-[860px] mx-auto px-8">
 
-        <!-- ======== HEADER ======== -->
         <header class="pt-36 pb-12">
             <a href="angebote.html" class="text-[0.82rem] hover:text-stone-800 transition-colors mb-4 inline-block" style="color: #5B96B8;">&larr; Angebotsübersicht</a>
-            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-5" style="color: #5B96B8;">
-                Product Management
-            </h1>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-5" style="color: #5B96B8;">Product Management</h1>
             <p class="text-[0.9rem] text-stone-600 leading-relaxed max-w-[36em]">
                 50+ Kundeninterviews, +3,5 Mio. € Umsatzwirkung, 2 Ausgründungen aus Validierungsarbeit.
                 Ich bringe die Kundenperspektive in Ihre Produkt&shy;entscheidungen –
@@ -122,158 +76,184 @@
             </p>
         </header>
 
-        <!-- ======== TRANSPARENTE KONDITIONEN ======== -->
         <section class="pb-20">
             <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db;">
                 <h2 class="source-serif text-stone-900 text-[1.4rem] mb-3">Transparente Konditionen, individueller Zuschnitt</h2>
-                <p class="text-[0.9rem] text-stone-600 mb-6">
-                    Meine Tagessätze dienen Ihnen als transparente Kalkulationsgrundlage,
-                    nicht als Abrechnungseinheit. Wir finden im individuellen Gespräch
-                    das Angebot, das zu Ihnen passt.
-                </p>
+                <p class="text-[0.9rem] text-stone-600 mb-6">Meine Tagessätze dienen Ihnen als transparente Kalkulationsgrundlage, nicht als Abrechnungseinheit. Wir finden im individuellen Gespräch das Angebot, das zu Ihnen passt.</p>
                 <div class="space-y-2 text-[0.88rem]">
-                    <div class="flex items-baseline gap-3">
-                        <span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #7b6ba5;"></span>
-                        <span class="text-stone-600">PM-Retainer: Laufende Produktverantwortung</span>
-                        <span class="flex-1 border-b" style="border-color: #e5e2db;"></span>
-                        <span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 1.000 €/Tag</span>
-                    </div>
-                    <div class="flex items-baseline gap-3">
-                        <span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #5B96B8;"></span>
-                        <span class="text-stone-600">Discovery Workshop: Klarheit in einem halben Tag</span>
-                        <span class="flex-1 border-b" style="border-color: #e5e2db;"></span>
-                        <span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 1.000 €</span>
-                    </div>
-                    <div class="flex items-baseline gap-3">
-                        <span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #5b8a72;"></span>
-                        <span class="text-stone-600">Discovery Sprint: Kundeninterviews & Validierung</span>
-                        <span class="flex-1 border-b" style="border-color: #e5e2db;"></span>
-                        <span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 5.000 €</span>
-                    </div>
-                    <div class="flex items-baseline gap-3">
-                        <span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #D4714E;"></span>
-                        <span class="text-stone-600">Product Sprint: Strategie, Metriken & Go-to-Market</span>
-                        <span class="flex-1 border-b" style="border-color: #e5e2db;"></span>
-                        <span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 10.000 €</span>
-                    </div>
+                    <div class="flex items-baseline gap-3"><span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #7b6ba5;"></span><span class="text-stone-600">PM-Retainer: Laufende Produktverantwortung</span><span class="flex-1 border-b" style="border-color: #e5e2db;"></span><span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 1.000 €/Tag</span></div>
+                    <div class="flex items-baseline gap-3"><span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #5B96B8;"></span><span class="text-stone-600">Discovery Workshop: Klarheit in einem halben Tag</span><span class="flex-1 border-b" style="border-color: #e5e2db;"></span><span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 1.000 €</span></div>
+                    <div class="flex items-baseline gap-3"><span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #5b8a72;"></span><span class="text-stone-600">Discovery Sprint: Kundeninterviews & Validierung</span><span class="flex-1 border-b" style="border-color: #e5e2db;"></span><span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 5.000 €</span></div>
+                    <div class="flex items-baseline gap-3"><span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #D4714E;"></span><span class="text-stone-600">Product Sprint: Strategie, Metriken & Go-to-Market</span><span class="flex-1 border-b" style="border-color: #e5e2db;"></span><span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 10.000 €</span></div>
                 </div>
             </div>
         </section>
 
         <hr style="border-color: #e5e2db; border-top-width: 1px;">
 
-        <!-- ======== FORMATE ======== -->
         <section class="pt-20 pb-20">
             <h2 class="source-serif text-stone-900 text-[1.4rem] mb-8">Vier Formate – von laufender Verantwortung bis zum gezielten Sprint.</h2>
-
             <div class="space-y-6">
-                <!-- Stufe 1: PM-Retainer -->
                 <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #7b6ba5;">
                     <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">PM-Retainer · Laufend · ab 1.000 €/Tag</span>
                     <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">Senior-Produktverantwortung ohne Festanstellung</h3>
-                    <p class="text-[0.9rem] text-stone-600 mb-5">
-                        Flexibel skalierbar, ohne Recruiting-Aufwand und Kündigungsfrist.
-                        Ich übernehme laufende Produktverantwortung auf Senior-Niveau –
-                        mit 13 Jahren Erfahrung in Produktstrategie, Nutzerforschung und datengetriebener Priorisierung.
-                    </p>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">Flexibel skalierbar, ohne Recruiting-Aufwand und Kündigungsfrist. Ich übernehme laufende Produktverantwortung auf Senior-Niveau – mit 13 Jahren Erfahrung in Produktstrategie, Nutzerforschung und datengetriebener Priorisierung.</p>
                     <p class="text-[0.9rem] text-stone-600 font-medium mb-1">Sie erhalten:</p>
-                    <ul class="text-[0.9rem] text-stone-600 space-y-1">
-                        <li>Roadmap, Backlog und Sprint-Planung aus einer Hand</li>
-                        <li>Priorisierung nach Kundenwirkung, nicht nach Lautstärke</li>
-                        <li>Sofort einsatzbereit – keine Einarbeitung, kein Recruiting</li>
-                    </ul>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1"><li>Roadmap, Backlog und Sprint-Planung aus einer Hand</li><li>Priorisierung nach Kundenwirkung, nicht nach Lautstärke</li><li>Sofort einsatzbereit – keine Einarbeitung, kein Recruiting</li></ul>
                 </div>
-
-                <!-- Stufe 2: Product Discovery Workshop -->
-                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #5B96B8;"><!-- Sky -->
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #5B96B8;">
                     <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">Product Discovery Workshop · Halber Tag · ab 1.000 €</span>
                     <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">In 4 Stunden wissen Sie, was Sie bauen sollen – und warum</h3>
-                    <p class="text-[0.9rem] text-stone-600 mb-5">
-                        Wir nehmen Ihre Produktidee, Ihr bestehendes Produkt oder Ihre Feature-Liste
-                        und prüfen: Was davon löst ein echtes Kundenproblem? Was ist Annahme?
-                        Danach haben Sie priorisierte Hypothesen und einen klaren nächsten Schritt.
-                    </p>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">Wir nehmen Ihre Produktidee, Ihr bestehendes Produkt oder Ihre Feature-Liste und prüfen: Was davon löst ein echtes Kundenproblem? Was ist Annahme? Danach haben Sie priorisierte Hypothesen und einen klaren nächsten Schritt.</p>
                     <p class="text-[0.9rem] text-stone-600 font-medium mb-1">Sie erhalten:</p>
-                    <ul class="text-[0.9rem] text-stone-600 space-y-1 mb-4">
-                        <li>Priorisierte Hypothesen: Was stimmt, was muss validiert werden?</li>
-                        <li>Erste Opportunity Map: Wo liegt der größte Kundenwert?</li>
-                        <li>Konkrete Empfehlung für den nächsten Schritt</li>
-                    </ul>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1 mb-4"><li>Priorisierte Hypothesen: Was stimmt, was muss validiert werden?</li><li>Erste Opportunity Map: Wo liegt der größte Kundenwert?</li><li>Konkrete Empfehlung für den nächsten Schritt</li></ul>
                 </div>
-
-                <!-- Stufe 3: Discovery Sprint -->
-                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #5b8a72;"><!-- Emerald -->
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #5b8a72;">
                     <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">Discovery Sprint · 2–3 Wochen · ab 5.000 €</span>
                     <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">In 3 Wochen wissen Sie, was Ihre Kunden wirklich brauchen</h3>
-                    <p class="text-[0.9rem] text-stone-600 mb-5">
-                        Ich führe 10–15 Kundeninterviews, analysiere die Ergebnisse
-                        und übersetze sie in eine Produktstrategie, die auf Evidenz basiert.
-                        Aus 50+ Interviews in den letzten Jahren weiß ich, worauf es ankommt –
-                        keine Annahmen, keine Meinungen, echte Kundenstimmen als Entscheidungsgrundlage.
-                    </p>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">Ich führe 10–15 Kundeninterviews, analysiere die Ergebnisse und übersetze sie in eine Produktstrategie, die auf Evidenz basiert. Aus 50+ Interviews in den letzten Jahren weiß ich, worauf es ankommt – keine Annahmen, keine Meinungen, echte Kundenstimmen als Entscheidungsgrundlage.</p>
                     <p class="text-[0.9rem] text-stone-600 font-medium mb-1">Sie erhalten:</p>
-                    <ul class="text-[0.9rem] text-stone-600 space-y-1">
-                        <li>10–15 strukturierte Kundeninterviews (ich führe sie)</li>
-                        <li>Validierte Personas und Opportunity Map</li>
-                        <li>Priorisierter Backlog nach Kundenwirkung</li>
-                    </ul>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1"><li>10–15 strukturierte Kundeninterviews (ich führe sie)</li><li>Validierte Personas und Opportunity Map</li><li>Priorisierter Backlog nach Kundenwirkung</li></ul>
                 </div>
-
-                <!-- Stufe 4: Product Sprint -->
-                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #D4714E;"><!-- Amber -->
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #D4714E;">
                     <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">Product Sprint · 4–8 Wochen · ab 10.000 €</span>
                     <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">Ihr Produkt hat eine Strategie – und Ihr Team weiß, was zählt</h3>
-                    <p class="text-[0.9rem] text-stone-600 mb-5">
-                        Ich erarbeite mit Ihrem Team eine Produktstrategie, definiere Metriken,
-                        bewerte wo AI echten Kundenwert schafft und bereite den Go-to-Market vor.
-                        Das Ergebnis: Ihr Team priorisiert nach Wirkung, nicht nach Meinung.
-                    </p>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">Ich erarbeite mit Ihrem Team eine Produktstrategie, definiere Metriken, bewerte wo AI echten Kundenwert schafft und bereite den Go-to-Market vor. Das Ergebnis: Ihr Team priorisiert nach Wirkung, nicht nach Meinung.</p>
                     <p class="text-[0.9rem] text-stone-600 font-medium mb-1">Sie erhalten:</p>
-                    <ul class="text-[0.9rem] text-stone-600 space-y-1">
-                        <li>Produktstrategie mit klarem Zielbild</li>
-                        <li>Metriken-Framework: Was messen wir, warum, ab wann?</li>
-                        <li>AI Use Case Bewertung: Wo schafft KI echten Kundenwert?</li>
-                        <li>Go-to-Market-Empfehlung</li>
-                    </ul>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1"><li>Produktstrategie mit klarem Zielbild</li><li>Metriken-Framework: Was messen wir, warum, ab wann?</li><li>AI Use Case Bewertung: Wo schafft KI echten Kundenwert?</li><li>Go-to-Market-Empfehlung</li></ul>
                 </div>
             </div>
         </section>
 
         <hr style="border-color: #e5e2db; border-top-width: 1px;">
 
-        <!-- ======== KONTAKT (violett, Container) ======== -->
         <section id="kontakt" class="pt-20 pb-20">
             <div class="rounded-lg py-12 px-8" style="background: #f6f4f9;">
                 <h2 class="source-serif text-[1.4rem] text-stone-900 mb-4">Lassen Sie uns gemeinsam herausfinden, wo unsere Zusammenarbeit startet.</h2>
-                <p class="text-[0.9rem] text-stone-600 mb-6">
-                    In 30 Minuten erzählen Sie mir von Ihrem Produkt und Ihren Herausforderungen.
-                    Wir klären dann gemeinsam mögliche nächste Schritte.
-                </p>
+                <p class="text-[0.9rem] text-stone-600 mb-6">In 30 Minuten erzählen Sie mir von Ihrem Produkt und Ihren Herausforderungen. Wir klären dann gemeinsam mögliche nächste Schritte.</p>
                 <div>
-                    <a href="https://calendly.com/linja-scharffetter/30min"
-                        class="inline-block px-7 py-3 rounded text-white text-[0.9rem] font-medium transition-colors hover:opacity-90"
-                        style="background: #7b6ba5;">Gespräch buchen</a>
-                    <p class="text-[0.9rem] text-stone-600 mt-4">oder per E-Mail an
-                        <a href="mailto:info@linja.me" class="hover:text-stone-800 transition-colors" style="color: #7b6ba5;">info@linja.me</a></p>
+                    <a href="https://calendly.com/linja-scharffetter/30min" class="inline-block px-7 py-3 rounded text-white text-[0.9rem] font-medium transition-colors hover:opacity-90" style="background: #7b6ba5;">Gespräch buchen</a>
+                    <p class="text-[0.9rem] text-stone-600 mt-4">oder per E-Mail an <a href="mailto:info@linja.me" class="hover:text-stone-800 transition-colors" style="color: #7b6ba5;">info@linja.me</a></p>
                 </div>
             </div>
         </section>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ======== ENGLISH CONTENT ======== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[860px] mx-auto px-8">
+
+        <header class="pt-36 pb-12">
+            <a href="angebote.html" class="text-[0.82rem] hover:text-stone-800 transition-colors mb-4 inline-block" style="color: #5B96B8;">&larr; Services overview</a>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-5" style="color: #5B96B8;">Product Management</h1>
+            <p class="text-[0.9rem] text-stone-600 leading-relaxed max-w-[36em]">
+                50+ customer interviews, +3.5M EUR revenue impact, 2 spin-offs from validation work.
+                I bring the customer perspective into your product decisions —
+                with real data, clear priorities, and the right use of AI.
+            </p>
+        </header>
+
+        <section class="pb-20">
+            <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db;">
+                <h2 class="source-serif text-stone-900 text-[1.4rem] mb-3">Transparent pricing, tailored scope</h2>
+                <p class="text-[0.9rem] text-stone-600 mb-6">My daily rates serve as a transparent basis for calculation, not as a billing unit. We find the right format for you in an individual conversation.</p>
+                <div class="space-y-2 text-[0.88rem]">
+                    <div class="flex items-baseline gap-3"><span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #7b6ba5;"></span><span class="text-stone-600">PM Retainer: Ongoing product ownership</span><span class="flex-1 border-b" style="border-color: #e5e2db;"></span><span class="font-mono text-stone-900 font-medium whitespace-nowrap">from 1,000 €/day</span></div>
+                    <div class="flex items-baseline gap-3"><span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #5B96B8;"></span><span class="text-stone-600">Discovery Workshop: Clarity in half a day</span><span class="flex-1 border-b" style="border-color: #e5e2db;"></span><span class="font-mono text-stone-900 font-medium whitespace-nowrap">from 1,000 €</span></div>
+                    <div class="flex items-baseline gap-3"><span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #5b8a72;"></span><span class="text-stone-600">Discovery Sprint: Customer interviews & validation</span><span class="flex-1 border-b" style="border-color: #e5e2db;"></span><span class="font-mono text-stone-900 font-medium whitespace-nowrap">from 5,000 €</span></div>
+                    <div class="flex items-baseline gap-3"><span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #D4714E;"></span><span class="text-stone-600">Product Sprint: Strategy, metrics & go-to-market</span><span class="flex-1 border-b" style="border-color: #e5e2db;"></span><span class="font-mono text-stone-900 font-medium whitespace-nowrap">from 10,000 €</span></div>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border-color: #e5e2db; border-top-width: 1px;">
+
+        <section class="pt-20 pb-20">
+            <h2 class="source-serif text-stone-900 text-[1.4rem] mb-8">Four formats — from ongoing ownership to targeted sprints.</h2>
+            <div class="space-y-6">
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #7b6ba5;">
+                    <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">PM Retainer · Ongoing · from 1,000 €/day</span>
+                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">Senior product ownership without a full-time hire</h3>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">Flexibly scalable, without recruiting effort or notice period. I take on ongoing product responsibility at a senior level — with 13 years of experience in product strategy, user research, and data-driven prioritization.</p>
+                    <p class="text-[0.9rem] text-stone-600 font-medium mb-1">You receive:</p>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1"><li>Roadmap, backlog, and sprint planning from one hand</li><li>Prioritization by customer impact, not by volume</li><li>Ready to start immediately — no onboarding, no recruiting</li></ul>
+                </div>
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #5B96B8;">
+                    <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">Product Discovery Workshop · Half day · from 1,000 €</span>
+                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">In 4 hours, you'll know what to build — and why</h3>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">We take your product idea, existing product, or feature list and examine: What solves a real customer problem? What's an assumption? Afterward, you have prioritized hypotheses and a clear next step.</p>
+                    <p class="text-[0.9rem] text-stone-600 font-medium mb-1">You receive:</p>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1 mb-4"><li>Prioritized hypotheses: What's validated, what needs testing?</li><li>Initial opportunity map: Where's the greatest customer value?</li><li>Concrete recommendation for the next step</li></ul>
+                </div>
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #5b8a72;">
+                    <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">Discovery Sprint · 2–3 weeks · from 5,000 €</span>
+                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">In 3 weeks, you'll know what your customers really need</h3>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">I conduct 10–15 customer interviews, analyze the results, and translate them into an evidence-based product strategy. With 50+ interviews over the past years, I know what matters — no assumptions, no opinions, real customer voices as the basis for decisions.</p>
+                    <p class="text-[0.9rem] text-stone-600 font-medium mb-1">You receive:</p>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1"><li>10–15 structured customer interviews (I conduct them)</li><li>Validated personas and opportunity map</li><li>Prioritized backlog by customer impact</li></ul>
+                </div>
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #D4714E;">
+                    <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">Product Sprint · 4–8 weeks · from 10,000 €</span>
+                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">Your product has a strategy — and your team knows what counts</h3>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">I develop a product strategy with your team, define metrics, evaluate where AI creates real customer value, and prepare the go-to-market. The result: your team prioritizes by impact, not by opinion.</p>
+                    <p class="text-[0.9rem] text-stone-600 font-medium mb-1">You receive:</p>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1"><li>Product strategy with a clear target picture</li><li>Metrics framework: What do we measure, why, from when?</li><li>AI use case assessment: Where does AI create real customer value?</li><li>Go-to-market recommendation</li></ul>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border-color: #e5e2db; border-top-width: 1px;">
+
+        <section id="kontakt-en" class="pt-20 pb-20">
+            <div class="rounded-lg py-12 px-8" style="background: #f6f4f9;">
+                <h2 class="source-serif text-[1.4rem] text-stone-900 mb-4">Let's find out where our collaboration starts.</h2>
+                <p class="text-[0.9rem] text-stone-600 mb-6">In 30 minutes, tell me about your product and your challenges. We'll explore possible next steps together.</p>
+                <div>
+                    <a href="https://calendly.com/linja-scharffetter/30min" class="inline-block px-7 py-3 rounded text-white text-[0.9rem] font-medium transition-colors hover:opacity-90" style="background: #7b6ba5;">Book a call</a>
+                    <p class="text-[0.9rem] text-stone-600 mt-4">or email me at <a href="mailto:info@linja.me" class="hover:text-stone-800 transition-colors" style="color: #7b6ba5;">info@linja.me</a></p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    </div><!-- /site-en -->
 
     <!-- ======== FOOTER ======== -->
     <footer style="background: #F5F3EF;" class="py-8">
         <div class="max-w-[860px] mx-auto px-8 flex items-center justify-center gap-4 text-[0.72rem] text-stone-300">
             <a href="index.html" class="hover:text-stone-500 transition-colors">Start</a>
-            <a href="angebote.html" class="hover:text-stone-500 transition-colors">Angebot</a>
+            <a href="angebote.html" class="hover:text-stone-500 transition-colors"><span class="nav-de">Angebot</span><span class="nav-en lang-hidden">Services</span></a>
             <a href="blog.html" class="hover:text-stone-500 transition-colors">Blog</a>
             <a href="https://cv.linja.me" class="hover:text-stone-500 transition-colors">CV</a>
-            <a href="impressum.html" class="hover:text-stone-500 transition-colors">Impressum</a>
-            <a href="agb.html" class="hover:text-stone-500 transition-colors">AGB</a>
-            <a href="datenschutz.html" class="hover:text-stone-500 transition-colors">Datenschutz</a>
+            <a href="impressum.html" class="hover:text-stone-500 transition-colors"><span class="nav-de">Impressum</span><span class="nav-en lang-hidden">Imprint</span></a>
+            <a href="agb.html" class="hover:text-stone-500 transition-colors"><span class="nav-de">AGB</span><span class="nav-en lang-hidden">Terms</span></a>
+            <a href="datenschutz.html" class="hover:text-stone-500 transition-colors"><span class="nav-de">Datenschutz</span><span class="nav-en lang-hidden">Privacy</span></a>
         </div>
     </footer>
 
-</body>
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
 
+</body>
 </html>
