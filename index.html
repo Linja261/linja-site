@@ -74,10 +74,9 @@
     <!-- ======== NAV ======== -->
     <nav class="fixed top-0 left-0 right-0 z-50"
         style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">
-        <div class="max-w-[860px] mx-auto px-8 py-3 flex items-center justify-between">
+        <div class="max-w-[860px] mx-auto px-8 py-5 flex items-center justify-between">
             <a href="/" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>
             <div class="flex items-center gap-6 text-[0.8rem] text-stone-500">
-                <a href="#ueber" class="hover:text-stone-800 transition-colors hidden sm:inline">Über mich</a>
                 <a href="angebote.html" class="hover:text-stone-800 transition-colors hidden sm:inline">Angebot</a>
                 <a href="blog.html" class="hover:text-stone-800 transition-colors hidden sm:inline">Blog</a>
                 <a href="#kontakt"
@@ -93,7 +92,6 @@
         </div>
         <!-- Mobile menu dropdown -->
         <div id="mobile-menu" class="sm:hidden border-t px-8 py-4 space-y-3 text-[0.85rem]" style="border-color: #e5e2db; background: rgba(250,250,248,0.98);">
-            <a href="#ueber" class="block text-stone-600 hover:text-stone-900">Über mich</a>
             <a href="angebote.html" class="block text-stone-600 hover:text-stone-900">Angebot</a>
             <a href="blog.html" class="block text-stone-600 hover:text-stone-900">Blog</a>
             <a href="#kontakt" class="block font-medium" style="color: #7b6ba5;">Gespräch buchen</a>
@@ -115,114 +113,92 @@
 
         <!-- ======== HERO ======== -->
         <header class="pt-36 pb-8">
-            <div class="flex items-start gap-8">
-                <div>
-                    <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-4 max-w-[18em]">
+            <div class="flex flex-col sm:flex-row items-stretch gap-10">
+                <img src="profile.jpg" alt="Linja Scharffetter"
+                    class="w-full sm:w-56 h-56 rounded-lg object-cover flex-shrink-0"
+                    style="border: 2px solid #e5e2db; filter: grayscale(100%); object-position: center 15%;">
+                <div class="flex-1 flex flex-col justify-between">
+                    <h1 class="source-serif text-[2.4rem] text-stone-900 leading-[1.15] mb-4">
                         Ich übersetze Strategie in Ergebnisse, die jedes Team versteht.
                     </h1>
-                    <p class="text-[0.9rem] text-stone-600 leading-relaxed max-w-[34em]">
+                    <p class="text-[0.9rem] text-stone-600 leading-relaxed">
                         13+ Jahre an der Schnittstelle von Strategie, Produkt und Organisation.
-                        Ich höre zu, verstehe schnell, wie Ihr Unternehmen tickt, und finde den Weg,
-                        der genau für Sie funktioniert – nicht generisch, sondern passend.
+                        Ich übersetze, was auf C-Level entschieden wird, in etwas, das jedes Team
+                        umsetzen kann – und ich bringe die Kundenperspektive dahin, wo sie fehlt.
                     </p>
                 </div>
-                <img src="profile.jpg" alt="Linja Scharffetter"
-                    class="w-36 h-44 rounded-lg object-cover border-2 flex-shrink-0"
-                    style="border-color: #e5e2db;">
             </div>
         </header>
 
-        <!-- ======== ERGEBNISSE ======== -->
-        <section id="ergebnisse" class="pb-20">
-            <h2 class="source-serif text-stone-900 text-[1.4rem] mb-8">Echte Projekte, echte Zahlen, echte Veränderung.</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white border rounded-lg p-7 flex flex-col" style="border-color: #e5e2db;">
-                    <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-3">ABS Safety · B2B SaaS · Baubranche</p>
-                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-2">Produktstrategie & GTM Launch</h3>
-                    <p class="text-[0.9rem] text-stone-600 mb-5 flex-1">
-                        Digitale Bestellstrecke von der ersten Hypothese bis zum Launch.
-                        Nutzerforschung mit 50+ Interviews, Stakeholder-Alignment über
-                        alle Abteilungen, Go-to-Market-Strategie und 4 Jahre datengetriebene Optimierung.
-                    </p>
-                    <div class="flex gap-8">
-                        <div>
-                            <p class="font-mono text-[1.05rem] text-stone-900 font-medium">+3,5 Mio. €</p>
-                            <p class="text-[0.72rem] text-stone-400">Umsatz</p>
-                        </div>
-                        <div>
-                            <p class="font-mono text-[1.05rem] text-stone-900 font-medium">+132%</p>
-                            <p class="text-[0.72rem] text-stone-400">Aktive Nutzer</p>
-                        </div>
-                    </div>
+        <!-- ======== ZAHLEN ======== -->
+        <section class="pt-8 pb-8">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+                <div>
+                    <p class="source-serif text-[2.2rem] text-stone-900 leading-tight">13+</p>
+                    <p class="text-[0.78rem] text-stone-500 mt-1">Jahre Erfahrung</p>
                 </div>
-
-                <div class="bg-white border rounded-lg p-7 flex flex-col" style="border-color: #e5e2db;">
-                    <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-3">ista · 30 Ländergesellschaften</p>
-                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-2">Internationale Strategieübersetzung</h3>
-                    <p class="text-[0.9rem] text-stone-600 mb-5 flex-1">
-                        Zentrale Strategie für 30 Ländergesellschaften übersetzt und operationalisiert.
-                        Jede mit eigenen Prioritäten, Stakeholdern und politischen Realitäten.
-                        EU-Direktive über 17 Märkte ausgerollt.
-                    </p>
-                    <div class="flex gap-8">
-                        <div>
-                            <p class="font-mono text-[1.05rem] text-stone-900 font-medium">17 Länder</p>
-                            <p class="text-[0.72rem] text-stone-400">Koordiniert</p>
-                        </div>
-                        <div>
-                            <p class="font-mono text-[1.05rem] text-stone-900 font-medium">40+</p>
-                            <p class="text-[0.72rem] text-stone-400">Stakeholder</p>
-                        </div>
-                    </div>
+                <div>
+                    <p class="source-serif text-[2.2rem] text-stone-900 leading-tight">3,5 Mio.</p>
+                    <p class="text-[0.78rem] text-stone-500 mt-1">EUR Umsatzwirkung</p>
                 </div>
-
-                <div class="bg-white border rounded-lg p-7 flex flex-col" style="border-color: #e5e2db;">
-                    <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-3">ista · Kundenzentrierung & Validierung</p>
-                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-2">Von Hypothese zu Ausgründung</h3>
-                    <p class="text-[0.9rem] text-stone-600 mb-5 flex-1">
-                        Zwei Geschäftsideen von der ersten Hypothese über Kundeninterviews
-                        bis zur Ausgründung begleitet. Kundenperspektive als neutraler Boden,
-                        um interne Blockaden aufzulösen.
-                    </p>
-                    <div class="flex gap-8">
-                        <div>
-                            <p class="font-mono text-[1.05rem] text-stone-900 font-medium">2 Ausgründungen</p>
-                            <p class="text-[0.72rem] text-stone-400">Tooltime & Objego</p>
-                        </div>
-                    </div>
+                <div>
+                    <p class="source-serif text-[2.2rem] text-stone-900 leading-tight">50+</p>
+                    <p class="text-[0.78rem] text-stone-500 mt-1">Kundeninterviews</p>
                 </div>
-
-                <div class="bg-white border rounded-lg p-7 flex flex-col" style="border-color: #e5e2db;">
-                    <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-3">ista · Geschäftsmodell-Innovation · UK</p>
-                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-2">Marktanteil durch Strategiewechsel</h3>
-                    <p class="text-[0.9rem] text-stone-600 mb-5 flex-1">
-                        Regulatorischer Marktumbruch drohte, den Hauptmarkt zu kippen.
-                        Kundenperspektive als Entscheidungsgrundlage für die strategische
-                        Neuausrichtung des Geschäftsmodells.
-                    </p>
-                    <div class="flex gap-8">
-                        <div>
-                            <p class="font-mono text-[1.05rem] text-stone-900 font-medium">~90%</p>
-                            <p class="text-[0.72rem] text-stone-400">Marktanteil UK gesichert</p>
-                        </div>
-                    </div>
+                <div>
+                    <p class="source-serif text-[2.2rem] text-stone-900 leading-tight">2</p>
+                    <p class="text-[0.78rem] text-stone-500 mt-1">Ausgründungen begleitet</p>
                 </div>
-            </div>
-
-            <div class="mt-6">
-                <a href="angebote.html"
-                    class="block text-center px-6 py-4 rounded-lg text-white text-[0.9rem] font-medium transition-colors hover:opacity-90"
-                    style="background: #7b6ba5;">Diese Ergebnisse für Ihre Organisation? Angebot ansehen &rarr;</a>
             </div>
         </section>
 
-        <!-- ======== TESTIMONIALS SLIDER ======== -->
-        <section id="ueber" class="pb-20">
+        <hr style="border-color: #e5e2db; border-top-width: 1px;">
+
+        <!-- ======== METHODIK & HANDWERK ======== -->
+        <section class="pt-12 pb-8">
+
+            <!-- Methodik & Handwerk -->
+            <h2 class="source-serif text-stone-900 text-[1.4rem] mb-3">Methodik & Handwerk.</h2>
+            <p class="text-[0.9rem] text-stone-600 mb-8">
+                Fundierte Entscheidungen auf exzellentem handwerklichen Niveau.
+                Methoden setze ich gezielt dort ein, wo sie Wirkung entfalten.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                    <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Forschung & Strategie</h3>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed">Ich starte nicht mit Frameworks, sondern mit Ursachen. Erst klären, welche Wirkung wir erzielen wollen – dann entscheiden, ob Dialog, Datenanalyse oder Experimente den größten Erkenntnisgewinn bringen.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                    <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Produktentwicklung & Umsetzung</h3>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed">Build–measure–learn ist für mich ein Steuerungsrahmen, kein Ritual. Ich validiere gezielt dort, wo Unsicherheit entsteht, und nutze KI, wenn sie Erkenntnis beschleunigt, ohne dabei handwerkliche Qualität zu ersetzen.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                    <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Führung & Zusammenarbeit</h3>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed">Tragfähige Entscheidungen entstehen durch Klarheit, nicht durch Hierarchie. Ich mache Annahmen explizit, dokumentiere Denkwege und schaffe Räume für konstruktiven Widerspruch – damit Teams Verantwortung übernehmen können.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                    <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Metriken & Lernen</h3>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed">Ich messe, um Entscheidungsqualität zu erhöhen, nicht um Ergebnisse zu rechtfertigen. Explorative Signale in der Discovery, belastbare KPIs im Scale. Analyse dient Steuerung und Lernen, nicht Reporting.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ======== CTA ANGEBOT ======== -->
+        <section class="pb-12">
+            <a href="angebote.html"
+                class="block text-center px-6 py-4 rounded-lg text-white text-[0.9rem] font-medium transition-colors hover:opacity-90"
+                style="background: #7b6ba5;">Hier finden Sie meine Angebote &rarr;</a>
+        </section>
+
+        <!-- ======== TESTIMONIALS (violett, Container) ======== -->
+        <section class="pb-20">
+            <div class="rounded-lg py-12 px-8" style="background: #f6f4f9;">
             <div class="relative">
                 <div class="overflow-hidden">
                     <!-- Slide 1 -->
                     <div class="testimonial-slide transition-opacity duration-500" data-slide="0">
-                        <div class="border-l-3 pl-8 py-6 rounded-r-lg" style="border-color: #7b6ba5; background: #f6f4f9;">
+                        <div class="border-l-3 pl-8 py-6" style="border-color: #7b6ba5;">
                             <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">
                                 &ldquo;Linja denkt strategisch und bleibt dabei menschlich. Sie hat die seltene Fähigkeit,
                                 implizite Annahmen sichtbar zu machen und als Übersetzerin zwischen Disziplinen zu wirken.
@@ -235,7 +211,7 @@
                     </div>
                     <!-- Slide 2 -->
                     <div class="testimonial-slide transition-opacity duration-500 hidden" data-slide="1">
-                        <div class="border-l-3 pl-8 py-6 rounded-r-lg" style="border-color: #7b6ba5; background: #f6f4f9;">
+                        <div class="border-l-3 pl-8 py-6" style="border-color: #7b6ba5;">
                             <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">
                                 &ldquo;Was mich überzeugt hat: Linja gibt klaren Kontext – Warum machen wir das?
                                 Für wen? Mit welcher Hypothese? – und lässt dann Raum für eigene Lösungen.
@@ -249,7 +225,7 @@
                     </div>
                     <!-- Slide 3 -->
                     <div class="testimonial-slide transition-opacity duration-500 hidden" data-slide="2">
-                        <div class="border-l-3 pl-8 py-6 rounded-r-lg" style="border-color: #7b6ba5; background: #f6f4f9;">
+                        <div class="border-l-3 pl-8 py-6" style="border-color: #7b6ba5;">
                             <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">
                                 &ldquo;Linja war zentrale Ansprechpartnerin in unserer internationalen Zusammenarbeit.
                                 Sie hat es geschafft, zwischen Länderorganisationen zu vermitteln, kulturelle Unterschiede
@@ -269,6 +245,8 @@
                     <button class="testimonial-dot w-2 h-2 rounded-full transition-colors" data-dot="2" style="background: #d9d1e5;" aria-label="Zitat 3"></button>
                 </div>
             </div>
+            </div>
+            </div>
         </section>
         <script>
         (function() {
@@ -284,8 +262,16 @@
                 slides.forEach(function(s) { s.classList.remove('hidden'); s.style.position = 'static'; });
                 var maxH = 0;
                 slides.forEach(function(s) { if (s.offsetHeight > maxH) maxH = s.offsetHeight; });
+                container.style.minHeight = maxH + 'px';
                 container.style.height = maxH + 'px';
-                slides.forEach(function(s, i) { if (i !== current) s.classList.add('hidden'); });
+                slides.forEach(function(s, i) {
+                    s.style.position = 'absolute';
+                    s.style.top = '0';
+                    s.style.left = '0';
+                    s.style.right = '0';
+                    if (i !== current) s.classList.add('hidden');
+                });
+                container.style.position = 'relative';
             }
             setFixedHeight();
             window.addEventListener('resize', setFixedHeight);
@@ -309,20 +295,46 @@
             function next() { show((current + 1) % total); }
             var timer = setInterval(next, 6000);
         })();
-        </script>
+    </script>
 
-        <!-- ======== KONTAKT ======== -->
-        <section id="kontakt" class="pb-20">
-            <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db;">
-                <h2 class="source-serif text-[1.2rem] text-stone-900 mb-4">Lassen Sie uns gemeinsam herausfinden, wo unsere Zusammenarbeit startet.</h2>
+    <div class="max-w-[860px] mx-auto px-8">
+
+        <hr class="my-0" style="border-color: #e5e2db; border-top-width: 1px;">
+
+        <!-- ======== BLOG ======== -->
+        <section class="pt-20 pb-20">
+            <h2 class="source-serif text-stone-900 text-[1.4rem] mb-6">Laut gedacht.</h2>
+            <div class="space-y-4">
+                <a href="blog/monotasking.html" class="flex items-baseline justify-between gap-4 group" style="border-bottom: 1px solid #f0ede8;">
+                    <span class="text-[0.9rem] text-stone-900 group-hover:text-violet-400 transition-colors pb-4">Monotasking ist langweilig. Bis es funktioniert.</span>
+                    <span class="font-mono text-[0.72rem] text-stone-400 whitespace-nowrap pb-4">Werkstatt & Werkzeuge</span>
+                </a>
+                <a href="#" class="flex items-baseline justify-between gap-4 group" style="border-bottom: 1px solid #f0ede8;">
+                    <span class="text-[0.9rem] text-stone-500 pb-4">Warum dein Startup keinen VP Product braucht</span>
+                    <span class="font-mono text-[0.72rem] text-stone-400 whitespace-nowrap pb-4">Bald verfügbar</span>
+                </a>
+                <a href="#" class="flex items-baseline justify-between gap-4 group">
+                    <span class="text-[0.9rem] text-stone-500">Die unsichtbare Lücke zwischen Strategie und Umsetzung</span>
+                    <span class="font-mono text-[0.72rem] text-stone-400 whitespace-nowrap">Bald verfügbar</span>
+                </a>
+            </div>
+            <a href="blog.html" class="text-[0.82rem] font-medium hover:text-stone-800 transition-colors mt-6 inline-block" style="color: #7b6ba5;">Alle Artikel &rarr;</a>
+        </section>
+
+        <hr style="border-color: #e5e2db; border-top-width: 1px;">
+
+        <!-- ======== KONTAKT (violett, Container) ======== -->
+        <section id="kontakt" class="pt-20 pb-20">
+            <div class="rounded-lg py-12 px-8" style="background: #f6f4f9;">
+                <h2 class="source-serif text-[1.4rem] text-stone-900 mb-4">Lassen Sie uns gemeinsam herausfinden, wo unsere Zusammenarbeit startet.</h2>
                 <p class="text-[0.9rem] text-stone-600 mb-6">
                     In 30 Minuten erzählen Sie mir von Ihren Herausforderungen.
                     Wir klären dann gemeinsam mögliche nächste Schritte.
                 </p>
-                <ul class="text-[0.9rem] text-stone-600 space-y-2 mb-8">
-                    <li>Wir sprechen über Ihre Herausforderung und Erwartungen.</li>
-                    <li>Ich mache Ihnen erste Vorschläge für einen gemeinsamen Lösungsweg, wir definieren nächste Schritte.</li>
-                    <li>Wir gehen noch nicht in Details, dafür ist der <strong>Strategy Clarity Workshop</strong> gedacht.</li>
+                <ul class="text-[0.9rem] text-stone-600 space-y-2 mb-8 list-disc pl-5">
+                    <li>Sie erzählen mir von Ihrer Herausforderung – ob Strategie, Produkt oder beides.</li>
+                    <li>Ich gebe Ihnen eine erste Einschätzung und mögliche nächste Schritte.</li>
+                    <li>Unverbindlich, 30 Minuten, ohne Vorbereitung.</li>
                 </ul>
                 <div>
                     <a href="https://calendly.com/linja-scharffetter/30min"
