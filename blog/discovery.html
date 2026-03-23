@@ -1,0 +1,257 @@
+<!--
+  linja.me/blog/discovery – Discovery, die Unternehmen gründet
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Optionale Komponenten: Kennzahl-Highlights
+  Veröffentlicht: 2026-03-23
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery, die Unternehmen gründet – Linja Scharffetter</title>
+    <meta name="description"
+        content="50+ Tiefeninterviews in 11 Märkten. Zwei der validierten Ideen wurden eigenständige Unternehmen. Über ehrliche Forschung, die Mut hat Nein zu sagen.">
+    <meta property="og:title" content="Discovery, die Unternehmen gründet">
+    <meta property="og:description" content="50+ Tiefeninterviews in 11 Märkten. Zwei der validierten Ideen wurden eigenständige Unternehmen.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+        .prose h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.4rem; color: #1A1A1A; margin-top: 2.5rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 1.25rem; line-height: 1.75; }
+        .prose strong { color: #1A1A1A; font-weight: 600; }
+        .prose em { font-style: italic; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <!-- ======== NAV ======== -->
+    <nav class="fixed top-0 left-0 right-0 z-50"
+        style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">
+        <div class="max-w-[860px] mx-auto px-8 py-3 flex items-center justify-between">
+            <a href="../index.html" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>
+            <div class="flex items-center gap-6 text-[0.8rem] text-stone-500">
+                <a href="../index.html#ueber" class="hover:text-stone-800 transition-colors hidden sm:inline">Über mich</a>
+                <a href="../angebote.html" class="hover:text-stone-800 transition-colors hidden sm:inline">Angebot</a>
+                <a href="../blog.html" class="text-stone-800 font-medium transition-colors hidden sm:inline">Blog</a>
+                <a href="../index.html#kontakt"
+                    class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors hidden sm:inline-block"
+                    style="background: #7b6ba5;">Gespräch buchen</a>
+                <button id="menu-toggle" class="sm:hidden p-1" aria-label="Menü öffnen">
+                    <svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="sm:hidden border-t px-8 py-4 space-y-3 text-[0.85rem]" style="border-color: #e5e2db; background: rgba(250,250,248,0.98);">
+            <a href="../index.html" class="block text-stone-600 hover:text-stone-900">Startseite</a>
+            <a href="../index.html#ueber" class="block text-stone-600 hover:text-stone-900">Über mich</a>
+            <a href="../angebote.html" class="block text-stone-600 hover:text-stone-900">Angebot</a>
+            <a href="../blog.html" class="block font-medium text-stone-900">Blog</a>
+            <a href="../index.html#kontakt" class="block font-medium" style="color: #7b6ba5;">Gespräch buchen</a>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('open');
+            });
+        });
+    </script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                <span class="text-[0.72rem] text-stone-400">23. März 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Discovery, die Unternehmen gründet
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══ BLOCK 1: KERNBOTSCHAFT + PROBLEM ══ -->
+
+            <p>Ich habe Kunden befragt, um ein bestehendes Produkt zu verbessern. Daraus wurden zwei eigenständige Unternehmen. Nicht weil wir Gründungen geplant hatten, sondern weil die Forschung ehrlich genug war, um Dinge zu entdecken, nach denen niemand gefragt hatte. 50+ Tiefeninterviews in 11 Märkten — und die wichtigste Erkenntnis war eine, die der ursprüngliche Auftraggeber nicht hören wollte.</p>
+
+
+            <!-- ══ BLOCK 2: FUNDIERUNG ══ -->
+
+            <h2>Was passiert, wenn Research ehrlich ist</h2>
+
+            <p>2017 habe ich bei ista angefangen, Hausverwalter systematisch zu befragen. Der Auftrag war klar: verstehen, wie zufrieden unsere Kunden sind und was sie brauchen. Die Methode war qualitative Inhaltsanalyse nach Mayring¹ — keine Umfrage mit vorgegebenen Antworten, sondern offene Gespräche mit systematischer Auswertung. 40 Interviews in Deutschland, dann weitere in 10 internationalen Märkten.</p>
+
+            <!-- ══ OPTIONAL: KENNZAHL-HIGHLIGHTS ══ -->
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">50+</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Tiefeninterviews mit Hausverwaltern</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">11 Märkte</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">2</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Ausgründungen aus den Ergebnissen</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Tooltime & Objego</p>
+                </div>
+            </div>
+
+            <p>Was dabei herauskam, war nicht das, was wir erwartet hatten. Die Hausverwalter hatten Probleme, die nichts mit unserem Kernprodukt zu tun hatten — Handwerkerkoordination, Betriebskostenabrechnung, digitale Prozesse. Diese Probleme waren so konsistent über Märkte und Kundensegmente hinweg, dass sie nicht als Randnotiz behandelt werden konnten. Zwei davon wurden zu eigenständigen Geschäftsideen, die später als Tooltime und Objego ausgegründet wurden.</p>
+
+            <p>Das Entscheidende war nicht die Menge der Interviews. Es war die Methodik. Offene Fragen statt Skalen. Systematische Kodierung statt selektiver Zitate. Kreuztabellierung nach Markttyp, Portfoliogröße und Wachstumsregion — nicht um zu bestätigen, sondern um zu differenzieren².</p>
+
+            <h2>Warum die meisten Business Cases Glaubensaussagen sind</h2>
+
+            <p>Die Forschung zu Discovery-Praktiken ist eindeutig: Teams, die systematisch mit Kunden sprechen, validieren schneller und scheitern billiger³. Aber die Realität sieht anders aus. Die meisten Business Cases basieren auf Annahmen, die als Fakten präsentiert werden. Marktgrößen werden hochgerechnet, Kundenbedürfnisse aus Wettbewerbsanalysen abgeleitet, Zahlungsbereitschaft geschätzt.</p>
+
+            <p>Der Unterschied zwischen einem Business Case mit und ohne echtem Research ist nicht die Qualität der Zahlen — es ist die Fähigkeit, Nein zu sagen. In unseren Interviews haben wir mehrere Hypothesen verworfen, die intern als vielversprechend galten. Das war schmerzhaft. Aber genau diese Ehrlichkeit hat die zwei Ideen, die übrig blieben, belastbar gemacht. Teresa Torres nennt das "Continuous Discovery" — nicht einmalig forschen und dann umsetzen, sondern iterativ validieren und bereit sein, Richtung zu ändern⁴.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Gute Discovery tötet schlechte Ideen. Großartige Discovery entdeckt Ideen, nach denen niemand gefragt hat.
+                </p>
+            </div>
+
+            <h2>Kundenperspektive als politisches Werkzeug</h2>
+
+            <p>Ein Nebeneffekt, den ich nicht erwartet hatte: Die Interviewergebnisse haben interne Blockaden aufgelöst. Wenn Stakeholder sich nicht einigen konnten — über Prioritäten, Produktrichtung, Investitionen — hatte die Kundenperspektive eine erstaunliche Eigenschaft: Niemand konnte laut dagegen argumentieren. Nicht weil die Daten unantastbar waren, sondern weil "der Kunde sagt..." ein neutraler Boden ist, den politische Argumente nicht haben⁵.</p>
+
+            <p>Das funktioniert nur mit echten Daten. Wer "der Kunde will..." sagt, ohne Interviews geführt zu haben, betreibt rhetorischen Missbrauch. Der Unterschied zwischen beidem ist eine Transkription und eine systematische Auswertung.</p>
+
+
+            <!-- ══ BLOCK 3: WAS ICH VERÄNDERT HABE ══ -->
+
+            <h2>Was ich verändert habe</h2>
+
+            <p>Vor dieser Erfahrung habe ich Research als Validierungsschritt behandelt — am Ende des Prozesses, um eine bereits getroffene Entscheidung abzusichern. Jetzt starte ich jedes Projekt mit offenen Interviews, bevor eine Hypothese steht. Der Unterschied: Ich lasse mich überraschen statt zu bestätigen. Die zwei Ausgründungen wären nie entstanden, wenn wir nur gefragt hätten, ob unser bestehendes Produkt besser sein könnte.</p>
+
+            <p>Und ich dokumentiere jedes Interview systematisch — nicht als Zusammenfassung, sondern mit kodierten Aussagen und Kreuztabellierung. Das kostet mehr Zeit im Moment, spart aber Monate in der Argumentation danach.</p>
+
+
+            <!-- ══ BLOCK 4: KRITISCHE EINORDNUNG ══ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>50 Interviews klingen nach viel, sind aber immer noch qualitative Forschung mit begrenzter Generalisierbarkeit. Die zwei Ausgründungen sind kein Beweis, dass Discovery systematisch zu Gründungen führt — sie sind ein Einzelfall. Was verallgemeinerbar ist: Ehrliche, offene Forschung findet Dinge, die geschlossene Fragen verpassen. Und die Bereitschaft, eigene Hypothesen zu verwerfen, ist der teuerste und wertvollste Teil des Prozesses.</p>
+
+            <p>Außerdem: Diese Art von Research braucht organisatorische Rückendeckung. Wer keine Freigabe hat, Kunden zu befragen, oder wessen Ergebnisse im Vorfeld politisch gefiltert werden, wird nichts Ehrliches finden. Die Methode funktioniert nur, wenn die Organisation bereit ist, Antworten zu hören, die sie nicht bestellt hat.</p>
+
+
+            <!-- ══ BLOCK 5: WAS BLEIBT FÜR JEDEN TAG ══ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Erst fragen, dann hypothetisieren.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Offene Interviews vor dem Business Case. Überraschen lassen statt bestätigen.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Systematisch kodieren, nicht selektiv zitieren.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Der Unterschied zwischen Bauchgefühl und Evidenz ist eine Transkription und eine Kreuztabelle.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Kundendaten sind politisch neutral.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Echte Interviewdaten lösen Stakeholder-Blockaden, die kein internes Argument schafft.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ QUELLEN ══ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Mayring, P. (2015). Qualitative Inhaltsanalyse: Grundlagen und Techniken. Beltz.</li>
+                    <li>Corbin, J. & Strauss, A. (2015). Basics of Qualitative Research. SAGE Publications.</li>
+                    <li><a href="https://www.producttalk.org" class="hover:text-stone-600 transition-colors" style="color: inherit;">Torres, T. (2021). Continuous Discovery Habits. Product Talk LLC.</a></li>
+                    <li>Torres, T. — Continuous Discovery: Iterative Validierung statt einmaliger Research-Phase.</li>
+                    <li>Eigenbeobachtung: Kundenperspektive als neutraler Boden in Stakeholder-Konflikten (ista, 2015-2019).</li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSAR ══ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Continuous Discovery</span> <span class="text-stone-400">— Iterativer Forschungsansatz: fortlaufend validieren statt einmalig forschen (Teresa Torres).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Kreuztabellierung</span> <span class="text-stone-400">— Analyse qualitativer Daten über mehrere Dimensionen (Markt, Segment, Größe) zur Muster-Erkennung.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Mayring-Methode</span> <span class="text-stone-400">— Systematische qualitative Inhaltsanalyse mit regelgeleitetem Kodieren und Kategorienbildung.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Tiefeninterview</span> <span class="text-stone-400">— Offenes, halbstrukturiertes Gespräch zur Exploration von Bedürfnissen, Problemen und Verhaltensweisen.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <!-- ======== FOOTER ======== -->
+    <footer style="background: #F5F3EF;" class="py-8">
+        <div class="max-w-[860px] mx-auto px-8 flex items-center justify-center gap-4 text-[0.72rem] text-stone-300">
+            <a href="../index.html" class="hover:text-stone-500 transition-colors">Start</a>
+            <a href="../angebote.html" class="hover:text-stone-500 transition-colors">Angebot</a>
+            <a href="../blog.html" class="text-stone-500">Blog</a>
+            <a href="https://cv.linja.me" class="hover:text-stone-500 transition-colors">CV</a>
+            <a href="../impressum.html" class="hover:text-stone-500 transition-colors">Impressum</a>
+            <a href="../agb.html" class="hover:text-stone-500 transition-colors">AGB</a>
+            <a href="../datenschutz.html" class="hover:text-stone-500 transition-colors">Datenschutz</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
