@@ -1,0 +1,439 @@
+<!--
+  linja.me/blog/[slug] – Artikel-Template
+  Design System: Vanille-Heidelbeer (gedämpft)
+  Brand Kit: ../../brand-kit.md
+  Schema: ../../artikel_baukasten.md (5 fixe Blöcke + max 2 optionale)
+  Stand: 2026-03-23
+
+  ANLEITUNG:
+  1. Datei nach blog/[slug].html kopieren
+  2. [PLATZHALTER] ersetzen
+  3. Pflichtblöcke ausfüllen (Reihenfolge beibehalten)
+  4. 0-2 optionale Komponenten aktivieren (<!-- OPTIONAL: ... --> Kommentare entfernen)
+  5. Kernerkenntnis-Quote setzen (1x pro Artikel)
+  6. Writing Style Guide Checklist durchgehen
+  7. blog.html Listing aktualisieren
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TITEL] – Linja Scharffetter</title>
+    <meta name="description" content="[META-BESCHREIBUNG – 1-2 Sätze, ~155 Zeichen]">
+    <meta property="og:title" content="[TITEL]">
+    <meta property="og:description" content="[META-BESCHREIBUNG]">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles */
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <!-- ======== NAV ======== -->
+    <nav class="fixed top-0 left-0 right-0 z-50"
+        style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">
+        <div class="max-w-[860px] mx-auto px-8 py-3 flex items-center justify-between">
+            <a href="../index.html" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>
+            <div class="flex items-center gap-6 text-[0.8rem] text-stone-500">
+                <a href="../index.html#ueber" class="hover:text-stone-800 transition-colors hidden sm:inline">Über mich</a>
+                <a href="../angebote.html" class="hover:text-stone-800 transition-colors hidden sm:inline">Angebot</a>
+                <a href="../blog.html" class="text-stone-800 font-medium transition-colors hidden sm:inline">Blog</a>
+                <a href="../index.html#kontakt"
+                    class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors hidden sm:inline-block"
+                    style="background: #7b6ba5;">Gespräch buchen</a>
+                <button id="menu-toggle" class="sm:hidden p-1" aria-label="Menü öffnen">
+                    <svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="sm:hidden border-t px-8 py-4 space-y-3 text-[0.85rem]" style="border-color: #e5e2db; background: rgba(250,250,248,0.98);">
+            <a href="../index.html" class="block text-stone-600 hover:text-stone-900">Startseite</a>
+            <a href="../index.html#ueber" class="block text-stone-600 hover:text-stone-900">Über mich</a>
+            <a href="../angebote.html" class="block text-stone-600 hover:text-stone-900">Angebot</a>
+            <a href="../blog.html" class="block font-medium text-stone-900">Blog</a>
+            <a href="../index.html#kontakt" class="block font-medium" style="color: #7b6ba5;">Gespräch buchen</a>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('open');
+            });
+        });
+    </script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">[KATEGORIE]</span>
+                <span class="text-[0.72rem] text-stone-400">[TT. Monat JJJJ]</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; [X] Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                [TITEL]
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM (~100 Wörter)
+                 Problem-Solution-Fit in 2-3 Sätzen.
+                 Die ersten Sätze müssen den ganzen Artikel
+                 zusammenfassen können.
+                 ══════════════════════════════════════════════ -->
+
+            <p>[Kernbotschaft + Problem. Reales Problem oder Hypothese. Kein Hook, kein Storytelling-Kitsch.]</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG (~400-600 Wörter)
+                 Analytischer Kern. Forschung + Daten +
+                 Frameworks + eigene Praxis.
+                 Intern in 2-3 h2-Subsections gliedern.
+                 ══════════════════════════════════════════════ -->
+
+            <h2>[Fundierung Subsection 1]</h2>
+
+            <p>[Analyse: Warum ist das ein Problem? Daten, Studien, Frameworks.]</p>
+
+
+            <!-- ══ OPTIONAL: KENNZAHL-HIGHLIGHTS ══
+                 Nutzen wenn: Artikel hat markante Zahlen/Metriken.
+                 Entkommentieren und Werte ersetzen.
+
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">[ZAHL]</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">[Beschreibung]</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">[Quelle]</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">[ZAHL]</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">[Beschreibung]</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">[Quelle]</p>
+                </div>
+            </div>
+
+            ══ ENDE KENNZAHL-HIGHLIGHTS ══ -->
+
+
+            <h2>[Fundierung Subsection 2]</h2>
+
+            <p>[Erkenntnis: Was funktioniert? Eigene Praxis + fundierte Grundlage.]</p>
+
+
+            <!-- ══ OPTIONAL: VERGLEICHS-CARDS ══
+                 Nutzen wenn: Vorher/Nachher oder Mit/Ohne Kontraste.
+                 Entkommentieren und Inhalte ersetzen.
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">[POSITIV-LABEL]</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-900 mb-3">[WERT]</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">[Beschreibung]</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #a8a29e; background: #FAFAF8;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3 text-stone-400">[NEGATIV-LABEL]</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-400 mb-3">[WERT]</p>
+                    <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">[Beschreibung]</p>
+                </div>
+            </div>
+
+            ══ ENDE VERGLEICHS-CARDS ══ -->
+
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══
+                 1x pro Artikel. Markiert die zentrale These.
+                 Position: irgendwo in Block 2, wo die
+                 Kernthese am stärksten ist. -->
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    [Zentrale These in einem Satz.]
+                </p>
+            </div>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE (~100-200 Wörter)
+                 Signature-Element. Konkret, nicht abstrakt.
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich verändert habe</h2>
+
+            <p>[Konkret: Was mache ich jetzt anders im Alltag auf Basis dieser Erkenntnis?]</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG (~100-150 Wörter)
+                 Grenzen, Gegenargumente, offene Thesen.
+                 Ehrlich, nicht defensiv.
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>[Funktioniert das nur bei mir? Offene Thesen, Grenzen, Gegenargumente.]</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG (~50-100 Wörter)
+                 2-3 destillierte Punkte als Headline + Subline.
+                 Gleiche h2 wie Zwischenüberschriften.
+                 Violet Seitenlinie pro Punkt.
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">[Takeaway 1 Headline]</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">[Takeaway 1 Subline]</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">[Takeaway 2 Headline]</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">[Takeaway 2 Subline]</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">[Takeaway 3 Headline]</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">[Takeaway 3 Subline]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN (Pflicht-Anhang)
+                 Mono-Header, nummerierte Liste, verlinkt.
+                 Kennzahl-Quellen per Anker verlinken.
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="[URL]" class="hover:text-stone-600 transition-colors" style="color: inherit;">[Autor (Jahr). Titel.]</a></li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSAR (Pflicht-Anhang)
+                 Mono-Header, 2-Spalten-Grid, einzeilig.
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">[Begriff]</span> <span class="text-stone-400">— [Definition]</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         OPTIONAL: INTERAKTIVE BAUSTEINE
+         Nutzen wenn: System mit nummerierten Schritten + Details.
+         Diesen Block komplett ans Ende der Datei verschieben
+         und dort entkommentieren. Position im Artikel: in Block 2.
+
+    <style>
+        .bs-row { cursor: pointer; transition: all 0.15s ease; }
+        .bs-row:hover { background: #f6f4f9; }
+        .bs-row.active { background: #f6f4f9; border-color: #7b6ba5; }
+        .bs-row.active .bs-num { background: #7b6ba5; color: white; }
+        .bs-detail { display: none; }
+        .bs-detail.active { display: block; }
+        .bs-label { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.35rem; }
+    </style>
+
+    <div class="my-8" style="max-width: 100%;">
+        <div class="border rounded-lg overflow-hidden" style="border-color: #e5e2db;" id="bs-list">
+            <div class="bs-row active flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs="0">
+                <div class="flex items-center gap-3">
+                    <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #7b6ba5; color: white;">01</span>
+                    <span class="text-[0.88rem] text-stone-900 font-medium">[Baustein 1 Titel]</span>
+                </div>
+                <span class="font-mono text-[0.68rem] text-stone-400">[Info]</span>
+            </div>
+            <div class="bs-row flex items-center justify-between px-5 py-3.5" data-bs="1">
+                <div class="flex items-center gap-3">
+                    <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">02</span>
+                    <span class="text-[0.88rem] text-stone-900 font-medium">[Baustein 2 Titel]</span>
+                </div>
+                <span class="font-mono text-[0.68rem] text-stone-400">[Info]</span>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <div class="bs-detail active border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail="0">
+                <div class="flex items-baseline gap-2 mb-4">
+                    <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">01</span>
+                    <span class="source-serif text-[1.1rem] text-stone-900">[Baustein 1 Titel]</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                    <div>
+                        <p class="bs-label text-stone-400">Vorher</p>
+                        <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">[Vorher-Beschreibung]</p>
+                    </div>
+                    <div>
+                        <p class="bs-label" style="color: #5b8a72;">Jetzt</p>
+                        <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">[Jetzt-Beschreibung]</p>
+                    </div>
+                    <div>
+                        <p class="bs-label" style="color: #D4714E;">Warum es funktioniert</p>
+                        <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">[Erklärung]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        var rows = document.querySelectorAll('.bs-row');
+        var details = document.querySelectorAll('.bs-detail');
+        rows.forEach(function(row) {
+            row.addEventListener('click', function() {
+                var idx = this.dataset.bs;
+                rows.forEach(function(r) {
+                    r.classList.remove('active');
+                    r.querySelector('.bs-num').style.background = '#e5e2db';
+                    r.querySelector('.bs-num').style.color = '#44403c';
+                });
+                this.classList.add('active');
+                this.querySelector('.bs-num').style.background = '#7b6ba5';
+                this.querySelector('.bs-num').style.color = 'white';
+                details.forEach(function(d) { d.classList.remove('active'); });
+                document.querySelector('[data-bs-detail="' + idx + '"]').classList.add('active');
+            });
+        });
+    })();
+    </script>
+
+    ══ ENDE INTERAKTIVE BAUSTEINE ══ -->
+
+</body>
+
+</html>

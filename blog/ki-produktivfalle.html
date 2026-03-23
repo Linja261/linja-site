@@ -1,0 +1,333 @@
+<!--
+  linja.me/blog/ki-produktivfalle – KI macht nicht produktiver – sie macht beschäftigter
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + max 2 optionale)
+  Optionale Komponenten: Kennzahl-Highlights
+  Ursprünglich veröffentlicht: 9. März 2026 (Substack)
+  Stand: 2026-03-23
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI macht nicht produktiver – sie macht beschäftigter – Linja Scharffetter</title>
+    <meta name="description"
+        content="KI verspricht Erleichterung. Aber nach 100+ generierten Dateien und genau zwei wiederverwendeten Bereichen zeigt sich: Der Unterschied ist Struktur, nicht Tool.">
+    <meta property="og:title" content="KI macht nicht produktiver – sie macht beschäftigter">
+    <meta property="og:description" content="KI verspricht Erleichterung. Aber nach 100+ generierten Dateien und genau zwei wiederverwendeten Bereichen zeigt sich: Der Unterschied ist Struktur, nicht Tool.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <!-- ======== NAV ======== -->
+    <nav class="fixed top-0 left-0 right-0 z-50"
+        style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">
+        <div class="max-w-[860px] mx-auto px-8 py-3 flex items-center justify-between">
+            <a href="../index.html" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>
+            <div class="flex items-center gap-6 text-[0.8rem] text-stone-500">
+                <a href="../index.html#ueber" class="hover:text-stone-800 transition-colors hidden sm:inline">Über mich</a>
+                <a href="../angebote.html" class="hover:text-stone-800 transition-colors hidden sm:inline">Angebot</a>
+                <a href="../blog.html" class="text-stone-800 font-medium transition-colors hidden sm:inline">Blog</a>
+                <a href="../index.html#kontakt"
+                    class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors hidden sm:inline-block"
+                    style="background: #7b6ba5;">Gespräch buchen</a>
+                <button id="menu-toggle" class="sm:hidden p-1" aria-label="Menü öffnen">
+                    <svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="sm:hidden border-t px-8 py-4 space-y-3 text-[0.85rem]" style="border-color: #e5e2db; background: rgba(250,250,248,0.98);">
+            <a href="../index.html" class="block text-stone-600 hover:text-stone-900">Startseite</a>
+            <a href="../index.html#ueber" class="block text-stone-600 hover:text-stone-900">Über mich</a>
+            <a href="../angebote.html" class="block text-stone-600 hover:text-stone-900">Angebot</a>
+            <a href="../blog.html" class="block font-medium text-stone-900">Blog</a>
+            <a href="../index.html#kontakt" class="block font-medium" style="color: #7b6ba5;">Gespräch buchen</a>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('open');
+            });
+        });
+    </script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI & Produktivität</span>
+                <span class="text-[0.72rem] text-stone-400">9. März 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                KI macht nicht produktiver – sie macht beschäftigter
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
+                 ══════════════════════════════════════════════ -->
+
+            <p>KI verspricht Erleichterung. Schnellere Texte, bessere Recherche, weniger Fleißarbeit. Und ja — das stimmt alles. Aber was niemand erzählt: Man verliert sich darin. Ich habe über 100 Dateien mit KI erstellt. Tiefe Persönlichkeitsanalysen, Skill-Mappings, Karriere-Narrative. Jede einzelne fühlte sich an wie echte Arbeit. Von diesen 100+ Dateien habe ich genau zwei Bereiche tatsächlich wiederverwendet. Zwei. Das war die KI-Produktivitätsfalle.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Das Paradox: Alle fühlen sich produktiv, niemand ist es</h2>
+
+            <p>Die Zahlen sind eindeutig — und verstörend: Bis zu 90 Prozent der KI-Nutzer berichten von Zeitersparnis. Im Schnitt 25 Minuten pro Tag. Aber nur 3 bis 7 Prozent dieser gefühlten Gewinne zeigen sich in messbaren Ergebnissen.</p>
+
+            <!-- ══ OPTIONAL 1/2: KENNZAHL-HIGHLIGHTS ══ -->
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">90%</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">der KI-Nutzer berichten von Zeitersparnis</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Selbsteinschätzung</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">3–7%</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">messbare Produktivitätsgewinne</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">CEO-Befragungen</p>
+                </div>
+            </div>
+
+            <p>In einer Entwickler-Studie glaubten die Teilnehmer, 20 Prozent schneller zu sein. Tatsächlich waren sie 19 Prozent <em>langsamer</em>. Robert Solow beschrieb 1987 ein ähnliches Phänomen: Man sieht das Computerzeitalter überall, nur nicht in den Produktivitätsstatistiken. Das Solow-Paradoxon löste sich erst, als Organisationen sich <em>um</em> die Technologie herum reorganisierten. Nicht das Tool brachte den Wert — sondern die neue Arbeitsweise drum herum.</p>
+
+
+            <h2>Warum sich KI-Arbeit so gut anfühlt</h2>
+
+            <p><strong>Dopamin-Schleifen.</strong> Sekundenschnelle Antworten aktivieren das Belohnungssystem — ähnlich wie Social Media. Es entsteht ein Toleranzeffekt: Man braucht immer ambitioniertere Projekte für den gleichen Kick.</p>
+
+            <p><strong>Flow-State-Imitation.</strong> Reduzierte Reibung plus sofortiges Feedback — das sind alle Zutaten für Flow. Aber ohne die tiefe kognitive Arbeit, die echten Flow wertvoll macht. Man fühlt sich im Flow, ist aber nur im <em>Fluss</em>.</p>
+
+            <p><strong>Kognitive Verzerrung.</strong> Wer mit KI arbeitet, überschätzt systematisch die eigene Leistung. Schneller Output fühlt sich wie besserer Output an. Die Geschwindigkeit selbst wird zum Qualitätssignal.</p>
+
+            <p><strong>Workslop.</strong> KI-generierter Output, der poliert aussieht, aber wenig Substanz hat. Rund 40 Prozent der Mitarbeiter verbringen <em>mehr</em> Zeit mit Review und Korrektur von KI-Output als vorher.</p>
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    KI ist kein Produktivitätsturbo. Sie ist ein Verstärker. Was strukturiert ist, wird produktiver. Was unstrukturiert ist, wird chaotischer.
+                </p>
+            </div>
+
+
+            <h2>Vier Muster, die den Unterschied machen</h2>
+
+            <p><strong>1. Erst Struktur schaffen, dann generieren lassen.</strong> Ohne eigenes Framework produziert KI beliebig viel, und man kann nicht unterscheiden, was davon gut ist. In meiner Jobsuche habe ich zuerst ein Scoring-Framework angelegt — Rollen, Kriterien, Gewichtungen. Erst dann konnte KI darauf arbeiten. Das Framework wurde zur Verfassung meiner KI-Nutzung.</p>
+
+            <p><strong>2. Regeln schreiben ist die eigentliche Arbeit.</strong> Nicht der Content ist wertvoll, sondern die Regeln, die dafür sorgen, dass Content gepflegt, geprüft und reduziert wird. Wann wird etwas zusammengeführt, gekürzt oder gelöscht? Wenn eine KI-generierte Datei in zwei Wochen nicht wieder geöffnet wird, war sie Prozess-Wert — gut zum Nachdenken, aber kein Produkt-Wert.</p>
+
+            <p><strong>3. Ziele setzen vor der KI-Session.</strong> Wer Ziele während der Session setzt, wird vom Output getrieben statt von der eigenen Intention. Morgens maximal drei Tagesprioritäten definieren. Montags ein kurzer Wochen-Kick-off. Freitags ein Review. Jeweils 5–15 Minuten — und es schützt vor dem KI-Sog, weil "Genug" schon definiert ist.</p>
+
+            <p><strong>4. Rhythmus schlägt Disziplin.</strong> Feste Rituale sind wirksamer als Willenskraft. Feste Thementage statt flexibler Tagesplanung. Fester Check-in, fester Check-out. Die Entscheidung ist gefallen, bevor die KI-Session beginnt. Rhythmus begrenzt Optionen — und begrenzte Optionen sind der beste Schutz gegen den KI-Sog.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich verändert habe</h2>
+
+            <p>Vor einem halben Jahr habe ich KI genutzt wie die meisten: Aufgabe rein, Output raus, gut fühlen, weiter. Das Ergebnis waren 100+ Dateien und das Gefühl, enorm produktiv zu sein. Tatsächlich hatte ich zwei verwertbare Ergebnisse.</p>
+
+            <p>Jetzt starte ich keine KI-Session mehr ohne vorher definiertes Ziel und definiertes "Genug". Jede Woche prüfe ich, welche Dateien ich tatsächlich wiederverwendet habe. Was zwei Wochen ungeöffnet bleibt, wird archiviert oder gelöscht. Und ich habe aufgehört, Reflexionsübungen als Dateien aufzubewahren — der Wert lag im Nachdenken, nicht im Dokument.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Der vielleicht wichtigste Punkt: KI kennt dich nicht. Sie spiegelt zurück, was du ihr gibst, in schön formulierter Form. Das fühlt sich an wie tiefes Verständnis, ist aber ein elaborierter Echo-Raum. Ich habe der KI mein Persönlichkeitsprofil gegeben — und sie hat mir erklärt, wer ich bin. Natürlich stimmte es — sie hat nur zurückgegeben, was ich ihr vorher gefüttert habe. Der Wert lag im Prozess des Sortierens, nicht im Dokument am Ende.</p>
+
+            <p>Dieses System funktioniert für mich als Solo-Wissensarbeiterin mit begrenzten Stunden. Wer im Team arbeitet, hat andere Schutzmechanismen — Standups, Code-Reviews, geteilte Kanäle. Und wer KI nur für klar abgegrenzte Aufgaben nutzt (Übersetzung, Zusammenfassung, Code-Snippets), braucht weniger Struktur. Die Produktivitätsfalle tritt vor allem dort auf, wo KI für offene, kreative oder strategische Arbeit eingesetzt wird — also genau dort, wo sie am beeindruckendsten wirkt.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: TAKEAWAYS
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Erst die Arbeit am System, dann die Arbeit mit dem System.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Struktur vor Prompten. Framework vor Output.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Regeln sind wertvoller als Content.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wann wird gepflegt, gekürzt, gelöscht? Das entscheidet, ob 100 Dateien Ballast oder System sind.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">"Genug" definieren, bevor die Session beginnt.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Rhythmus und Ziele schützen vor dem KI-Sog.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Solow, R. M. (1987). We'd Better Watch Out. <em>New York Times Book Review</em>, 36.</li>
+                    <li>Uplevel (2024). Developer Productivity Study: Perceived vs. Actual Performance with AI Coding Tools.</li>
+                    <li>Microsoft & LinkedIn (2024). Work Trend Index: AI at Work Is Here. Now Comes the Hard Part.</li>
+                    <li>Mollick, E. (2024). Co-Intelligence: Living and Working with AI. Portfolio/Penguin.</li>
+                    <li><a href="https://doi.org/10.1037/0003-066X.57.9.705" class="hover:text-stone-600 transition-colors" style="color: inherit;">Locke & Latham (2002). Building a Practically Useful Theory of Goal Setting and Task Motivation.</a></li>
+                    <li><a href="https://gettingthingsdone.com" class="hover:text-stone-600 transition-colors" style="color: inherit;">Allen (2001). Getting Things Done: The Art of Stress-Free Productivity.</a></li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Dopamin-Schleife</span> <span class="text-stone-400">— Schnelle Belohnung führt zu Toleranzaufbau und steigendem Reizbedarf.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Flow-State</span> <span class="text-stone-400">— Zustand tiefer Versenkung. KI imitiert ihn, ohne die kognitive Tiefe zu liefern.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Kognitive Verzerrung</span> <span class="text-stone-400">— Geschwindigkeit des KI-Outputs wird als Qualitätssignal fehlinterpretiert.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Solow-Paradoxon</span> <span class="text-stone-400">— Technologie überall sichtbar, nur nicht in den Produktivitätsstatistiken (Solow, 1987).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Workslop</span> <span class="text-stone-400">— KI-Output, der poliert aussieht, aber wenig Substanz enthält.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <!-- ======== FOOTER ======== -->
+    <footer style="background: #F5F3EF;" class="py-8">
+        <div class="max-w-[860px] mx-auto px-8 flex items-center justify-center gap-4 text-[0.72rem] text-stone-300">
+            <a href="../index.html" class="hover:text-stone-500 transition-colors">Start</a>
+            <a href="../angebote.html" class="hover:text-stone-500 transition-colors">Angebot</a>
+            <a href="../blog.html" class="text-stone-500">Blog</a>
+            <a href="https://cv.linja.me" class="hover:text-stone-500 transition-colors">CV</a>
+            <a href="../impressum.html" class="hover:text-stone-500 transition-colors">Impressum</a>
+            <a href="../agb.html" class="hover:text-stone-500 transition-colors">AGB</a>
+            <a href="../datenschutz.html" class="hover:text-stone-500 transition-colors">Datenschutz</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

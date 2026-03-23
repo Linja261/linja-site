@@ -1,8 +1,8 @@
 <!--
-  linja.me/blog/monotasking – Artikel: Monotasking ist langweilig. Bis es funktioniert.
-  Design System: Vanille-Heidelbeer (gedämpft)
-  Brand Kit: ../../brand-kit.md
-  Stand: 2026-03-20
+  linja.me/blog/monotasking – Mein KI-Assistent arbeitet 24/7. Ich nicht.
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Optionale Komponenten: Vergleichs-Cards
+  Veröffentlicht: 2026-03-23
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -10,11 +10,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monotasking ist langweilig. Bis es funktioniert. – Linja Scharffetter</title>
+    <title>Mein KI-Assistent arbeitet 24/7. Ich nicht. – Linja Scharffetter</title>
     <meta name="description"
-        content="Multitasking hat besseres Marketing als Monotasking. Aber schlechtere Ergebnisse. Ein Selbstversuch mit Tageslog, fünf Bausteinen und 65 Minuten pro Woche.">
-    <meta property="og:title" content="Monotasking ist langweilig. Bis es funktioniert.">
-    <meta property="og:description" content="Multitasking hat besseres Marketing als Monotasking. Aber schlechtere Ergebnisse. Ein Selbstversuch mit Tageslog, fünf Bausteinen und 65 Minuten pro Woche.">
+        content="Eine KI, die den Wochenplan kennt, Prioritäten prüft und offene Aufgaben verfolgt. Fünf Routinen, die aus einem Chatbot einen echten Arbeitspartner machen — und nebenbei Monotasking erzwingen.">
+    <meta property="og:title" content="Mein KI-Assistent arbeitet 24/7. Ich nicht.">
+    <meta property="og:description" content="Eine KI, die den Wochenplan kennt, Prioritäten prüft und offene Aufgaben verfolgt. Fünf Routinen, die aus einem Chatbot einen echten Arbeitspartner machen.">
     <meta property="og:type" content="article">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
@@ -115,6 +115,11 @@
             padding-left: 1.5rem;
             margin: 1rem 0;
         }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
         .prose li {
             margin-bottom: 0.5rem;
         }
@@ -166,136 +171,327 @@
         <!-- ======== ARTIKEL-HEADER ======== -->
         <header class="pt-28 pb-8">
             <div class="flex items-center gap-3 mb-4">
-                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Werkstatt & Werkzeuge</span>
-                <span class="text-[0.72rem] text-stone-400">20. März 2026</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI & Produktivität</span>
+                <span class="text-[0.72rem] text-stone-400">23. März 2026</span>
                 <span class="text-[0.72rem] text-stone-400">&middot; 6 Min Lesezeit</span>
             </div>
             <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
-                Monotasking ist langweilig. Bis es funktioniert.
+                Mein KI-Assistent arbeitet 24/7. Ich nicht.
             </h1>
         </header>
 
         <!-- ======== ARTIKEL-CONTENT ======== -->
         <article class="prose pb-12">
 
-            <p>Multitasking hat besseres Marketing als Monotasking. Aber schlechtere Ergebnisse. Was die Forschung seit Jahrzehnten zeigt, lässt sich auch im Arbeitsalltag einer Produktmanagerin in zwei Wochen nachweisen — mit einem Logbuch und fünf Minuten Routine am Tag.</p>
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
+                 ══════════════════════════════════════════════ -->
 
-            <h2>Was die Forschung sagt</h2>
+            <p>Seit einem Jahr arbeite ich mit einer KI als festem Bestandteil meines Arbeitsalltags. Nicht als Spielzeug, nicht als Textgenerator — als Arbeitspartner. Claude (mein KI-Assistent) kennt meinen Wochenplan, meine Prioritäten prüft und offene Aufgaben verfolgt. Der Effekt war unerwartet: Ich bin nicht schneller geworden. Ich bin fokussierter geworden. Aus fünf simplen Routinen mit KI ist ein System entstanden, das Monotasking ganz automatisch erzwingt.</p>
 
-            <p>Die kognitive Psychologie ist sich erstaunlich einig: Echtes Multitasking existiert bei komplexen Aufgaben nicht. Was als Multitasking empfunden wird, ist in Wahrheit schnelles Hin- und Herwechseln zwischen Aufgaben — sogenanntes Task-Switching. Jeder Wechsel kostet kognitive Ressourcen. Die American Psychological Association beziffert den Produktivitätsverlust durch häufiges Task-Switching auf bis zu 40 %. Gloria Mark von der UC Irvine hat gemessen, dass es nach einer Unterbrechung durchschnittlich 23 Minuten dauert, bis die volle Konzentration auf die ursprüngliche Aufgabe wiederhergestellt ist.</p>
 
-            <p>Die Gegenstrategie ist bekannt: Monotasking — die bewusste Entscheidung, in einem definierten Zeitraum nur an einer Sache zu arbeiten. Die Theorie ist nicht neu. Die Umsetzung im Alltag dagegen erstaunlich schwer. Nicht weil die Methode komplex wäre, sondern weil das Gefühl von Multitasking sich produktiver anfühlt als die Realität von Monotasking.</p>
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG
+                 ══════════════════════════════════════════════ -->
 
-            <h2>Ein Selbstversuch mit Tageslog</h2>
+            <h2>Warum ein Chatbot nicht reicht</h2>
 
-            <p>Um die Theorie am eigenen Alltag zu prüfen, habe ich vor einigen Wochen angefangen, ein Tageslog zu führen. Die Mechanik ist simpel: Morgens drei Prioritäten definieren, abends dokumentieren, was davon erledigt ist. Nach zwei Wochen zeigt sich ein Muster, das sich nicht mehr wegdiskutieren lässt.</p>
+            <p>Die meisten nutzen KI punktuell: eine Frage, eine Antwort, fertig. So bleibt KI ein Werkzeug, das man öffnet und schließt. Produktiv wird sie erst, wenn sie Kontext hat und wenn sie weiß, woran ich arbeite, was letzte Woche liegen geblieben ist und welche Prioritäten heute gelten. Dafür braucht es Routinen, nicht Prompts.</p>
 
-            <p><strong>An Tagen mit Check-in und klarem Tagesthema</strong> waren 3 von 3 Prioritäten erledigt — teilweise sogar eine vierte. Die Ergebnisse waren am Abend nicht nur "fertig im Kopf", sondern zeigbar: Ein Dokument, das verschickt werden kann. Ein Review, das keine Nacharbeit braucht. Eine klare Übergabe an den nächsten Tag.</p>
+            <p>Was dabei passiert, bestätigt die Forschung: Wer morgens klare Prioritäten setzt, arbeitet fokussierter, weil die Entscheidung schon gefallen ist, bevor der Tag losgeht². Wer abends offene Aufgaben externalisiert, entlastet das Arbeitsgedächtnis⁴. Und wer Thementage einhält, eliminiert den teuersten Teil des Multitaskings: den ständigen Kontextwechsel zwischen Projekten³.</p>
 
-            <p><strong>An Tagen ohne Morgenroutine</strong> — nicht geplant, einfach ausgefallen — sah es anders aus. Viel gearbeitet, aber am Abend war nicht klar, woran genau. Keine definierten Prioritäten, kein messbares Ergebnis. Der Eintrag im Logbuch an einem dieser Tage liest sich nüchtern: <em>"Tage ohne Routinen = spürbar weniger produktiv."</em></p>
+            <!-- ══ OPTIONAL 1/2: VERGLEICHS-CARDS ══ -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">Mit KI-Routine</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-900 mb-3">3 / 3</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Prioritäten erledigt, Ergebnisse zeigbar: Dokument verschickt, Review abgeschlossen, klare Übergabe.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #a8a29e; background: #FAFAF8;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3 text-stone-400">Ohne Routine</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-400 mb-3">? / ?</p>
+                    <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Keine definierten Prioritäten. Viel gearbeitet, nichts Messbares. Diffuse Unzufriedenheit am Abend.</p>
+                </div>
+            </div>
 
-            <p>Der Befund deckt sich mit dem, was Baumeister und Tierney in ihrer Forschung zur Selbstregulation beschreiben: Entscheidungsqualität sinkt im Tagesverlauf. Wer morgens nicht festlegt, was heute zählt, überlässt die Priorisierung dem erschöpften Gehirn am Nachmittag.</p>
 
-            <h2>Das System: Fünf Bausteine, 65 Minuten pro Woche</h2>
+            <h2>Fünf Routinen mit KI</h2>
 
-            <p>Monotasking funktioniert nicht durch Willenskraft. Es funktioniert durch Infrastruktur. Die folgenden fünf Bausteine bilden einen geschlossenen Kreislauf — keiner davon dauert länger als fünf Minuten.</p>
+            <p>Die folgenden fünf Bausteine bilden einen geschlossenen Kreislauf und helfen mir jede Woche dabei meine Ziele zu erreichen. Ob im Team oder solo: Struktur und Überblick fängt bei einem selbst an. Mir hilft meine Routine enorm, den Alltag als Produktmanagerin strukturiert, reflektiert und erfolgreich zu meistern.</p>
 
-            <h3>1. Morgen-Check-in (5 Minuten)</h3>
+            <!-- ══ DARSTELLUNGSFORMAT: INTERAKTIVE BAUSTEINE ══ -->
+            <style>
+                .bs-row { cursor: pointer; transition: all 0.15s ease; }
+                .bs-row:hover { background: #f6f4f9; }
+                .bs-row.active { background: #f6f4f9; border-color: #7b6ba5; }
+                .bs-row.active .bs-num { background: #7b6ba5; color: white; }
+                .bs-detail { display: none; }
+                .bs-detail.active { display: block; }
+                .bs-label { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.35rem; }
+            </style>
 
-            <p>Drei Tagesprioritäten festlegen. Nicht fünf. Drei. Die kognitive Forschung zur Goal-Setting-Theorie von Locke &amp; Latham zeigt: Wenige, spezifische Ziele führen zu besserer Leistung als vage oder zu viele Ziele. Der Check-in beginnt mit dem Wochenplan, sortiert Captures vom Vorabend ein und endet mit drei Sätzen, die "erledigt" definieren.</p>
+            <div class="my-8" style="max-width: 100%;">
+                <div class="border rounded-lg overflow-hidden" style="border-color: #e5e2db;" id="bs-list">
+                    <div class="bs-row active flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs="0">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #7b6ba5; color: white;">01</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Morgen-Check-in</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">5 Min/Tag</span>
+                    </div>
+                    <div class="bs-row flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs="1">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">02</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Thementage</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">15 Min/Woche</span>
+                    </div>
+                    <div class="bs-row flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs="2">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">03</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Abend-Check-out</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">5 Min/Tag</span>
+                    </div>
+                    <div class="bs-row flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs="3">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">04</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Bewusstes Verschieben</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">Laufend</span>
+                    </div>
+                    <div class="bs-row flex items-center justify-between px-5 py-3.5" data-bs="4">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">05</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Erinnerungen & kurze Notizen</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">1 Min/Tag</span>
+                    </div>
+                </div>
 
-            <h3>2. Thementage</h3>
+                <div class="mt-4">
+                    <div class="bs-detail active border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail="0">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">01</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Morgen-Check-in</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Vorher</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Laptop auf, losgelegt. Keine Prioritäten, sondern das Lauteste zuerst. Abends unklar, was geschafft wurde.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Jetzt</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">Ich setze drei Tagesprioritäten, prüfe meinen Wochenplan und sortiere lose Gedanken ein. Außerdem definiere ich, wann eine Aufgabe als erledigt gilt.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #7b6ba5;">KI-Unterstützung</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Claude prüft den Wochenplan, sortiert lose Gedanken vor und prüft meine Aufgabenliste. Daraus ergibt sich eine Prioritäten-Reihenfolge für den Tag.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Warum es funktioniert</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Wenige, spezifische Ziele schlagen vage oder zu viele¹. Entscheidungsqualität ist morgens am höchsten².</p>
+                            </div>
+                        </div>
+                    </div>
 
-            <p>Jeder Wochentag hat einen Schwerpunkt. Montag: Projekt A. Mittwoch: Lernen. Donnerstag: Projekt B. Kein Tag hat zwei große Themen.</p>
+                    <div class="bs-detail border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail="1">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">02</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Thementage</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Vorher</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Ich arbeite jeden Tag an allem gleichzeitig: Morgens Strategie, mittags Code-Review, nachmittags Kundengespräche.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Jetzt</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">Jeder Wochentag hat einen festen Schwerpunkt. Montag: Projekt A. Mittwoch: Lernen. Kein Tag hat zwei große Themen.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #7b6ba5;">KI-Unterstützung</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Claude kennt den Wochenplan und schützt den Themenfokus. Wenn etwas Themenfremdes reinkommt entscheide ich bewusst, ob ich es verschiebe oder reagiere.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Warum es funktioniert</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Context-Switching zwischen Projekten ist kognitiv teurer als Vertiefen innerhalb eines Themas³. Thementage eliminieren den teuersten Teil des Multitaskings.</p>
+                            </div>
+                        </div>
+                    </div>
 
-            <p>Was auf den ersten Blick starr wirkt, hat einen neuropsychologischen Hintergrund: Context-Switching — das Wechseln zwischen inhaltlich verschiedenen Aufgabenbereichen — ist kognitiv teurer als das Vertiefen innerhalb eines Themas. Thementage eliminieren den teuersten Teil des Multitaskings: den ständigen Kontextwechsel zwischen Projekten.</p>
+                    <div class="bs-detail border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail="2">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">03</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Abend-Check-out</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Vorher</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Laptop ohne einen sauberen Abschluss zuklappen. Offene Aufgaben nehme ich im Kopf mit in den Abend.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Jetzt</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">Drei Fragen: Was wurde geschafft? Was gelernt? Was bleibt warum offen? Offene Themen werden bewusst auf den Folgetag geschoben.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #7b6ba5;">KI-Unterstützung</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Claude führt durch die drei Fragen, hält Learnings fest, qualifiziert offene Punkte und bereitet die Übergabe an den nächsten Tag vor.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Warum es funktioniert</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Unabgeschlossene Aufgaben bleiben im Arbeitsgedächtnis aktiv und binden kognitive Kapazität (der sogenannte Zeigarnik-Effekt⁴). Der bewusste Check-out externalisiert sie.</p>
+                            </div>
+                        </div>
+                    </div>
 
-            <h3>3. Abend-Check-out (5 Minuten)</h3>
+                    <div class="bs-detail border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail="3">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">04</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Bewusstes Verschieben</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Vorher</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Aufgaben fielen einfach runter. Kein bewusstes Verschieben, nur passives Vergessen. Diffuse Unzufriedenheit.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Jetzt</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">Aktives, bewusstes und begründetes Umplanen von Aufgaben: "Artikel-Review auf morgen, weil externer Termin." Dokumentierte Entscheidung statt Kontrollverlust.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #7b6ba5;">KI-Unterstützung</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Claude fragt im Check-out nach offenen Punkten und dokumentiert die Umplanung mit Begründung. Am nächsten Morgen taucht der Punkt wieder auf.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Warum es funktioniert</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Der Unterschied ist nicht das Ergebnis, sondern das Bewusstsein. Aktives Umplanen ist eine Entscheidung. Passives Vergessen erzeugt Kontrollverlust.</p>
+                            </div>
+                        </div>
+                    </div>
 
-            <p>Drei Fragen: Was geschafft? Was gelernt? Was bleibt offen — und warum? Dieser Schritt schließt den offenen Loop des Tages. Die Zeigarnik-Effekt-Forschung zeigt, dass unabgeschlossene Aufgaben im Arbeitsgedächtnis aktiv bleiben und kognitive Kapazität binden. Der Check-out externalisiert diese offenen Punkte und gibt dem Gehirn die Erlaubnis, loszulassen.</p>
+                    <div class="bs-detail border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail="4">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">05</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Erinnerungen & kurze Notizen</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Vorher</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Mein Gehirn arbeitet auch nach Feierabend weiter, sodass sich spontane Ideen und Geistesblitze ergeben. Doch wohin damit? Die Unruhe bleibt im Kopf.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Jetzt</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">Eine kurze, unsortierte Apple Erinnerung formulieren und den Gedanken loslassen. Claude sortiert es mit mir am nächsten Morgen ein.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #7b6ba5;">KI-Unterstützung</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Claude liest morgens beim Check-in meine Apple Erinnerungen und formuliert sie automatisch in Aufgaben um. Wir entscheiden gemeinsam über Relevanz und Dringlichkeit.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Warum es funktioniert</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Solange Gedanken nicht losgelassen sind, beanspruchen sie das Gedächtnis. Ein Mind Sweep hilft⁵.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <h3>4. Bewusstes Verschieben</h3>
+            <script>
+            (function() {
+                var rows = document.querySelectorAll('.bs-row');
+                var details = document.querySelectorAll('.bs-detail');
+                rows.forEach(function(row) {
+                    row.addEventListener('click', function() {
+                        var idx = this.dataset.bs;
+                        rows.forEach(function(r) {
+                            r.classList.remove('active');
+                            r.querySelector('.bs-num').style.background = '#e5e2db';
+                            r.querySelector('.bs-num').style.color = '#44403c';
+                        });
+                        this.classList.add('active');
+                        this.querySelector('.bs-num').style.background = '#7b6ba5';
+                        this.querySelector('.bs-num').style.color = 'white';
+                        details.forEach(function(d) { d.classList.remove('active'); });
+                        document.querySelector('[data-bs-detail="' + idx + '"]').classList.add('active');
+                    });
+                });
+            })();
+            </script>
 
-            <p>Störungen sind nicht die Ausnahme, sondern der Normalfall. Der entscheidende Unterschied liegt in der Reaktion: Aktiv verschieben ("Artikel-Review auf morgen, weil externer Termin dazwischenkam") statt passiv vergessen ("Artikel-Review irgendwie nicht geschafft"). Das eine ist eine dokumentierte Entscheidung. Das andere ist Kontrollverlust — und erzeugt genau die diffuse Unzufriedenheit, die an Nicht-Routine-Tagen im Logbuch auftaucht.</p>
 
-            <h3>5. Capture-Box für abends</h3>
 
-            <p>Ideen und Aufgaben, die nach Feierabend hochkommen, landen in einer Capture-Box. Nicht sortieren, nicht priorisieren — nur externalisieren. Die Einsortierung passiert am nächsten Morgen im Check-in.</p>
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE
+                 ══════════════════════════════════════════════ -->
 
-            <p>David Allen hat dieses Prinzip in "Getting Things Done" als "Mind Sweep" beschrieben: Solange Gedanken nicht externalisiert sind, beanspruchen sie Arbeitsgedächtnis. Die Capture-Box ist das Werkzeug, das den Feierabend tatsächlich zum Feierabend macht.</p>
+            <h2>Was ich verändert habe</h2>
 
-            <h2>Was ich vorher anders gemacht habe</h2>
+            <p>Vor einem Jahr habe ich KI wie die meisten genutzt: punktuell, ohne Kontext, ohne Gedächtnis. Jede Session fing bei Null an. KI war ein schnelleres Google: nützlich, aber kein echter Arbeitspartner.</p>
 
-            <p>Vor dem System habe ich morgens den Laptop aufgeklappt und losgelegt — mit dem, was gerade am lautesten war. E-Mails, Slack, das letzte offene Dokument. Abends wusste ich oft nicht, was ich eigentlich geschafft hatte. Nicht weil ich wenig gearbeitet habe, sondern weil die Arbeit keinen Rahmen hatte. Kein definiertes "Genug", kein dokumentiertes Ergebnis. Das Tageslog hat dieses Muster sichtbar gemacht — und damit änderbar.</p>
+            <p>Heute hat meine KI Zugriff auf meinen Wochenplan, meine Aufgabenliste und mein Tageslog. Sie kennt meine Thementage, weiß was letzte Woche offen geblieben ist und fragt morgens nach meinen Prioritäten. Das hat alles verändert: Ich treffe weniger Entscheidungen im Tagesverlauf, weil die wichtigsten schon morgens um 10 gefallen sind. Ich verschiebe bewusst statt unbewusst zu vergessen. Und ich arbeite an einer Sache, weil das System den Fokus schützt — nicht weil ich mich diszipliniere. Monotasking ist kein Ziel. Es ist das Ergebnis guter Routinen.</p>
 
-            <h2>Die Rolle von KI im System</h2>
 
-            <p>In meinem Setup übernimmt eine KI die Rolle des Check-in-Partners. Morgens: Plan anschauen, Captures sortieren, Prioritäten setzen. Abends: Review, Learnings festhalten, offene Punkte qualifizieren. Freitags: Wochen-Review in 15 Minuten — Wochenziele prüfen, Learnings verdichten, Folgewoche vorbereiten.</p>
-
-            <p>Das adressiert ein strukturelles Problem: Wer allein arbeitet — ohne Team, ohne Standup, ohne Sparringspartner — hat keine externe Instanz, die Rechenschaft einfordert. In der Organisationspsychologie ist der Effekt von Accountability auf Zielerreichung gut dokumentiert. Die KI ersetzt kein Team. Sie liefert die minimale externe Struktur, die Selbstständige und Solo-Wissensarbeiter:innen sonst nicht haben.</p>
-
-            <h2>Zeitaufwand</h2>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Baustein</th>
-                        <th>Frequenz</th>
-                        <th>Dauer</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Morgen-Check-in</td>
-                        <td>Täglich</td>
-                        <td>5 Min</td>
-                    </tr>
-                    <tr>
-                        <td>Abend-Check-out</td>
-                        <td>Täglich</td>
-                        <td>5 Min</td>
-                    </tr>
-                    <tr>
-                        <td>Capture-Box</td>
-                        <td>Laufend</td>
-                        <td>0 Min (passiert nebenbei)</td>
-                    </tr>
-                    <tr>
-                        <td>Wochen-Review</td>
-                        <td>Freitags</td>
-                        <td>15 Min</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Gesamt pro Woche</strong></td>
-                        <td></td>
-                        <td><strong>~65 Min</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <p><strong>These:</strong> 65 Minuten pro Woche für Struktur. Dem steht gegenüber: Laut Gloria Marks Forschung verliert eine durchschnittliche Wissensarbeiterin über 6 Stunden pro Woche allein durch die Erholungszeit nach Unterbrechungen. Die Rechnung ist eindeutig — aber nur, wenn die Routine tatsächlich durchgehalten wird.</p>
-
-            <p><strong>Die Bruchstelle:</strong> An 2 von 10 beobachteten Tagen ist die Routine ausgefallen — nicht weil sie nicht funktioniert, sondern weil ein externer Termin, ein krankes Kind oder schlicht Vergessen dazwischenkam. An genau diesen Tagen zeigt das Logbuch: keine definierten Prioritäten, kein messbares Ergebnis. Das System funktioniert nicht durch Willenskraft. Es bricht, wenn die Infrastruktur aussetzt. Die ehrliche Erkenntnis: Monotasking braucht Schutz, nicht Disziplin.</p>
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG
+                 ══════════════════════════════════════════════ -->
 
             <h2>Kritische Einordnung</h2>
 
-            <p>Dieses System funktioniert für mich als Solo-Wissensarbeiterin mit planbaren Zeitblöcken. In einem Team mit Standups und geteilten Kanälen übernimmt das Team einen Teil der Accountability — der Check-in-Partner ist dann weniger nötig. Und wer in einem Umfeld arbeitet, in dem ständige Erreichbarkeit erwartet wird, kann Thementage nicht einfach durchsetzen. Das System setzt voraus, dass man Kontrolle über den eigenen Tag hat — oder sich diese Kontrolle erkämpft.</p>
+            <p>Das System setzt voraus, dass man bereit ist, einer KI Kontext zu geben. Die KI weiß alles über meinen Wochenplan, meine Aufgaben, meine Lernfelder. Wer das nicht will oder darf, für den funktioniert dieser Ansatz nicht reibungslos. Und: Die KI ist kein Coach. Sie liefert Struktur, nicht Motivation. An Tagen, an denen ich keine Lust habe, hilft auch die beste Routine nur bedingt.</p>
 
-            <p>Auch die Dreier-Regel ist keine Universallösung. An manchen Tagen sind drei Prioritäten zu viel, an anderen zu wenig. Der Wert liegt nicht in der Zahl, sondern im Akt des Entscheidens: Morgens festlegen, was zählt.</p>
+            <p>Und das System ist nicht bruchsicher. An 2 von 10 beobachteten Tagen ist die Routine ausgefallen — durch einen externen Termin oder schlicht einen chaotischen Start in den Tag. An genau diesen Tagen zeigt das Logbuch: keine klaren Prioritäten, kein messbares Ergebnis. Das System bricht nicht an der Methode, sondern wenn die Infrastruktur aussetzt. Je stärker der Alltag fremdgesteuert ist, desto aktiver muss man den Rahmen schützen — Fokuszeiten kommunizieren, Benachrichtigungen steuern, Reaktionszeiten bewusst setzen statt passiv erfüllen.</p>
 
-            <h2>Fazit</h2>
 
-            <ol>
-                <li><strong>Morgens entscheiden</strong> — nicht im Laufe des Tages</li>
-                <li><strong>Ein Thema pro Tag</strong> — Kontextwechsel eliminieren</li>
-                <li><strong>Abends dokumentieren</strong> — offene Loops schließen</li>
-                <li><strong>Captures externalisieren</strong> — Arbeitsgedächtnis freiräumen</li>
-                <li><strong>Routine schützen</strong> — auch wenn der Tag anders läuft</li>
-            </ol>
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: TAKEAWAYS
+                 ══════════════════════════════════════════════ -->
 
-            <p>Der Effekt zeigt sich nicht nach drei Wochen Eingewöhnung. Er zeigt sich am ersten Tag mit Routine. Und er zeigt sich am ersten Tag ohne.</p>
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">KI braucht Kontext, nicht bessere Prompts.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wochenplan, Aufgabenliste, Tageslog — je mehr die KI weiß, desto weniger muss ich selbst steuern.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Monotasking ist das Ergebnis, nicht das Ziel.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wer morgens Prioritäten setzt und abends Loops schließt, arbeitet automatisch fokussierter.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Routine schützen, nicht durchhalten.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Der Effekt zeigt sich am ersten Tag mit Routine. Und er zeigt sich am ersten Tag ohne.</p>
+                    </div>
+                </div>
+            </div>
 
-            <p><em>Monotasking + Routine: 65 Minuten pro Woche. Wissenschaftlich fundiert, praktisch erprobt, ästhetisch fragwürdig.</em></p>
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://doi.org/10.1037/0003-066X.57.9.705" class="hover:text-stone-600 transition-colors" style="color: inherit;">Locke & Latham (2002). Building a Practically Useful Theory of Goal Setting and Task Motivation.</a></li>
+                    <li><a href="https://www.penguinrandomhouse.com/books/307740/willpower-by-roy-f-baumeister-and-john-tierney/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Baumeister & Tierney (2011). Willpower: Rediscovering the Greatest Human Strength.</a></li>
+                    <li><a href="https://www.apa.org/topics/research/multitasking" class="hover:text-stone-600 transition-colors" style="color: inherit;">APA (2006). Multitasking: Switching Costs.</a></li>
+                    <li><a href="https://doi.org/10.1007/BF02409209" class="hover:text-stone-600 transition-colors" style="color: inherit;">Zeigarnik (1927). Über das Behalten von erledigten und unerledigten Handlungen.</a></li>
+                    <li><a href="https://gettingthingsdone.com" class="hover:text-stone-600 transition-colors" style="color: inherit;">Allen (2001). Getting Things Done: The Art of Stress-Free Productivity.</a></li>
+                    <li><a href="https://doi.org/10.1145/1357054.1357072" class="hover:text-stone-600 transition-colors" style="color: inherit;">Mark, G., Gudith, D. & Klocke, U. (2008). The Cost of Interrupted Work. <em>CHI 2008</em>, ACM.</a></li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context-Switching</span> <span class="text-stone-400">— Kognitiver Aufwand beim Wechsel zwischen verschiedenen Aufgabenbereichen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Goal-Setting-Theorie</span> <span class="text-stone-400">— Spezifische Ziele führen zu besserer Leistung als vage oder keine Ziele (Locke & Latham).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Mind Sweep</span> <span class="text-stone-400">— Alle offenen Gedanken externalisieren, um das Arbeitsgedächtnis zu entlasten (David Allen).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Monotasking</span> <span class="text-stone-400">— Bewusste Entscheidung, in einem definierten Zeitraum nur an einer Sache zu arbeiten.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Task-Switching</span> <span class="text-stone-400">— Schnelles Wechseln zwischen Aufgaben. Kostet bei jedem Wechsel kognitive Ressourcen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Zeigarnik-Effekt</span> <span class="text-stone-400">— Unabgeschlossene Aufgaben bleiben im Arbeitsgedächtnis aktiv, bis sie abgeschlossen oder externalisiert werden.</span></p>
+                </div>
+            </div>
 
         </article>
 
