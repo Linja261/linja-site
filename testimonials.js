@@ -13,11 +13,11 @@
 var TESTIMONIALS = [
   {
     de: {
-      quote: 'Linja denkt strategisch und bleibt dabei menschlich. Sie hat die seltene F\u00e4higkeit, implizite Annahmen sichtbar zu machen und als \u00dcbersetzerin zwischen Disziplinen zu wirken. Auch in schwierigen Situationen beh\u00e4lt sie Humor und Klarheit.',
+      quote: 'Besonders beeindruckend ist ihre F\u00e4higkeit, komplexe Zusammenh\u00e4nge klar zu strukturieren und f\u00fcr unterschiedliche Zielgruppen verst\u00e4ndlich zu machen. Sie \u00fcbersetzt zwischen Business, Produkt und Technologie, macht implizite Annahmen sichtbar und schafft geteiltes Verst\u00e4ndnis. Methodik ist f\u00fcr sie kein Selbstzweck, sondern Werkzeug, um Klarheit zu erzeugen und Entscheidungsf\u00e4higkeit zu st\u00e4rken.',
       role: 'Abteilungsleiter Digitale Produkte'
     },
     en: {
-      quote: 'Linja thinks strategically while staying human. She has the rare ability to make implicit assumptions visible and to act as a translator between disciplines. Even in difficult situations, she keeps her humor and clarity.',
+      quote: 'What\u2019s particularly impressive is her ability to structure complex topics clearly and make them accessible for different audiences. She translates between business, product, and technology, makes implicit assumptions visible, and creates shared understanding. For her, methodology isn\u2019t an end in itself \u2014 it\u2019s a tool to create clarity and strengthen decision-making.',
       role: 'Head of Digital Products'
     },
     name: 'Jan H\u00f6lter',
@@ -27,11 +27,11 @@ var TESTIMONIALS = [
   },
   {
     de: {
-      quote: 'Was mich \u00fcberzeugt hat: Linja gibt klaren Kontext \u2013 Warum machen wir das? F\u00fcr wen? Mit welcher Hypothese? \u2013 und l\u00e4sst dann Raum f\u00fcr eigene L\u00f6sungen. Sie vereint verschiedene Disziplinen unter einer gemeinsamen Vision, ohne sich in Details einzumischen.',
+      quote: 'In unserer Zusammenarbeit hat mich vor allem ihre F\u00e4higkeit beeindruckt, implizite Annahmen sichtbar zu machen. Sie \u00fcbersetzt zwischen Business, Produkt und Technologie so, dass alle Beteiligten tats\u00e4chlich mitkommen \u2014 nicht nur nicken. Sie versteckt sich nicht hinter Frameworks. Sie stellt die Fragen, die andere vermeiden, und bringt Dinge auf den Punkt.',
       role: 'Team Lead UX/UI'
     },
     en: {
-      quote: 'What convinced me: Linja provides clear context \u2014 Why are we doing this? For whom? Based on what hypothesis? \u2014 then leaves room for the team to find their own solutions. She unites different disciplines under a shared vision without micromanaging.',
+      quote: 'What impressed me most in our collaboration was her ability to make implicit assumptions visible. She translates between business, product, and technology in a way that everyone actually follows along \u2014 not just nods. She doesn\u2019t hide behind frameworks. She asks the questions others avoid and gets straight to the point.',
       role: 'Team Lead UX/UI'
     },
     name: 'David Latz',
@@ -51,6 +51,20 @@ var TESTIMONIALS = [
     name: 'Marian Pintea',
     company: 'Microsoft',
     linkedin: 'https://linkedin.com/in/marianpintea',
+    hidden: true
+  },
+  {
+    de: {
+      quote: 'Was ich pers\u00f6nlich besonders gesch\u00e4tzt habe: Linja hat Vertrauen geschaffen und Verantwortung erm\u00f6glicht. Als Entwickler hatte man nicht nur Tickets, sondern echten Gestaltungsspielraum \u2013 bei gleichzeitig klarer Produktvision.',
+      role: 'Senior Software Engineer'
+    },
+    en: {
+      quote: 'What I personally valued most: Linja built trust and enabled ownership. As a developer, you didn\u2019t just get tickets \u2014 you had real creative freedom, paired with a clear product vision.',
+      role: 'Senior Software Engineer'
+    },
+    name: 'Tobias Kraus',
+    company: 'pemedia',
+    linkedin: 'https://linkedin.com/in/tobias-kraus-io',
     hidden: true
   }
 ];
