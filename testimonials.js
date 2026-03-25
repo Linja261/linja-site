@@ -65,7 +65,7 @@ var TESTIMONIALS = [
     name: 'Tobias Kraus',
     company: 'pemedia',
     linkedin: 'https://linkedin.com/in/tobias-kraus-io',
-    hidden: true
+    hidden: false
   }
 ];
 
