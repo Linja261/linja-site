@@ -1,0 +1,288 @@
+<!--
+  linja.me/blog/hierarchie-intelligenz – Wenn KI das mittlere Management ersetzt
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + max 2 optionale)
+  Optionale Komponenten: Vergleichs-Cards (1/2)
+  Einordnung zu: Sequoia Capital – "From Hierarchy to Intelligence" (2025)
+  Stand: 2026-04-01
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wenn KI das mittlere Management ersetzt – Linja Scharffetter</title>
+    <meta name="description" content="Sequoia beschreibt, wie Block seine Organisation umstellt: von Hierarchie zu KI-gesteuerter Koordination. Eine Einordnung, was das für Product Management bedeutet.">
+    <meta property="og:title" content="Wenn KI das mittlere Management ersetzt">
+    <meta property="og:description" content="Sequoia beschreibt, wie Block seine Organisation umstellt: von Hierarchie zu KI-gesteuerter Koordination. Eine Einordnung, was das für Product Management bedeutet.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../components.js" data-active="blog"></script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Organisation & KI</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Einordnung</span>
+                <span class="text-[0.72rem] text-stone-400">1. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 8 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Wenn KI das mittlere Management ersetzt
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM (~100 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <p>Jack Dorsey (Block-CEO) und Roelof Botha (Sequoia) haben gemeinsam einen Artikel veröffentlicht, der es in sich hat: <a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" style="color: #7b6ba5;">„From Hierarchy to Intelligence"</a> beschreibt, wie Block (ehemals Square) seine Organisationsstruktur umstellen will &mdash; weg von klassischer Hierarchie, hin zu einem System, in dem KI die Koordinationsarbeit übernimmt, die bisher Manager geleistet haben. Das ist kein vages Zukunftsszenario, aber auch kein fertiges Modell. Block befindet sich nach eigener Aussage in einem frühen Stadium dieser Transformation. Dass der CEO selbst als Co-Autor auftritt, macht den Text halb Analyse, halb Manifest &mdash; was die Einordnung umso wichtiger macht.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG (~400-600 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <h2>2.000 Jahre dasselbe Dilemma</h2>
+
+            <p>Der Artikel beginnt mit einer historischen Beobachtung, die überraschend einfach ist: Organisatorische Hierarchie existiert seit der römischen Armee. Der Grund war nicht primär Macht oder Kontrolle &mdash; der Grund war <strong>Informationsfluss</strong>. Ein Kommandant konnte maximal 3 bis 8 Personen direkt steuern. Also brauchte man Schichten. Jede neue Schicht verlangsamte den Informationsfluss, ermöglichte aber Koordination über größere Gruppen.</p>
+
+            <p>Dieses Grundprinzip hat sich in 2.000 Jahren nicht verändert. Preußischer Generalstab, Taylors Scientific Management, die Matrixorganisation, Spotify-Squads, Holacracy bei Zappos &mdash; alles Varianten desselben Tradeoffs: Mehr Koordinationsbreite bedeutet langsameren Informationsfluss. Weniger Schichten bedeuten Kontrollverlust. Keine der populären Organisationsformen hat dieses Grundproblem gelöst. Jede hat Limitationen der klassischen Hierarchie aufgezeigt, aber alle sind an der Skalierung gescheitert &mdash; Spotify hat die Squads zurückgebaut, Zappos verlor Mitarbeiter, Valve konnte nicht wachsen.</p>
+
+            <h2>Blocks Gegenmodell: Vier Bausteine statt Produktteams</h2>
+
+            <p>Block schlägt etwas grundlegend anderes vor. Statt Hierarchie durch eine andere menschliche Koordinationsform zu ersetzen, ersetzt Block die Koordinationsfunktion selbst durch KI. Das Unternehmen organisiert sich nicht mehr in Produktteams, sondern in vier Schichten:</p>
+
+            <p><strong>Capabilities</strong> sind atomare technische Primitive &mdash; Zahlungsabwicklung, Kreditvergabe, Gehaltsabrechnung. Sie haben keine eigene Oberfläche und fokussieren auf Zuverlässigkeit und Compliance. <strong>World Models</strong> bilden ein doppelseitiges Echtzeitverständnis: intern, was gebaut wird und wo es hängt, und extern, wie Kunden und Merchants sich tatsächlich verhalten. Der <strong>Intelligence Layer</strong> komponiert diese Capabilities zu Lösungen &mdash; nicht auf Anfrage, sondern proaktiv. Das Beispiel aus dem Artikel: Das System erkennt saisonale Cashflow-Engpässe bei einem Merchant und bietet automatisch einen Kurzkredit an, bevor der Merchant selbst das Problem bemerkt. <strong>Interfaces</strong> wie Square, Cash App oder Afterpay sind dann nur noch Auslieferungsoberflächen &mdash; dort wird Wert geliefert, nicht erzeugt.</p>
+
+            <!-- ══ OPTIONAL 1/2: VERGLEICHS-CARDS ══ -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #a8a29e; background: #FAFAF8;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3 text-stone-400">Klassisch</p>
+                    <p class="font-mono text-[1.1rem] font-medium text-stone-400 mb-3">Intelligenz in Menschen</p>
+                    <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Hierarchie routet Information zwischen Spezialisten. Manager als Koordinatoren.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">Block-Modell</p>
+                    <p class="font-mono text-[1.1rem] font-medium text-stone-900 mb-3">Intelligenz im System</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">KI koordiniert. Menschen arbeiten am Edge &mdash; dort, wo Urteilsvermögen zählt.</p>
+                </div>
+            </div>
+
+            <h2>Was das für Produktorganisationen bedeutet</h2>
+
+            <p>Der Artikel benennt es direkt: Dass Product Manager hypothetisieren, was als nächstes gebaut werden soll, sei der eigentliche Engpass konventioneller Unternehmen. Ein großer Teil klassischer PM-Arbeit ist genau die Funktion, die hier ersetzt wird. Alignment-Meetings, Stakeholder-Updates, Prio-Verhandlungen, Status-Syncs &mdash; das alles ist Informationsrouting. Es ist Middleware. Und Middleware wird automatisiert.</p>
+
+            <p>Block behält drei Rollen: <strong>Individual Contributors</strong> als tiefe Spezialisten, deren Kontext nicht mehr vom Manager kommt, sondern vom World Model. <strong>Directly Responsible Individuals</strong>, die temporär cross-funktionale Probleme besitzen und Ressourcen ziehen können. Und <strong>Player-Coaches</strong>, die technische Arbeit mit People Development kombinieren &mdash; ohne Status-Meetings und Prio-Verhandlungen. Bewusst eliminiert: permanentes mittleres Management.</p>
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Product Management als Informationsrouting wird obsolet. Product als Intelligence Design gewinnt massiv an Bedeutung.
+                </p>
+            </div>
+
+            <p>Die entscheidende Frage, die der Artikel jedem Unternehmen stellt, lautet sinngemäß: Was versteht euer Unternehmen, das wirklich schwer zu verstehen ist &mdash; und wird dieses Verständnis jeden Tag tiefer? Wer darauf eine schwache Antwort hat, für den optimiert KI nur vorübergehend Kosten. Wer eine starke Antwort hat, baut einen sich selbst verstärkenden Vorteil. Blocks Antwort ist der sogenannte „Economic Graph" &mdash; Echtzeit-Finanzdaten von Millionen Merchants und Konsumenten, die sich mit jeder Transaktion verdichten.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE (~100-200 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich mir vornehme</h2>
+
+            <p>Der Artikel hat meine Perspektive auf meine eigene Rolle geschärft. Ich will künftig bewusster darauf achten, wie viel meiner Arbeitszeit in Informationsrouting fließt &mdash; und wo ich stattdessen an Verständnissystemen arbeiten sollte. Drei Dinge nehme ich mir konkret vor: Bei Prio-Entscheidungen nicht mehr nur nach dem Feature mit dem größten Impact fragen, sondern nach der fehlenden Capability, die in Kombination mit bestehenden Capabilities mehrere Probleme lösen könnte. Bei wiederkehrenden Meetings prüfen, ob ein Dashboard oder ein asynchrones Update dasselbe leisten würde. Und meine Roadmap nicht mehr als Feature-Liste denken, sondern als Capability-Portfolio &mdash; was direkt an Jobs-to-be-Done anschlussfähig ist, weil Jobs stabil sind und Lösungen als Kompositionen von Capabilities variieren.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG (~100-150 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Block beschreibt das selbst als frühes Stadium und räumt ein, dass Teile davon brechen werden, bevor sie funktionieren. Das ist ehrlich und wichtig, denn der Artikel liest sich streckenweise wie ein Manifest &mdash; nicht wie ein Erfahrungsbericht. Ob KI tatsächlich die Urteilsarbeit von Managern ersetzen kann oder nur den Informationsteil, ist offen. Es gibt gute Gründe anzunehmen, dass die informellen Koordinationsfunktionen von mittlerem Management &mdash; Vertrauen aufbauen, Konflikte moderieren, kulturellen Kontext vermitteln &mdash; unterschätzt werden, gerade weil sie unsichtbar sind. Und das Modell setzt voraus, dass alle relevante Arbeit maschinenlesbar ist. In einem Remote-first-Unternehmen wie Block mag das näherungsweise stimmen. In den meisten Organisationen ist es weit davon entfernt.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG (~50-100 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Denke in Capabilities, nicht in Features.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Welche wiederverwendbare Fähigkeit fehlt dem Produkt &mdash; nicht welches Feature wünscht sich ein Stakeholder.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Prüfe, wo du Informationsrouter bist.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Jedes Meeting, das ein Dashboard ersetzen könnte, ist ein Signal, dass du an der falschen Stelle arbeitest.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Bau dein World Model.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Sammle systematisch Signale, die schwer zu fälschen sind. Nutzungsdaten und Support-Tickets schlagen Stakeholder-Meinungen.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN (Pflicht-Anhang)
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Sequoia Capital (2025). From Hierarchy to Intelligence.</a></li>
+                    <li>Chandler, A. D. (1977). The Visible Hand: The Managerial Revolution in American Business. Harvard University Press.</li>
+                    <li>Taylor, F. W. (1911). The Principles of Scientific Management. Harper &amp; Brothers.</li>
+                    <li>Galbraith, J. R. (1971). Matrix Organization Designs. Business Horizons, 14(1), 29&ndash;40.</li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSAR (Pflicht-Anhang)
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Span of Control</span> <span class="text-stone-400">&mdash; Anzahl der Personen, die eine F&uuml;hrungskraft direkt steuern kann (typisch 3&ndash;8).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Capability</span> <span class="text-stone-400">&mdash; Atomare technische F&auml;higkeit ohne eigene Oberfl&auml;che (z.B. Zahlungsabwicklung, Kreditvergabe).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">World Model</span> <span class="text-stone-400">&mdash; KI-gest&uuml;tztes Echtzeitverst&auml;ndnis interner Abl&auml;ufe und externer Kundenrealit&auml;t.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Intelligence Layer</span> <span class="text-stone-400">&mdash; Schicht, die Capabilities proaktiv zu L&ouml;sungen komponiert.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">DRI</span> <span class="text-stone-400">&mdash; Directly Responsible Individual. Besitzt tempor&auml;r ein cross-funktionales Problem mit Zugriffsrecht auf Ressourcen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Player-Coach</span> <span class="text-stone-400">&mdash; Rolle, die technische Arbeit mit People Development kombiniert &mdash; ohne klassische Management-Aufgaben.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Economic Graph</span> <span class="text-stone-400">&mdash; Blocks Echtzeit-Netzwerk aus Finanzverhalten von Millionen Merchants und Konsumenten.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <div id="site-footer"></div>
+
+</body>
+
+</html>
