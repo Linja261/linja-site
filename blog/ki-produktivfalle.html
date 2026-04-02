@@ -4,6 +4,7 @@
   Optionale Komponenten: Kennzahl-Highlights
   Ursprünglich veröffentlicht: 9. März 2026 (Substack)
   Stand: 2026-03-23
+  Bilingual: DE + EN
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -66,6 +67,8 @@
             display: block;
         }
 
+        .lang-hidden { display: none !important; }
+
         .prose h2 {
             font-family: "Source Serif 4", Georgia, serif;
             font-weight: 600;
@@ -124,8 +127,10 @@
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ======== DEUTSCHE VERSION ======== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
         <!-- ======== ARTIKEL-HEADER ======== -->
@@ -279,9 +284,188 @@
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ======== ENGLISH VERSION ======== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI & Productivity</span>
+                <span class="text-[0.72rem] text-stone-400">March 9, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                AI doesn't make you more productive — it makes you busier
+            </h1>
+        </header>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: CORE MESSAGE + PROBLEM
+                 ══════════════════════════════════════════════ -->
+
+            <p>AI promises relief. Faster writing, better research, less grunt work. And yes — all of that is true. But what nobody tells you: you get lost in it. I created over 100 files with AI. Deep personality analyses, skill mappings, career narratives. Every single one felt like real work. Out of those 100+ files, I actually reused exactly two areas. Two. That was the AI productivity trap.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: EVIDENCE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>The paradox: Everyone feels productive, nobody is</h2>
+
+            <p>The numbers are clear — and unsettling: Up to 90 percent of AI users report time savings. An average of 25 minutes per day. But only 3 to 7 percent of those perceived gains show up in measurable results.</p>
+
+            <!-- ══ OPTIONAL 1/2: KEY METRIC HIGHLIGHTS ══ -->
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">90%</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">of AI users report time savings</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Self-assessment</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">3–7%</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">measurable productivity gains</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">CEO surveys</p>
+                </div>
+            </div>
+
+            <p>In a developer study, participants believed they were 20 percent faster. In reality, they were 19 percent <em>slower</em>. Robert Solow described a similar phenomenon in 1987: You can see the computer age everywhere, except in the productivity statistics. The Solow Paradox only resolved when organizations reorganized themselves <em>around</em> the technology. It wasn't the tool that created value — it was the new way of working around it.</p>
+
+
+            <h2>Why working with AI feels so good</h2>
+
+            <p><strong>Dopamine loops.</strong> Instant answers activate the reward system — similar to social media. A tolerance effect builds up: you need increasingly ambitious projects for the same rush.</p>
+
+            <p><strong>Flow state imitation.</strong> Reduced friction plus immediate feedback — those are all the ingredients for flow. But without the deep cognitive work that makes real flow valuable. You feel like you're in flow, but you're just going with the <em>current</em>.</p>
+
+            <p><strong>Cognitive bias.</strong> People who work with AI systematically overestimate their own performance. Fast output feels like better output. Speed itself becomes the quality signal.</p>
+
+            <p><strong>Workslop.</strong> AI-generated output that looks polished but lacks substance. Around 40 percent of employees spend <em>more</em> time reviewing and correcting AI output than they did before.</p>
+
+            <!-- ══ CORE INSIGHT QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    AI is not a productivity turbocharger. It's an amplifier. What's structured becomes more productive. What's unstructured becomes more chaotic.
+                </p>
+            </div>
+
+
+            <h2>Four patterns that make the difference</h2>
+
+            <p><strong>1. Build structure first, then let AI generate.</strong> Without your own framework, AI produces unlimited output — and you can't tell what's good. During my job search, I first built a scoring framework — roles, criteria, weightings. Only then could AI work on top of it. The framework became the constitution of my AI usage.</p>
+
+            <p><strong>2. Writing rules is the real work.</strong> It's not the content that's valuable, but the rules that ensure content gets maintained, reviewed, and reduced. When does something get merged, trimmed, or deleted? If an AI-generated file hasn't been reopened in two weeks, it was process value — good for thinking, but not product value.</p>
+
+            <p><strong>3. Set goals before the AI session.</strong> If you set goals during the session, you'll be driven by output instead of your own intention. Define a maximum of three daily priorities each morning. A quick weekly kick-off on Mondays. A review on Fridays. Each takes 5 to 15 minutes — and it protects against the AI pull, because "enough" is already defined.</p>
+
+            <p><strong>4. Rhythm beats discipline.</strong> Fixed rituals are more effective than willpower. Fixed theme days instead of flexible daily planning. Fixed check-in, fixed check-out. The decision is made before the AI session begins. Rhythm limits options — and limited options are the best protection against the AI pull.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WHAT I CHANGED
+                 ══════════════════════════════════════════════ -->
+
+            <h2>What I changed</h2>
+
+            <p>Six months ago, I used AI like most people: task in, output out, feel good, move on. The result was 100+ files and the feeling of being enormously productive. In reality, I had two usable outcomes.</p>
+
+            <p>Now I never start an AI session without a predefined goal and a predefined "enough." Every week I check which files I actually reused. Anything that stays unopened for two weeks gets archived or deleted. And I stopped saving reflection exercises as files — the value was in the thinking, not in the document.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: CRITICAL PERSPECTIVE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Critical perspective</h2>
+
+            <p>Perhaps the most important point: AI doesn't know you. It mirrors back what you give it, in beautifully written form. That feels like deep understanding, but it's an elaborate echo chamber. I gave AI my personality profile — and it explained to me who I am. Of course it was accurate — it just returned what I had fed it before. The value was in the process of sorting, not in the document at the end.</p>
+
+            <p>This system works for me as a solo knowledge worker with limited hours. If you work in a team, you have other safeguards — standups, code reviews, shared channels. And if you only use AI for clearly defined tasks (translation, summarization, code snippets), you need less structure. The productivity trap primarily occurs where AI is used for open-ended, creative, or strategic work — precisely where it's most impressive.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: TAKEAWAYS
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">First work on the system, then work with the system.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Structure before prompting. Framework before output.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Rules are more valuable than content.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">When does something get maintained, trimmed, deleted? That determines whether 100 files are dead weight or a system.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Define "enough" before the session starts.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Rhythm and goals protect against the AI pull.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Solow, R. M. (1987). We'd Better Watch Out. <em>New York Times Book Review</em>, 36.</li>
+                    <li>Uplevel (2024). Developer Productivity Study: Perceived vs. Actual Performance with AI Coding Tools.</li>
+                    <li>Microsoft & LinkedIn (2024). Work Trend Index: AI at Work Is Here. Now Comes the Hard Part.</li>
+                    <li>Mollick, E. (2024). Co-Intelligence: Living and Working with AI. Portfolio/Penguin.</li>
+                    <li><a href="https://doi.org/10.1037/0003-066X.57.9.705" class="hover:text-stone-600 transition-colors" style="color: inherit;">Locke & Latham (2002). Building a Practically Useful Theory of Goal Setting and Task Motivation.</a></li>
+                    <li><a href="https://gettingthingsdone.com" class="hover:text-stone-600 transition-colors" style="color: inherit;">Allen (2001). Getting Things Done: The Art of Stress-Free Productivity.</a></li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Dopamine loop</span> <span class="text-stone-400">— Fast rewards lead to tolerance buildup and increasing need for stimulation.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Flow state</span> <span class="text-stone-400">— A state of deep immersion. AI imitates it without delivering the cognitive depth.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Cognitive bias</span> <span class="text-stone-400">— The speed of AI output is misinterpreted as a quality signal.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Solow Paradox</span> <span class="text-stone-400">— Technology visible everywhere, except in the productivity statistics (Solow, 1987).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Workslop</span> <span class="text-stone-400">— AI output that looks polished but lacks substance.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <div id="site-footer"></div>
 
+<script>
+function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+function setLang(lang) { localStorage.setItem('site-lang', lang); }
+function applyLanguage(lang) {
+    var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+    var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+    var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+    if (lang === 'en') {
+        de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+        if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+        navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+    } else {
+        de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+        if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+        navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+    }
+    document.documentElement.lang = lang;
+}
+function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+applyLanguage(getLang());
+</script>
 </body>
 
 </html>

@@ -65,6 +65,8 @@
             display: block;
         }
 
+        .lang-hidden { display: none !important; }
+
         .prose h2 {
             font-family: "Source Serif 4", Georgia, serif;
             font-weight: 600;
@@ -128,8 +130,9 @@
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
         <!-- ======== ARTIKEL-HEADER ======== -->
@@ -280,9 +283,160 @@
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI in Organizations</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Analysis</span>
+                <span class="text-[0.72rem] text-stone-400">April 1, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 8 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                When AI Replaces Middle Management
+            </h1>
+        </header>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <p>Jack Dorsey (Block CEO) and Roelof Botha (Sequoia) have co-authored an article that deserves serious attention: <a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" style="color: #7b6ba5;">"From Hierarchy to Intelligence"</a> describes how Block (formerly Square) plans to restructure its organization &mdash; moving away from traditional hierarchy toward a system where AI takes over the coordination work previously done by managers. This is neither a vague vision of the future nor a finished model. Block itself describes the effort as being in its early stages. The fact that the CEO is a co-author makes the piece half analysis, half manifesto &mdash; which makes a critical reading all the more important.</p>
+
+            <h2>2,000 Years of the Same Dilemma</h2>
+
+            <p>The article opens with a historical observation that is surprisingly simple: organizational hierarchy has existed since the Roman army. The reason was not primarily power or control &mdash; the reason was <strong>information flow</strong>. A commander could directly manage at most 3 to 8 people. So layers were needed. Each new layer slowed down information flow but enabled coordination across larger groups.</p>
+
+            <p>This fundamental principle has not changed in 2,000 years. The Prussian general staff, Taylor's Scientific Management, the matrix organization, Spotify squads, Holacracy at Zappos &mdash; all variations of the same tradeoff: greater coordination breadth means slower information flow. Fewer layers mean loss of control. None of the popular organizational models have solved this fundamental problem. Each exposed limitations of classical hierarchy, but all failed to scale &mdash; Spotify rolled back its squads, Zappos lost employees, Valve could not grow.</p>
+
+            <h2>Block's Alternative: Four Layers Instead of Product Teams</h2>
+
+            <p>Block proposes something fundamentally different. Instead of replacing hierarchy with another human coordination model, Block replaces the coordination function itself with AI. The company no longer organizes around product teams but around four layers:</p>
+
+            <p><strong>Capabilities</strong> are atomic technical primitives &mdash; payment processing, lending, payroll. They have no user-facing surface and focus on reliability and compliance. <strong>World Models</strong> provide a dual real-time understanding: internally, what is being built and where things are stuck; externally, how customers and merchants actually behave. The <strong>Intelligence Layer</strong> composes these capabilities into solutions &mdash; not on request, but proactively. The example from the article: the system detects seasonal cash flow gaps for a merchant and automatically offers a short-term loan before the merchant even notices the problem. <strong>Interfaces</strong> like Square, Cash App, or Afterpay then serve purely as delivery surfaces &mdash; value is delivered there, not created.</p>
+
+            <!-- ══ COMPARISON CARDS ══ -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #a8a29e; background: #FAFAF8;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3 text-stone-400">Traditional</p>
+                    <p class="font-mono text-[1.1rem] font-medium text-stone-400 mb-3">Intelligence in People</p>
+                    <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Hierarchy routes information between specialists. Managers serve as coordinators.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">Block Model</p>
+                    <p class="font-mono text-[1.1rem] font-medium text-stone-900 mb-3">Intelligence in the System</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">AI coordinates. People work at the edge &mdash; where judgment matters.</p>
+                </div>
+            </div>
+
+            <h2>What This Means for Product Organizations</h2>
+
+            <p>The article states it directly: product managers hypothesizing what should be built next is the real bottleneck of conventional companies. A large portion of traditional PM work is exactly the function being replaced here. Alignment meetings, stakeholder updates, priority negotiations, status syncs &mdash; all of this is information routing. It is middleware. And middleware gets automated.</p>
+
+            <p>Block retains three roles: <strong>Individual Contributors</strong> as deep specialists whose context no longer comes from a manager but from the World Model. <strong>Directly Responsible Individuals</strong> who temporarily own cross-functional problems and can pull resources as needed. And <strong>Player-Coaches</strong> who combine technical work with people development &mdash; without status meetings and priority negotiations. Deliberately eliminated: permanent middle management.</p>
+
+            <!-- ══ KEY INSIGHT QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Product management as information routing becomes obsolete. Product as intelligence design gains massively in importance.
+                </p>
+            </div>
+
+            <p>The critical question the article poses to every company is essentially this: What does your company understand that is genuinely hard to understand &mdash; and is that understanding deepening every day? Those with a weak answer will find AI only temporarily optimizing their costs. Those with a strong answer are building a self-reinforcing advantage. Block's answer is its "Economic Graph" &mdash; real-time financial data from millions of merchants and consumers that becomes denser with every transaction.</p>
+
+            <h2>What I'm Taking Away</h2>
+
+            <p>This article sharpened my perspective on my own role. Going forward, I want to pay closer attention to how much of my working time goes into information routing &mdash; and where I should be building understanding systems instead. Three concrete commitments: When making prioritization decisions, stop asking only which feature has the highest impact and start asking which missing capability, combined with existing capabilities, could solve multiple problems at once. For recurring meetings, check whether a dashboard or an asynchronous update could achieve the same result. And stop thinking of my roadmap as a feature list and start thinking of it as a capability portfolio &mdash; which connects directly to Jobs-to-be-Done, because jobs are stable while solutions vary as compositions of capabilities.</p>
+
+            <h2>Critical Assessment</h2>
+
+            <p>Block itself describes this as early-stage and acknowledges that parts of it will break before they work. That is honest and important, because the article reads at times like a manifesto &mdash; not a case study. Whether AI can truly replace the judgment work of managers or only the information-routing part remains an open question. There are good reasons to believe that the informal coordination functions of middle management &mdash; building trust, mediating conflict, conveying cultural context &mdash; are underestimated precisely because they are invisible. And the model assumes that all relevant work is machine-readable. In a remote-first company like Block, that may be approximately true. In most organizations, it is far from it.</p>
+
+            <div class="my-10">
+                <h2>Daily Takeaways</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Think in capabilities, not features.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Ask which reusable capability the product is missing &mdash; not which feature a stakeholder is requesting.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Audit where you act as an information router.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Every meeting that a dashboard could replace is a signal that you are working in the wrong place.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Build your World Model.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Systematically collect signals that are hard to fake. Usage data and support tickets beat stakeholder opinions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 SOURCES
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://sequoiacap.com/article/from-hierarchy-to-intelligence/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Sequoia Capital (2025). From Hierarchy to Intelligence.</a></li>
+                    <li>Chandler, A. D. (1977). The Visible Hand: The Managerial Revolution in American Business. Harvard University Press.</li>
+                    <li>Taylor, F. W. (1911). The Principles of Scientific Management. Harper &amp; Brothers.</li>
+                    <li>Galbraith, J. R. (1971). Matrix Organization Designs. Business Horizons, 14(1), 29&ndash;40.</li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSARY
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Span of Control</span> <span class="text-stone-400">&mdash; The number of people a leader can directly manage (typically 3&ndash;8).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Capability</span> <span class="text-stone-400">&mdash; An atomic technical primitive with no user-facing surface (e.g., payment processing, lending).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">World Model</span> <span class="text-stone-400">&mdash; AI-driven real-time understanding of internal operations and external customer reality.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Intelligence Layer</span> <span class="text-stone-400">&mdash; The layer that proactively composes capabilities into solutions.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">DRI</span> <span class="text-stone-400">&mdash; Directly Responsible Individual. Temporarily owns a cross-functional problem with authority to pull resources.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Player-Coach</span> <span class="text-stone-400">&mdash; A role combining hands-on technical work with people development &mdash; without traditional management duties.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Economic Graph</span> <span class="text-stone-400">&mdash; Block's real-time network of financial behavior from millions of merchants and consumers.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <div id="site-footer"></div>
 
+<script>
+function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+function setLang(lang) { localStorage.setItem('site-lang', lang); }
+function applyLanguage(lang) {
+    var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+    var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+    var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+    if (lang === 'en') {
+        de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+        if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+        navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+    } else {
+        de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+        if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+        navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+    }
+    document.documentElement.lang = lang;
+}
+function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+applyLanguage(getLang());
+</script>
 </body>
 
 </html>

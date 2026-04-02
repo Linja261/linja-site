@@ -3,6 +3,7 @@
   Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
   Optionale Komponenten: Vergleichs-Cards
   Veröffentlicht: 2026-03-24
+  Bilingual: DE + EN
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -61,14 +62,17 @@
         .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
         .prose li { margin-bottom: 0.5rem; }
         .prose code { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.85em; background: #F5F3EF; padding: 0.15em 0.4em; border-radius: 3px; }
+        .lang-hidden { display: none !important; }
     </style>
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ======== DEUTSCH ======== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
         <!-- ======== ARTIKEL-HEADER ======== -->
@@ -306,9 +310,273 @@
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ======== ENGLISH ======== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI & Productivity</span>
+                <span class="text-[0.72rem] text-stone-400">March 24, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                My knowledge has an architecture. And an AI that knows it.
+            </h1>
+        </header>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
+
+            <p>My professional knowledge was scattered: in old slide decks, email threads, my own head. Every time I wanted to update my CV, I started from scratch. So I built a system — a personal operating system for my professional knowledge. It lives in Obsidian, is version-controlled with Git, and Claude (my AI assistant) works within it as an integral part. Getting started takes an afternoon. The full system grows over weeks. It saves me hours on every output.</p>
+
+
+            <!-- ══ BLOCK 2: FOUNDATION ══ -->
+
+            <h2>The principle: Three layers, one source</h2>
+
+            <div class="my-10" style="max-width: 100%;">
+                <!-- Layer 3 -->
+                <div class="rounded-t-lg px-6 py-5 relative" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="source-serif text-[1.05rem] text-stone-900">Sensemaking</span>
+                        <span class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #7b6ba5;">Layer 3</span>
+                    </div>
+                    <p class="text-[0.8rem] text-stone-500 mb-0">Recognizing patterns, contextualizing decisions, reflecting strategically.</p>
+                    <div class="absolute -bottom-px left-6 right-6 h-px" style="background: #d9d1e5;"></div>
+                </div>
+                <!-- Layer 2 -->
+                <div class="px-6 py-5 relative" style="background: #f2f7f4; border-left: 1px solid #96bfaa; border-right: 1px solid #96bfaa;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="source-serif text-[1.05rem] text-stone-900">Identity</span>
+                        <span class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #5b8a72;">Layer 2</span>
+                    </div>
+                    <p class="text-[0.8rem] text-stone-500 mb-0">Skills, projects, career timeline — Single Source of Truth for CV, applications, LinkedIn.</p>
+                    <div class="absolute -bottom-px left-6 right-6 h-px" style="background: #96bfaa;"></div>
+                </div>
+                <!-- Layer 1 -->
+                <div class="rounded-b-lg px-6 py-5" style="background: #fdf5f0; border: 1px solid #ecb08e; border-top: none;">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="source-serif text-[1.05rem] text-stone-900">Knowledge</span>
+                        <span class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #D4714E;">Layer 1</span>
+                    </div>
+                    <p class="text-[0.8rem] text-stone-500 mb-0">Domain knowledge independent of me: methods, frameworks, case studies.</p>
+                </div>
+            </div>
+
+            <p>The idea is not new — Luhmann demonstrated with his Zettelkasten that networked notes are more valuable than linear collections¹, and Forte digitized the concept with "Building a Second Brain"². My system adds the AI layer. The principle that holds everything together: <strong>Every piece of information exists exactly once.</strong> My CV references projects and skills — when something changes, I change it in one place.</p>
+
+            <h2>How to get started</h2>
+
+            <div class="my-8 space-y-4" style="max-width: 100%;">
+                <!-- Step 1 -->
+                <div class="border rounded-lg p-5 flex gap-5" style="border-color: #e5e2db;">
+                    <div class="flex-shrink-0">
+                        <span class="font-mono text-[1.2rem] font-medium" style="color: #7b6ba5;">01</span>
+                    </div>
+                    <div>
+                        <p class="text-[0.9rem] text-stone-900 font-semibold mb-1">Set up the base structure</p>
+                        <p class="text-[0.82rem] text-stone-500 mb-2">Install Obsidian, create five folders — and add a <code>README.md</code> in each one that explains what belongs there and what does not. The READMEs are critical: they help not just you, but also the AI understand where each piece of information should live.</p>
+                        <div class="font-mono text-[0.75rem] text-stone-400 leading-relaxed" style="background: #F5F3EF; padding: 0.75rem 1rem; border-radius: 6px;">
+                            <span style="color: #D4714E;">00_SYSTEM/</span> Rules &amp; routines<br>
+                            <span style="color: #5b8a72;">20_IDENTITY/</span> Who am I professionally?<br>
+                            <span style="color: #7b6ba5;">30_KNOWLEDGE/</span> What do I know?<br>
+                            <span style="color: #9a82b5;">25_SENSEMAKING/</span> Patterns, tensions, reflection
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="border rounded-lg p-5 flex gap-5" style="border-color: #e5e2db;">
+                    <div class="flex-shrink-0">
+                        <span class="font-mono text-[1.2rem] font-medium" style="color: #7b6ba5;">02</span>
+                    </div>
+                    <div>
+                        <p class="text-[0.9rem] text-stone-900 font-semibold mb-1">Bring in Claude and let it interview you</p>
+                        <p class="text-[0.82rem] text-stone-500 mb-2">Do not sit alone in front of an empty document. Show Claude the folder structure and say: "Interview me. Ask the right questions to populate <code>about_me.md</code> and <code>skills.md</code>." Claude asks, you answer, Claude files the information correctly. Then write a <code>CLAUDE.md</code> together — for example:</p>
+                        <div class="text-[0.75rem] text-stone-500 leading-relaxed" style="background: #F5F3EF; padding: 0.75rem 1rem; border-radius: 6px;">
+                            <span class="text-stone-700">I am a product manager with 13 years of experience.</span><br>
+                            <span class="text-stone-700">My CV lives in 20_IDENTITY/06_Außendarstellung/cv-site/.</span><br>
+                            <span class="text-stone-700">When writing from my perspective, read the Writing Style Guide first.</span><br>
+                            <span class="text-stone-700">Suggest changes, but only implement what we have discussed.</span><br>
+                            <span class="text-stone-700">Offer to commit & push when something is ready.</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="border rounded-lg p-5 flex gap-5" style="border-color: #e5e2db;">
+                    <div class="flex-shrink-0">
+                        <span class="font-mono text-[1.2rem] font-medium" style="color: #7b6ba5;">03</span>
+                    </div>
+                    <div>
+                        <p class="text-[0.9rem] text-stone-900 font-semibold mb-1">Set up your first routine with Claude</p>
+                        <p class="text-[0.82rem] text-stone-500 mb-0">Five minutes every morning: open Claude, review the weekly plan, set three priorities. This is the first reusable workflow — a check-in that Claude runs with you. Same questions, every morning. This is what turns a folder into a living system.</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="border rounded-lg p-5 flex gap-5" style="border-color: #e5e2db;">
+                    <div class="flex-shrink-0">
+                        <span class="font-mono text-[1.2rem] font-medium" style="color: #7b6ba5;">04</span>
+                    </div>
+                    <div>
+                        <p class="text-[0.9rem] text-stone-900 font-semibold mb-1">Let it grow organically</p>
+                        <p class="text-[0.82rem] text-stone-500 mb-0">When you find yourself explaining the same thing to Claude repeatedly, write it down and store it in <code>00_SYSTEM/</code>. When you have a recurring workflow, document it as a reusable routine. Do not try to plan everything upfront.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>What evolves over time</h2>
+
+            <p>With every passing week, a control system grows around the base structure. Claude does not simply read all files — it operates across four layers that emerge organically:</p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-8 text-[0.78rem]">
+                <div class="border rounded-lg p-4" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #7b6ba5;">Always loaded</p>
+                    <p class="text-stone-900 font-medium mb-1">CLAUDE.md</p>
+                    <p class="text-[0.72rem] text-stone-400 mb-0">Lives and grows with you. 20+ changes in 3 months.</p>
+                </div>
+                <div class="border rounded-lg p-4" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #D4714E;">On demand</p>
+                    <p class="text-stone-900 font-medium mb-1">Rules</p>
+                    <p class="text-[0.72rem] text-stone-400 mb-0">Emerge when you notice: "I keep explaining this over and over."</p>
+                </div>
+                <div class="border rounded-lg p-4" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #5b8a72;">On command</p>
+                    <p class="text-stone-900 font-medium mb-1">Workflows</p>
+                    <p class="text-[0.72rem] text-stone-400 mb-0">Born from routines. E.g. morning check-in.</p>
+                </div>
+                <div class="border rounded-lg p-4" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2 text-stone-400">For the future</p>
+                    <p class="text-stone-900 font-medium mb-1">Memory</p>
+                    <p class="text-[0.72rem] text-stone-400 mb-0">Claude remembers your work style and preferences.</p>
+                </div>
+            </div>
+
+            <p>At its core, this is <strong>Context Engineering</strong>⁴: not writing better prompts, but designing the environment in which the AI thinks. The entire system is deliberately tool-agnostic — plain Markdown, git-versioned, no proprietary formats. Claude is my interface today, but the architecture does not depend on it. The knowledge should outlast any single tool.</p>
+
+            <h2>The compound effect: Why the investment pays off</h2>
+
+            <p>The value does not show on the first output — it shows on the second. Building my CV from scratch used to take well over a day: reconstructing projects, finding the right phrasing, sorting skills. With the KnowledgeOS, the foundation was there, but it was still real work: over 8 hours for the first proper CV. Then came the personal website — technically more complex, but done in 2 hours. Because the positioning, the skills, and the design system already existed.</p>
+
+            <!-- ══ COMPARISON CARDS ══ -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">First output: CV</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-900 mb-3">8+ hours</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Web-based, with DE/EN language switch, print function, and automatic updates when new skills or roles are added.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Second output: Website</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-900 mb-3">~2 hours</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Positioning already existed. 80% of content was derivable. Compound effect.</p>
+                </div>
+            </div>
+
+            <p>This is the compound effect³: every output feeds the next one. And the system does not stop at documents. What I already do today: learning gaps are automatically identified and channeled into learning routines. Articles emerge from insights gathered during daily work. GitHub issues and Linear tickets are driven from the weekly plan. What I am exploring next: collaboration with colleagues who also use AI assistants — when two systems share the same context, a new form of collaboration emerges.</p>
+
+
+            <!-- ══ BLOCK 3: WHAT I CHANGED ══ -->
+
+            <h2>What I changed</h2>
+
+            <p>My workday used to be fragmented: thinking strategy, then sketching wireframes, then writing stakeholder emails, then analyzing user research. All in different tools, with different contexts. Today, these disciplines run through the same system. Claude knows my product thinking, my writing voice, and my technical capabilities — simultaneously.</p>
+
+            <p>In practice, this means: I reflect on strategic decisions in structured dialogues with Claude, build functional prototypes in HTML and Tailwind without a developer, and write articles that Claude checks against my style guide. PM, UX, and Dev interlock because the system holds the context — not because I can do everything at once, but because Claude can translate between disciplines. What did not work: giving Claude too much freedom. Without clear rules, it restructured files, duplicated content, and made changes on its own. Every one of my working rules was born from a specific problem. And early on, I fell into the <a href="ki-produktivfalle.html" style="color: #7b6ba5;">AI productivity trap</a>: generated over 100 files, reused two of them. The system only became productive when I stopped documenting everything — and started maintaining only what was genuinely useful.</p>
+
+
+            <!-- ══ BLOCK 4: CRITICAL ASSESSMENT ══ -->
+
+            <h2>Critical assessment</h2>
+
+            <p>The system requires maintenance. Stale context does not just leave the AI empty-handed — it actively leads it astray, working from assumptions that no longer hold. Anyone who does not regularly clean up is building a system that works against them, not for them. And the setup costs real time: roughly 30 hours, spread over weeks. If you are not willing to invest that time and maintain the system on an ongoing basis, you will not see any benefit.</p>
+
+            <p>AI as a work assistant is no longer optional. Entering meetings more prepared because the prototype already exists. Prioritizing more cleanly because the data is structured. Delegating admin tasks instead of doing them yourself. Combining disciplines that one person could never master in parallel. My three-layer logic is individual — but the principle of structuring your knowledge so that an AI can work with it is universally applicable. The specific architecture is something everyone has to find for themselves.</p>
+
+
+            <!-- ══ BLOCK 5: DAILY TAKEAWAYS ══ -->
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Structure first, content second.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Folders, READMEs, and CLAUDE.md are in place before the first piece of content goes in. This saves weeks of restructuring.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Let yourself be interviewed, not briefed.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Claude asks the right questions and files the answers correctly. Better than sitting alone in front of an empty document.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The system lives through routines, not through files.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">A 5-minute morning check-in is what turns a folder into a working partner.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SOURCES ══ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://en.wikipedia.org/wiki/Zettelkasten" class="hover:text-stone-600 transition-colors" style="color: inherit;">Luhmann, N. — Zettelkasten: Kommunikation mit Zettelkästen.</a></li>
+                    <li><a href="https://www.buildingasecondbrain.com" class="hover:text-stone-600 transition-colors" style="color: inherit;">Forte, T. (2022). Building a Second Brain. Profile Books.</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Compound_interest" class="hover:text-stone-600 transition-colors" style="color: inherit;">Compound Returns — applied to knowledge work (own application).</a></li>
+                    <li><a href="https://davidlatz.de/field-notes/2026-03-08-context-engineering-knowledge-os/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Latz, D. (2026). Context Engineering: Ein Knowledge OS als Practitioner's Account.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSARY ══ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context Engineering</span> <span class="text-stone-400">— Designing the environment in which an AI thinks. Not writing prompts, but building context architecture.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Compound effect</span> <span class="text-stone-400">— Every output feeds the next one. Effort decreases with each iteration.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">KnowledgeOS</span> <span class="text-stone-400">— A personal operating system for professional knowledge, structured in three layers.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Second Brain</span> <span class="text-stone-400">— Concept by Tiago Forte: a digital knowledge management system as an extension of memory.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Single Source of Truth</span> <span class="text-stone-400">— Every piece of information exists exactly once. Change in one place, many outputs.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Zettelkasten</span> <span class="text-stone-400">— Note-taking system by Niklas Luhmann: networked individual notes instead of linear collections.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <!-- ======== FOOTER ======== -->
     <div id="site-footer"></div>
+
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
 
 </body>
 

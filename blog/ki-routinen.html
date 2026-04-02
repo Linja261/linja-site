@@ -3,6 +3,7 @@
   Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
   Optionale Komponenten: Vergleichs-Cards
   Veröffentlicht: 2026-03-26
+  Bilingual: DE + EN
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -57,6 +58,8 @@
         html {
             scroll-behavior: smooth;
         }
+
+        .lang-hidden { display: none !important; }
 
         #mobile-menu {
             display: none;
@@ -123,14 +126,33 @@
         .prose li {
             margin-bottom: 0.5rem;
         }
+
+        /* DE interactive component styles */
+        .bs-row { cursor: pointer; transition: all 0.15s ease; }
+        .bs-row:hover { background: #f6f4f9; }
+        .bs-row.active { background: #f6f4f9; border-color: #7b6ba5; }
+        .bs-row.active .bs-num { background: #7b6ba5; color: white; }
+        .bs-detail { display: none; }
+        .bs-detail.active { display: block; }
+        .bs-label { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.35rem; }
+
+        /* EN interactive component styles */
+        .bs-row-en { cursor: pointer; transition: all 0.15s ease; }
+        .bs-row-en:hover { background: #f6f4f9; }
+        .bs-row-en.active { background: #f6f4f9; border-color: #7b6ba5; }
+        .bs-row-en.active .bs-num { background: #7b6ba5; color: white; }
+        .bs-detail-en { display: none; }
+        .bs-detail-en.active { display: block; }
     </style>
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
         <!-- ======== ARTIKEL-HEADER ======== -->
@@ -185,15 +207,6 @@
             <p>Die folgenden fünf Bausteine bilden einen geschlossenen Kreislauf und helfen mir jede Woche dabei meine Ziele zu erreichen. Ob im Team oder solo: Struktur und Überblick fängt bei mir selbst an. Mir hilft meine Routine enorm, den Alltag als Produktmanagerin strukturiert, reflektiert und erfolgreich zu meistern.</p>
 
             <!-- ══ DARSTELLUNGSFORMAT: INTERAKTIVE BAUSTEINE ══ -->
-            <style>
-                .bs-row { cursor: pointer; transition: all 0.15s ease; }
-                .bs-row:hover { background: #f6f4f9; }
-                .bs-row.active { background: #f6f4f9; border-color: #7b6ba5; }
-                .bs-row.active .bs-num { background: #7b6ba5; color: white; }
-                .bs-detail { display: none; }
-                .bs-detail.active { display: block; }
-                .bs-label { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.35rem; }
-            </style>
 
             <div class="my-8" style="max-width: 100%;">
                 <div class="border rounded-lg overflow-hidden" style="border-color: #e5e2db;" id="bs-list">
@@ -396,7 +409,6 @@
 
             <p>Heute hat meine KI Zugriff auf meinen persönlichen Wochenplan, meine eigene Aufgabenliste und mein Tageslog. Sie kennt meine Thementage, weiß was letzte Woche offen geblieben ist und fragt morgens nach meinen Prioritäten. Das hat alles verändert: Ich treffe weniger Entscheidungen im Tagesverlauf, weil die wichtigsten schon morgens um 10 gefallen sind. Ich verschiebe bewusst statt unbewusst zu vergessen. Und ich arbeite an einer Sache, weil das System den Fokus schützt — nicht weil ich mich diszipliniere. Monotasking ist kein Ziel. Es ist das Ergebnis guter Routinen.</p>
 
-
             <!-- ══════════════════════════════════════════════
                  BLOCK 4: KRITISCHE EINORDNUNG
                  ══════════════════════════════════════════════ -->
@@ -465,8 +477,358 @@
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI & Productivity</span>
+                <span class="text-[0.72rem] text-stone-400">March 26, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                My AI Assistant Works 24/7. I Don't.
+            </h1>
+        </header>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: CORE MESSAGE + PROBLEM
+                 ══════════════════════════════════════════════ -->
+
+            <p>I have been working extensively with AI agents for over a year now, but it was only three months ago that one became a permanent fixture in my daily workflow: Claude. Not as a toy, not as a text generator, but as a working partner. Claude knows my weekly plan, reviews my priorities, and tracks open tasks. The effect was unexpected: I did not just become faster, but above all more focused. Five simple AI routines have turned into a system that enforces monotasking almost automatically.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FOUNDATION
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Why a chatbot is not enough</h2>
+
+            <p>Most people use AI in a transactional way: one question, one answer, done. That keeps AI as a tool you open and close. It only becomes productive when it has context -- when it knows what I am working on, what fell through the cracks last week, and which priorities apply today. That requires routines, not prompts.</p>
+
+            <p>What happens in this process is backed by research: setting clear priorities in the morning leads to more focused work because the decision has already been made before the day begins&#xB2;. Externalizing open tasks in the evening frees up working memory&#x2074;. And sticking to theme days eliminates the most expensive part of multitasking: the constant context-switching between projects&#xB3;.</p>
+
+            <!-- ══ COMPARISON CARDS ══ -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">With AI routine</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-900 mb-3">3 / 3</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Priorities completed, results visible: document sent, review finished, clean handover.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #a8a29e; background: #FAFAF8;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3 text-stone-400">Without routine</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-400 mb-3">? / ?</p>
+                    <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">No defined priorities. Lots of work, nothing measurable. A vague sense of dissatisfaction by evening.</p>
+                </div>
+            </div>
+
+
+            <h2>Five routines with AI</h2>
+
+            <p>The following five building blocks form a closed loop and help me reach my goals every week. Whether in a team or solo: structure and oversight start with me. This routine helps me enormously in navigating my day-to-day as a product manager -- structured, reflective, and effective.</p>
+
+            <!-- ══ INTERACTIVE COMPONENTS (EN) ══ -->
+
+            <div class="my-8" style="max-width: 100%;">
+                <div class="border rounded-lg overflow-hidden" style="border-color: #e5e2db;" id="bs-list-en">
+                    <div class="bs-row-en active flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs-en="0">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #7b6ba5; color: white;">01</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Morning Check-in</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">5 min/day</span>
+                    </div>
+                    <div class="bs-row-en flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs-en="1">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">02</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Theme Days</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">15 min/week</span>
+                    </div>
+                    <div class="bs-row-en flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs-en="2">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">03</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Evening Check-out</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">5 min/day</span>
+                    </div>
+                    <div class="bs-row-en flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs-en="3">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">04</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Conscious Rescheduling</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">Ongoing</span>
+                    </div>
+                    <div class="bs-row-en flex items-center justify-between px-5 py-3.5" data-bs-en="4">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">05</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Reminders & Quick Notes</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">1 min/day</span>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <div class="bs-detail-en active border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail-en="0">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">01</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Morning Check-in</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Before</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Open the laptop and dive in. No priorities -- whatever screams loudest comes first. By evening, unclear what was actually accomplished.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Now</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">I set three daily priorities, review my weekly plan, and sort through loose thoughts. I also define when a task counts as done.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #7b6ba5;">AI Support</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Claude reviews the weekly plan, pre-sorts loose thoughts, and checks my task list. This produces a prioritized order for the day.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Why it works</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Few, specific goals outperform vague or too many&#xB9;. Decision quality is highest in the morning&#xB2;.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bs-detail-en border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail-en="1">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">02</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Theme Days</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Before</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Working on everything every day simultaneously: project work in the morning, meetings at noon, emails and follow-ups in the afternoon.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Now</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">Each weekday has a dedicated focus. Monday: Project A. Tuesday: Strategy. Wednesday: Learning. No day carries two major themes.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #7b6ba5;">AI Support</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Claude knows the weekly plan and protects the day's thematic focus. When something off-topic comes in, I consciously decide whether to defer or respond -- depending, of course, on external urgency.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Why it works</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Context-switching between projects is cognitively more expensive than going deep within a single theme&#xB3;. Theme days eliminate the costliest part of multitasking.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bs-detail-en border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail-en="2">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">03</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Evening Check-out</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Before</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Close the laptop without a clean wrap-up. Open tasks follow me into the evening, occupying mental space.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Now</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">Three questions: What was accomplished? What was learned? What remains open and why? Open items are consciously moved to the next day.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #7b6ba5;">AI Support</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Claude walks me through the three questions, captures learnings, qualifies open items, and prepares the handover to the next day.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Why it works</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Unfinished tasks stay active in working memory and consume cognitive capacity (the Zeigarnik effect&#x2074;). A deliberate check-out externalizes them.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bs-detail-en border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail-en="3">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">04</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Conscious Rescheduling</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Before</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Tasks simply fell off the radar. No deliberate rescheduling, just passive forgetting. A diffuse sense of dissatisfaction.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Now</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">Active, conscious, and reasoned rescheduling: "Article review moved to tomorrow -- external meeting came up." A documented decision instead of losing control.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #7b6ba5;">AI Support</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Claude asks about open items during check-out and documents the rescheduling with a rationale. The next morning, the item resurfaces automatically.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Why it works</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">The difference is not the outcome but the awareness. Active rescheduling is a decision. Passive forgetting creates a loss of control.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bs-detail-en border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail-en="4">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">05</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Reminders & Quick Notes</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Before</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">My brain keeps working after hours, producing spontaneous ideas and flashes of inspiration. But where to put them? The restlessness stays in my head.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Now</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">Jot down a quick, unsorted Apple Reminder and let the thought go. Claude sorts it with me the next morning.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #7b6ba5;">AI Support</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">During the morning check-in, Claude reads my Apple Reminders and automatically turns them into tasks. We decide together on relevance and urgency.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Why it works</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">As long as thoughts are not released, they occupy working memory. A mind sweep helps&#x2075;.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            (function() {
+                var rows = document.querySelectorAll('.bs-row-en');
+                var details = document.querySelectorAll('.bs-detail-en');
+                rows.forEach(function(row) {
+                    row.addEventListener('click', function() {
+                        var idx = this.dataset.bsEn;
+                        rows.forEach(function(r) {
+                            r.classList.remove('active');
+                            r.querySelector('.bs-num').style.background = '#e5e2db';
+                            r.querySelector('.bs-num').style.color = '#44403c';
+                        });
+                        this.classList.add('active');
+                        this.querySelector('.bs-num').style.background = '#7b6ba5';
+                        this.querySelector('.bs-num').style.color = 'white';
+                        details.forEach(function(d) { d.classList.remove('active'); });
+                        document.querySelector('[data-bs-detail-en="' + idx + '"]').classList.add('active');
+                    });
+                });
+            })();
+            </script>
+
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WHAT I CHANGED
+                 ══════════════════════════════════════════════ -->
+
+            <h2>What I changed</h2>
+
+            <p>A year ago, I used AI the way most people do: one-off, without context, without memory. Every session started from zero. AI was a faster Google -- useful, but not a real working partner.</p>
+
+            <p>Today, my AI has access to my personal weekly plan, my own task list, and my daily log. It knows my theme days, remembers what was left open last week, and asks about my priorities each morning. That changed everything: I make fewer decisions throughout the day because the most important ones are already settled by 10 a.m. I reschedule consciously instead of forgetting unconsciously. And I work on one thing at a time because the system protects my focus -- not because I force discipline on myself. Monotasking is not the goal. It is the result of good routines.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: CRITICAL ASSESSMENT
+                 ══════════════════════════════════════════════ -->
+
+            <h2>A critical look</h2>
+
+            <p>This system requires a willingness to give an AI context. The AI knows my weekly plan, my tasks, my learning goals. Important: I do not feed confidential company data into the AI. The system operates on my personal structure -- priorities, time allocation, learning objectives -- not on proprietary business information. If you are fundamentally opposed to giving an AI personal context, this approach will not work for you. And: the AI is not a coach. It provides structure, not motivation. On tough days, the system carries you, but it does not replace your own drive.</p>
+
+            <p>The system is not bulletproof, either. On 2 out of 10 observed days, the routine broke down -- due to an external appointment or simply a chaotic start to the day. On exactly those days, the log shows: no clear priorities, no measurable result. The system does not break because of the method; it breaks when the infrastructure fails. The more externally driven your day is, the more actively you need to protect the framework: communicate focus blocks, manage notifications, and set response times deliberately rather than reactively.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: TAKEAWAYS
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">AI needs context, not better prompts.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Personal weekly plan, your own task list, a daily log -- the more personal context the AI has, the better it can support you.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Monotasking is the result, not the goal.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Set priorities in the morning, close loops in the evening -- and focused work follows naturally.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Protect the routine, don't power through.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">The effect shows on the first day with the routine. And it shows on the first day without.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 SOURCES
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://doi.org/10.1037/0003-066X.57.9.705" class="hover:text-stone-600 transition-colors" style="color: inherit;">Locke & Latham (2002). Building a Practically Useful Theory of Goal Setting and Task Motivation.</a></li>
+                    <li><a href="https://www.penguinrandomhouse.com/books/307740/willpower-by-roy-f-baumeister-and-john-tierney/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Baumeister & Tierney (2011). Willpower: Rediscovering the Greatest Human Strength.</a></li>
+                    <li><a href="https://www.apa.org/topics/research/multitasking" class="hover:text-stone-600 transition-colors" style="color: inherit;">APA (2006). Multitasking: Switching Costs.</a></li>
+                    <li><a href="https://doi.org/10.1007/BF02409209" class="hover:text-stone-600 transition-colors" style="color: inherit;">Zeigarnik (1927). On the Retention of Completed and Uncompleted Activities.</a></li>
+                    <li><a href="https://gettingthingsdone.com" class="hover:text-stone-600 transition-colors" style="color: inherit;">Allen (2001). Getting Things Done: The Art of Stress-Free Productivity.</a></li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context-Switching</span> <span class="text-stone-400">— The cognitive cost of switching between different areas of work.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Goal-Setting Theory</span> <span class="text-stone-400">— Specific goals lead to better performance than vague or no goals (Locke & Latham).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Mind Sweep</span> <span class="text-stone-400">— Externalizing all open thoughts to free up working memory (David Allen).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Monotasking</span> <span class="text-stone-400">— A deliberate choice to work on only one thing during a defined period.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Task-Switching</span> <span class="text-stone-400">— Rapidly alternating between tasks. Each switch costs cognitive resources.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Zeigarnik Effect</span> <span class="text-stone-400">— Unfinished tasks remain active in working memory until they are completed or externalized.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <div id="site-footer"></div>
+
+<script>
+function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+function setLang(lang) { localStorage.setItem('site-lang', lang); }
+function applyLanguage(lang) {
+    var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+    var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+    var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+    if (lang === 'en') {
+        de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+        if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+        navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+    } else {
+        de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+        if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+        navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+    }
+    document.documentElement.lang = lang;
+}
+function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+applyLanguage(getLang());
+</script>
 
 </body>
 
