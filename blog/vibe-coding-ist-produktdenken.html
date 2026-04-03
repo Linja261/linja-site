@@ -1,0 +1,276 @@
+<!--
+  linja.me/blog/vibe-coding-ist-produktdenken – Vibe Coding ist Produktdenken
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + max 2 optionale)
+  Optionale Komponenten: Kennzahl-Highlights (1/2)
+  Einordnung zu: Teresa Torres – "Vibe Coding Best Practices" (2025)
+  Stand: 2026-04-03
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding ist Produktdenken – Linja Scharffetter</title>
+    <meta name="description" content="Teresa Torres zeigt: Wer mit KI Software baut, braucht keine Code-Kenntnisse, aber Produktdisziplin. Warum Vibe Coding die gleichen Feedback-Loops braucht wie gute Discovery.">
+    <meta property="og:title" content="Vibe Coding ist Produktdenken">
+    <meta property="og:description" content="Teresa Torres zeigt: Wer mit KI Software baut, braucht keine Code-Kenntnisse, aber Produktdisziplin. Warum Vibe Coding die gleichen Feedback-Loops braucht wie gute Discovery.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../components.js" data-active="blog"></script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI & Produktivit&auml;t</span>
+                <span class="text-[0.72rem] text-stone-400">3. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Vibe Coding ist Produktdenken: warum Teresa Torres' Feedback-Loops kein Coding-Tipp sind, sondern PM-Handwerk
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
+                 ══════════════════════════════════════════════ -->
+
+            <p>Teresa Torres hat seit M&auml;rz 2025 mehr Software geschrieben als in ihrem gesamten bisherigen Leben, ohne klassische Programmierkenntnisse. Ihr Weg vom gescheiterten Replit-Prototyp &uuml;ber Lovable bis zu produktiver Software mit Claude Code ist lehrreich, aber nicht wegen der Tools. In ihrem Artikel <a href="https://www.producttalk.org/vibe-coding-best-practices/" style="color: #7b6ba5;">&ldquo;Vibe Coding Best Practices&rdquo;</a> destilliert sie zwei Feedback-Loops, die sie aus dem sogenannten Doom Loop befreit haben: Plan-Review-Fix und Implement-Review-Fix. Was auf den ersten Blick wie ein Coding-Tipp wirkt, ist eine &Uuml;bersetzung von Produktdisziplin in eine neue Dom&auml;ne. Und damit f&uuml;r Product People relevanter als jede Tool-Empfehlung.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was Torres beschreibt, und was sie eigentlich meint</h2>
+
+            <p>Vibe Coding, ein Begriff von Andrej Karpathy aus dem Februar 2025, meint: Software bauen, indem man beschreibt, was man will. In nat&uuml;rlicher Sprache statt in Code-Syntax. Tools wie Claude Code, Cursor oder Replit &uuml;bernehmen die Implementierung. Klingt nach Demokratisierung. Ist es auch, mit einer entscheidenden Einschr&auml;nkung.</p>
+
+            <p>Torres' Weg illustriert das: Ihr erster Interview Coach mit Replit war ein Erfolg, bis sie ihn erweitern wollte und an die Grenzen des Prototyps stie&szlig;. Sie musste ihn von Grund auf neu bauen. Bei einem Gesundheitstracker f&uuml;r ihren Hund verschwendete sie ein ganzes Wochenende im Doom Loop mit Lovable, nur um das Projekt zu killen und beim zweiten Versuch in unter einer Stunde zum Ziel zu kommen.<sup><a href="#q1" id="ref1" style="color: #7b6ba5; text-decoration: none; font-size: 0.75em;">1</a></sup> Seitdem hat sie mit Claude Code einen Business Fundamentals Coach, einen Outcome Coach, Challenge-Software, einen TeresaBot und KI-generierte Opportunity Solution Trees f&uuml;r Vistaly gebaut. Der Unterschied liegt nicht im Tool-Wechsel, sondern in zwei Prinzipien: Je klarer du wei&szlig;t, was du willst, desto besser der Output. Und: Agenten machen Fehler. Es ist dein Job, diese Fehler zu managen.</p>
+
+            <p>Dahinter steht eine Erkenntnis, die f&uuml;r PMs nicht neu sein sollte: Wer seine Anforderungen w&auml;hrend der Session &auml;ndert, erzeugt widerspr&uuml;chlichen Code, weil der Agent die Datenschicht, die Logikschicht und die Darstellungsschicht nicht immer synchron h&auml;lt. Torres erkl&auml;rt diese drei Software-Schichten explizit, weil genau hier die meisten Doom-Loop-Bugs entstehen: Der Agent vergisst, eine &Auml;nderung durch alle drei Ebenen zu propagieren.</p>
+
+            <!-- Kernerkenntnis-Quote -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Die Produktdisziplin, die gute Discovery auszeichnet (Klarheit vor Geschwindigkeit, Struktur vor Output, Review vor Weitermachen), ist exakt die Disziplin, die Vibe Coding produktiv macht.
+                </p>
+            </div>
+
+            <h2>Zwei Loops, ein Prinzip aus Discovery</h2>
+
+            <p>Torres' zwei Feedback-Loops sind nicht zuf&auml;llig gew&auml;hlt. Der <strong>Plan-Review-Fix-Loop</strong> entspricht dem, was Product Teams als Discovery kennen: Bevor gebaut wird, entsteht Klarheit. Torres beschreibt, wie sie jede Coding-Session mit einem Plan beginnt, manchmal als vage Idee, manchmal als konkrete Spezifikation. Entscheidend: Sie iteriert in Markdown, nicht in Code. Das hei&szlig;t: Anforderungen kl&auml;ren, bevor eine Zeile geschrieben wird. Wenn der Plan steht, pr&uuml;ft ein separater <strong>Plan-Reviewer</strong> (ein eigener KI-Skill) auf Konsistenz, Over-Engineering und logische L&uuml;cken. Torres betont, dass sie dabei nicht in Wasserfall-Manier plant, sondern in kleinen, iterativen Batches.</p>
+
+            <p>Der <strong>Implement-Review-Fix-Loop</strong> folgt nach der Implementierung. Torres hat daf&uuml;r einen zweiten KI-Skill gebaut: einen <strong>Code-Reviewer</strong>, der den Output systematisch auf Bugs, doppelten Code und drei Fokus-Bereiche pr&uuml;ft: Error Handling, Test Coverage und Security.<sup><a href="#q2" id="ref2" style="color: #7b6ba5; text-decoration: none; font-size: 0.75em;">2</a></sup> Beide Loops folgen dem gleichen Prinzip: Nicht fertig, bis drei Parteien zufrieden sind. Torres selbst, der arbeitende Agent und der jeweilige Reviewer. Torres berichtet, dass sie den Doom Loop seit Monaten nicht mehr erlebt hat.</p>
+
+            <h2>Warum das f&uuml;r Product Manager relevant ist</h2>
+
+            <!-- Kennzahl-Highlights -->
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">90 %</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">der KI-Nutzer f&uuml;hlen sich produktiver</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">UNU 2025</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">3&ndash;7 %</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">sehen messbare Ergebnisverbesserung</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Fortune 2026</p>
+                </div>
+            </div>
+
+            <p>Diese Diskrepanz aus meinem letzten Artikel &uuml;ber die <a href="ki-produktivfalle.html" style="color: #7b6ba5;">KI-Produktivfalle</a> taucht bei Torres in anderem Gewand auf. Das Gef&uuml;hl, produktiv zu sein, weil der Agent sofort Code liefert, ist der gleiche Mechanismus wie das Gef&uuml;hl, produktiv zu sein, weil die KI sofort einen Report generiert. In beiden F&auml;llen fehlt der Pr&uuml;fschritt: Ist das, was entstanden ist, tats&auml;chlich das, was gebraucht wird?</p>
+
+            <p>Torres l&ouml;st das Problem nicht durch weniger KI-Einsatz, sondern durch mehr Struktur um den KI-Einsatz herum. Sie empfiehlt, Conversations h&auml;ufig neu zu starten, weil die Outputqualit&auml;t mit der Kontextl&auml;nge abnimmt (ein Ph&auml;nomen, das sie Context Rot nennt). Und wenn etwas schiefgeht, trennt sie konsequent Diagnose von Reparatur: Erst mehrere Agenten parallel dasselbe Problem analysieren lassen, dann, und nur dann, fixen. Nicht das Tool ist das Problem und nicht das Tool ist die L&ouml;sung. Die Arbeitsweise drum herum entscheidet. Ein Muster, das Robert Solow bereits 1987 f&uuml;r Computer beschrieben hat<sup><a href="#q4" id="ref4" style="color: #7b6ba5; text-decoration: none; font-size: 0.75em;">4</a></sup> und das sich bei jeder produktivit&auml;tssteigernden Technologie wiederholt.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VER&Auml;NDERT HABE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich ver&auml;ndert habe</h2>
+
+            <p>Ich nutze Claude Code seit Monaten f&uuml;r mein pers&ouml;nliches Wissenssystem, f&uuml;r CV-Pflege, f&uuml;r Recherche und f&uuml;r die Automatisierung von Workflows. Torres' Artikel hat mir drei Dinge bewusst gemacht, die ich teilweise implizit tat, aber nie so klar benannt hatte:</p>
+
+            <p><strong>Erstens:</strong> Meine produktivsten Sessions beginnen mit einer klaren Aufgabenstellung in meiner CLAUDE.md, nicht mit einem offenen Prompt. Das ist Torres' Planning-Loop in anderem Format. Meine Rules und Skills sind im Grunde Plan-Reviewer f&uuml;r Wissensarbeit: Sie definieren, was der Agent tun soll und pr&uuml;fen die Einhaltung. Wenn ich ihn ohne diese Struktur &bdquo;frei laufen lasse&ldquo;, entsteht Workslop.</p>
+
+            <p><strong>Zweitens:</strong> Review-Schritte als feste Checkpoints, nicht als optionaler Nachgedanke. Freitags-Review, Tages-Check-out, Deduplizierungs-Regel: all das sind Implement-Review-Fix-Loops, angewendet auf Wissensarbeit statt auf Code. Torres' Drei-Parteien-Modell (ich, Agent, Reviewer) hat mir gezeigt, dass ich dieses Prinzip konsequenter auf jeden Output anwenden sollte.</p>
+
+            <p><strong>Drittens:</strong> Diagnose vor Reparatur. Wenn etwas in meinem Vault nicht stimmt (doppelte Informationen, inkonsistente Struktur), war mein Reflex bisher: sofort aufr&auml;umen. Torres' Debugging-Prinzip hat mich daran erinnert, erst zu verstehen, warum etwas kaputt ist, bevor ich es anfasse.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Torres macht vieles richtig: Sie erkl&auml;rt die drei Software-Schichten (Daten, Logik, Darstellung) explizit, damit auch Nicht-Entwickler ein mentales Modell bekommen. Trotzdem bleibt die Frage, wie viel Architekturverst&auml;ndnis realistisch in einem Artikel vermittelt werden kann. Wer als PM das Drei-Schichten-Modell zum ersten Mal liest, wird damit noch keine Bugs diagnostizieren k&ouml;nnen. Die Methode braucht &Uuml;bung, nicht nur Wissen.</p>
+
+            <p>Was im Artikel fehlt, ist die Grenze: Ab welcher Komplexit&auml;t reicht Vibe Coding nicht mehr? Torres baut reale Produkte mit Datenbanken, Integrationen und User-Facing Interfaces. Aber welche Architekturentscheidungen trifft sie bewusst und welche &uuml;berl&auml;sst sie dem Agenten? Was passiert, wenn der Code-Reviewer selbst etwas &uuml;bersieht? Das w&auml;re die n&auml;chste Ebene gewesen, vielleicht der n&auml;chste Artikel.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: WAS BLEIBT F&Uuml;R JEDEN TAG
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt f&uuml;r jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Planung ist kein Overhead, sie ist der eigentliche Hebel.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wer vor der KI-Session definiert, was entstehen soll, spart nicht Zeit beim Planen, sondern beim Reparieren.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Review ist keine Nacharbeit, es ist die Kernkompetenz.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">KI-Agenten machen Fehler. Die F&auml;higkeit, diese systematisch zu erkennen, unterscheidet produktive KI-Nutzung von besch&auml;ftigter.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Das PM-Handwerk ist das Coding-Handwerk.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Klarheit, Struktur, Feedback-Loops: Torres zeigt, dass die Skills, die gute Discovery ausmachen, auch gutes Vibe Coding ausmachen.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li id="q1"><a href="https://www.producttalk.org/vibe-coding-best-practices/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Torres, Teresa (2025): Vibe Coding Best Practices: Avoid the Doom Loop with Planning and Code Reviews. Product Talk.</a> Inkl. Planning-Session-Transkript, Plan-Reviewer-Skill und Code-Reviewer-Skill (paid). <a href="#ref1" style="color: #7b6ba5;">&uarr;</a></li>
+                    <li id="q2"><a href="https://www.producttalk.org/glossary-ai-vibe-coding/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Product Talk (2025): Vibe Coding &ndash; Definition and Overview. Glossary.</a> <a href="#ref2" style="color: #7b6ba5;">&uarr;</a></li>
+                    <li id="q3">UNU (2025): The AI Productivity Paradox; Fortune (2026): CEO-Studie zum AI Productivity Paradox.</li>
+                    <li id="q4"><a href="https://www.brookings.edu/articles/the-solow-productivity-paradox/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Solow, Robert (1987): The Productivity Paradox. Brookings Institution.</a> <a href="#ref4" style="color: #7b6ba5;">&uarr;</a></li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSAR
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Vibe Coding</span> <span class="text-stone-400">&mdash; Software bauen durch nat&uuml;rlichsprachige Beschreibung statt Code-Syntax; Begriff von Andrej Karpathy (2025).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Doom Loop</span> <span class="text-stone-400">&mdash; Endlosschleife beim Vibe Coding: Bug melden &rarr; Agent &bdquo;fixt&ldquo; &rarr; Bug bleibt &rarr; wiederholen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Plan-Review-Fix</span> <span class="text-stone-400">&mdash; Torres' erster Feedback-Loop: Vor der Implementierung Klarheit &uuml;ber Anforderungen schaffen und iterieren.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Implement-Review-Fix</span> <span class="text-stone-400">&mdash; Torres' zweiter Feedback-Loop: Nach der Implementierung systematisch pr&uuml;fen und Agent-Fehler korrigieren.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Plan-Reviewer</span> <span class="text-stone-400">&mdash; Torres' KI-Skill, der Pl&auml;ne auf Konsistenz, Over-Engineering und logische L&uuml;cken pr&uuml;ft.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Code-Reviewer</span> <span class="text-stone-400">&mdash; Torres' KI-Skill, der Implementierungen auf Bugs, Error Handling, Test Coverage und Security pr&uuml;ft.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context Rot</span> <span class="text-stone-400">&mdash; Qualit&auml;tsverlust des Agent-Outputs bei zunehmender Kontextl&auml;nge.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Workslop</span> <span class="text-stone-400">&mdash; KI-generierter Output, der poliert aussieht, aber wenig Substanz hat (BetterUp Labs).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Solow-Paradoxon</span> <span class="text-stone-400">&mdash; Beobachtung (1987): Neue Technologie erscheint &uuml;berall, au&szlig;er in den Produktivit&auml;tsstatistiken.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZUR&Uuml;CK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <div id="site-footer"></div>
+
+</body>
+
+</html>
