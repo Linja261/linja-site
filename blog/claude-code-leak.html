@@ -1,0 +1,292 @@
+<!--
+  linja.me/blog/claude-code-leak – Was der Claude-Code-Leak wirklich zeigt
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + max 2 optionale)
+  Optionale Komponenten: Kennzahl-Highlights
+  Stand: 2026-04-01
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Was der Claude-Code-Leak wirklich zeigt – Linja Scharffetter</title>
+    <meta name="description"
+        content="512.000 Zeilen Quellcode versehentlich veröffentlicht. Die Presse feiert Enthüllungen – aber die eigentlichen Funde ignoriert sie. Eine Einordnung aus Nutzerperspektive.">
+    <meta property="og:title" content="Was der Claude-Code-Leak wirklich zeigt – und was nicht">
+    <meta property="og:description" content="512.000 Zeilen Quellcode versehentlich veröffentlicht. Die Presse feiert Enthüllungen – aber die eigentlichen Funde ignoriert sie.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../components.js" data-active="blog"></script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI & Transparenz</span>
+                <span class="text-[0.72rem] text-stone-400">1. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Was der Claude-Code-Leak wirklich zeigt – und was nicht
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM (~100 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <p>Anthropic hat versehentlich den kompletten Quellcode von Claude Code veröffentlicht — 512.000 Zeilen TypeScript in einer Source Map im npm-Paket. Die Tech-Presse behandelt die Memory-Architektur als Enthüllung und Feature-Flags als Skandal. Beides greift zu kurz. Die Memory-Architektur ist dokumentiert und seit Monaten nutzbar. Die eigentlichen Funde — interne Fehlerquoten und ein Modus für verdeckte Open-Source-Beiträge — werden als Bullet Points abgehandelt. Ich nutze Claude Code täglich als zentrales Arbeitswerkzeug. Hier ist die Einordnung, die in der Berichterstattung fehlt.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG (~400-600 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Die „Enthüllung", die keine ist</h2>
+
+            <p>MEMORY.md, das dreischichtige System aus Index-Datei, Memory-Dateien und Rules — das steht in der offiziellen Dokumentation.¹ Ich baue mein gesamtes Arbeitssystem darauf auf: persistente Erinnerungen, die sich über Sessions hinweg aktualisieren, Skills als auslösbare Workflows, Rules als thematische Regelwerke. Dass die Presse das als geheime Architektur behandelt, zeigt vor allem, wie wenig Tech-Journalisten die Tools nutzen, über die sie schreiben.</p>
+
+            <p>Was tatsächlich neu ist: die Self-Healing-Logik und die Compaction-Pipeline. Wie Claude Code entscheidet, welche Erinnerungen relevant bleiben und welche verdichtet werden, war bisher eine Blackbox. Für Power-User ist das aufschlussreich, weil es erklärt, warum manche Kontexte über Sessions erhalten bleiben und andere nicht.</p>
+
+
+            <h2>Was die Berichterstattung verpasst</h2>
+
+            <!-- ══ OPTIONAL 1/2: KENNZAHL-HIGHLIGHTS ══ -->
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">29–30%</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">False-Claims-Rate in Capybara v8</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#quellen" style="color: inherit;">Interner Quellcode²</a></p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">16,7%</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">False-Claims-Rate in Capybara v4</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#quellen" style="color: inherit;">Interner Quellcode²</a></p>
+                </div>
+            </div>
+
+            <p><strong>Die Fehlerquoten sind der eigentliche Fund.</strong> Capybara v8, eine interne Claude-4.6-Variante, hat eine False-Claims-Rate von 29–30 Prozent — eine Regression gegenüber v4 mit 16,7 Prozent. Das ist die Art von Information, die Nutzer betrifft: Nicht welche Features existieren, sondern wie zuverlässig die Ausgaben sind. Kein einziger der Artikel, die ich gelesen habe, macht das zur Hauptstory.</p>
+
+            <p><strong>KAIROS ist interessant, aber nicht überraschend.</strong> Ein Always-On Background Agent, der autonom Aufgaben ausführt, ist die logische Weiterentwicklung dessen, was Claude Code heute schon kann. Scheduled Tasks, Remote Triggers, automatisierte Workflows — die Infrastruktur dafür existiert bereits. KAIROS formalisiert das.</p>
+
+            <p><strong>Undercover Mode ist die eigentliche Geschichte.</strong> Der VentureBeat-Artikel listet ihn als Bullet Point — einen Modus für verdeckte Open-Source-Beiträge.³ Wenn ein AI-Tool Code in Open-Source-Projekte einschleust, ohne die Herkunft transparent zu machen, wirft das fundamentale Fragen auf: über Authentizität, über Trust in Open Source, über die Verantwortung von AI-Unternehmen gegenüber der Developer-Community. Statt das zu analysieren, reiht der Artikel es zwischen Memory-Architektur und Typosquatting-Warnungen ein. Das ist symptomatisch für die Art, wie Tech-Medien über AI berichten: Feature-Listen statt Konsequenzen.</p>
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Nützlichkeit ohne Nachvollziehbarkeit ist eine fragile Grundlage — der Leak hat das nicht geschaffen, er hat es nur sichtbar gemacht.
+                </p>
+            </div>
+
+
+            <h2>Das Transparenzproblem hinter dem Sicherheitsproblem</h2>
+
+            <p>Die Presse diskutiert Sicherheitsrisiken: Sicherheitsforscher warnen vor Payloads, die Compaction überleben,⁴ fünf Typosquatting-Pakete tauchten auf npm auf,⁵ und ein zeitgleicher Axios-Supply-Chain-Angriff kompromittierte Nutzer in einem Drei-Stunden-Fenster.⁶ Das sind reale Downstream-Effekte — aber nicht die Kernfrage.</p>
+
+            <p>Ich arbeite täglich mit Claude Code. Mein Wissensmanagement, meine Bewerbungsprozesse, meine Artikelentwürfe — alles läuft durch dieses Tool. Der Leak verändert daran konkret nichts: keine Kundendaten betroffen, keine Credentials exponiert. Was sich ändert, ist die Transparenz. Zum ersten Mal können Nutzer nachvollziehen, wie die Compaction-Pipeline Kontexte verdichtet, wie die Memory-Priorisierung funktioniert, welche Feature-Flags existieren. Für mich als Power-Userin ist das mehr wert als jedes Changelog.</p>
+
+            <p>Aber es zeigt auch die Asymmetrie: Ich vertraue einem Tool meine Arbeitsprozesse an, dessen interne Logik ich nur durch einen Verpackungsfehler verstehen kann. Nicht durch Dokumentation, nicht durch Design — durch einen Unfall.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE (~100-200 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich verändert habe</h2>
+
+            <p>Seit dem Leak prüfe ich bewusster, welche meiner Workflows von intransparenter Logik abhängen. Mein Memory-System in Claude Code — MEMORY.md, Skills, Rules — funktioniert, weil ich es selbst strukturiert habe. Aber die Compaction-Pipeline darunter entscheidet, was überlebt und was nicht. Das war mir abstrakt klar, aber durch den geleakten Code kann ich es jetzt konkret nachvollziehen.</p>
+
+            <p>Konkret habe ich angefangen, kritische Memory-Einträge explizit zu testen: Bleibt die Information nach mehreren Sessions erhalten? Wird sie korrekt priorisiert? Das ist kein Misstrauen — es ist die gleiche Sorgfalt, die ich bei jedem anderen Werkzeug anwende, das meine Arbeit beeinflusst.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG (~100-150 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Meine Perspektive ist die einer Power-Userin, die Claude Code täglich nutzt und die Memory-Architektur aktiv gestaltet. Die meisten Nutzer interagieren nicht auf dieser Ebene — für sie ist der Leak weniger aufschlussreich und das Sicherheitsrisiko durch Typosquatting relevanter als die Architektur-Frage. Die Forderung nach mehr Transparenz ist zudem leichter gestellt als umgesetzt: Offenlegung von Compaction-Logik könnte Angreifern helfen, das System gezielter zu manipulieren. Und die Fehlerquoten stammen aus internen Tests — ob sie für produktive Releases gelten, ist unklar.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG (~50-100 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Kenne die Blackbox, der du vertraust.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wenn ein AI-Tool tief in deinen Workflow eingebettet ist, lohnt es sich zu verstehen, welche Entscheidungen es für dich trifft.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Fehlerquoten sind wichtiger als Feature-Listen.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Nicht was ein Tool kann, sondern wie zuverlässig es arbeitet, bestimmt seinen Wert im Alltag.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Transparenz ist kein Feature — sie ist eine Grundanforderung.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wenn Nutzer die interne Logik ihres Werkzeugs nur durch einen Unfall verstehen, stimmt das Verhältnis nicht.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN (Pflicht-Anhang)
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" id="quellen" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://docs.anthropic.com/en/docs/claude-code" class="hover:text-stone-600 transition-colors" style="color: inherit;">Anthropic (2026). Claude Code Documentation — Memory, Skills, Rules.</a></li>
+                    <li><a href="https://thehackernews.com/2026/04/claude-code-tleaked-via-npm-packaging.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Lakshmanan, R. (2026). Claude Code Source Leaked via npm Packaging Error. The Hacker News.</a></li>
+                    <li><a href="https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know" class="hover:text-stone-600 transition-colors" style="color: inherit;">VentureBeat (2026). Claude Code's source code appears to have leaked: here's what we know.</a></li>
+                    <li>Straiker AI (2026). Security Analysis: Compaction Pipeline Attack Vectors. Via The Hacker News.</li>
+                    <li>Dumas, C. (2026). Typosquatting Campaign Targeting Claude Code Internal Package Names. Via The Hacker News.</li>
+                    <li><a href="https://www.axios.com/2026/03/31/anthropic-leaked-source-code-ai" class="hover:text-stone-600 transition-colors" style="color: inherit;">Axios (2026). Anthropic leaked its own Claude source code.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSAR (Pflicht-Anhang)
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Source Map</span> <span class="text-stone-400">— Debug-Datei, die kompilierten Code auf den Originalquellcode zurückführt. Normalerweise nicht in Produktions-Paketen enthalten.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">npm</span> <span class="text-stone-400">— Node Package Manager. Zentrales Paketregister für JavaScript/TypeScript-Pakete.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Compaction-Pipeline</span> <span class="text-stone-400">— Interner Prozess, der Kontext verdichtet, wenn das Kontextfenster voll wird. Entscheidet, was erhalten bleibt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">KAIROS</span> <span class="text-stone-400">— Internes Feature-Flag für einen Always-On Background Agent. Griechisch für „der richtige Zeitpunkt".</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">False-Claims-Rate</span> <span class="text-stone-400">— Anteil der Ausgaben, in denen das Modell falsche Behauptungen aufstellt. Zentraler Zuverlässigkeitsindikator.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Typosquatting</span> <span class="text-stone-400">— Angriffsmethode, bei der Pakete mit ähnlichen Namen wie legitime Pakete registriert werden, um Verwechslungen auszunutzen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Feature-Flag</span> <span class="text-stone-400">— Schalter im Code, der Funktionen aktiviert oder deaktiviert, ohne neuen Code auszuliefern.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">MEMORY.md</span> <span class="text-stone-400">— Persistente Index-Datei in Claude Code, die Session-übergreifend geladene Erinnerungen verwaltet.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <div id="site-footer"></div>
+
+</body>
+
+</html>

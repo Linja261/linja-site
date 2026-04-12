@@ -1,8 +1,9 @@
 <!--
   linja.me/angebote – Angebotsseite
   Design System: Vanille-Heidelbeer (gedämpft)
-  Stand: 2026-03-23
-  Version: 3 – Zwei-Track-Positionierung, Language Toggle DE/EN
+  Brand Kit: ../brand-kit.md
+  Stand: 2026-03-16
+  Version: 2 – Bessere Verknüpfung, Mobile Nav, Impressum, Booking
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -10,10 +11,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Angebot – Linja Scharffetter</title>
+    <title>Angebote – Linja Scharffetter</title>
     <meta name="description"
-        content="Strategy Execution und Product Management – zwei Leistungsbereiche, ein Ansatz: Strategie in messbare Ergebnisse übersetzen.">
-    <meta name="robots" content="noindex, nofollow">
+        content="Vier klare Formate: Strategy Clarity Workshop, Diagnose-Sprint, Strategy-to-Execution Sprint, Sparring-Retainer. Vom ersten Kennenlernen bis zur laufenden Zusammenarbeit.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
@@ -51,112 +51,176 @@
         }
     </script>
     <style>
-        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
-        html { scroll-behavior: smooth; }
-        .lang-hidden { display: none !important; }
-        #mobile-menu { display: none; }
-        #mobile-menu.open { display: block; }
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
     </style>
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
-    <div id="site-nav"></div>
-    <script src="components.js" data-active="" data-bilingual="true"></script>
+    <!-- ======== NAV ======== -->
+    <nav class="fixed top-0 left-0 right-0 z-50"
+        style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">
+        <div class="max-w-[860px] mx-auto px-8 py-3 flex items-center justify-between">
+            <a href="index.html" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>
+            <div class="flex items-center gap-6 text-[0.8rem] text-stone-500">
+                <a href="index.html#ueber" class="hover:text-stone-800 transition-colors hidden sm:inline">Über mich</a>
+                <a href="index.html#ergebnisse" class="hover:text-stone-800 transition-colors hidden sm:inline">Ergebnisse</a>
+                <a href="angebote.html" class="text-stone-800 font-medium transition-colors hidden sm:inline">Angebote</a>
+                <a href="#kontakt"
+                    class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors hidden sm:inline-block"
+                    style="background: #7b6ba5;">Gespräch buchen</a>
+                <!-- Mobile hamburger -->
+                <button id="menu-toggle" class="sm:hidden p-1" aria-label="Menü öffnen">
+                    <svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu dropdown -->
+        <div id="mobile-menu" class="sm:hidden border-t px-8 py-4 space-y-3 text-[0.85rem]" style="border-color: #e5e2db; background: rgba(250,250,248,0.98);">
+            <a href="index.html" class="block text-stone-600 hover:text-stone-900">Startseite</a>
+            <a href="index.html#ueber" class="block text-stone-600 hover:text-stone-900">Über mich</a>
+            <a href="index.html#ergebnisse" class="block text-stone-600 hover:text-stone-900">Ergebnisse</a>
+            <a href="#kontakt" class="block font-medium" style="color: #7b6ba5;">Gespräch buchen</a>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.remove('open');
+            });
+        });
+    </script>
 
-    <!-- ======== GERMAN CONTENT ======== -->
-    <div id="site-de">
     <div class="max-w-[860px] mx-auto px-8">
 
-        <header class="pt-36 pb-8">
+        <!-- ======== HEADER ======== -->
+        <header class="pt-36 pb-0">
             <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-5 max-w-[18em]">
                 Jedes Team versteht die Strategie.<br>Jedes Team kennt seinen Beitrag.<br>Jeder Beitrag ist messbar.
             </h1>
-            <p class="text-[0.9rem] text-stone-600 leading-relaxed mb-6">
+            <p class="text-[0.9rem] text-stone-600 leading-relaxed">
+                Das passiert, wenn Strategie und Umsetzung zusammenfinden.
+                Ich helfe mittelständischen Unternehmen, genau dorthin zu kommen.
                 Ohne diese Klarheit arbeiten Teams an den falschen Prioritäten,
                 gute Leute gehen, und Output wird mit Impact verwechselt.
-                Ich helfe, das zu ändern – ob auf Organisationsebene oder im Produkt.<br><br>
-                Sie bekommen 13 Jahre Erfahrung an der Schnittstelle von Strategie, Produkt
-                und Organisation – persönlich, nicht delegiert. Mit messbaren Ergebnissen:
-                +3,5 Mio. € Umsatzwirkung, 2 Ausgründungen in früher Validierungsphase befähigt,
-                ~90% Marktanteil durch neues Geschäftsmodell gehalten.
             </p>
         </header>
 
-        <section class="pb-12 pt-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="strategy-execution.html" class="group bg-white border rounded-lg p-8 transition-all hover:shadow-md" style="border-color: #96bfaa;">
-                    <h3 class="source-serif text-[1.15rem] mb-1" style="color: #5b8a72;">Strategy Execution</h3>
-                    <p class="text-[0.78rem] text-stone-400 mb-3">Geschäftsführung & Führungsteams</p>
-                    <p class="font-mono text-stone-900 font-medium text-[1.05rem] mb-5">1.500 €/Tag</p>
-                    <ul class="text-[0.8rem] text-stone-600 space-y-1.5 mb-6">
-                        <li>Stakeholder-Map & Diagnose</li>
-                        <li>Entscheidungsarchitektur</li>
-                        <li>OKR- & Zielframework</li>
-                        <li>Dokumentierte Übergabe</li>
-                    </ul>
-                    <span class="text-[0.82rem] group-hover:translate-x-1 transition-transform inline-block" style="color: #5b8a72;">Details &rarr;</span>
-                </a>
-                <a href="product-management.html" class="group bg-white border rounded-lg p-8 transition-all hover:shadow-md" style="border-color: #89bed8;">
-                    <h3 class="source-serif text-[1.15rem] mb-1" style="color: #5B96B8;">Product Management</h3>
-                    <p class="text-[0.78rem] text-stone-400 mb-3">Produktteams & Fachebene</p>
-                    <p class="font-mono text-stone-900 font-medium text-[1.05rem] mb-5">1.000 €/Tag</p>
-                    <ul class="text-[0.8rem] text-stone-600 space-y-1.5 mb-6">
-                        <li>Validierte Personas & Opportunity Map</li>
-                        <li>Priorisierter Backlog nach Kundenwirkung</li>
-                        <li>AI Use Case Bewertung</li>
-                        <li>Go-to-Market-Empfehlung</li>
-                    </ul>
-                    <span class="text-[0.82rem] group-hover:translate-x-1 transition-transform inline-block" style="color: #5B96B8;">Details &rarr;</span>
-                </a>
-            </div>
-        </section>
-
-        <hr style="border-color: #e5e2db; border-top-width: 1px;">
-
-        <section class="pt-12 pb-12">
-            <div id="testimonials-de"></div>
-        </section>
-
-        <hr style="border-color: #e5e2db; border-top-width: 1px;">
-
-        <section class="pt-20 pb-20">
-            <h2 class="source-serif text-stone-900 text-[1.4rem] mb-3">Warum nicht einfach eine Beratung beauftragen oder jemanden einstellen?</h2>
+        <!-- ======== VERGLEICH ======== -->
+        <section class="pb-20 pt-5">
             <p class="text-[0.9rem] text-stone-600 mb-10">
-                Können Sie. Aber Beratungen liefern Slides, keine Strukturen.
-                Und eine Festanstellung bindet Sie, bevor Sie wissen, was Sie eigentlich brauchen.
-                Ich arbeite dazwischen: Senior-Erfahrung, flexibler Einsatz, ein klares Ende.
+                Sie bekommen 13 Jahre Erfahrung darin, Strategie so zu übersetzen, dass jedes
+                Team weiß, was es tun soll – persönlich, nicht delegiert. Von der Diagnose bis
+                zur Übergabe: eine Ansprechpartnerin, ein klares Ergebnis.
+                Am Ende steht eine funktionierende Struktur – individuell für Ihr Unternehmen.
             </p>
-            <div class="grid grid-cols-1 sm:grid-cols-[1fr_1fr] gap-x-12">
-                <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase pb-4" style="border-bottom: 1px solid #e5e2db;">Klassischer Weg</p>
+
+            <div class="grid grid-cols-[1fr_1fr] gap-x-12">
+                <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase pb-4" style="border-bottom: 1px solid #e5e2db;">Klassische Beratung</p>
                 <p class="font-mono text-[0.72rem] text-stone-900 tracking-wider uppercase pb-4" style="border-bottom: 1px solid #e5e2db;">Mit mir</p>
+
                 <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Senior pitcht, Junioren liefern</p>
                 <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Ich bin die, die anfängt – und die, die liefert</p>
+
                 <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Standardisierte Frameworks</p>
                 <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Passend für genau Ihr Unternehmen</p>
-                <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Lange Bindung, unklares Ende</p>
-                <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Klarer Scope, definierter Exit</p>
+
+                <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">6+ Monate Projektlaufzeit</p>
+                <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">2–8 Wochen, klarer Exit</p>
+
                 <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">PowerPoint-Berge</p>
                 <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Strukturen, die Ihr Team selbst trägt</p>
+
+                <p class="py-4 text-[0.88rem] text-stone-400">200k+ Budget</p>
+                <p class="py-4 text-[0.88rem] text-stone-900 font-medium">Ein Bruchteil davon, volle Seniorität</p>
             </div>
         </section>
 
-        <hr style="border-color: #e5e2db; border-top-width: 1px;">
+        <!-- ======== SOCIAL PROOF ======== -->
+        <section class="pb-20">
+            <div class="border-l-3 pl-8 py-6 rounded-r-lg" style="border-color: #7b6ba5; background: #f6f4f9;">
+                <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">
+                    &ldquo;Linja denkt strategisch und bleibt dabei menschlich. Sie hat die seltene Fähigkeit,
+                    implizite Annahmen sichtbar zu machen und als Übersetzerin zwischen Disziplinen zu wirken.&rdquo;
+                </p>
+                <p class="font-mono text-[0.72rem] text-stone-500 tracking-wider uppercase">
+                    <a href="https://linkedin.com/in/janhoelter" target="_blank" class="font-medium text-stone-600 hover:text-stone-800 transition-colors">Jan Hölter</a> · Abteilungsleiter Digitale Produkte · ABS Safety
+                </p>
+            </div>
+        </section>
 
-        <section id="kontakt" class="pt-20 pb-20">
-            <div class="rounded-lg py-12 px-8" style="background: #f6f4f9;">
-                <h2 class="source-serif text-[1.4rem] text-stone-900 mb-4">Lassen Sie uns gemeinsam herausfinden, wo unsere Zusammenarbeit startet.</h2>
+        <!-- ======== PREISKASTEN ======== -->
+        <section class="pb-20">
+            <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db;">
+                <h2 class="source-serif text-stone-900 text-[1.2rem] mb-3">Transparente Konditionen, individueller Zuschnitt</h2>
+                <p class="text-[0.9rem] text-stone-600 mb-6">
+                    Meine Tagessätze dienen Ihnen als transparente Kalkulationsgrundlage,
+                    nicht als Abrechnungseinheit. Wir finden im individuellen Gespräch
+                    das Angebot, das zu Ihnen passt.
+                </p>
+                <div class="space-y-2 text-[0.88rem]">
+                    <div class="flex items-baseline gap-3">
+                        <span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #7b6ba5;"></span>
+                        <span class="text-stone-600">Workshop: Klarheit in einem halben Tag</span>
+                        <span class="flex-1 border-b" style="border-color: #e5e2db;"></span>
+                        <span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 1.500 €</span>
+                    </div>
+                    <div class="flex items-baseline gap-3">
+                        <span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #D4714E;"></span>
+                        <span class="text-stone-600">Diagnose-Sprint: Ursachen & Handlungsempfehlung</span>
+                        <span class="flex-1 border-b" style="border-color: #e5e2db;"></span>
+                        <span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 4.000 €</span>
+                    </div>
+                    <div class="flex items-baseline gap-3">
+                        <span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #5b8a72;"></span>
+                        <span class="text-stone-600">Strategy-to-Execution Sprint: Ergebnis & Übergabe</span>
+                        <span class="flex-1 border-b" style="border-color: #e5e2db;"></span>
+                        <span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 12.000 €</span>
+                    </div>
+                    <div class="flex items-baseline gap-3">
+                        <span class="w-2 h-2 rounded-full flex-shrink-0 relative top-[-1px]" style="background: #5B96B8;"></span>
+                        <span class="text-stone-600">Sparring-Retainer: Laufende Verfügbarkeit</span>
+                        <span class="flex-1 border-b" style="border-color: #e5e2db;"></span>
+                        <span class="font-mono text-stone-900 font-medium whitespace-nowrap">ab 1.500 €/Monat</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== KONTAKT ======== -->
+        <section id="kontakt" class="pb-20">
+            <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db;">
+                <h2 class="source-serif text-[1.2rem] text-stone-900 mb-4">Lassen Sie uns gemeinsam herausfinden, wo unsere Zusammenarbeit startet.</h2>
                 <p class="text-[0.9rem] text-stone-600 mb-6">
                     In 30 Minuten erzählen Sie mir von Ihren Herausforderungen.
                     Wir klären dann gemeinsam mögliche nächste Schritte.
                 </p>
-                <ul class="text-[0.9rem] text-stone-600 space-y-2 mb-8 list-disc pl-5">
-                    <li>Sie erzählen mir von Ihrer Herausforderung – ob Strategie, Produkt oder beides.</li>
-                    <li>Ich gebe Ihnen eine erste Einschätzung und mögliche nächste Schritte.</li>
-                    <li>Unverbindlich, 30 Minuten, ohne Vorbereitung.</li>
+                <ul class="text-[0.9rem] text-stone-600 space-y-2 mb-8">
+                    <li>Wir sprechen über Ihre Herausforderung und Erwartungen.</li>
+                    <li>Ich mache Ihnen erste Vorschläge für einen gemeinsamen Lösungsweg, wir definieren nächste Schritte.</li>
+                    <li>Wir gehen noch nicht in Details, dafür ist der <strong>Strategy Clarity Workshop</strong> gedacht.</li>
                 </ul>
                 <div>
-                    <a href="https://cal.eu/linja"
+                    <a href="https://calendly.com/linja-scharffetter/30min"
                         class="inline-block px-7 py-3 rounded text-white text-[0.9rem] font-medium transition-colors hover:opacity-90"
                         style="background: #7b6ba5;">Gespräch buchen</a>
                     <p class="text-[0.9rem] text-stone-600 mt-4">oder per E-Mail an
@@ -165,157 +229,102 @@
             </div>
         </section>
 
-    </div>
-    </div><!-- /site-de -->
+        <!-- ======== TRENNLINIE ======== -->
+        <div class="pb-20">
+            <hr style="border-color: #e5e2db; border-top-width: 1px;">
+        </div>
 
-    <!-- ======== ENGLISH CONTENT ======== -->
-    <div id="site-en" class="lang-hidden">
-    <div class="max-w-[860px] mx-auto px-8">
+        <!-- ======== FORMATE ======== -->
+        <section class="pb-20">
+            <h2 class="source-serif text-stone-900 text-[1.4rem] mb-8">Vier Formate – vom ersten Klarheitscheck bis zur laufenden Begleitung.</h2>
 
-        <header class="pt-36 pb-8">
-            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-5 max-w-[18em]">
-                Every team understands the strategy.<br>Every team knows its contribution.<br>Every contribution is measurable.
-            </h1>
-            <p class="text-[0.9rem] text-stone-600 leading-relaxed mb-6">
-                Without this clarity, teams work on the wrong priorities,
-                good people leave, and output gets mistaken for impact.
-                I help change that — whether at the organizational or product level.<br><br>
-                You get 13 years of experience at the intersection of strategy, product,
-                and organization — personally, not delegated. With measurable results:
-                +3.5M EUR revenue impact, 2 spin-offs enabled through early-stage validation,
-                ~90% market share preserved through new business model.
-            </p>
-        </header>
-
-        <section class="pb-12 pt-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="strategy-execution.html" class="group bg-white border rounded-lg p-8 transition-all hover:shadow-md" style="border-color: #96bfaa;">
-                    <h3 class="source-serif text-[1.15rem] mb-1" style="color: #5b8a72;">Strategy Execution</h3>
-                    <p class="text-[0.78rem] text-stone-400 mb-3">C-Level & Leadership Teams</p>
-                    <p class="font-mono text-stone-900 font-medium text-[1.05rem] mb-5">1,500 €/day</p>
-                    <ul class="text-[0.8rem] text-stone-600 space-y-1.5 mb-6">
-                        <li>Stakeholder map & diagnosis</li>
-                        <li>Decision architecture</li>
-                        <li>OKR & goal framework</li>
-                        <li>Documented handover</li>
+            <div class="space-y-6">
+                <!-- Stufe 1: Strategy Clarity Workshop -->
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #7b6ba5;">
+                    <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">Strategy Clarity Workshop · Halber Tag</span>
+                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">In 4 Stunden wissen Sie, wo Ihre Strategie bricht</h3>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">
+                        Ich arbeite einen halben Tag mit Ihrem Führungsteam und stelle die Fragen,
+                        die intern niemand stellt. Danach wissen Sie, ob Ihr Problem
+                        Richtung, Alignment, Messbarkeit oder Kommunikation ist –
+                        und was der nächste Schritt sein sollte.
+                    </p>
+                    <p class="text-[0.9rem] text-stone-600 font-medium mb-1">Sie erhalten:</p>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1 mb-4">
+                        <li>Priorisierte Diagnose: Wo genau bricht Strategie → Umsetzung?</li>
+                        <li>Dokumentierte Spannungsfelder im Führungsteam</li>
+                        <li>Konkrete Empfehlung für den nächsten Schritt</li>
                     </ul>
-                    <span class="text-[0.82rem] group-hover:translate-x-1 transition-transform inline-block" style="color: #5b8a72;">Details &rarr;</span>
-                </a>
-                <a href="product-management.html" class="group bg-white border rounded-lg p-8 transition-all hover:shadow-md" style="border-color: #89bed8;">
-                    <h3 class="source-serif text-[1.15rem] mb-1" style="color: #5B96B8;">Product Management</h3>
-                    <p class="text-[0.78rem] text-stone-400 mb-3">Product teams & functional level</p>
-                    <p class="font-mono text-stone-900 font-medium text-[1.05rem] mb-5">1,000 €/day</p>
-                    <ul class="text-[0.8rem] text-stone-600 space-y-1.5 mb-6">
-                        <li>Validated personas & opportunity map</li>
-                        <li>Prioritized backlog by customer impact</li>
-                        <li>AI use case assessment</li>
-                        <li>Go-to-market recommendation</li>
+                </div>
+
+                <!-- Stufe 2: Diagnose-Sprint -->
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #D4714E;">
+                    <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">Diagnose-Sprint · 2 Wochen</span>
+                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">Die Muster sichtbar machen, die Ihre Organisation blockieren</h3>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">
+                        Stakeholder-Interviews, Strukturanalyse und – wenn nötig – Kundengespräche.
+                        Ich erkenne schnell, ob ein Problem operativ oder strukturell ist,
+                        und liefere einen klaren Report mit priorisierten Hypothesen.
+                    </p>
+                    <p class="text-[0.9rem] text-stone-600 font-medium mb-1">Sie erhalten:</p>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1">
+                        <li>Diagnose-Report mit Ursachenanalyse</li>
+                        <li>Stakeholder-Map: Wer blockiert, wer treibt, wer fehlt</li>
+                        <li>Priorisierte Handlungsempfehlung</li>
                     </ul>
-                    <span class="text-[0.82rem] group-hover:translate-x-1 transition-transform inline-block" style="color: #5B96B8;">Details &rarr;</span>
-                </a>
-            </div>
-        </section>
+                </div>
 
-        <hr style="border-color: #e5e2db; border-top-width: 1px;">
+                <!-- Stufe 3: Strategy-to-Execution Sprint -->
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #5b8a72;">
+                    <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">Strategy-to-Execution Sprint · 4–8 Wochen</span>
+                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">Von der Strategie zu einer Geschichte, hinter der alle stehen</h3>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">
+                        Ich übersetze Ihre Strategie in eine Sprache, die jedes Team versteht.
+                        Wir erarbeiten messbare Ziele, klären Verantwortlichkeiten und bauen
+                        eine Entscheidungsarchitektur, die Ihr Team selbst tragen kann.
+                        Bei Bedarf bringe ich die Kundenperspektive als neutralen Boden ein.
+                    </p>
+                    <p class="text-[0.9rem] text-stone-600 font-medium mb-1">Sie erhalten:</p>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1">
+                        <li>Übersetzte Strategie: Von CEO-Sprech zu Team-Sprech</li>
+                        <li>OKRs oder Zielframework mit messbaren Team-Beiträgen</li>
+                        <li>Entscheidungsarchitektur: Wer entscheidet was, auf welcher Basis</li>
+                        <li>Dokumentierte Übergabe an Ihr Team</li>
+                    </ul>
+                </div>
 
-        <section class="pt-12 pb-12">
-            <div id="testimonials-en"></div>
-        </section>
-
-        <hr style="border-color: #e5e2db; border-top-width: 1px;">
-
-        <section class="pt-20 pb-20">
-            <h2 class="source-serif text-stone-900 text-[1.4rem] mb-3">Why not just hire a consultancy or a full-time employee?</h2>
-            <p class="text-[0.9rem] text-stone-600 mb-10">
-                You can. But consultancies deliver slides, not structures.
-                And a full-time hire commits you before you know what you actually need.
-                I work in between: senior experience, flexible engagement, a clear exit.
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-[1fr_1fr] gap-x-12">
-                <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase pb-4" style="border-bottom: 1px solid #e5e2db;">Traditional path</p>
-                <p class="font-mono text-[0.72rem] text-stone-900 tracking-wider uppercase pb-4" style="border-bottom: 1px solid #e5e2db;">With me</p>
-                <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Senior pitches, juniors deliver</p>
-                <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">I'm the one who starts — and the one who delivers</p>
-                <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Standardized frameworks</p>
-                <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Tailored to your company</p>
-                <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Long commitment, unclear end</p>
-                <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Clear scope, defined exit</p>
-                <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Mountains of PowerPoints</p>
-                <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Structures your team can carry</p>
-            </div>
-        </section>
-
-        <hr style="border-color: #e5e2db; border-top-width: 1px;">
-
-        <section id="kontakt-en" class="pt-20 pb-20">
-            <div class="rounded-lg py-12 px-8" style="background: #f6f4f9;">
-                <h2 class="source-serif text-[1.4rem] text-stone-900 mb-4">Let's find out where our collaboration starts.</h2>
-                <p class="text-[0.9rem] text-stone-600 mb-6">
-                    In 30 minutes, tell me about your challenges.
-                    We'll explore possible next steps together.
-                </p>
-                <ul class="text-[0.9rem] text-stone-600 space-y-2 mb-8 list-disc pl-5">
-                    <li>You share your challenge — whether it's strategy, product, or both.</li>
-                    <li>I give you an initial assessment and possible next steps.</li>
-                    <li>No commitment, 30 minutes, no preparation needed.</li>
-                </ul>
-                <div>
-                    <a href="https://cal.eu/linja"
-                        class="inline-block px-7 py-3 rounded text-white text-[0.9rem] font-medium transition-colors hover:opacity-90"
-                        style="background: #7b6ba5;">Book a call</a>
-                    <p class="text-[0.9rem] text-stone-600 mt-4">or email me at
-                        <a href="mailto:info@linja.me" class="hover:text-stone-800 transition-colors" style="color: #7b6ba5;">info@linja.me</a></p>
+                <!-- Stufe 4: Sparring-Retainer -->
+                <div class="bg-white border rounded-lg p-8" style="border-color: #e5e2db; border-left: 4px solid #5B96B8;">
+                    <span class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase mb-4 block">Sparring-Retainer · Laufend</span>
+                    <h3 class="source-serif text-stone-900 text-[1.2rem] mb-3">Eine strategische Sparringspartnerin auf Abruf</h3>
+                    <p class="text-[0.9rem] text-stone-600 mb-5">
+                        Regelmäßiges Sparring für Geschäftsführung oder Produktleitung.
+                        Ich challenge Ihre Annahmen, helfe priorisieren und bringe die Außenperspektive ein,
+                        die im Tagesgeschäft verloren geht. Keine operative Verantwortung, maximale Klarheit.
+                    </p>
+                    <p class="text-[0.9rem] text-stone-600 font-medium mb-1">Sie erhalten:</p>
+                    <ul class="text-[0.9rem] text-stone-600 space-y-1">
+                        <li>2–4 Stunden strategisches Sparring pro Monat</li>
+                        <li>Priorisierungs-Support bei schwierigen Entscheidungen</li>
+                        <li>Außenperspektive und konstruktive Challenge</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
     </div>
-    </div><!-- /site-en -->
 
-    <div id="site-footer"></div>
-
-    <!-- ======== SCRIPTS ======== -->
-    <script>
-    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
-    function setLang(lang) { localStorage.setItem('site-lang', lang); }
-
-    function applyLanguage(lang) {
-        var de = document.getElementById('site-de');
-        var en = document.getElementById('site-en');
-        var label = document.getElementById('lang-label');
-        var labelMobile = document.getElementById('lang-label-mobile');
-        var navDe = document.querySelectorAll('.nav-de');
-        var navEn = document.querySelectorAll('.nav-en');
-
-        if (lang === 'en') {
-            de.classList.add('lang-hidden');
-            en.classList.remove('lang-hidden');
-            if (label) label.textContent = 'DE';
-            if (labelMobile) labelMobile.textContent = 'DE';
-            navDe.forEach(function(el) { el.classList.add('lang-hidden'); });
-            navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
-        } else {
-            de.classList.remove('lang-hidden');
-            en.classList.add('lang-hidden');
-            if (label) label.textContent = 'EN';
-            if (labelMobile) labelMobile.textContent = 'EN';
-            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); });
-            navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
-        }
-        document.documentElement.lang = lang;
-    }
-
-    function toggleLanguage() {
-        var current = getLang();
-        var next = current === 'de' ? 'en' : 'de';
-        setLang(next);
-        applyLanguage(next);
-        if (window.initTestimonialSliders) window.initTestimonialSliders();
-    }
-
-    applyLanguage(getLang());
-    </script>
-    <script src="testimonials.js"></script>
+    <!-- ======== FOOTER ======== -->
+    <footer style="background: #F5F3EF;" class="py-8">
+        <div class="max-w-[860px] mx-auto px-8 flex items-center justify-center gap-4 text-[0.72rem] text-stone-300">
+            <a href="index.html" class="hover:text-stone-500 transition-colors">Start</a>
+            <a href="angebote.html" class="text-stone-500">Angebote</a>
+            <a href="https://cv.linja.me" class="hover:text-stone-500 transition-colors">CV</a>
+            <a href="impressum.html" class="hover:text-stone-500 transition-colors">Impressum</a>
+            <a href="agb.html" class="hover:text-stone-500 transition-colors">AGB</a>
+            <a href="datenschutz.html" class="hover:text-stone-500 transition-colors">Datenschutz</a>
+        </div>
+    </footer>
 
 </body>
 

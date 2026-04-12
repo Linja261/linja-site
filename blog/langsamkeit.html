@@ -1,0 +1,279 @@
+<!--
+  linja.me/blog/langsamkeit – Was mich ein Roman über Langsamkeit über KI gelehrt hat
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Block 2 Format: Prosa
+  Optionale Komponenten: Kernerkenntnis-Quote
+  Veröffentlicht: 2026-03-26
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Was mich ein Roman &uuml;ber Langsamkeit &uuml;ber KI gelehrt hat &ndash; Linja Scharffetter</title>
+    <meta name="description" content="Sten Nadolnys Roman handelt von einem Mann, der langsamer denkt als alle um ihn herum. Was das f&uuml;r die Arbeit mit KI bedeutet &mdash; eine pers&ouml;nliche Reflexion.">
+    <meta property="og:title" content="Was mich ein Roman &uuml;ber Langsamkeit &uuml;ber KI gelehrt hat">
+    <meta property="og:description" content="Sten Nadolnys Roman handelt von einem Mann, der langsamer denkt als alle um ihn herum. Was das f&uuml;r die Arbeit mit KI bedeutet.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles */
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../components.js" data-active="blog"></script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Reflexion &amp; Lebenskunst</span>
+                <span class="text-[0.72rem] text-stone-400">26. M&auml;rz 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Was mich ein Roman &uuml;ber Langsamkeit &uuml;ber KI gelehrt hat
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
+                 ══════════════════════════════════════════════ -->
+
+            <p>Vor ein paar Wochen habe ich &bdquo;Die Entdeckung der Langsamkeit&ldquo; von Sten Nadolny gelesen &mdash; einen Roman aus 1983 &uuml;ber den britischen Polarforscher John Franklin, der so langsam denkt, dass ihn seine Umgebung f&uuml;r beschr&auml;nkt h&auml;lt. Franklin wird trotzdem einer der besten Offiziere seiner Zeit, weil er in komplexen Situationen mehr sieht als die, die sofort reagieren.</p>
+
+            <p>Das Buch hat mich nicht losgelassen. Nicht wegen der Geschichte, sondern wegen einer Frage, die sich beim Lesen immer lauter gestellt hat: Was bedeutet Langsamkeit in einer Zeit, in der KI alles schneller macht? Wenn jeder prompten kann und Output in Sekunden entsteht &mdash; was passiert dann mit der F&auml;higkeit, vor dem Output nachzudenken?</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Sehen, was andere &uuml;bersehen</h2>
+
+            <p>Franklin reagiert im Roman nie auf das Offensichtliche. Er liest Systeme &mdash; Str&ouml;mungen, Muster, Zusammenh&auml;nge &mdash; w&auml;hrend andere l&auml;ngst gehandelt haben. Nadolny macht daraus keine Schw&auml;che, sondern eine &Uuml;berlebensstrategie: Wer langsam genug denkt, sieht Dinge, die den Schnellen entgehen.</p>
+
+            <p>In der KI-Arbeit erkenne ich dieses Muster wieder. KI liefert Antworten auf gestellte Fragen &mdash; schnell, poliert, in sich schl&uuml;ssig. Aber die richtigen Fragen zu stellen, und die Geduld zu haben, Muster zu erkennen, bevor man handelt, das bleibt menschliche Arbeit. Daniel Kahneman w&uuml;rde Franklins Denkweise als System 2 beschreiben: langsam, bewusst, anstrengend &mdash; und genau deshalb pr&auml;zise&sup1;. Die meisten KI-Interaktionen dagegen laufen &uuml;ber System 1: schnell, m&uuml;helos, belohnungsorientiert. Der Output sieht gut aus, also &uuml;bersch&auml;tzen wir seine Qualit&auml;t. Der erste Vorschlag wird zum Anker, an dem wir alles Weitere messen. Was schnell verf&uuml;gbar ist, f&uuml;hlt sich wichtiger an als das, was tiefere Arbeit br&auml;uchte.</p>
+
+            <p>Das ist keine Schw&auml;che der KI. Es ist eine Eigenschaft unseres Denkens, die KI verst&auml;rkt.</p>
+
+            <h2>Die Geschwindigkeitsfalle</h2>
+
+            <p>Cal Newport beschreibt ein Muster, das er Pseudo-Produktivit&auml;t nennt&sup2;: sichtbare Aktivit&auml;t, die sich wie Arbeit anf&uuml;hlt, aber keinen proportionalen Wert erzeugt. KI macht dieses Muster bequemer &mdash; mehr Output bei gleichem oder sinkendem Denkaufwand. Jeder Prompt erzeugt sofortiges Feedback, und sofortiges Feedback f&uuml;hlt sich gut an, unabh&auml;ngig von der Qualit&auml;t des Ergebnisses. Ob das neurochemisch eine Dopamin-Schleife ist, wie bei Social Media, ist nicht bewiesen. Aber das Muster ist erkennbar: Die Belohnung liegt im Akt des Promptens, nicht im Ergebnis.</p>
+
+            <p>Nadolnys Franklin kennt dieses Problem nicht, weil seine Langsamkeit biologisch ist. Er muss sich nicht gegen Geschwindigkeit entscheiden &mdash; er hat schlicht keine. F&uuml;r die meisten von uns ist die Situation anders: Wir m&uuml;ssen uns aktiv gegen die Geschwindigkeit entscheiden, obwohl sie verf&uuml;gbar ist. Das macht Langsamkeit zu einer Disziplin, nicht zu einer Eigenschaft.</p>
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Langsamkeit ist keine Eigenschaft. Sie ist eine Entscheidung &mdash; und in einer Welt, in der KI alles schneller macht, die schwierigste.
+                </p>
+            </div>
+
+            <h2>Warten als Kompetenz</h2>
+
+            <p>Im Roman &ouml;ffnen sich Durchg&auml;nge im Eis manchmal nur kurz. Wer zu fr&uuml;h handelt, steckt fest. Wer zu lange wartet, auch. Franklins St&auml;rke ist nicht, dass er langsam ist &mdash; sondern dass er den richtigen Moment erkennt.</p>
+
+            <p>&Uuml;bertragen auf KI-Arbeit hei&szlig;t das: Nicht jede M&ouml;glichkeit ist eine Gelegenheit. KI erzeugt st&auml;ndig neue Optionen &mdash; neuer Entwurf, neue Perspektive, neue Variante. Die F&auml;higkeit, Optionen zu ignorieren, ist wertvoller als die F&auml;higkeit, sie zu erzeugen. Wenn Millionen Menschen dieselben Tools mit denselben Mustern nutzen, wird eigenst&auml;ndiges Denken zum Differenzierungsmerkmal &mdash; nicht trotz KI, sondern gerade wegen KI.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich ver&auml;ndert habe</h2>
+
+            <p>Ich bin von Natur ungeduldig &mdash; schnell im Kopf, schnell gereizt von Pseudo-Aktivismus. Franklin und ich kommen von entgegengesetzten Seiten. Aber das Buch hat mir drei Dinge bewusst gemacht, die ich seitdem in meinen KI-Arbeitsalltag eingebaut habe.</p>
+
+            <p><strong>Morgens &bdquo;Genug&ldquo; definieren, bevor ich die erste KI-Session starte.</strong> Drei Ergebnisse, die den Tag erfolgreich machen. Nicht mehr. Alles dar&uuml;ber hinaus ist Bonus, nicht Pflicht. Ohne dieses Limit produziere ich mit KI beliebig viel, ohne zu merken, wann es reicht.</p>
+
+            <p><strong>Eigenes Framework aufbauen, bevor KI darauf arbeitet.</strong> Ohne eigene Struktur kann ich nicht unterscheiden, was vom KI-Output gut ist und was nur poliert aussieht. Erst mein Rahmen macht den Output bewertbar. System 2 vor System 1.</p>
+
+            <p><strong>10 Sekunden vor jedem Prompt.</strong> Bevor ich tippe, frage ich mich: Wei&szlig; ich, was ich will &mdash; oder suche ich nach dem n&auml;chsten schnellen Output? Die kleinste Verlangsamung, die es gibt. Und oft die wirksamste.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Langsamkeit als Strategie hat Voraussetzungen. Sie funktioniert, wenn man die Freiheit hat, den eigenen Rhythmus zu bestimmen &mdash; als Solo-Wissensarbeiterin, als F&uuml;hrungskraft mit Entscheidungsspielraum. In einem Umfeld, das Geschwindigkeit als Leistungsnachweis misst und Sichtbarkeit &uuml;ber Wirkung stellt, ist bewusste Langsamkeit ein Risiko. Nicht jeder kann es sich leisten, auf den richtigen Moment zu warten, wenn der Sprint-Review morgen ist.</p>
+
+            <p>Und Franklin hatte Privilegien: Er war Offizier, nicht Matrose &mdash; und vor allem eine Romanfigur. Nadolny hat die Langsamkeit als literarisches Prinzip verdichtet. Die Realit&auml;t ist unordentlicher. Der echte John Franklin ist auf seiner letzten Expedition mit seiner gesamten Crew umgekommen. Langsamkeit allein sch&uuml;tzt vor gar nichts. Die Frage ist nicht &bdquo;Ist Langsamkeit eine St&auml;rke?&ldquo; sondern &bdquo;Unter welchen Bedingungen kann ich sie mir erlauben &mdash; und wie schaffe ich mir diese Bedingungen, wenn sie nicht von allein da sind?&ldquo;</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: TAKEAWAYS
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt f&uuml;r jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">KI macht schneller &mdash; aber schneller ist nicht besser.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Geschwindigkeit erzeugt Output, nicht Qualit&auml;t. Die eigentliche Arbeit beginnt, nachdem der erste Entwurf steht.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Langsamkeit ist keine Eigenschaft &mdash; sie ist eine Entscheidung.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Franklin wurde langsam geboren. Die meisten von uns m&uuml;ssen es sich bewusst erk&auml;mpfen. Das ist kein Nachteil &mdash; es bedeutet, dass wir es jeden Tag neu w&auml;hlen k&ouml;nnen.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Struktur sch&uuml;tzt vor Geschwindigkeit.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Nicht Disziplin macht den Unterschied, sondern Infrastruktur: klare Tagesziele, eigenes Framework, bewusste Pausen vor dem Prompt.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://us.macmillan.com/books/9780374533557/thinkingfastandslow" class="hover:text-stone-600 transition-colors" style="color: inherit;">Kahneman, Daniel (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux.</a></li>
+                    <li><a href="https://www.penguinrandomhouse.com/books/714023/slow-productivity-by-cal-newport/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Newport, Cal (2024). Slow Productivity: The Lost Art of Accomplishment Without Burnout. Portfolio/Penguin.</a></li>
+                    <li><a href="https://de.wikipedia.org/wiki/Die_Entdeckung_der_Langsamkeit" class="hover:text-stone-600 transition-colors" style="color: inherit;">Nadolny, Sten (1983). Die Entdeckung der Langsamkeit. Piper Verlag.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSAR
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Ankereffekt</span> <span class="text-stone-400">&mdash; Kognitive Verzerrung, bei der ein erster Wert alle folgenden Einsch&auml;tzungen beeinflusst.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Pseudo-Produktivit&auml;t</span> <span class="text-stone-400">&mdash; Sichtbare Aktivit&auml;t ohne proportionalen Wert (Newport, 2024).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">System 1 / System 2</span> <span class="text-stone-400">&mdash; Kahnemans Modell: System 1 ist schnell und automatisch, System 2 ist langsam und bewusst.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <div id="site-footer"></div>
+
+</body>
+
+</html>
