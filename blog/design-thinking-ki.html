@@ -1,0 +1,475 @@
+<!--
+  linja.me/blog/design-thinking-ki – Design Thinking an einem Abend
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Optionale Komponenten: Kennzahl-Highlights, Interaktive Bausteine (5 DT-Phasen)
+  Veröffentlicht: 2026-04-17
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Thinking an einem Abend. Was bleibt, wenn KI die Hälfte übernimmt. – Linja Scharffetter</title>
+    <meta name="description" content="Design Thinking braucht normalerweise Tage, ein Team und einen Raum voller Post-its. Mit KI-Co-Creation habe ich den kompletten Zyklus an einem Abend durchlaufen. Was funktioniert, was fehlt, und was PMs daraus für den Alltag mitnehmen können.">
+    <meta property="og:title" content="Design Thinking an einem Abend. Was bleibt, wenn KI die Hälfte übernimmt.">
+    <meta property="og:description" content="Design Thinking braucht normalerweise Tage, ein Team und einen Raum voller Post-its. Mit KI-Co-Creation habe ich den kompletten Zyklus an einem Abend durchlaufen.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles */
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Interactive component styles */
+        .bs-row { cursor: pointer; transition: all 0.15s ease; }
+        .bs-row:hover { background: #f6f4f9; }
+        .bs-row.active { background: #f6f4f9; border-color: #7b6ba5; }
+        .bs-row.active .bs-num { background: #7b6ba5; color: white; }
+        .bs-detail { display: none; }
+        .bs-detail.active { display: block; }
+        .bs-label { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.35rem; }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../components.js" data-active="blog"></script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
+                <span class="text-[0.72rem] text-stone-400">17. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Design Thinking an einem Abend. Was bleibt, wenn KI die Hälfte übernimmt.
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM (~100 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <p>Design Thinking ist das Standardframework für nutzerzentrierte Produktentwicklung, entwickelt von IDEO und der Stanford d.school. In der Praxis scheitert es an Aufwand: zwei bis fünf Tage Workshop, vier bis sieben Personen, ein Facilitator, ein Raum voller Post-its. Das Ergebnis ist, dass die meisten Product Manager es nie einsetzen. KI verändert diese Gleichung. Ich habe den kompletten Zyklus (Empathize, Define, Ideate, Prototype, Test) an einem Abend durchlaufen, allein, mit Claude als Co-Pilot. Von der Idee "mamahood" (eine App für Mütter, die mehr als nur über Windeln reden wollen) bis zum klickbaren Prototyp mit 10 Screens. Die Frage ist nicht, ob das geht. Die Frage ist, was dabei gewonnen und was verloren geht.</p>
+
+
+            <!-- ══ KENNZAHL-HIGHLIGHTS ══ -->
+
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">65 min</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Von Idee bis klickbarem Prototyp</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Eigene Zeitmessung, 16.04.2026</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">20–40h</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Klassischer Design-Thinking-Zyklus (Schätzung)</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Stanford d.school Referenzwert</p>
+                </div>
+            </div>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG (~500 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was KI in jeder Phase verändert</h2>
+
+            <p>Design Thinking besteht aus fünf Phasen: Empathize, Define, Ideate, Prototype, Test. Iterativ gedacht, nicht linear. Das Kernprinzip ist Menschzentrierung: Beginne beim Nutzer, nicht bei der Lösung. In der klassischen Umsetzung braucht jede Phase Stunden bis Tage, ein crossfunktionales Team und physische Infrastruktur. KI komprimiert die einzelnen Phasen unterschiedlich stark. Am meisten dort, wo es um Generierung und Formgebung geht. Am wenigsten dort, wo Empathie und Urteil gefragt sind.</p>
+
+            <!-- ══ INTERAKTIVE BAUSTEINE: 5 DT-PHASEN ══ -->
+
+            <div class="my-8" style="max-width: 100%;">
+                <div class="border rounded-lg overflow-hidden" style="border-color: #e5e2db;" id="bs-list">
+                    <div class="bs-row active flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs="0">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #7b6ba5; color: white;">01</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Empathize</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">20 min</span>
+                    </div>
+                    <div class="bs-row flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs="1">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">02</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Define</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">10 min</span>
+                    </div>
+                    <div class="bs-row flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs="2">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">03</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Ideate</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">15 min</span>
+                    </div>
+                    <div class="bs-row flex items-center justify-between px-5 py-3.5" style="border-bottom: 1px solid #e5e2db;" data-bs="3">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">04</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Prototype</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">20 min</span>
+                    </div>
+                    <div class="bs-row flex items-center justify-between px-5 py-3.5" data-bs="4">
+                        <div class="flex items-center gap-3">
+                            <span class="bs-num font-mono text-[0.72rem] font-medium w-6 h-6 rounded flex items-center justify-center flex-shrink-0" style="background: #e5e2db; color: #44403c;">05</span>
+                            <span class="text-[0.88rem] text-stone-900 font-medium">Test</span>
+                        </div>
+                        <span class="font-mono text-[0.68rem] text-stone-400">offen</span>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <!-- Phase 1: Empathize -->
+                    <div class="bs-detail active border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail="0">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">01</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Empathize</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Klassisch</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">4 bis 8 Stunden Nutzerinterviews, Feldbeobachtung, Desk Research. Team aus 4 bis 7 Personen.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Mit KI</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">20 Minuten. KI führt ein strukturiertes Interview, stellt gezielte Folgefragen, fasst Erkenntnisse zusammen. Funktioniert besonders gut, wenn die PM selbst Domänenexpertin ist (in meinem Fall: ich bin Mutter).</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Warum es funktioniert</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">KI kann zuhören, strukturieren, Muster erkennen. Was sie nicht kann: fühlen. Die Erkenntnis "In keinem Format geht es je um die Mutter" kam aus dem Interview, nicht aus der KI.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 2: Define -->
+                    <div class="bs-detail border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail="1">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">02</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Define</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Klassisch</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">2 bis 4 Stunden Workshop. Post-its clustern, Point of View formulieren, How-Might-We generieren.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Mit KI</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">10 Minuten. KI generiert 3 HMW-Varianten basierend auf den Interview-Erkenntnissen. Mensch wählt und schärft.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Warum es funktioniert</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Die schnellste Phase. KI ist gut im Reformulieren und im Aufzeigen verschiedener Perspektiven. Die Entscheidung "DAS ist unser Problem" bleibt menschlich.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3: Ideate -->
+                    <div class="bs-detail border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail="2">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">03</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Ideate</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Klassisch</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">2 bis 4 Stunden Brainstorming, Crazy 8s, Dot Voting. Braucht Gruppenenergie.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Mit KI</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">15 Minuten. KI generiert 15 Ideen in 4 Clustern. Mensch selektiert 9, kombiniert, trifft Konzeptentscheidungen: Aktivitäts-Matching statt Profil-Swiping, 1:1 statt Gruppen.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Warum es funktioniert</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">KI bringt Breite (15 Ideen in Sekunden), Mensch bringt Tiefe (welche taugen wirklich). Die wertvollste Entscheidung war nicht eine KI-Idee, sondern das Sparring: Aktivitäts-basierter Einstieg vs. Profil-basierter Einstieg.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 4: Prototype -->
+                    <div class="bs-detail border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail="3">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">04</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Prototype</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Klassisch</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">8 bis 16 Stunden. Figma-Mockups oder HTML/CSS. Braucht Design-Skills.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Mit KI</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">20 Minuten. Claude Code generiert einen klickbaren HTML-Prototyp mit 10 Screens: Welcome, 7 Quiz-Screens, Aktivitäts-Feed mit Match-Karten, Match-Detail, Chat, Profil. Vollständig interaktiv, mobile-optimiert.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Warum es funktioniert</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Größter Zeitgewinn. Was früher Tage dauerte, ist in Minuten erledigt. Der Prototyp zeigt allerdings, was KI entschieden hat, nicht was Nutzerinnen brauchen. Deshalb bleibt Testen Pflicht.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 5: Test -->
+                    <div class="bs-detail border rounded-lg p-6" style="border-color: #e5e2db;" data-bs-detail="4">
+                        <div class="flex items-baseline gap-2 mb-4">
+                            <span class="font-mono text-[0.85rem] font-medium" style="color: #7b6ba5;">05</span>
+                            <span class="source-serif text-[1.1rem] text-stone-900">Test</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+                            <div>
+                                <p class="bs-label text-stone-400">Klassisch</p>
+                                <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">4 bis 8 Stunden. 5 Nutzerinterviews mit dem Prototyp.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #5b8a72;">Mit KI</p>
+                                <p class="text-[0.82rem] text-stone-700 leading-relaxed mb-0">KI kann simulierte Nutzerreaktionen geben und eine kritische Challenge durchführen: Annahmen freilegen, Killer-Fragen stellen, Red Flags identifizieren. Echte Nutzerinnen ersetzen kann sie nicht.</p>
+                            </div>
+                            <div>
+                                <p class="bs-label" style="color: #D4714E;">Was bleibt offen</p>
+                                <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Den Prototyp 10 Müttern zeigen. Beobachten, nicht fragen. Die Überraschung im Gesicht einer Nutzerin ist nicht simulierbar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+            (function() {
+                var rows = document.querySelectorAll('.bs-row');
+                var details = document.querySelectorAll('.bs-detail');
+                rows.forEach(function(row) {
+                    row.addEventListener('click', function() {
+                        var idx = this.dataset.bs;
+                        rows.forEach(function(r) {
+                            r.classList.remove('active');
+                            r.querySelector('.bs-num').style.background = '#e5e2db';
+                            r.querySelector('.bs-num').style.color = '#44403c';
+                        });
+                        this.classList.add('active');
+                        this.querySelector('.bs-num').style.background = '#7b6ba5';
+                        this.querySelector('.bs-num').style.color = 'white';
+                        details.forEach(function(d) { d.classList.remove('active'); });
+                        document.querySelector('[data-bs-detail="' + idx + '"]').classList.add('active');
+                    });
+                });
+            })();
+            </script>
+
+
+            <h3>Was PMs daraus für den Alltag mitnehmen</h3>
+
+            <p><strong>Design Thinking wird zum Alltagstool.</strong> Nicht mehr Workshop-Event, sondern wiederholbares Solo-Format. Hypothese in der Mittagspause? Empathize, Define und Ideate in 45 Minuten, Prototyp am Nachmittag.</p>
+
+            <p><strong>Die PM-Superkraft ist Framing, nicht Machen.</strong> KI macht schneller. Aber die Entscheidung, WAS prototypiert wird, WELCHES Problem gelöst wird und WER die Zielgruppe ist, bleibt menschlich. Das ist Product Sense nach Shreyas Doshi: Empathie, Simulation, Strategie, Geschmack, kreative Execution.</p>
+
+            <p><strong>Geschwindigkeit verändert die Methodik.</strong> Wenn ein Prototyp 20 Minuten kostet statt 2 Tage, kannst du 5 Varianten bauen statt eine. Das verändert, wie du Entscheidungen triffst: nicht mehr "welche Idee bauen wir?", sondern "welche 3 Ideen testen wir parallel?"</p>
+
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    KI komprimiert die Mach-Phasen. Die Denk-Phasen bleiben bei dir. Und genau dort liegt dein Wert als PM.
+                </p>
+            </div>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE (~150 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich verändert habe</h2>
+
+            <p>Ich nutze Design Thinking jetzt wie eine Morgenroutine, nicht wie einen Offsite-Workshop. Wenn ich eine neue Produktidee habe oder eine Hypothese validieren will, starte ich ein Gespräch mit Claude. 20 Minuten Interview (Empathize), 10 Minuten Problemschärfung (Define), 15 Minuten Ideation mit Selektion, dann Prototyp bauen. Das Ergebnis ist nicht perfekt, es ist testbar. Und testbar schlägt perfekt.</p>
+
+            <p>Konkret: mamahood (eine App für Mütter) ist an einem Abend von "ich hatte mal eine Idee" zu einem klickbaren Prototyp mit 10 Screens, einer Landing Page und einem Wettbewerbscheck geworden. Nicht als theoretische Übung, sondern als reales Produkt, das ich jetzt tatsächlich validiere. Der Prototyp ist live, die Landing Page sammelt E-Mails, die Challenge-Analyse hat die blinden Flecken aufgedeckt.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG (~120 Wörter)
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Design Thinking mit KI funktioniert am besten, wenn du selbst Domänenwissen mitbringst. Ich bin Mutter, ich kenne das Problem. Hätte ich eine App für Dachdecker gebaut, hätte die Empathize-Phase nicht in 20 Minuten funktioniert, weil KI kein Ersatz für echte Feldforschung ist. Außerdem fehlt die Gruppenenergie: Klassisches Design Thinking lebt davon, dass 5 verschiedene Gehirne 5 verschiedene Perspektiven einbringen. KI ist ein ausgezeichneter Sparringspartner, aber sie ist immer nur ein Gehirn.</p>
+
+            <p>Die Overnight-Effekte fehlen ebenfalls: Ideen reifen über Nacht. An einem Abend komprimiert, fehlt diese Reifung. Und das Testen bleibt: Kein KI-generierter Prototyp ersetzt echtes Nutzerfeedback.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Die Denkarbeit bleibt bei dir.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">KI beschleunigt alles zwischen den Entscheidungen. Empathie und Urteil sind nicht automatisierbar.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Design Thinking wird zum Alltagstool.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Nicht Workshop-Event, sondern wiederholbare Solo-Methode. Hypothese morgens, Prototyp nachmittags.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Schnellere Prototypen bedeuten mehr Experimente.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wenn ein Prototyp 20 Minuten kostet, kannst du 5 Varianten testen statt eine zu perfektionieren.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.harpercollins.com/products/change-by-design-tim-brown" class="hover:text-stone-600 transition-colors" style="color: inherit;">Tim Brown (2009). Change by Design. IDEO/HarperCollins.</a></li>
+                    <li><a href="https://dschool.stanford.edu/resources" class="hover:text-stone-600 transition-colors" style="color: inherit;">Stanford d.school. Design Thinking Bootcamp Bootleg.</a></li>
+                    <li><a href="https://shreyasdoshi.substack.com" class="hover:text-stone-600 transition-colors" style="color: inherit;">Shreyas Doshi (2026). Why Product Sense is the only product skill that will matter in the AI age.</a></li>
+                    <li><a href="https://www.thesprintbook.com" class="hover:text-stone-600 transition-colors" style="color: inherit;">Jake Knapp (2016). Sprint. Simon &amp; Schuster.</a></li>
+                    <li><a href="https://www.randomhouse.de/Buch/artgerecht/Nicola-Schmidt/Koesel/e478498.rhd" class="hover:text-stone-600 transition-colors" style="color: inherit;">Nicola Schmidt (2015). artgerecht. Kösel-Verlag.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSAR
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Design Thinking</span> <span class="text-stone-400">— Framework für nutzerzentrierte Problemlösung in 5 iterativen Phasen (IDEO/Stanford d.school)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Empathize</span> <span class="text-stone-400">— Phase 1: Nutzer verstehen durch Interviews, Beobachtung, Immersion</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Define</span> <span class="text-stone-400">— Phase 2: Problem schärfen, How-Might-We-Frage formulieren</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Ideate</span> <span class="text-stone-400">— Phase 3: Breite Lösungsgenerierung, Selektion, Konzeptentscheidung</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Prototype</span> <span class="text-stone-400">— Phase 4: Ideen greifbar und testbar machen</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">How-Might-We</span> <span class="text-stone-400">— Frageformat das Probleme in Chancen umformuliert</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Product Sense</span> <span class="text-stone-400">— Kombination aus Empathie, Simulation, Strategie, Geschmack und kreativer Execution (Shreyas Doshi)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">KI-Co-Creation</span> <span class="text-stone-400">— Kollaboratives Arbeiten zwischen Mensch und KI als gleichwertige Partner</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <div id="site-footer"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entwürfe – Linja Scharffetter</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <!-- Gate -->
+    <div id="gate" class="min-h-screen flex items-center justify-center px-6">
+        <div class="max-w-sm w-full text-center">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Entwürfe</p>
+            <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
+            <form onsubmit="return checkPass()">
+                <input type="password" id="pass" placeholder="Passwort" autofocus
+                    class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3"
+                    style="border-color: #E5E2DB;">
+                <button type="submit"
+                    class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">
+                    Öffnen
+                </button>
+            </form>
+            <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
+        </div>
+    </div>
+
+    <!-- Draft List (hidden until authenticated) -->
+    <div id="drafts" class="hidden">
+        <div class="max-w-[680px] mx-auto px-8 pt-28 pb-20">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">Blog Entwürfe</p>
+                    <h1 class="source-serif text-2xl text-stone-900">Review-Bereich</h1>
+                </div>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #fae8de; color: #73402e;">Draft</span>
+            </div>
+
+            <p class="text-sm text-stone-400 mb-8">Diese Artikel sind noch nicht veröffentlicht. Nur über diese URL erreichbar, nicht indexiert, nicht verlinkt.</p>
+
+            <div class="space-y-4" id="draft-list">
+
+                <!-- Draft 1: Design Thinking -->
+                <a href="design-thinking-ki.html" class="block bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
+                        <span class="text-[0.68rem] text-stone-400">17. April 2026</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">ENTWURF</span>
+                    </div>
+                    <h2 class="source-serif text-lg text-stone-900 mb-1">Design Thinking an einem Abend. Was bleibt, wenn KI die Hälfte übernimmt.</h2>
+                    <p class="text-sm text-stone-400">Design Thinking braucht normalerweise Tage, ein Team und einen Raum voller Post-its. Mit KI-Co-Creation habe ich den kompletten Zyklus an einem Abend durchlaufen.</p>
+                </a>
+
+                <!-- Draft 2: Intuition (Platzhalter) -->
+                <div class="bg-stone-50 border border-dashed rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-0.5 rounded text-stone-300" style="background: #F5F3EF;">GEPLANT</span>
+                    </div>
+                    <h2 class="source-serif text-lg text-stone-400 mb-1">Intuition als Produkt Managerin</h2>
+                    <p class="text-sm text-stone-300">Interview-basiert. Gary Klein, Kahneman, Jenny Wen. In Arbeit.</p>
+                </div>
+
+                <!-- Draft 3: Prototyping (Platzhalter) -->
+                <div class="bg-stone-50 border border-dashed rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-0.5 rounded text-stone-300" style="background: #F5F3EF;">GEPLANT</span>
+                    </div>
+                    <h2 class="source-serif text-lg text-stone-400 mb-1">Wie prototype ich als PM?</h2>
+                    <p class="text-sm text-stone-300">PM vs Designer Perspektive. Framing als Superkraft. In Arbeit.</p>
+                </div>
+
+                <!-- Draft 4: Ergebnis first (Platzhalter) -->
+                <div class="bg-stone-50 border border-dashed rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-0.5 rounded text-stone-300" style="background: #F5F3EF;">GEPLANT</span>
+                    </div>
+                    <h2 class="source-serif text-lg text-stone-400 mb-1">Beim Ergebnis anfangen</h2>
+                    <p class="text-sm text-stone-300">Working Backwards, IKEA-Analogie, linja.me als Case Study. In Arbeit.</p>
+                </div>
+
+                <!-- Draft 5: KI Zeitmanagement (Platzhalter) -->
+                <div class="bg-stone-50 border border-dashed rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI & Gesundheit</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-0.5 rounded text-stone-300" style="background: #F5F3EF;">GEPLANT</span>
+                    </div>
+                    <h2 class="source-serif text-lg text-stone-400 mb-1">Wie KI ein gesünderes Zeitmanagement fördern kann</h2>
+                    <p class="text-sm text-stone-300">Smartphone-Paradox, Decision Fatigue, Vortrag-tauglich. In Arbeit.</p>
+                </div>
+
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #E5E2DB;">
+                <a href="../../blog.html" class="text-sm transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Zurück zum Blog</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple client-side gate — not real security, just keeps casual visitors out
+        const PASS_HASH = '6272a5e4'; // hash of 'dorf2026'
+
+        function simpleHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return Math.abs(hash).toString(16).slice(0, 8);
+        }
+
+        // Check if already authenticated
+        if (sessionStorage.getItem('drafts-auth') === 'true') {
+            document.getElementById('gate').classList.add('hidden');
+            document.getElementById('drafts').classList.remove('hidden');
+        }
+
+        function checkPass() {
+            const input = document.getElementById('pass').value;
+            if (simpleHash(input) === PASS_HASH) {
+                sessionStorage.setItem('drafts-auth', 'true');
+                document.getElementById('gate').classList.add('hidden');
+                document.getElementById('drafts').classList.remove('hidden');
+            } else {
+                document.getElementById('error').classList.remove('hidden');
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
