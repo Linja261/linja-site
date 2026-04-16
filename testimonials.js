@@ -149,6 +149,10 @@ var TESTIMONIALS = [
     }
     setFixedHeight();
     window.addEventListener('resize', setFixedHeight);
+    // Recalculate after fonts load (Source Serif reflows text)
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(setFixedHeight);
+    }
 
     function show(index) {
       slides.forEach(function(s) { s.classList.add('hidden'); });
