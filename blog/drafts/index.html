@@ -127,17 +127,7 @@
 
     <script>
         // Simple client-side gate — not real security, just keeps casual visitors out
-        const PASS_HASH = '6272a5e4'; // hash of 'dorf2026'
-
-        function simpleHash(str) {
-            let hash = 0;
-            for (let i = 0; i < str.length; i++) {
-                const char = str.charCodeAt(i);
-                hash = ((hash << 5) - hash) + char;
-                hash = hash & hash;
-            }
-            return Math.abs(hash).toString(16).slice(0, 8);
-        }
+        const PASS = 'dorf2026';
 
         // Check if already authenticated
         if (sessionStorage.getItem('drafts-auth') === 'true') {
@@ -147,7 +137,7 @@
 
         function checkPass() {
             const input = document.getElementById('pass').value;
-            if (simpleHash(input) === PASS_HASH) {
+            if (input === PASS) {
                 sessionStorage.setItem('drafts-auth', 'true');
                 document.getElementById('gate').classList.add('hidden');
                 document.getElementById('drafts').classList.remove('hidden');
