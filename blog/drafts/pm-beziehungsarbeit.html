@@ -1,0 +1,290 @@
+<!--
+  linja.me/blog/pm-beziehungsarbeit – Product Work Is Relationship Work
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Optionale Komponenten: Vergleichs-Cards
+  Entwurf: 2026-04-20
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Work Is Relationship Work. Warum die PM-Rolle im KI-Zeitalter nicht verschwindet. – Linja Scharffetter</title>
+    <meta name="description" content="KI macht Bauen schneller, aber kann Beziehungsarbeit nicht ersetzen: Stakeholder-Alignment, gemeinsames Verständnis, Curiosity. Warum PMs wichtiger werden.">
+    <meta property="og:title" content="Product Work Is Relationship Work. Warum die PM-Rolle im KI-Zeitalter nicht verschwindet.">
+    <meta property="og:description" content="KI macht Bauen schneller, aber kann Beziehungsarbeit nicht ersetzen: Stakeholder-Alignment, gemeinsames Verständnis, Curiosity.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles */
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../components.js" data-active="blog"></script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                <span class="text-[0.72rem] text-stone-400">20. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Product Work Is Relationship Work. Warum die PM-Rolle im KI-Zeitalter nicht verschwindet.
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
+                 ══════════════════════════════════════════════ -->
+
+            <p>KI macht das Bauen von Software schneller. Prototypen in Stunden statt Wochen, Code-Generierung in Minuten statt Tagen. Aber die Frage, WAS gebaut werden soll, wird nicht schneller beantwortet, weil sie keine technische Frage ist. Sie ist eine Beziehungsfrage: Stakeholder-Alignment, konkurrierende Prioritäten navigieren, gemeinsames Verständnis schaffen. Teresa Torres und Petra Wille bringen es auf den Punkt: Product Work Is Relationship Work. Und Beziehungsarbeit lässt sich nicht automatisieren.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Transaktional versus relational</h2>
+
+            <p>In vielen Organisationen funktioniert die Zusammenarbeit zwischen PM, Design und Engineering transaktional: PM schreibt Spec, Design liefert Mockup, Engineering baut. Handoff-Kultur. Das funktioniert, solange die Anforderungen klar sind und sich nicht ändern. Aber Produktentwicklung unter Unsicherheit (also der Normalfall) erfordert kontinuierlichen Dialog, gemeinsames Lernen und die Fähigkeit, Richtungswechsel als Team zu absorbieren.</p>
+
+            <p>Chris Argyris hat in seiner Forschung zu organisationalem Lernen zwischen Single-Loop und Double-Loop Learning unterschieden. Single-Loop korrigiert Fehler innerhalb bestehender Regeln (das Spec war falsch, wir passen es an). Double-Loop hinterfragt die Regeln selbst (bauen wir das Richtige?). Double-Loop Learning erfordert psychologische Sicherheit, Offenheit und Beziehungen, in denen Widerspruch möglich ist. Peter Senge beschreibt in "The Fifth Discipline" dieselbe Dynamik: Lernende Organisationen brauchen Dialog, nicht Diskussion. Dialog sucht Verständnis, Diskussion sucht Überzeugung.</p>
+
+            <!-- ══ VERGLEICHS-CARDS ══ -->
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">Relational</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-900 mb-3">Dialog</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Gemeinsames Verständnis, Curiosity, "Yes, and". Widerspruch ist willkommen, weil er das Ergebnis verbessert.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #a8a29e; background: #FAFAF8;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3 text-stone-400">Transaktional</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-400 mb-3">Handoff</p>
+                    <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Spec, Mockup, Build. Jede Rolle arbeitet isoliert. Feedback kommt spät, Richtungswechsel sind teuer.</p>
+                </div>
+            </div>
+
+
+            <h2>Curiosity als Product Skill</h2>
+
+            <p>Torres und Wille betonen eine Fähigkeit, die in PM-Stellenanzeigen selten auftaucht: Neugier. Nicht die oberflächliche Art ("Ich interessiere mich für alles"), sondern die disziplinierte Neugier, die fragt: "Was weisst du, das ich nicht weiss?" und "Was sehe ich nicht?". Das Improv-Prinzip "Yes, and" transportiert dieselbe Haltung: Statt Ideen zu bewerten, baut man auf ihnen auf. Das schafft Räume, in denen bessere Lösungen entstehen können als in einem Prozess, der auf Filtration optimiert ist.</p>
+
+            <p>Diese Haltung ist schwer zu automatisieren, weil sie auf Vertrauen basiert. Menschen teilen ihre besten Ideen und ihre ehrlichsten Bedenken nicht mit einer KI und nicht in einem Jira-Ticket. Sie teilen sie in Gesprächen, in denen sie sich gehört fühlen. Das ist der Kern von Beziehungsarbeit: ein Umfeld schaffen, in dem Ehrlichkeit produktiv ist.</p>
+
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    KI kann bauen. Aber sie kann nicht die Beziehungen aufbauen, die nötig sind, damit das Richtige gebaut wird.
+                </p>
+            </div>
+
+
+            <h2>Was sich mit KI verändert (und was nicht)</h2>
+
+            <p>Das Bauen wird schneller. Ein PM kann einen Prototyp in Stunden erstellen, statt wochenlang auf Design-Ressourcen zu warten. Code-Generierung komprimiert die Umsetzung. Analyse-Tools beschleunigen Research. Aber das Alignment wird nicht schneller. Stakeholder haben weiterhin unterschiedliche Prioritäten. Teams brauchen weiterhin gemeinsames Verständnis, bevor sie effektiv bauen können. Und die Frage "Bauen wir das Richtige?" erfordert weiterhin Gespräche, nicht Tickets.</p>
+
+            <p>Die Konsequenz: PMs, die ihre Rolle als "Feature-Spezifikation" verstehen, werden tatsächlich ersetzt, weil KI Specs schneller schreiben kann. PMs, die ihre Rolle als Beziehungsarbeit verstehen (Alignment schaffen, Prioritäten navigieren, gemeinsames Lernen ermöglichen), werden wichtiger. Weil die schnellere Umsetzung mehr Entscheidungspunkte erzeugt und jeder Entscheidungspunkt Alignment erfordert.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich verändert habe</h2>
+
+            <p>Meine PM-Arbeit war immer relationship-first: Stakeholder-Management, crossfunktionale Abstimmung, das Schaffen gemeinsamer Zielbilder. Aber ich habe unterschätzt, wie bewusst diese Arbeit sein muss. Seit ich KI-Tools für das Bauen nutze, merke ich, dass die gesparte Bauzeit in Alignment-Arbeit fliessen muss, nicht in noch mehr Features. Schnelleres Bauen ohne besseres Alignment erzeugt mehr Output, aber nicht mehr Impact. Ich investiere jetzt explizit Zeit in "Pre-Alignment": bevor ich einen Prototyp zeige, kläre ich die Frage, die der Prototyp beantworten soll, mit den relevanten Stakeholdern.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Die These "Product Work Is Relationship Work" kann auch als Schutzbehauptung gelesen werden: PMs, die ihre Relevanz verteidigen, indem sie den nicht-automatisierbaren Teil betonen. Berechtigter Einwand. Aber die Forschung (Argyris, Senge, Edmondson zu psychologischer Sicherheit) stützt die These unabhängig von der PM-Rolle. Ausserdem: In Organisationen, in denen Beziehungsarbeit nicht geschätzt wird (stark hierarchisch, Handoff-Kultur), kann ein PM noch so beziehungsorientiert arbeiten, ohne Wirkung zu erzielen. Die organisatorische Kultur begrenzt den Ansatz. Und nicht jeder PM muss Beziehungsarbeiter sein. In hochstrukturierten Umgebungen (reguliert, sicherheitskritisch) ist Prozesstreue wertvoller als Dialog.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Alignment vor Artefakt.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Kläre die Frage, bevor du den Prototyp baust. Schnelles Bauen ohne Alignment erzeugt Rauschen.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Curiosity ist eine Superkraft.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">"Was weisst du, das ich nicht weiss?" öffnet Türen, die kein Dashboard zeigt.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">KI beschleunigt Bauen, nicht Verstehen.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Die gesparte Bauzeit gehört in Beziehungsarbeit, nicht in mehr Features.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.producttalk.org" class="hover:text-stone-600 transition-colors" style="color: inherit;">Teresa Torres &amp; Petra Wille (2026). Product Work Is Relationship Work. Podcast.</a></li>
+                    <li><a href="https://www.penguinrandomhouse.com/books/163984/the-fifth-discipline-by-peter-m-senge/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Peter Senge (1990). The Fifth Discipline: The Art &amp; Practice of the Learning Organization. Doubleday.</a></li>
+                    <li><a href="https://doi.org/10.1177/017084069101200201" class="hover:text-stone-600 transition-colors" style="color: inherit;">Chris Argyris (1991). Teaching Smart People How to Learn. Harvard Business Review.</a></li>
+                    <li><a href="https://www.producttalk.org/2021/05/continuous-discovery-habits/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Teresa Torres (2021). Continuous Discovery Habits. Product Talk LLC.</a></li>
+                    <li><a href="https://amzn.eu/d/fN9GWPR" class="hover:text-stone-600 transition-colors" style="color: inherit;">Amy Edmondson (2018). The Fearless Organization. Wiley.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSAR
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Stakeholder-Alignment</span> <span class="text-stone-400">— Gemeinsames Verständnis und Einigkeit über Ziele und Prioritäten zwischen allen Beteiligten</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Double-Loop Learning</span> <span class="text-stone-400">— Lernen, das nicht nur Fehler korrigiert, sondern die zugrundeliegenden Annahmen hinterfragt (Argyris)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Psychologische Sicherheit</span> <span class="text-stone-400">— Teamklima, in dem Fehler und Widerspruch ohne Angst geäussert werden können (Edmondson)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">"Yes, and"</span> <span class="text-stone-400">— Improv-Prinzip: Ideen aufbauen statt bewerten, Dialog statt Diskussion</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Handoff-Kultur</span> <span class="text-stone-400">— Arbeitsweise, bei der Ergebnisse zwischen Rollen übergeben statt gemeinsam erarbeitet werden</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Lernende Organisation</span> <span class="text-stone-400">— Organisation, die systematisch aus Erfahrung lernt und sich anpasst (Senge)</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <div id="site-footer"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<!--
+  linja.me/blog/ki-kontext-teilen – KI-Kontext teilen
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Optionale Komponenten: Vergleichs-Cards
+  Entwurf: 2026-04-20
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI-Kontext teilen. Was ich von Teresa Torres über Obsidian, Git und Symlinks gelernt habe. – Linja Scharffetter</title>
+    <meta name="description" content="Kontext und Skills sind die Investition, das Teilen ist die Infrastruktur. Obsidian Sync, Git und Symlinks im Vergleich für KI-gestütztes Arbeiten.">
+    <meta property="og:title" content="KI-Kontext teilen. Was ich von Teresa Torres über Obsidian, Git und Symlinks gelernt habe.">
+    <meta property="og:description" content="Kontext und Skills sind die Investition, das Teilen ist die Infrastruktur.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles */
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../components.js" data-active="blog"></script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Produktivität</span>
+                <span class="text-[0.72rem] text-stone-400">20. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                KI-Kontext teilen. Was ich von Teresa Torres über Obsidian, Git und Symlinks gelernt habe.
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
+                 ══════════════════════════════════════════════ -->
+
+            <p>Die meiste Zeit, die wir in KI-Zusammenarbeit investieren, fliesst nicht in Prompts, sondern in Kontext: Regeln, Arbeitsstil, Projekthistorie, Dateien, die die KI kennen muss. Teresa Torres hat kürzlich beschrieben, wie sie diesen Kontext über Geräte hinweg teilt. Die Erkenntnis dahinter ist einfach, aber folgenreich: Kontext und Skills sind die Investition. Das Teilen über Geräte und Teams hinweg ist die Infrastruktur. Wer diese Infrastruktur nicht baut, investiert bei jedem neuen Gerät und jeder neuen Session von vorne.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Das Infrastruktur-Problem</h2>
+
+            <p>KI-Tools wie Claude Code speichern Kontext lokal: CLAUDE.md-Dateien, Skills, Memory, Projektregeln. Das funktioniert auf einem Gerät, aber sobald ein zweites dazukommt (Arbeitslaptop, privater Rechner, Tablet), bricht die Kontinuität. Absolute Dateipfade funktionieren nicht geräteübergreifend. Skills liegen standardmässig in <code>~/.claude</code>, einem Verzeichnis, das die meisten Sync-Tools ignorieren. Und auf iOS (wo Obsidian seine Vaults über iCloud oder Obsidian Sync verwaltet) gibt es kein Git, keine Symlinks, keinen Terminal-Zugriff.</p>
+
+            <p>Torres beschreibt drei Lösungsansätze, die unterschiedliche Trade-offs haben. <strong>Dropbox</strong> mit Symlinks: funktioniert zwischen Macs, scheitert an iOS. <strong>Git</strong> mit einem versionierten Repository: volle Kontrolle, aber manueller Sync (Pull/Push), Merge-Konflikte bei gleichzeitiger Bearbeitung, und auf iOS ohne Third-Party-Apps nicht nutzbar. <strong>Obsidian Sync</strong> als dritter Weg: einfach, automatisch, funktioniert auf allen Geräten inklusive iOS, nutzt relative Pfade innerhalb des Vaults. Der Nachteil: kein Versionshistorie im Git-Sinne, weniger Kontrolle über den Sync-Zeitpunkt.</p>
+
+
+            <h2>Obsidian Sync als Sweet Spot</h2>
+
+            <p>Torres argumentiert, dass Obsidian Sync für die meisten Anwenderinnen der Sweet Spot ist, weil es die Komplexität radikal reduziert. Keine Git-Befehle, keine Symlink-Pflege, keine Merge-Konflikte. Notizen, Kontext-Dateien und (über Plugin-Unterstützung) auch KI-Skills werden automatisch über alle Geräte synchronisiert. Die Obsidian-Notation mit relativen Links sorgt dafür, dass Querverweise geräteübergreifend funktionieren.</p>
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Der Wert liegt nicht in den KI-Tools. Er liegt im Kontext, den du ihnen gibst, und in der Fähigkeit, diesen Kontext zu teilen.
+                </p>
+            </div>
+
+            <p>Für Teams geht es über individuelle Sync hinaus: Wenn mehrere Personen mit derselben KI arbeiten (etwa in einem Produkt-Team), braucht der geteilte Kontext eine eigene Infrastruktur. Shared CLAUDE.md-Dateien, Team-Skills, gemeinsame Regeln. Torres sieht hier den nächsten Schritt: nicht nur persönlichen Kontext synchronisieren, sondern Team-Kontext als gemeinsame Ressource pflegen.</p>
+
+            <!-- ══ VERGLEICHS-CARDS ══ -->
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">Obsidian Sync</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-900 mb-3">Einfach</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Automatisch, funktioniert auf iOS, relative Pfade, keine Merge-Konflikte. Ideal für Einzelpersonen und kleine Teams.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #a8a29e; background: #FAFAF8;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3 text-stone-400">Git</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-400 mb-3">Volle Kontrolle</p>
+                    <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Versionshistorie, Branching, Code-Review. Aber: manueller Sync, Merge-Konflikte, kein iOS-Support ohne Workarounds.</p>
+                </div>
+            </div>
+
+
+            <h2>Mein eigener Ansatz im Vergleich</h2>
+
+            <p>Mein KnowledgeOS läuft auf Git: ein Obsidian-Vault in einem privaten Repository, versioniert, mit Submodulen für öffentliche Projekte (CV-Site, Blog). Das gibt mir volle Kontrolle über die Historie, ermöglicht Code-Workflows (GitHub Actions, Claude Code Integration) und hält alles in einem System. Der Preis: kein automatischer Sync, kein iOS-Zugriff auf den Vault ohne Git-Client, und absolute Pfade in CLAUDE.md, die nur auf meinem Mac funktionieren.</p>
+
+            <p>Was ich von Torres' Ansatz übernehmen würde: eine bessere Symlink-Strategie für <code>.claude/skills</code>, sodass Skills zwischen Projekten wiederverwendbar werden. Und langfristig: geteilte Kontext-Dateien für Team-Zusammenarbeit, etwa wenn mehrere Personen an MatGrid arbeiten und dieselben KI-Regeln nutzen sollen.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich verändert habe</h2>
+
+            <p>Torres' Artikel hat mir bewusst gemacht, dass mein Git-basierter Ansatz für mich funktioniert, aber nicht skaliert. Nicht für ein zweites Gerät (das iPad bleibt aussen vor), nicht für Team-Kontext. Ich habe angefangen, meine Skills modularer zu strukturieren: jeder Skill als eigenständige Datei, die unabhängig von absoluten Pfaden funktioniert. Ausserdem prüfe ich, ob Obsidian Sync als Ergänzung zu Git sinnvoll ist: Git für die Versionierung und das Code-Ökosystem, Obsidian Sync für die geräteübergreifende Verfügbarkeit der Notizen.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Obsidian Sync löst das Problem für Einzelpersonen, aber nicht für Teams mit unterschiedlichen Toolchains. Nicht alle arbeiten in Obsidian, nicht alle nutzen Claude. In gemischten Teams braucht geteilter KI-Kontext ein Format, das tool-agnostisch ist (Markdown-Dateien in einem Shared Drive, etwa). Ausserdem: Der Aufwand für Kontext-Pflege kann zum Selbstzweck werden. Torres warnt implizit davor, mehr Zeit in die Infrastruktur zu investieren als in die eigentliche Arbeit. Die Frage bleibt, ob die KI-Tool-Landschaft sich so stabilisiert, dass sich langfristige Infrastruktur-Investitionen lohnen.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Investiere in Kontext, nicht in Prompts.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Die CLAUDE.md, die deine Arbeitsweise beschreibt, ist wertvoller als jeder einzelne Prompt.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Mach deinen KI-Kontext portabel.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Relative Pfade, modulare Skills, geräteübergreifender Sync. Jede Minute spart zehn.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Denke Team-Kontext mit.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wenn andere deine KI-Regeln nutzen sollen, brauchen sie ein Format, das nicht an dein Setup gebunden ist.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.producttalk.org" class="hover:text-stone-600 transition-colors" style="color: inherit;">Teresa Torres (2026). How to Share Your AI Context and Skills Across Devices. Product Talk.</a></li>
+                    <li><a href="https://obsidian.md/sync" class="hover:text-stone-600 transition-colors" style="color: inherit;">Obsidian Sync. End-to-end encrypted syncing for Obsidian.</a></li>
+                    <li><a href="https://docs.anthropic.com/en/docs/claude-code" class="hover:text-stone-600 transition-colors" style="color: inherit;">Anthropic (2026). Claude Code Documentation: CLAUDE.md, Skills, Memory.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSAR
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">CLAUDE.md</span> <span class="text-stone-400">— Konfigurationsdatei, die Claude Code bei jedem Session-Start automatisch liest</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Skills</span> <span class="text-stone-400">— Wiederverwendbare KI-Workflows, gespeichert als SKILL.md-Dateien</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Symlink</span> <span class="text-stone-400">— Symbolischer Link: Verknüpfung, die auf eine Datei an anderem Ort verweist</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Obsidian Sync</span> <span class="text-stone-400">— Verschlüsselter Sync-Dienst für Obsidian-Vaults über alle Geräte</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">KnowledgeOS</span> <span class="text-stone-400">— Persönliches Wissensmanagementsystem in Obsidian (Linjas Vault)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">KI-Kontext</span> <span class="text-stone-400">— Gesamtheit aus Regeln, Memory, Skills und Projektdateien, die eine KI kennt</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <div id="site-footer"></div>
+
+</body>
+
+</html>

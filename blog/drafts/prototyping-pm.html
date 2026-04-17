@@ -1,0 +1,320 @@
+<!--
+  linja.me/blog/prototyping-pm – Wie prototype ich als PM?
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Optionale Komponenten: Datentabelle (Prototyping-Stufen)
+  Entwurf: 2026-04-18
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wie prototype ich als PM? Was mich von Designern unterscheidet, auch wenn wir dieselben Tools nutzen. – Linja Scharffetter</title>
+    <meta name="description" content="KI gibt PMs die Werkzeuge, die früher Designern vorbehalten waren. Aber gleiche Tools bedeuten nicht gleiche Perspektive. Was den PM-Prototyp anders macht.">
+    <meta property="og:title" content="Wie prototype ich als PM? Was mich von Designern unterscheidet, auch wenn wir dieselben Tools nutzen.">
+    <meta property="og:description" content="KI gibt PMs die Werkzeuge, die früher Designern vorbehalten waren. Aber gleiche Tools bedeuten nicht gleiche Perspektive.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles */
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../components.js" data-active="blog"></script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                <span class="text-[0.72rem] text-stone-400">18. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Wie prototype ich als PM? Was mich von Designern unterscheidet, auch wenn wir dieselben Tools nutzen.
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
+                 ══════════════════════════════════════════════ -->
+
+            <p>Durch KI-Tools wie v0, Bolt und Claude Code kann heute jede PM einen Prototyp bauen. Die Grenze zwischen Product Management und Design verschwimmt. Das klingt nach Demokratisierung, schafft aber eine neue Frage: Wenn alle prototypen können, was macht den PM-Prototyp anders als den Designer-Prototyp? Die Antwort liegt nicht im Tool, sondern in der Intention. Ein PM prototypiert, um eine Hypothese zu testen. Eine Designerin prototypiert, um eine Erfahrung zu gestalten. Gleiche Werkzeuge, grundverschiedene Perspektiven.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Zwei Perspektiven auf denselben Prototyp</h2>
+
+            <p>Die PM fragt: "Löst das ein echtes Problem? Würden Nutzer dafür zahlen oder wechseln?" Die Designerin fragt: "Fühlt sich das richtig an? Finden Nutzer den Weg?" Beide Fragen sind wichtig, aber sie führen zu fundamental verschiedenen Prototypen. Der PM-Prototyp ist bewusst niedrig im Detailgrad. Er zeigt gerade genug, um eine Geschäftshypothese zu validieren: eine Fake-Door-Landing-Page, ein Wizard-of-Oz-Test, ein klickbarer Rohbau. Der Designer-Prototyp dagegen braucht Detailtiefe, weil Usability sich nur am konkreten Interface testen lässt: Micro-Interactions, Typografie, visuelle Hierarchie.</p>
+
+            <p>Marty Cagan beschreibt Product Discovery als Antwort auf vier Risiken: Value (will jemand das?), Usability (kann jemand das nutzen?), Feasibility (können wir das bauen?) und Business Viability (funktioniert das geschäftlich?). Die PM verantwortet Value und Viability. Die Designerin verantwortet Usability. Engineering verantwortet Feasibility. Der PM-Prototyp adressiert gezielt die ersten zwei, nicht alle vier.</p>
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Ein PM-Prototyp muss nicht schön sein. Er muss eine Hypothese testen.
+                </p>
+            </div>
+
+
+            <h2>Warum die Verschmelzung trügerisch ist</h2>
+
+            <p>KI macht beide fähig, die Artefakte des anderen zu erstellen. Eine PM kann jetzt in 30 Minuten einen klickbaren Prototyp bauen, der aussieht wie Designer-Arbeit. Eine Designerin kann mit KI Marktanalysen und Business Cases generieren. Aber Fähigkeit ist nicht Perspektive. Eine PM, die einen Figma-Prototyp baut, denkt (hoffentlich) trotzdem wie eine PM: nicht in Pixels, sondern in Hypothesen.</p>
+
+            <p>Die Gefahr liegt in der Verlockung des Details. Wer plötzlich Farben, Schatten und Animations-Timing anpassen kann, verliert leicht den Blick für die eigentliche Frage: Testen wir gerade das Richtige? Die Chance dagegen ist enorm: PMs, die schnell genug bauen, um ihre Hypothesen selbst zu testen, ohne auf Design-Ressourcen zu warten. Das verkürzt den Discovery-Zyklus von Wochen auf Stunden.</p>
+
+
+            <h2>Die PM-Prototyping-Superkraft: Framing</h2>
+
+            <p>Der wichtigste Beitrag der PM zum Prototyping ist nicht das Bauen, sondern die Entscheidung, WAS gebaut wird. <strong>Framing-Kompetenz</strong> bestimmt, welches Problem der Prototyp adressiert, für wen und in welchem Kontext. <strong>Hypothesendenken</strong> formuliert eine falsifizierbare Aussage vor dem ersten Klick: "Wenn wir X zeigen, erwarten wir Y." <strong>Scope-Disziplin</strong> definiert, was man bewusst NICHT baut, um trotzdem eine Antwort zu bekommen. Und <strong>Business-Kontext</strong> verbindet den Prototyp mit Markt, Wettbewerb und Strategie.</p>
+
+            <!-- ══ DATENTABELLE: PROTOTYPING-STUFEN ══ -->
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stufe</th>
+                        <th>Beispiel</th>
+                        <th>PM-Einsatz</th>
+                        <th>Designer-Einsatz</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sketch</strong></td>
+                        <td>Papier, Whiteboard</td>
+                        <td>Kommunikation</td>
+                        <td>Ideation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wireframe</strong></td>
+                        <td>Einfache Layouts</td>
+                        <td>Stakeholder-Alignment</td>
+                        <td>Informationsarchitektur</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Klickbar</strong></td>
+                        <td>Figma, InVision</td>
+                        <td>Selten direkt</td>
+                        <td>Usability Tests</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Coded</strong></td>
+                        <td>v0, Bolt, HTML</td>
+                        <td>Fake-Door, MVP</td>
+                        <td>Selten</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Funktional</strong></td>
+                        <td>Working Software</td>
+                        <td>Delivery (nicht Prototyp)</td>
+                        <td>Delivery (nicht Prototyp)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich verändert habe</h2>
+
+            <p>Seit ich mit v0, Bolt und Claude Code arbeite, baue ich Prototypen selbst, die ich früher beim Design-Team in Auftrag gegeben hätte. Aber ich achte bewusst darauf, WAS ich baue: Landing Pages für Demand-Tests, klickbare Flows für Stakeholder-Demos, Coded Prototypen für technische Machbarkeitsprüfungen. Was ich nicht baue: finale UI-Designs, Micro-Interactions, Design-System-Komponenten. Das ist Designarbeit und bleibt es.</p>
+
+            <p>Die grösste Veränderung ist die Geschwindigkeit. Eine Produkthypothese morgens formulieren, mittags einen testbaren Prototyp haben, abends erstes Feedback auswerten. Das war vor zwei Jahren undenkbar. Aber die Geschwindigkeit ist nur dann wertvoll, wenn die Hypothese stimmt. Schnell das Falsche bauen ist nicht besser als langsam das Falsche bauen.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Die Verschmelzung von PM- und Design-Prototyping funktioniert vor allem in kleinen Teams, Startups und Solo-Kontexten. In grossen Teams mit starkem Design ist PM-Prototyping oft verschwendete Zeit, weil Designerinnen dasselbe schneller und besser können. Es gibt auch das Risiko der Hybridrolle: PMs, die "auch Designerin spielen", werden weder der einen noch der anderen Rolle gerecht. Designer haben eine Ausbildung in visueller Kommunikation, Typografie und Interaktionsdesign, die kein KI-Tool ersetzt. Die Demokratisierung der Werkzeuge demokratisiert nicht automatisch die Perspektive.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Prototype die Frage, nicht die Antwort.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Ein PM-Prototyp muss nicht schön sein. Er muss eine Hypothese testen.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Dein Vorteil ist das Framing.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Gleiche Tools, andere Perspektive. Die Entscheidung, WAS du baust, ist wertvoller als das Bauen selbst.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Scope ist eine Superkraft.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wissen, was man NICHT bauen muss, ist wertvoller als schnell bauen können.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.svpg.com/inspired-how-to-create-tech-products-customers-love/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Marty Cagan (2018). Inspired: How to Create Tech Products Customers Love. Wiley.</a></li>
+                    <li><a href="https://www.producttalk.org/2021/05/continuous-discovery-habits/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Teresa Torres (2021). Continuous Discovery Habits. Product Talk LLC.</a></li>
+                    <li><a href="https://shreyasdoshi.substack.com" class="hover:text-stone-600 transition-colors" style="color: inherit;">Shreyas Doshi (2026). Product Sense Dekomposition.</a></li>
+                    <li><a href="https://www.pretotyping.org" class="hover:text-stone-600 transition-colors" style="color: inherit;">Alberto Savoia (2019). The Right It: Why So Many Ideas Fail and How to Make Sure Yours Succeed. Harper Business.</a></li>
+                    <li><a href="https://basecamp.com/shapeup" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ryan Singer (2019). Shape Up: Stop Running in Circles and Ship Work that Matters. Basecamp.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSAR
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Prototyp</span> <span class="text-stone-400">— Testbare Darstellung einer Produktidee, von Skizze bis Coded</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Fidelity</span> <span class="text-stone-400">— Detailgrad eines Prototyps (Low, Medium, High)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Fake-Door-Test</span> <span class="text-stone-400">— Feature wird angekündigt, bevor es existiert, um Nachfrage zu messen</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Wizard-of-Oz</span> <span class="text-stone-400">— Prototyp simuliert Automatisierung, wird aber manuell betrieben</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Product Discovery</span> <span class="text-stone-400">— Prozess zur Validierung von Value, Usability, Feasibility und Viability</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Framing</span> <span class="text-stone-400">— Entscheidung, welches Problem adressiert und wie es formuliert wird</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Opportunity Solution Tree</span> <span class="text-stone-400">— Visualisierung von Outcome, Opportunities, Solutions und Experimenten (Teresa Torres)</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <div id="site-footer"></div>
+
+</body>
+
+</html>

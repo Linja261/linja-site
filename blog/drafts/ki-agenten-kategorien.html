@@ -1,0 +1,324 @@
+<!--
+  linja.me/blog/ki-agenten-kategorien – Nicht jeder Agent ist gleich
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Optionale Komponenten: Datentabelle (3 Kategorien)
+  Entwurf: 2026-04-21
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicht jeder Agent ist gleich. Ein Framework für PMs, die KI-Agenten priorisieren müssen. – Linja Scharffetter</title>
+    <meta name="description" content="60-70% der Agent-Ideen sind deterministische Workflows. Die meisten Teams over-engineeren mit Reasoning-Systemen. Ein Framework zur Kategorisierung und Priorisierung.">
+    <meta property="og:title" content="Nicht jeder Agent ist gleich. Ein Framework für PMs, die KI-Agenten priorisieren müssen.">
+    <meta property="og:description" content="60-70% der Agent-Ideen sind deterministische Workflows. Ein Framework zur Kategorisierung und Priorisierung.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles */
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../components.js" data-active="blog"></script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Product Management</span>
+                <span class="text-[0.72rem] text-stone-400">21. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Nicht jeder Agent ist gleich. Ein Framework für PMs, die KI-Agenten priorisieren müssen.
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
+                 ══════════════════════════════════════════════ -->
+
+            <p>Jedes Produktteam hat gerade eine Liste mit "Agent-Ideen". Das Problem: Die Liste enthält Dinge, die so unterschiedlich sind wie ein Toaster und ein Kernkraftwerk, aber alle heissen "KI-Agent". Ein Slack-Bot, der Support-Tickets klassifiziert, landet in derselben Priorisierung wie ein autonomer Assistent, der komplexe Geschäftsprozesse orchestriert. Das Ergebnis ist vorhersagbar: Teams over-engineeren einfache Probleme mit Reasoning-Frameworks und unterschätzen die Komplexität echter autonomer Systeme. Hamza Farooq und Jaya Rajwani haben in Lenny's Newsletter ein Framework vorgestellt, das dieses Problem löst.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Drei Kategorien, nicht eine</h2>
+
+            <p>Das Framework unterscheidet drei Kategorien von KI-Agenten, die sich in Architektur, Aufwand, Team-Anforderungen und Timeline fundamental unterscheiden. Die Kategorie bestimmt, wie du priorisierst, budgetierst und baust.</p>
+
+            <!-- ══ DATENTABELLE: 3 KATEGORIEN ══ -->
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dimension</th>
+                        <th>Kat 1: Automation</th>
+                        <th>Kat 2: ReAct</th>
+                        <th>Kat 3: Multi-Agent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Typ</strong></td>
+                        <td>Deterministischer Workflow</td>
+                        <td>Reasoning-Agent</td>
+                        <td>Multi-Agent-Netzwerk</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tools</strong></td>
+                        <td>n8n, Zapier, Make</td>
+                        <td>LangGraph, Claude Code</td>
+                        <td>Custom Orchestration</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anteil</strong></td>
+                        <td>60-70% der Opportunities</td>
+                        <td>25-30%</td>
+                        <td>&lt;5%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Team</strong></td>
+                        <td>1 Person, Wochen</td>
+                        <td>2-3 Personen, Monate</td>
+                        <td>Dediziertes Team, Quartale</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Beispiel</strong></td>
+                        <td>Support-Ticket-Klassifikation</td>
+                        <td>Code-Review-Assistent</td>
+                        <td>Autonome Supply Chain</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Kategorie 1: Deterministic Automation.</strong> Feste Workflows mit einem LLM-Knoten darin. Wenn X passiert, tue Y, wobei ein Schritt ein LLM-Aufruf ist (Klassifikation, Zusammenfassung, Extraktion). Das ist kein "Agent" im engeren Sinne, weil das System nicht selbst entscheidet, was es als Nächstes tut. Aber es ist der mit Abstand häufigste und wertvollste Anwendungsfall. 60-70% aller "Agent-Ideen" in Product Backlogs sind Kategorie 1.</p>
+
+            <p><strong>Kategorie 2: ReAct Agents.</strong> Systeme, die auf Basis von Beobachtungen entscheiden, welchen nächsten Schritt sie nehmen. Sie haben Zugriff auf Tools und wählen selbst, welches Tool sie wann einsetzen. Claude Code ist ein Beispiel: Es liest Code, entscheidet, was es ändern muss, schreibt die Änderung, testet, iteriert. Das erfordert Reasoning-Fähigkeiten und ist deutlich komplexer in Entwicklung und Testing als Kategorie 1.</p>
+
+            <p><strong>Kategorie 3: Multi-Agent Networks.</strong> Mehrere Agenten koordinieren sich, um ein komplexes Ziel zu erreichen. Jeder Agent hat eigene Fähigkeiten und eigenes Wissen. Die Koordination selbst ist das schwierigste Problem. Diese Kategorie ist selten wirklich nötig und fast immer over-engineered, wenn sie zu früh eingesetzt wird.</p>
+
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Die meisten Agent-Ideen sind Workflows mit einem LLM-Knoten. Erkenne das, bevor du ein Reasoning-System baust.
+                </p>
+            </div>
+
+
+            <h2>Wie du triagierst</h2>
+
+            <p>Die Triage-Frage ist einfach: <strong>Kannst du ein Flussdiagramm zeichnen?</strong> Wenn ja, ist es Kategorie 1. Baue einen deterministischen Workflow mit n8n oder Zapier, setze ein LLM an die Stellen, wo Klassifikation, Zusammenfassung oder Generierung nötig ist. Fertig. Kein LangGraph, kein Agent-Framework, kein Over-Engineering.</p>
+
+            <p>Wenn der Agent selbst entscheiden muss, was er als Nächstes tut (weil der Lösungsweg nicht vorhersagbar ist), ist es Kategorie 2. Das erfordert ein Reasoning-Framework, Tool-Integration und ein deutlich höheres Investment in Testing und Guardrails. Und wenn mehrere solcher Agenten koordiniert werden müssen, bist du in Kategorie 3, dem Enterprise-Bereich mit dediziertem Team und Quartals-Budgets.</p>
+
+            <p>Der häufigste Fehler: Teams sehen "Agent" im Backlog und greifen sofort zu LangGraph oder AutoGen. Aber die Idee ist ein Workflow mit einem LLM-Knoten. Das Over-Engineering kostet Wochen, die ein n8n-Workflow in Tagen gelöst hätte.</p>
+
+
+            <h2>Anwendung auf eigene Projekte</h2>
+
+            <p>Das Framework klärt auch die eigene Arbeit. Mamahood-Matching (eine App, die Mütter mit ähnlichen Interessen verbindet) ist Kategorie 1: ein deterministischer Score-Algorithmus, der Kompatibilität berechnet. Ein LLM kann Profiltexte analysieren und Interessen extrahieren, aber der Matching-Prozess selbst ist ein festes Regelwerk. Ein zukünftiger konversationaler Matching-Assistent, der durch Gespräch herausfindet, was eine Mutter sucht, wäre Kategorie 2, weil er selbst entscheidet, welche Fragen er stellt. Mein persönliches KI-Setup (Claude Code mit Skills, CLAUDE.md, Memory) ist ebenfalls Kategorie 2: Claude entscheidet, welche Tools es nutzt und wie es meine Anfragen bearbeitet.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich verändert habe</h2>
+
+            <p>Ich kategorisiere jetzt jede "Agent-Idee" im Backlog, bevor ich sie priorisiere. Die erste Frage ist immer: Kann ich ein Flussdiagramm zeichnen? Wenn ja, baue ich einen Workflow (n8n, Zapier) und keinen Agent. Das spart Wochen an Entwicklungszeit und reduziert die Komplexität drastisch. Nur wenn der Lösungsweg nicht vorhersagbar ist, greife ich zu Kategorie-2-Werkzeugen. Kategorie 3 habe ich bisher bewusst vermieden, weil die Koordinationskosten den Nutzen in meinem Kontext (Einzelperson, kleines Team) nicht rechtfertigen.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Das Framework ist bewusst vereinfachend. In der Praxis gibt es Hybride: ein Workflow, der an einer Stelle einen Reasoning-Schritt braucht. Oder ein Agent, der 90% seiner Zeit deterministisch arbeitet und nur in Ausnahmefällen reasoning-basiert entscheidet. Die Grenzen zwischen den Kategorien sind fliessend. Ausserdem entwickelt sich die Tool-Landschaft schnell: Was heute ein Kategorie-2-Problem ist, kann morgen durch bessere Modelle zu Kategorie 1 werden. Und das "60-70% sind Kategorie 1"-Argument kann dazu verleiten, echte Reasoning-Anforderungen zu unterschätzen, weil es bequemer ist, einen Workflow zu bauen als einen Agent.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Kategorisiere zuerst, priorisiere dann.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Vergleiche keine Workflows mit Reasoning-Systemen. Verschiedene Kategorien, verschiedene Massstäbe.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Starte mit Kategorie 1.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">60-70% deiner Agent-Ideen brauchen einen Workflow, keinen Agent. Das spart Wochen.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Kannst du ein Flussdiagramm zeichnen?</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Ja = Workflow. Nein = Agent. Diese eine Frage klärt die Architektur.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.lennysnewsletter.com" class="hover:text-stone-600 transition-colors" style="color: inherit;">Hamza Farooq &amp; Jaya Rajwani (2026). AI Agent Categories for Product Teams. Lenny's Newsletter.</a></li>
+                    <li><a href="https://docs.anthropic.com/en/docs/claude-code" class="hover:text-stone-600 transition-colors" style="color: inherit;">Anthropic (2026). Claude Code: A ReAct-style coding agent.</a></li>
+                    <li><a href="https://n8n.io" class="hover:text-stone-600 transition-colors" style="color: inherit;">n8n. Workflow Automation Platform.</a></li>
+                    <li><a href="https://langchain-ai.github.io/langgraph/" class="hover:text-stone-600 transition-colors" style="color: inherit;">LangChain (2026). LangGraph: Framework for building stateful, multi-step AI agents.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSAR
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Deterministic Automation</span> <span class="text-stone-400">— Fester Workflow mit vorhersagbarem Ablauf, ggf. mit LLM-Knoten (Kat. 1)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">ReAct Agent</span> <span class="text-stone-400">— Agent, der beobachtet, nachdenkt und selbst entscheidet, welchen Schritt er als Nächstes nimmt (Kat. 2)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Multi-Agent Network</span> <span class="text-stone-400">— Mehrere koordinierte Agenten mit eigenen Fähigkeiten und Wissen (Kat. 3)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">LLM-Knoten</span> <span class="text-stone-400">— Einzelner Schritt in einem Workflow, der ein Large Language Model aufruft</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">n8n / Zapier / Make</span> <span class="text-stone-400">— No-Code/Low-Code Plattformen für Workflow-Automatisierung</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">LangGraph</span> <span class="text-stone-400">— Framework für stateful, mehrstufige KI-Agenten (LangChain)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Guardrails</span> <span class="text-stone-400">— Sicherheitsmechanismen, die Agent-Verhalten begrenzen und kontrollieren</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <div id="site-footer"></div>
+
+</body>
+
+</html>
