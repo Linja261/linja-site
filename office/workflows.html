@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office · Workflows – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                fontFamily: {
+                    sans: ['Inter', 'system-ui', 'sans-serif'],
+                    serif: ['Source Serif 4', 'Georgia', 'serif'],
+                    mono: ['Geist Mono', 'ui-monospace', 'monospace'],
+                },
+                colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } },
+            } },
+        }
+    </script>
+    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Workflows</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Skills & Methoden</h1>
+                <p class="text-sm text-stone-500">Methodische Werkzeuge in 4 Quadranten + auslösbare Skills per <code class="font-mono text-xs">/command</code>.</p>
+            </header>
+
+            <!-- 4-Quadranten-Grid -->
+            <section class="mb-14">
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Methoden-Quadranten</h2>
+                <p class="text-sm text-stone-500 mb-6">Systematisch von der Problemdefinition zur messbaren Wirkung. Quelle: <span class="font-mono text-xs">methodik_und_handwerk.md</span></p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded bg-violet-50 text-violet-500">Q1</span>
+                            <h3 class="source-serif text-lg text-stone-900">Forschung & Strategie</h3>
+                        </div>
+                        <p class="text-xs text-stone-400 mb-4 font-medium uppercase tracking-wide">CV-Shortlist</p>
+                        <ul class="text-sm text-stone-700 space-y-1.5 mb-5">
+                            <li>· Design Thinking & Human-centered Design</li>
+                            <li>· Nutzerinterviews (50+ geführt)</li>
+                            <li>· Personas · Customer Journey Mapping</li>
+                            <li>· Jobs-to-be-Done & User Stories</li>
+                            <li>· OKRs</li>
+                            <li>· Lean Canvas / Business Model Canvas</li>
+                            <li>· Product Strategy & Roadmap</li>
+                            <li>· Markt- & Wettbewerbsanalyse</li>
+                            <li>· Go-to-Market-Strategie</li>
+                        </ul>
+                        <details class="text-xs text-stone-400">
+                            <summary class="cursor-pointer hover:text-stone-600">Vollständige Methoden-Liste (22)</summary>
+                            <div class="mt-2 leading-relaxed">Tiefeninterviews, Empathy Mapping, Service Blueprint, Double Diamond, HMW-Statements, Qualitative Analyse (Mayring), Kano-Modell, Affinity Mapping, Kundenzufriedenheitsbefragung (1.000+ Kunden, 10 Märkte), Vision-Strategie-Produktziel-Kaskade, Business Case Development, Portfolio-Priorisierung, Hypothesengetriebenes Denken</div>
+                        </details>
+                    </div>
+
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded bg-violet-50 text-violet-500">Q2</span>
+                            <h3 class="source-serif text-lg text-stone-900">Produktentwicklung & Umsetzung</h3>
+                        </div>
+                        <p class="text-xs text-stone-400 mb-4 font-medium uppercase tracking-wide">CV-Shortlist</p>
+                        <ul class="text-sm text-stone-700 space-y-1.5 mb-5">
+                            <li>· Scrum (Certified Scrum Master, 2020)</li>
+                            <li>· Kanban</li>
+                            <li>· Hypothesengetriebene Entwicklung</li>
+                            <li>· RICE / Impact-Effort-Priorisierung</li>
+                            <li>· Prototyping & MVP</li>
+                            <li>· A/B-Testing</li>
+                            <li>· Desirability & Usability Testing</li>
+                        </ul>
+                        <details class="text-xs text-stone-400">
+                            <summary class="cursor-pointer hover:text-stone-600">Vollständige Methoden-Liste (18)</summary>
+                            <div class="mt-2 leading-relaxed">SAFe for Teams, Lean / Build-Measure-Learn, Sprint Planning, Reviews, Retrospektiven, User Stories & Acceptance Criteria, Story Mapping, Backlog Management, Opportunity Solution Tree, AI-gestütztes Rapid Prototyping (Lovable), Continuous Discovery</div>
+                        </details>
+                    </div>
+
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded bg-violet-50 text-violet-500">Q3</span>
+                            <h3 class="source-serif text-lg text-stone-900">Führung & Zusammenarbeit</h3>
+                        </div>
+                        <p class="text-xs text-stone-400 mb-4 font-medium uppercase tracking-wide">CV-Shortlist</p>
+                        <ul class="text-sm text-stone-700 space-y-1.5 mb-5">
+                            <li>· Stakeholder Management (40+ Stakeholder, 17 Länder)</li>
+                            <li>· Change Management Modelle</li>
+                            <li>· Konfliktmoderation</li>
+                            <li>· Gewaltfreie Kommunikation</li>
+                            <li>· Laterale Führung</li>
+                            <li>· Facilitation & Workshop-Moderation</li>
+                            <li>· Strategische Übersetzung (Business ↔ Produkt ↔ Tech ↔ Kultur)</li>
+                        </ul>
+                        <details class="text-xs text-stone-400">
+                            <summary class="cursor-pointer hover:text-stone-600">Vollständige Methoden-Liste (15)</summary>
+                            <div class="mt-2 leading-relaxed">Psychological Safety, Fehlerkultur, Feedback-Loops & Feedback-Kultur, Transparente Kommunikation, Servant Leadership, Holacracy / Self-Management, Circle-basierte Organisation, ADKAR, Individuelle Vorgespräche / Alignment</div>
+                        </details>
+                    </div>
+
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded bg-violet-50 text-violet-500">Q4</span>
+                            <h3 class="source-serif text-lg text-stone-900">Metriken & Lernen</h3>
+                        </div>
+                        <p class="text-xs text-stone-400 mb-4 font-medium uppercase tracking-wide">CV-Shortlist</p>
+                        <ul class="text-sm text-stone-700 space-y-1.5 mb-5">
+                            <li>· North Star Metric</li>
+                            <li>· KPI-Frameworks</li>
+                            <li>· Product Analytics</li>
+                            <li>· Funnel- / Cohort-Analyse</li>
+                            <li>· NPS / Customer Retention Index</li>
+                        </ul>
+                        <details class="text-xs text-stone-400">
+                            <summary class="cursor-pointer hover:text-stone-600">Vollständige Methoden-Liste (14)</summary>
+                            <div class="mt-2 leading-relaxed">CAC/LTV / Unit Economics, Event Tracking, Leading & Lagging Indicators, Feedback-Loops als Entscheidungskompass, Growth Hacking / Traction Framework, Datengestützte Entscheidungsfindung, Produktmetriken (Active Users, Dokumentationsvolumen, Revenue Impact, Bearbeitungszeit, Churn)</div>
+                        </details>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Auslösbare Skills</h2>
+                <p class="text-sm text-stone-500 mb-6">Workflows, die per <code class="font-mono text-xs">/command</code> in Claude gestartet werden. Quelle: <span class="font-mono text-xs">.claude/skills/</span></p>
+
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead style="background: #F5F3EF;">
+                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
+                                <th class="px-4 py-3 font-medium">Trigger</th>
+                                <th class="px-4 py-3 font-medium">Name</th>
+                                <th class="px-4 py-3 font-medium">Nutzen</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y" style="border-color: #E5E2DB;">
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/prototyp</td>
+                                <td class="px-4 py-3 text-stone-800">Product Prototyping Starter Kit</td>
+                                <td class="px-4 py-3 text-stone-500">Next.js + shadcn App-Prototyp in 7 Phasen</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/jtbd</td>
+                                <td class="px-4 py-3 text-stone-800">Jobs to Be Done</td>
+                                <td class="px-4 py-3 text-stone-500">Funktionale, emotionale, soziale Jobs + Switching Forces</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/ost</td>
+                                <td class="px-4 py-3 text-stone-800">Opportunity Solution Tree</td>
+                                <td class="px-4 py-3 text-stone-500">Outcome → Opportunities → Solutions → Experiments (Torres)</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/rice</td>
+                                <td class="px-4 py-3 text-stone-800">RICE-Bewertung</td>
+                                <td class="px-4 py-3 text-stone-500">Feature-Priorisierung nach Reach · Impact · Confidence · Effort</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/kano</td>
+                                <td class="px-4 py-3 text-stone-800">Kano-Modell</td>
+                                <td class="px-4 py-3 text-stone-500">Features in Basic · Performance · Delight klassifizieren</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/roadmap</td>
+                                <td class="px-4 py-3 text-stone-800">Now · Next · Later + OST</td>
+                                <td class="px-4 py-3 text-stone-500">Feature-Listen in moderne Roadmap transformieren</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/northstar</td>
+                                <td class="px-4 py-3 text-stone-800">North Star Metrik</td>
+                                <td class="px-4 py-3 text-stone-500">NSM + Input-Metriken + AARRR + OKR-Ableitung</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/problemframing</td>
+                                <td class="px-4 py-3 text-stone-800">Problem Framing</td>
+                                <td class="px-4 py-3 text-stone-500">Nutzer · Business · Tech · Daten · Stakeholder · Kontext</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/designsprint</td>
+                                <td class="px-4 py-3 text-stone-800">Design Sprint (komprimiert)</td>
+                                <td class="px-4 py-3 text-stone-500">5 Phasen in einer Session (Knapp)</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/casestudy</td>
+                                <td class="px-4 py-3 text-stone-800">PM Case Study</td>
+                                <td class="px-4 py-3 text-stone-500">Interview-Vorbereitung: Problem · Priorisierung · Metriken</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/businesscase</td>
+                                <td class="px-4 py-3 text-stone-800">Business Case</td>
+                                <td class="px-4 py-3 text-stone-500">Marktgröße, Unit Economics, ROI, Go/No-Go</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/planning</td>
+                                <td class="px-4 py-3 text-stone-800">Epic-Planning</td>
+                                <td class="px-4 py-3 text-stone-500">Issues zerlegen, Abhängigkeiten, Sync-Points</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/anschreiben</td>
+                                <td class="px-4 py-3 text-stone-800">Cover Letter Generator</td>
+                                <td class="px-4 py-3 text-stone-500">controlexpert-Schema + PDF</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/dachdecker</td>
+                                <td class="px-4 py-3 text-stone-800">Dachdecker-Persona</td>
+                                <td class="px-4 py-3 text-stone-500">Glaubwürdigkeits-Check für MatGrid-Messaging</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="text-xs text-stone-400 mt-4">Zusätzlich: <span class="font-mono">/checkin</span>, <span class="font-mono">/checkout</span>, <span class="font-mono">/retro</span>, <span class="font-mono">/artikel</span>, <span class="font-mono">/sparring</span>, <span class="font-mono">/challenge</span>, <span class="font-mono">/captures</span>, <span class="font-mono">/cleanup</span>, <span class="font-mono">/lerncheck</span>, <span class="font-mono">/jobscreening</span>, <span class="font-mono">/autowork</span>, <span class="font-mono">/checkout</span> — Rituale & Workflows für tägliche Zusammenarbeit mit Claude.</p>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js" data-active="workflows"></script>
+</body>
+</html>

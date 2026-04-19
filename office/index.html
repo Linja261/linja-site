@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office · Dashboard – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Dashboard · <span id="today-date"></span></p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Ans Lagerfeuer.</h1>
+                <p class="text-sm text-stone-500">Alles auf einen Blick: Ziele dieser Woche, Zeit dieser Woche, Blog-Pipeline, Angebote, Skills.</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                <!-- Tile: Heute -->
+                <a href="zeit.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Heute</p>
+                            <h2 class="source-serif text-lg text-stone-900 mt-1">Letzte Zeiteinträge</h2>
+                        </div>
+                        <span class="font-mono text-xs text-stone-400" id="tile-today-hours">—</span>
+                    </div>
+                    <ul id="tile-today-list" class="text-sm text-stone-600 space-y-1.5">
+                        <li class="text-stone-400">Noch keine Einträge heute.</li>
+                    </ul>
+                </a>
+
+                <!-- Tile: Woche Ziele -->
+                <a href="ziele.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Diese Woche</p>
+                            <h2 class="source-serif text-lg text-stone-900 mt-1">Wochenziele</h2>
+                        </div>
+                        <span class="font-mono text-xs text-stone-400" id="tile-goals-progress">—</span>
+                    </div>
+                    <ul id="tile-goals-list" class="text-sm text-stone-600 space-y-1.5">
+                        <li class="text-stone-400">Keine Wochenziele gesetzt.</li>
+                    </ul>
+                </a>
+
+                <!-- Tile: Blog -->
+                <a href="blog.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Blog</p>
+                            <h2 class="source-serif text-lg text-stone-900 mt-1">Pipeline</h2>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-center">
+                        <div>
+                            <div class="font-mono text-2xl text-stone-900" id="tile-blog-drafts">8</div>
+                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Drafts</div>
+                        </div>
+                        <div>
+                            <div class="font-mono text-2xl text-stone-900" id="tile-blog-live">12</div>
+                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Live</div>
+                        </div>
+                        <div>
+                            <div class="font-mono text-2xl text-stone-900" id="tile-blog-planned">5</div>
+                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Geplant</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Tile: Skills -->
+                <a href="workflows.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Workflows</p>
+                            <h2 class="source-serif text-lg text-stone-900 mt-1">Skills & Methoden</h2>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-500 mb-3">13 Skills · 4 Methoden-Quadranten</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/jtbd</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/ost</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/rice</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/prototyp</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-stone-100 text-stone-500">+9</span>
+                    </div>
+                </a>
+
+                <!-- Tile: Angebote -->
+                <a href="angebote.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Angebote</p>
+                            <h2 class="source-serif text-lg text-stone-900 mt-1">Services</h2>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-center">
+                        <div>
+                            <div class="font-mono text-2xl text-stone-900">4</div>
+                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Live</div>
+                        </div>
+                        <div>
+                            <div class="font-mono text-2xl text-stone-900">2</div>
+                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Versteckt</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Tile: Aktionen -->
+                <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Quick Actions</p>
+                            <h2 class="source-serif text-lg text-stone-900 mt-1">Jetzt erfassen</h2>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <a href="zeit.html#neu" class="block w-full text-center bg-violet-400 hover:bg-violet-500 text-white font-medium py-2.5 rounded-lg text-sm transition-all">+ Zeit-Eintrag</a>
+                        <a href="ziele.html#neu" class="block w-full text-center border hover:border-violet-300 text-stone-700 font-medium py-2.5 rounded-lg text-sm transition-all" style="border-color: #E5E2DB;">+ Wochenziel</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Roadmap Phase 2 -->
+            <section class="mt-12 pt-8" style="border-top: 1px solid #E5E2DB;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Roadmap · Phase 2</p>
+                <h2 class="source-serif text-lg text-stone-900 mb-4">Was noch kommen könnte</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Interview-Library</div>
+                        <div class="text-stone-500 text-xs">Cheat Sheets, wiederkehrende Fragen, Storytelling</div>
+                    </div>
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Bewerbungs-Pipeline</div>
+                        <div class="text-stone-500 text-xs">Anschreiben-Status, Textmodul-Bibliothek</div>
+                    </div>
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Lernplan-Board</div>
+                        <div class="text-stone-500 text-xs">Lern-Roadmap Now · Next · Later</div>
+                    </div>
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Projekt-Historie</div>
+                        <div class="text-stone-500 text-xs">Portfolio, Case-Study-Sourcing</div>
+                    </div>
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Bücher & Leseliste</div>
+                        <div class="text-stone-500 text-xs">Persönlicher Reading-Tracker</div>
+                    </div>
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Check-in/out-Log</div>
+                        <div class="text-stone-500 text-xs">Mood, Fokus, offene Punkte aus /checkin und /checkout</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js" data-active="dashboard"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Populate dashboard tiles from LocalStorage
+            var now = new Date();
+            var dateEl = document.getElementById('today-date');
+            if (dateEl) dateEl.textContent = now.toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: 'long' });
+
+            if (!window.officeStore) return;
+
+            // Today tile: latest time entries
+            var log = window.officeStore.get('time-log', []);
+            var today = window.officeUtils.today();
+            var todays = log.filter(function (e) { return e.date === today; });
+            var todayHours = todays.reduce(function (sum, e) { return sum + Number(e.hours); }, 0);
+            var todayListEl = document.getElementById('tile-today-list');
+            var todayHoursEl = document.getElementById('tile-today-hours');
+            if (todays.length > 0 && todayListEl && todayHoursEl) {
+                todayListEl.innerHTML = todays.slice(-3).map(function (e) {
+                    return '<li class="flex justify-between"><span>' + e.project + '</span><span class="font-mono text-stone-400">' + e.hours + 'h</span></li>';
+                }).join('');
+                todayHoursEl.textContent = todayHours.toFixed(2) + 'h';
+            }
+
+            // Weekly goals tile
+            var wkKey = 'kw' + window.officeUtils.weekOf();
+            var goals = window.officeStore.get('goals-' + wkKey, []);
+            var goalsListEl = document.getElementById('tile-goals-list');
+            var goalsProgressEl = document.getElementById('tile-goals-progress');
+            if (goals.length > 0 && goalsListEl && goalsProgressEl) {
+                var done = goals.filter(function (g) { return g.done; }).length;
+                goalsProgressEl.textContent = done + '/' + goals.length;
+                goalsListEl.innerHTML = goals.slice(0, 4).map(function (g) {
+                    var check = g.done ? '✓' : '○';
+                    var cls = g.done ? 'text-stone-400 line-through' : 'text-stone-700';
+                    return '<li class="flex items-start gap-2"><span class="font-mono text-xs ' + (g.done ? 'text-violet-400' : 'text-stone-300') + '">' + check + '</span><span class="' + cls + '">' + g.text + '</span></li>';
+                }).join('');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office · Zeit – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691' } },
+        } } }
+    </script>
+    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Zeit</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Zeit-Log</h1>
+                <p class="text-sm text-stone-500">Schnell erfassen, wofür Zeit draufging. 14-Tage-Übersicht, Summen pro Woche und Monat. Lokal im Browser.</p>
+            </header>
+
+            <!-- Quick-Log -->
+            <section id="neu" class="mb-10 bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                <h2 class="source-serif text-lg text-stone-900 mb-4">Neuer Eintrag</h2>
+
+                <form id="time-form" class="grid grid-cols-1 md:grid-cols-[140px_160px_110px_1fr_auto] gap-3 items-start">
+                    <div>
+                        <label class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-500 block mb-1">Datum</label>
+                        <input type="date" id="t-date" required
+                            class="w-full px-3 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
+                            style="border-color: #E5E2DB;">
+                    </div>
+                    <div>
+                        <label class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-500 block mb-1">Projekt</label>
+                        <select id="t-project" required
+                            class="w-full px-3 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
+                            style="border-color: #E5E2DB;">
+                            <option value="MatGrid">MatGrid</option>
+                            <option value="ControlExpert">ControlExpert</option>
+                            <option value="Anschreiben">Anschreiben</option>
+                            <option value="Lernen">Lernen</option>
+                            <option value="Blog">Blog</option>
+                            <option value="Backoffice">Backoffice</option>
+                            <option value="Selbstständigkeit">Selbstständigkeit</option>
+                            <option value="Sonstiges">Sonstiges</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-500 block mb-1">Stunden</label>
+                        <input type="number" id="t-hours" step="0.25" min="0.25" max="16" required placeholder="1.0"
+                            class="w-full px-3 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300 font-mono"
+                            style="border-color: #E5E2DB;">
+                    </div>
+                    <div>
+                        <label class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-500 block mb-1">Notiz (optional)</label>
+                        <input type="text" id="t-note" placeholder="z.B. Kundentermin, Sparring, Bugfix" maxlength="120"
+                            class="w-full px-3 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
+                            style="border-color: #E5E2DB;">
+                    </div>
+                    <div>
+                        <label class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-500 block mb-1">&nbsp;</label>
+                        <button type="submit" class="bg-violet-400 hover:bg-violet-500 text-white font-medium px-5 py-2.5 rounded-lg text-sm transition-all whitespace-nowrap">+ Hinzufügen</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Summen -->
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Heute</p>
+                    <div class="font-mono text-3xl text-stone-900 mt-1" id="sum-today">0.00h</div>
+                    <div class="text-xs text-stone-400 mt-1" id="sum-today-breakdown">—</div>
+                </div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Diese Woche</p>
+                    <div class="font-mono text-3xl text-stone-900 mt-1" id="sum-week">0.00h</div>
+                    <div class="text-xs text-stone-400 mt-1" id="sum-week-breakdown">—</div>
+                </div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Dieser Monat</p>
+                    <div class="font-mono text-3xl text-stone-900 mt-1" id="sum-month">0.00h</div>
+                    <div class="text-xs text-stone-400 mt-1" id="sum-month-breakdown">—</div>
+                </div>
+            </section>
+
+            <!-- 14-Tage-Chart -->
+            <section class="mb-10 bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                <h2 class="source-serif text-lg text-stone-900 mb-1">Letzte 14 Tage</h2>
+                <p class="text-xs text-stone-400 mb-6">Gestapelte Balken nach Projekt.</p>
+                <div id="chart" class="flex items-end gap-1.5 h-48"></div>
+                <div id="chart-legend" class="flex flex-wrap gap-3 mt-4 text-xs"></div>
+            </section>
+
+            <!-- Letzte Einträge -->
+            <section class="mb-10">
+                <h2 class="source-serif text-lg text-stone-900 mb-4">Letzte Einträge</h2>
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead style="background: #F5F3EF;">
+                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
+                                <th class="px-4 py-3 font-medium">Datum</th>
+                                <th class="px-4 py-3 font-medium">Projekt</th>
+                                <th class="px-4 py-3 font-medium">Stunden</th>
+                                <th class="px-4 py-3 font-medium">Notiz</th>
+                                <th class="px-4 py-3 font-medium"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="entries-body" class="divide-y" style="border-color: #E5E2DB;"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Export -->
+            <section>
+                <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <h3 class="source-serif text-base text-stone-900 mb-2">Daten-Management</h3>
+                    <p class="text-sm text-stone-500 mb-4">Einträge werden lokal im Browser gespeichert. Export als JSON für Backup oder späteren Markdown-Sync.</p>
+                    <div class="flex gap-2">
+                        <button onclick="exportTime()" class="border hover:border-violet-300 text-stone-700 font-medium px-5 py-2.5 rounded-lg text-sm transition-all" style="border-color: #E5E2DB;">JSON exportieren</button>
+                        <label class="border hover:border-violet-300 text-stone-700 font-medium px-5 py-2.5 rounded-lg text-sm transition-all cursor-pointer" style="border-color: #E5E2DB;">
+                            JSON importieren
+                            <input type="file" accept=".json" class="hidden" onchange="importTime(event)">
+                        </label>
+                        <button onclick="clearTime()" class="text-stone-400 hover:text-red-400 font-medium px-3 py-2.5 rounded-lg text-xs transition-all ml-auto">Alle löschen</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js" data-active="zeit"></script>
+    <script>
+        // === Farben pro Projekt ===
+        var projectColors = {
+            'MatGrid': '#7b6ba5',
+            'ControlExpert': '#D4714E',
+            'Anschreiben': '#5b8a72',
+            'Lernen': '#5B96B8',
+            'Blog': '#9a82b5',
+            'Backoffice': '#c27a52',
+            'Selbstständigkeit': '#476f5b',
+            'Sonstiges': '#a8a29e',
+        };
+
+        function getLog() { return window.officeStore.get('time-log', []); }
+        function setLog(v) { window.officeStore.set('time-log', v); }
+
+        function sumBy(entries) {
+            var total = 0, byProject = {};
+            entries.forEach(function (e) {
+                total += Number(e.hours);
+                byProject[e.project] = (byProject[e.project] || 0) + Number(e.hours);
+            });
+            return { total: total, byProject: byProject };
+        }
+
+        function formatBreakdown(byProject) {
+            var parts = Object.keys(byProject)
+                .sort(function (a, b) { return byProject[b] - byProject[a]; })
+                .slice(0, 3)
+                .map(function (p) { return p + ' ' + byProject[p].toFixed(1) + 'h'; });
+            return parts.length ? parts.join(' · ') : '—';
+        }
+
+        function dateInWeek(dateStr) {
+            return window.officeUtils.weekOf(dateStr) === window.officeUtils.weekOf();
+        }
+
+        function dateInMonth(dateStr) {
+            var d = new Date(dateStr); var n = new Date();
+            return d.getFullYear() === n.getFullYear() && d.getMonth() === n.getMonth();
+        }
+
+        function renderSums() {
+            var log = getLog();
+            var today = window.officeUtils.today();
+
+            var tEntries = log.filter(function (e) { return e.date === today; });
+            var wEntries = log.filter(function (e) { return dateInWeek(e.date); });
+            var mEntries = log.filter(function (e) { return dateInMonth(e.date); });
+
+            var t = sumBy(tEntries), w = sumBy(wEntries), m = sumBy(mEntries);
+
+            document.getElementById('sum-today').textContent = t.total.toFixed(2) + 'h';
+            document.getElementById('sum-today-breakdown').textContent = formatBreakdown(t.byProject);
+            document.getElementById('sum-week').textContent = w.total.toFixed(2) + 'h';
+            document.getElementById('sum-week-breakdown').textContent = formatBreakdown(w.byProject);
+            document.getElementById('sum-month').textContent = m.total.toFixed(2) + 'h';
+            document.getElementById('sum-month-breakdown').textContent = formatBreakdown(m.byProject);
+        }
+
+        function renderChart() {
+            var log = getLog();
+            var days = [];
+            var now = new Date();
+            now.setHours(0, 0, 0, 0);
+            for (var i = 13; i >= 0; i--) {
+                var d = new Date(now);
+                d.setDate(d.getDate() - i);
+                days.push(d.toISOString().slice(0, 10));
+            }
+
+            // Max hours pro Tag für Skalierung
+            var maxHours = 1;
+            var byDay = {};
+            days.forEach(function (d) {
+                byDay[d] = {};
+                log.filter(function (e) { return e.date === d; }).forEach(function (e) {
+                    byDay[d][e.project] = (byDay[d][e.project] || 0) + Number(e.hours);
+                });
+                var total = Object.values(byDay[d]).reduce(function (a, b) { return a + b; }, 0);
+                if (total > maxHours) maxHours = total;
+            });
+
+            var usedProjects = new Set();
+            var chartHTML = days.map(function (d) {
+                var dayData = byDay[d];
+                var total = Object.values(dayData).reduce(function (a, b) { return a + b; }, 0);
+                var dObj = new Date(d);
+                var weekday = ['So','Mo','Di','Mi','Do','Fr','Sa'][dObj.getDay()];
+                var dayNr = dObj.getDate();
+                var isToday = d === window.officeUtils.today();
+
+                var segments = Object.keys(dayData).map(function (p) {
+                    usedProjects.add(p);
+                    var heightPct = (dayData[p] / maxHours) * 100;
+                    return '<div style="background: ' + (projectColors[p] || '#a8a29e') + '; height: ' + heightPct + '%;" title="' + p + ': ' + dayData[p] + 'h"></div>';
+                }).join('');
+
+                var labelColor = isToday ? 'text-violet-500 font-medium' : 'text-stone-400';
+                return '<div class="flex-1 flex flex-col items-center gap-1 min-w-0">'
+                    + '<div class="font-mono text-[0.6rem] text-stone-500 mb-1">' + (total > 0 ? total.toFixed(1) : '') + '</div>'
+                    + '<div class="w-full flex flex-col-reverse rounded overflow-hidden" style="height: 140px; background: #F5F3EF;">' + segments + '</div>'
+                    + '<div class="font-mono text-[0.6rem] ' + labelColor + ' mt-1">' + weekday + '</div>'
+                    + '<div class="font-mono text-[0.55rem] text-stone-300">' + dayNr + '</div>'
+                    + '</div>';
+            }).join('');
+
+            document.getElementById('chart').innerHTML = chartHTML;
+
+            var legendHTML = Array.from(usedProjects).map(function (p) {
+                return '<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm" style="background: ' + (projectColors[p] || '#a8a29e') + ';"></span><span class="text-stone-600">' + p + '</span></span>';
+            }).join('');
+            document.getElementById('chart-legend').innerHTML = legendHTML || '<span class="text-stone-400 italic">Noch keine Einträge.</span>';
+        }
+
+        function renderEntries() {
+            var log = getLog();
+            var recent = log.slice().sort(function (a, b) {
+                return b.date.localeCompare(a.date) || b.created.localeCompare(a.created);
+            }).slice(0, 20);
+
+            var body = document.getElementById('entries-body');
+            if (recent.length === 0) {
+                body.innerHTML = '<tr><td colspan="5" class="px-4 py-8 text-center text-sm text-stone-400 italic">Noch keine Einträge. Oben rechts neuen Eintrag anlegen.</td></tr>';
+                return;
+            }
+
+            body.innerHTML = recent.map(function (e) {
+                var color = projectColors[e.project] || '#a8a29e';
+                var idx = log.indexOf(e);
+                var dObj = new Date(e.date);
+                var dateStr = String(dObj.getDate()).padStart(2, '0') + '.' + String(dObj.getMonth() + 1).padStart(2, '0') + '.';
+                return '<tr class="hover:bg-stone-50 group">'
+                    + '<td class="px-4 py-3 font-mono text-xs text-stone-500">' + dateStr + '</td>'
+                    + '<td class="px-4 py-3"><span class="inline-flex items-center gap-1.5"><span class="w-2 h-2 rounded-full" style="background: ' + color + ';"></span>' + e.project + '</span></td>'
+                    + '<td class="px-4 py-3 font-mono text-stone-800">' + Number(e.hours).toFixed(2) + 'h</td>'
+                    + '<td class="px-4 py-3 text-stone-500 text-xs">' + (e.note ? escapeHtml(e.note) : '') + '</td>'
+                    + '<td class="px-4 py-3 text-right"><button onclick="deleteEntry(' + idx + ')" class="opacity-0 group-hover:opacity-100 text-stone-300 hover:text-red-400 transition-all text-xs">✕</button></td>'
+                    + '</tr>';
+            }).join('');
+        }
+
+        function escapeHtml(s) {
+            return s.replace(/[&<>"']/g, function (m) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+            });
+        }
+
+        function renderAll() { renderSums(); renderChart(); renderEntries(); }
+
+        window.deleteEntry = function (idx) {
+            var log = getLog();
+            log.splice(idx, 1);
+            setLog(log);
+            renderAll();
+        };
+
+        window.exportTime = function () {
+            window.officeUtils.downloadJSON('zeit-log-' + window.officeUtils.today() + '.json', { 'office-time-log': getLog() });
+        };
+
+        window.importTime = function (ev) {
+            var file = ev.target.files[0];
+            if (!file) return;
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                try {
+                    var data = JSON.parse(e.target.result);
+                    if (data['office-time-log']) {
+                        setLog(data['office-time-log']);
+                        location.reload();
+                    } else {
+                        alert('Keine office-time-log-Daten in der Datei gefunden.');
+                    }
+                } catch (err) {
+                    alert('Import fehlgeschlagen: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
+        };
+
+        window.clearTime = function () {
+            if (confirm('Wirklich ALLE Zeit-Einträge löschen?')) {
+                setLog([]);
+                renderAll();
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            if (!window.officeStore) return;
+
+            document.getElementById('t-date').value = window.officeUtils.today();
+
+            document.getElementById('time-form').addEventListener('submit', function (ev) {
+                ev.preventDefault();
+                var entry = {
+                    date: document.getElementById('t-date').value,
+                    project: document.getElementById('t-project').value,
+                    hours: parseFloat(document.getElementById('t-hours').value),
+                    note: document.getElementById('t-note').value.trim(),
+                    created: new Date().toISOString(),
+                };
+                var log = getLog();
+                log.push(entry);
+                setLog(log);
+                document.getElementById('t-hours').value = '';
+                document.getElementById('t-note').value = '';
+                renderAll();
+            });
+
+            renderAll();
+        });
+    </script>
+</body>
+</html>
