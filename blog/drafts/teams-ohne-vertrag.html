@@ -1,0 +1,294 @@
+<!--
+  linja.me/blog/teams-ohne-vertrag – Teams ohne Vertrag
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Optionale Komponenten: Datentabelle (Rollen-Matrix), Vergleichs-Cards (KI vs. Mensch)
+  Entwurf: 2026-04-19
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams ohne Vertrag. Koordination, wenn KI das Routing übernimmt. – Linja Scharffetter</title>
+    <meta name="description" content="Lose Teams in der KI-Zeit brauchen keine Hierarchie, aber klare Rollen und Rituale. Was KI an Koordination abnehmen kann und was menschlich bleibt.">
+    <meta property="og:title" content="Teams ohne Vertrag. Koordination, wenn KI das Routing übernimmt.">
+    <meta property="og:description" content="Lose Teams in der KI-Zeit brauchen keine Hierarchie, aber klare Rollen und Rituale.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles */
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../components.js" data-active="blog"></script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Organisation &amp; Remote</span>
+                <span class="text-[0.72rem] text-stone-400">19. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Teams ohne Vertrag. Koordination, wenn KI das Routing übernimmt.
+            </h1>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
+                 ══════════════════════════════════════════════ -->
+
+            <p>Immer mehr kleine Teams bauen Produkte ausserhalb klassischer Anstellungsverhältnisse: als Gründerzellen in Freistellung, als lose gekoppelte Remote-Gruppen, als KI-gestützte Mikroteams. Die Frage, wie solche Teams koordinieren, ist in den letzten zwei Jahren radikal neu geworden. KI-Werkzeuge wie Claude Code, Cursor oder integrierte Team-Agenten nehmen einen Grossteil des klassischen Koordinations-Aufwands ab: Statusberichte, Dokumentation, Prozess-Routing. Was übrig bleibt, ist das, was KI nicht kann. Und genau dort entscheidet sich, ob ein lose gekoppeltes Team zusammenhält oder zerfällt. Der Hebel heisst nicht Hierarchie, sondern <strong>klare Rollen plus leichtgewichtige Rituale</strong>.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FUNDIERUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was KI am Koordinieren wirklich übernimmt</h2>
+
+            <p>Hierarchie ist kein kulturelles Phänomen, sondern eine Antwort auf ein praktisches Problem: Informationsfluss bei Skalierung. Wer in einem 500-Personen-Unternehmen arbeitet, braucht Ebenen, weil sonst jede Entscheidung bei allen landet. Christoph Keese hat das in seiner Analyse des Block-Ansatzes treffend beschrieben: Das eigentlich Neue an KI ist nicht, dass sie Arbeit automatisiert, sondern dass sie <em>das Koordinations-Routing</em> automatisiert. Dashboards ersetzen Statusmeetings. Wissens-Graphen ersetzen Abstimmungsrunden. Claude Code kann in einem Repo erklären, warum Entscheidung X gefallen ist, wenn jemand die ADR schreibt. Damit schrumpft der klassische Kern der Hierarchie: die menschliche Funktion "jemand weiss, wer was macht" lässt sich auf ein gut gepflegtes System auslagern.</p>
+
+            <p>Für lose Teams ist das eine gute Nachricht. Sie müssen die Skalierungs-Probleme grosser Organisationen nicht mehr mit Mini-Hierarchien nachbauen. Ein vierköpfiges Team kann heute mit denselben Transparenz-Mechanismen arbeiten, die früher einem Head of Operations vorbehalten waren: Wissensdatenbank, Architecture Decision Records, asynchrone Updates, automatisierte Zusammenfassungen. Was bisher Overhead war, ist heute Standard-Toolchain.</p>
+
+            <h2>Was menschlich bleibt und warum es kritisch ist</h2>
+
+            <p>Genau hier entsteht allerdings der Fehlschluss, vor dem ich in meinem Artikel zu KI und Hierarchie gewarnt habe: Wenn Information Routing automatisiert wird, heisst das nicht, dass Koordination damit gelöst ist. Es bleiben drei Funktionen, die klassische Hierarchien ebenfalls erfüllt haben und die KI weder ersetzen noch simulieren kann.</p>
+
+            <p>Die <strong>Vertrauensfunktion</strong>: Menschen arbeiten zusammen, weil sie einander persönlich einschätzen können. In einer Festanstellung kompensiert das Gehalt eine gewisse Portion fehlenden Vertrauens. In losen Teams ohne Vertrag ist Vertrauen die einzige Bindung. Es entsteht nicht durch Dashboards, sondern durch Präsenz, durch Gespräche, die auch mal nicht um Arbeit gehen, durch wiederholte Erfahrung, dass jemand tut, was er sagt. Die <strong>Urteilsfunktion</strong>: KI kann zehn Optionen auflisten, aber nicht entscheiden, welche die richtige ist, wenn Werte und Interessen kollidieren. Jemand muss priorisieren, gegen Lieblings-Ideen halten, den Plan gegen das Heute-habe-ich-Lust-auf-X verteidigen. Die <strong>Moderations-Funktion</strong>: Konflikte entstehen auch in guten Teams. Sie lösen sich nicht durch Tools, sondern durch jemanden, der Spannungen benennt, bevor sie eskalieren.</p>
+
+            <p>Das Paradox: In grossen Organisationen werden diese drei Funktionen oft unsichtbar, weil sie über viele Rollen verteilt sind. In losen Teams konzentrieren sie sich auf eine einzige Person. Meistens auf die, die sich als PM oder als informelle Gründerin versteht. Diese Person wird zum Bindemittel. Wenn sie das nicht explizit macht, zerfällt das Team, sobald das erste echte Problem auftaucht.</p>
+
+            <h2>Warum Rollen in losen Teams wichtiger sind als in klassischen</h2>
+
+            <p>Im klassischen Arbeitsverhältnis weiss jeder, wer wofür zuständig ist: die Stellenbeschreibung sagt es, das Organigramm sagt es, der Vertrag sagt es. In losen Teams fehlt all das. Das wird oft als Vorteil verkauft ("wir sind flach und agil"), ist aber in Wahrheit der häufigste Grund für Reibung. Denn ohne explizite Rollen passiert eines von zwei Dingen: Entweder niemand fühlt sich für eine Sache verantwortlich, oder alle mischen bei allem mit. Beides kostet Geschwindigkeit.</p>
+
+            <p>Die Lösung ist einfacher als das Problem. Jede Grundfunktion, die das Produkt braucht (Markt und Kunden, Engine und Fachlogik, Frontend und UX, optionale Module), bekommt genau einen Owner. Nicht zwei "gemeinsam", nicht "rotierend". Einen. Der Owner entscheidet in seinem Bereich, konsultiert die anderen, wenn sein Bereich mit anderen kollidiert, und trägt das Ergebnis. Ein leichtgewichtiges Entscheidungs-Protokoll (in der Praxis reicht ein DACI-Light: Driver, Approver, Contributor, Informed) klärt, wer bei welcher Entscheidung welche Rolle hat. Konflikte gehen zur PM, nicht weil sie Chefin ist, sondern weil Neutralität und der Gesamtkontext bei ihr liegen.</p>
+
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    KI übernimmt das Routing. Menschen übernehmen das Vertrauen. Beides muss laufen, sonst entsteht entweder Chaos oder Kontrollwut.
+                </p>
+            </div>
+
+
+            <!-- ══ VERGLEICHS-CARDS ══ -->
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">An KI delegierbar</p>
+                    <p class="font-mono text-[1.1rem] font-medium text-stone-900 mb-3">Routing &amp; Memory</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Status-Updates, Dokumentation, Architektur-Gedächtnis (ADRs), Priorisierungs-Optionen auflisten, Telemetrie auswerten, Meeting-Notizen, Projekt-Zusammenfassungen.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Menschliche Arbeit</p>
+                    <p class="font-mono text-[1.1rem] font-medium text-stone-900 mb-3">Vertrauen &amp; Urteil</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Vertrauen aufbauen, Konflikte moderieren, zwischen Optionen entscheiden wenn Werte kollidieren, Sinn stiften, Motivation erkennen bevor sie kippt.</p>
+                </div>
+            </div>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WAS ICH VERÄNDERT HABE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich verändert habe</h2>
+
+            <p>Ich arbeite aktuell in einem vierköpfigen Remote-Team, ohne formale Anstellungsverhältnisse, alle in freier Zeit, auf dem Weg zu einer Produkt-Evidenz. Aus den letzten Wochen habe ich drei Dinge abgeleitet, die ich konsequent anwende. Erstens eine explizite Owner-Matrix: jede Grundfunktion einer Person zugeordnet, nicht als Titel, sondern als Verantwortlichkeit. Wenn eine Entscheidung in meinem Bereich fällt, entscheide ich. Wenn sie im Bereich eines anderen fällt, liefere ich Input, aber blockiere nicht. Das hat die meisten "ich dachte, du machst das"-Momente sofort beendet.</p>
+
+            <p>Zweitens ein schlanker Ritual-Stack. Freitags gegen 17 Uhr schreibt jede Person einen Drei-Zeiler in den Team-Chat: was gebaut, was offen, was Blocker. Alle zwei Wochen ein 30-Minuten-Sync, aber nur für offene Entscheidungen; wenn es nichts zu entscheiden gibt, sagen wir ab. Einmal im Monat eine Retro über das, was gut oder schlecht läuft. Alle vier Wochen ein 15-Minuten-Gespräch mit jeder Person, explizit nicht über Arbeit, sondern über Mensch. Das vierte Ritual ist das wichtigste. Ohne es wird aus "flacher Zusammenarbeit" schnell "niemand fragt, wie es dir geht", und dann sind Leute weg, bevor man es merkt.</p>
+
+            <p>Drittens ADR-Pflicht überall. Nicht nur im Frontend-Repo, nicht nur bei Code-Entscheidungen. Auch Produkt-Entscheidungen ("Händler-Segment fliegt aus dem Baseline-Modell") bekommen eine ADR. Der Grund ist simpel: In losen Teams gibt es keinen Arbeitsvertrag, keine Stellenbeschreibung, keine Onboarding-Doku. Das gemeinsame Gedächtnis entsteht ausschliesslich durch das, was aufgeschrieben wird. ADRs sind das billigste und verlässlichste Format dafür.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: KRITISCHE EINORDNUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Das Modell funktioniert nur bei kleinen Teams. Vier Personen ist fast ideal, sechs gehen noch, bei acht wird es fragil. Die DACI-Light-Matrix bleibt handlich, solange alle alle kennen; sobald sich Subgruppen bilden, braucht es formalere Strukturen. Ausserdem: Ohne Vertrag funktioniert Commitment nur, solange persönliche Motivation trägt. Wenn jemand sein Gehalt anderswo verdient und MatGrid-ähnliche Projekte abends macht, konkurriert das Projekt mit Familie, Hobby, Gesundheit. Rituale schaffen soziale Verbindlichkeit, sie ersetzen aber keine existenzielle. Das heisst: Sobald das Produkt eine gewisse Reife erreicht, muss das Team die Vertragsfrage klären, sonst verliert man genau in dem Moment Momentum, in dem man es braucht. Schliesslich: ADR-Pflicht klingt leicht, ist aber Kultur-Arbeit. Die erste ADR schreibt jeder, die zehnte nur noch, wenn es sich eingebürgert hat.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Rolle statt Titel.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Jede Grundfunktion hat genau einen Owner. Nicht zwei, nicht rotierend. Geschwindigkeit entsteht durch Klarheit, nicht durch Konsens.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Ritual statt Kontrolle.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Drei-Zeiler-Freitags-Update, 30-Minuten-Sync alle zwei Wochen, Retro monatlich, 1:1 über Mensch. Das trägt Teams ohne Vertrag.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">ADR statt Gedächtnis.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Jede Entscheidung, die jemand später verstehen muss, wird aufgeschrieben. Nicht nur im Code, auch im Produkt. Das ist euer Vertrag.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="hierarchie-intelligenz.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, Linja (2026). Hierarchie &amp; Intelligenz. Warum KI das Organigramm neu verteilt und was menschlich bleibt. linja.me/blog.</a></li>
+                    <li><a href="https://www.faz.net" class="hover:text-stone-600 transition-colors" style="color: inherit;">Keese, Christoph (2026). Block-Ansatz: KI als Koordinationslogik jenseits klassischer Hierarchien.</a></li>
+                    <li><a href="https://adr.github.io" class="hover:text-stone-600 transition-colors" style="color: inherit;">Nygard, Michael (2011). Documenting Architecture Decisions. Architecture Decision Records Project.</a></li>
+                    <li><a href="https://hbr.org" class="hover:text-stone-600 transition-colors" style="color: inherit;">Edmondson, Amy (1999). Psychological Safety and Learning Behavior in Work Teams. Administrative Science Quarterly.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSAR
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">ADR</span> <span class="text-stone-400">— Architecture Decision Record: kurze Notiz, die eine Entscheidung, ihren Kontext und die Konsequenzen festhält</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">DACI-Light</span> <span class="text-stone-400">— Entscheidungs-Protokoll: Driver, Approver, Contributor, Informed. Abgespeckte RACI-Variante</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Owner</span> <span class="text-stone-400">— Person, die für eine Grundfunktion verantwortlich ist und in ihrem Bereich final entscheidet</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Grundfunktion</span> <span class="text-stone-400">— Kern-Fähigkeit, die ein Produkt oder Team zum Funktionieren braucht</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Information Routing</span> <span class="text-stone-400">— Klassische Hierarchie-Funktion: Wer weiss was wann. Zunehmend durch KI-Tools automatisierbar</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Psychologische Sicherheit</span> <span class="text-stone-400">— Gefühl, in einem Team ohne Angst vor Nachteil Ideen, Fehler oder Bedenken teilen zu können (Edmondson)</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+
+    <div id="site-footer"></div>
+
+</body>
+
+</html>
