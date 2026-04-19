@@ -165,9 +165,9 @@
             <p>Torres beschreibt drei Lösungsansätze, die unterschiedliche Trade-offs haben. <strong>Dropbox</strong> mit Symlinks: funktioniert zwischen Macs, scheitert an iOS. <strong>Git</strong> mit einem versionierten Repository: volle Kontrolle, aber manueller Sync (Pull/Push), Merge-Konflikte bei gleichzeitiger Bearbeitung, und auf iOS ohne Third-Party-Apps nicht nutzbar. <strong>Obsidian Sync</strong> als dritter Weg: einfach, automatisch, funktioniert auf allen Geräten inklusive iOS, nutzt relative Pfade innerhalb des Vaults. Der Nachteil: kein Versionshistorie im Git-Sinne, weniger Kontrolle über den Sync-Zeitpunkt.</p>
 
 
-            <h2>Obsidian Sync als Sweet Spot</h2>
+            <h2>Obsidian Sync als pragmatische Wahl</h2>
 
-            <p>Torres argumentiert, dass Obsidian Sync für die meisten Anwenderinnen der Sweet Spot ist, weil es die Komplexität radikal reduziert. Keine Git-Befehle, keine Symlink-Pflege, keine Merge-Konflikte. Notizen, Kontext-Dateien und (über Plugin-Unterstützung) auch KI-Skills werden automatisch über alle Geräte synchronisiert. Die Obsidian-Notation mit relativen Links sorgt dafür, dass Querverweise geräteübergreifend funktionieren.</p>
+            <p>Torres argumentiert, dass Obsidian Sync für die meisten Anwenderinnen der richtige Weg ist, weil es die Komplexität radikal reduziert. Keine Git-Befehle, keine Symlink-Pflege, keine Merge-Konflikte. Notizen, Kontext-Dateien und über Plugins auch KI-Skills synchronisieren sich automatisch über alle Geräte, und die relativen Obsidian-Links funktionieren überall gleich.</p>
 
             <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
 
@@ -195,7 +195,7 @@
             </div>
 
 
-            <h2>Mein eigener Ansatz im Vergleich</h2>
+            <h2>Mein eigener Vault-Ansatz im Vergleich</h2>
 
             <p>Mein KnowledgeOS läuft auf Git: ein Obsidian-Vault in einem privaten Repository, versioniert, mit Submodulen für öffentliche Projekte (CV-Site, Blog). Das gibt mir volle Kontrolle über die Historie, ermöglicht Code-Workflows (GitHub Pages für Deploy, Claude Code direkt am Repo) und hält alles in einem System. Der Preis: kein automatischer Sync, kein iOS-Zugriff auf den Vault ohne Git-Client, und absolute Pfade in <code>CLAUDE.md</code>, die nur auf meinem Mac funktionieren.</p>
 
@@ -239,6 +239,8 @@
             </table>
 
             <p>Das Schöne daran: meine <code>CLAUDE.md</code> bleibt kurz, die Lade-Kosten niedrig — als Nebenprodukt einer Trennung nach Lade-Semantik, nicht als Optimierung.</p>
+
+            <h2>Claude Code App als Sweet Spot für unterwegs</h2>
 
             <p>Bei mir ist noch ein vierter Weg dazugekommen, den Torres nicht beleuchtet: Wenn der Kontext zentral im Repo lebt, muss ich ihn nicht auf jedes Gerät syncen. Ich brauche nur einen Weg, von jedem Gerät aus auf das Repo zuzugreifen. Genau das löst die Claude-App am iPhone im Claude-Code-Modus für mich. Ich öffne die App, wähle das angebundene Repo, gebe Claude in Alltagssprache einen Auftrag — und Claude arbeitet direkt auf den Dateien meines KnowledgeOS, mit voller Kenntnis der <code>CLAUDE.md</code> und der gesamten Struktur. Im Hintergrund läuft das in einer Sandbox, das Ergebnis kommt als Commit oder Pull Request zurück. Mein iPad braucht keinen Vault-Zugriff, mein iPhone keinen synchronisierten <code>CLAUDE.md</code>-Hash. Beide brauchen nur die Möglichkeit, Claude einen Auftrag zu geben. Der Kontext bleibt da, wo er hingehört: im versionierten Repo, einmal gepflegt, von überall aus nutzbar.</p>
 
