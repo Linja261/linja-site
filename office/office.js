@@ -52,7 +52,7 @@
             + '<div class="min-h-screen flex items-center justify-center px-6">'
             + '<div class="max-w-sm w-full text-center">'
             + '<p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Office · intern</p>'
-            + '<h1 class="source-serif text-2xl text-stone-900 mb-2">Ans Lagerfeuer.</h1>'
+            + '<h1 class="source-serif text-2xl text-stone-900 mb-2">Office.</h1>'
             + '<p class="text-sm text-stone-400 mb-6">Nur für Linja.</p>'
             + '<form onsubmit="return officeCheckPass()">'
             + '<input type="password" id="office-pass" placeholder="Passwort" autofocus '
