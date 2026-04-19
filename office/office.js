@@ -18,7 +18,7 @@
     // === NAV ===
     var navItems = [
         { id: 'dashboard', label: 'Dashboard', href: 'index.html' },
-        { id: 'workflows', label: 'Workflows', href: 'workflows.html' },
+        { id: 'skills', label: 'Skills', href: 'skills.html' },
         { id: 'blog', label: 'Blog', href: 'blog.html' },
         { id: 'angebote', label: 'Angebote', href: 'angebote.html' },
         { id: 'ziele', label: 'Ziele', href: 'ziele.html' },

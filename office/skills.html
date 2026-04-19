@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office · Skills – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691' } },
+        } } }
+    </script>
+    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Skills</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Alle Claude-Skills</h1>
+                <p class="text-sm text-stone-500">Per <code class="font-mono text-xs">/command</code> in Claude auslösbar. Sortiert nach Rubrik. Quelle: <span class="font-mono text-xs">.claude/skills/</span></p>
+            </header>
+
+            <!-- Quick-Overview / Counts -->
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-3 mb-10">
+                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-2xl text-stone-900">11</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Methodik</div>
+                </div>
+                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-2xl text-stone-900">8</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Rituale</div>
+                </div>
+                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-2xl text-stone-900">1</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Writing</div>
+                </div>
+                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-2xl text-stone-900">3</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Jobsuche</div>
+                </div>
+                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-2xl text-stone-900">1</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Persona</div>
+                </div>
+                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-2xl text-stone-900">1</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Lernen</div>
+                </div>
+            </div>
+
+            <!-- Methodik & Frameworks -->
+            <section class="mb-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Methodik & Frameworks</h2>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded bg-violet-50 text-violet-500">Produkt & Strategie</span>
+                </div>
+                <p class="text-sm text-stone-500 mb-4">Diskovery, Priorisierung, Strategie, Prototyping.</p>
+
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead style="background: #F5F3EF;">
+                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
+                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
+                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
+                                <th class="px-4 py-3 font-medium">Nutzen</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y" style="border-color: #E5E2DB;">
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/prototyp</td>
+                                <td class="px-4 py-3 text-stone-800">Product Prototyping Starter Kit</td>
+                                <td class="px-4 py-3 text-stone-500">Next.js + shadcn App-Prototyp in 7 Phasen (Context → Deploy)</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/jtbd</td>
+                                <td class="px-4 py-3 text-stone-800">Jobs to Be Done</td>
+                                <td class="px-4 py-3 text-stone-500">Funktionale, emotionale, soziale Jobs + Switching Forces</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/ost</td>
+                                <td class="px-4 py-3 text-stone-800">Opportunity Solution Tree</td>
+                                <td class="px-4 py-3 text-stone-500">Outcome → Opportunities → Solutions → Experiments (Torres)</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/problemframing</td>
+                                <td class="px-4 py-3 text-stone-800">Problem Framing</td>
+                                <td class="px-4 py-3 text-stone-500">Nutzer · Business · Tech · Daten · Stakeholder · Kontext</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/designsprint</td>
+                                <td class="px-4 py-3 text-stone-800">Design Sprint (komprimiert)</td>
+                                <td class="px-4 py-3 text-stone-500">5 Phasen in einer Session (Knapp)</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/rice</td>
+                                <td class="px-4 py-3 text-stone-800">RICE-Bewertung</td>
+                                <td class="px-4 py-3 text-stone-500">Feature-Priorisierung: Reach · Impact · Confidence · Effort</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/kano</td>
+                                <td class="px-4 py-3 text-stone-800">Kano-Modell</td>
+                                <td class="px-4 py-3 text-stone-500">Features in Basic · Performance · Delight klassifizieren</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/roadmap</td>
+                                <td class="px-4 py-3 text-stone-800">Now · Next · Later + OST</td>
+                                <td class="px-4 py-3 text-stone-500">Feature-Listen in moderne Roadmap transformieren</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/northstar</td>
+                                <td class="px-4 py-3 text-stone-800">North Star Metrik</td>
+                                <td class="px-4 py-3 text-stone-500">NSM + Input-Metriken + AARRR + OKR-Ableitung</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/businesscase</td>
+                                <td class="px-4 py-3 text-stone-800">Business Case</td>
+                                <td class="px-4 py-3 text-stone-500">Marktgröße, Unit Economics, ROI, Go/No-Go</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/planning</td>
+                                <td class="px-4 py-3 text-stone-800">Epic-Planning</td>
+                                <td class="px-4 py-3 text-stone-500">Issues zerlegen, Abhängigkeiten mappen, Sync-Points definieren</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Arbeitsorganisation & Rituale -->
+            <section class="mb-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Arbeitsorganisation & Rituale</h2>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #e0ede6; color: #476f5b;">Alltag</span>
+                </div>
+                <p class="text-sm text-stone-500 mb-4">Check-ins, Reflexion, Sparring, Vault-Hygiene, autonome Arbeit.</p>
+
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead style="background: #F5F3EF;">
+                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
+                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
+                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
+                                <th class="px-4 py-3 font-medium">Nutzen</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y" style="border-color: #E5E2DB;">
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/checkin</td>
+                                <td class="px-4 py-3 text-stone-800">Morgen-Check-in</td>
+                                <td class="px-4 py-3 text-stone-500">Tagesstart mit Prioritäten, Reminders, offenen Punkten</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/checkout</td>
+                                <td class="px-4 py-3 text-stone-800">Tages-Check-out</td>
+                                <td class="px-4 py-3 text-stone-500">Tagesabschluss, Freitags inkl. Wochenreview + Skill-Beobachtung</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/retro</td>
+                                <td class="px-4 py-3 text-stone-800">Persönlicher Coach</td>
+                                <td class="px-4 py-3 text-stone-500">Retrospektive zu Muster, Fortschritt, nächsten Schritten</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/sparring</td>
+                                <td class="px-4 py-3 text-stone-800">Strategie-Sparringspartner</td>
+                                <td class="px-4 py-3 text-stone-500">Gedanken schärfen, Blind Spots finden, Gegenposition</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/challenge</td>
+                                <td class="px-4 py-3 text-stone-800">Business Analyst / Devil's Advocate</td>
+                                <td class="px-4 py-3 text-stone-500">Annahmen in Frage stellen, Schwachstellen aufdecken</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/captures</td>
+                                <td class="px-4 py-3 text-stone-800">Captures verarbeiten</td>
+                                <td class="px-4 py-3 text-stone-500">Lose Notizen sortieren, verschlagworten, in Vault einordnen</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/cleanup</td>
+                                <td class="px-4 py-3 text-stone-800">Vault Cleanup</td>
+                                <td class="px-4 py-3 text-stone-500">Duplikate, verwaiste Dateien, unklare Namen aufräumen</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/autowork</td>
+                                <td class="px-4 py-3 text-stone-800">Autowork</td>
+                                <td class="px-4 py-3 text-stone-500">Claude-ready Issues autonom bearbeiten (keine Rückfragen)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Writing & Content -->
+            <section class="mb-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Writing & Content</h2>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #fdf5f0; color: #c27a52;">Publishing</span>
+                </div>
+                <p class="text-sm text-stone-500 mb-4">Artikel-Pipeline für linja.me/blog.</p>
+
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead style="background: #F5F3EF;">
+                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
+                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
+                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
+                                <th class="px-4 py-3 font-medium">Nutzen</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y" style="border-color: #E5E2DB;">
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/artikel</td>
+                                <td class="px-4 py-3 text-stone-800">Blog-Workflow</td>
+                                <td class="px-4 py-3 text-stone-500">5-Block-Schema + Template + Listing-Update für linja.me/blog</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Jobsuche & Interview -->
+            <section class="mb-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Jobsuche & Interview</h2>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #ddeef7; color: #2d4d63;">Karriere</span>
+                </div>
+                <p class="text-sm text-stone-500 mb-4">Bewerbungen, Case-Study-Vorbereitung, Job-Screening.</p>
+
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead style="background: #F5F3EF;">
+                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
+                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
+                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
+                                <th class="px-4 py-3 font-medium">Nutzen</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y" style="border-color: #E5E2DB;">
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/anschreiben</td>
+                                <td class="px-4 py-3 text-stone-800">Cover Letter Generator</td>
+                                <td class="px-4 py-3 text-stone-500">Maßgeschneidertes Anschreiben im controlexpert-Schema + PDF</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/casestudy</td>
+                                <td class="px-4 py-3 text-stone-800">PM Case Study</td>
+                                <td class="px-4 py-3 text-stone-500">Interview-Vorbereitung: Problem · Priorisierung · Metriken</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/jobscreening</td>
+                                <td class="px-4 py-3 text-stone-800">Job-Screening</td>
+                                <td class="px-4 py-3 text-stone-500">Stellenausschreibung auf Passung und Red Flags prüfen</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Persona-Reviews -->
+            <section class="mb-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Persona-Reviews</h2>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #fae8de; color: #a86340;">Perspektive</span>
+                </div>
+                <p class="text-sm text-stone-500 mb-4">Texte und Messaging aus Zielgruppen-Sicht bewerten.</p>
+
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead style="background: #F5F3EF;">
+                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
+                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
+                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
+                                <th class="px-4 py-3 font-medium">Nutzen</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y" style="border-color: #E5E2DB;">
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/dachdecker</td>
+                                <td class="px-4 py-3 text-stone-800">Dachdecker-Persona</td>
+                                <td class="px-4 py-3 text-stone-500">MatGrid-Messaging aus Dachdecker-Sicht auf Glaubwürdigkeit prüfen</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Lernen & Wachstum -->
+            <section class="mb-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Lernen & Wachstum</h2>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #f6f4f9; color: #463863;">Entwicklung</span>
+                </div>
+                <p class="text-sm text-stone-500 mb-4">Lernplan-Pflege und Kompetenz-Entwicklung.</p>
+
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead style="background: #F5F3EF;">
+                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
+                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
+                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
+                                <th class="px-4 py-3 font-medium">Nutzen</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y" style="border-color: #E5E2DB;">
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/lerncheck</td>
+                                <td class="px-4 py-3 text-stone-800">Lernplan Review</td>
+                                <td class="px-4 py-3 text-stone-500">Lernziele reviewen, anreichern, nächste Schritte planen</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Meta -->
+            <section class="mt-12 pt-8" style="border-top: 1px solid #E5E2DB;">
+                <h3 class="source-serif text-base text-stone-900 mb-3">Skill-Pflege</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Neue Skills</div>
+                        <div class="text-stone-500 text-xs">Liegen als Ordner in <code class="font-mono">.claude/skills/{name}/SKILL.md</code></div>
+                    </div>
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Methoden-Inventar</div>
+                        <div class="text-stone-500 text-xs">Vollständige Zuordnung in <code class="font-mono">methodik_und_handwerk.md</code></div>
+                    </div>
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Proaktive Beobachtung</div>
+                        <div class="text-stone-500 text-xs">Freitags-Check-out (<code class="font-mono">/checkout</code>) schlägt neue Skills vor</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js" data-active="skills"></script>
+</body>
+</html>
