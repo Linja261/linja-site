@@ -199,7 +199,46 @@
 
             <p>Mein KnowledgeOS läuft auf Git: ein Obsidian-Vault in einem privaten Repository, versioniert, mit Submodulen für öffentliche Projekte (CV-Site, Blog). Das gibt mir volle Kontrolle über die Historie, ermöglicht Code-Workflows (GitHub Pages für Deploy, Claude Code direkt am Repo) und hält alles in einem System. Der Preis: kein automatischer Sync, kein iOS-Zugriff auf den Vault ohne Git-Client, und absolute Pfade in <code>CLAUDE.md</code>, die nur auf meinem Mac funktionieren.</p>
 
-            <p>Beim Lesen ist mir aufgefallen, dass ich an ein paar Stellen unbewusst andere Entscheidungen getroffen habe — nicht aus besserem Wissen, sondern weil sich mein Setup über die Zeit so entwickelt hat. Torres legt ihren Kontext im Wesentlichen in einer grossen <code>CLAUDE.md</code> ab. Bei mir haben sich drei Schichten herausgebildet: die <code>CLAUDE.md</code> für das, was Claude in jeder Session wissen muss; thematische Rules in <code>00_SYSTEM/01_RULES/</code>, die nur bei Bedarf gezogen werden; und Skills in <code>.claude/skills/</code>, die ich per Slash-Befehl auslöse (<code>/checkin</code>, <code>/checkout</code>, <code>/artikel</code>). Dazu ein eigener Memory-Layer, in dem Claude über Sessions hinweg lernt, ohne meine Hauptdatei aufzublähen. Das Schöne daran: meine <code>CLAUDE.md</code> bleibt kurz, die Lade-Kosten niedrig — als Nebenprodukt einer Trennung nach Lade-Semantik, nicht als Optimierung.</p>
+            <p>Beim Lesen ist mir aufgefallen, dass ich an ein paar Stellen unbewusst andere Entscheidungen getroffen habe — nicht aus besserem Wissen, sondern weil sich mein Setup über die Zeit so entwickelt hat. Torres legt ihren Kontext im Wesentlichen in einer grossen <code>CLAUDE.md</code> ab. Bei mir hat er sich auf vier Schichten verteilt, sortiert danach, wann Claude sie überhaupt zu sehen bekommt:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Schicht</th>
+                        <th>Wo</th>
+                        <th>Wann geladen</th>
+                        <th>Beispiel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CLAUDE.md</strong></td>
+                        <td>Repo-Root</td>
+                        <td>Automatisch, jede Session</td>
+                        <td>Vault-Regeln, aktive Projekte</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rules</strong></td>
+                        <td><code>00_SYSTEM/01_RULES/</code></td>
+                        <td>Bei Bedarf, per Verweis</td>
+                        <td>Writing Style Guide, Job-Search-Rules</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Skills</strong></td>
+                        <td><code>.claude/skills/</code></td>
+                        <td>Auf Aufruf, per Slash-Befehl</td>
+                        <td><code>/checkin</code>, <code>/checkout</code>, <code>/artikel</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Memory</strong></td>
+                        <td><code>.claude/projects/…/memory/</code></td>
+                        <td>Über Sessions hinweg</td>
+                        <td>Kollaborationsmuster, Feedback</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Das Schöne daran: meine <code>CLAUDE.md</code> bleibt kurz, die Lade-Kosten niedrig — als Nebenprodukt einer Trennung nach Lade-Semantik, nicht als Optimierung.</p>
 
             <p>Bei mir ist noch ein vierter Weg dazugekommen, den Torres nicht beleuchtet: Wenn der Kontext zentral im Repo lebt, muss ich ihn nicht auf jedes Gerät syncen. Ich brauche nur einen Weg, von jedem Gerät aus auf das Repo zuzugreifen. Genau das löst die Claude-App am iPhone im Claude-Code-Modus für mich. Ich öffne die App, wähle das angebundene Repo, gebe Claude in Alltagssprache einen Auftrag — und Claude arbeitet direkt auf den Dateien meines KnowledgeOS, mit voller Kenntnis der <code>CLAUDE.md</code> und der gesamten Struktur. Im Hintergrund läuft das in einer Sandbox, das Ergebnis kommt als Commit oder Pull Request zurück. Mein iPad braucht keinen Vault-Zugriff, mein iPhone keinen synchronisierten <code>CLAUDE.md</code>-Hash. Beide brauchen nur die Möglichkeit, Claude einen Auftrag zu geben. Der Kontext bleibt da, wo er hingehört: im versionierten Repo, einmal gepflegt, von überall aus nutzbar.</p>
 
