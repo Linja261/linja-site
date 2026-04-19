@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office · Blog – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } },
+        } } }
+    </script>
+    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Blog</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Editorial Cockpit</h1>
+                <p class="text-sm text-stone-500">Alle Artikel an einem Ort: geplant, Draft, live. Klick öffnet das Original.</p>
+            </header>
+
+            <!-- Counter -->
+            <div class="grid grid-cols-3 gap-4 mb-8">
+                <div class="bg-white border rounded-xl p-5 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-3xl text-stone-900">5</div>
+                    <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide mt-1">Geplant</div>
+                </div>
+                <div class="bg-white border rounded-xl p-5 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-3xl text-stone-900">8</div>
+                    <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide mt-1">Draft</div>
+                </div>
+                <div class="bg-white border rounded-xl p-5 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-3xl text-stone-900">11</div>
+                    <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide mt-1">Live</div>
+                </div>
+            </div>
+
+            <!-- Geplant -->
+            <section class="mb-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Geplant</h2>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #F5F3EF; color: #78716c;">5 Plan-Notizen</span>
+                </div>
+                <p class="text-sm text-stone-500 mb-4">Themen & Entwürfe aus <code class="font-mono text-xs">blog/plan-*.md</code>. Noch nicht ausgearbeitet.</p>
+
+                <div class="space-y-2">
+                    <a href="../blog/plan-beim-ergebnis-anfangen.md" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Beim Ergebnis anfangen — Working Backwards + IKEA-Analogie</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">plan-beim-ergebnis</span>
+                    </a>
+                    <a href="../blog/plan-dt-sprint-ki.md" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Design Thinking Sprint mit KI</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">plan-dt-sprint-ki</span>
+                    </a>
+                    <a href="../blog/plan-intuition-pm.md" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Intuition als PM — Gary Klein RPD + Kahneman</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">plan-intuition-pm</span>
+                    </a>
+                    <a href="../blog/plan-ki-zeitmanagement.md" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">KI-Zeitmanagement — Smartphone-Paradox</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">plan-ki-zeitmanagement</span>
+                    </a>
+                    <a href="../blog/plan-prototyping-pm-vs-designer.md" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Prototyping PM vs. Designer — Framing als Superkraft</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">plan-prototyping-pm-vs-designer</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Drafts -->
+            <section class="mb-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Drafts</h2>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #fae8de; color: #a86340;">8 Entwürfe</span>
+                    <a href="../blog/drafts/" class="ml-auto text-xs text-violet-400 hover:text-violet-500">Drafts-Index öffnen →</a>
+                </div>
+                <p class="text-sm text-stone-500 mb-4">Passwort-geschützt unter <code class="font-mono text-xs">linja.me/blog/drafts/</code>. Jeder Klick öffnet den Entwurf direkt.</p>
+
+                <div class="space-y-2">
+                    <a href="../blog/drafts/design-thinking-ki.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Design Thinking an einem Abend. Was bleibt, wenn KI die Hälfte übernimmt.</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">17.04.</span>
+                    </a>
+                    <a href="../blog/drafts/intuition-pm.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Intuition als Produkt Managerin. Wann Bauchgefühl bessere Entscheidungen trifft.</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">18.04.</span>
+                    </a>
+                    <a href="../blog/drafts/prototyping-pm.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Wie prototype ich als PM? Was mich von Designern unterscheidet.</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">18.04.</span>
+                    </a>
+                    <a href="../blog/drafts/ergebnis-first.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Beim Ergebnis anfangen. Warum sichtbare Prototypen bessere Entscheidungen erzeugen.</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">19.04.</span>
+                    </a>
+                    <a href="../blog/drafts/ki-zeitmanagement.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Wie KI ein gesünderes Zeitmanagement fördern kann. Das Smartphone-Paradox.</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">19.04.</span>
+                    </a>
+                    <a href="../blog/drafts/ki-kontext-teilen.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">KI-Kontext teilen. Was ich von Teresa Torres über Obsidian, Git und Symlinks gelernt habe.</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">20.04.</span>
+                    </a>
+                    <a href="../blog/drafts/pm-beziehungsarbeit.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Product Work Is Relationship Work. Warum die PM-Rolle im KI-Zeitalter nicht verschwindet.</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">20.04.</span>
+                    </a>
+                    <a href="../blog/drafts/ki-agenten-kategorien.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Nicht jeder Agent ist gleich. Ein Framework für PMs, die KI-Agenten priorisieren müssen.</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">21.04.</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Live -->
+            <section>
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Live</h2>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #e0ede6; color: #476f5b;">11 veröffentlicht</span>
+                    <a href="../blog.html" class="ml-auto text-xs text-violet-400 hover:text-violet-500">Öffentliches Blog öffnen →</a>
+                </div>
+                <p class="text-sm text-stone-500 mb-4">Bereits veröffentlichte Artikel auf <code class="font-mono text-xs">linja.me/blog</code>.</p>
+
+                <div class="space-y-2">
+                    <a href="../blog/ki-agenten-kategorien.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">KI-Agenten-Kategorien</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">neu</span>
+                    </a>
+                    <a href="../blog/vibe-coding-ist-produktdenken.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Vibe-Coding ist Produktdenken</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">03.04.</span>
+                    </a>
+                    <a href="../blog/vibe-coding-is-product-thinking.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Vibe-Coding Is Product Thinking (EN)</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">03.04.</span>
+                    </a>
+                    <a href="../blog/hierarchie-intelligenz.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Hierarchie-Intelligenz</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">02.04.</span>
+                    </a>
+                    <a href="../blog/ki-produktivfalle.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">KI-Produktivfalle</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">02.04.</span>
+                    </a>
+                    <a href="../blog/ki-routinen.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">KI-Routinen</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">02.04.</span>
+                    </a>
+                    <a href="../blog/knowledgeos.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">KnowledgeOS</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">02.04.</span>
+                    </a>
+                    <a href="../blog/claude-code-leak.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Claude-Code Leak</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">01.04.</span>
+                    </a>
+                    <a href="../blog/langsamkeit.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Langsamkeit</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">26.03.</span>
+                    </a>
+                    <a href="../blog/knowledgeos-linkedin.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">KnowledgeOS auf LinkedIn</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">24.03.</span>
+                    </a>
+                    <a href="../blog/discovery.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <span class="text-sm text-stone-800">Discovery</span>
+                        <span class="font-mono text-[0.65rem] text-stone-400">24.03.</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Meta -->
+            <section class="mt-12 pt-8" style="border-top: 1px solid #E5E2DB;">
+                <h3 class="source-serif text-base text-stone-900 mb-3">Blog-Workflow</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Baukasten</div>
+                        <div class="text-stone-500 text-xs"><code class="font-mono">artikel_baukasten.md</code> — 5-Block-Schema + Quellen + Glossar</div>
+                    </div>
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Template</div>
+                        <div class="text-stone-500 text-xs"><code class="font-mono">blog/_template.html</code> — Visuelles Template zum Kopieren</div>
+                    </div>
+                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Skill</div>
+                        <div class="text-stone-500 text-xs"><code class="font-mono">/artikel</code> — Vollständiger Workflow</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js" data-active="blog"></script>
+</body>
+</html>
