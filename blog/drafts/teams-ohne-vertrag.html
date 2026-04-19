@@ -166,7 +166,7 @@
 
             <h2>Was menschlich bleibt und warum es kritisch ist</h2>
 
-            <p>Genau hier entsteht allerdings der Fehlschluss, vor dem ich in meinem Artikel zu KI und Hierarchie gewarnt habe: Wenn Information Routing automatisiert wird, heisst das nicht, dass Koordination damit gelöst ist. Es bleiben drei Funktionen, die klassische Hierarchien ebenfalls erfüllt haben und die KI weder ersetzen noch simulieren kann.</p>
+            <p>Genau hier entsteht allerdings der Fehlschluss: Wenn Information Routing automatisiert wird, heisst das nicht, dass Koordination damit gelöst ist. Es bleiben drei Funktionen, die klassische Hierarchien ebenfalls erfüllt haben und die KI weder ersetzen noch simulieren kann.</p>
 
             <p>Die <strong>Vertrauensfunktion</strong>: Menschen arbeiten zusammen, weil sie einander persönlich einschätzen können. In einer Festanstellung kompensiert das Gehalt eine gewisse Portion fehlenden Vertrauens. In losen Teams ohne Vertrag ist Vertrauen die einzige Bindung. Es entsteht nicht durch Dashboards, sondern durch Präsenz, durch Gespräche, die auch mal nicht um Arbeit gehen, durch wiederholte Erfahrung, dass jemand tut, was er sagt. Die <strong>Urteilsfunktion</strong>: KI kann zehn Optionen auflisten, aber nicht entscheiden, welche die richtige ist, wenn Werte und Interessen kollidieren. Jemand muss priorisieren, gegen Lieblings-Ideen halten, den Plan gegen das Heute-habe-ich-Lust-auf-X verteidigen. Die <strong>Moderations-Funktion</strong>: Konflikte entstehen auch in guten Teams. Sie lösen sich nicht durch Tools, sondern durch jemanden, der Spannungen benennt, bevor sie eskalieren.</p>
 
@@ -179,13 +179,7 @@
             <p>Die Lösung ist einfacher als das Problem. Jede Grundfunktion, die das Produkt braucht (Markt und Kunden, Engine und Fachlogik, Frontend und UX, optionale Module), bekommt genau einen Owner. Nicht zwei "gemeinsam", nicht "rotierend". Einen. Der Owner entscheidet in seinem Bereich, konsultiert die anderen, wenn sein Bereich mit anderen kollidiert, und trägt das Ergebnis. Ein leichtgewichtiges Entscheidungs-Protokoll (in der Praxis reicht ein DACI-Light: Driver, Approver, Contributor, Informed) klärt, wer bei welcher Entscheidung welche Rolle hat. Konflikte gehen zur PM, nicht weil sie Chefin ist, sondern weil Neutralität und der Gesamtkontext bei ihr liegen.</p>
 
 
-            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
-
-            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
-                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
-                    KI übernimmt das Routing. Menschen übernehmen das Vertrauen. Beides muss laufen, sonst entsteht entweder Chaos oder Kontrollwut.
-                </p>
-            </div>
+            <p>Das Gesamtbild wird damit klarer: KI übernimmt das Routing. Menschen übernehmen das Vertrauen. Beides muss laufen, sonst entsteht entweder Chaos oder Kontrollwut.</p>
 
 
             <!-- ══ VERGLEICHS-CARDS ══ -->
@@ -210,11 +204,31 @@
 
             <h2>Was ich verändert habe</h2>
 
-            <p>Ich arbeite aktuell in einem vierköpfigen Remote-Team, ohne formale Anstellungsverhältnisse, alle in freier Zeit, auf dem Weg zu einer Produkt-Evidenz. Aus den letzten Wochen habe ich drei Dinge abgeleitet, die ich konsequent anwende. Erstens eine explizite Owner-Matrix: jede Grundfunktion einer Person zugeordnet, nicht als Titel, sondern als Verantwortlichkeit. Wenn eine Entscheidung in meinem Bereich fällt, entscheide ich. Wenn sie im Bereich eines anderen fällt, liefere ich Input, aber blockiere nicht. Das hat die meisten "ich dachte, du machst das"-Momente sofort beendet.</p>
+            <p>Ich arbeite aktuell in einem vierköpfigen Remote-Team, ohne formale Anstellungsverhältnisse, alle in ihrer freien Zeit, an einer Produktidee. Da wir stark zu unterschiedlichen Zeiten arbeiten, habe ich aus den letzten Wochen drei Dinge abgeleitet, die ich im Team vorgeschlagen habe.</p>
 
-            <p>Zweitens ein schlanker Ritual-Stack. Freitags gegen 17 Uhr schreibt jede Person einen Drei-Zeiler in den Team-Chat: was gebaut, was offen, was Blocker. Alle zwei Wochen ein 30-Minuten-Sync, aber nur für offene Entscheidungen; wenn es nichts zu entscheiden gibt, sagen wir ab. Einmal im Monat eine Retro über das, was gut oder schlecht läuft. Alle vier Wochen ein 15-Minuten-Gespräch mit jeder Person, explizit nicht über Arbeit, sondern über Mensch. Das vierte Ritual ist das wichtigste. Ohne es wird aus "flacher Zusammenarbeit" schnell "niemand fragt, wie es dir geht", und dann sind Leute weg, bevor man es merkt.</p>
+            <!-- ══ DREI ÄNDERUNGEN ALS CARD-GRID ══ -->
 
-            <p>Drittens ADR-Pflicht überall. Nicht nur im Frontend-Repo, nicht nur bei Code-Entscheidungen. Auch Produkt-Entscheidungen ("Händler-Segment fliegt aus dem Baseline-Modell") bekommen eine ADR. Der Grund ist simpel: In losen Teams gibt es keinen Arbeitsvertrag, keine Stellenbeschreibung, keine Onboarding-Doku. Das gemeinsame Gedächtnis entsteht ausschliesslich durch das, was aufgeschrieben wird. ADRs sind das billigste und verlässlichste Format dafür.</p>
+            <div class="space-y-4 my-8">
+
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-2" style="color: #7b6ba5;">Erstens</p>
+                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">Explizite Owner-Matrix</p>
+                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">Jede Grundfunktion ist einer Person zugeordnet, nicht als Titel, sondern als Verantwortlichkeit. Wenn eine Entscheidung im eigenen Bereich liegt, entscheidet man. Liegt sie im Bereich eines anderen, liefert man Input, blockiert aber nicht. Das beendet die meisten "ich dachte, du machst das"-Momente sofort.</p>
+                </div>
+
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-2" style="color: #7b6ba5;">Zweitens</p>
+                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">Ein schlanker Ritual-Stack</p>
+                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">Freitags gegen 17 Uhr schreibt jede Person einen Drei-Zeiler in den Team-Chat: was gebaut, was offen, was Blocker. Alle zwei Wochen ein 30-Minuten-Sync, aber nur für offene Entscheidungen; ohne Agenda sagen wir ab. Einmal im Monat eine Retro. Alle vier Wochen ein 15-Minuten-Gespräch mit jeder Person, bewusst nicht über Arbeit, sondern über Mensch. Das vierte Ritual ist das wichtigste. Ohne es wird aus "flacher Zusammenarbeit" schnell "niemand fragt, wie es dir geht", und dann sind Leute weg, bevor man es merkt.</p>
+                </div>
+
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-2" style="color: #7b6ba5;">Drittens</p>
+                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">ADR-Pflicht überall</p>
+                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">Nicht nur im Frontend-Repo, nicht nur bei Code-Entscheidungen. Auch Produkt-Entscheidungen ("Händler-Segment fliegt aus dem Baseline-Modell") bekommen eine ADR. Der Grund ist simpel: In losen Teams gibt es keinen Arbeitsvertrag, keine Stellenbeschreibung, keine Onboarding-Doku. Das gemeinsame Gedächtnis entsteht ausschliesslich durch das, was aufgeschrieben wird. ADRs sind das billigste und verlässlichste Format dafür.</p>
+                </div>
+
+            </div>
 
 
             <!-- ══════════════════════════════════════════════
@@ -223,7 +237,7 @@
 
             <h2>Kritische Einordnung</h2>
 
-            <p>Das Modell funktioniert nur bei kleinen Teams. Vier Personen ist fast ideal, sechs gehen noch, bei acht wird es fragil. Die DACI-Light-Matrix bleibt handlich, solange alle alle kennen; sobald sich Subgruppen bilden, braucht es formalere Strukturen. Ausserdem: Ohne Vertrag funktioniert Commitment nur, solange persönliche Motivation trägt. Wenn jemand sein Gehalt anderswo verdient und MatGrid-ähnliche Projekte abends macht, konkurriert das Projekt mit Familie, Hobby, Gesundheit. Rituale schaffen soziale Verbindlichkeit, sie ersetzen aber keine existenzielle. Das heisst: Sobald das Produkt eine gewisse Reife erreicht, muss das Team die Vertragsfrage klären, sonst verliert man genau in dem Moment Momentum, in dem man es braucht. Schliesslich: ADR-Pflicht klingt leicht, ist aber Kultur-Arbeit. Die erste ADR schreibt jeder, die zehnte nur noch, wenn es sich eingebürgert hat.</p>
+            <p>Das Modell funktioniert nur bei kleinen Teams. Vier Personen ist fast ideal, sechs gehen noch, bei acht wird es fragil. Die DACI-Light-Matrix bleibt handlich, solange alle alle kennen; sobald sich Subgruppen bilden, braucht es formalere Strukturen. Ausserdem: Ohne Vertrag funktioniert Commitment nur, solange persönliche Motivation trägt. Wenn jemand sein Gehalt anderswo verdient und solche Projekte abends macht, konkurriert das Projekt mit Familie, Hobby, Gesundheit. Rituale schaffen soziale Verbindlichkeit, sie ersetzen aber keine existenzielle. Das heisst: Sobald das Produkt eine gewisse Reife erreicht, muss das Team die Vertragsfrage klären, sonst verliert man genau in dem Moment Momentum, in dem man es braucht. Schliesslich: ADR-Pflicht klingt leicht, ist aber Kultur-Arbeit. Die erste ADR schreibt jeder, die zehnte nur noch, wenn es sich eingebürgert hat.</p>
 
 
             <!-- ══════════════════════════════════════════════
