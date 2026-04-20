@@ -1,0 +1,335 @@
+<!--
+  linja.me/glossar – Glossar & Abkürzungsverzeichnis
+  Design System: Vanille-Heidelbeer (gedämpft)
+  Brand Kit: ../brand-kit.md
+  Stand: 2026-04-20
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossar – Linja Scharffetter</title>
+    <meta name="description" content="Abkürzungen und Fachbegriffe, die in meinen Artikeln immer wieder auftauchen – kurz erklärt.">
+    <meta property="og:title" content="Glossar – Linja Scharffetter">
+    <meta property="og:description" content="Abkürzungen und Fachbegriffe, kurz erklärt.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+        html { scroll-behavior: smooth; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+
+        /* Glossar-Tabelle
+           Spacing-Werte angelehnt an brand-kit.md → Spacing-Tokens (Blog) */
+        .glossar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        .glossar-table th {
+            text-align: left;
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: #7b6ba5;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border-bottom: 2px solid #e5e2db;
+            padding: 0.75rem 1rem 0.75rem 0;
+            vertical-align: bottom;
+        }
+        .glossar-table td {
+            border-bottom: 1px solid #e5e2db;
+            padding: 0.85rem 1rem 0.85rem 0;
+            vertical-align: top;
+            line-height: 1.55;
+        }
+        .glossar-table tr:target td {
+            background: #f6f4f9;
+        }
+        .glossar-table td.col-abbr {
+            font-weight: 600;
+            color: #1A1A1A;
+            white-space: nowrap;
+            width: 7rem;
+        }
+        .glossar-table td.col-full {
+            color: #44403c;
+            width: 14rem;
+        }
+        .glossar-table td.col-desc {
+            color: #555555;
+        }
+        .glossar-table tr:hover td {
+            background: #fafaf8;
+        }
+        /* Responsive: stack on mobile */
+        @media (max-width: 640px) {
+            .glossar-table, .glossar-table thead, .glossar-table tbody,
+            .glossar-table tr, .glossar-table th, .glossar-table td {
+                display: block;
+                width: 100%;
+            }
+            .glossar-table thead { display: none; }
+            .glossar-table tr {
+                padding: 1rem 0;
+                border-bottom: 1px solid #e5e2db;
+            }
+            .glossar-table td { border-bottom: none; padding: 0.15rem 0; }
+            .glossar-table td.col-abbr { font-size: 1rem; }
+            .glossar-table td.col-full {
+                font-family: 'Geist Mono', ui-monospace, monospace;
+                font-size: 0.72rem;
+                color: #7b6ba5;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="components.js" data-active=""></script>
+
+    <div class="max-w-[860px] mx-auto px-8">
+
+        <header class="pt-28 pb-6">
+            <a href="blog.html" class="text-[0.82rem] hover:text-stone-800 transition-colors mb-4 inline-block" style="color: #7b6ba5;">&larr; Blog</a>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-4">Glossar</h1>
+            <p class="text-[0.92rem] text-stone-600 leading-relaxed max-w-[36em]">
+                Abkürzungen und Fachbegriffe, die in meinen Artikeln immer wieder auftauchen – kurz erklärt. Produktkontext, kein Lexikon. Ergänzungen wandern hier rein, sobald ich einen Begriff in einem Artikel benutze.
+            </p>
+        </header>
+
+        <section class="pb-24">
+            <table class="glossar-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Abkürzung</th>
+                        <th scope="col">Ausgeschrieben</th>
+                        <th scope="col">Bedeutung</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="glossar-aarrr">
+                        <td class="col-abbr">AARRR</td>
+                        <td class="col-full">Acquisition, Activation, Retention, Revenue, Referral</td>
+                        <td class="col-desc">Funnel-Framework zur Messung des gesamten Kundenlebenszyklus – von der Akquisition bis zur Empfehlung.</td>
+                    </tr>
+                    <tr id="glossar-ab-testing">
+                        <td class="col-abbr">A/B-Testing</td>
+                        <td class="col-full">A/B Testing</td>
+                        <td class="col-desc">Kontrollierter Vergleich von zwei Produktvarianten, um eine Hypothese datenbasiert zu entscheiden.</td>
+                    </tr>
+                    <tr id="glossar-adkar">
+                        <td class="col-abbr">ADKAR</td>
+                        <td class="col-full">Awareness, Desire, Knowledge, Ability, Reinforcement</td>
+                        <td class="col-desc">Change-Management-Modell, das Veränderungsprozesse auf der Ebene einzelner Personen strukturiert.</td>
+                    </tr>
+                    <tr id="glossar-adr">
+                        <td class="col-abbr">ADR</td>
+                        <td class="col-full">Architecture Decision Record</td>
+                        <td class="col-desc">Kurze Notiz, in der eine strukturelle Entscheidung samt Kontext und Konsequenzen festgehalten wird. Ursprünglich Code-bezogen, nützlich auch für Produkt-Entscheidungen.</td>
+                    </tr>
+                    <tr id="glossar-api">
+                        <td class="col-abbr">API</td>
+                        <td class="col-full">Application Programming Interface</td>
+                        <td class="col-desc">Technische Schnittstelle, über die Systeme Daten austauschen und Funktionen aufrufen.</td>
+                    </tr>
+                    <tr id="glossar-arpu">
+                        <td class="col-abbr">ARPU</td>
+                        <td class="col-full">Average Revenue Per User</td>
+                        <td class="col-desc">Durchschnittlicher Umsatz pro Nutzer – Kennzahl für die Tragfähigkeit eines Geschäftsmodells.</td>
+                    </tr>
+                    <tr id="glossar-b2b">
+                        <td class="col-abbr">B2B</td>
+                        <td class="col-full">Business-to-Business</td>
+                        <td class="col-desc">Geschäftsmodell, bei dem Unternehmen andere Unternehmen als Kunden adressieren.</td>
+                    </tr>
+                    <tr id="glossar-cac">
+                        <td class="col-abbr">CAC</td>
+                        <td class="col-full">Customer Acquisition Cost</td>
+                        <td class="col-desc">Durchschnittliche Kosten, um einen neuen Kunden zu gewinnen. Gemessen gegen LTV, um Wachstum zu beurteilen.</td>
+                    </tr>
+                    <tr id="glossar-ci-cd">
+                        <td class="col-abbr">CI/CD</td>
+                        <td class="col-full">Continuous Integration / Continuous Deployment</td>
+                        <td class="col-desc">Automatisierte Pipeline, die Code-Änderungen testet und ausrollt – Voraussetzung für schnelle, sichere Releases.</td>
+                    </tr>
+                    <tr id="glossar-crm">
+                        <td class="col-abbr">CRM</td>
+                        <td class="col-full">Customer Relationship Management</td>
+                        <td class="col-desc">System zur Verwaltung von Kundendaten, Interaktionen und Vertriebspipeline.</td>
+                    </tr>
+                    <tr id="glossar-cx">
+                        <td class="col-abbr">CX</td>
+                        <td class="col-full">Customer Experience</td>
+                        <td class="col-desc">Summe aller Berührungspunkte zwischen Kunde und Produkt – vor, während und nach dem Kauf.</td>
+                    </tr>
+                    <tr id="glossar-daci">
+                        <td class="col-abbr">DACI</td>
+                        <td class="col-full">Driver, Approver, Contributor, Informed</td>
+                        <td class="col-desc">Entscheidungs-Protokoll, das pro Entscheidung Rollen verteilt. Abgespeckte RACI-Variante, gut für kleine Teams.</td>
+                    </tr>
+                    <tr id="glossar-dau-mau">
+                        <td class="col-abbr">DAU / MAU</td>
+                        <td class="col-full">Daily / Monthly Active Users</td>
+                        <td class="col-desc">Kennzahlen für die Nutzungsfrequenz eines Produkts. Verhältnis zeigt Engagement-Qualität.</td>
+                    </tr>
+                    <tr id="glossar-disc">
+                        <td class="col-abbr">DISC</td>
+                        <td class="col-full">Dominance, Influence, Steadiness, Conscientiousness</td>
+                        <td class="col-desc">Verhaltensprofil-Modell, das Kommunikations- und Arbeitsstile in Teams sichtbar macht.</td>
+                    </tr>
+                    <tr id="glossar-gtm">
+                        <td class="col-abbr">GTM</td>
+                        <td class="col-full">Go-to-Market</td>
+                        <td class="col-desc">Strategie zur Markteinführung: Positionierung, Pricing, Kanäle, Vertriebslogik und erste Kunden.</td>
+                    </tr>
+                    <tr id="glossar-jtbd">
+                        <td class="col-abbr">JTBD</td>
+                        <td class="col-full">Jobs to Be Done</td>
+                        <td class="col-desc">Methode, die Kundenverhalten als "Job" versteht – funktional, emotional, sozial – den ein Produkt erledigen soll.</td>
+                    </tr>
+                    <tr id="glossar-ki">
+                        <td class="col-abbr">KI / AI</td>
+                        <td class="col-full">Künstliche Intelligenz / Artificial Intelligence</td>
+                        <td class="col-desc">Sammelbegriff für Systeme, die Aufgaben lösen, die bisher menschliches Urteil oder Spracharbeit verlangten.</td>
+                    </tr>
+                    <tr id="glossar-knx">
+                        <td class="col-abbr">KNX</td>
+                        <td class="col-full">KNX-Standard</td>
+                        <td class="col-desc">Herstellerübergreifender Bus-Standard für Gebäudeautomation (Licht, Heizung, Verschattung).</td>
+                    </tr>
+                    <tr id="glossar-kpi">
+                        <td class="col-abbr">KPI</td>
+                        <td class="col-full">Key Performance Indicator</td>
+                        <td class="col-desc">Messbare Kennzahl, die einen strategischen oder operativen Zielwert operationalisiert.</td>
+                    </tr>
+                    <tr id="glossar-llm">
+                        <td class="col-abbr">LLM</td>
+                        <td class="col-full">Large Language Model</td>
+                        <td class="col-desc">Sprachmodell, das auf grossen Textmengen trainiert wurde und generative Aufgaben löst (z.B. Claude, GPT).</td>
+                    </tr>
+                    <tr id="glossar-ltv">
+                        <td class="col-abbr">LTV</td>
+                        <td class="col-full">Lifetime Value</td>
+                        <td class="col-desc">Gesamter Umsatz, den ein Kunde über die gesamte Beziehung mit dem Unternehmen generiert.</td>
+                    </tr>
+                    <tr id="glossar-mbti">
+                        <td class="col-abbr">MBTI</td>
+                        <td class="col-full">Myers-Briggs Type Indicator</td>
+                        <td class="col-desc">Persönlichkeits-Typologie mit 16 Typen, genutzt für Selbstreflexion und Teamaufstellung.</td>
+                    </tr>
+                    <tr id="glossar-mcp">
+                        <td class="col-abbr">MCP</td>
+                        <td class="col-full">Model Context Protocol</td>
+                        <td class="col-desc">Offenes Protokoll, über das Sprachmodelle mit Tools und Datenquellen verbunden werden.</td>
+                    </tr>
+                    <tr id="glossar-mvp">
+                        <td class="col-abbr">MVP</td>
+                        <td class="col-full">Minimum Viable Product</td>
+                        <td class="col-desc">Kleinste tragfähige Produktversion, die eine zentrale Hypothese mit echten Nutzern validieren kann.</td>
+                    </tr>
+                    <tr id="glossar-nps">
+                        <td class="col-abbr">NPS</td>
+                        <td class="col-full">Net Promoter Score</td>
+                        <td class="col-desc">Loyalitäts-Kennzahl: Wie wahrscheinlich empfehlen Kunden das Produkt weiter (Skala 0–10)?</td>
+                    </tr>
+                    <tr id="glossar-okr">
+                        <td class="col-abbr">OKR</td>
+                        <td class="col-full">Objectives and Key Results</td>
+                        <td class="col-desc">Zielsetzungs-Framework: qualitatives Ziel (Objective) plus 2–5 messbare Ergebnisse (Key Results).</td>
+                    </tr>
+                    <tr id="glossar-ost">
+                        <td class="col-abbr">OST</td>
+                        <td class="col-full">Opportunity Solution Tree</td>
+                        <td class="col-desc">Discovery-Framework von Teresa Torres, das Outcome, Opportunities, Solutions und Experimente verknüpft.</td>
+                    </tr>
+                    <tr id="glossar-plg">
+                        <td class="col-abbr">PLG</td>
+                        <td class="col-full">Product-Led Growth</td>
+                        <td class="col-desc">Wachstumsstrategie, bei der das Produkt selbst Akquisition, Aktivierung und Expansion trägt.</td>
+                    </tr>
+                    <tr id="glossar-pm">
+                        <td class="col-abbr">PM</td>
+                        <td class="col-full">Product Manager / Product Management</td>
+                        <td class="col-desc">Rolle an der Schnittstelle von Kunde, Strategie und Umsetzung. Verantwortet das "Warum" und "Was" eines Produkts.</td>
+                    </tr>
+                    <tr id="glossar-pr">
+                        <td class="col-abbr">PR</td>
+                        <td class="col-full">Pull Request</td>
+                        <td class="col-desc">Anfrage im Entwicklungsprozess, Code-Änderungen zu reviewen und in den Hauptzweig zu mergen.</td>
+                    </tr>
+                    <tr id="glossar-rice">
+                        <td class="col-abbr">RICE</td>
+                        <td class="col-full">Reach, Impact, Confidence, Effort</td>
+                        <td class="col-desc">Priorisierungs-Framework, das Initiativen nach Wirkung pro Aufwand vergleichbar macht.</td>
+                    </tr>
+                    <tr id="glossar-roi">
+                        <td class="col-abbr">ROI</td>
+                        <td class="col-full">Return on Investment</td>
+                        <td class="col-desc">Kennzahl für die Rentabilität einer Investition – Ertrag im Verhältnis zum eingesetzten Kapital.</td>
+                    </tr>
+                    <tr id="glossar-saas">
+                        <td class="col-abbr">SaaS</td>
+                        <td class="col-full">Software as a Service</td>
+                        <td class="col-desc">Geschäftsmodell, bei dem Software als laufender Service bereitgestellt und meist pro Nutzer abgerechnet wird.</td>
+                    </tr>
+                    <tr id="glossar-sla">
+                        <td class="col-abbr">SLA</td>
+                        <td class="col-full">Service Level Agreement</td>
+                        <td class="col-desc">Vertraglich zugesicherte Verfügbarkeit, Performance oder Support-Reaktionszeit eines Services.</td>
+                    </tr>
+                    <tr id="glossar-ui">
+                        <td class="col-abbr">UI</td>
+                        <td class="col-full">User Interface</td>
+                        <td class="col-desc">Die sichtbare Oberfläche eines Produkts – das, womit Nutzer direkt interagieren.</td>
+                    </tr>
+                    <tr id="glossar-ux">
+                        <td class="col-abbr">UX</td>
+                        <td class="col-full">User Experience</td>
+                        <td class="col-desc">Das gesamte Erleben eines Produkts, inklusive Struktur, Usability und emotionaler Resonanz.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <div id="site-footer"></div>
+
+</body>
+
+</html>
