@@ -48,13 +48,17 @@
                             class="w-full px-3 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
                             style="border-color: #E5E2DB;">
                             <option value="MatGrid">MatGrid</option>
-                            <option value="ControlExpert">ControlExpert</option>
-                            <option value="Anschreiben">Anschreiben</option>
+                            <option value="Bewerbung">Bewerbung</option>
                             <option value="Lernen">Lernen</option>
                             <option value="Blog">Blog</option>
                             <option value="Backoffice">Backoffice</option>
                             <option value="Selbstständigkeit">Selbstständigkeit</option>
+                            <option value="KI-Projekte">KI-Projekte</option>
+                            <option value="AG Service">AG Service</option>
+                            <option value="Haushalt">Haushalt</option>
+                            <option value="Oskar">Oskar</option>
                             <option value="Sonstiges">Sonstiges</option>
+                            <option value="ControlExpert">ControlExpert</option>
                         </select>
                     </div>
                     <div>
@@ -146,13 +150,18 @@
         // === Farben pro Projekt ===
         var projectColors = {
             'MatGrid': '#7b6ba5',
-            'ControlExpert': '#D4714E',
+            'Bewerbung': '#5b8a72',
             'Anschreiben': '#5b8a72',
             'Lernen': '#5B96B8',
             'Blog': '#9a82b5',
             'Backoffice': '#c27a52',
             'Selbstständigkeit': '#476f5b',
+            'KI-Projekte': '#4a6b8a',
+            'AG Service': '#7a8b68',
+            'Haushalt': '#8b6f47',
+            'Oskar': '#b56b7e',
             'Sonstiges': '#a8a29e',
+            'ControlExpert': '#D4714E',
         };
 
         function getLog() { return window.officeStore.get('time-log', []); }
