@@ -110,6 +110,16 @@ Der Skill ersetzt kein Feedback im Moment. Er fängt nur das ab, was im Alltag d
 **Meta-Beobachtung zum Bauen selbst:**
 - **Die Konversation, in der dieser Skill entstanden ist, war selbst eine Demo.** Ich habe nicht per Brief-Spec gebaut, sondern im Dialog – Claude hat Trade-offs explizit gemacht (Background vs. gemeinsam, Archiv-Ort, Insights-Sammlung). Das ist prototypisches KI-gestütztes PM: Werkzeug, Gesprächspartner, Co-Builder in einer Session.
 
+**Folgefund am gleichen Tag: Die Doku-Inkonsistenz war ein verdeckter Skill-Split.**
+Beim Fixen des CLAUDE.md-Bugs ("Skills liegen in `.claude/skills/*/SKILL.md`" stimmte nicht) kam heraus: Es waren zwei Sorten, die ich unbewusst gemischt hatte.
+- **Workflow-Commands** (`/checkin`, `/artikel`, `/anschreiben`, `/session-retro` etc.) – arbeiten mit Vault-Dateien, nur im KnowledgeOS-Repo sinnvoll. Leben in `.claude/commands/`.
+- **Methoden-Skills** (`/rice`, `/jtbd`, `/ost`, `/kano`, `/roadmap`, `/businesscase`, `/casestudy`, `/designsprint`, `/northstar`, `/problemframing`) – universell, laufen auf jedem Input, sollen auch in MatGrid-Repos funktionieren. Heute nach `~/.claude/skills/` user-global gezogen.
+
+Das ist die bessere Antwort auf Torres' "Kontext teilen"-Problem als Symlinks. Torres-Artikel (Block 3) habe ich direkt angepasst. Der Skill-Split löst das Geräte-Problem an der Wurzel: Methoden-Skills müssen gar nicht geteilt werden, sie liegen schon zentral. **Kernlehre:** Doku-Inkonsistenzen sind oft Hinweise auf noch-nicht-benannte Strukturen. Hinschauen statt glattziehen.
+
+**Zweite Schwäche heute: Konventions-Lücke im Blog-Workflow.**
+Claude hat den Artikel-Plan initial in `blog/drafts/` abgelegt – aber die Konvention ist: `blog/plan-*.md` für Ideen, `blog/drafts/*.html` für Review-reife HTML-Entwürfe. Der Ordnerpfad macht die Semantik, nicht das Dateinamen-Präfix. Fix: Datei verschoben, Office-Cockpit + Dashboard-Counter aktualisiert. Artikel-Baukasten und CLAUDE.md erwähnen diese Split-Konvention nicht explizit – **Kandidat für nächste Aufräumrunde**.
+
 ### [Nächster Retro – Datum]
 _wird ergänzt_
 
