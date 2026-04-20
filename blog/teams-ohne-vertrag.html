@@ -64,25 +64,26 @@
             display: block;
         }
 
-        /* Article prose styles */
+        /* Article prose styles.
+           Spacing-Werte: siehe ../../brand-kit.md → Spacing-Tokens (Blog). */
         .prose h2 {
             font-family: "Source Serif 4", Georgia, serif;
             font-weight: 600;
             font-size: 1.4rem;
             color: #1A1A1A;
-            margin-top: 2.5rem;
-            margin-bottom: 0.75rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1rem;
         }
         .prose h3 {
             font-family: "Source Serif 4", Georgia, serif;
             font-weight: 600;
             font-size: 1.15rem;
             color: #1A1A1A;
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
+            margin-top: 2.75rem;
+            margin-bottom: 0.75rem;
         }
         .prose p {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
             line-height: 1.75;
         }
         .prose strong {
@@ -202,9 +203,9 @@
                  BLOCK 3: WAS ICH VERÄNDERT HABE
                  ══════════════════════════════════════════════ -->
 
-            <h2>Was ich verändert habe</h2>
+            <h2>Was wir gerade ausprobieren</h2>
 
-            <p>Ich arbeite aktuell in einem vierköpfigen Remote-Team, ohne formale Anstellungsverhältnisse, alle in ihrer freien Zeit, an einer Produktidee. Da wir stark zu unterschiedlichen Zeiten arbeiten, brauchen wir klare Strukturen.</p>
+            <p>Ich arbeite aktuell in einem vierköpfigen Remote-Team, ohne formale Anstellungsverhältnisse, alle in ihrer freien Zeit, an einer Produktidee. Da wir stark zu unterschiedlichen Zeiten arbeiten, brauchen wir klare Strukturen. Was ich unten beschreibe, sind Rituale und Strukturen, die wir ab jetzt ausprobieren. Ich habe das Problembewusstsein geschaffen und Vorschläge erarbeitet. Ob es trägt, wissen wir in ein paar Wochen.</p>
 
             <!-- ══ DREI ÄNDERUNGEN ALS CARD-GRID ══ -->
 
@@ -212,20 +213,20 @@
 
                 <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
                     <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-2" style="color: #7b6ba5;">Erstens</p>
-                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">Explizite Owner-Matrix</p>
-                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">Jede Grundfunktion ist einer Person zugeordnet, nicht als Titel, sondern als Verantwortlichkeit. Wenn eine Entscheidung im eigenen Bereich liegt, entscheidet man. Liegt sie im Bereich eines anderen, liefert man Input, blockiert aber nicht. Das beendet die meisten "ich dachte, du machst das"-Momente sofort.</p>
+                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">Wer entscheidet was — explizit aufgeschrieben</p>
+                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">Wir ordnen jede Grundfunktion einer Person zu, nicht als Titel, sondern als Verantwortlichkeit. Liegt eine Entscheidung im eigenen Bereich, entscheidet man. Liegt sie bei jemand anderem, liefert man Input, blockiert aber nicht. Die Annahme dahinter: Das sollte die häufigsten "ich dachte, du machst das"-Momente reduzieren. Wie gut es trägt, sehen wir nach den ersten Reibungspunkten.</p>
                 </div>
 
                 <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
                     <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-2" style="color: #7b6ba5;">Zweitens</p>
-                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">Ein schlanker Ritual-Stack</p>
-                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">Freitags gegen 17 Uhr schreibt jede Person einen Drei-Zeiler in den Team-Chat: was gebaut, was offen, was Blocker. Alle zwei Wochen ein 30-Minuten-Sync, aber nur für offene Entscheidungen; ohne Agenda sagen wir ab. Einmal im Monat eine Retro. Alle vier Wochen ein 15-Minuten-Gespräch mit jeder Person, bewusst nicht über Arbeit, sondern über Mensch. Das vierte Ritual ist das wichtigste. Ohne es wird aus "flacher Zusammenarbeit" schnell "niemand fragt, wie es dir geht", und dann sind Leute weg, bevor man es merkt.</p>
+                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">Ein schlanker Ritual-Stack zum Testen</p>
+                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">Freitags gegen 17 Uhr schreibt jede Person einen Drei-Zeiler in den Team-Chat: was gebaut, was offen, was Blocker. Alle zwei Wochen ein 30-Minuten-Sync, aber nur für offene Entscheidungen; ohne Agenda sagen wir ab. Einmal im Monat eine Retro. Alle vier Wochen ein 15-Minuten-Gespräch mit jeder Person, bewusst nicht über Arbeit, sondern über Mensch. Das vierte Ritual halte ich für das wichtigste. Ohne es wird aus "flacher Zusammenarbeit" leicht "niemand fragt, wie es dir geht". Ob der Stack in der Praxis trägt oder uns ausbremst, zeigt sich in den nächsten Wochen.</p>
                 </div>
 
                 <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
                     <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-2" style="color: #7b6ba5;">Drittens</p>
-                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">ADR-Pflicht überall</p>
-                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">Nicht nur im Frontend-Repo, nicht nur bei Code-Entscheidungen. Auch Produkt-Entscheidungen ("Händler-Segment fliegt aus dem Baseline-Modell") bekommen eine ADR. Der Grund ist simpel: In losen Teams gibt es keinen Arbeitsvertrag, keine Stellenbeschreibung, keine Onboarding-Doku. Das gemeinsame Gedächtnis entsteht ausschliesslich durch das, was aufgeschrieben wird. ADRs sind das billigste und verlässlichste Format dafür.</p>
+                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">Struktur-Entscheidungen in ADRs festhalten</p>
+                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">ADRs (Architecture Decision Records) sind kurze Notizen, in denen eine Entscheidung mit Kontext und Konsequenzen festgehalten wird. Wir wollen das Format nicht nur im Frontend-Repo und nicht nur für Code-Entscheidungen nutzen, sondern auch für Produkt-Entscheidungen ("Händler-Segment fliegt aus dem Baseline-Modell"). Der Gedanke: In losen Teams gibt es keinen Arbeitsvertrag, keine Stellenbeschreibung, keine Onboarding-Doku. Das gemeinsame Gedächtnis entsteht ausschliesslich durch das, was aufgeschrieben wird. Ob das Team die Disziplin aufbringt, dranzubleiben, ist der eigentliche Test.</p>
                 </div>
 
             </div>
@@ -237,7 +238,7 @@
 
             <h2>Kritische Einordnung</h2>
 
-            <p>Das Modell funktioniert nur bei kleinen Teams. Vier Personen ist fast ideal, sechs gehen noch, bei acht wird es fragil. Die DACI-Light-Matrix bleibt handlich, solange alle alle kennen; sobald sich Subgruppen bilden, braucht es formalere Strukturen. Ausserdem: Ohne Vertrag funktioniert Commitment nur, solange persönliche Motivation trägt. Wenn jemand sein Gehalt anderswo verdient und solche Projekte abends macht, konkurriert das Projekt mit Familie, Hobby, Gesundheit. Rituale schaffen soziale Verbindlichkeit, sie ersetzen aber keine existenzielle. Das heisst: Sobald das Produkt eine gewisse Reife erreicht, muss das Team die Vertragsfrage klären, sonst verliert man genau in dem Moment Momentum, in dem man es braucht. Schliesslich: ADR-Pflicht klingt leicht, ist aber Kultur-Arbeit. Die erste ADR schreibt jeder, die zehnte nur noch, wenn es sich eingebürgert hat.</p>
+            <p>Wir starten den Versuch in einem Vier-Personen-Setup. Das Modell dürfte nur bei kleinen Teams funktionieren. Vier Personen ist fast ideal, sechs gehen vermutlich noch, bei acht wird es fragil. Eine DACI-Light-Matrix bleibt handlich, solange alle alle kennen; sobald sich Subgruppen bilden, braucht es formalere Strukturen. Ausserdem: Ohne Vertrag funktioniert Commitment nur, solange persönliche Motivation trägt. Wenn jemand sein Gehalt anderswo verdient und solche Projekte abends macht, konkurriert das Projekt mit Familie, Hobby, Gesundheit. Rituale schaffen soziale Verbindlichkeit, sie ersetzen aber keine existenzielle. Das heisst: Sobald das Produkt eine gewisse Reife erreicht, muss das Team die Vertragsfrage klären, sonst verliert man genau in dem Moment Momentum, in dem man es braucht. Und: ADRs als Gewohnheit klingen leicht, sind aber Kultur-Arbeit. Die erste ADR schreibt jeder, die zehnte nur noch, wenn es sich eingebürgert hat. Ob wir das durchhalten, ist offen.</p>
 
 
             <!-- ══════════════════════════════════════════════
@@ -249,15 +250,15 @@
                 <div class="space-y-5">
                     <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
                         <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Rolle statt Titel.</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Jede Grundfunktion hat genau einen Owner. Nicht zwei, nicht rotierend. Geschwindigkeit entsteht durch Klarheit, nicht durch Konsens.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Jede Grundfunktion soll genau einen Owner haben. Nicht zwei, nicht rotierend. Geschwindigkeit entsteht hoffentlich durch Klarheit, nicht durch Konsens.</p>
                     </div>
                     <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
                         <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Ritual statt Kontrolle.</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Drei-Zeiler-Freitags-Update, 30-Minuten-Sync alle zwei Wochen, Retro monatlich, 1:1 über Mensch. Das trägt Teams ohne Vertrag.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Drei-Zeiler-Freitags-Update, 30-Minuten-Sync alle zwei Wochen, Retro monatlich, 1:1 über Mensch. Unsere Wette, dass das Teams ohne Vertrag trägt.</p>
                     </div>
                     <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
-                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">ADR statt Gedächtnis.</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Jede Entscheidung, die jemand später verstehen muss, wird aufgeschrieben. Nicht nur im Code, auch im Produkt. Das ist euer Vertrag.</p>
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Entscheidungen aufschreiben statt erinnern.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Jede Entscheidung, die jemand später verstehen muss, wird in einer ADR (Architecture Decision Record) festgehalten. Nicht nur im Code, auch im Produkt. Unser Ersatz für den fehlenden Vertrag.</p>
                     </div>
                 </div>
             </div>
