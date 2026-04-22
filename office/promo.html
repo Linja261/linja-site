@@ -56,7 +56,7 @@
             <!-- Counter -->
             <div class="grid grid-cols-4 gap-2 mb-6">
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-xl text-stone-900" id="count-substack-open">3</div>
+                    <div class="font-mono text-xl text-stone-900" id="count-substack-open">4</div>
                     <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Substack offen</div>
                 </div>
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
@@ -64,7 +64,7 @@
                     <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Substack geteilt</div>
                 </div>
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-xl text-stone-900" id="count-linkedin-open">3</div>
+                    <div class="font-mono text-xl text-stone-900" id="count-linkedin-open">4</div>
                     <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">LinkedIn offen</div>
                 </div>
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
@@ -79,6 +79,77 @@
 
             <!-- Queue -->
             <div id="queue-list" class="space-y-6">
+
+                <!-- ========= ENTRY: design-thinking-ki (Fokus: Mamahood-Prototyp) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="design-thinking-ki">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Design Thinking &amp; KI</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Live seit 17.04.2026</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #ece8f2; color: #6b5691;">Produkt-Teaser</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Mamahood — Prototyp einer App für Mütter, die mehr als nur Windeln wollen.</h2>
+                        <p class="text-xs text-stone-500 mt-1">
+                            <a href="https://linja261.github.io/mamahood/" target="_blank" class="hover:text-violet-400">linja261.github.io/mamahood &rarr; (Prototyp)</a>
+                            &middot;
+                            <a href="https://linja.me/blog/design-thinking-ki.html" target="_blank" class="hover:text-violet-400">Blog-Artikel (Making-of)</a>
+                        </p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="5" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Liebe Mamas, hat das Potenzial? Prototyp einer App, um andere Mütter zu finden, die mehr als nur über Windeln reden wollen. Interessenbasiert, in der Nähe, zeitlich flexibel. Klickt euch durch: linja261.github.io/mamahood
+
+Wie ich das an einem Abend mit Claude gebaut habe, steht im Blog: linja.me/blog/design-thinking-ki</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Liebe Mamas in meinem Netzwerk, hat das Potenzial?
+
+Ich habe einen Prototyp gebaut für eine App, die Müttern hilft, andere Mütter zu finden, mit denen man über mehr als Windeln reden kann. Interessenbasiert, zeitlich flexibel, in der Nähe.
+
+Die erste Krabbelgruppe war gold wert, weil man gemeinsam durch das Baby-Chaos stolpert. Aber sobald die Kinder älter werden, fehlt mir der Austausch über das, was mich sonst noch interessiert: Produkt, KI, Gründung, Bücher, Kunst. Nicht nur Schlaf und Schnullerketten.
+
+Zehn Screens, klickbar, unfertig: linja261.github.io/mamahood
+
+Meine Bitte an euch: Schaut drauf, klickt durch, sagt mir ehrlich, ob ihr das nutzen würdet. Feedback und Kritik sind willkommen.
+
+Side-Note für die PMs unter euch: Der Prototyp ist in 65 Minuten an einem Abend entstanden, mit Claude als Co-Pilot, von Empathize bis Test. Wie das ging, habe ich hier dokumentiert: linja.me/blog/design-thinking-ki
+
+#mamahood #ProductManagement #DesignThinking</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
 
                 <!-- ========= ENTRY: pm-beziehungsarbeit ========= -->
                 <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="pm-beziehungsarbeit">
