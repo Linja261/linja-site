@@ -43,14 +43,15 @@ Das Smartphone ist Fluch und Werkzeug zugleich. Es kostet Stunden pro Tag in Soc
 - **Monotasking (Rückbezug auf eigenen Artikel):** KI als Monotasking-Enabler, weil sie Nebenaufgaben asynchron übernimmt.
 - **Für Studierende:** Prüfungsstress, Prokrastination, Informationsüberflutung als Kernprobleme. KI kann bei allen drei helfen, wenn richtig eingesetzt.
 
-### Block 3: Was ich verändert habe (~100-200 Wörter)
-Linjas persönliche Praxis: Morgen-Check-in, Abend-Check-out, KI-gestützte Wochenplanung. Was sich verändert hat an Stresslevel, Fokus, Erholungsqualität. Konkrete Zahlen wo möglich (aus ki-routinen.html).
+### Block 3: Was ich mir vornehme (~100-200 Wörter)
+Zukunftsgerichtet und demütig: Was Linja ausprobieren möchte — Morgen-Check-in, Abend-Check-out, KI-gestützte Wochenplanung. Formuliert als Vorsatz — ob die Regelmässigkeit hält, wird sich zeigen.
 
 ### Block 4: Kritische Einordnung (~100-150 Wörter)
-- KI ist kein Therapeut. Bei echtem Burnout oder psychischen Problemen: professionelle Hilfe.
-- Neue Abhängigkeit: Wenn die KI ausfällt, fehlt die Struktur. Ziel muss sein, dass die Struktur internalisiert wird.
-- Privilege-Check: Zugang zu KI-Tools kostet Geld (Abos). Nicht alle Studierenden können sich das leisten.
-- Datenschutz: Persönliche Reflexionen in KI-Tools = sensible Daten. Bewusstsein dafür schaffen.
+Zukunftsgerichtet und demütig formuliert:
+- KI ist kein Therapeut. Bei echtem Burnout: professionelle Hilfe.
+- Gefahr einer neuen Abhängigkeit: Ob sich die Muster internalisieren lassen, bleibt abzuwarten.
+- Privilege-Check: Zugang kostet Geld. Nicht alle können sich das leisten.
+- Datenschutz: Ob der Nutzen das Risiko überwiegt, muss jede Person für sich entscheiden.
 
 ### Block 5: Was bleibt für jeden Tag (~50-100 Wörter)
 - **Technologie ist neutral, deine Absicht nicht.** Entscheide vor dem Griff zum Handy: Konsumiere ich oder gestalte ich?

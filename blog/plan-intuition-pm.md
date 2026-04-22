@@ -45,14 +45,15 @@ Es gibt Momente, in denen du als PM genau weißt, welche Entscheidung richtig is
 - Bezos' "One-way door / Two-way door" Framework als Entscheidungshilfe.
 - Das Paradox: Analyse um der Analyse willen ist genauso gefährlich wie blinde Intuition. Viele Teams analysieren nicht, um besser zu entscheiden, sondern um Verantwortung zu verteilen.
 
-### Block 3: Was ich verändert habe (~100-200 Wörter)
-Linjas persönliche Praxis: Wie sie ihre Intuition trainiert. Konkrete Routinen und Gewohnheiten. Was hat sich verändert, seit sie bewusst auf ihre Intuition hört?
+### Block 3: Was ich mir vornehme (~100-200 Wörter)
+Zukunftsgerichtet und demütig: Was Linja sich vornimmt, um ihre Intuition bewusster zu trainieren. Welche Routinen sie ausprobieren möchte. Formuliert als Vorsatz — ob es funktioniert, wird sich zeigen.
 
 ### Block 4: Kritische Einordnung (~100-150 Wörter)
-- Survivor Bias: Wir hören nur von den PMs, deren Intuition richtig lag.
+Zukunftsgerichtet und demütig formuliert:
+- Survivor Bias: Ob die eigene Intuition wirklich verlässlich ist, bleibt offen.
 - Intuition in neuen Domänen ist unzuverlässig (Kahneman). Als PM in einem neuen Markt: erstmal Daten.
 - Gefahr der Selbstüberschätzung: "Ich weiß es einfach" kann auch Overconfidence sein.
-- Diversität als Korrektiv: Intuition ist geprägt von persönlicher Erfahrung, die Blind Spots hat.
+- Es bleibt abzuwarten, ob bewussterer Umgang mit Intuition bessere oder nur schnellere Ergebnisse liefert.
 
 ### Block 5: Was bleibt für jeden Tag (~50-100 Wörter)
 - **Intuition ist trainierbar.** Sie entsteht durch Nähe zu Kunden, Markt und Produkt, nicht durch Talent.

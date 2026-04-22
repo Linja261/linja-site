@@ -48,14 +48,15 @@ Durch KI-Tools wie v0, Bolt und Claude kann heute jeder einen Prototyp bauen. Di
 - **Business-Kontext:** Der PM verbindet den Prototyp mit Markt, Wettbewerb und Strategie.
 - **Entscheidungsgrundlage:** Der PM-Prototyp ist ein Werkzeug zur Entscheidungsfindung, nicht zur Produktentwicklung.
 
-### Block 3: Was ich verändert habe (~100-200 Wörter)
-Wie Linja als PM prototypiert. Welche Tools sie nutzt. Was sie bewusst NICHT macht (Pixel-Perfection, Micro-Interactions). Wie sich ihr Prototyping verändert hat, seit KI verfügbar ist.
+### Block 3: Was ich mir vornehme (~100-200 Wörter)
+Zukunftsgerichtet und demütig: Was Linja als PM beim Prototyping ausprobieren möchte. Welche Tools sie testen will. Was sie bewusst NICHT machen will (Pixel-Perfection, Micro-Interactions). Ob die Grenzziehung in der Praxis hält, muss sich zeigen.
 
 ### Block 4: Kritische Einordnung (~100-150 Wörter)
-- Risiko: PMs, die "auch Designer spielen" und dabei weder richtig PM noch richtig Designer sind
-- Nicht jeder PM sollte prototypen. In großen Teams mit starkem Design ist es verschwendete Zeit.
-- Die Verschmelzung funktioniert vor allem in kleinen Teams, Startups, Solo-Kontexten
-- Designer haben Ausbildung in visueller Kommunikation, Typografie, Interaktionsdesign, die kein KI-Tool ersetzt
+Zukunftsgerichtet und demütig formuliert:
+- Ob die Verschmelzung von PM- und Design-Prototyping langfristig funktioniert, hängt vom Kontext ab.
+- In großen Teams mit starkem Design könnte PM-Prototyping verschwendete Zeit sein.
+- Risiko der Hybridrolle: möglicherweise weder richtig PM noch richtig Designer.
+- Die Demokratisierung der Werkzeuge demokratisiert nicht automatisch die Perspektive — das muss sich erst beweisen.
 
 ### Block 5: Was bleibt für jeden Tag (~50-100 Wörter)
 - **Prototype die Frage, nicht die Antwort.** Ein PM-Prototyp muss nicht schön sein, er muss eine Hypothese testen.
