@@ -34,12 +34,13 @@
                 <h1 class="source-serif text-3xl text-stone-900 mb-2">Alle Claude-Skills</h1>
                 <p class="text-sm text-stone-500">Per <code class="font-mono text-xs">/command</code> in Claude auslösbar. Sortiert nach Rubrik. Jeder Skill ist mit Quelle markiert:
                     <span class="inline-block font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded" style="background: #f5f3ef; color: #78716c;">Linja</span> = mein Vault (<code class="font-mono text-xs">.claude/commands/</code> oder <code class="font-mono text-xs">.claude/skills/</code>),
-                    <span class="inline-block font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Panoptia</span> = Team-Lab <a href="https://github.com/panoptia/backoffice-lab" class="underline hover:text-violet-500">panoptia/backoffice-lab</a> (private, für Linja/David/Jan).
+                    <span class="inline-block font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Panoptia</span> = Team-Lab <a href="https://github.com/panoptia/backoffice-lab" class="underline hover:text-violet-500">panoptia/backoffice-lab</a> (private, für Linja/David/Jan),
+                    <span class="inline-block font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded" style="background: #fbeae0; color: #b85d3a;">Claude</span> = Cowork-Plugin von Anthropic (knowledge-work-plugins).
                 </p>
             </header>
 
             <!-- Quick-Overview / Counts -->
-            <div class="grid grid-cols-2 md:grid-cols-6 gap-3 mb-10">
+            <div class="grid grid-cols-2 md:grid-cols-7 gap-3 mb-10">
                 <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
                     <div class="font-mono text-2xl text-stone-900">11</div>
                     <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Methodik</div>
@@ -63,6 +64,10 @@
                 <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
                     <div class="font-mono text-2xl text-stone-900">1</div>
                     <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Lernen</div>
+                </div>
+                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-2xl text-stone-900" style="color: #b85d3a;">8</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Plugin</div>
                 </div>
             </div>
 
@@ -138,6 +143,69 @@
                                 <td class="px-4 py-3 font-mono text-violet-500">/planning</td>
                                 <td class="px-4 py-3 text-stone-800">Epic-Planning<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
                                 <td class="px-4 py-3 text-stone-500">Issues zerlegen, Abhängigkeiten mappen, Sync-Points definieren</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Cowork-Plugins · Product Management -->
+            <section class="mb-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Cowork-Plugins · Product Management</h2>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #fbeae0; color: #b85d3a;">Plugin</span>
+                </div>
+                <p class="text-sm text-stone-500 mb-4">8 Skills aus dem <code class="font-mono text-xs">product-management</code>-Plugin von Anthropic (<code class="font-mono text-xs">knowledge-work-plugins</code>). Install-ready via Cowork — ergänzen die Panoptia-Methodik um PRD-, Stakeholder- und Metrics-Workflows.</p>
+
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead style="background: #F5F3EF;">
+                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
+                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
+                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
+                                <th class="px-4 py-3 font-medium">Nutzen</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y" style="border-color: #E5E2DB;">
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/write-spec</td>
+                                <td class="px-4 py-3 text-stone-800">Feature-Spec / PRD<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
+                                <td class="px-4 py-3 text-stone-500">Vage Idee in strukturiertes Spec: Goals, Non-Goals, Success-Metriken, Acceptance</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/synthesize-research</td>
+                                <td class="px-4 py-3 text-stone-800">Research-Synthese<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
+                                <td class="px-4 py-3 text-stone-500">Interview-Notes, Surveys, Tickets → Themen, Frequenz, Impact, Roadmap-Input</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/stakeholder-update</td>
+                                <td class="px-4 py-3 text-stone-800">Stakeholder-Update<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
+                                <td class="px-4 py-3 text-stone-500">Weekly/Monthly-Status für Leadership, Launch, Risk-Escalation (Exec vs. Eng)</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/sprint-planning</td>
+                                <td class="px-4 py-3 text-stone-800">Sprint-Planning<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
+                                <td class="px-4 py-3 text-stone-500">Backlog gegen Capacity, P0 vs. Stretch, Carryover, PTO/Meetings einrechnen</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/roadmap-update</td>
+                                <td class="px-4 py-3 text-stone-800">Roadmap-Update<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
+                                <td class="px-4 py-3 text-stone-500">Neue Initiative einbauen, Prios verschieben, Now/Next/Later von Grund auf</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/brainstorm</td>
+                                <td class="px-4 py-3 text-stone-800">Product Brainstorming<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
+                                <td class="px-4 py-3 text-stone-500">Sharp Sparring zu Opportunities, Solutions, Stress-Test von Annahmen</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/metrics-review</td>
+                                <td class="px-4 py-3 text-stone-800">Metrics-Review<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
+                                <td class="px-4 py-3 text-stone-500">Trend-Analyse, Spike/Drop-Investigation, Scorecard mit Empfehlungen</td>
+                            </tr>
+                            <tr class="hover:bg-stone-50">
+                                <td class="px-4 py-3 font-mono text-violet-500">/competitive-brief</td>
+                                <td class="px-4 py-3 text-stone-800">Competitive Brief<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
+                                <td class="px-4 py-3 text-stone-500">Wettbewerbs-Analyse für Strategie, Battle Cards, Parität vs. Differenzierung</td>
                             </tr>
                         </tbody>
                     </table>
