@@ -109,6 +109,10 @@
                 <button id="tab-gespraech-btn" onclick="showTab('gespraech')" class="tab-inactive pb-3 pt-2 transition-colors">
                     Gespräch
                 </button>
+                <span class="text-stone-300 hidden sm:inline">|</span>
+                <button id="tab-prowin-btn" onclick="showTab('prowin')" class="tab-inactive pb-3 pt-2 transition-colors">
+                    Prowin
+                </button>
                 <div class="ml-auto text-[0.65rem] font-mono text-stone-400 hidden sm:block">
                     CE-Vertragsentwurf 13.04.
                 </div>
@@ -560,6 +564,54 @@ Linja Scharffetter</div>
 
             </section>
 
+            <!-- ========================= PROWIN ========================= -->
+            <section id="tab-prowin" class="prose-box text-sm text-stone-700 hidden-tab">
+
+                <div class="bg-white border rounded-xl p-5 mb-6" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Eckdaten</p>
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-[0.82rem] mt-3">
+                        <div><strong>Unternehmen:</strong><br>Prowin (proWIN Winter GmbH)</div>
+                        <div><strong>Art:</strong><br>Anmeldung / Registrierung</div>
+                        <div><strong>Zweck:</strong><br>Verwaltung von Anteilen der Mutter</div>
+                        <div><strong>Status:</strong><br>Formal gelistet, passiv</div>
+                    </div>
+                </div>
+
+                <h2>Hintergrund</h2>
+
+                <p>Linja ist bei Prowin formal angemeldet/registriert. Der Grund ist rein familiär: sie verwaltet ggfs. Anteile ihrer Mutter. Es handelt sich um eine stille, passive Beteiligung — keine aktive Vertriebstätigkeit, keine eigene Geschäftstätigkeit.</p>
+
+                <h3>Was das konkret bedeutet</h3>
+                <ul>
+                    <li><strong>Keine aktive Tätigkeit.</strong> Kein Vertrieb, kein Kundenkontakt, keine Veranstaltungen. Die Anmeldung ist ein formaler Verwaltungsakt.</li>
+                    <li><strong>Familiärer Kontext.</strong> Die Anteile gehören Linjas Mutter. Linja ist gelistet, um bei Bedarf administrative Verwaltungsaufgaben übernehmen zu können.</li>
+                    <li><strong>Kein Zeitaufwand im Alltag.</strong> Da passiv, fällt kein regelmäßiger Aufwand an. Eventuelle Verwaltungsschritte sind minimal und sporadisch.</li>
+                </ul>
+
+                <h2>Einordnung im CE-Kontext</h2>
+
+                <div class="info-box">
+                    <p class="label">Bewertung</p>
+                    <p class="text-sm text-stone-700" style="margin: 0;">Prowin (Direktvertrieb Reinigung/Kosmetik) hat <strong>keinerlei Überschneidung</strong> mit dem Geschäftsfeld von ControlExpert (KFZ-Schadenregulierung). Ein Wettbewerbskonflikt nach § 8 Abs. 2 ist ausgeschlossen. Die passive Natur der Beteiligung bedeutet zudem keinen relevanten Zeitaufwand, der die CE-Tätigkeit beeinträchtigen könnte.</p>
+                </div>
+
+                <h3>Meldepflicht gegenüber CE</h3>
+                <ul>
+                    <li><strong>§ 8 Abs. 1 greift formal</strong> — jede Nebentätigkeit mit "Beeinträchtigungspotenzial" ist anzeigepflichtig. Eine passive Registrierung bei Prowin fällt in eine Grauzone.</li>
+                    <li><strong>Empfehlung:</strong> Im Rahmen des CE-Nebentätigkeitsantrags kurz miterwähnen ("darüber hinaus bin ich bei einem Familienunternehmen im Bereich Konsumgüter formal registriert, ohne aktive Tätigkeit"). Kostet nichts, schafft Transparenz.</li>
+                    <li><strong>Alternativ:</strong> Separat nur bei Nachfrage erwähnen — da keine aktive Tätigkeit und kein Wettbewerb, ist das Risiko gering.</li>
+                </ul>
+
+                <h2>To-Do</h2>
+
+                <ul>
+                    <li>Prüfen, ob die Prowin-Registrierung bei der Steuererklärung relevant ist (Einkünfte aus Gewerbebetrieb vs. Kapitalerträge).</li>
+                    <li>Klären, ob und wann tatsächlich Anteile übertragen werden sollen.</li>
+                    <li>Im CE-Nebentätigkeitsantrag optional miterwähnen (siehe Tab "Antrag").</li>
+                </ul>
+
+            </section>
+
             <!-- Bottom spacing -->
             <div style="height: 80px;"></div>
 
@@ -569,7 +621,7 @@ Linja Scharffetter</div>
     <script src="office.js" data-active="nebentaetigkeit"></script>
     <script>
         function showTab(name) {
-            var tabs = ['leitfaden', 'antrag', 'gespraech'];
+            var tabs = ['leitfaden', 'antrag', 'gespraech', 'prowin'];
             tabs.forEach(function(t) {
                 var sec = document.getElementById('tab-' + t);
                 var btn = document.getElementById('tab-' + t + '-btn');
