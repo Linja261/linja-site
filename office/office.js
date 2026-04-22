@@ -21,6 +21,7 @@
         { id: 'interviews', label: 'Interviews', href: 'interviews.html' },
         { id: 'skills', label: 'Skills', href: 'skills.html' },
         { id: 'blog', label: 'Blog', href: 'blog.html' },
+        { id: 'substack', label: 'Substack', href: 'substack.html' },
         { id: 'angebote', label: 'Angebote', href: 'angebote.html' },
         { id: 'ziele', label: 'Ziele', href: 'ziele.html' },
         { id: 'zeit', label: 'Zeit', href: 'zeit.html' },

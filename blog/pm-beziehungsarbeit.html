@@ -2,7 +2,7 @@
   linja.me/blog/pm-beziehungsarbeit – Product Work Is Relationship Work
   Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
   Optionale Komponenten: Vergleichs-Cards
-  Entwurf: 2026-04-20
+  Publiziert: 2026-04-22
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -130,26 +130,6 @@
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
-    <!-- Password Gate -->
-    <div id="gate" class="min-h-screen flex items-center justify-center px-6">
-        <div class="max-w-sm w-full text-center">
-            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Entwurf</p>
-            <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
-            <form onsubmit="return checkPass()">
-                <input type="password" id="pass" placeholder="Passwort" autofocus
-                    class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3"
-                    style="border-color: #E5E2DB;">
-                <button type="submit"
-                    class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">
-                    Öffnen
-                </button>
-            </form>
-            <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
-        </div>
-    </div>
-
-    <!-- Content (hidden until authenticated) -->
-    <div id="content" class="hidden">
 
     <div id="site-nav"></div>
     <script src="../components.js" data-active="blog"></script>
@@ -308,30 +288,6 @@
     </div>
 
     <div id="site-footer"></div>
-
-    </div>
-
-    <script>
-        // Simple client-side gate — not real security, just keeps casual visitors out
-        const PASS = 'Lagerfeuer2026';
-
-        if (sessionStorage.getItem('drafts-auth') === 'true') {
-            document.getElementById('gate').classList.add('hidden');
-            document.getElementById('content').classList.remove('hidden');
-        }
-
-        function checkPass() {
-            const input = document.getElementById('pass').value;
-            if (input === PASS) {
-                sessionStorage.setItem('drafts-auth', 'true');
-                document.getElementById('gate').classList.add('hidden');
-                document.getElementById('content').classList.remove('hidden');
-            } else {
-                document.getElementById('error').classList.remove('hidden');
-            }
-            return false;
-        }
-    </script>
 
 </body>
 
