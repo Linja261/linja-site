@@ -1,0 +1,380 @@
+<!--
+  linja.me/blog/drafts/backlog-war-gestern – Kollaboration mit David Latz & Jan M.
+  Struktur: Davids 6-Block-Skelett
+  Perspektiven: David (Design Lead), Jan M. (Head of Product matgrid), Linja (PM Team Lead)
+  Entwurf: 2026-04-21
+  Status: Erster kombinierter Entwurf — offene Stellen sichtbar markiert
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Backlog war gestern. Kollaboration mit David Latz. – Linja Scharffetter</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Wenn Design ausführbar wird und Engineering-Handoffs verschwinden, verschiebt sich die Last aufs Product Management. Kombinierter Entwurf mit David Latz und Jan M.">
+    <meta property="og:title" content="Backlog war gestern.">
+    <meta property="og:description" content="PMs, die Backlog verwalten, werden austauschbar. PMs, die Entscheidungsräume strukturieren, werden knapp und teuer.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+
+        html { scroll-behavior: smooth; }
+
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p { margin-bottom: 1.5rem; line-height: 1.75; }
+        .prose strong { color: #1A1A1A; font-weight: 600; }
+        .prose em { font-style: italic; }
+        .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.85rem; }
+        .prose th { text-align: left; font-weight: 600; color: #1A1A1A; border-bottom: 2px solid #E5E2DB; padding: 0.5rem 0.75rem; }
+        .prose td { border-bottom: 1px solid #E5E2DB; padding: 0.5rem 0.75rem; vertical-align: top; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose li { margin-bottom: 0.5rem; }
+
+        /* Autor-Tags */
+        .author-tag {
+            display: inline-block;
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            margin-right: 0.5rem;
+            vertical-align: 2px;
+        }
+        .author-linja { background: #f6f4f9; color: #6b5691; }
+        .author-david { background: #f2f7f4; color: #476f5b; }
+        .author-jan { background: #fdf5f0; color: #a86340; }
+
+        /* Offene Stellen — sichtbarer Marker */
+        .open-stub {
+            margin: 1.5rem 0;
+            padding: 1rem 1.25rem;
+            background: #fdf5f0;
+            border: 1px dashed #ecb08e;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #73402e;
+        }
+        .open-stub .stub-label {
+            display: inline-block;
+            font-family: 'Geist Mono', ui-monospace, monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            background: #D4714E;
+            color: white;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../../components.js" data-active="blog"></script>
+
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- Draft-Banner -->
+        <div class="mt-24 mb-4 py-3 px-4 rounded-lg flex items-center gap-3" style="background: #fae8de; border-left: 3px solid #D4714E;">
+            <span class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #73402e;">Entwurf · Kollaboration</span>
+            <span class="text-[0.82rem]" style="color: #73402e;">Erster kombinierter Entwurf — offene Stellen markiert.</span>
+        </div>
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-4 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; Teamdynamik</span>
+                <span class="text-[0.72rem] text-stone-400">21. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 10 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-3">
+                Backlog war gestern.
+            </h1>
+            <p class="text-[0.92rem] text-stone-500 mb-0">Kollaboration mit <strong class="text-stone-700">David Latz</strong> (Design Lead) und <strong class="text-stone-700">Jan M.</strong> (Head of Product matgrid).</p>
+        </header>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- TLDR -->
+            <div class="my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+                <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                    Wenn Design ausführbar wird und Engineering-Handoffs verschwinden, verschiebt sich die Last nicht auf Designer oder Engineers — sondern auf Product Management. PMs, die Backlog verwalten, werden austauschbar. PMs, die Entscheidungsräume strukturieren, werden knapp und teuer.
+                </p>
+            </div>
+
+            <!-- BLOCK 1: DREI SZENEN -->
+            <h2>Drei Szenen</h2>
+
+            <h3>Szene A: Der Prototyp, der niemand gehört</h3>
+            <p><span class="author-tag author-linja">Linja</span>Letzte Woche in der Sprint-Planung. Normalerweise hätte ich zwanzig Minuten erklärt, warum wir ein Feature anders priorisieren sollten. Stattdessen habe ich einen Prototyp aufgemacht — in dreißig Minuten mit Claude Code gebaut, nicht schön, aber funktional — und gesagt: Schaut euch das an, dann reden wir. Die Diskussion war in zehn Minuten durch. Nicht weil der Prototyp perfekt war, sondern weil alle dasselbe gesehen haben.</p>
+
+            <p>Was danach passiert ist, zeigt die Verschiebung: Engineering fragte — halb ernst, halb verunsichert — "Und das ist jetzt das Design?" Niemand trug die Entscheidung formal. Der Prototyp war da, aber die Zuständigkeit war es nicht.</p>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · David</span>
+                <strong>Szene A ausbauen</strong> — Davids Perspektive auf diesen Moment: Was passiert, wenn PM mit generativem Design drei Varianten in die Sprint-Planung bringt? Wer trägt die Entscheidung, wenn der Prototyp vom PM kommt statt vom Designer? → David formuliert hier die Design-Lead-Sicht auf den Autoritätsverlust/-gewinn.
+            </div>
+
+            <h3>Szene B: Die Designerin als Richterin</h3>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · David</span>
+                David formuliert: Eine Designerin evaluiert Generator-Ausgabe kriterienbasiert. Sie sortiert nicht mehr Pixel, sie sortiert Urteilskriterien. PM muss vor dem Sprint entscheiden, welcher Entwurf weitergeht — aber auf Basis welcher Logik?
+            </div>
+
+            <p><span class="author-tag author-linja">Linja ergänzt</span>Klarheit wird für mich teurer, wenn ich alle Varianten selbst bewerten muss. Sie wird günstiger, wenn Designer vorsortieren — mit ihrem Regelwerk und ihrer Expertise priorisieren und ich einen Extrakt bekomme. Das ist der Unterschied: Ich brauche nicht drei Optionen auf dem Tisch. Ich brauche eine Einschätzung, warum Option B die richtige ist, und dann diskutieren wir darüber.</p>
+
+            <h3>Szene C: Die Reorganisations-Frage</h3>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · David</span>
+                David formuliert: Eine Organisation reorganisiert sich. Die Kernfrage ist nicht "brauchen wir noch Designer?" sondern "welche Urteilsarbeit machen wir wo?" — wer evaluiert, wer entscheidet, wer trägt das Risiko einer falschen Bewertung?
+            </div>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · Jan M.</span>
+                <strong>Perspektive des Head of Product</strong> — Wie sieht er die Reorganisations-Frage aus matgrid-Sicht? Welche Urteilsarbeit verlagert sich in der Praxis?
+            </div>
+
+            <!-- BLOCK 2: DREI VERSCHIEBUNGEN -->
+            <h2>Drei Verschiebungen</h2>
+
+            <p class="text-[0.88rem] text-stone-500"><em>David liefert das analytische Rahmenwerk. Linja ergänzt aus der operativen Praxis, in ihrer Sprache.</em></p>
+
+            <h3>(1) Von Backlog-Verwaltung zu Entscheidungsarchitektur</h3>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · David</span>
+                These: Das Backlog als zentrales Artefakt verliert an Bedeutung. Was an seine Stelle tritt, ist eine Architektur von Entscheidungsräumen — wer darf was wann bewerten, auf welcher Grundlage?
+            </div>
+
+            <p><span class="author-tag author-linja">Linja</span>Ich war schon vor KI eine operative Schnittstelle. Ich übersetze Strategien in operative Tätigkeiten — mein ehemaliger Chef denkt in Flughöhe, die Entwickler und UXler wollen schaffen, und ich bin dazwischen. Das hat sich nicht geändert. Was sich geändert hat: Ich muss nicht mehr erklären, warum etwas sinnvoll ist. Ich kann beim Ergebnis anfangen. Ein Prototyp, und sei er noch so roh, verändert die Gesprächsdynamik. PM rückt näher an den Code — nicht weil ich programmiere, sondern weil ich direkt am Prototyp diskutieren kann, statt strategisch zu erklären.</p>
+
+            <p>Das ist weniger "Entscheidungsarchitektur" als vielmehr: Wer zeigen kann, muss weniger verhandeln. Die Machtverschiebung passiert nicht in Organigrammen, sondern in Meetings.</p>
+
+            <h3>(2) Von User-Story zu Kontext-Bündel</h3>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · David</span>
+                These: User Stories als Format reichen nicht mehr. Was Generatoren brauchen, sind reich kontextualisierte Bündel aus Nutzerverhalten, Constraints, Brand-Regeln und Bewertungskriterien.
+            </div>
+
+            <p><span class="author-tag author-linja">Linja</span>Ich kenne das Wort "Kontext-Bundle" nicht und würde es auch nicht verwenden. Aber die Sache dahinter stimmt: Was ich einem Generator mitgebe, ist mehr als eine Story. Es sind Regeln. Und diese Regeln müssen permanent angepasst werden — nicht einmal aufsetzen und vergessen, sondern beobachten, nachjustieren, hinterfragen. Das Ergebnis der KI ist nur so gut wie die Regeln, die der Mensch definiert hat.</p>
+
+            <p>Die Arbeit verschwindet nicht, sie verschiebt sich. Das gilt für mein persönliches Wissenssystem genauso wie für Produktteams: Wer glaubt, KI einmal konfigurieren zu können und dann laufen zu lassen, wird schnell merken, dass der Output veraltet, bevor er ankommt.</p>
+
+            <h3>(3) Von Priorisierung zu Urteils-Moderation</h3>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · David</span>
+                These: Priorisierung im klassischen Sinn — Reihenfolge festlegen — wird weniger relevant, weil Generatoren parallel arbeiten. Was bleibt, ist die Moderation der Bewertung: Welches Ergebnis ist gut genug? Wer beurteilt das?
+            </div>
+
+            <p><span class="author-tag author-linja">Linja</span>Der Mensch sollte Beurteiler des Ergebnisses bleiben. Er allein kann beurteilen, ob etwas Output oder Outcome ist. Das ist die menschliche Kernkompetenz, die nicht automatisierbar ist — nicht weil es technisch unmöglich wäre, sondern weil die Frage "Hat das einen Unterschied gemacht?" immer einen menschlichen Maßstab braucht.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Es braucht weiterhin alle Blickwinkel für ein gutes Produkt, weil jeder gelernte Muster mitbringt. KI verstärkt, was da ist. Wer gutes Handwerk gelernt hat, liefert mit KI bessere Ergebnisse. Wer es nicht gelernt hat, bekommt schnellere Ergebnisse — aber nicht unbedingt die richtigen.
+                </p>
+            </div>
+
+            <!-- BLOCK 3: DISCOVERY -->
+            <h2>Discovery: Nicht tot, sondern wertvoller</h2>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · David</span>
+                These: Discovery stirbt nicht durch KI. Sie wird wertvoller, weil sich ihr Output verändert: nicht mehr Insights→Specs, sondern Insights→Generator-Kontexte. Discovery liefert das Material, aus dem Generatoren sinnvolle Ergebnisse produzieren.
+            </div>
+
+            <p><span class="author-tag author-linja">Linja</span>Ich bleibe bei Verstehen vor Handeln. Aber ich nutze KI, um besser zu verstehen. Und verstehen kann man wunderbar, indem man ein Ergebnis baut aus dem, was man befunden hat.</p>
+
+            <p>Bei meinem neuen Arbeitgeber setze ich das gerade um. Nicht als Methode, die ich verkünde, sondern als persönliche Arbeitsweise, die ich teste. Wenn ich ein neues Thema durchdringe, baue ich früher als vorher etwas Sichtbares daraus. Nicht um es fertig zu haben, sondern um zu prüfen, ob ich es verstanden habe. Der Prototyp als Erkenntnistool, nicht als Lieferobjekt.</p>
+
+            <p>Discovery wird also nicht weniger wichtig — sie bekommt ein anderes Prüfverfahren. Statt zu fragen "Haben wir genug verstanden, um ein Ticket zu schreiben?" frage ich: "Haben wir genug verstanden, um etwas zu bauen, das uns zeigt, ob wir richtig liegen?"</p>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · Jan M.</span>
+                <strong>Wie verändert sich Discovery bei matgrid konkret?</strong> Hat Jan Beispiele, in denen Insights direkt in Generator-Kontexte fließen? Oder ist das bei ihm noch Zukunftsmusik?
+            </div>
+
+            <!-- BLOCK 4: TEAM-ORGANISATION -->
+            <h2>Team-Organisation: Vom Handoff zum Evaluations-Ritual</h2>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · David</span>
+                David formuliert: Handoff-Rituale (Design→Dev, PM→Design) verschwinden, weil Generatoren die Übergabe ersetzen. Was an ihre Stelle tritt, sind Evaluations-Rituale: gemeinsames Bewerten von Ergebnissen. Die Frage ist, ob PM zur Governance-Trägerin wird oder ob eine neue Rolle entsteht.
+            </div>
+
+            <p><span class="author-tag author-linja">Linja</span>Das verändert auch meine Rolle im Team. Früher war ich eher Trägerin — ich musste alles kontrollieren, alles durchsteuern. Jetzt versuche ich bewusst, Facilitatorin zu sein. Ich schaffe den Rahmen, in dem alle selbst laufen können. Ein System, das auch ohne mich funktioniert.</p>
+
+            <p>Ich bin ersetzbar — zur Not auch durch gute Struktur. Aber nicht beim Zusammenbringen von Menschen. Zwischen den Zeilen lesen, Gruppendynamik verstehen, den richtigen Ton finden — das bleibt menschlich.</p>
+
+            <p>Und wenn KI irgendwann Machtlinien dokumentiert oder Konflikte sichtbar macht, kann ich das als Werkzeug für mehr Transparenz nutzen. Stell dir vor, eine KI zeigt mir, dass in den letzten vier Retrospektiven dasselbe Thema ungelöst blieb. Das ist kein Ersatz für meine Einschätzung — aber ein besserer Ausgangspunkt, als mich nur auf mein Gedächtnis zu verlassen. Wer solche Transparenz-Tools bedient, sieht mehr. Aber die Interpretation, was man damit macht — das bleibt beim Menschen, der die Gruppendynamik liest.</p>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · David</span>
+                <strong>Governance-Frage schärfen</strong> — Wird PM zur Governance-Trägerin der Evaluations-Rituale? Oder braucht es eine neue Rolle, die quer zu den bestehenden Funktionen liegt?
+            </div>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · Jan M.</span>
+                <strong>Praxis-Perspektive</strong> — Wie organisiert matgrid die Evaluations-Arbeit? Hat er bereits Rituale eingeführt, die Handoffs ersetzen?
+            </div>
+
+            <!-- BLOCK 5: PM-NACHWUCHS -->
+            <h2>PM-Nachwuchs: Intuition vor Methodik</h2>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · David</span>
+                These: PM-Nachwuchs braucht dokumentierte Entscheidungsräume und neue Lernumgebungen. Wenn Juniors keine Entscheidungen mehr beobachten können, weil KI sie unsichtbar macht, fehlt die Lerngrundlage.
+            </div>
+
+            <p><span class="author-tag author-linja">Linja</span>Die Gefahr, die ich bei Nachwuchs-PMs sehe, ist keine fehlende Tool-Kompetenz. Es ist die fehlende Intuition. Das Zwischen-den-Zeilen-Lesen, wenn man immer nur KI-Output liest, aber nie mit Menschen und Kunden spricht.</p>
+
+            <p>Zuhören — wirklich zuhören — ist eine Kernkompetenz von Product Management. Punkte zu Linien zusammenführen. Das will ich mir bewahren, auch wenn die Verlockung groß ist, stattdessen noch einen Prompt abzusetzen.</p>
+
+            <p>Was Junior-PMs lernen sollten, ist nicht eine Fülle an Wissen oder eine Fülle an Methodik oder das Gefühl, sich positionieren zu müssen. Sondern demütig versuchen, gute Strukturen zu schaffen — mit KI als Werkzeug, nicht als Ersatz für Denken.</p>
+
+            <p>Und es gibt eine echte Gefahr, über die wenig gesprochen wird: Wenn junge PMs mit KI sozialisiert werden, bevor sie gelernt haben, echten Kunden zuzuhören, fehlt die Grundlage. Man liest KI-Output, aber nie die Unsicherheit im Gesicht eines Nutzers. Man kennt Daten, aber nicht die Geschichte dahinter. Intuition entsteht nicht am Bildschirm, sie entsteht in Gesprächen, in wiederholter Erfahrung, im langsamen Aufbau von Mustererkennung. Wer diesen Schritt überspringt, wird effizient, aber nicht klug.</p>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · Jan M.</span>
+                <strong>Wie bildet matgrid PM-Nachwuchs aus?</strong> Gibt es bereits Ansätze, die Entscheidungskontexte dokumentieren, damit Juniors nachvollziehen können, warum was entschieden wurde?
+            </div>
+
+            <!-- BLOCK 6: EINORDNUNG -->
+            <h2>Einordnung: Integrations-Kapazität als neuer Engpass</h2>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · David</span>
+                Zentrale These: Integrations-Kapazität — die Fähigkeit, verschiedene Perspektiven, Daten und Bewertungen zusammenzuführen — wird zum neuen Engpass in Produktteams. Nicht Execution, nicht Ideation, sondern Integration.
+            </div>
+
+            <div class="open-stub">
+                <span class="stub-label">Offen · Jan M.</span>
+                Jans Perspektive als Head of Product: Sieht er denselben Engpass? Wie geht matgrid damit um? Was ist seine Prognose?
+            </div>
+
+            <p><span class="author-tag author-linja">Linja</span>Ob das alles eine echte Transformation ist oder eine gefühlte — das weiß ich nicht. Kann gut sein, dass wir es überschätzen, wie stark die Rollen tatsächlich miteinander verwachsen. Dass PM, Design und Engineering durch KI so nah zusammenrücken, wie es gerade diskutiert wird, muss sich erst zeigen. Vielleicht bleibt am Ende mehr beim Alten, als wir denken.</p>
+
+            <p>Die Werkzeuge sind neu, aber die Grundfragen — Wer entscheidet was? Wer versteht den Kunden? Wer hält das Team zusammen? — sind dieselben wie vor zehn Jahren.</p>
+
+            <p>Trotzdem: Besser überschätzen als unterschätzen und sich kritisch damit auseinandersetzen. Die Verschiebungen, die ich beschrieben habe, sind real — zumindest in meinem Alltag. Ob sie sich in anderen Kontexten genauso zeigen, ob die Prototyping-Fähigkeit von PMs wirklich die Teamdynamik verändert oder nur eine nette Ergänzung bleibt, wird sich in den nächsten Monaten klären. Was ich sicher sagen kann: Die Fähigkeit, beim Ergebnis anzufangen statt bei der Idee, hat meine Gespräche verändert. Der Rest bleibt abzuwarten.</p>
+
+            <!-- OFFENE STELLEN ÜBERSICHT -->
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #D4714E;">Offene Stellen — Übersicht</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">#</th>
+                            <th>Was fehlt</th>
+                            <th style="width: 110px;">Wer liefert</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Szene A — Design-Lead-Perspektive auf PM-Prototyp in der Sprint-Planung</td><td>David</td></tr>
+                        <tr><td>2</td><td>Szene B — Designerin evaluiert Generator-Ausgabe, ausformuliert</td><td>David</td></tr>
+                        <tr><td>3</td><td>Szene C — Reorganisations-Szene, ausformuliert</td><td>David</td></tr>
+                        <tr><td>4</td><td>Block 2.1 — These Backlog→Entscheidungsarchitektur</td><td>David</td></tr>
+                        <tr><td>5</td><td>Block 2.2 — These User-Story→Kontext-Bundle</td><td>David</td></tr>
+                        <tr><td>6</td><td>Block 2.3 — These Priorisierung→Urteils-Moderation</td><td>David</td></tr>
+                        <tr><td>7</td><td>Block 3 — Discovery-These: Insights→Generator-Kontexte</td><td>David</td></tr>
+                        <tr><td>8</td><td>Block 3 — Discovery-Praxis bei matgrid</td><td>Jan M.</td></tr>
+                        <tr><td>9</td><td>Block 4 — Handoff→Evaluations-Rituale, ausformuliert</td><td>David</td></tr>
+                        <tr><td>10</td><td>Block 4 — Governance-Frage schärfen</td><td>David</td></tr>
+                        <tr><td>11</td><td>Block 4 — Evaluations-Praxis bei matgrid</td><td>Jan M.</td></tr>
+                        <tr><td>12</td><td>Block 5 — These dokumentierte Entscheidungsräume</td><td>David</td></tr>
+                        <tr><td>13</td><td>Block 5 — PM-Nachwuchs bei matgrid</td><td>Jan M.</td></tr>
+                        <tr><td>14</td><td>Block 6 — Zentrale Integrations-These, ausformuliert</td><td>David</td></tr>
+                        <tr><td>15</td><td>Block 6 — Head-of-Product-Perspektive</td><td>Jan M.</td></tr>
+                        <tr><td>16</td><td>Abgleich: Davids Jargon mit Linjas Sprache harmonisieren</td><td>Alle</td></tr>
+                        <tr><td>17</td><td>Quellen und Glossar konsolidieren</td><td>Alle</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- NOTIZEN ZUR TONALITÄT -->
+            <div class="mt-10 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Notizen zur Tonalität</p>
+                <p class="text-[0.85rem]"><span class="author-tag author-linja">Linja</span><strong>Direkt, konkret, erfahrungsbasiert.</strong> Kurze Sätze. Szenen aus dem Arbeitsalltag. "Ich" statt "man". Keine Frameworks-Sprache, sondern beobachtete Veränderungen. Selbstkritisch ohne kokettieren. Beispiel: <em>"Ich bin ersetzbar — zur Not auch durch gute Struktur. Aber nicht beim Zusammenbringen von Menschen."</em></p>
+                <p class="text-[0.85rem]"><span class="author-tag author-david">David</span><strong>Analytisch, strukturierend.</strong> Denkt in Verschiebungen und Systemen. Abstrakte Begriffe (Entscheidungsarchitektur, Kontext-Bundle, Urteils-Moderation), die er mit Szenen erdet. <em>→ David: Bitte prüfen, ob das passt.</em></p>
+                <p class="text-[0.85rem]"><span class="author-tag author-jan">Jan M.</span><span class="text-stone-500"><em>Offen — Tonalitäts-Probe von Jan benötigt, bevor seine Passagen geschrieben werden.</em></span></p>
+                <p class="text-[0.85rem] text-stone-500"><strong>Harmonisierung:</strong> Linjas Passagen nutzen bewusst ihre eigene Sprache. Davids Fachbegriffe tauchen in ihren Abschnitten nicht auf — stattdessen beschreibt sie dasselbe Phänomen in ihrer Sprache ("Regeln", "beim Ergebnis anfangen", "Rahmen schaffen"). Das ist kein Bruch, sondern zeigt drei Perspektiven auf dasselbe Thema.</p>
+            </div>
+
+        </article>
+
+        <!-- ZURÜCK -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="index.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Entwürfe</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
