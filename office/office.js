@@ -19,6 +19,7 @@
     var navItems = [
         { id: 'dashboard', label: 'Dashboard', href: 'index.html' },
         { id: 'interviews', label: 'Interviews', href: 'interviews.html' },
+        { id: 'nebentaetigkeit', label: 'Nebentätigkeit', href: 'nebentaetigkeit.html' },
         { id: 'skills', label: 'Skills', href: 'skills.html' },
         { id: 'blog', label: 'Blog', href: 'blog.html' },
         { id: 'promo', label: 'Promo', href: 'promo.html' },

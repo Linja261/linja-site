@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Nebentätigkeit – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        .prose-box { font-size: 0.95rem; line-height: 1.7; }
+        .prose-box h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.4rem; color: #1c1917; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #E5E2DB; }
+        .prose-box h3 { font-weight: 600; font-size: 1.02rem; color: #44403c; margin-top: 1.8rem; margin-bottom: 0.6rem; }
+        .prose-box h4 { font-weight: 600; font-size: 0.92rem; color: #44403c; margin-top: 1.2rem; margin-bottom: 0.5rem; }
+        .prose-box p { margin-bottom: 1rem; line-height: 1.7; }
+        .prose-box ul { list-style: none; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ul > li { position: relative; padding-left: 1.6rem; margin-bottom: 0.9rem; line-height: 1.65; }
+        .prose-box ul > li::before {
+            content: "▸";
+            position: absolute;
+            left: 0.2rem;
+            top: 0.05rem;
+            color: #7b6ba5;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .prose-box ol { list-style: none; counter-reset: item; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ol > li { position: relative; padding-left: 2rem; margin-bottom: 0.9rem; line-height: 1.65; counter-increment: item; }
+        .prose-box ol > li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            width: 1.4rem;
+            height: 1.4rem;
+            font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.7rem;
+            color: #6b5691;
+            background: #f6f4f9;
+            border: 1px solid #d9d1e5;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        .prose-box strong { color: #1c1917; font-weight: 600; }
+        .prose-box table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.88rem; }
+        .prose-box th, .prose-box td { text-align: left; padding: 0.8rem 1rem; border-bottom: 1px solid #E5E2DB; vertical-align: top; line-height: 1.55; }
+        .prose-box th { font-weight: 600; background: #F5F3EF; color: #44403c; font-size: 0.78rem; }
+        .prose-box hr { border: none; border-top: 1px solid #E5E2DB; margin: 2rem 0; }
+        .prose-box blockquote { border-left: 3px solid #d9d1e5; padding: 0.7rem 1rem 0.7rem 1.2rem; margin: 1.3rem 0; color: #78716c; font-style: italic; line-height: 1.65; background: #faf9f6; }
+        .tab-active { color: #6b5691; border-bottom: 2px solid #7b6ba5; font-weight: 600; }
+        .tab-inactive { color: #78716c; border-bottom: 2px solid transparent; }
+        .tab-inactive:hover { color: #44403c; }
+        .hidden-tab { display: none; }
+        .sticky-tabs { position: sticky; top: 72px; z-index: 30; background: rgba(250,250,248,0.96); backdrop-filter: blur(6px); padding: 0.5rem 0; }
+        .warn-box { background: #fef6e7; border: 1px solid #f5e0a3; border-radius: 0.75rem; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+        .warn-box .label { font-family: "Geist Mono", monospace; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: #a86340; margin-bottom: 0.4rem; }
+        .info-box { background: #f0f4ef; border: 1px solid #c9dac6; border-radius: 0.75rem; padding: 1rem 1.2rem; margin: 1.2rem 0; }
+        .info-box .label { font-family: "Geist Mono", monospace; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: #5d7a58; margin-bottom: 0.4rem; }
+        .copy-box { background: #fafaf7; border: 1px solid #E5E2DB; border-radius: 0.75rem; padding: 1.5rem 1.6rem; margin: 1rem 0; font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.78rem; line-height: 1.75; white-space: pre-wrap; color: #44403c; }
+        .copy-btn { font-family: "Geist Mono", monospace; font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; color: #6b5691; background: #f6f4f9; border: 1px solid #d9d1e5; padding: 0.4rem 0.8rem; border-radius: 0.4rem; cursor: pointer; transition: all 0.15s; }
+        .copy-btn:hover { background: #ece8f2; color: #463863; }
+        .copy-btn.done { background: #c9dac6; color: #3d5a37; border-color: #9fbf98; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[900px] mx-auto px-4 sm:px-6 pt-24 pb-20">
+
+            <header class="mb-6">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Selbstständigkeitstrack · 22.04.2026</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Nebentätigkeit bei ControlExpert.</h1>
+                <p class="text-sm text-stone-500">Vertrag analysiert, Antrag fertig, Gesprächsführung steht. Ziel: Publizieren, Beraten, Mitgründen sauber neben dem CE-Mandat.</p>
+            </header>
+
+            <!-- Alert-Box: Kritischer Hinweis -->
+            <div class="warn-box">
+                <p class="label">Wichtigster Fund</p>
+                <p class="text-sm text-stone-700" style="margin: 0;"><strong>§ 11 Schutzrechte ist der kritische Punkt, nicht § 8.</strong> Der Vertrag überträgt CE automatisch alle Rechte an Werken, die "Bezug zu arbeitsvertraglichen Aufgaben" haben — auch außerhalb der Arbeitszeit — inklusive Verzicht auf Namensnennung. Ohne Ergänzung wäre dein Publikations-Track formal gekapert. → Siehe Tab "Antrag", Abschnitt § 11-Zusatz.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="sticky-tabs flex items-center gap-6 text-sm mb-6" style="border-bottom: 1px solid #E5E2DB;">
+                <button id="tab-leitfaden-btn" onclick="showTab('leitfaden')" class="tab-active pb-3 pt-2 transition-colors">
+                    Leitfaden
+                </button>
+                <button id="tab-antrag-btn" onclick="showTab('antrag')" class="tab-inactive pb-3 pt-2 transition-colors">
+                    Antrag
+                </button>
+                <button id="tab-gespraech-btn" onclick="showTab('gespraech')" class="tab-inactive pb-3 pt-2 transition-colors">
+                    Gespräch
+                </button>
+                <div class="ml-auto text-[0.65rem] font-mono text-stone-400 hidden sm:block">
+                    CE-Vertragsentwurf 13.04.
+                </div>
+            </div>
+
+            <!-- ========================= LEITFADEN ========================= -->
+            <section id="tab-leitfaden" class="prose-box text-sm text-stone-700">
+
+                <!-- Rolle & Rahmen -->
+                <div class="bg-white border rounded-xl p-5 mb-6" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Vertragliche Eckdaten</p>
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-[0.82rem] mt-3">
+                        <div><strong>Position:</strong><br>Senior Product Manager · Team Lead</div>
+                        <div><strong>Start:</strong><br>01.07.2026</div>
+                        <div><strong>Arbeitsort:</strong><br>Langenfeld (NRW)</div>
+                        <div><strong>Probezeit:</strong><br>6 Monate (14 Tage Kündigungsfrist)</div>
+                        <div><strong>Arbeitszeit:</strong><br>40h + bis zu 20% Mehrarbeit abgegolten → max. 48h</div>
+                        <div><strong>Vergütung:</strong><br>7.500 € brutto + bis 10k Bonus + Firmenwagen</div>
+                    </div>
+                </div>
+
+                <!-- Quick-Nav -->
+                <div class="bg-violet-50 border border-violet-100 rounded-xl p-4 mb-6">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Quick-Nav</p>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <a href="#tldr" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">TL;DR</a>
+                        <a href="#klauseln" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Kritische §§</a>
+                        <a href="#stufen" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Stufenmodell</a>
+                        <a href="#ausschluss" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Ausschlussliste</a>
+                        <a href="#hygiene" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Hygiene</a>
+                        <a href="#check" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Checkliste</a>
+                    </div>
+                </div>
+
+                <h2 id="tldr">TL;DR — die drei Kernthesen</h2>
+                <ol>
+                    <li><strong>§ 11 Schutzrechte ist der Killer, nicht § 8.</strong> Ohne Vertragszusatz gehören deine PM-Artikel juristisch CE. Verhandelpunkt vor Unterschrift.</li>
+                    <li><strong>Mitgründerschaft Stufe 4 ist während CE-Vertrag faktisch ausgeschlossen</strong> (§ 8 Abs. 2: kein Erwerb, keine Beteiligung an Wettbewerbern). Stufe 3 (stille Beteiligung) nur bei Nicht-Wettbewerb.</li>
+                    <li><strong>Zeitrahmen max. 8h/Woche</strong> — CE kann vertraglich 48h abrufen (ArbZG-Obergrenze). Bei Höchstlast pausieren.</li>
+                </ol>
+
+                <h2 id="klauseln">Die kritischen Klauseln</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>§</th>
+                            <th>Kurzgefasst</th>
+                            <th>Folge für dich</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>§ 8 (1)</strong></td>
+                            <td>Alle Nebentätigkeiten mit "Beeinträchtigungspotenzial" brauchen schriftliche Zustimmung; jederzeit ohne Grund widerrufbar.</td>
+                            <td>Rahmen-Genehmigung beantragen. Nichts auf Mündliches verlassen.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>§ 8 (2)</strong></td>
+                            <td>Strikter Wettbewerbsverbot — Tätigkeit, Gründung, Erwerb und jede Beteiligung an Konkurrenten oder Unternehmen mit wesentlicher CE-Geschäftsbeziehung.</td>
+                            <td>Mitgründerschaft sperrt. Jeden Partner/Kunden auf CE-Überschneidung prüfen.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>§ 9</strong></td>
+                            <td>Geheimhaltung — alles Nicht-Offenkundige, fortwirkend nach Vertragsende.</td>
+                            <td>Keine CE-Cases, keine internen Methoden, keine Team-Anekdoten publizieren.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>§ 10</strong></td>
+                            <td>Firmen-IT nur dienstlich.</td>
+                            <td>Strikte Trennung: eigener Laptop, eigene Mail, eigene Cloud.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>§ 11 (1+3)</strong></td>
+                            <td>Schutzrechte an allen Werken mit Aufgabenbezug gehen an CE — auch außerhalb der Arbeitszeit. Verzicht auf Namensnennung.</td>
+                            <td>Ohne Zusatz gehört jeder PM-Artikel formal CE. <strong>Der wichtigste Verhandlungspunkt.</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>§ 3 (2)</strong></td>
+                            <td>40h + 20% Mehrarbeit abgegolten → bis zu 48h abrufbar.</td>
+                            <td>ArbZG-Puffer knapp. Realistisch max. 8h/Woche Nebentätigkeit, bei Höchstlast 0h.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="stufen">Stufenmodell unter CE-Vertrag</h2>
+
+                <p>Davids Stufenmodell — angepasst an die Klausellage. Stufen 1–2 über Rahmen-Genehmigung abdeckbar, Stufe 3 nur mit Einzelantrag und klar ohne CE-Wettbewerbsbezug, Stufe 4 realistisch erst nach CE-Austritt.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stufe</th>
+                            <th>Aktivität</th>
+                            <th>Mit CE machbar?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1a</td>
+                            <td>Publikation eigene Kanäle (linja.me, LinkedIn, Substack)</td>
+                            <td>Ja — Rahmengenehmigung + § 11-Zusatz</td>
+                        </tr>
+                        <tr>
+                            <td>1b</td>
+                            <td>Gastvorträge, Hochschullehre, Workshops</td>
+                            <td>Ja — mit Rahmen. ArbZG im Auge behalten.</td>
+                        </tr>
+                        <tr>
+                            <td>2a</td>
+                            <td>Beratungsprojekte mit David/Jan</td>
+                            <td>Ja — Rahmen + Wettbewerbs-Check pro Mandat</td>
+                        </tr>
+                        <tr>
+                            <td>2b</td>
+                            <td>Co-Autorschaft, Kollaborationen</td>
+                            <td>Ja — Rahmen + klare Themen-Abgrenzung</td>
+                        </tr>
+                        <tr>
+                            <td>3a</td>
+                            <td>Stille Beteiligung an Ausgründung</td>
+                            <td>Nur bei Nicht-Wettbewerb — Einzelantrag (z.B. MatGrid, Govtech)</td>
+                        </tr>
+                        <tr>
+                            <td>3b</td>
+                            <td>Beirat / Aufsichtsrat</td>
+                            <td>Nur Nicht-Wettbewerber — Einzelantrag</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Aktive Mitgründerschaft mit Geschäftsführung</td>
+                            <td><strong>De facto erst nach CE-Austritt</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <p class="label">Strategie erste 12 Monate</p>
+                    <p class="text-sm text-stone-700" style="margin: 0;">In der Probezeit nur Stufe 1 aktiv. Stufe 2 ruhend oder sporadisch. Stufe 3 nicht vor Ablauf Probezeit. Stufe 4 gar nicht. Ziel: stabiler Rahmen + Vertrauensaufbau, dann schrittweise hochfahren.</p>
+                </div>
+
+                <h2 id="ausschluss">Thematische Ausschlussliste</h2>
+
+                <p>Was du während CE-Vertrag <strong>nicht</strong> publizieren oder bearbeiten solltest — weil es CE-Geschäftsfeld berührt (§ 8 Abs. 2) oder Geschäftsgeheimnisse streift (§ 9):</p>
+
+                <h3>Tabu-Themen</h3>
+                <ul>
+                    <li>KFZ-Schadenregulierung, Schadenmanagement (jede Form)</li>
+                    <li>Claim-Processing-Technologie, digitale Schadenplattformen</li>
+                    <li>KI-Anwendungen für Versicherungs-Branche</li>
+                    <li>Telematik, Flottenmanagement mit Schaden-Bezug</li>
+                    <li>Konkrete CE-Wettbewerber (Recognition-Systeme etc.)</li>
+                    <li>Alles mit CE-Kontext: CE-Methoden, CE-Kunden, CE-Team, CE-Prozesse</li>
+                </ul>
+
+                <h3>Sichere Themen</h3>
+                <ul>
+                    <li>Product Management generisch (Methoden, Führung, Discovery)</li>
+                    <li>KI im PM-Alltag <em>ohne</em> Versicherer-/Schaden-Bezug</li>
+                    <li>Team-Entwicklung, Remote/Hybrid, Kulturthemen</li>
+                    <li>Persönliche Themen: Pilgern, Smart Home, ADHS, Beziehungsarbeit, Kultur</li>
+                    <li>Govtech, Public Interest Tech, Nachhaltigkeit</li>
+                    <li>Energy/Grid (MatGrid-Track) — kein Wettbewerb</li>
+                    <li>Jobsuche, Karriere, persönliche Weiterentwicklung</li>
+                </ul>
+
+                <h2 id="hygiene">Betriebshygiene nach Genehmigung</h2>
+
+                <h3>Infrastruktur strikt trennen</h3>
+                <ul>
+                    <li>Eigenes Gerät (privater Mac/iPhone) — nie CE-Laptop für linja.me-Änderungen</li>
+                    <li>Eigene E-Mail (scharffetter@linja.me) — nicht CE-Mail</li>
+                    <li>Eigene Cloud (iCloud, privates GitHub) — keine CE-Konten</li>
+                </ul>
+
+                <h3>Zeit strikt trennen</h3>
+                <ul>
+                    <li>Nebentätigkeit immer außerhalb CE-Arbeitszeit</li>
+                    <li>Kein Arbeiten im Urlaub (BUrlG Erholungszweck)</li>
+                    <li>Keine Nebentätigkeit auf CE-Dienstreisen</li>
+                </ul>
+
+                <h3>Dokumentation</h3>
+                <ul>
+                    <li>Quartalsweise: Aktivitätsliste (Publikationen, Vorträge, Mandate, Stunden)</li>
+                    <li>Jährlich: proaktiver Transparenz-Brief an Ahmed</li>
+                    <li>Bei jeder neuen Opportunity: Wettbewerbs-Check dokumentieren</li>
+                </ul>
+
+                <h2 id="check">Checkliste bis Arbeitsbeginn</h2>
+
+                <h3>Vor Unterschrift</h3>
+                <ul>
+                    <li>Mit Fachanwalt für Arbeitsrecht durchsprechen (30min, ~200€)</li>
+                    <li>§ 11-Zusatz als "würde ich gerne klären"-Punkt ins Signing-Gespräch einbringen</li>
+                    <li>Prüfen: Gibt es bei CE einen Betriebsrat?</li>
+                    <li>Signalisieren: "Ich habe ein öffentliches Profil, möchte das transparent regeln"</li>
+                </ul>
+
+                <h3>Nach Unterschrift, vor 01.07.2026</h3>
+                <ul>
+                    <li>Informelles 1:1 mit Ahmed El Safty (Director Product Management)</li>
+                    <li>Schriftlichen Antrag einreichen (siehe Tab "Antrag")</li>
+                    <li>Schriftliche Bestätigung ablegen in <span class="font-mono text-[0.8rem]">06_Außendarstellung/Interviews/ControlExpert/</span></li>
+                    <li>Private IT-Umgebung prüfen: sauber getrennt vom CE-Setup?</li>
+                    <li>linja.me-Content-Plan durch Ausschlussliste filtern</li>
+                </ul>
+
+                <h3>In den ersten 4 Wochen bei CE</h3>
+                <ul>
+                    <li>Falls Antrag noch nicht eingereicht: nachholen</li>
+                    <li>Aktivitätsliste Q3/2026 starten (privat)</li>
+                    <li>Firmenwagen-Regel klären: darf er für Nebentermine genutzt werden?</li>
+                </ul>
+
+                <h3>Laufend</h3>
+                <ul>
+                    <li>Quartalscheck: Ausschlussliste gehalten?</li>
+                    <li>Jährlicher Transparenz-Brief an Ahmed</li>
+                    <li>Neue Opportunities: Wettbewerbsprüfung vor Zusage</li>
+                </ul>
+
+                <blockquote>
+                    Wenn die sechs Roten Linien (§ 11 geregelt, kein CE-Content, keine CE-Wettbewerber, keine CE-Infrastruktur, keine CE-Arbeitszeit, jede neue Stufe schriftlich angezeigt) stehen, hast du einen sauberen Zweitkanal bis Stufe 3a — genug für Publizieren, Beraten und stille Beteiligung an MatGrid/Govtech.
+                </blockquote>
+
+            </section>
+
+            <!-- ========================= ANTRAG ========================= -->
+            <section id="tab-antrag" class="prose-box text-sm text-stone-700 hidden-tab">
+
+                <div class="info-box">
+                    <p class="label">Timing-Empfehlung</p>
+                    <p class="text-sm text-stone-700" style="margin: 0;"><strong>Option A (empfohlen):</strong> § 11-Zusatz vor Unterschrift verhandeln. Rahmen-Antrag nach Unterschrift, vor 01.07.2026. <strong>Option B:</strong> § 11-Zusatz mit Antrag als Seitenbrief. <strong>Option C:</strong> In ersten 2–4 Wochen bei CE.</p>
+                </div>
+
+                <h2 id="zusatz">Baustein 1 — Vertragszusatz zu § 11</h2>
+
+                <p>Ziel: schriftliche Klarstellung, dass § 11 (Schutzrechtsübertragung) nicht für deine genehmigten Nebentätigkeits-Werke gilt. <strong>Entweder als Ergänzung im Vertrag oder als Seitenbrief.</strong></p>
+
+                <div class="flex items-center justify-between mb-2">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Formulierungsvorschlag</p>
+                    <button class="copy-btn" onclick="copyText('zusatz-text', this)">Kopieren</button>
+                </div>
+                <div id="zusatz-text" class="copy-box">Ergänzung zu § 11 Schutzrechte
+
+Die Parteien sind sich einig, dass die Übertragung von Nutzungs- und Verwertungsrechten nach § 11 dieses Anstellungsvertrages nicht gilt für Werke, die im Rahmen einer nach § 8 genehmigten Nebentätigkeit entstehen und außerhalb der arbeitsvertraglichen Aufgaben stehen. Dies gilt insbesondere für Fachpublikationen, Lehrmaterialien und Vortragsinhalte, die die Arbeitnehmerin im Rahmen ihrer persönlichen fachlichen Sichtbarkeit erstellt und die keine Bezugnahme auf Geschäftsgeheimnisse der Gesellschaft enthalten. Das Recht der Namensnennung bleibt für diese Werke bei der Arbeitnehmerin.</div>
+
+                <div class="warn-box">
+                    <p class="label">Argument für CE</p>
+                    <p class="text-sm text-stone-700" style="margin: 0;">Die Einschränkung "außerhalb arbeitsvertraglicher Aufgaben + keine Geschäftsgeheimnisse" schützt CE inhaltlich voll. Senior-Hires mit öffentlichem Profil → übliche Modifikation. CE profitiert perspektivisch von Sichtbarkeit (Employer Branding, Recruiting).</p>
+                </div>
+
+                <h2 id="rahmen">Baustein 2 — Rahmen-Antrag Nebentätigkeit</h2>
+
+                <p>Empfänger: direkte Führungskraft (Ahmed El Safty) <strong>und</strong> HR. Vorher informelles 1:1 mit Ahmed (siehe Tab "Gespräch").</p>
+
+                <div class="flex items-center justify-between mb-2">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Fertiger Antragstext</p>
+                    <button class="copy-btn" onclick="copyText('antrag-text', this)">Kopieren</button>
+                </div>
+                <div id="antrag-text" class="copy-box">Betreff: Antrag auf Nebentätigkeitsgenehmigung — Rahmen
+
+Sehr geehrte Damen und Herren,
+lieber Ahmed,
+
+hiermit bitte ich um Genehmigung einer nebenberuflichen Tätigkeit im Bereich Fachpublikation und Wissenstransfer gemäß § 8 meines Anstellungsvertrages vom 13.04.2026.
+
+Hintergrund:
+Seit mehreren Jahren pflege ich eine öffentliche fachliche Präsenz als Product Managerin (linja.me, LinkedIn, Substack, gelegentliche Vorträge). Diese Tätigkeit möchte ich neben meiner Anstellung bei ControlExpert in einem klar umrissenen Rahmen fortführen.
+
+Umfang und Aktivitäten:
+1. Veröffentlichung fachlicher Beiträge auf eigenen Plattformen (linja.me-Blog, LinkedIn, Substack) sowie gelegentlich in Fachmedien.
+2. Gastvorträge, Hochschullehre und Workshops zu Themen rund um Product Management, Führung und Digitalisierung.
+3. Gelegentliche Beratungsprojekte in fachlich passenden Domänen.
+
+Rahmen und Ausschlüsse:
+- Maximaler Zeitaufwand: 8 Stunden/Woche, ausschließlich außerhalb meiner Arbeitszeit und unter Beachtung des Arbeitszeitgesetzes.
+- Vollständiger thematischer Ausschluss des Geschäftsfelds ControlExpert / solvd group: keine Inhalte zu KFZ-Schadenregulierung, Schadenmanagement, Claim-Processing-Technologie, Versicherer-Software oder vergleichbaren Bereichen.
+- Keine Tätigkeit für oder Zusammenarbeit mit Unternehmen, die mit ControlExpert oder einem mit ihr verbundenen Unternehmen in direktem oder indirektem Wettbewerb stehen oder wesentliche Geschäftsbeziehungen unterhalten. Einzelne Beratungsmandate werde ich vor Annahme auf diese Kriterien prüfen und im Zweifel vorab anzeigen.
+- Keine Nutzung betrieblicher IT- oder Arbeitsmittel, keine Verarbeitung oder Offenlegung von Geschäftsgeheimnissen der Gesellschaft.
+
+Ergänzung zu § 11:
+Ich bitte zusätzlich um schriftliche Bestätigung, dass die Schutzrechtsübertragung gemäß § 11 des Anstellungsvertrages nicht für solche Werke gilt, die im Rahmen der hiermit beantragten Nebentätigkeit entstehen und keinen Bezug zu meinen arbeitsvertraglichen Aufgaben bei ControlExpert haben. Für diese Werke verbleiben Urheber- und Nutzungsrechte einschließlich des Rechts auf Namensnennung bei mir.
+
+Transparenz:
+Ich dokumentiere alle Aktivitäten und stelle auf Anfrage gerne einen jährlichen Überblick zur Verfügung. Sollten sich Rahmen oder Umfang wesentlich ändern, werde ich dies unaufgefordert anzeigen.
+
+Ich gehe davon aus, dass diese Tätigkeiten mit den Interessen der ControlExpert GmbH vereinbar sind und freue mich über eine kurze schriftliche Bestätigung.
+
+Mit freundlichen Grüßen,
+Linja Scharffetter</div>
+
+                <h2 id="absichtlich-weg">Was im Antrag bewusst fehlt</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nicht im Antrag</th>
+                            <th>Warum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Namen von David, Jan oder konkreten Partnern</td>
+                            <td>Ausnahmslos persönlich. Macht es "Ensemble-Verdacht" bei HR.</td>
+                        </tr>
+                        <tr>
+                            <td>Konkrete Kundennamen, Honorare, Umsätze</td>
+                            <td>Triggert die "Zweiter Job"-Alarmglocke.</td>
+                        </tr>
+                        <tr>
+                            <td>Begriffe "Studio", "Gründung", "Startup", "Mitgründerin"</td>
+                            <td>HR-Rote-Flagge, weckt Exit-Verdacht.</td>
+                        </tr>
+                        <tr>
+                            <td>Explizite Erwähnung MatGrid</td>
+                            <td>Kommt separat, wenn konkret (Stufe 3a, eigener Antrag).</td>
+                        </tr>
+                        <tr>
+                            <td>Langfristige Pläne oder Ambitionen</td>
+                            <td>Bleibt unsichtbar, solange sie den Vertragsrahmen nicht verletzen.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <blockquote>
+                    Der Antrag ist absichtlich generisch formuliert. Ein Korridor, kein Einzelfall. Das macht spätere Aktivitäten innerhalb des Korridors genehmigungsfrei — und reduziert HR-Touchpoints auf ein Minimum.
+                </blockquote>
+
+            </section>
+
+            <!-- ========================= GESPRÄCH ========================= -->
+            <section id="tab-gespraech" class="prose-box text-sm text-stone-700 hidden-tab">
+
+                <div class="info-box">
+                    <p class="label">Setting</p>
+                    <p class="text-sm text-stone-700" style="margin: 0;">Informelles 1:1 mit <strong>Ahmed El Safty</strong> (Director Product Management), physisch oder Call. <strong>Vor</strong> dem schriftlichen Antrag, <strong>nicht</strong> nach HR-Einreichung. Ziel: grünes Licht signalisieren lassen, bevor HR formal involviert wird.</p>
+                </div>
+
+                <h2 id="botschaft">Deine Botschaft in einem Satz</h2>
+
+                <blockquote style="font-style: normal; font-size: 1rem; background: #f6f4f9; border-color: #7b6ba5; color: #463863;">
+                    "Ich möchte meine öffentliche fachliche Sichtbarkeit — Blog, LinkedIn, gelegentlich Lehre — neben dem CE-Mandat fortführen und möchte das transparent regeln, bevor es losgeht."
+                </blockquote>
+
+                <p>Das ist der Einstieg. Nicht mehr, nicht weniger. Alles Weitere kommt nur, wenn Ahmed nachfragt.</p>
+
+                <h2 id="haltung">Haltung im Gespräch</h2>
+
+                <ul>
+                    <li><strong>Selbstverständlichkeit.</strong> Du bittest nicht um Erlaubnis zum Herumpfuschen. Du regelst einen bestehenden professionellen Kanal transparent. Ton: "so mache ich das schon länger, ich will's mit CE in Einklang bringen".</li>
+                    <li><strong>Faktisch, nicht emotional.</strong> Konkrete Zahlen, konkreter Rahmen, konkrete Ausschlüsse. Keine Begründungen über "mein Herz hängt dran".</li>
+                    <li><strong>Nicht defensiv.</strong> Wenn Ahmed misstrauisch wird, ruhig bleiben. Die Ausschlussliste und das 8h-Limit machen deinen Antrag immun.</li>
+                    <li><strong>Nicht überverkaufen.</strong> Nicht argumentieren, dass CE massiv profitiert — das wirkt wie Rechtfertigung. Einmal kurz erwähnen ("kommt perspektivisch auch euch zugute"), dann weiter.</li>
+                </ul>
+
+                <h2 id="einwaende">Einwand-Tabelle</h2>
+
+                <p>Für jede Frage, die kommen könnte — eine kurze, abgeklärte Antwort. Auswendig lernen ist nicht nötig; die Logik dahinter reicht.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Frage / Einwand</th>
+                            <th>Deine Antwort</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"Wieviel Zeit bindet das?"</td>
+                            <td>Maximal 8h/Woche, ausschließlich in meiner Freizeit. In aktiven CE-Phasen sind es faktisch weniger, bei Höchstlast pausiere ich.</td>
+                        </tr>
+                        <tr>
+                            <td>"Warum brauchst du das?"</td>
+                            <td>Fachliche Sichtbarkeit und Vernetzung sind Teil meines beruflichen Profils. Das pflege ich seit Jahren und möchte es fortführen. Kommt perspektivisch auch CE zugute — Employer Branding, Recruiting.</td>
+                        </tr>
+                        <tr>
+                            <td>"Schreibst du über CE?"</td>
+                            <td>Nein. Klare Ausschlussliste: keine Inhalte zu Schadenregulierung, Claim-Processing, Versicherungstechnologie. Ich schreibe generisch über Product Management, KI im PM-Alltag, Führung.</td>
+                        </tr>
+                        <tr>
+                            <td>"Berätst du andere Firmen?"</td>
+                            <td>Gelegentlich, in Domänen außerhalb des CE-Felds. Jeden Auftrag prüfe ich vor Annahme auf Wettbewerbsüberschneidung und zeige ihn im Zweifel vorab an.</td>
+                        </tr>
+                        <tr>
+                            <td>"Verdienst du damit Geld?"</td>
+                            <td>Publikationen meist nicht. Lehre und Workshops sind honoriert, aber geringe Beträge. Beratung: ja, aber klar begrenzt, nicht Hauptzweck.</td>
+                        </tr>
+                        <tr>
+                            <td>"Warum die Ergänzung zu § 11?"</td>
+                            <td>Die aktuelle Formulierung würde strikt ausgelegt bedeuten, dass meine Blog-Artikel zu PM-Themen automatisch Arbeitsergebnis sind. Ich möchte vermeiden, dass wir da später in eine Grauzone kommen — deshalb die klare Abgrenzung.</td>
+                        </tr>
+                        <tr>
+                            <td>"Konkurrenz? Mitgründung?"</td>
+                            <td>Ausgeschlossen, solange ich hier arbeite. Falls mal eine stille Beteiligung an einem Nicht-Wettbewerber konkret wird, komme ich separat damit auf dich zu — nicht im Rahmen dieses Antrags.</td>
+                        </tr>
+                        <tr>
+                            <td>"Das können wir jederzeit widerrufen."</td>
+                            <td>Verstanden. Ich arbeite transparent und melde mich, wenn sich etwas ändert.</td>
+                        </tr>
+                        <tr>
+                            <td>"Und wenn CE-Last steigt?"</td>
+                            <td>Dann pausiere ich. Die Nebentätigkeit richtet sich nach meiner CE-Auslastung, nicht umgekehrt.</td>
+                        </tr>
+                        <tr>
+                            <td>"Warum vorher fragen — mach doch einfach?"</td>
+                            <td>Weil es in meinem Vertrag steht und weil ich Transparenz will. Wir haben dann beide Rechtssicherheit.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="tabu">Was du nicht sagst</h2>
+
+                <div class="warn-box">
+                    <p class="label">Absolute Nicht-Themen im 1:1</p>
+                    <ul style="margin: 0.3rem 0 0 0;">
+                        <li>David & Jan namentlich — du hast keine Ensemble-Ambitionen, du pflegst dein Profil.</li>
+                        <li>Konkrete Business-Pläne oder Studio-Pläne — nichts, was nach "Exit-Strategie" klingt.</li>
+                        <li>"Langfristig will ich eigentlich…" — Zukunft ist Privatsache.</li>
+                        <li>Honorare oder Einnahmen konkret — Zahlen triggern "Zweiter Job"-Verdacht.</li>
+                        <li>MatGrid als aktives Projekt — kommt später als eigener Einzelantrag.</li>
+                        <li>Frust, Unsicherheit, "falls es bei CE nicht klappt…" — niemals.</li>
+                    </ul>
+                </div>
+
+                <h2 id="ablauf">Gesprächsablauf in 5 Schritten</h2>
+
+                <ol>
+                    <li><strong>Rahmen setzen (30 Sek).</strong> "Ahmed, ich wollte dir was früh ansprechen, bevor ich's formal bei HR einreiche: meine Nebentätigkeit. Hast du kurz Zeit?"</li>
+                    <li><strong>Sache in einem Satz (20 Sek).</strong> Die Botschaft oben. Dann Punkt.</li>
+                    <li><strong>Konkreten Rahmen nennen (1 Min).</strong> "Maximal 8 Stunden pro Woche, nur Freizeit. Themen: generisches PM, KI im Alltag, Führung — nichts mit Schaden oder Versicherer. Kein Wettbewerber als Kunde."</li>
+                    <li><strong>§ 11-Zusatz erwähnen (30 Sek).</strong> "Ein formaler Punkt: § 11 würde aktuell meine PM-Artikel CE zuschreiben. Ich schlage im Antrag vor, dass das für genehmigte Nebentätigkeits-Inhalte nicht gilt. Bitte einmal mit-bedenken, ob das für dich ok klingt — dann HR."</li>
+                    <li><strong>Offen halten.</strong> "Fragen? Bedenken? Lass uns das klären, bevor der Antrag rausgeht."</li>
+                </ol>
+
+                <blockquote>
+                    Kernprinzip: Du verkaufst nichts. Du klärst. Das Gespräch ist erfolgreich, wenn Ahmed <em>nicht</em> überrascht wird — sondern den Antrag ein paar Tage später als "passt, habe ich mit Linja besprochen" durchreicht.
+                </blockquote>
+
+                <h2 id="nachspiel">Nach dem Gespräch</h2>
+
+                <ul>
+                    <li>Noch am selben Tag: kurze E-Mail an Ahmed als Zusammenfassung ("wie besprochen reiche ich Ende der Woche den formalen Antrag ein").</li>
+                    <li>Formalen Antrag aus Tab "Antrag" kopieren, personalisieren, an Ahmed + HR senden.</li>
+                    <li>Bestätigung ablegen in <span class="font-mono text-[0.8rem]">06_Außendarstellung/Interviews/ControlExpert/</span>.</li>
+                    <li>Wenn nach 2 Wochen keine Rückmeldung: freundlich nachfassen.</li>
+                </ul>
+
+            </section>
+
+            <!-- Bottom spacing -->
+            <div style="height: 80px;"></div>
+
+        </main>
+    </div>
+
+    <script src="office.js" data-active="nebentaetigkeit"></script>
+    <script>
+        function showTab(name) {
+            var tabs = ['leitfaden', 'antrag', 'gespraech'];
+            tabs.forEach(function(t) {
+                var sec = document.getElementById('tab-' + t);
+                var btn = document.getElementById('tab-' + t + '-btn');
+                if (t === name) {
+                    sec.classList.remove('hidden-tab');
+                    btn.classList.remove('tab-inactive');
+                    btn.classList.add('tab-active');
+                } else {
+                    sec.classList.add('hidden-tab');
+                    btn.classList.remove('tab-active');
+                    btn.classList.add('tab-inactive');
+                }
+            });
+            try { sessionStorage.setItem('neben-last-tab', name); } catch (e) {}
+            window.scrollTo({ top: 120, behavior: 'smooth' });
+        }
+
+        function copyText(id, btn) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            var text = el.textContent || el.innerText;
+            navigator.clipboard.writeText(text).then(function() {
+                var orig = btn.textContent;
+                btn.textContent = 'Kopiert ✓';
+                btn.classList.add('done');
+                setTimeout(function() {
+                    btn.textContent = orig;
+                    btn.classList.remove('done');
+                }, 2000);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                var last = sessionStorage.getItem('neben-last-tab');
+                if (last && last !== 'leitfaden') showTab(last);
+            } catch (e) {}
+        });
+    </script>
+</body>
+</html>
