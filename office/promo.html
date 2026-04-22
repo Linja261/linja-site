@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Promo-Queue – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: {
+                violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' },
+                emerald: { 50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa', 500: '#5b8a72', 700: '#31493d' },
+            },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        .channel[data-posted="true"] { opacity: 0.4; }
+        .channel[data-posted="true"] .channel-actions { display: none; }
+        .channel[data-posted="true"] .posted-badge { display: inline-flex !important; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[760px] mx-auto px-5 pt-24 pb-20">
+
+            <header class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Promo</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Promo-Queue</h1>
+                <p class="text-sm text-stone-500">Artikel live auf linja.me. Teaser für Substack Note und LinkedIn Post zum Kopieren. Der Traffic fließt auf linja.me zurück, damit dein Blog SEO-Juice und Reichweite behält.</p>
+            </header>
+
+            <!-- Quick-Action Bar -->
+            <div class="grid grid-cols-2 gap-2 mb-6 sticky top-16 z-10 py-2" style="background: #FAFAF8;">
+                <a href="https://substack.com/home" target="_blank" rel="noopener" class="text-center bg-violet-400 hover:bg-violet-500 text-white text-sm font-medium py-3 px-4 rounded-xl transition-all">
+                    Substack-Dashboard &rarr;
+                </a>
+                <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="text-center bg-violet-400 hover:bg-violet-500 text-white text-sm font-medium py-3 px-4 rounded-xl transition-all">
+                    LinkedIn-Feed &rarr;
+                </a>
+            </div>
+
+            <!-- Counter -->
+            <div class="grid grid-cols-4 gap-2 mb-6">
+                <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-xl text-stone-900" id="count-substack-open">0</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Substack offen</div>
+                </div>
+                <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-xl text-stone-900" id="count-substack-posted">0</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Substack geteilt</div>
+                </div>
+                <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-xl text-stone-900" id="count-linkedin-open">0</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">LinkedIn offen</div>
+                </div>
+                <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-xl text-stone-900" id="count-linkedin-posted">0</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">LinkedIn geteilt</div>
+                </div>
+            </div>
+
+            <button id="show-posted-toggle" onclick="togglePosted()" class="text-xs text-stone-500 hover:text-stone-800 px-3 py-2 mb-4">
+                Erledigte ausblenden
+            </button>
+
+            <!-- Queue -->
+            <div id="queue-list" class="space-y-6">
+
+                <!-- ========= ENTRY: pm-beziehungsarbeit ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="pm-beziehungsarbeit">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">22.04.2026</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Product Work Is Relationship Work. Warum die PM-Rolle im KI-Zeitalter nicht verschwindet.</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/pm-beziehungsarbeit.html" target="_blank" class="hover:text-violet-400">linja.me/blog/pm-beziehungsarbeit &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="3" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">KI macht das Bauen schneller. Das Alignment nicht. Meine These: PMs, die ihre Rolle als Feature-Spezifikation verstehen, werden ersetzt. PMs, die Alignment schaffen, werden wichtiger. Warum, im Artikel: linja.me/blog/pm-beziehungsarbeit</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="14" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">KI macht das Bauen schneller. Das Alignment nicht.
+
+Ein Prototyp in zwei Stunden, klar, das geht. Aber die Frage, was gebaut werden soll, wird dadurch nicht schneller beantwortet. Weil sie keine technische Frage ist, sondern eine Beziehungsfrage.
+
+Seit ich KI-Tools für das Bauen nutze, fällt mir auf: Die gesparte Bauzeit sollte nicht in mehr Features fließen, sondern in Pre-Alignment. Die Frage klären, bevor der Prototyp kommt.
+
+Teresa Torres und Petra Wille nennen das Product Work Is Relationship Work. Chris Argyris zeigt dieselbe Dynamik im organisationalen Lernen: Double-Loop-Learning braucht Dialog, nicht Diskussion. Dialog sucht Verständnis, Diskussion sucht Überzeugung.
+
+Meine These: PMs, die ihre Rolle als Feature-Spezifikation verstehen, werden ersetzt. PMs, die Alignment schaffen, werden wichtiger. Weil schnelleres Bauen mehr Entscheidungspunkte erzeugt, und jeder Entscheidungspunkt Alignment fordert.
+
+Ganzer Artikel mit Quellen und Praxis-Beispielen: linja.me/blog/pm-beziehungsarbeit
+
+#ProductManagement #KI</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- /ENTRIES -->
+            </div>
+
+            <!-- Empty state -->
+            <div id="empty-state" class="text-center py-12 hidden">
+                <p class="text-stone-400 text-sm">Keine offenen Promos. &#x2728;</p>
+            </div>
+
+            <!-- Meta -->
+            <section class="mt-12 pt-8" style="border-top: 1px solid #E5E2DB;">
+                <h3 class="source-serif text-base text-stone-900 mb-3">Wie das funktioniert</h3>
+                <ol class="text-sm text-stone-500 space-y-2 list-decimal pl-5">
+                    <li>Artikel publiziert auf linja.me (SSOT). Scheduled Task oder manuell fügt Eintrag in diese Queue ein.</li>
+                    <li>Pro Artikel gibt es zwei Teaser: <strong>Substack Note</strong> (kurz, kein voller Crosspost) und <strong>LinkedIn Post</strong> (länger, mit Hook).</li>
+                    <li><strong>Copy</strong> → <strong>Open Substack</strong> oder <strong>Open LinkedIn</strong> → Einfügen, Headline ggf. setzen, posten.</li>
+                    <li>Haken-Button markiert den Channel als gepostet (lokal gespeichert, pro Channel unabhängig).</li>
+                </ol>
+                <div class="mt-4 p-4 rounded-lg text-xs text-stone-500" style="background: #fdf5f0;">
+                    <strong class="text-stone-700">Warum kein voller Crosspost mehr?</strong> Substack-Volltext-Posts konkurrieren mit linja.me um SEO-Ranking. Note + Link hält den Traffic auf deiner Website, nutzt Substack nur als Verteiler.
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function copyChannel(btn) {
+            var ta = btn.closest('.channel').querySelector('textarea');
+            ta.select();
+            try {
+                navigator.clipboard.writeText(ta.value).then(function () {
+                    var label = btn.querySelector('.copy-label');
+                    var orig = label.textContent;
+                    label.textContent = 'Kopiert!';
+                    setTimeout(function () { label.textContent = orig; }, 1800);
+                });
+            } catch (e) {
+                document.execCommand('copy');
+            }
+        }
+
+        function storageKey(channel) {
+            return 'promo-posted-' + channel;
+        }
+
+        function markPosted(btn) {
+            var channel = btn.closest('.channel');
+            var channelName = channel.getAttribute('data-channel');
+            var slug = channel.closest('.entry').getAttribute('data-slug');
+            channel.setAttribute('data-posted', 'true');
+            var posted = JSON.parse(localStorage.getItem(storageKey(channelName)) || '[]');
+            if (posted.indexOf(slug) === -1) {
+                posted.push(slug);
+                localStorage.setItem(storageKey(channelName), JSON.stringify(posted));
+            }
+            updateCounters();
+            applyHideFilter();
+        }
+
+        function applyPostedState() {
+            ['substack', 'linkedin'].forEach(function (channelName) {
+                var posted = JSON.parse(localStorage.getItem(storageKey(channelName)) || '[]');
+                document.querySelectorAll('.entry').forEach(function (entry) {
+                    var slug = entry.getAttribute('data-slug');
+                    var channel = entry.querySelector('.channel[data-channel="' + channelName + '"]');
+                    if (channel && posted.indexOf(slug) !== -1) {
+                        channel.setAttribute('data-posted', 'true');
+                    }
+                });
+            });
+            updateCounters();
+        }
+
+        function updateCounters() {
+            ['substack', 'linkedin'].forEach(function (channelName) {
+                var channels = document.querySelectorAll('.channel[data-channel="' + channelName + '"]');
+                var posted = 0, open = 0;
+                channels.forEach(function (c) {
+                    if (c.getAttribute('data-posted') === 'true') posted++;
+                    else open++;
+                });
+                document.getElementById('count-' + channelName + '-open').textContent = open;
+                document.getElementById('count-' + channelName + '-posted').textContent = posted;
+            });
+            var anyOpen = document.querySelectorAll('.channel:not([data-posted="true"])').length;
+            document.getElementById('empty-state').classList.toggle('hidden', anyOpen > 0);
+        }
+
+        var hidePosted = false;
+        function togglePosted() {
+            hidePosted = !hidePosted;
+            applyHideFilter();
+            document.getElementById('show-posted-toggle').textContent = hidePosted ? 'Erledigte einblenden' : 'Erledigte ausblenden';
+        }
+        function applyHideFilter() {
+            document.querySelectorAll('.entry').forEach(function (entry) {
+                var allPosted = true;
+                entry.querySelectorAll('.channel').forEach(function (c) {
+                    if (c.getAttribute('data-posted') !== 'true') allPosted = false;
+                });
+                entry.style.display = (hidePosted && allPosted) ? 'none' : '';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            applyPostedState();
+        });
+    </script>
+
+    <script src="office.js" data-active="promo"></script>
+</body>
+</html>
