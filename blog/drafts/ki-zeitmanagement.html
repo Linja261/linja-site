@@ -130,6 +130,26 @@
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+    <!-- Password Gate -->
+    <div id="gate" class="min-h-screen flex items-center justify-center px-6">
+        <div class="max-w-sm w-full text-center">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Entwurf</p>
+            <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
+            <form onsubmit="return checkPass()">
+                <input type="password" id="pass" placeholder="Passwort" autofocus
+                    class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3"
+                    style="border-color: #E5E2DB;">
+                <button type="submit"
+                    class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">
+                    Öffnen
+                </button>
+            </form>
+            <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
+        </div>
+    </div>
+
+    <!-- Content (hidden until authenticated) -->
+    <div id="content" class="hidden">
 
     <div id="site-nav"></div>
     <script src="../components.js" data-active="blog"></script>
@@ -210,12 +230,12 @@
 
 
             <!-- ══════════════════════════════════════════════
-                 BLOCK 3: WAS ICH VERÄNDERT HABE
+                 BLOCK 3: WAS ICH MIR VORNEHME
                  ══════════════════════════════════════════════ -->
 
-            <h2>Was ich verändert habe</h2>
+            <h2>Was ich mir vornehme</h2>
 
-            <p>Ich nutze KI-gestützte Routinen für meinen Arbeitsalltag: einen strukturierten Morgen-Check-in, der die Tagespriorität klärt. Einen Abend-Check-out, der den Tag reflektiert und offene Enden identifiziert. Eine wöchentliche Planung, die Muster in meiner Arbeitsbelastung erkennt. Die Details dieser Routinen habe ich in einem separaten Artikel zu <a href="../ki-routinen.html" style="color: #7b6ba5;">KI-Routinen</a> beschrieben. Die wichtigste Veränderung ist nicht die Routine selbst, sondern die Regelmässigkeit: KI als externer Strukturgeber macht es leichter, Gewohnheiten beizubehalten, die man allein nach zwei Wochen wieder aufgibt.</p>
+            <p>Ich möchte KI-gestützte Routinen stärker in meinen Arbeitsalltag integrieren: einen strukturierten Morgen-Check-in, der die Tagespriorität klärt. Einen Abend-Check-out, der den Tag reflektiert und offene Enden identifiziert. Eine wöchentliche Planung, die Muster in meiner Arbeitsbelastung erkennt. Erste Ansätze beschreibe ich in einem separaten Artikel zu <a href="../ki-routinen.html" style="color: #7b6ba5;">KI-Routinen</a>. Meine Hoffnung ist, dass KI als externer Strukturgeber es leichter macht, Gewohnheiten beizubehalten, die ich allein nach zwei Wochen wieder aufgebe. Ob die Regelmässigkeit tatsächlich hält, wird sich zeigen.</p>
 
 
             <!-- ══════════════════════════════════════════════
@@ -224,7 +244,7 @@
 
             <h2>Kritische Einordnung</h2>
 
-            <p>KI ist kein Therapeut. Bei echtem Burnout oder psychischen Problemen ersetzt keine Routine eine professionelle Behandlung. Ausserdem besteht die Gefahr einer neuen Abhängigkeit: Wenn die KI ausfällt, fehlt die Struktur. Das Ziel muss sein, dass die Muster internalisiert werden. KI als Trainingsrad, nicht als Dauerprothese. Dazu kommt ein Privilege-Check: Zugang zu KI-Tools kostet Geld (Claude Pro, ChatGPT Plus). Nicht alle Studierenden können sich das leisten, und kostenlose Alternativen bieten nicht dieselbe Qualität. Und schliesslich der Datenschutz: persönliche Reflexionen in KI-Tools sind sensible Daten. Wer morgens seine Ängste und abends seine Fehler teilt, sollte wissen, wo diese Daten landen.</p>
+            <p>KI ist kein Therapeut. Bei echtem Burnout oder psychischen Problemen ersetzt keine Routine eine professionelle Behandlung. Es besteht auch die Gefahr einer neuen Abhängigkeit: Wenn die KI ausfällt, fehlt die Struktur. Ob sich die Muster tatsächlich internalisieren lassen &mdash; KI als Trainingsrad statt als Dauerprothese &mdash; bleibt abzuwarten. Dazu kommt ein Privilege-Check: Zugang zu KI-Tools kostet Geld. Nicht alle können sich das leisten, und kostenlose Alternativen bieten nicht dieselbe Qualität. Und schliesslich der Datenschutz: Wer morgens seine Ängste und abends seine Fehler teilt, sollte wissen, wo diese Daten landen. Ob der Nutzen das Risiko überwiegt, muss jede Person für sich entscheiden.</p>
 
 
             <!-- ══════════════════════════════════════════════
@@ -293,6 +313,30 @@
     </div>
 
     <div id="site-footer"></div>
+
+    </div>
+
+    <script>
+        // Simple client-side gate — not real security, just keeps casual visitors out
+        const PASS = 'Lagerfeuer2026';
+
+        if (sessionStorage.getItem('drafts-auth') === 'true') {
+            document.getElementById('gate').classList.add('hidden');
+            document.getElementById('content').classList.remove('hidden');
+        }
+
+        function checkPass() {
+            const input = document.getElementById('pass').value;
+            if (input === PASS) {
+                sessionStorage.setItem('drafts-auth', 'true');
+                document.getElementById('gate').classList.add('hidden');
+                document.getElementById('content').classList.remove('hidden');
+            } else {
+                document.getElementById('error').classList.remove('hidden');
+            }
+            return false;
+        }
+    </script>
 
 </body>
 

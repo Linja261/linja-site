@@ -130,6 +130,26 @@
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+    <!-- Password Gate -->
+    <div id="gate" class="min-h-screen flex items-center justify-center px-6">
+        <div class="max-w-sm w-full text-center">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Entwurf</p>
+            <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
+            <form onsubmit="return checkPass()">
+                <input type="password" id="pass" placeholder="Passwort" autofocus
+                    class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3"
+                    style="border-color: #E5E2DB;">
+                <button type="submit"
+                    class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">
+                    Öffnen
+                </button>
+            </form>
+            <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
+        </div>
+    </div>
+
+    <!-- Content (hidden until authenticated) -->
+    <div id="content" class="hidden">
 
     <div id="site-nav"></div>
     <script src="../components.js" data-active="blog"></script>
@@ -235,12 +255,12 @@
 
 
             <!-- ══════════════════════════════════════════════
-                 BLOCK 3: WAS ICH VERÄNDERT HABE
+                 BLOCK 3: WAS ICH MIR VORNEHME
                  ══════════════════════════════════════════════ -->
 
-            <h2>Was ich verändert habe</h2>
+            <h2>Was ich mir vornehme</h2>
 
-            <p>Seit ich mit v0, Bolt und Claude Code arbeite, baue ich Prototypen selbst, die ich früher beim Design-Team in Auftrag gegeben hätte. Aber ich achte bewusst darauf, WAS ich baue: Landing Pages für Demand-Tests, klickbare Flows für Stakeholder-Demos, Coded Prototypen für technische Machbarkeitsprüfungen. Was ich nicht baue: finale UI-Designs, Micro-Interactions, Design-System-Komponenten. Das ist Designarbeit und bleibt es.</p>
+            <p>Seit ich mit v0, Bolt und Claude Code arbeite, möchte ich Prototypen selbst bauen, die ich früher beim Design-Team in Auftrag gegeben hätte. Dabei will ich bewusst darauf achten, WAS ich baue: Landing Pages für Demand-Tests, klickbare Flows für Stakeholder-Demos, Coded Prototypen für technische Machbarkeitsprüfungen. Was ich nicht bauen will: finale UI-Designs, Micro-Interactions, Design-System-Komponenten. Das ist Designarbeit und soll es bleiben. Ob diese Grenzziehung in der Praxis hält, muss ich noch herausfinden.</p>
 
             <p>Die grösste Veränderung ist die Geschwindigkeit. Eine Produkthypothese morgens formulieren, mittags einen testbaren Prototyp haben, abends erstes Feedback auswerten. Das war vor zwei Jahren undenkbar. Aber die Geschwindigkeit ist nur dann wertvoll, wenn die Hypothese stimmt. Schnell das Falsche bauen ist nicht besser als langsam das Falsche bauen.</p>
 
@@ -251,7 +271,7 @@
 
             <h2>Kritische Einordnung</h2>
 
-            <p>Die Verschmelzung von PM- und Design-Prototyping funktioniert vor allem in kleinen Teams, Startups und Solo-Kontexten. In grossen Teams mit starkem Design ist PM-Prototyping oft verschwendete Zeit, weil Designerinnen dasselbe schneller und besser können. Es gibt auch das Risiko der Hybridrolle: PMs, die "auch Designerin spielen", werden weder der einen noch der anderen Rolle gerecht. Designer haben eine Ausbildung in visueller Kommunikation, Typografie und Interaktionsdesign, die kein KI-Tool ersetzt. Die Demokratisierung der Werkzeuge demokratisiert nicht automatisch die Perspektive.</p>
+            <p>Ob die Verschmelzung von PM- und Design-Prototyping langfristig funktioniert, hängt stark vom Kontext ab. In grossen Teams mit starkem Design könnte PM-Prototyping verschwendete Zeit sein, weil Designerinnen dasselbe schneller und besser können. Es bleibt auch das Risiko der Hybridrolle: PMs, die "auch Designerin spielen", werden möglicherweise weder der einen noch der anderen Rolle gerecht. Designer haben eine Ausbildung in visueller Kommunikation, Typografie und Interaktionsdesign, die kein KI-Tool ersetzt. Die Demokratisierung der Werkzeuge demokratisiert nicht automatisch die Perspektive &mdash; das wird sich erst noch beweisen müssen.</p>
 
 
             <!-- ══════════════════════════════════════════════
@@ -318,6 +338,30 @@
     </div>
 
     <div id="site-footer"></div>
+
+    </div>
+
+    <script>
+        // Simple client-side gate — not real security, just keeps casual visitors out
+        const PASS = 'Lagerfeuer2026';
+
+        if (sessionStorage.getItem('drafts-auth') === 'true') {
+            document.getElementById('gate').classList.add('hidden');
+            document.getElementById('content').classList.remove('hidden');
+        }
+
+        function checkPass() {
+            const input = document.getElementById('pass').value;
+            if (input === PASS) {
+                sessionStorage.setItem('drafts-auth', 'true');
+                document.getElementById('gate').classList.add('hidden');
+                document.getElementById('content').classList.remove('hidden');
+            } else {
+                document.getElementById('error').classList.remove('hidden');
+            }
+            return false;
+        }
+    </script>
 
 </body>
 

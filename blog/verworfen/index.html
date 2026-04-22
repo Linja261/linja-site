@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Verworfen – Linja Scharffetter</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <!-- Gate -->
+    <div id="gate" class="min-h-screen flex items-center justify-center px-6">
+        <div class="max-w-sm w-full text-center">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Verworfen</p>
+            <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
+            <form onsubmit="return checkPass()">
+                <input type="password" id="pass" placeholder="Passwort" autofocus
+                    class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3"
+                    style="border-color: #E5E2DB;">
+                <button type="submit"
+                    class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">
+                    Öffnen
+                </button>
+            </form>
+            <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
+        </div>
+    </div>
+
+    <!-- Article List (hidden until authenticated) -->
+    <div id="articles" class="hidden">
+        <div class="max-w-[680px] mx-auto px-8 pt-28 pb-20">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">Blog Archiv</p>
+                    <h1 class="source-serif text-2xl text-stone-900">Verworfene Artikel</h1>
+                </div>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #f5e6e6; color: #8b3a3a;">Verworfen</span>
+            </div>
+
+            <p class="text-sm text-stone-400 mb-8">Diese Artikel wurden aus dem Live-Blog zurückgezogen. Nur über diese URL erreichbar, nicht indexiert, nicht verlinkt.</p>
+
+            <div class="space-y-4" id="article-list">
+
+                <!-- 1: Claude Code Leak -->
+                <a href="claude-code-leak.html" class="block bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Produktivität</span>
+                        <span class="text-[0.68rem] text-stone-400">1. April 2026</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-0.5 rounded" style="background: #f5e6e6; color: #8b3a3a;">VERWORFEN</span>
+                    </div>
+                    <h2 class="source-serif text-lg text-stone-900 mb-1">Was der Claude-Code-Leak wirklich zeigt</h2>
+                    <p class="text-sm text-stone-400">Analyse des geleakten Claude-Code System-Prompts und was er über die Zukunft von KI-Assistenten verrät.</p>
+                </a>
+
+                <!-- 2: Langsamkeit -->
+                <a href="langsamkeit.html" class="block bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Reflexion &amp; Lebenskunst</span>
+                        <span class="text-[0.68rem] text-stone-400">26. März 2026</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-0.5 rounded" style="background: #f5e6e6; color: #8b3a3a;">VERWORFEN</span>
+                    </div>
+                    <h2 class="source-serif text-lg text-stone-900 mb-1">Was mich ein Roman über Langsamkeit über KI gelehrt hat</h2>
+                    <p class="text-sm text-stone-400">Sten Nadolnys Roman handelt von einem Mann, der langsamer denkt als alle um ihn herum. Was das für die Arbeit mit KI bedeutet.</p>
+                </a>
+
+                <!-- 3: KnowledgeOS LinkedIn -->
+                <a href="knowledgeos-linkedin.html" class="block bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Produktivität</span>
+                        <span class="text-[0.68rem] text-stone-400">24. März 2026</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-0.5 rounded" style="background: #f5e6e6; color: #8b3a3a;">VERWORFEN</span>
+                    </div>
+                    <h2 class="source-serif text-lg text-stone-900 mb-1">KnowledgeOS — LinkedIn Visual</h2>
+                    <p class="text-sm text-stone-400">LinkedIn-optimierte Visualisierung des KnowledgeOS-Konzepts.</p>
+                </a>
+
+                <!-- 4: Discovery -->
+                <a href="discovery.html" class="block bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                        <span class="text-[0.68rem] text-stone-400">23. März 2026</span>
+                        <span class="font-mono text-[0.6rem] px-2 py-0.5 rounded" style="background: #f5e6e6; color: #8b3a3a;">VERWORFEN</span>
+                    </div>
+                    <h2 class="source-serif text-lg text-stone-900 mb-1">Discovery, die Unternehmen gründet</h2>
+                    <p class="text-sm text-stone-400">Wie Teresa Torres' Discovery-Framework nicht nur Produkte, sondern ganze Unternehmen formen kann.</p>
+                </a>
+
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #E5E2DB;">
+                <a href="../../blog.html" class="text-sm transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Zurück zum Blog</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple client-side gate — not real security, just keeps casual visitors out
+        const PASS = 'Lagerfeuer2026';
+
+        // Check if already authenticated
+        if (sessionStorage.getItem('verworfen-auth') === 'true') {
+            document.getElementById('gate').classList.add('hidden');
+            document.getElementById('articles').classList.remove('hidden');
+        }
+
+        function checkPass() {
+            const input = document.getElementById('pass').value;
+            if (input === PASS) {
+                sessionStorage.setItem('verworfen-auth', 'true');
+                document.getElementById('gate').classList.add('hidden');
+                document.getElementById('articles').classList.remove('hidden');
+            } else {
+                document.getElementById('error').classList.remove('hidden');
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

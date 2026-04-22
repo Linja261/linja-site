@@ -42,14 +42,15 @@ Es klingt kontraintuitiv: Bau zuerst das Sichtbare, dann den Rest. Aber genau so
   - Schritte dokumentieren: Was haben wir wann gebaut? Warum in dieser Reihenfolge?
   - Was wäre passiert, wenn wir klassisch vorgegangen wären? (Schätzung: 3x länger, weniger Iteration)
 
-### Block 3: Was ich verändert habe (~100-200 Wörter)
-Konkret: Wie Linja jetzt an Projekte rangeht. "Erst das Sichtbare, dann die Logik." Wie sich das auf linja.me, CV-Site und MatGrid ausgewirkt hat. Was sich verändert hat, seit KI das möglich macht.
+### Block 3: Was ich mir vornehme (~100-200 Wörter)
+Zukunftsgerichtet und demütig: Was Linja sich vornimmt, auszuprobieren. "Ich möchte künftig mit dem Sichtbaren starten." Wie sie dieses Prinzip auf weitere Projekte übertragen will. Formuliert als Vorsatz — das Ergebnis muss sich erst noch zeigen.
 
 ### Block 4: Kritische Einordnung (~100-150 Wörter)
-- Funktioniert nicht für alles. Sicherheitskritische Systeme, komplexe Backend-Logik, regulierte Branchen brauchen andere Reihenfolgen.
-- Risiko: "Schöne Fassade, nichts dahinter." Ergebnis-First heißt nicht UI-Only. Es heißt, das Sichtbare als Steuerungsinstrument nutzen.
-- Skaliert das in großen Teams? Oder ist es ein Solo/Kleinteam-Ansatz?
-- Design Debt: Wenn du direkt am Ergebnis baust, entsteht technische und Design-Schuld.
+Zukunftsgerichtet und demütig formuliert:
+- Funktioniert vermutlich nicht für alles. Sicherheitskritische Systeme, komplexe Backend-Logik brauchen möglicherweise andere Reihenfolgen.
+- Risiko der schönen Fassade — ob sich das vermeiden lässt, muss sich zeigen.
+- Skaliert das in großen Teams? Bleibt abzuwarten.
+- Design Debt: Kann langfristig teuer werden — die Frage ist offen.
 
 ### Block 5: Was bleibt für jeden Tag (~50-100 Wörter)
 - **Zeige das Ergebnis, bevor du den Weg erklärst.** Stakeholder, Teams und du selbst profitieren vom Sichtbaren.

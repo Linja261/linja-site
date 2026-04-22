@@ -46,14 +46,15 @@ Design Thinking hat 5 Phasen: Empathize, Define, Ideate, Prototype, Test. In Wor
 - Abends: Test-Vorbereitung + erste KI-simulierte Reaktionen (1h)
 - **Gesamtzeit: ~7h von Idee bis testbarem Prototyp**
 
-### Block 3: Was ich verändert habe (~100-200 Wörter)
-Der konkrete "Tinder für Mütter" Durchlauf als Dokumentation: Was haben wir in jeder Phase gemacht? Welche Tools eingesetzt? Wo war KI der Turbo, wo die Bremse? Was hätte klassisch Tage gedauert?
+### Block 3: Was ich mir vornehme (~100-200 Wörter)
+Zukunftsgerichtet und demütig: Was Linja beim nächsten Design-Thinking-Sprint mit KI ausprobieren möchte. Formuliert als Vorsatz — ob die Geschwindigkeit tatsächlich bessere Ergebnisse liefert, muss sich erst zeigen.
 
 ### Block 4: Kritische Einordnung (~100-150 Wörter)
-- Design Thinking lebt von Iteration. Ein Tag reicht für einen Durchlauf, nicht für tiefe Iteration.
-- Empathize mit KI ≠ Empathize mit echten Nutzern. KI komprimiert Desk Research, aber ersetzt keine Feldarbeit.
-- Risiko: Die Geschwindigkeit verführt dazu, die Denkarbeit zu überspringen.
-- Funktioniert am besten, wenn du selbst Domänenwissen mitbringst (Stichwort: Intuition als PM).
+Zukunftsgerichtet und demütig formuliert:
+- Design Thinking lebt von Iteration. Ob ein Tag für mehr als einen Durchlauf reicht, bleibt offen.
+- Empathize mit KI ≠ Empathize mit echten Nutzern. KI komprimiert Desk Research, ersetzt aber vermutlich keine Feldarbeit.
+- Risiko: Die Geschwindigkeit könnte dazu verführen, die Denkarbeit zu überspringen.
+- Funktioniert vermutlich am besten mit bestehendem Domänenwissen.
 
 ### Block 5: Was bleibt für jeden Tag (~50-100 Wörter)
 - **Die Denkarbeit bleibt bei dir.** KI beschleunigt alles außer Empathie und Entscheidung.
