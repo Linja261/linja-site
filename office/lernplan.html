@@ -18,7 +18,11 @@
             colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691' } },
         } } }
     </script>
-    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        .skill-tag-active { background: #7b6ba5 !important; color: white !important; }
+        .skill-highlight { outline: 2px solid #7b6ba5; outline-offset: 2px; }
+    </style>
 </head>
 <body style="background: #FAFAF8;" class="font-sans text-stone-700">
 
@@ -29,85 +33,349 @@
 
         <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
 
-            <header class="mb-10">
+            <header class="mb-8">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Lernplan</p>
-                <h1 class="source-serif text-3xl text-stone-900 mb-2">Now · Next · Later</h1>
-                <p class="text-sm text-stone-500">Mittelfristige Lernpfade (Quartal+). Wochenziele leben unter <a href="ziele.html" class="text-violet-400 hover:text-violet-500">Ziele</a>.</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Q2 2026 — PM Team-Lead-Ready</h1>
+                <p class="text-sm text-stone-500">10 Wochen, 1 Hauptstrang/Monat. Quelle: <span class="font-mono text-[0.7rem]">20_IDENTITY/05_Growth/Lernplan_Q2_2026_TeamLead_KI.md</span></p>
             </header>
 
-            <!-- Quick-Add -->
-            <section class="mb-10 bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
-                <form id="add-form" class="grid grid-cols-1 md:grid-cols-[1fr_1fr_140px_1fr_auto] gap-2">
-                    <input type="text" id="add-skill" placeholder="Lernfeld / Skill" maxlength="80" required
-                        class="px-4 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
-                        style="border-color: #E5E2DB;">
-                    <input type="text" id="add-target" placeholder="Zielzustand kurz" maxlength="160"
-                        class="px-4 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
-                        style="border-color: #E5E2DB;">
-                    <select id="add-lane"
-                        class="px-4 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
-                        style="border-color: #E5E2DB;">
-                        <option value="now">Now</option>
-                        <option value="next">Next</option>
-                        <option value="later">Later</option>
-                    </select>
-                    <input type="text" id="add-vault" placeholder="Vault-Pfad (optional)" maxlength="200"
-                        class="px-4 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
-                        style="border-color: #E5E2DB;">
-                    <button type="submit" class="bg-violet-400 hover:bg-violet-500 text-white font-medium px-5 py-2.5 rounded-lg text-sm transition-all">+ Add</button>
-                </form>
+            <!-- Theme Box -->
+            <section class="mb-8 rounded-xl p-5 md:p-6" style="background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%); border: 1px solid #d9d1e5;">
+                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Theme</p>
+                <p class="text-stone-800 text-sm md:text-base">Nicht "KI-Master werden", sondern: Mit reproduzierbarem KI-First-Workflow + lateraler Führungs-Praxis am Tag 1 als Team Lead handlungsfähig sein.</p>
             </section>
 
-            <!-- Lanes -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <section data-lane="now">
-                    <div class="flex items-center justify-between mb-3">
-                        <h2 class="source-serif text-base text-stone-900">Now</h2>
-                        <span id="cnt-now" class="font-mono text-xs text-stone-400"></span>
+            <!-- Sparring + Challenge collapsible -->
+            <section class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <details class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <summary class="cursor-pointer font-mono text-[0.65rem] tracking-wider uppercase text-violet-400">Sparring-Schärfung</summary>
+                    <div class="mt-3 text-sm text-stone-600 space-y-2">
+                        <p><strong class="text-stone-800">Rolle:</strong> Hiring Manager der Team-Lead-Position.</p>
+                        <p><strong class="text-stone-800">Pitch:</strong> "Ich nutze 10 Wochen, um KI-First-Workflows für Discovery, Spec, Stakeholder-Updates zu konsolidieren und Lateral Leadership in echten Situationen (MatGrid, AG Service) zu üben — am Tag 1 lieferbar."</p>
+                        <p><strong class="text-stone-800">Geschärft:</strong> Statt "KI-Setup" → "KI-First-Workflow für Discovery, Spec, Stakeholder-Updates". Pro Monat 1 Outcome, das im Bewerbungsgespräch zeigbar ist.</p>
                     </div>
-                    <ul id="lane-now" class="space-y-2"></ul>
-                </section>
-                <section data-lane="next">
-                    <div class="flex items-center justify-between mb-3">
-                        <h2 class="source-serif text-base text-stone-900">Next</h2>
-                        <span id="cnt-next" class="font-mono text-xs text-stone-400"></span>
+                </details>
+                <details class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <summary class="cursor-pointer font-mono text-[0.65rem] tracking-wider uppercase" style="color: #a86340;">Challenge — Killer-Fragen</summary>
+                    <div class="mt-3 text-sm text-stone-600 space-y-2">
+                        <ol class="list-decimal pl-5 space-y-1">
+                            <li>Wenn du nur EINE Sache bis 1. Juli "ready" haben könntest — welche?</li>
+                            <li>Wer sind die ersten 3 Stakeholder im Job, und welcher Skill macht den größten Unterschied im ersten Monat?</li>
+                            <li>Was ist dein KI-Setup, das du im 30-Sek-Pitch erklären kannst?</li>
+                        </ol>
+                        <p class="text-xs text-stone-500 mt-3"><strong style="color: #a86340;">Größtes Red Flag:</strong> Verführung zum "Noch ein KI-Tool ausprobieren". Bei jedem Tool-Impuls: "Verbessert das einen meiner 3 Workflows messbar, oder bin ich gerade in System 1?"</p>
                     </div>
-                    <ul id="lane-next" class="space-y-2"></ul>
+                </details>
+            </section>
+
+            <!-- Skill-Filter Bar -->
+            <section class="mb-6">
+                <div class="flex items-center gap-2 flex-wrap">
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400">Filter:</span>
+                    <button onclick="clearSkillFilter()" id="skill-clear" class="font-mono text-[0.65rem] px-2 py-1 rounded text-stone-400 hover:text-stone-700 hidden">✕ Filter aus</button>
+                    <div id="skill-tags" class="flex items-center gap-1.5 flex-wrap"></div>
+                </div>
+            </section>
+
+            <!-- Q2 Months -->
+            <div id="q2-months" class="space-y-4 mb-12"></div>
+
+            <!-- Daily Practices -->
+            <section class="mb-12">
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Daily Practices</h2>
+                <p class="text-sm text-stone-500 mb-4">~15 min/Tag. Hygiene, nicht zusätzlich.</p>
+                <div id="daily-practices" class="grid grid-cols-1 md:grid-cols-3 gap-3"></div>
+            </section>
+
+            <!-- Adhoc Now/Next/Later -->
+            <section class="mb-8 mt-16">
+                <h2 class="source-serif text-xl text-stone-900 mb-2">Adhoc-Items</h2>
+                <p class="text-sm text-stone-500 mb-6">Now · Next · Later für alles, was außerhalb des Q2-Plans aufkommt.</p>
+
+                <!-- Quick-Add -->
+                <section class="mb-6 bg-white border rounded-xl p-5 md:p-6" style="border-color: #E5E2DB;">
+                    <form id="add-form" class="grid grid-cols-1 md:grid-cols-[1fr_1fr_140px_1fr_auto] gap-2">
+                        <input type="text" id="add-skill" placeholder="Lernfeld / Skill" maxlength="80" required
+                            class="px-4 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
+                            style="border-color: #E5E2DB;">
+                        <input type="text" id="add-target" placeholder="Zielzustand kurz" maxlength="160"
+                            class="px-4 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
+                            style="border-color: #E5E2DB;">
+                        <select id="add-lane"
+                            class="px-4 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
+                            style="border-color: #E5E2DB;">
+                            <option value="now">Now</option>
+                            <option value="next">Next</option>
+                            <option value="later">Later</option>
+                        </select>
+                        <input type="text" id="add-vault" placeholder="Vault-Pfad (optional)" maxlength="200"
+                            class="px-4 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300"
+                            style="border-color: #E5E2DB;">
+                        <button type="submit" class="bg-violet-400 hover:bg-violet-500 text-white font-medium px-5 py-2.5 rounded-lg text-sm transition-all">+ Add</button>
+                    </form>
                 </section>
-                <section data-lane="later">
-                    <div class="flex items-center justify-between mb-3">
-                        <h2 class="source-serif text-base text-stone-900">Later</h2>
-                        <span id="cnt-later" class="font-mono text-xs text-stone-400"></span>
-                    </div>
-                    <ul id="lane-later" class="space-y-2"></ul>
-                </section>
-            </div>
+
+                <!-- Lanes -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <section data-lane="now">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="source-serif text-base text-stone-900">Now</h3>
+                            <span id="cnt-now" class="font-mono text-xs text-stone-400"></span>
+                        </div>
+                        <ul id="lane-now" class="space-y-2"></ul>
+                    </section>
+                    <section data-lane="next">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="source-serif text-base text-stone-900">Next</h3>
+                            <span id="cnt-next" class="font-mono text-xs text-stone-400"></span>
+                        </div>
+                        <ul id="lane-next" class="space-y-2"></ul>
+                    </section>
+                    <section data-lane="later">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="source-serif text-base text-stone-900">Later</h3>
+                            <span id="cnt-later" class="font-mono text-xs text-stone-400"></span>
+                        </div>
+                        <ul id="lane-later" class="space-y-2"></ul>
+                    </section>
+                </div>
+            </section>
 
         </main>
     </div>
 
     <script src="office.js?v=2" data-active="lernplan"></script>
     <script>
-        var LANES = ['now', 'next', 'later'];
-        var LANE_LABELS = { now: 'Now', next: 'Next', later: 'Later' };
+        // ============================================
+        // Q2-PLAN definition (statisch aus Vault-File)
+        // ============================================
+        var Q2_PLAN = [
+            {
+                id: 'april',
+                label: 'April-Rest',
+                period: 'KW 17-18 · 24.04.–04.05.',
+                theme: 'Foundation: 2 KI-Workflows konsolidieren',
+                outcome: '2 Playbooks live demonstrierbar im Bewerbungsgespräch',
+                openByDefault: true,
+                items: [
+                    { id: 'apr-1', label: 'Mi 30.04. (2h): Workflow 1 ziehen — Discovery-Interview-Synthese mit Claude (Pattern + Template + AG-Service-Beispiel)', tags: ['KI-Workflow', 'Synthesis'] },
+                    { id: 'apr-2', label: 'Fr 02.05. (2.5h): Workflow 2 ziehen — Spec-Writing First-Draft mit Claude (Pattern + Template + MatGrid-Beispiel)', tags: ['KI-Workflow', 'Spec'] },
+                    { id: 'apr-3', label: 'Sa 03.05. (30 min): Beide Playbooks committen + 1-Satz-Pitch in methodik_und_handwerk.md ergänzen', tags: ['CV-Pflege'] },
+                ],
+            },
+            {
+                id: 'mai',
+                label: 'Mai',
+                period: 'KW 19-22 · 05.05.–01.06.',
+                theme: 'Lateral Leadership in echten Situationen',
+                outcome: '4 dokumentierte Lateral-Moves + 1 Polarity-Diagnose bei MatGrid',
+                openByDefault: false,
+                items: [
+                    { id: 'mai-1', label: 'KW 19 Mi (2h): "Polarity Thinking" Kapitel 1-3 (Barry Johnson) lesen + Notizen', tags: ['Polarity', 'Reading'] },
+                    { id: 'mai-2', label: 'KW 19 Fr (2.5h): 1 konkretes Spannungsfeld bei MatGrid mappen (Speed vs. Qualität, Pilot-Tiefe vs. Pilot-Breite)', tags: ['Polarity', 'Diagnose'] },
+                    { id: 'mai-3', label: 'KW 20 Mi (2h): 1 Stakeholder-Konflikt bei MatGrid identifizieren (Jan/David/Stefan)', tags: ['Lateral', 'Stakeholder'] },
+                    { id: 'mai-4', label: 'KW 20 Fr (2.5h): Konflikt moderieren mit Pattern aus Lernfeld 4 + dokumentieren', tags: ['Lateral', 'Moderation'] },
+                    { id: 'mai-5', label: 'KW 21 Mi (2h): Entscheidungs-Architektur für 1 MatGrid-Teilbereich entwerfen (z.B. Pilot-Onboarding)', tags: ['Decision-Architecture'] },
+                    { id: 'mai-6', label: 'KW 21 Fr (2.5h): Mit Jan/David besprechen + iterieren', tags: ['Decision-Architecture', 'Stakeholder'] },
+                    { id: 'mai-7', label: 'KW 22 Mi (2h): 4 Patterns sammeln (jede Woche 1) als Notizen', tags: ['Reflexion'] },
+                    { id: 'mai-8', label: 'KW 22 Fr (2.5h): Patterns konsolidieren + in Patterns_&_Insights.md schreiben', tags: ['Reflexion', 'CV-Material'] },
+                ],
+            },
+            {
+                id: 'juni',
+                label: 'Juni',
+                period: 'KW 23-26 · 02.06.–30.06.',
+                theme: 'Onboarding-Setup für den neuen Job',
+                outcome: 'Vollständige 30/60/90-Tage-Toolbox bereit für Tag 1',
+                openByDefault: false,
+                items: [
+                    { id: 'jun-1', label: 'KW 23 Mi (2h): Domain-Snapshot für angenommenen Arbeitgeber: Marktstand, Top-3-Player, Tech-Trends, Hauptkundenprobleme', tags: ['Domain-Wissen'] },
+                    { id: 'jun-2', label: 'KW 23 Fr (2.5h): Domain-Snapshot in 30_KNOWLEDGE/02_Domain/ ablegen', tags: ['Domain-Wissen'] },
+                    { id: 'jun-3', label: 'KW 24 Mi (2h): 30/60/90-Tage-Plan-Template (basiert auf "The First 90 Days" Watkins)', tags: ['Onboarding'] },
+                    { id: 'jun-4', label: 'KW 24 Fr (2.5h): Erste Stakeholder-Hypothesen für die Rolle (Wer? Was wollen sie? Wo Reibung?)', tags: ['Onboarding', 'Stakeholder-Map'] },
+                    { id: 'jun-5', label: 'KW 25 Mi (2h): KI-Adoption-Strategie für das Team — Welcher Workflow kommt wann ein? Buy-in-Plan?', tags: ['Adoption', 'Politik'] },
+                    { id: 'jun-6', label: 'KW 25 Fr (2.5h): Risiken durchdenken — Was tust du, wenn das Team gegen KI-Tools ist?', tags: ['Adoption', 'Politik'] },
+                    { id: 'jun-7', label: 'KW 26 Mi (2h): Mock-1:1-Skripte für die ersten 5 Team-Mitglieder (offene Fragen)', tags: ['Onboarding', '1:1'] },
+                    { id: 'jun-8', label: 'KW 26 Fr (2.5h): Energy-Plan (ADHS-kompatibel) — Tagesrhythmus, Kalenderschutz, Pausen, Daily Practices im Job', tags: ['Self-Care', 'Sustainability'] },
+                ],
+            },
+        ];
 
+        var DAILY = [
+            { id: 'fragepause', label: 'Frage-Pause vor Prompt', desc: '10 Sek vor jedem Claude-Prompt' },
+            { id: 'angebot', label: 'Angebot statt Forderung', desc: '1x/Tag bewusst formulieren' },
+            { id: 'eodcheck', label: 'EoD-Check', desc: 'War ich heute eher System 1 oder 2?' },
+        ];
+
+        // ============================================
+        // Helpers
+        // ============================================
         function escapeHtml(s) {
             return String(s || '').replace(/[&<>"']/g, function (m) {
                 return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
             });
         }
 
-        function nextLane(l) {
-            var i = LANES.indexOf(l);
-            return LANES[(i + 1) % LANES.length];
+        function getQ2Checks() { return window.officeStore.get('q2plan-checks', {}); }
+        function setQ2Checks(c) { window.officeStore.set('q2plan-checks', c); }
+        function getDaily() { return window.officeStore.get('daily-practices', {}); }
+        function setDaily(d) { window.officeStore.set('daily-practices', d); }
+
+        function allTags() {
+            var tags = {};
+            Q2_PLAN.forEach(function (m) { m.items.forEach(function (it) { (it.tags || []).forEach(function (t) { tags[t] = (tags[t] || 0) + 1; }); }); });
+            return tags;
         }
 
-        function prevLane(l) {
-            var i = LANES.indexOf(l);
-            return LANES[(i - 1 + LANES.length) % LANES.length];
+        var activeFilter = null;
+
+        // ============================================
+        // Render Q2 Months
+        // ============================================
+        function renderQ2() {
+            var checks = getQ2Checks();
+            var container = document.getElementById('q2-months');
+
+            container.innerHTML = Q2_PLAN.map(function (m) {
+                var doneCount = m.items.filter(function (it) { return checks[it.id] && checks[it.id].checked; }).length;
+                var totalCount = m.items.length;
+                var pct = Math.round(100 * doneCount / totalCount);
+
+                var itemsHtml = m.items.map(function (it) {
+                    var isChecked = !!(checks[it.id] && checks[it.id].checked);
+                    var matchesFilter = !activeFilter || (it.tags || []).indexOf(activeFilter) >= 0;
+                    var highlightCls = (activeFilter && matchesFilter) ? ' skill-highlight' : '';
+                    var dimCls = (activeFilter && !matchesFilter) ? ' opacity-30' : '';
+                    var checkboxCls = isChecked ? 'bg-violet-400 border-violet-400' : 'bg-white border-stone-300';
+                    var checkSvg = isChecked ? '<svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>' : '';
+                    var labelCls = isChecked ? 'text-stone-400 line-through' : 'text-stone-800';
+                    var tagsHtml = (it.tags || []).map(function (t) {
+                        var tagActive = (activeFilter === t) ? 'skill-tag-active' : '';
+                        return '<button onclick="toggleSkillFilter(\'' + escapeHtml(t).replace(/\'/g,'\\\'') + '\')" class="skill-tag font-mono text-[0.6rem] px-2 py-0.5 rounded bg-violet-50 text-violet-400 hover:bg-violet-100 ' + tagActive + '">' + escapeHtml(t) + '</button>';
+                    }).join(' ');
+                    return '<li class="flex items-start gap-3 px-4 py-3 bg-white border rounded-lg group' + dimCls + highlightCls + '" style="border-color: #E5E2DB;">'
+                        + '<button onclick="toggleQ2Item(\'' + it.id + '\')" class="w-5 h-5 mt-0.5 rounded border flex items-center justify-center transition-all flex-shrink-0 ' + checkboxCls + '">' + checkSvg + '</button>'
+                        + '<div class="flex-1 min-w-0">'
+                        + '<div class="text-sm ' + labelCls + '">' + escapeHtml(it.label) + '</div>'
+                        + (tagsHtml ? '<div class="mt-2 flex items-center gap-1 flex-wrap">' + tagsHtml + '</div>' : '')
+                        + '</div>'
+                        + '</li>';
+                }).join('');
+
+                var openAttr = m.openByDefault ? ' open' : '';
+                return '<details' + openAttr + ' class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">'
+                    + '<summary class="cursor-pointer p-5 md:p-6 hover:bg-stone-50">'
+                    + '<div class="flex items-start justify-between gap-4 flex-wrap">'
+                    + '<div class="flex-1 min-w-0">'
+                    + '<p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">' + escapeHtml(m.period) + '</p>'
+                    + '<h2 class="source-serif text-lg text-stone-900 mb-1">' + escapeHtml(m.label) + ' — ' + escapeHtml(m.theme) + '</h2>'
+                    + '<p class="text-xs text-stone-500"><strong>Outcome:</strong> ' + escapeHtml(m.outcome) + '</p>'
+                    + '</div>'
+                    + '<div class="text-right flex-shrink-0">'
+                    + '<div class="font-mono text-2xl text-stone-900">' + doneCount + '/' + totalCount + '</div>'
+                    + '<div class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400">' + pct + '% done</div>'
+                    + '</div>'
+                    + '</div>'
+                    + '</summary>'
+                    + '<div class="px-5 md:px-6 pb-5 md:pb-6 pt-0">'
+                    + '<ul class="space-y-2">' + itemsHtml + '</ul>'
+                    + '</div>'
+                    + '</details>';
+            }).join('');
         }
 
-        function renderAll() {
+        window.toggleQ2Item = function (id) {
+            var checks = getQ2Checks();
+            var was = !!(checks[id] && checks[id].checked);
+            checks[id] = { checked: !was, checkedAt: !was ? new Date().toISOString() : null };
+            setQ2Checks(checks);
+            renderQ2();
+        };
+
+        // ============================================
+        // Skill-Filter
+        // ============================================
+        function renderSkillTags() {
+            var tags = allTags();
+            var container = document.getElementById('skill-tags');
+            container.innerHTML = Object.keys(tags).sort().map(function (t) {
+                var isActive = (activeFilter === t);
+                return '<button onclick="toggleSkillFilter(\'' + escapeHtml(t).replace(/\'/g,'\\\'') + '\')" class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400 hover:bg-violet-100 ' + (isActive ? 'skill-tag-active' : '') + '">' + escapeHtml(t) + ' <span class="text-stone-400 ml-1">' + tags[t] + '</span></button>';
+            }).join('');
+            document.getElementById('skill-clear').classList.toggle('hidden', !activeFilter);
+        }
+
+        window.toggleSkillFilter = function (t) {
+            activeFilter = (activeFilter === t) ? null : t;
+            renderSkillTags();
+            renderQ2();
+        };
+
+        window.clearSkillFilter = function () {
+            activeFilter = null;
+            renderSkillTags();
+            renderQ2();
+        };
+
+        // ============================================
+        // Daily Practices
+        // ============================================
+        function todayKey() { return new Date().toISOString().slice(0, 10); }
+
+        function streakOf(practiceId) {
+            var d = getDaily();
+            var streak = 0;
+            var date = new Date();
+            while (true) {
+                var key = date.toISOString().slice(0, 10);
+                if (d[key] && d[key][practiceId]) { streak++; date.setDate(date.getDate() - 1); }
+                else break;
+            }
+            return streak;
+        }
+
+        function renderDaily() {
+            var d = getDaily();
+            var today = todayKey();
+            var todayState = d[today] || {};
+            var container = document.getElementById('daily-practices');
+            container.innerHTML = DAILY.map(function (p) {
+                var done = !!todayState[p.id];
+                var streak = streakOf(p.id);
+                var btnCls = done ? 'bg-violet-400 text-white border-violet-400' : 'bg-white text-stone-700 border-stone-300';
+                var checkOrCircle = done ? '✓' : '○';
+                var streakBadge = streak > 0 ? '<span class="font-mono text-xs text-violet-400 ml-2">🔥 ' + streak + '</span>' : '';
+                return '<div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">'
+                    + '<div class="flex items-start justify-between mb-2">'
+                    + '<div class="flex-1">'
+                    + '<div class="font-medium text-sm text-stone-900">' + escapeHtml(p.label) + streakBadge + '</div>'
+                    + '<p class="text-xs text-stone-500 mt-1">' + escapeHtml(p.desc) + '</p>'
+                    + '</div>'
+                    + '</div>'
+                    + '<button onclick="toggleDaily(\'' + p.id + '\')" class="mt-3 w-full text-center font-mono text-xs tracking-wider uppercase border rounded-lg py-2 transition-all ' + btnCls + '">' + checkOrCircle + ' Heute</button>'
+                    + '</div>';
+            }).join('');
+        }
+
+        window.toggleDaily = function (id) {
+            var d = getDaily();
+            var today = todayKey();
+            d[today] = d[today] || {};
+            d[today][id] = !d[today][id];
+            setDaily(d);
+            renderDaily();
+        };
+
+        // ============================================
+        // Adhoc Lanes (existing)
+        // ============================================
+        var LANES = ['now', 'next', 'later'];
+        var LANE_LABELS = { now: 'Now', next: 'Next', later: 'Later' };
+
+        function nextLane(l) { var i = LANES.indexOf(l); return LANES[(i + 1) % LANES.length]; }
+        function prevLane(l) { var i = LANES.indexOf(l); return LANES[(i - 1 + LANES.length) % LANES.length]; }
+
+        function renderAdhoc() {
             var all = window.officeStore.get('learningplan', []);
             LANES.forEach(function (lane) {
                 var items = all.filter(function (a) { return a.lane === lane; });
@@ -132,8 +400,7 @@
                         + '<div class="font-medium text-sm text-stone-900">' + escapeHtml(a.skill) + '</div>'
                         + '<button onclick="deleteItem(\'' + a.id + '\')" class="opacity-0 group-hover:opacity-100 text-stone-300 hover:text-red-400 transition-all text-xs">✕</button>'
                         + '</div>'
-                        + target
-                        + vault
+                        + target + vault
                         + '<div class="flex items-center justify-between mt-3 pt-2 border-t" style="border-color: #E5E2DB;">'
                         + backBtn + fwdBtn
                         + '</div>'
@@ -148,18 +415,26 @@
             if (!a) return;
             a.lane = newLane;
             window.officeStore.set('learningplan', all);
-            renderAll();
+            renderAdhoc();
         };
 
         window.deleteItem = function (id) {
             var all = window.officeStore.get('learningplan', []);
             all = all.filter(function (x) { return x.id !== id; });
             window.officeStore.set('learningplan', all);
-            renderAll();
+            renderAdhoc();
         };
 
+        // ============================================
+        // Init
+        // ============================================
         document.addEventListener('DOMContentLoaded', function () {
             if (!window.officeStore) return;
+
+            renderSkillTags();
+            renderQ2();
+            renderDaily();
+            renderAdhoc();
 
             document.getElementById('add-form').addEventListener('submit', function (ev) {
                 ev.preventDefault();
@@ -168,25 +443,18 @@
                 var lane = document.getElementById('add-lane').value;
                 var vault = document.getElementById('add-vault').value.trim();
                 if (!skill) return;
-
                 var all = window.officeStore.get('learningplan', []);
                 all.push({
                     id: 'l' + Date.now() + Math.random().toString(36).slice(2, 6),
-                    skill: skill,
-                    targetState: target,
-                    lane: lane,
-                    vaultPath: vault,
+                    skill: skill, targetState: target, lane: lane, vaultPath: vault,
                     addedAt: new Date().toISOString(),
                 });
                 window.officeStore.set('learningplan', all);
-
                 document.getElementById('add-skill').value = '';
                 document.getElementById('add-target').value = '';
                 document.getElementById('add-vault').value = '';
-                renderAll();
+                renderAdhoc();
             });
-
-            renderAll();
         });
     </script>
 </body>
