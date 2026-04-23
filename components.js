@@ -138,20 +138,20 @@
             if (slot.dataset.mounted) return;
             slot.dataset.mounted = '1';
             var src = slot.getAttribute('data-audio-src');
-            var label = slot.getAttribute('data-audio-label') || '90 Sek hören';
+            var label = slot.getAttribute('data-audio-label') || 'Lieber hören statt lesen? Nutze die kurze Audio-Zusammenfassung.';
             if (!src) return;
 
             slot.innerHTML = '' +
-                '<button type="button" class="reader-pill" aria-label="' + label + ' abspielen" ' +
-                'style="display:inline-flex;align-items:center;gap:0.45rem;padding:0.35rem 0.9rem 0.35rem 0.55rem;' +
+                '<button type="button" class="reader-pill" aria-label="Audio-Zusammenfassung abspielen" ' +
+                'style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.35rem 0.9rem 0.35rem 0.5rem;max-width:100%;' +
                 'border:1px solid #96bfaa;background:transparent;color:#31493d;border-radius:9999px;' +
-                'font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.15s;">' +
+                'font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.15s;white-space:nowrap;overflow:hidden;">' +
                 '<span class="reader-icon" style="display:inline-flex;width:22px;height:22px;border-radius:50%;background:#5b8a72;color:#fff;align-items:center;justify-content:center;flex-shrink:0;">' +
                 '<svg class="reader-play-icon" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>' +
                 '<svg class="reader-pause-icon" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>' +
                 '</span>' +
-                '<span class="reader-label">' + label + '</span>' +
-                '<span class="reader-dur" style="opacity:0.6;font-variant-numeric:tabular-nums;"></span>' +
+                '<span class="reader-label" style="overflow:hidden;text-overflow:ellipsis;min-width:0;">' + label + '</span>' +
+                '<span class="reader-dur" style="opacity:0.6;font-variant-numeric:tabular-nums;flex-shrink:0;"></span>' +
                 '</button>' +
                 '<audio class="reader-audio" preload="metadata" style="display:none;"><source src="' + src + '" type="audio/mpeg"></audio>';
 
