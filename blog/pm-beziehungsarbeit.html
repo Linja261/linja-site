@@ -61,6 +61,8 @@
             scroll-behavior: smooth;
         }
 
+        .lang-hidden { display: none !important; }
+
         #mobile-menu {
             display: none;
         }
@@ -132,8 +134,10 @@
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
         <!-- ======== ARTIKEL-HEADER ======== -->
@@ -297,8 +301,165 @@
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                <span class="text-[0.72rem] text-stone-400">April 20, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Product Work Is Relationship Work. Why the PM role does not disappear in the AI age.
+            </h1>
+        </header>
+
+        <!-- ======== TL;DR ======== -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                AI makes building faster, but not alignment. PMs who see their role as feature specification will be replaced. PMs who do relationship work become more important, because faster building creates more decision points.
+            </p>
+        </div>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
+            <p>AI makes building software faster. Prototypes in hours instead of weeks, code generation in minutes instead of days. But the question of WHAT should be built does not get answered faster, because it is not a technical question. It is a relationship question: stakeholder alignment, navigating competing priorities, creating shared understanding. Teresa Torres and Petra Wille put it clearly: Product Work Is Relationship Work. And relationship work cannot be automated.</p>
+
+            <!-- ══ BLOCK 2: FOUNDATION ══ -->
+            <h2>Transactional versus relational</h2>
+
+            <p>In many organizations, collaboration between PM, design, and engineering runs transactionally: PM writes spec, design delivers mockup, engineering builds. Handoff culture. That works as long as requirements are clear and do not change. But product development under uncertainty (the normal case) requires continuous dialogue, joint learning, and the ability to absorb changes of direction as a team.</p>
+
+            <p>Chris Argyris distinguished in his research on organizational learning between single-loop and double-loop learning. Single-loop corrects errors within existing rules (the spec was wrong, we adjust it). Double-loop questions the rules themselves (are we building the right thing?). Double-loop learning requires psychological safety, openness, and relationships in which dissent is possible. Peter Senge describes the same dynamic in "The Fifth Discipline": learning organizations need dialogue, not discussion. Dialogue seeks understanding, discussion seeks persuasion.</p>
+
+            <!-- ══ COMPARISON CARDS ══ -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">Relational</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-900 mb-3">Dialogue</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Shared understanding, curiosity, "yes, and." Dissent is welcome because it improves the outcome.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #a8a29e; background: #FAFAF8;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3 text-stone-400">Transactional</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-400 mb-3">Handoff</p>
+                    <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Spec, mockup, build. Each role works in isolation. Feedback arrives late, changes of direction are expensive.</p>
+                </div>
+            </div>
+
+            <h2>Curiosity as a product skill</h2>
+
+            <p>Torres and Wille emphasize a skill that rarely appears in PM job ads: curiosity. Not the surface kind ("I'm interested in everything"), but the disciplined curiosity that asks: "What do you know that I do not?" and "What am I not seeing?" The improv principle "yes, and" carries the same attitude. Instead of evaluating ideas, you build on them. That creates spaces where better solutions can emerge than in a process optimized for filtration.</p>
+
+            <p>This attitude is hard to automate because it rests on trust. People do not share their best ideas or their most honest concerns with an AI, and not in a Jira ticket. They share them in conversations where they feel heard. That is the core of relationship work: creating an environment in which honesty is productive.</p>
+
+            <!-- ══ KEY INSIGHT QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    AI can build. But it cannot build the relationships needed to make sure the right thing gets built.
+                </p>
+            </div>
+
+            <h2>What changes with AI (and what does not)</h2>
+
+            <p>Building gets faster. A PM can create a prototype in hours instead of waiting weeks for design resources. Code generation compresses implementation. Analysis tools accelerate research. But alignment does not get faster. Stakeholders still have different priorities. Teams still need shared understanding before they can build effectively. And the question "are we building the right thing?" still requires conversations, not tickets.</p>
+
+            <p>The consequence: PMs who see their role as "feature specification" will actually be replaced, because AI can write specs faster. PMs who see their role as relationship work (creating alignment, navigating priorities, enabling joint learning) become more important. Because faster implementation creates more decision points, and every decision point requires alignment.</p>
+
+            <!-- ══ BLOCK 3: WHAT I WANT TO TRY ══ -->
+            <h2>What I want to try</h2>
+
+            <p>My PM work has always been relationship-first: stakeholder management, cross-functional alignment, creating shared visions. But I think I have underestimated how deliberate this work needs to be. Since I started using AI tools for building, I notice that the time saved in building should flow into alignment work, not into more features. Faster building without better alignment likely produces more output, but not more impact. Going forward, I want to explicitly invest time in "pre-alignment": before I show a prototype, clarify the question the prototype is supposed to answer. Whether this works in practice remains to be seen. At the same time: showing a quick result like a prototype helps discuss the value of an idea and find out whether the problem is sufficiently understood. So I am trying to do pre-alignment cleanly without losing too much time in the process.</p>
+
+            <!-- ══ BLOCK 4: CRITICAL ASSESSMENT ══ -->
+            <h2>Critical assessment</h2>
+
+            <p>The thesis "Product Work Is Relationship Work" can also be read as a defensive argument: PMs defending their relevance by emphasizing the non-automatable part. A fair objection. The research (Argyris, Senge, Edmondson on psychological safety) supports the thesis independently of the PM role, but whether it can be applied in your own organization depends heavily on culture. In organizations with a strongly hierarchical handoff culture, the approach might fall flat. And not every PM has to be a relationship worker. In highly structured environments, process adherence might be more valuable than dialogue. Whether the focus on relationship work really makes the difference will have to prove itself in the specific context.</p>
+
+            <!-- ══ BLOCK 5: WHAT STAYS WITH YOU EVERY DAY ══ -->
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Alignment before artifact.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Clarify the question before you build the prototype. Fast building without alignment produces noise.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Curiosity is a superpower.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">"What do you know that I do not?" opens doors no dashboard shows.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">AI accelerates building, not understanding.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">The time saved on building belongs in relationship work, not in more features.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SOURCES ══ -->
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.producttalk.org" class="hover:text-stone-600 transition-colors" style="color: inherit;">Teresa Torres &amp; Petra Wille (2026). Product Work Is Relationship Work. Podcast.</a></li>
+                    <li><a href="https://www.penguinrandomhouse.com/books/163984/the-fifth-discipline-by-peter-m-senge/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Peter Senge (1990). The Fifth Discipline: The Art &amp; Practice of the Learning Organization. Doubleday.</a></li>
+                    <li><a href="https://doi.org/10.1177/017084069101200201" class="hover:text-stone-600 transition-colors" style="color: inherit;">Chris Argyris (1991). Teaching Smart People How to Learn. Harvard Business Review.</a></li>
+                    <li><a href="https://www.producttalk.org/2021/05/continuous-discovery-habits/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Teresa Torres (2021). Continuous Discovery Habits. Product Talk LLC.</a></li>
+                    <li><a href="https://amzn.eu/d/fN9GWPR" class="hover:text-stone-600 transition-colors" style="color: inherit;">Amy Edmondson (2018). The Fearless Organization. Wiley.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSARY ══ -->
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Stakeholder alignment</span> <span class="text-stone-400">— Shared understanding and agreement on goals and priorities among all parties</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Double-loop learning</span> <span class="text-stone-400">— Learning that does not just correct errors but questions the underlying assumptions (Argyris)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Psychological safety</span> <span class="text-stone-400">— A team climate in which errors and dissent can be expressed without fear (Edmondson)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">"Yes, and"</span> <span class="text-stone-400">— Improv principle: build on ideas instead of evaluating them, dialogue instead of discussion</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Handoff culture</span> <span class="text-stone-400">— A way of working in which results are passed between roles instead of developed jointly</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Learning organization</span> <span class="text-stone-400">— An organization that systematically learns from experience and adapts (Senge)</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <div id="site-footer"></div>
+
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
 
 </body>
 

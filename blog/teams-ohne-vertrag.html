@@ -63,6 +63,8 @@
             scroll-behavior: smooth;
         }
 
+        .lang-hidden { display: none !important; }
+
         #mobile-menu {
             display: none;
         }
@@ -146,8 +148,10 @@
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
         <!-- ======== ARTIKEL-HEADER ======== -->
@@ -448,8 +452,195 @@
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI in Organizations</span>
+                <span class="text-[0.72rem] text-stone-400">April 19, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Teams without a contract. Coordination when AI handles the routing.
+            </h1>
+        </header>
+
+        <!-- ======== TL;DR ======== -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                AI automates information routing, humans take on trust, judgment, and conflict moderation. Loose teams need clear roles instead of titles, lightweight rituals (Friday three-liner, sync every two weeks) and ADRs as shared memory without a contract.
+            </p>
+        </div>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
+            <p>More and more small teams are building products outside classic employment relationships: as founder cells on sabbaticals, as loosely coupled remote groups, as AI-assisted micro-teams. The question of how such teams coordinate has been radically redefined in the past two years. AI tools like Claude Code, Cursor, or integrated team agents remove a large part of the classic coordination overhead: status updates, documentation, process routing. What remains is what AI cannot do. And that is exactly where it is decided whether a loosely coupled team holds together or falls apart. The lever is not hierarchy, but <strong>clear roles plus lightweight rituals</strong>.</p>
+
+            <!-- ══ BLOCK 2: FOUNDATION ══ -->
+            <h2>What AI really takes off the coordination pile</h2>
+
+            <p>Hierarchy is not a cultural phenomenon, it is a response to a practical problem: information flow at scale. Anyone working in a 500-person company needs layers, otherwise every decision lands on everyone's desk. Christoph Keese captured this well in his analysis of the block approach: the real news about AI is not that it automates work, but that it automates <em>coordination routing</em>. Dashboards replace status meetings. Knowledge graphs replace alignment rounds. Claude Code can explain in a repo why decision X was made, as long as someone writes the ADR. That shrinks the classic core of hierarchy: the human function "someone knows who is doing what" can be offloaded to a well-maintained system.</p>
+
+            <p>For loose teams this is good news. They no longer need to rebuild the scaling problems of large organizations with mini-hierarchies. A four-person team today can work with the same transparency mechanisms that used to be reserved for a Head of Operations: knowledge base, architecture decision records, asynchronous updates, automated summaries. What used to be overhead is now standard toolchain.</p>
+
+            <h2>What stays human and why it is critical</h2>
+
+            <p>Here is where the false conclusion kicks in: just because information routing is automated does not mean coordination is solved. Three functions remain that classic hierarchies also fulfilled and that AI can neither replace nor simulate.</p>
+
+            <p>The <strong>trust function</strong>: people work together because they can read each other personally. In a full-time job, salary compensates for a certain share of missing trust. In loose teams without a contract, trust is the only bond. It does not emerge from dashboards, but from presence, from conversations that are sometimes not about work, from the repeated experience that someone does what they say. The <strong>judgment function</strong>: AI can list ten options, but it cannot decide which is the right one when values and interests collide. Someone has to prioritize, push back on favorite ideas, defend the plan against the today-I-feel-like-X. The <strong>moderation function</strong>: conflicts happen even in good teams. They do not resolve through tools, but through someone who names tensions before they escalate.</p>
+
+            <p>The paradox: in large organizations these three functions are often invisible because they are spread across many roles. In loose teams they concentrate on a single person. Usually the one who sees herself as PM or informal founder. This person becomes the glue. If she does not make that explicit, the team falls apart as soon as the first real problem shows up.</p>
+
+            <h2>Why roles matter more in loose teams than in classic ones</h2>
+
+            <p>In a classic employment relationship, everyone knows who is responsible for what: the job description says it, the org chart says it, the contract says it. In loose teams all of that is missing. This is often sold as an advantage ("we are flat and agile"), but in reality it is the most common source of friction. Because without explicit roles, one of two things happens: either nobody feels responsible for a thing, or everybody gets involved in everything. Both cost speed.</p>
+
+            <p>The solution is simpler than the problem. Each core function the product needs (market and customers, engine and domain logic, frontend and UX, optional modules) gets exactly one owner. Not two "jointly", not "rotating". One. The owner decides within their area, consults others when their area collides with another, and carries the result. A lightweight decision protocol (in practice a DACI-light works: Driver, Approver, Contributor, Informed) clarifies who has which role in which decision. Conflicts go to the PM, not because she is the boss, but because neutrality and the whole-picture context sit with her.</p>
+
+            <p>The overall picture becomes clearer: AI takes over routing. Humans take over trust. Both have to run, otherwise you get chaos or control obsession.</p>
+
+            <!-- ══ COMPARISON CARDS ══ -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6"
+                    style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">Delegable to AI</p>
+                    <p class="font-mono text-[1.1rem] font-medium text-stone-900 mb-3">Routing &amp; memory</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Status updates, documentation, architecture memory (ADRs), listing prioritization options, telemetry analysis, meeting notes, project summaries.</p>
+                </div>
+                <div class="border rounded-lg p-6"
+                    style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Human work</p>
+                    <p class="font-mono text-[1.1rem] font-medium text-stone-900 mb-3">Trust &amp; judgment</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Building trust, moderating conflicts, deciding between options when values collide, creating meaning, noticing motivation before it tips.</p>
+                </div>
+            </div>
+
+            <!-- ══ BLOCK 3: WHAT WE ARE TRYING ══ -->
+            <h2>What we are trying out</h2>
+
+            <p>I am currently working in a four-person remote team, without formal employment relationships, everyone in their free time, on a product idea. Because we work at very different hours, we need clear structures. After consulting with Claude, I have drafted rituals and structures that we can now try out. Here too, everyone's motivation is at the center: loose collaboration only works through trust, clear agreements, and focus. Whether the proposal holds, we will know in a few weeks.</p>
+
+            <!-- ══ THREE CHANGES AS CARD GRID ══ -->
+            <div class="space-y-4 my-8">
+
+                <div class="border rounded-lg p-6"
+                    style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-2" style="color: #7b6ba5;">First</p>
+                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">Who decides what, written down explicitly</p>
+                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">We assign each core function to one person, not as a title but as a responsibility. If a decision sits in your area, you decide. If it sits with someone else, you contribute input but do not block. The assumption: this should reduce the most frequent "I thought you were doing that" moments. How well it carries, we will see after the first friction.</p>
+                </div>
+
+                <div class="border rounded-lg p-6"
+                    style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-2" style="color: #7b6ba5;">Second</p>
+                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">A lean ritual stack to test</p>
+                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">Every Friday around 5pm, each person writes a three-liner in the team chat: what I built, what is open, what is blocking me. Every two weeks a 30-minute sync, but only for open decisions; no agenda means we cancel. Once a month a retro. Every four weeks a 15-minute conversation with each person, deliberately not about work but about the human. I see the fourth ritual as the most important. Without it, "flat collaboration" easily becomes "no one asks how you are." Whether the stack carries us or slows us down will show in the coming weeks.</p>
+                </div>
+
+                <div class="border rounded-lg p-6"
+                    style="border-color: #e5e2db; border-left: 4px solid #7b6ba5; background: #f6f4f9;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-2" style="color: #7b6ba5;">Third</p>
+                    <p class="font-semibold text-stone-900 mb-2" style="margin-top: 0;">Capture structural decisions in ADRs</p>
+                    <p class="text-[0.88rem] text-stone-700 leading-relaxed mb-0">ADRs (Architecture Decision Records) are short notes that capture a decision with its context and consequences. We want to use the format not only in the frontend repo and not only for code decisions, but also for product decisions ("the merchant segment drops out of the baseline model"). The thought: in loose teams there is no employment contract, no job description, no onboarding doc. Shared memory emerges only from what gets written down. Whether the team has the discipline to stick with it is the real test.</p>
+                </div>
+
+            </div>
+
+            <!-- ══ BLOCK 4: CRITICAL ASSESSMENT ══ -->
+            <h2>Critical assessment</h2>
+
+            <p>We are starting the experiment in a four-person setup. The model likely only works with small teams. Four is almost ideal, six probably still works, at eight it becomes fragile. A DACI-light matrix stays manageable as long as everyone knows everyone; as soon as subgroups form, more formal structures are needed. On top of that: without a contract, commitment only works as long as personal motivation carries it. If someone earns their salary elsewhere and does projects like this in the evening, the project competes with family, hobby, health. Rituals create social accountability but not existential accountability. That means: once the product reaches a certain maturity, the team has to resolve the contract question, otherwise you lose momentum exactly when you need it. And: ADRs as a habit sound easy, but they are culture work. Everyone writes the first ADR; only the tenth gets written if it has become routine. Whether we keep it up is an open question.</p>
+
+            <!-- ══ BLOCK 5: WHAT STAYS WITH YOU EVERY DAY ══ -->
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Role instead of title.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Each core function should have exactly one owner. Not two, not rotating. Speed hopefully comes from clarity, not consensus.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Ritual instead of control.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Friday three-liner, 30-minute sync every two weeks, monthly retro, 1:1 about the human. Our bet on carrying teams without a contract.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Write decisions down instead of remembering them.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Every decision someone will need to understand later is captured in an ADR (Architecture Decision Record). Not just in code, also in the product. Our substitute for the missing contract.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SOURCES ══ -->
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0"
+                    style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="hierarchie-intelligenz.html" class="hover:text-stone-600 transition-colors"
+                            style="color: inherit;">Scharffetter, Linja (2026). Hierarchy &amp; Intelligence. Why AI redistributes the org chart and what stays human. linja.me/blog.</a></li>
+                    <li><a href="https://www.faz.net" class="hover:text-stone-600 transition-colors"
+                            style="color: inherit;">Keese, Christoph (2026). The block approach: AI as coordination logic beyond classic hierarchies.</a></li>
+                    <li><a href="https://adr.github.io" class="hover:text-stone-600 transition-colors"
+                            style="color: inherit;">Nygard, Michael (2011). Documenting Architecture Decisions. Architecture Decision Records Project.</a></li>
+                    <li><a href="https://hbr.org" class="hover:text-stone-600 transition-colors"
+                            style="color: inherit;">Edmondson, Amy (1999). Psychological Safety and Learning Behavior in Work Teams. Administrative Science Quarterly.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSARY ══ -->
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">ADR</span> <span class="text-stone-400">— Architecture Decision Record: a short note capturing a decision, its context, and its consequences</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">DACI-light</span> <span class="text-stone-400">— Decision protocol: Driver, Approver, Contributor, Informed. A stripped-down RACI variant</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Owner</span> <span class="text-stone-400">— Person responsible for a core function who has final say within that area</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Core function</span> <span class="text-stone-400">— A capability a product or team needs to function</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Information routing</span> <span class="text-stone-400">— The classic hierarchy function: who knows what, when. Increasingly automatable with AI tools</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Psychological safety</span> <span class="text-stone-400">— The feeling that you can share ideas, mistakes, or concerns in a team without fearing a disadvantage (Edmondson)</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800"
+                style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <div id="site-footer"></div>
+
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
 
 </body>
 

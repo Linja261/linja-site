@@ -61,6 +61,8 @@
             scroll-behavior: smooth;
         }
 
+        .lang-hidden { display: none !important; }
+
         #mobile-menu {
             display: none;
         }
@@ -132,8 +134,10 @@
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
         <!-- ======== ARTIKEL-HEADER ======== -->
@@ -336,8 +340,210 @@
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Productivity</span>
+                <span class="text-[0.72rem] text-stone-400">April 16, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Sharing AI context. What I learned from Teresa Torres about Obsidian, Git, and symlinks.
+            </h1>
+        </header>
+
+        <!-- ======== TL;DR ======== -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Context and skills are the investment, sharing them is the infrastructure. Obsidian Sync solves the problem across devices for individuals better than Git and symlinks or Dropbox. The value does not sit in the syncing technology, but in the fact that AI has persistent context.
+            </p>
+        </div>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
+            <p>Most of the time we invest in AI collaboration does not flow into prompts, but into context: rules, work style, project history, files the AI needs to know. Teresa Torres recently described how she shares this context across devices. The underlying insight is simple but consequential: context and skills are the investment. Sharing them across devices and teams is the infrastructure. Anyone who does not build this infrastructure invests from scratch with every new device and every new session.</p>
+
+            <!-- ══ BLOCK 2: FOUNDATION ══ -->
+            <h2>The infrastructure problem</h2>
+
+            <p>AI tools like Claude Code store context locally: CLAUDE.md files, skills, memory, project rules. That works on one device, but as soon as a second one shows up (work laptop, personal machine, tablet), continuity breaks. Absolute file paths do not work across devices. Skills by default live in <code>~/.claude</code>, a directory most sync tools ignore. And on iOS (where Obsidian manages its vaults via iCloud or Obsidian Sync) there is no Git, no symlinks, no terminal access.</p>
+
+            <p>Torres describes three approaches with different trade-offs. <strong>Dropbox</strong> with symlinks: works between Macs, fails on iOS. <strong>Git</strong> with a versioned repository: full control, but manual sync (pull/push), merge conflicts on concurrent edits, and not usable on iOS without third-party apps. <strong>Obsidian Sync</strong> as a third path: simple, automatic, works on all devices including iOS, uses relative paths within the vault. The downside: no Git-style version history, less control over sync timing.</p>
+
+            <h2>Obsidian Sync as a pragmatic choice</h2>
+
+            <p>Torres argues that for most users, Obsidian Sync is the right path because it radically reduces complexity. No Git commands, no symlink upkeep, no merge conflicts. Notes, context files, and, via plugins, AI skills sync automatically across all devices, and the relative Obsidian links work the same everywhere.</p>
+
+            <!-- ══ KEY INSIGHT QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    The value does not sit in the AI tools. It sits in the context you give them, and in the ability to share that context.
+                </p>
+            </div>
+
+            <p>For teams, it goes beyond individual sync: when multiple people work with the same AI (say, in a product team), the shared context needs its own infrastructure. Shared CLAUDE.md files, team skills, common rules. Torres sees the next step here: not just syncing personal context, but maintaining team context as a shared resource.</p>
+
+            <!-- ══ COMPARISON CARDS ══ -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">Obsidian Sync</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-900 mb-3">Simple</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Automatic, works on iOS, relative paths, no merge conflicts. Ideal for individuals and small teams.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #a8a29e; background: #FAFAF8;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3 text-stone-400">Git</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-400 mb-3">Full control</p>
+                    <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Version history, branching, code review. But: manual sync, merge conflicts, no iOS support without workarounds.</p>
+                </div>
+            </div>
+
+            <h2>My own vault approach in comparison</h2>
+
+            <p>My KnowledgeOS runs on Git: an Obsidian vault in a private repository, versioned, with submodules for public projects (CV site, blog). That gives me full control over history, enables code workflows (GitHub Pages for deploy, Claude Code directly on the repo), and keeps everything in one system. The price: no automatic sync, no iOS access to the vault without a Git client, and absolute paths in <code>CLAUDE.md</code> that only work on my Mac.</p>
+
+            <p>While reading the article, I noticed that in a few spots I had unconsciously made different choices, not out of better judgment, but because my setup had evolved that way over time. Torres essentially keeps her context in one large <code>CLAUDE.md</code>. For me it has spread across four layers, sorted by when Claude actually sees them:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Layer</th>
+                        <th>Where</th>
+                        <th>When loaded</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CLAUDE.md</strong></td>
+                        <td>Repo root</td>
+                        <td>Automatic, every session</td>
+                        <td>Vault rules, active projects</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rules</strong></td>
+                        <td><code>00_SYSTEM/01_RULES/</code></td>
+                        <td>On demand, by reference</td>
+                        <td>Writing Style Guide, Job Search Rules</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Skills</strong></td>
+                        <td><code>.claude/skills/</code></td>
+                        <td>On call, by slash command</td>
+                        <td><code>/checkin</code>, <code>/checkout</code>, <code>/artikel</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Memory</strong></td>
+                        <td><code>.claude/projects/…/memory/</code></td>
+                        <td>Across sessions</td>
+                        <td>Collaboration patterns, feedback</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>The nice part: my <code>CLAUDE.md</code> stays short, loading costs stay low, as a byproduct of splitting by load semantics, not as an optimization.</p>
+
+            <h2>Claude Code App as sweet spot on the go</h2>
+
+            <p>A fourth path has emerged for me that Torres does not cover: if the context lives centrally in the repo, I do not need to sync it to every device. I just need a way to reach the repo from any device. That is exactly what the Claude app on iPhone in Claude Code mode solves for me. I open the app, pick the connected repo, give Claude a task in everyday language, and Claude works directly on the files of my KnowledgeOS, with full knowledge of <code>CLAUDE.md</code> and the whole structure. In the background this runs in a sandbox, the result comes back as a commit or pull request. My iPad does not need vault access, my iPhone does not need a synced <code>CLAUDE.md</code> hash. Both only need the ability to hand Claude a task. Context stays where it belongs: in the versioned repo, maintained once, usable from anywhere.</p>
+
+            <p>This is a different design choice than Torres' sync model, not a better one. Torres optimizes for <em>the same context on every device</em>. I optimize for <em>one source of truth in the repo, remote agents in front of it</em>. Both solve the same problem, just at a different spot. It is interesting to see how differently you can answer the same question when the starting point is different.</p>
+
+            <!-- ══ BLOCK 3: WHAT I CHANGED ══ -->
+            <h2>What I changed</h2>
+
+            <p>Torres' article did not put my architecture in question, because the Claude-app connection solves the device problem in a different way, and that fits me. But I am taking two concrete things with me. First: I systematically walk through my <code>CLAUDE.md</code> for absolute paths that only work on my Mac, and replace them with relative ones. Otherwise context breaks every time I work in a worktree or on a different machine. Second, and this emerged as a second insight while writing the article: I sorted my skills. On closer inspection there were two kinds I had been unconsciously mixing: <strong>workflow commands</strong> that need vault files (<code>/checkin</code>, <code>/artikel</code>), and <strong>method skills</strong> that work on any input (<code>/rice</code>, <code>/jtbd</code>). Workflow commands stay in the vault repo, method skills move to <code>~/.claude/skills/</code> user-global. This way they are available in every project, without symlinks or sync. Torres' symlink pool would have solved the same problem; the split is the simpler answer. Longer term, I am thinking about shared context files for team collaboration, for example when several people work on the same project and should use the same AI rules.</p>
+
+            <p>Obsidian Sync is not an alternative to Git for me, it could complement Git, but for a different purpose: read and capture notes on iPhone, not sync AI context. Those are two different problems, and I do not want to squeeze them into one solution.</p>
+
+            <!-- ══ BLOCK 4: CRITICAL ASSESSMENT ══ -->
+            <h2>Critical assessment</h2>
+
+            <p>Obsidian Sync solves the problem for individuals, but not for teams with mixed toolchains. Not everyone works in Obsidian, not everyone uses Claude. In mixed teams, shared AI context needs a format that is tool-agnostic (Markdown files in a shared drive, for example). On top of that: context maintenance can become an end in itself. Torres implicitly warns against investing more time in infrastructure than in the actual work. The question remains whether the AI tool landscape will stabilize enough to justify long-term infrastructure investments. What stays are well-structured, AI-readable Markdown files and good rule sets that other AIs can also read.</p>
+
+            <!-- ══ BLOCK 5: WHAT STAYS WITH YOU EVERY DAY ══ -->
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Invest in context, not in prompts.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">The CLAUDE.md that describes how you work is worth more than any single prompt.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Make your AI context portable.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Relative paths, modular skills, cross-device sync. Every minute saves ten.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Think team context in.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">If others should use your AI rules, they need a format that is not tied to your setup.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SOURCES ══ -->
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.producttalk.org" class="hover:text-stone-600 transition-colors" style="color: inherit;">Teresa Torres (2026). How to Share Your AI Context and Skills Across Devices. Product Talk.</a></li>
+                    <li><a href="https://obsidian.md/sync" class="hover:text-stone-600 transition-colors" style="color: inherit;">Obsidian Sync. End-to-end encrypted syncing for Obsidian.</a></li>
+                    <li><a href="https://docs.anthropic.com/en/docs/claude-code" class="hover:text-stone-600 transition-colors" style="color: inherit;">Anthropic (2026). Claude Code Documentation: CLAUDE.md, Skills, Memory.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSARY ══ -->
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">CLAUDE.md</span> <span class="text-stone-400">— Configuration file that Claude Code reads automatically at every session start</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Skills</span> <span class="text-stone-400">— Reusable AI workflows stored as SKILL.md files</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Symlink</span> <span class="text-stone-400">— Symbolic link: a reference that points to a file at another location</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Obsidian Sync</span> <span class="text-stone-400">— Encrypted sync service for Obsidian vaults across all devices</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">KnowledgeOS</span> <span class="text-stone-400">— Personal knowledge management system in Obsidian (Linja's vault)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">AI context</span> <span class="text-stone-400">— The totality of rules, memory, skills, and project files that an AI knows</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <div id="site-footer"></div>
+
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
 
 </body>
 
