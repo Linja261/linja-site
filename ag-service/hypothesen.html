@@ -17,7 +17,15 @@
                 colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } } } }
         }
     </script>
-    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        .dot { display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 50%; vertical-align: middle; margin-right: 0.25rem; }
+        .dot-open { background: #E5E2DB; }
+        .dot-progress { background: #D4714E; }
+        .dot-done { background: #5b8a72; }
+        .dot-critical { background: #d95d5d; }
+        .status-chip { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; letter-spacing: 0.04em; color: #555555; }
+    </style>
 </head>
 <body style="background: #FAFAF8;" class="font-sans text-stone-700">
 
@@ -37,10 +45,12 @@
             <!-- Priorisierungs-Legende -->
             <section class="mb-10 p-5 rounded-xl bg-white border" style="border-color: #E5E2DB;">
                 <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-3">Legende</p>
-                <div class="flex flex-wrap gap-4 text-[0.8rem]">
-                    <span><span class="text-yellow-400">⭐⭐⭐</span> <span class="text-stone-600">Kritisch — kann Modell killen</span></span>
-                    <span><span class="text-yellow-400">⭐⭐</span> <span class="text-stone-600">Wichtig — aber nicht fatal</span></span>
-                    <span class="ml-3">🟡 Ungetestet · ✅ Validiert · 🔴 Widerlegt</span>
+                <div class="flex flex-wrap gap-x-5 gap-y-2 text-[0.8rem]">
+                    <span class="text-stone-600"><strong class="text-stone-800">⭐⭐⭐</strong> Kritisch — kann Modell killen</span>
+                    <span class="text-stone-600"><strong class="text-stone-800">⭐⭐</strong> Wichtig — aber nicht fatal</span>
+                    <span class="status-chip"><span class="dot dot-open"></span> Ungetestet</span>
+                    <span class="status-chip"><span class="dot dot-done"></span> Validiert</span>
+                    <span class="status-chip"><span class="dot dot-critical"></span> Widerlegt</span>
                 </div>
             </section>
 
@@ -60,14 +70,14 @@
                             </tr>
                         </thead>
                         <tbody class="text-stone-700">
-                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H1</td><td class="py-3 px-4"><a href="#h1" class="hover:text-violet-500">Bedarf OGS-Träger</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
-                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H2</td><td class="py-3 px-4"><a href="#h2" class="hover:text-violet-500">Senior:innen-Bereitschaft</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
-                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H3</td><td class="py-3 px-4"><a href="#h3" class="hover:text-violet-500">Schulen-Akzeptanz</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
-                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H6</td><td class="py-3 px-4"><a href="#h6" class="hover:text-violet-500">Vertretungspool</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
-                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H7</td><td class="py-3 px-4"><a href="#h7" class="hover:text-violet-500">Preisbereitschaft</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
-                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H4</td><td class="py-3 px-4"><a href="#h4" class="hover:text-violet-500">Kinderschutz USP</a></td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">Niedrig</td><td class="py-3 px-4">⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
-                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H5</td><td class="py-3 px-4"><a href="#h5" class="hover:text-violet-500">Material-Inklusive</a></td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
-                            <tr><td class="py-3 px-4 font-mono text-violet-500">H8</td><td class="py-3 px-4"><a href="#h8" class="hover:text-violet-500">OGS-Träger Gatekeeper</a></td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">Niedrig</td><td class="py-3 px-4">⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H1</td><td class="py-3 px-4"><a href="#h1" class="hover:text-violet-500">Bedarf OGS-Träger</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4"><span class="status-chip"><span class="dot dot-open"></span> offen</span></td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H2</td><td class="py-3 px-4"><a href="#h2" class="hover:text-violet-500">Senior:innen-Bereitschaft</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4"><span class="status-chip"><span class="dot dot-open"></span> offen</span></td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H3</td><td class="py-3 px-4"><a href="#h3" class="hover:text-violet-500">Schulen-Akzeptanz</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4"><span class="status-chip"><span class="dot dot-open"></span> offen</span></td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H6</td><td class="py-3 px-4"><a href="#h6" class="hover:text-violet-500">Vertretungspool</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4"><span class="status-chip"><span class="dot dot-open"></span> offen</span></td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H7</td><td class="py-3 px-4"><a href="#h7" class="hover:text-violet-500">Preisbereitschaft</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4"><span class="status-chip"><span class="dot dot-open"></span> offen</span></td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H4</td><td class="py-3 px-4"><a href="#h4" class="hover:text-violet-500">Kinderschutz USP</a></td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">Niedrig</td><td class="py-3 px-4">⭐⭐</td><td class="py-3 px-4"><span class="status-chip"><span class="dot dot-open"></span> offen</span></td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H5</td><td class="py-3 px-4"><a href="#h5" class="hover:text-violet-500">Material-Inklusive</a></td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐</td><td class="py-3 px-4"><span class="status-chip"><span class="dot dot-open"></span> offen</span></td></tr>
+                            <tr><td class="py-3 px-4 font-mono text-violet-500">H8</td><td class="py-3 px-4"><a href="#h8" class="hover:text-violet-500">OGS-Träger Gatekeeper</a></td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">Niedrig</td><td class="py-3 px-4">⭐⭐</td><td class="py-3 px-4"><span class="status-chip"><span class="dot dot-open"></span> offen</span></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -86,7 +96,7 @@
                         </div>
                         <div class="text-right shrink-0">
                             <div class="text-yellow-400 text-lg">⭐⭐⭐</div>
-                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                            <div class="text-xs text-stone-400 mt-1"><span class="status-chip"><span class="dot dot-open"></span> Ungetestet</span></div>
                         </div>
                     </div>
                     <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> OGS-Träger in NRW unter dem Rechtsanspruch 2026 Schwierigkeiten haben werden, ausreichend qualifiziertes AG-Personal zu finden.</p>
@@ -108,7 +118,7 @@
                         </div>
                         <div class="text-right shrink-0">
                             <div class="text-yellow-400 text-lg">⭐⭐⭐</div>
-                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                            <div class="text-xs text-stone-400 mt-1"><span class="status-chip"><span class="dot dot-open"></span> Ungetestet</span></div>
                         </div>
                     </div>
                     <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> genügend Senior:innen (55+) verfügbar sind, die sich ehrenamtlich in AG-Formaten engagieren würden — wenn die Rahmenbedingungen stimmen.</p>
@@ -130,7 +140,7 @@
                         </div>
                         <div class="text-right shrink-0">
                             <div class="text-yellow-400 text-lg">⭐⭐⭐</div>
-                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                            <div class="text-xs text-stone-400 mt-1"><span class="status-chip"><span class="dot dot-open"></span> Ungetestet</span></div>
                         </div>
                     </div>
                     <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> Schulen externe Senior:innen als AG-Leiterinnen akzeptieren — wenn Kinderschutz und Zuverlässigkeit gewährleistet sind.</p>
@@ -152,7 +162,7 @@
                         </div>
                         <div class="text-right shrink-0">
                             <div class="text-yellow-400 text-lg">⭐⭐</div>
-                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                            <div class="text-xs text-stone-400 mt-1"><span class="status-chip"><span class="dot dot-open"></span> Ungetestet</span></div>
                         </div>
                     </div>
                     <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> ein professionelles Kinderschutz-Paket (Führungszeugnis, Schulung, Verhaltenskodex) ein entscheidender Differenzierungsfaktor gegenüber informellem Ehrenamt ist.</p>
@@ -174,7 +184,7 @@
                         </div>
                         <div class="text-right shrink-0">
                             <div class="text-yellow-400 text-lg">⭐⭐</div>
-                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                            <div class="text-xs text-stone-400 mt-1"><span class="status-chip"><span class="dot dot-open"></span> Ungetestet</span></div>
                         </div>
                     </div>
                     <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> OGS-Träger und Schulen bereit sind, mehr zu zahlen, wenn Material inklusive ist und sie sich um nichts kümmern müssen.</p>
@@ -196,7 +206,7 @@
                         </div>
                         <div class="text-right shrink-0">
                             <div class="text-yellow-400 text-lg">⭐⭐⭐</div>
-                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                            <div class="text-xs text-stone-400 mt-1"><span class="status-chip"><span class="dot dot-open"></span> Ungetestet</span></div>
                         </div>
                     </div>
                     <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> ein Vertretungspool (Ausfall-Garantie) für Schulen ein entscheidender Faktor ist, uns einem Einzelanbieter vorzuziehen.</p>
@@ -218,7 +228,7 @@
                         </div>
                         <div class="text-right shrink-0">
                             <div class="text-yellow-400 text-lg">⭐⭐⭐</div>
-                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                            <div class="text-xs text-stone-400 mt-1"><span class="status-chip"><span class="dot dot-open"></span> Ungetestet</span></div>
                         </div>
                     </div>
                     <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> OGS-Träger bereit sind, 99–125 € pro AG-Termin (bzw. 990–1.250 € pro 10er-Staffel) zu zahlen.</p>
@@ -240,7 +250,7 @@
                         </div>
                         <div class="text-right shrink-0">
                             <div class="text-yellow-400 text-lg">⭐⭐</div>
-                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                            <div class="text-xs text-stone-400 mt-1"><span class="status-chip"><span class="dot dot-open"></span> Ungetestet</span></div>
                         </div>
                     </div>
                     <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> der schnellste Weg in die Schule über den OGS-Träger führt (nicht über die Kommune oder direkt zur Schule).</p>

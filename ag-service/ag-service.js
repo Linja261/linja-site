@@ -17,17 +17,16 @@
     var activePage = scriptTag.getAttribute('data-active') || 'dashboard';
 
     // === NAV ===
+    // Primary-Nav: 7 Einträge. Deck, Staffeln, Tracker, Pitch (Reading) erreicht
+    // man bewusst über Dashboard-Tiles oder Cross-Links — nicht jede Seite muss in
+    // den Hauptrhythmus.
     var navItems = [
         { id: 'dashboard', label: 'Übersicht', href: 'index.html' },
         { id: 'idee', label: 'Idee', href: 'idee.html' },
-        { id: 'pitch', label: 'Pitch', href: 'pitch.html' },
-        { id: 'deck', label: 'Deck', href: 'deck.html' },
-        { id: 'hypothesen', label: 'Hypothesen', href: 'hypothesen.html' },
         { id: 'personas', label: 'Personas', href: 'personas.html' },
         { id: 'markt', label: 'Markt', href: 'markt.html' },
-        { id: 'staffeln', label: 'Staffeln', href: 'staffeln.html' },
+        { id: 'hypothesen', label: 'Hypothesen', href: 'hypothesen.html' },
         { id: 'interviews', label: 'Interviews', href: 'interviews.html' },
-        { id: 'tracker', label: 'Tracker', href: 'tracker.html' },
         { id: 'pilot', label: 'Pilot', href: 'pilot.html' },
     ];
 

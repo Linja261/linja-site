@@ -7,15 +7,53 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
 
-    <title>AG Service · Senior:innen übernehmen die AG</title>
+    <title>AG Service · Senior:innen für OGS in NRW</title>
     <meta name="description" content="Professioneller AG-Service für OGS-Träger in NRW. Geprüfte Senior:innen, fertige Staffeln, Kinderschutz-Paket, Vertretungspool. Ein Ansprechpartner, eine Rechnung. Pilot-Start 2026.">
     <meta name="theme-color" content="#FAFAF8">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="AG Service · Senior:innen übernehmen die AG">
-    <meta property="og:description" content="Professioneller AG-Service für OGS-Träger in NRW. Pilot-Start 2026.">
+    <meta property="og:title" content="AG Service · Senior:innen für OGS in NRW">
+    <meta property="og:description" content="Professioneller AG-Service für OGS-Träger. Pilot-Start Ende 2026 in NRW.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://linja.me/ag-service-pilot/">
     <meta property="og:locale" content="de_DE">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "AG-Service für OGS-Träger",
+      "provider": {
+        "@type": "Person",
+        "name": "Linja Scharffetter",
+        "url": "https://linja.me",
+        "email": "scharffetter@linja.me",
+        "telephone": "+49-172-472-5757",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Nordrhein-Westfalen",
+          "addressCountry": "DE"
+        }
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Nordrhein-Westfalen"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "OGS-Träger, Grundschulen, Kommunen"
+      },
+      "description": "Fertige AG-Staffeln mit geprüften Senior:innen für Offene Ganztagsschulen. 10 Termine à 90 Minuten inkl. Material, Kinderschutz-Paket und Vertretungspool. Pauschal ~1.000 € pro Staffel.",
+      "offers": {
+        "@type": "Offer",
+        "price": "1000",
+        "priceCurrency": "EUR",
+        "description": "Pauschalpreis pro 10er-Staffel, alles inklusive"
+      }
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +62,8 @@
     <style>
         /* -----------------------------------------------------------
            AG Service · Public Landing Page
-           Prinzipien: editorial Typografie · Stone + dosierte Akzente
-                       · generöse Abstände · keine stock-illustrationen
+           Design: editorial Typografie · Stone + dosierte Akzente
+                   · generöse Abstände · keine Stock-Illustrationen
            ----------------------------------------------------------- */
         :root {
             --bg:          #FAFAF8;
@@ -119,7 +157,7 @@
             line-height: 1.3;
         }
 
-        .kicker, .slide-tag {
+        .kicker {
             font-family: var(--mono);
             font-size: var(--step--1);
             letter-spacing: 0.16em;
@@ -140,12 +178,7 @@
         .body { font-size: var(--step-0); line-height: 1.65; color: var(--text-body); max-width: var(--measure); }
         .body p + p { margin-top: 1rem; }
 
-        .rule {
-            width: 3rem;
-            height: 2px;
-            background: var(--text-ink);
-            margin-bottom: 2.5rem;
-        }
+        .rule { width: 3rem; height: 2px; background: var(--text-ink); margin-bottom: 2.5rem; }
 
         /* --- Nav --- */
         .nav {
@@ -162,20 +195,21 @@
             align-items: center;
             justify-content: space-between;
             padding: 1.1rem 0;
+            gap: 1rem;
         }
         .nav-brand {
             font-family: var(--serif);
             font-size: var(--step-1);
             color: var(--text-ink);
+            text-decoration: none;
         }
-        .nav-brand em {
-            font-style: normal;
-            color: var(--violet-400);
-        }
+        .nav-brand em { font-style: normal; color: var(--violet-400); }
+
         .nav-links {
             display: flex;
             gap: 2rem;
             font-size: var(--step--1);
+            align-items: center;
         }
         .nav-links a {
             color: var(--text-body);
@@ -184,18 +218,60 @@
             border-bottom: 1px solid transparent;
             transition: border-color 120ms ease, color 120ms ease;
         }
-        .nav-links a:hover {
-            color: var(--text-ink);
-            border-color: var(--violet-400);
+        .nav-links a:hover { color: var(--text-ink); border-color: var(--violet-400); }
+        .nav-links .nav-cta {
+            background: var(--text-ink);
+            color: #fff !important;
+            padding: 0.45rem 0.95rem;
+            border-radius: 999px;
+            border-bottom: none;
+            font-weight: 500;
         }
-        @media (max-width: 640px) {
-            .nav-links { display: none; }
+        .nav-links .nav-cta:hover { background: var(--violet-500); border-bottom: none; }
+
+        /* Mobile nav toggle */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            font-family: var(--mono);
+            font-size: var(--step--2);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+        .nav-toggle:hover { border-color: var(--violet-400); color: var(--violet-500); }
+
+        @media (max-width: 720px) {
+            .nav-toggle { display: inline-block; }
+            .nav-links {
+                position: fixed;
+                inset: 4rem 0 auto 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                background: var(--bg);
+                padding: 1rem var(--gutter) 1.5rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+                transform: translateY(-120%);
+                transition: transform 220ms ease;
+            }
+            .nav-links.is-open { transform: translateY(0); }
+            .nav-links a { padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+            .nav-links a:last-child { border-bottom: none; }
+            .nav-links .nav-cta {
+                margin-top: 0.75rem;
+                text-align: center;
+                border-bottom: none;
+            }
         }
 
         /* --- Hero --- */
-        .hero {
-            padding: clamp(5rem, 14vh, 10rem) 0 clamp(6rem, 15vh, 12rem);
-        }
+        .hero { padding: clamp(5rem, 14vh, 10rem) 0 clamp(6rem, 15vh, 12rem); }
         .hero-meta {
             font-family: var(--mono);
             font-size: var(--step--1);
@@ -204,16 +280,8 @@
             color: var(--violet-500);
             margin-bottom: 3rem;
         }
-        .hero .lede {
-            margin-top: 2.5rem;
-            font-size: clamp(1.15rem, 1.8vw, var(--step-2));
-        }
-        .hero-cta {
-            margin-top: 4rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
+        .hero .lede { margin-top: 2.5rem; font-size: clamp(1.15rem, 1.8vw, var(--step-2)); }
+        .hero-cta { margin-top: 4rem; display: flex; flex-wrap: wrap; gap: 1rem; }
 
         /* --- CTA buttons --- */
         .btn {
@@ -229,17 +297,12 @@
             text-decoration: none;
             transition: transform 80ms ease, background-color 120ms ease, color 120ms ease, border-color 120ms ease;
             white-space: nowrap;
+            border: none;
+            cursor: pointer;
         }
-        .btn-primary {
-            background: var(--text-ink);
-            color: #fff;
-        }
+        .btn-primary { background: var(--text-ink); color: #fff; }
         .btn-primary:hover { background: var(--violet-500); }
-        .btn-ghost {
-            background: transparent;
-            color: var(--text-ink);
-            border: 1px solid var(--border);
-        }
+        .btn-ghost { background: transparent; color: var(--text-ink); border: 1px solid var(--border); }
         .btn-ghost:hover { border-color: var(--text-ink); }
         .btn:active { transform: translateY(1px); }
         .btn .arrow { transition: transform 120ms ease; }
@@ -271,36 +334,16 @@
             margin-top: 0.75rem;
             line-height: 1.4;
         }
-        @media (max-width: 700px) {
-            .stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 2rem; }
-        }
+        @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 2rem; } }
 
         /* --- Split sections --- */
-        .split {
-            display: grid;
-            grid-template-columns: 2fr 3fr;
-            gap: clamp(2.5rem, 6vw, 6rem);
-            align-items: start;
-        }
-        @media (max-width: 900px) {
-            .split { grid-template-columns: 1fr; gap: 2rem; }
-        }
+        .split { display: grid; grid-template-columns: 2fr 3fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+        @media (max-width: 900px) { .split { grid-template-columns: 1fr; gap: 2rem; } }
 
         /* --- Cards --- */
-        .cards-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-        @media (max-width: 900px) {
-            .cards-3 { grid-template-columns: 1fr; }
-        }
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 2rem;
-        }
+        .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        @media (max-width: 900px) { .cards-3 { grid-template-columns: 1fr; } }
+        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; }
         .card-label {
             font-family: var(--mono);
             font-size: var(--step--2);
@@ -313,9 +356,7 @@
         .card .body { margin-top: 0.75rem; font-size: var(--step--1); }
 
         /* --- Steps --- */
-        .steps {
-            margin-top: 2rem;
-        }
+        .steps { margin-top: 2rem; }
         .step {
             display: grid;
             grid-template-columns: 4rem 1fr;
@@ -325,30 +366,12 @@
             align-items: baseline;
         }
         .step:last-child { border-bottom: 0; }
-        .step-num {
-            font-family: var(--mono);
-            font-size: var(--step-2);
-            font-weight: 500;
-            color: var(--violet-400);
-        }
-        .step-text {
-            font-family: var(--serif);
-            font-size: clamp(1.1rem, 1.8vw, var(--step-2));
-            line-height: 1.35;
-            color: var(--text-dark);
-        }
+        .step-num { font-family: var(--mono); font-size: var(--step-2); font-weight: 500; color: var(--violet-400); }
+        .step-text { font-family: var(--serif); font-size: clamp(1.1rem, 1.8vw, var(--step-2)); line-height: 1.35; color: var(--text-dark); }
 
-        /* --- Checklist (Paket) --- */
-        .checklist {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.25rem 2.5rem;
-        }
-        @media (max-width: 640px) {
-            .checklist { grid-template-columns: 1fr; }
-        }
+        /* --- Checklist --- */
+        .checklist { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 2.5rem; }
+        @media (max-width: 640px) { .checklist { grid-template-columns: 1fr; } }
         .checklist li {
             display: grid;
             grid-template-columns: 1.25rem 1fr;
@@ -370,11 +393,7 @@
         }
 
         /* --- Quote --- */
-        .quote-block {
-            max-width: 40rem;
-            margin: 0 auto;
-            text-align: center;
-        }
+        .quote-block { max-width: 40rem; margin: 0 auto; text-align: center; }
         .quote-block blockquote {
             font-family: var(--serif);
             font-style: italic;
@@ -404,13 +423,7 @@
             max-width: 38rem;
             margin: 0 auto;
         }
-        .pricing .tag {
-            font-family: var(--mono);
-            font-size: var(--step--1);
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--violet-500);
-        }
+        .pricing .tag { font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.14em; text-transform: uppercase; color: var(--violet-500); }
         .pricing .amount {
             font-family: var(--mono);
             font-size: clamp(3rem, 8vw, var(--step-7));
@@ -420,15 +433,82 @@
             line-height: 1;
             margin: 1.5rem 0 0.75rem;
         }
-        .pricing .per {
-            font-family: var(--sans);
+        .pricing .per { font-family: var(--sans); font-size: var(--step-0); color: var(--text-body); }
+        .pricing .note { margin-top: 2rem; font-size: var(--step--1); color: var(--text-dim); }
+
+        /* --- FAQ --- */
+        .faq-list { display: grid; gap: 0.75rem; max-width: 48rem; margin: 0 auto; }
+        details.faq {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            transition: border-color 120ms ease;
+        }
+        details.faq[open] { border-color: var(--violet-300); }
+        details.faq summary {
+            cursor: pointer;
+            list-style: none;
+            font-family: var(--serif);
+            font-size: clamp(1.05rem, 1.5vw, var(--step-1));
+            color: var(--text-ink);
+            position: relative;
+            padding-right: 2rem;
+        }
+        details.faq summary::-webkit-details-marker { display: none; }
+        details.faq summary::after {
+            content: "+";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--mono);
+            font-size: var(--step-2);
+            color: var(--violet-400);
+            transition: transform 160ms ease;
+        }
+        details.faq[open] summary::after { content: "−"; }
+        details.faq .faq-answer {
+            margin-top: 0.75rem;
             font-size: var(--step-0);
+            line-height: 1.6;
             color: var(--text-body);
         }
-        .pricing .note {
-            margin-top: 2rem;
-            font-size: var(--step--1);
-            color: var(--text-dim);
+
+        /* --- About --- */
+        .about {
+            background: var(--bg-warm);
+            border-radius: 14px;
+            padding: clamp(2.5rem, 5vw, 4rem);
+            display: grid;
+            grid-template-columns: 9rem 1fr;
+            gap: clamp(1.5rem, 4vw, 3rem);
+            align-items: start;
+        }
+        @media (max-width: 640px) { .about { grid-template-columns: 1fr; text-align: center; } }
+        .about-avatar {
+            width: 9rem;
+            height: 9rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--violet-400), var(--violet-700));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--serif);
+            font-size: 3.5rem;
+            color: #fff;
+            margin: 0 auto;
+        }
+
+        /* --- Social proof placeholder --- */
+        .proof {
+            border: 1px dashed var(--violet-300);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            max-width: 42rem;
+            margin: 0 auto;
+            background: var(--bg);
         }
 
         /* --- CTA Block --- */
@@ -437,20 +517,29 @@
             color: #fff;
             border-radius: 16px;
             padding: clamp(3rem, 6vw, 5rem);
-            text-align: left;
         }
         .cta-block h2.heading { color: #fff; }
         .cta-block .lede { color: rgba(255,255,255,0.85); }
         .cta-block a { color: #fff; }
-        .cta-contacts {
+        .cta-actions {
             margin-top: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .cta-actions .btn-primary { background: #fff; color: var(--text-ink); }
+        .cta-actions .btn-primary:hover { background: var(--violet-200); color: var(--text-ink); }
+        .cta-actions .btn-ghost { border-color: rgba(255,255,255,0.25); color: #fff; }
+        .cta-actions .btn-ghost:hover { border-color: #fff; }
+        .cta-contacts {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
-        @media (max-width: 700px) {
-            .cta-contacts { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 700px) { .cta-contacts { grid-template-columns: 1fr; } }
         .cta-contact .label {
             font-family: var(--mono);
             font-size: var(--step--2);
@@ -469,10 +558,7 @@
         .cta-contact a:hover { border-color: #fff; }
 
         /* --- Footer --- */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 3rem 0 4rem;
-        }
+        footer { border-top: 1px solid var(--border); padding: 3rem 0 4rem; }
         .foot {
             display: flex;
             justify-content: space-between;
@@ -487,17 +573,23 @@
         .foot a { color: var(--text-body); text-decoration: none; }
         .foot a:hover { color: var(--text-ink); }
 
-        /* --- Fade in on scroll --- */
+        /*
+          FOUC-SAFE fade-in:
+          - Default: visible (works without JS, works on FOUC)
+          - With JS + prefers-reduced-motion: no-preference: optional subtle entrance
+        */
         @media (prefers-reduced-motion: no-preference) {
-            [data-fade] {
+            html.js [data-fade] {
                 opacity: 0;
                 transform: translateY(12px);
                 transition: opacity 700ms ease, transform 700ms ease;
             }
-            [data-fade].is-in {
+            html.js [data-fade].is-in {
                 opacity: 1;
                 transform: none;
             }
+            /* Hero content immer sofort sichtbar — erster Viewport darf nicht flackern */
+            html.js .hero [data-fade] { opacity: 1; transform: none; transition: none; }
         }
 
         :focus-visible {
@@ -506,6 +598,10 @@
             border-radius: 4px;
         }
     </style>
+    <script>
+        /* Set .js class asap so CSS fade rules can apply. Without JS, content stays visible. */
+        document.documentElement.classList.add('js');
+    </script>
 </head>
 <body>
 
@@ -513,12 +609,14 @@
 <header class="nav">
     <div class="container nav-inner">
         <a href="#top" class="nav-brand">AG <em>Service.</em></a>
-        <nav class="nav-links" aria-label="Abschnitte">
+        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" onclick="toggleNav(this)">Menü</button>
+        <nav id="primary-nav" class="nav-links" aria-label="Abschnitte">
             <a href="#problem">Problem</a>
             <a href="#loesung">Lösung</a>
             <a href="#paket">Paket</a>
             <a href="#preis">Preis</a>
-            <a href="#kontakt">Kontakt</a>
+            <a href="#faq">FAQ</a>
+            <a href="#kontakt" class="nav-cta">Gespräch buchen</a>
         </nav>
     </div>
 </header>
@@ -526,7 +624,7 @@
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
     <div class="container">
-        <p class="hero-meta">Pilot · NRW · ab 2026</p>
+        <p class="hero-meta" data-fade>Pilot · NRW · ab 2026</p>
         <h1 class="display" data-fade>
             Senior:innen <em style="font-style: normal; color: var(--violet-400);">übernehmen</em> die AG.
         </h1>
@@ -537,12 +635,10 @@
         </p>
         <div class="hero-cta" data-fade>
             <a class="btn btn-primary" href="#kontakt">
-                Pilot anfragen
+                30-Min-Gespräch buchen
                 <span class="arrow">→</span>
             </a>
-            <a class="btn btn-ghost" href="#loesung">
-                Wie es funktioniert
-            </a>
+            <a class="btn btn-ghost" href="#loesung">Wie es funktioniert</a>
         </div>
     </div>
 </section>
@@ -564,7 +660,7 @@
                 <div class="stat-label">pro Staffel, alles inklusive</div>
             </div>
             <div>
-                <div class="stat-num">10×90′</div>
+                <div class="stat-num">10 × 90 min</div>
                 <div class="stat-label">pro Staffel, mit Material</div>
             </div>
         </div>
@@ -629,22 +725,10 @@
                 </p>
 
                 <div class="steps">
-                    <div class="step">
-                        <span class="step-num">01</span>
-                        <span class="step-text">Träger oder Kommune beauftragt eine Staffel.</span>
-                    </div>
-                    <div class="step">
-                        <span class="step-num">02</span>
-                        <span class="step-text">Wir weisen Seniorin und Schule einander zu.</span>
-                    </div>
-                    <div class="step">
-                        <span class="step-num">03</span>
-                        <span class="step-text">10 wöchentliche Termine, Material gestellt, Ausfälle abgedeckt.</span>
-                    </div>
-                    <div class="step">
-                        <span class="step-num">04</span>
-                        <span class="step-text">Eine zentrale Rechnung. Kein Koordinationsaufwand vor Ort.</span>
-                    </div>
+                    <div class="step"><span class="step-num">01</span><span class="step-text">Träger oder Kommune beauftragt eine Staffel.</span></div>
+                    <div class="step"><span class="step-num">02</span><span class="step-text">Wir weisen Seniorin und Schule einander zu.</span></div>
+                    <div class="step"><span class="step-num">03</span><span class="step-text">10 wöchentliche Termine, Material gestellt, Ausfälle abgedeckt.</span></div>
+                    <div class="step"><span class="step-num">04</span><span class="step-text">Eine zentrale Rechnung. Kein Koordinationsaufwand vor Ort.</span></div>
                 </div>
             </div>
         </div>
@@ -728,6 +812,7 @@
             <p class="note">
                 Premium-Linien (Holz/Werkstatt) bis €1.250 wegen Material und Sicherheitskonzept.
                 Rahmenverträge mit Kommunen ab 50 Staffeln auf Anfrage.
+                <strong>Pilot-Konditionen vergünstigt</strong> — Details im Gespräch.
             </p>
         </div>
     </div>
@@ -761,16 +846,149 @@
     </div>
 </section>
 
+<!-- ================= FAQ ================= -->
+<section id="faq" style="background: var(--bg-warm);">
+    <div class="container">
+        <div style="max-width: 42rem; margin: 0 auto 3rem; text-align: center;">
+            <span class="kicker">Häufige Fragen</span>
+            <h2 class="heading" style="margin: 0 auto;">Was Träger meistens wissen wollen.</h2>
+        </div>
+
+        <div class="faq-list">
+            <details class="faq">
+                <summary>Wer haftet, wenn in der AG etwas passiert?</summary>
+                <div class="faq-answer">
+                    Haftpflicht- und Unfallversicherung sind Teil des Pakets und laufen über uns beziehungsweise
+                    über die mit Ihnen vertraglich abgestimmte Trägerversicherung. Senior:innen sind
+                    personenbezogen versichert. Den konkreten Versicherungsnachweis erhalten Sie vor Staffel-Start.
+                </div>
+            </details>
+            <details class="faq">
+                <summary>Was passiert, wenn eine Seniorin ausfällt?</summary>
+                <div class="faq-answer">
+                    Wir halten einen Vertretungspool von mindestens 20 % Reserve vor. Bei Ausfall springt
+                    eine andere Seniorin ein, die mit dem AG-Konzept vertraut ist. Ziel: Ausfallquote unter 15 %,
+                    kein ersatzloser Terminwegfall. Sollte eine Vertretung einmal nicht möglich sein, holen wir
+                    den Termin in Abstimmung mit der Schule nach.
+                </div>
+            </details>
+            <details class="faq">
+                <summary>Können wir auch nur eine einzelne Staffel buchen?</summary>
+                <div class="faq-answer">
+                    Ja. Eine Staffel sind 10 Termine. Sie können mit einer Staffel starten und danach
+                    entscheiden, ob Sie mehr buchen. Rahmenverträge mit Volumen-Konditionen gibt es ab
+                    50 Staffeln pro Jahr.
+                </div>
+            </details>
+            <details class="faq">
+                <summary>Wie wird Kinderschutz konkret gewährleistet?</summary>
+                <div class="faq-answer">
+                    Jede Seniorin legt ein erweitertes Führungszeugnis nach § 72a SGB VIII vor (nicht älter
+                    als 3 Monate, Wiedervorlage alle 5 Jahre), absolviert eine verpflichtende Kinderschutz-Schulung
+                    (2–3 Stunden, Auffrischung alle 3 Jahre) und unterschreibt einen Verhaltenskodex.
+                    Während der AG gilt das Zwei-Erwachsenen-Prinzip mit der OGS-Kraft. Incident-Response-Plan
+                    liegt dokumentiert vor.
+                </div>
+            </details>
+            <details class="faq">
+                <summary>Müssen die Senior:innen pädagogisch ausgebildet sein?</summary>
+                <div class="faq-answer">
+                    Nein. Sie sind keine Ersatz-Lehrkräfte. Unsere Auswahlkriterien sind: Verlässlichkeit,
+                    Kommunikationsfähigkeit, gesundheitliche Eignung für 90-Minuten-Gruppenleitung, sichere
+                    Deutschkenntnisse, Kinderschutz-Fit. Die didaktischen AG-Konzepte und Materialpakete werden
+                    von uns gestellt, die Seniorin begleitet das Tun.
+                </div>
+            </details>
+            <details class="faq">
+                <summary>Was müssen wir als Träger selbst noch leisten?</summary>
+                <div class="faq-answer">
+                    Auftragsentscheidung, Schulzuweisung, Terminabstimmung mit der Schule, Raumbereitstellung
+                    (normales Klassenzimmer genügt für die Pilot-Staffeln). Den Rest übernehmen wir:
+                    Rekrutierung, Führungszeugnis-Einsicht, Schulung, Material, Vertretung, Koordination,
+                    Abrechnung.
+                </div>
+            </details>
+            <details class="faq">
+                <summary>Wie schnell können wir starten?</summary>
+                <div class="faq-answer">
+                    Eine neue Staffel braucht in der Regel 4–8 Wochen Vorlauf — Zeit für Senior:innen-Matching,
+                    Kinderschutz-Nachweise und Materialvorbereitung. Für den Pilot Ende 2026 planen wir
+                    aktuell aktiv Kontaktgespräche.
+                </div>
+            </details>
+            <details class="faq">
+                <summary>Wer steckt hinter dem AG Service?</summary>
+                <div class="faq-answer">
+                    Linja Scharffetter — Senior Product Managerin aus dem Ruhrgebiet. Mehr im Abschnitt
+                    <a href="#about" style="color: var(--violet-500);">„Wer dahinter steckt"</a> unten.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SOCIAL PROOF PLATZHALTER ================= -->
+<section>
+    <div class="container">
+        <div class="proof">
+            <span class="kicker" style="margin-bottom: 1rem;">Stimmen</span>
+            <p class="body" style="margin: 0 auto; max-width: 34rem; text-align: center;">
+                Der AG Service startet Ende 2026 in den Pilot. An dieser Stelle erscheinen
+                ab 2027 Stimmen von Pilot-Trägern, Schulleitungen und Senior:innen.
+                <br><br>
+                Bis dahin: Das Konzept ist methodisch durchgearbeitet, die Unit Economics
+                stehen, der erste Staffel-Inhalt ist pilot-ready.
+                <a href="mailto:scharffetter@linja.me" style="color: var(--violet-500);">Schreiben Sie uns</a>,
+                wenn Sie Pilot-Träger werden möchten.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" style="background: var(--bg-warm);">
+    <div class="container">
+        <div class="about">
+            <div class="about-avatar">L</div>
+            <div>
+                <span class="kicker">Wer dahinter steckt</span>
+                <h2 class="heading" style="margin-bottom: 1.5rem;">Linja Scharffetter.</h2>
+                <p class="body">
+                    Senior Product Managerin, Ruhrgebiet. 12+ Jahre B2B-SaaS, Fokus auf Innovation
+                    und Nutzerzentrierung. Methodisch zuhause in Design Thinking, Jobs-to-be-Done,
+                    User Research. Der AG Service entsteht als Antwort auf ein Problem, das Träger
+                    jeden Tag erleben und ein Rechtsrahmen, der 2026 keine Ausreden mehr lässt.
+                </p>
+                <p class="body" style="margin-top: 1rem;">
+                    Dieses Projekt wird aktuell als Solo-Initiative aufgebaut. Kooperationen
+                    mit Trägern, Kommunen und Senior:innen-Netzwerken sind der nächste Schritt.
+                    <a href="https://linja.me" style="color: var(--violet-500);">Mehr auf linja.me</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ================= CALL / CTA ================= -->
-<section id="kontakt" style="padding-top: 3rem;">
+<section id="kontakt">
     <div class="container">
         <div class="cta-block">
-            <span class="kicker" style="color: var(--violet-200); opacity: 0.75;">Jetzt · Pilot 2026</span>
-            <h2 class="heading">Vor dem Druck 2026<br>einmal richtig testen.</h2>
+            <span class="kicker" style="color: var(--violet-200); opacity: 0.75; margin-bottom: 1.5rem;">Jetzt · Pilot 2026</span>
+            <h2 class="heading">Vor dem Rechtsanspruch<br>einmal richtig testen.</h2>
             <p class="lede">
-                Wir starten einen 6-Monats-Pilot in NRW mit 2–3 Trägern und 5–10 Staffeln.
+                Wir starten Ende 2026 einen 6-Monats-Pilot in NRW mit 2–3 Trägern und 5–10 Staffeln.
                 Sind Sie Träger, Schulleitung oder Kommune in NRW? Lassen Sie uns 30 Minuten sprechen.
             </p>
+
+            <div class="cta-actions">
+                <a class="btn btn-primary" href="https://cal.com/linja-scharffetter/30min" target="_blank" rel="noopener">
+                    30-Min-Gespräch buchen
+                    <span class="arrow">→</span>
+                </a>
+                <a class="btn btn-ghost" href="mailto:scharffetter@linja.me?subject=AG%20Service%20Pilot%20NRW&body=Hallo%20Linja%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20den%20AG-Service-Pilot.%20Meine%20Rolle%2FOrganisation%3A%0A%0ABitte%20melden%20Sie%20sich%20zur%C3%BCck.%0A%0AViele%20Gr%C3%BC%C3%9Fe">
+                    Oder schreiben Sie
+                </a>
+            </div>
 
             <div class="cta-contacts">
                 <div class="cta-contact">
@@ -802,9 +1020,30 @@
     </div>
 </footer>
 
-<!-- ================= Minimal JS: fade-in on scroll ================= -->
+<!-- ================= JS: Nav-Toggle + Fade-in ================= -->
 <script>
 (function () {
+    // Mobile nav toggle
+    window.toggleNav = function (btn) {
+        const nav = document.getElementById('primary-nav');
+        const open = nav.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+        btn.textContent = open ? 'Schließen' : 'Menü';
+    };
+
+    // Close mobile nav when anchor clicked
+    document.querySelectorAll('#primary-nav a').forEach((a) => {
+        a.addEventListener('click', () => {
+            const nav = document.getElementById('primary-nav');
+            const btn = document.querySelector('.nav-toggle');
+            if (nav.classList.contains('is-open')) {
+                nav.classList.remove('is-open');
+                if (btn) { btn.setAttribute('aria-expanded', 'false'); btn.textContent = 'Menü'; }
+            }
+        });
+    });
+
+    // Fade-in: only for sections outside the hero (hero stays visible)
     if (!('IntersectionObserver' in window)) {
         document.querySelectorAll('[data-fade]').forEach(el => el.classList.add('is-in'));
         return;
@@ -817,7 +1056,14 @@
             }
         });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('[data-fade]').forEach(el => io.observe(el));
+    // Observe everything except hero fades
+    document.querySelectorAll('[data-fade]').forEach((el) => {
+        if (el.closest('.hero')) {
+            el.classList.add('is-in');
+        } else {
+            io.observe(el);
+        }
+    });
 })();
 </script>
 
