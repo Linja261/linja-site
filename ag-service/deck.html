@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <meta name="theme-color" content="#FAFAF8">
+    <title>AG Service · Pitch Deck</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fonts: Inter (Sans), Source Serif 4 (Display), Geist Mono (Numbers) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* -----------------------------------------------------------
+           AG Service · Pitch Deck
+           Design: editorial typography · restrained color · generous whitespace
+           Brand-Kit: Vanille-Heidelbeer (stone + violet / amber / emerald)
+           Presentation: CSS scroll-snap · keyboard navigation · fullscreen · print
+           ----------------------------------------------------------- */
+
+        :root {
+            --bg:          #FAFAF8;
+            --bg-warm:     #F5F3EF;
+            --bg-card:     #FFFFFF;
+            --border:      #E5E2DB;
+            --text-muted:  #a8a29e;
+            --text-body:   #555555;
+            --text-dim:    #78716c;
+            --text-dark:   #44403c;
+            --text-ink:    #1A1A1A;
+
+            --violet-100:  #ece8f2;
+            --violet-300:  #9a82b5;
+            --violet-400:  #7b6ba5;
+            --violet-500:  #6b5691;
+            --violet-700:  #463863;
+
+            --amber-100:   #fae8de;
+            --amber-500:   #D4714E;
+            --amber-600:   #a86340;
+            --amber-700:   #73402e;
+
+            --emerald-100: #e0ede6;
+            --emerald-500: #5b8a72;
+            --emerald-700: #31493d;
+
+            --sans:  'Inter', system-ui, -apple-system, sans-serif;
+            --serif: 'Source Serif 4', Georgia, serif;
+            --mono:  'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+
+            /* Modular scale — 1.25 (major third), anchored at 1rem */
+            --step--2: 0.64rem;
+            --step--1: 0.8rem;
+            --step-0:  1rem;
+            --step-1:  1.25rem;
+            --step-2:  1.563rem;
+            --step-3:  1.953rem;
+            --step-4:  2.441rem;
+            --step-5:  3.052rem;
+            --step-6:  3.815rem;
+            --step-7:  4.768rem;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            background: var(--bg);
+            color: var(--text-body);
+            font-family: var(--sans);
+            font-size: 16px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        body {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        /* ---------- Slide ---------- */
+        .slide {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem max(5vw, 2rem);
+            position: relative;
+            page-break-after: always;
+            break-after: page;
+        }
+
+        .slide-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 2rem;
+            right: 2.5rem;
+            font-family: var(--mono);
+            font-size: var(--step--2);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .slide-tag {
+            font-family: var(--mono);
+            font-size: var(--step--2);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--violet-400);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        /* ---------- Typography ---------- */
+        h1.display {
+            font-family: var(--serif);
+            font-size: clamp(3rem, 7vw, var(--step-7));
+            font-weight: 400;
+            line-height: 1.04;
+            letter-spacing: -0.02em;
+            color: var(--text-ink);
+            max-width: 22ch;
+        }
+
+        h2.heading {
+            font-family: var(--serif);
+            font-size: clamp(2.25rem, 5vw, var(--step-5));
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.015em;
+            color: var(--text-ink);
+            max-width: 24ch;
+        }
+
+        h3.sub {
+            font-family: var(--serif);
+            font-size: var(--step-2);
+            font-weight: 400;
+            line-height: 1.25;
+            color: var(--text-dark);
+        }
+
+        .lede {
+            font-family: var(--sans);
+            font-size: clamp(1rem, 1.8vw, var(--step-2));
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--text-body);
+            max-width: 52ch;
+            margin-top: 2rem;
+        }
+
+        .kicker {
+            font-family: var(--mono);
+            font-size: var(--step--1);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .quote {
+            font-family: var(--serif);
+            font-size: clamp(1.5rem, 3vw, var(--step-3));
+            font-weight: 400;
+            font-style: italic;
+            line-height: 1.35;
+            color: var(--text-dark);
+            max-width: 32ch;
+            padding-left: 1.25rem;
+            border-left: 2px solid var(--violet-400);
+        }
+
+        .cite {
+            font-family: var(--mono);
+            font-size: var(--step--1);
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* ---------- Data / Numbers ---------- */
+        .big-number {
+            font-family: var(--mono);
+            font-size: clamp(2rem, 5vw, var(--step-6));
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            color: var(--text-ink);
+        }
+
+        .big-number-label {
+            font-family: var(--mono);
+            font-size: var(--step--1);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+        }
+
+        /* ---------- Grids ---------- */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        @media (max-width: 900px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        /* ---------- Cards ---------- */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.75rem;
+        }
+
+        .card-subtle {
+            background: var(--bg-warm);
+            border-radius: 6px;
+            padding: 1.5rem;
+        }
+
+        .card-label {
+            font-family: var(--mono);
+            font-size: var(--step--2);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--violet-400);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        /* ---------- Modules / accents ---------- */
+        .accent-violet { color: var(--violet-400); }
+        .accent-amber  { color: var(--amber-500); }
+        .accent-emerald { color: var(--emerald-500); }
+
+        .rule {
+            width: 3rem;
+            height: 2px;
+            background: var(--text-ink);
+            margin-bottom: 2rem;
+        }
+
+        .step-row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+            align-items: baseline;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .step-row:last-child { border-bottom: none; }
+
+        .step-num {
+            font-family: var(--mono);
+            font-size: var(--step-2);
+            font-weight: 500;
+            color: var(--violet-400);
+            width: 3rem;
+        }
+
+        .step-text {
+            font-family: var(--serif);
+            font-size: var(--step-1);
+            line-height: 1.35;
+            color: var(--text-dark);
+        }
+
+        /* ---------- Cover ---------- */
+        .cover {
+            background: var(--bg);
+        }
+
+        .cover-brand {
+            font-family: var(--mono);
+            font-size: var(--step--1);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--violet-500);
+            margin-bottom: 4rem;
+        }
+
+        .cover-meta {
+            position: absolute;
+            bottom: 5.5rem;
+            left: max(5vw, 2rem);
+            right: max(5vw, 2rem);
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--mono);
+            font-size: var(--step--1);
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+        }
+        @media (max-width: 640px) {
+            .cover-meta { bottom: 8rem; }
+        }
+
+        /* ---------- Closing ---------- */
+        .closing {
+            background: var(--violet-700);
+            color: #FFFFFF;
+        }
+        .closing h2.heading { color: #FFFFFF; }
+        .closing .kicker { color: var(--violet-100); opacity: 0.7; }
+        .closing .lede { color: var(--violet-100); opacity: 0.95; }
+        .closing a {
+            color: #FFFFFF;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 2px;
+            transition: border-color 120ms ease;
+        }
+        .closing a:hover { border-color: rgba(255,255,255,1); }
+        .closing .slide-number { color: var(--violet-300); }
+
+        /* ---------- UI: Deck controls ---------- */
+        .deck-ui {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 100;
+            font-family: var(--mono);
+            font-size: var(--step--2);
+        }
+
+        .deck-ui button,
+        .deck-ui a {
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border);
+            color: var(--text-dark);
+            padding: 0.5rem 0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 120ms ease;
+        }
+
+        .deck-ui button:hover,
+        .deck-ui a:hover {
+            border-color: var(--violet-300);
+            color: var(--violet-500);
+        }
+
+        .deck-counter {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-family: var(--mono);
+            font-size: var(--step--1);
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            letter-spacing: 0.08em;
+            z-index: 100;
+        }
+
+        /* Hide UI during fullscreen hints? Keep visible — user needs counter */
+
+        /* ---------- Print ---------- */
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+            html, body {
+                background: #FFFFFF;
+                overflow: visible;
+                height: auto;
+                scroll-snap-type: none;
+            }
+            .slide {
+                min-height: 100vh;
+                page-break-after: always;
+                break-after: page;
+            }
+            .deck-ui, .deck-counter { display: none !important; }
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 640px) {
+            .slide { padding: 3rem 1.25rem; }
+            .cover-meta { flex-direction: column; gap: 0.5rem; }
+            .slide-number { right: 1.25rem; bottom: 1.25rem; }
+            .deck-counter { top: 1rem; right: 1rem; }
+            .deck-ui { bottom: 1rem; left: 1rem; flex-wrap: wrap; }
+        }
+
+        /* ---------- Focus + a11y ---------- */
+        :focus-visible {
+            outline: 2px solid var(--violet-400);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Slide counter -->
+<div class="deck-counter">
+    <span id="current-slide">1</span><span style="opacity: .5;"> / </span><span id="total-slides">11</span>
+</div>
+
+<!-- Deck controls -->
+<div class="deck-ui">
+    <button type="button" onclick="toggleFullscreen()" title="Fullscreen (F)">Fullscreen</button>
+    <button type="button" onclick="window.print()" title="Als PDF drucken">PDF</button>
+    <a href="pitch.html" title="Scroll-Version">Reading Mode</a>
+    <a href="index.html" title="Zurück zum Dashboard">Dashboard</a>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 01 · COVER                                              -->
+<!-- ============================================================ -->
+<section class="slide cover">
+    <div class="slide-inner">
+        <p class="cover-brand">AG Service</p>
+        <h1 class="display">Senior:innen<br>übernehmen<br>die AG.</h1>
+        <p class="lede">
+            Professioneller AG-Service für OGS-Träger in NRW —
+            geprüfte Senior:innen, fertige Staffeln, ein Ansprechpartner.
+        </p>
+    </div>
+    <div class="cover-meta">
+        <span>Linja Scharffetter</span>
+        <span>Pitch · April 2026</span>
+    </div>
+    <span class="slide-number">01</span>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 02 · PROBLEM                                            -->
+<!-- ============================================================ -->
+<section class="slide">
+    <div class="slide-inner">
+        <span class="slide-tag accent-amber">Das Problem</span>
+        <h2 class="heading">Der Rechtsanspruch kommt.<br>Die Fachkräfte nicht.</h2>
+        <p class="lede">
+            Ab dem 01.08.2026 gilt der Rechtsanspruch auf Ganztag in Grundschulen —
+            stufenweise bis 2029/30. OGS-Träger stehen vor einer Personaldecke, die
+            längst reißt.
+        </p>
+
+        <div class="grid-3" style="margin-top: 4rem;">
+            <div>
+                <div class="big-number accent-amber">100k</div>
+                <div class="big-number-label">fehlende Fachkräfte bis 2030</div>
+            </div>
+            <div>
+                <div class="big-number">3–5 h</div>
+                <div class="big-number-label">Aufwand pro AG-Akquise heute</div>
+            </div>
+            <div>
+                <div class="big-number">600k</div>
+                <div class="big-number-label">zusätzliche Plätze bis 2030</div>
+            </div>
+        </div>
+    </div>
+    <span class="slide-number">02</span>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 03 · STRUKTURELLER KERN                                 -->
+<!-- ============================================================ -->
+<section class="slide">
+    <div class="slide-inner">
+        <span class="slide-tag">Der strukturelle Kern</span>
+        <h2 class="heading">Kinder brauchen mehr<br>verlässliche Erwachsene.</h2>
+
+        <div class="grid-2" style="margin-top: 3rem; align-items: start;">
+            <div>
+                <p class="lede" style="margin-top: 0;">
+                    Bildungserfolg korreliert mit der Anzahl stabiler, wohlwollender
+                    Bezugspersonen im Leben eines Kindes. Nicht Kompetenz, sondern
+                    Verlässlichkeit und Wertschätzung.
+                </p>
+                <p class="cite" style="margin-top: 2rem;">nach Aladin El-Mafaalani, «Mythos Bildung»</p>
+            </div>
+
+            <div>
+                <div class="step-row">
+                    <span class="step-num">1–2</span>
+                    <span class="step-text">Kümmerer: hohe Vulnerabilität bei Krisen</span>
+                </div>
+                <div class="step-row">
+                    <span class="step-num">3–4</span>
+                    <span class="step-text">deutlich stabilere Bildungslaufbahn</span>
+                </div>
+                <div class="step-row">
+                    <span class="step-num">5+</span>
+                    <span class="step-text" style="color: var(--emerald-700);">sehr hohe Wahrscheinlichkeit für Bildungserfolg</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="slide-number">03</span>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 04 · LÖSUNG                                             -->
+<!-- ============================================================ -->
+<section class="slide">
+    <div class="slide-inner">
+        <span class="slide-tag">Unsere Lösung</span>
+        <div class="rule"></div>
+        <h2 class="heading">Ein Rundum-Paket, das<br>Senior:innen verlässlich in die Schule bringt.</h2>
+
+        <p class="lede" style="max-width: 58ch;">
+            Wir liefern geprüfte Senior:innen in fertigen 10er-Staffeln à 90 Minuten —
+            Material inklusive, Vertretungspool, Kinderschutz-Paket,
+            zentrale Abrechnung. Eine Rechnung, ein Ansprechpartner, ein Qualitätsstandard.
+        </p>
+
+        <p style="margin-top: 3rem; font-family: var(--serif); font-size: var(--step-3); color: var(--violet-500); max-width: 28ch; line-height: 1.2;">
+            Träger kaufen Planbarkeit,<br>nicht Stunden.
+        </p>
+    </div>
+    <span class="slide-number">04</span>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 05 · DREI MODULE                                        -->
+<!-- ============================================================ -->
+<section class="slide">
+    <div class="slide-inner">
+        <span class="slide-tag">Das Portfolio</span>
+        <h2 class="heading">Drei Linien. Echtes Tun.</h2>
+        <p class="lede" style="max-width: 52ch; margin-bottom: 3.5rem;">
+            Kinder lernen durch praktisches Tun alltäglichen Lebens, in überschaubaren
+            Gruppen, mit sichtbaren Ergebnissen — ohne Leistungsdruck.
+        </p>
+
+        <div class="grid-3">
+            <article class="card">
+                <span class="card-label">Linie 1</span>
+                <h3 class="sub" style="margin-bottom: 0.75rem;">Handwerk<br>& Gestalten</h3>
+                <p style="font-size: var(--step--1); color: var(--text-dim); line-height: 1.5;">Stricken, Nähen, Sticken, Weben, Holz, Kunst.</p>
+            </article>
+            <article class="card">
+                <span class="card-label">Linie 2</span>
+                <h3 class="sub" style="margin-bottom: 0.75rem;">Lebens&shy;fertigkeiten</h3>
+                <p style="font-size: var(--step--1); color: var(--text-dim); line-height: 1.5;">Kochen, Haushalt, Natur, Zeit &amp; Uhr.</p>
+            </article>
+            <article class="card">
+                <span class="card-label">Linie 3</span>
+                <h3 class="sub" style="margin-bottom: 0.75rem;">Lesen<br>& Kreativ</h3>
+                <p style="font-size: var(--step--1); color: var(--text-dim); line-height: 1.5;">Vorlesen, Basteln, Drucken, Stempeln.</p>
+            </article>
+        </div>
+    </div>
+    <span class="slide-number">05</span>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 06 · WARUM SENIOR:INNEN                                 -->
+<!-- ============================================================ -->
+<section class="slide" style="background: var(--bg-warm);">
+    <div class="slide-inner">
+        <span class="slide-tag">Warum Senior:innen</span>
+
+        <div class="grid-2" style="align-items: center; gap: 5rem;">
+            <div>
+                <blockquote class="quote">
+                    Entscheidend ist nicht Kompetenz, sondern Verlässlichkeit und Wertschätzung.
+                </blockquote>
+                <p class="cite">Aladin El-Mafaalani</p>
+            </div>
+            <div>
+                <p style="font-family: var(--serif); font-size: var(--step-2); line-height: 1.3; color: var(--text-ink); margin-bottom: 2rem;">
+                    Senior:innen bringen Zeit, Ruhe und Lebenserfahrung mit.
+                </p>
+                <ul style="list-style: none; padding: 0; font-size: var(--step-0); line-height: 1.75; color: var(--text-dark);">
+                    <li>— Kein Konkurrenzverhältnis zu Eltern oder Lehrer:innen</li>
+                    <li>— Kein Bewertungsdruck, keine Noten</li>
+                    <li>— Intrinsische Motivation, hohe Geduld</li>
+                    <li>— Gesellschaftlich unterschätzte Ressource</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <span class="slide-number">06</span>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 07 · WARUM MIT UNS                                      -->
+<!-- ============================================================ -->
+<section class="slide">
+    <div class="slide-inner">
+        <span class="slide-tag">Warum mit uns</span>
+        <h2 class="heading">Vier Gründe.</h2>
+
+        <div class="grid-2" style="margin-top: 3rem; gap: 2rem;">
+            <article class="card" style="padding: 2rem; border-left: 3px solid var(--violet-400);">
+                <span class="card-label">01</span>
+                <h3 class="sub" style="margin-bottom: 0.75rem;">Kinderschutz im Kern.</h3>
+                <p style="font-size: var(--step--1); color: var(--text-dim); line-height: 1.55;">Erweitertes Führungszeugnis, verpflichtende Schulung, Verhaltenskodex, Zwei-Erwachsenen-Prinzip, Versicherung — alles dokumentiert.</p>
+            </article>
+            <article class="card" style="padding: 2rem; border-left: 3px solid var(--amber-500);">
+                <span class="card-label">02</span>
+                <h3 class="sub" style="margin-bottom: 0.75rem;">Zukunftsweisende AG-Angebote.</h3>
+                <p style="font-size: var(--step--1); color: var(--text-dim); line-height: 1.55;">Portfolio Handwerk, Lebensfertigkeiten, Lesen — Material inklusive. Nicht die dritte Sport-AG.</p>
+            </article>
+            <article class="card" style="padding: 2rem; border-left: 3px solid var(--emerald-500);">
+                <span class="card-label">03</span>
+                <h3 class="sub" style="margin-bottom: 0.75rem;">Senior:innen strukturiert integriert.</h3>
+                <p style="font-size: var(--step--1); color: var(--text-dim); line-height: 1.55;">Rekrutierung, Qualifizierung, Begleitung — wir bringen Senior:innen in einen Rahmen, in dem sie bleiben.</p>
+            </article>
+            <article class="card" style="padding: 2rem; border-left: 3px solid var(--violet-300);">
+                <span class="card-label">04</span>
+                <h3 class="sub" style="margin-bottom: 0.75rem;">Ein Service, eine Rechnung.</h3>
+                <p style="font-size: var(--step--1); color: var(--text-dim); line-height: 1.55;">Zentrale Koordination statt verteilter Einzelverträge. Abrechnung direkt mit dem Träger.</p>
+            </article>
+        </div>
+    </div>
+    <span class="slide-number">07</span>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 08 · WIE ES FUNKTIONIERT                                -->
+<!-- ============================================================ -->
+<section class="slide">
+    <div class="slide-inner">
+        <span class="slide-tag">Das Betriebsmodell</span>
+        <h2 class="heading">Wie es funktioniert.</h2>
+
+        <div style="margin-top: 3rem;">
+            <div class="step-row">
+                <span class="step-num">01</span>
+                <span class="step-text">OGS-Träger oder Kommune beauftragt eine Staffel.</span>
+            </div>
+            <div class="step-row">
+                <span class="step-num">02</span>
+                <span class="step-text">Wir weisen Seniorin und Schule einander zu.</span>
+            </div>
+            <div class="step-row">
+                <span class="step-num">03</span>
+                <span class="step-text">10 wöchentliche Termine, Material gestellt, Kinderschutz-Paket fertig.</span>
+            </div>
+            <div class="step-row">
+                <span class="step-num">04</span>
+                <span class="step-text">Ausfall? Vertretungspool springt ein. Abrechnung zentral.</span>
+            </div>
+        </div>
+
+        <p class="lede" style="margin-top: 3rem; font-family: var(--serif); font-size: var(--step-2); color: var(--violet-500); max-width: 30ch;">
+            Minimaler Aufwand vor Ort.
+        </p>
+    </div>
+    <span class="slide-number">08</span>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 09 · ZAHLEN (MARKT)                                     -->
+<!-- ============================================================ -->
+<section class="slide">
+    <div class="slide-inner">
+        <span class="slide-tag">Der Markt</span>
+        <h2 class="heading">Regulatorisch getrieben, bottom-up belegt.</h2>
+
+        <div class="grid-3" style="margin-top: 3.5rem; gap: 3rem;">
+            <div>
+                <div class="big-number">€50M</div>
+                <div class="big-number-label">TAM Deutschland<br>(≈ 49.000 Staffeln / Jahr)</div>
+            </div>
+            <div>
+                <div class="big-number accent-violet">€6,1M</div>
+                <div class="big-number-label">SAM NRW<br>(≈ 6.200 Staffeln / Jahr)</div>
+            </div>
+            <div>
+                <div class="big-number">€1,0–1,8M</div>
+                <div class="big-number-label">SOM Jahr 5<br>(Ruhrgebiet-Fokus)</div>
+            </div>
+        </div>
+
+        <p class="cite" style="margin-top: 3rem;">Bottom-up kalkuliert · Details: Markt-Sektion im Workbench</p>
+    </div>
+    <span class="slide-number">09</span>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 10 · UNIT ECONOMICS                                     -->
+<!-- ============================================================ -->
+<section class="slide">
+    <div class="slide-inner">
+        <span class="slide-tag">Unit Economics</span>
+        <h2 class="heading">Transparent pro Staffel.</h2>
+
+        <div class="grid-4" style="margin-top: 3.5rem;">
+            <div>
+                <div class="kicker">Angebotspreis</div>
+                <div class="big-number" style="margin-top: 0.5rem;">€1.020</div>
+            </div>
+            <div>
+                <div class="kicker">Selbstkosten</div>
+                <div class="big-number" style="margin-top: 0.5rem; color: var(--text-muted);">€814</div>
+            </div>
+            <div>
+                <div class="kicker">Deckungsbeitrag</div>
+                <div class="big-number accent-emerald" style="margin-top: 0.5rem;">€206</div>
+            </div>
+            <div>
+                <div class="kicker">Breakeven</div>
+                <div class="big-number" style="margin-top: 0.5rem;">Jahr 3</div>
+            </div>
+        </div>
+
+        <p class="lede" style="margin-top: 3rem; max-width: 54ch;">
+            Eine Staffel = 10 Termine × 90 Minuten, Material inklusive, Vertretungspool
+            abgedeckt, Kinderschutz dokumentiert. Für Träger ein Kostenpunkt,
+            ein Ansprechpartner, ein Qualitätsstandard.
+        </p>
+    </div>
+    <span class="slide-number">10</span>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 11 · CALL                                               -->
+<!-- ============================================================ -->
+<section class="slide closing">
+    <div class="slide-inner">
+        <span class="slide-tag kicker" style="color: var(--violet-100); opacity: 0.65;">Pilot · ab 2026</span>
+        <h2 class="heading">Jetzt testen,<br>bevor der Druck 2026<br>eskaliert.</h2>
+
+        <p class="lede" style="max-width: 54ch;">
+            Wir starten Ende 2026 einen 6-Monats-Pilot in NRW — 2–3 Träger,
+            5–10 Staffeln, 50–100 Kinder. Wer dabei sein will, hat Vorrang.
+        </p>
+
+        <div style="margin-top: 4rem; display: flex; flex-wrap: wrap; gap: 2.5rem; font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.04em;">
+            <div>
+                <div class="kicker" style="color: var(--violet-100); opacity: 0.65;">Kontakt</div>
+                <a href="mailto:scharffetter@linja.me" style="font-size: var(--step-0); margin-top: 0.5rem; display: inline-block;">scharffetter@linja.me</a>
+            </div>
+            <div>
+                <div class="kicker" style="color: var(--violet-100); opacity: 0.65;">Telefon</div>
+                <a href="tel:+491724725757" style="font-size: var(--step-0); margin-top: 0.5rem; display: inline-block;">+49 172 472 5757</a>
+            </div>
+            <div>
+                <div class="kicker" style="color: var(--violet-100); opacity: 0.65;">Mehr</div>
+                <a href="https://linja.me" target="_blank" style="font-size: var(--step-0); margin-top: 0.5rem; display: inline-block;">linja.me</a>
+            </div>
+        </div>
+    </div>
+    <span class="slide-number">11</span>
+</section>
+
+<!-- ============================================================ -->
+<!-- JS: Keyboard navigation · Fullscreen · Slide counter           -->
+<!-- ============================================================ -->
+<script>
+(function () {
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('current-slide');
+    const total = document.getElementById('total-slides');
+    total.textContent = String(slides.length).padStart(2, '0');
+
+    // Slide counter via IntersectionObserver
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const idx = Array.from(slides).indexOf(entry.target) + 1;
+                counter.textContent = String(idx).padStart(2, '0');
+                // Update history (shallow) for deep-linking
+                if (history.replaceState) {
+                    history.replaceState(null, '', '#' + idx);
+                }
+            }
+        });
+    }, { threshold: 0.6 });
+    slides.forEach(s => io.observe(s));
+
+    // Deep-link: scroll to slide from hash
+    if (location.hash) {
+        const idx = parseInt(location.hash.slice(1), 10);
+        if (!isNaN(idx) && idx >= 1 && idx <= slides.length) {
+            slides[idx - 1].scrollIntoView({ behavior: 'instant', block: 'start' });
+        }
+    }
+
+    // Keyboard navigation
+    function currentIndex() {
+        const y = window.scrollY;
+        return Math.round(y / window.innerHeight);
+    }
+    function goToSlide(i) {
+        const clamped = Math.max(0, Math.min(slides.length - 1, i));
+        slides[clamped].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        // ignore if typing in input
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        switch (e.key) {
+            case 'ArrowRight':
+            case 'ArrowDown':
+            case 'PageDown':
+            case ' ':
+                e.preventDefault();
+                goToSlide(currentIndex() + 1);
+                break;
+            case 'ArrowLeft':
+            case 'ArrowUp':
+            case 'PageUp':
+                e.preventDefault();
+                goToSlide(currentIndex() - 1);
+                break;
+            case 'Home':
+                e.preventDefault();
+                goToSlide(0);
+                break;
+            case 'End':
+                e.preventDefault();
+                goToSlide(slides.length - 1);
+                break;
+            case 'f':
+            case 'F':
+                if (!e.metaKey && !e.ctrlKey) {
+                    e.preventDefault();
+                    toggleFullscreen();
+                }
+                break;
+        }
+    });
+
+    // Fullscreen toggle
+    window.toggleFullscreen = function () {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+            document.exitFullscreen();
+        }
+    };
+})();
+</script>
+
+</body>
+</html>

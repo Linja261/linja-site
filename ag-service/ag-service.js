@@ -21,10 +21,13 @@
         { id: 'dashboard', label: 'Übersicht', href: 'index.html' },
         { id: 'idee', label: 'Idee', href: 'idee.html' },
         { id: 'pitch', label: 'Pitch', href: 'pitch.html' },
+        { id: 'deck', label: 'Deck', href: 'deck.html' },
         { id: 'hypothesen', label: 'Hypothesen', href: 'hypothesen.html' },
         { id: 'personas', label: 'Personas', href: 'personas.html' },
         { id: 'markt', label: 'Markt', href: 'markt.html' },
+        { id: 'staffeln', label: 'Staffeln', href: 'staffeln.html' },
         { id: 'interviews', label: 'Interviews', href: 'interviews.html' },
+        { id: 'tracker', label: 'Tracker', href: 'tracker.html' },
         { id: 'pilot', label: 'Pilot', href: 'pilot.html' },
     ];
 
