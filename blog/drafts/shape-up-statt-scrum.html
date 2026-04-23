@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Shape Up statt Scrum – Linja Scharffetter</title>
+    <meta name="description" content="Shape Up adressiert genau die Probleme, an denen Scrum nach 25 Jahren stumpf wird. Was ich daran spannend finde und warum ich den Ansatz ausprobieren will.">
+    <meta property="og:title" content="Shape Up statt Scrum">
+    <meta property="og:description" content="Shape Up adressiert genau die Probleme, an denen Scrum nach 25 Jahren stumpf wird. Was ich daran spannend finde und warum ich den Ansatz ausprobieren will.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .lang-hidden { display: none !important; }
+
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p {
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../../components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
+                <span class="text-[0.72rem] text-stone-400">23. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Shape Up statt Scrum
+            </h1>
+        </header>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Shape Up adressiert genau die Stellen, an denen Scrum nach 25 Jahren stumpf wird: Meeting-Overhead, Backlog-Inflation, Scope Creep und Zombie-Projekte. Ich habe den Ansatz in einem Gespräch mit einem Scale-up kennengelernt und will die Kernidee in meiner eigenen Produktarbeit testen, bevor ich sie weiterempfehle.
+            </p>
+        </div>
+
+        <article class="prose pb-12">
+
+            <p>Scrum hat ein Problem der frühen 2000er Jahre gelöst: zu lange Wasserfall-Projekte, zu wenig Kundennähe, zu wenig Liefertakt. 25 Jahre später hat Scrum selbst ein Problem. Studien zeigen, dass Entwicklungsteams bis zu 15 Prozent ihrer Zeit in Ceremonies verbringen, Backlogs wachsen endlos, und Ziele verschieben sich alle zwei Wochen. Shape Up, entwickelt von Basecamp und 2019 von Ryan Singer in einem gleichnamigen Buch beschrieben, ist ein Gegenentwurf. Ich habe von dem Ansatz im Gespräch mit einem Hannoveraner Scale-up gehört, und was ich daran spannend finde, muss ich ausprobieren, bevor ich es weiterempfehle.</p>
+
+            <h2>Woran Scrum stumpf wird</h2>
+
+            <p>Das Kernproblem von Scrum in gereiften Organisationen ist nicht die Methode, sondern ihre Nebenwirkungen. Zwei-Wochen-Sprints erzeugen einen Takt, der sich irgendwann verselbstständigt. Das Sprint-Planning wird zum Pflichtritual, Retrospektiven wiederholen dieselben Problembeschreibungen, und das Team bewegt sich von User Story zu User Story, ohne zu fragen, ob der Backlog in seiner Gesamtheit noch dem eigentlichen Produktziel dient.</p>
+
+            <p>Dazu kommt ein struktureller Effekt: Der Product Owner priorisiert den Backlog, das Team liefert. Das trennt das Was vom Wie sauberer, als der Produktalltag es erlaubt. Gute Entwicklungsarbeit braucht technische Einschätzung früh, nicht erst im Sprint Planning. Gute Produktentscheidungen brauchen die Perspektive der Menschen, die die Lösung bauen. Scrum verhindert das nicht, aber es begünstigt die Trennung durch seine Rollen.</p>
+
+            <p>Der dritte Punkt ist die Scope-Frage. In Scrum ist die Zeit fix, der Scope der Sprint-Planung im Prinzip auch, aber in der Praxis wandern Stories in und aus dem Sprint, Deadlines werden geschoben, und Projekte, die eigentlich tot sein sollten, ziehen sich über Monate. Es gibt keinen eingebauten Mechanismus, der sagt: Schluss jetzt, entweder ist es fertig oder es fliegt.</p>
+
+            <h2>Was Shape Up anders macht</h2>
+
+            <p>Shape Up kippt drei dieser Grundannahmen. Statt Zwei-Wochen-Sprints arbeitet ein Team in <strong>Sechs-Wochen-Zyklen</strong> mit anschließendem <strong>Zwei-Wochen-Cool-Down</strong>. Die sechs Wochen sind geschützt, die Cool-Down-Phase ist für Bugs, technische Nacharbeit und das Shaping neuer Themen. Keine Sprint-Planungen dazwischen, kein zweiwöchentlicher Kontextwechsel.</p>
+
+            <p>Vor dem Zyklus steht das <strong>Shaping</strong>. Eine kleine Gruppe erfahrener Leute, bei Basecamp sind das Gründer und leitende Produkt- und Entwicklungspersonen, arbeitet an einem Pitch: Problem, grobe Lösungsrichtung, grober Umfang. Das Ergebnis ist keine fertige Spezifikation, sondern ein Dokument, das konkret genug ist, um eine Richtung zu setzen, und abstrakt genug, um dem umsetzenden Team echten Gestaltungsraum zu lassen. Am <strong>Betting Table</strong> entscheidet die Leitung, welche Pitches im nächsten Zyklus gebaut werden. Das ist eine Wette, keine Backlog-Abarbeitung.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Die Deadline ist heilig, der Scope darf kleiner werden. Genau umgekehrt zu dem, was in der Praxis meist passiert.
+                </p>
+            </div>
+
+            <p>Während des Zyklus gilt <strong>Fixed Time, Variable Scope</strong>. Die sechs Wochen stehen, der Umfang kann während des Bauens zurechtgeschnitten werden. Wird ein Team nicht fertig, bekommt das Projekt keinen Nachschlag, es fliegt. Dieser eingebaute Circuit Breaker ist das stärkste Signal des Ansatzes: Features werden nicht nachverhandelt. Statt Story Points gibt es ein <strong>Appetite</strong>, also die Entscheidung vorab, wie viel Zeit uns ein Problem wert ist, nicht die Schätzung, wie lange es dauern wird.</p>
+
+            <h2>Warum das in der Praxis besser funktionieren kann</h2>
+
+            <p>Drei Effekte überzeugen mich auf dem Papier. Erstens: mehr geschützte Zeit für echte Produktarbeit. Wenn das Meeting-Pensum im Vergleich zu Scrum sinkt und der Fokus für sechs Wochen steht, entsteht Raum, in dem man Dinge wirklich durchdenkt, statt sie alle zwei Wochen neu zu sortieren.</p>
+
+            <p>Zweitens: klare Entscheidungen. Der Betting Table zwingt die Leitung zu wählen. Nicht alles gleichzeitig, nicht alles irgendwann, sondern diese sechs Wochen dieses Pitch. Das erzeugt Outcome-Druck auf der richtigen Ebene: bei denen, die entscheiden, was gemacht wird, nicht bei denen, die es bauen.</p>
+
+            <p>Drittens: Ownership im Team. Ein grob geformter Pitch mit echten Lösungsfreiheiten gibt dem Team mehr zu tun als eine detaillierte Story. Design-Entscheidungen fallen nah an der Umsetzung, technische Einschätzung kommt früh, und der Fortschritt wird über <strong>Hill Charts</strong> sichtbar gemacht: erst den Berg hochklettern, solange Unsicherheit da ist, dann den Berg runter, wenn es ans Fertigmachen geht.</p>
+
+            <h2>Was ich mir vornehme</h2>
+
+            <p>Ich will die Kernidee testen, bevor ich sie als Methode weiterempfehle. Konkret nehme ich mir zweierlei vor. Erstens: Meine eigene Produktarbeit und meinen Lernpfad möchte ich in Sechs-plus-Zwei-Wochen-Rhythmen strukturieren, nicht in Zwei-Wochen-Sprints. Sechs Wochen Fokus auf ein klar geshaptes Thema, zwei Wochen Cool-Down für Bugs, Reflexion und das Shaping des nächsten Themas.</p>
+
+            <p>Zweitens: Vor jedem Zyklus schreibe ich einen kurzen Pitch für mich selbst. Problem, Appetite, grobe Lösungsrichtung. Keine To-Do-Liste, sondern ein Stück Orientierung, das mich vor Scope Creep schützt. Nach sechs Wochen ist Abgabe. Nicht fertig ist nicht verhandelbar. Was darüber hinaus wäre, wandert in den nächsten Pitch oder fällt.</p>
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Shape Up ist empirisch kein Patentrezept. Das französische Fintech Trustpair hat den Ansatz bei rund 100 Mitarbeitern und 30 Entwicklern wieder abgeschafft, weil am Ende jedes Zyklus Review- und QA-Staus entstanden und der Support in der Cool-Down-Phase nicht abzufangen war. John Cutler weist darauf hin, dass Shape Up fürs Shipping optimiert ist, nicht fürs Herausfinden des richtigen Produkts. Discovery, User Research und Validierung sind im Original nicht eingebaut. Und: Der Ansatz stammt aus einem Zwölf-Personen-Unternehmen. Wer ihn in größeren Organisationen nutzt, muss die fehlenden Ebenen selbst erfinden, etwa cross-team Sync, QA-Logik, Support-Rotation.</p>
+
+            <p>Für meinen eigenen Kontext, also eigene Produktarbeit und Lernzyklen, sind die Skalierungsbrüche nebensächlich. Für Teams sind sie entscheidend. Ob der Ansatz für meine Zyklen trägt, wird sich nach den ersten zwei Durchläufen zeigen.</p>
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Fixed time, variable scope</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Die Deadline steht, der Umfang wird klein geschnitten, wenn es knapp wird. Nicht umgekehrt.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Appetite statt Schätzung</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Vorab entscheiden, wie viel Zeit das Thema wert ist, statt im Nachhinein rechtfertigen, warum es so lange gedauert hat.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Cool-Down als eingebauter Puffer</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Zwei Wochen für Bugs, Nacharbeit und das Shaping neuer Themen. Kein Urlaub, kein Verstecken, eingeplante Zeit zum Ordnen.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://basecamp.com/shapeup" class="hover:text-stone-600 transition-colors" style="color: inherit;">Singer, R. (2019). Shape Up: Stop Running in Circles and Ship Work that Matters. Basecamp.</a></li>
+                    <li><a href="https://jobs.trustpair.com/posts/why-the-shapeup-method-just-wasn-t-for-us" class="hover:text-stone-600 transition-colors" style="color: inherit;">Trustpair (2023). Why the ShapeUp method just wasn't for us.</a></li>
+                    <li><a href="https://marmelab.com/blog/2024/09/26/shape-up.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Marmelab (2024). Shape Up: Should You Change Your Agile Methodology?</a></li>
+                    <li><a href="https://cutle.fish/blog/shape-up-review/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Cutler, J. Review Notes: Shape Up.</a></li>
+                    <li><a href="https://www.bobstanke.com/blog/shape-up-vs-scrum-comparison" class="hover:text-stone-600 transition-colors" style="color: inherit;">Stanke, B. Shape Up vs Scrum: A Clear and Detailed Comparison.</a></li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Shape Up</span> <span class="text-stone-400">— Produktentwicklungs-Methode von Basecamp, basierend auf Sechs-Wochen-Zyklen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Scrum</span> <span class="text-stone-400">— Agiles Framework mit zwei- bis vierwöchigen Sprints und festen Rollen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Shaping</span> <span class="text-stone-400">— Vorarbeit: Problem und Lösungsrichtung vor dem Zyklus grob definieren.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Betting Table</span> <span class="text-stone-400">— Entscheidungsrunde: Welcher Pitch wird im nächsten Zyklus gebaut?</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Cool-Down</span> <span class="text-stone-400">— Zwei Wochen nach jedem Zyklus für Bugs, Nacharbeit, neues Shaping.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Circuit Breaker</span> <span class="text-stone-400">— Zyklusende kickt unfertige Projekte aus, kein automatischer Nachschlag.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Appetite</span> <span class="text-stone-400">— Vorab-Entscheidung: Wie viel Zeit ist uns das Problem wert?</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Hill Chart</span> <span class="text-stone-400">— Visualisierung des Fortschritts: bergauf bei Unsicherheit, bergab bei Umsetzung.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Pitch</span> <span class="text-stone-400">— Shape-Up-Dokument mit Problem, Appetite und grober Lösungsrichtung.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— Phase der Produktentwicklung, in der Probleme und Nutzerbedürfnisse erforscht werden.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodology</span>
+                <span class="text-[0.72rem] text-stone-400">April 23, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Shape Up Instead of Scrum
+            </h1>
+        </header>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Shape Up targets the exact places where Scrum has become dull after 25 years: meeting overhead, backlog inflation, scope creep, and zombie projects. I came across the approach in a conversation with a scale-up and want to test its core idea in my own product work before recommending it.
+            </p>
+        </div>
+
+        <article class="prose pb-12">
+
+            <p>Scrum solved a problem of the early 2000s: waterfall projects that ran too long, too little customer proximity, too little shipping cadence. 25 years on, Scrum itself has a problem. Studies show development teams spending up to 15 percent of their time in ceremonies, backlogs grow indefinitely, and goals shift every two weeks. Shape Up, developed by Basecamp and published by Ryan Singer in a book of the same name in 2019, is a counter-proposal. I heard about the approach in a conversation with a Hanover-based scale-up, and what I find compelling about it is something I want to try before recommending.</p>
+
+            <h2>Where Scrum becomes dull</h2>
+
+            <p>The core issue with Scrum in mature organizations is not the method itself but its side effects. Two-week sprints generate a cadence that eventually takes on a life of its own. Sprint planning becomes a mandatory ritual, retrospectives repeat the same complaints, and the team moves from user story to user story without asking whether the backlog as a whole still serves the actual product goal.</p>
+
+            <p>There is also a structural effect. The Product Owner prioritizes the backlog, the team delivers. That separates the what from the how more cleanly than product reality allows. Good engineering work needs technical judgment early, not only in sprint planning. Good product decisions need the perspective of the people who build the solution. Scrum does not prevent this, but it encourages the separation through its role definitions.</p>
+
+            <p>The third point is scope. In Scrum, time is fixed, sprint scope is in principle fixed too, but in practice stories drift in and out of sprints, deadlines get pushed, and projects that should be dead keep running for months. There is no built-in mechanism that says enough: either it is done or it is off the table.</p>
+
+            <h2>What Shape Up changes</h2>
+
+            <p>Shape Up inverts three of these assumptions. Instead of two-week sprints, teams work in <strong>six-week cycles</strong> followed by a <strong>two-week cool-down</strong>. The six weeks are protected, the cool-down is for bugs, technical follow-up, and shaping the next topics. No sprint planning in between, no fortnightly context switch.</p>
+
+            <p>Before the cycle comes <strong>shaping</strong>. A small group of experienced people, at Basecamp the founders and senior product and engineering leads, works on a pitch: the problem, a rough direction for a solution, a rough scope. The output is not a finished specification but a document concrete enough to give direction and abstract enough to leave the implementing team real room to design. At the <strong>betting table</strong>, leadership decides which pitches ship in the next cycle. That is a bet, not backlog processing.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    The deadline is fixed, the scope is what flexes. Exactly the opposite of what usually happens in practice.
+                </p>
+            </div>
+
+            <p>During the cycle, <strong>fixed time, variable scope</strong> applies. The six weeks stand, the scope can be trimmed while building. If a team does not finish, the project gets no extension, it is out. This built-in circuit breaker is the strongest signal of the approach: features are not renegotiated. Instead of story points, teams work with an <strong>appetite</strong>, the upfront decision of how much time a problem is worth, not the estimate of how long it will take.</p>
+
+            <h2>Why this can work better in practice</h2>
+
+            <p>Three effects convince me on paper. First: more protected time for real product work. If the meeting load drops compared to Scrum and focus holds for six weeks, space opens up to actually think things through rather than reshuffle them every two weeks.</p>
+
+            <p>Second: clear decisions. The betting table forces leadership to choose. Not everything at once, not everything eventually, but this pitch for these six weeks. That creates outcome pressure at the right level, on those who decide what gets done, not on those who build it.</p>
+
+            <p>Third: ownership in the team. A roughly shaped pitch with real solution freedom gives the team more to do than a detailed story. Design decisions happen close to implementation, technical judgment comes in early, and progress is visible through <strong>hill charts</strong>: climbing the hill while uncertainty is still there, heading down the hill once it is about finishing.</p>
+
+            <h2>What I want to try</h2>
+
+            <p>I want to test the core idea before recommending it as a method. Two things concretely. First: I want to structure my own product work and my learning path in six-plus-two-week rhythms, not in two-week sprints. Six weeks of focus on a clearly shaped topic, two weeks of cool-down for bugs, reflection, and shaping the next topic.</p>
+
+            <p>Second: before each cycle, I write a short pitch for myself. Problem, appetite, rough direction. Not a to-do list, but a piece of orientation that protects me from scope creep. After six weeks, it ships. Not finished is not negotiable. Anything beyond that becomes the next pitch or falls.</p>
+
+            <h2>A critical look</h2>
+
+            <p>Shape Up is empirically not a silver bullet. The French fintech Trustpair dropped the approach at around 100 employees and 30 engineers because review and QA bottlenecks piled up at the end of each cycle and support could not be absorbed in cool-down. John Cutler notes that Shape Up is optimized for shipping, not for finding the right product. Discovery, user research, and validation are not built in. And: the approach comes from a twelve-person company. Anyone using it in larger organizations has to invent the missing layers themselves, such as cross-team sync, QA logic, support rotation.</p>
+
+            <p>For my own context, individual product work and learning cycles, the scaling fractures are secondary. For teams they are decisive. Whether the approach holds for my cycles will show after the first two runs.</p>
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Fixed time, variable scope</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">The deadline holds, the scope gets trimmed when it gets tight. Not the other way around.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Appetite instead of estimate</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Decide upfront how much time a problem is worth, instead of justifying afterwards why it took so long.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Cool-down as a built-in buffer</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Two weeks for bugs, follow-up, and shaping new topics. Not vacation, not hiding, planned time for ordering.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://basecamp.com/shapeup" class="hover:text-stone-600 transition-colors" style="color: inherit;">Singer, R. (2019). Shape Up: Stop Running in Circles and Ship Work that Matters. Basecamp.</a></li>
+                    <li><a href="https://jobs.trustpair.com/posts/why-the-shapeup-method-just-wasn-t-for-us" class="hover:text-stone-600 transition-colors" style="color: inherit;">Trustpair (2023). Why the ShapeUp method just wasn't for us.</a></li>
+                    <li><a href="https://marmelab.com/blog/2024/09/26/shape-up.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Marmelab (2024). Shape Up: Should You Change Your Agile Methodology?</a></li>
+                    <li><a href="https://cutle.fish/blog/shape-up-review/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Cutler, J. Review Notes: Shape Up.</a></li>
+                    <li><a href="https://www.bobstanke.com/blog/shape-up-vs-scrum-comparison" class="hover:text-stone-600 transition-colors" style="color: inherit;">Stanke, B. Shape Up vs Scrum: A Clear and Detailed Comparison.</a></li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Shape Up</span> <span class="text-stone-400">— Basecamp's product development method, built on six-week cycles.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Scrum</span> <span class="text-stone-400">— Agile framework with two- to four-week sprints and fixed roles.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Shaping</span> <span class="text-stone-400">— Pre-work: defining problem and rough solution before the cycle starts.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Betting Table</span> <span class="text-stone-400">— Decision forum: which pitch gets built in the next cycle?</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Cool-Down</span> <span class="text-stone-400">— Two weeks after each cycle for bugs, follow-up, and new shaping.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Circuit Breaker</span> <span class="text-stone-400">— End of cycle kicks unfinished projects out, no automatic extension.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Appetite</span> <span class="text-stone-400">— Upfront decision on how much time the problem is worth.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Hill Chart</span> <span class="text-stone-400">— Progress visualization: uphill while uncertain, downhill when executing.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Pitch</span> <span class="text-stone-400">— Shape Up document covering problem, appetite, and rough solution direction.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— Product phase for researching problems and user needs.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+
+</html>
