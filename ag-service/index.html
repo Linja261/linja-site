@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>AG Service · Übersicht</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="ag-gate"></div>
+
+    <div id="ag-content" style="display:none">
+        <div id="ag-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <!-- HEADER -->
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Projektübersicht · Stand 2026-04-23</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-3">AG Service.</h1>
+                <p class="text-base text-stone-600 leading-relaxed max-w-2xl">
+                    Professioneller AG-Service für OGS-Träger in NRW: Wir liefern verlässlich besetzte AG-Staffeln
+                    (10 × 90 min) mit qualifizierten Senior:innen — inklusive Kinderschutz, Material und
+                    Vertretungspool, abgerechnet pauschal als Staffel (~1.000 €).
+                </p>
+                <p class="text-base text-stone-800 mt-3 font-medium">
+                    Kern-Value-Prop: <span class="text-violet-500">Träger kaufen Planbarkeit, nicht Stunden.</span>
+                </p>
+            </header>
+
+            <!-- DESIGN THINKING PROGRESS -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-stone-400">Design-Thinking-Fortschritt</p>
+                <div class="grid grid-cols-5 gap-2">
+                    <!-- Empathize -->
+                    <div class="rounded-lg p-4 text-center border" style="border-color: #d9d1e5; background: #f6f4f9;">
+                        <div class="text-2xl mb-1">🟡</div>
+                        <div class="font-medium text-stone-800 text-sm">Empathize</div>
+                        <div class="text-[0.7rem] text-stone-500 mt-1">Personas + JTBD, Interviews stehen aus</div>
+                    </div>
+                    <!-- Define -->
+                    <div class="rounded-lg p-4 text-center border" style="border-color: #9a82b5; background: #ece8f2;">
+                        <div class="text-2xl mb-1">✅</div>
+                        <div class="font-medium text-stone-800 text-sm">Define</div>
+                        <div class="text-[0.7rem] text-stone-500 mt-1">Problem + Markt belegt</div>
+                    </div>
+                    <!-- Ideate -->
+                    <div class="rounded-lg p-4 text-center border" style="border-color: #9a82b5; background: #ece8f2;">
+                        <div class="text-2xl mb-1">✅</div>
+                        <div class="font-medium text-stone-800 text-sm">Ideate</div>
+                        <div class="text-[0.7rem] text-stone-500 mt-1">Value Prop, Prozess, 3 Module</div>
+                    </div>
+                    <!-- Prototype -->
+                    <div class="rounded-lg p-4 text-center border" style="border-color: #E5E2DB; background: white;">
+                        <div class="text-2xl mb-1">🔴</div>
+                        <div class="font-medium text-stone-800 text-sm">Prototype</div>
+                        <div class="text-[0.7rem] text-stone-500 mt-1">Diese Site ist der erste Prototyp</div>
+                    </div>
+                    <!-- Test -->
+                    <div class="rounded-lg p-4 text-center border" style="border-color: #E5E2DB; background: white;">
+                        <div class="text-2xl mb-1">🟡</div>
+                        <div class="font-medium text-stone-800 text-sm">Test</div>
+                        <div class="text-[0.7rem] text-stone-500 mt-1">Hypothesen priorisiert, Pilot geplant</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KENNZAHLEN -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-stone-400">Kennzahlen auf einen Blick</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">TAM (DE)</p>
+                        <p class="font-mono text-2xl text-stone-900">€50M</p>
+                        <p class="text-[0.7rem] text-stone-500 mt-1">~49.000 Staffeln/Jahr</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">SAM (NRW)</p>
+                        <p class="font-mono text-2xl text-stone-900">€6,1M</p>
+                        <p class="text-[0.7rem] text-stone-500 mt-1">~6.200 Staffeln/Jahr</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Staffel-Preis</p>
+                        <p class="font-mono text-2xl text-stone-900">€990</p>
+                        <p class="text-[0.7rem] text-stone-500 mt-1">DB 20,2 % · €206</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Breakeven</p>
+                        <p class="font-mono text-2xl text-stone-900">Jahr 3</p>
+                        <p class="text-[0.7rem] text-stone-500 mt-1">~200 Staffeln/Jahr</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- QUICKLINKS -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-stone-400">Sections</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    <a href="idee.html" class="bg-white border rounded-xl p-5 hover:border-violet-200 transition-all block" style="border-color: #E5E2DB;">
+                        <h3 class="source-serif text-lg text-stone-900 mb-1">Die Idee</h3>
+                        <p class="text-[0.8rem] text-stone-500">Value Proposition für 5 Stakeholder, JTBD, Elevator Pitch</p>
+                    </a>
+                    <a href="pitch.html" class="bg-white border rounded-xl p-5 hover:border-violet-200 transition-all block" style="border-color: #E5E2DB;">
+                        <h3 class="source-serif text-lg text-stone-900 mb-1">Pitch Deck</h3>
+                        <p class="text-[0.8rem] text-stone-500">10 Slides: Kontext, Problem, Lösung, Angebot, Betrieb, Call</p>
+                    </a>
+                    <a href="hypothesen.html" class="bg-white border rounded-xl p-5 hover:border-violet-200 transition-all block" style="border-color: #E5E2DB;">
+                        <h3 class="source-serif text-lg text-stone-900 mb-1">Hypothesen</h3>
+                        <p class="text-[0.8rem] text-stone-500">H1–H8, priorisiert nach Impact und Unsicherheit</p>
+                    </a>
+                    <a href="personas.html" class="bg-white border rounded-xl p-5 hover:border-violet-200 transition-all block" style="border-color: #E5E2DB;">
+                        <h3 class="source-serif text-lg text-stone-900 mb-1">Personas</h3>
+                        <p class="text-[0.8rem] text-stone-500">Sandra (Träger-Koordinatorin) und Renate (Seniorin)</p>
+                    </a>
+                    <a href="markt.html" class="bg-white border rounded-xl p-5 hover:border-violet-200 transition-all block" style="border-color: #E5E2DB;">
+                        <h3 class="source-serif text-lg text-stone-900 mb-1">Markt & Ökonomie</h3>
+                        <p class="text-[0.8rem] text-stone-500">TAM/SAM/SOM Bottom-up, Kostenmodell, Unit Economics</p>
+                    </a>
+                    <a href="interviews.html" class="bg-white border rounded-xl p-5 hover:border-violet-200 transition-all block" style="border-color: #E5E2DB;">
+                        <h3 class="source-serif text-lg text-stone-900 mb-1">Interviews</h3>
+                        <p class="text-[0.8rem] text-stone-500">3 Leitfäden + Kontaktliste + Status</p>
+                    </a>
+                    <a href="pilot.html" class="bg-white border rounded-xl p-5 hover:border-violet-200 transition-all block lg:col-span-3" style="border-color: #E5E2DB;">
+                        <h3 class="source-serif text-lg text-stone-900 mb-1">Pilot & Kinderschutz</h3>
+                        <p class="text-[0.8rem] text-stone-500">6-Monats-Pilot NRW, Kinderschutz-Paket nach § 72a, Risiko-Register</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- NÄCHSTE 1-2 WOCHEN -->
+            <section class="mb-10 p-6 rounded-xl" style="background: #fae8de; border: 1px solid #D4714E33;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2" style="color: #a86340;">Next up · Nächste 1–2 Wochen</p>
+                <h2 class="source-serif text-lg text-stone-900 mb-4">To-dos — aus Standortbestimmung 2026-04-20</h2>
+                <ul class="space-y-2 text-sm text-stone-700">
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-[0.7rem] text-stone-400 mt-1">01</span>
+                        <span>Interview-Leitfäden (Träger, Schulen, Seniorinnen) — <span class="text-green-600 font-medium">✓ erstellt</span></span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-[0.7rem] text-stone-400 mt-1">02</span>
+                        <span>One-Pager (A4 PDF) als Interview-Prototyp</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-[0.7rem] text-stone-400 mt-1">03</span>
+                        <span>Elevator Pitch (30 Sek.) — <span class="text-green-600 font-medium">✓ erstellt</span></span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-[0.7rem] text-stone-400 mt-1">04</span>
+                        <span>Kontaktliste füllen: 10 Träger + 5 Schulen + 10 Seniorinnen-Zugänge — <span class="text-yellow-600 font-medium">Gerüst steht</span></span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-[0.7rem] text-stone-400 mt-1">05</span>
+                        <span>Erste 3–5 Interviews terminieren (Träger zuerst)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="font-mono text-[0.7rem] text-stone-400 mt-1">06</span>
+                        <span>Rollenspiel mit David — Prozess trocken durchspielen (2 h)</span>
+                    </li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="ag-service.js" data-active="dashboard"></script>
+</body>
+</html>

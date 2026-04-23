@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>AG Service · Hypothesen</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], serif: ['Source Serif 4', 'Georgia', 'serif'], mono: ['Geist Mono', 'monospace'] },
+                colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } } } }
+        }
+    </script>
+    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="ag-gate"></div>
+
+    <div id="ag-content" style="display:none">
+        <div id="ag-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Hypothesen · H1–H8</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-3">Was wir glauben — und testen müssen.</h1>
+                <p class="text-base text-stone-600 max-w-2xl">Acht Hypothesen, priorisiert nach Impact und Unsicherheit. Jede testbar in Interviews oder Concierge-MVP.</p>
+            </header>
+
+            <!-- Priorisierungs-Legende -->
+            <section class="mb-10 p-5 rounded-xl bg-white border" style="border-color: #E5E2DB;">
+                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-3">Legende</p>
+                <div class="flex flex-wrap gap-4 text-[0.8rem]">
+                    <span><span class="text-yellow-400">⭐⭐⭐</span> <span class="text-stone-600">Kritisch — kann Modell killen</span></span>
+                    <span><span class="text-yellow-400">⭐⭐</span> <span class="text-stone-600">Wichtig — aber nicht fatal</span></span>
+                    <span class="ml-3">🟡 Ungetestet · ✅ Validiert · 🔴 Widerlegt</span>
+                </div>
+            </section>
+
+            <!-- Priorisierungs-Matrix Tabelle -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] uppercase text-stone-400 mb-3">Priorisierungs-Matrix</p>
+                <div class="bg-white border rounded-xl overflow-x-auto" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b" style="border-color: #E5E2DB; background: #f6f4f9;">
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">#</th>
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Hypothese</th>
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Impact</th>
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Unsicherheit</th>
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Priorität</th>
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-stone-700">
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H1</td><td class="py-3 px-4"><a href="#h1" class="hover:text-violet-500">Bedarf OGS-Träger</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H2</td><td class="py-3 px-4"><a href="#h2" class="hover:text-violet-500">Senior:innen-Bereitschaft</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H3</td><td class="py-3 px-4"><a href="#h3" class="hover:text-violet-500">Schulen-Akzeptanz</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H6</td><td class="py-3 px-4"><a href="#h6" class="hover:text-violet-500">Vertretungspool</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H7</td><td class="py-3 px-4"><a href="#h7" class="hover:text-violet-500">Preisbereitschaft</a></td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">Hoch</td><td class="py-3 px-4">⭐⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H4</td><td class="py-3 px-4"><a href="#h4" class="hover:text-violet-500">Kinderschutz USP</a></td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">Niedrig</td><td class="py-3 px-4">⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4 font-mono text-violet-500">H5</td><td class="py-3 px-4"><a href="#h5" class="hover:text-violet-500">Material-Inklusive</a></td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
+                            <tr><td class="py-3 px-4 font-mono text-violet-500">H8</td><td class="py-3 px-4"><a href="#h8" class="hover:text-violet-500">OGS-Träger Gatekeeper</a></td><td class="py-3 px-4">Mittel</td><td class="py-3 px-4">Niedrig</td><td class="py-3 px-4">⭐⭐</td><td class="py-3 px-4">🟡</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Hypothesen-Details -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] uppercase text-stone-400 mb-5">Details · H1–H8</p>
+
+                <!-- H1 -->
+                <div id="h1" class="bg-white border rounded-xl p-6 mb-4" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">H1 · Problem-Hypothese</p>
+                            <h3 class="source-serif text-xl text-stone-900">Bedarf bei OGS-Trägern</h3>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <div class="text-yellow-400 text-lg">⭐⭐⭐</div>
+                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> OGS-Träger in NRW unter dem Rechtsanspruch 2026 Schwierigkeiten haben werden, ausreichend qualifiziertes AG-Personal zu finden.</p>
+                    <div class="mt-4 pt-4 border-t" style="border-color: #F5F3EF;">
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Signal für ✅ validiert</p>
+                        <ul class="text-sm text-stone-600 space-y-1">
+                            <li>• 3 von 5 befragten Trägern bestätigen: AG-Personal ist Herausforderung</li>
+                            <li>• Träger zeigen Interesse an externem AG-Service (ohne Preis zu kennen)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- H2 -->
+                <div id="h2" class="bg-white border rounded-xl p-6 mb-4" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">H2 · Problem-Hypothese</p>
+                            <h3 class="source-serif text-xl text-stone-900">Bereitschaft von Senior:innen</h3>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <div class="text-yellow-400 text-lg">⭐⭐⭐</div>
+                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> genügend Senior:innen (55+) verfügbar sind, die sich ehrenamtlich in AG-Formaten engagieren würden — wenn die Rahmenbedingungen stimmen.</p>
+                    <div class="mt-4 pt-4 border-t" style="border-color: #F5F3EF;">
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Signal für ✅ validiert</p>
+                        <ul class="text-sm text-stone-600 space-y-1">
+                            <li>• 10 von 30 angesprochenen Senior:innen zeigen konkretes Interesse</li>
+                            <li>• 5 sind bereit, sich für einen Pilot-Test zu verpflichten</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- H3 -->
+                <div id="h3" class="bg-white border rounded-xl p-6 mb-4" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">H3 · Problem-Hypothese</p>
+                            <h3 class="source-serif text-xl text-stone-900">Akzeptanz bei Schulen</h3>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <div class="text-yellow-400 text-lg">⭐⭐⭐</div>
+                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> Schulen externe Senior:innen als AG-Leiterinnen akzeptieren — wenn Kinderschutz und Zuverlässigkeit gewährleistet sind.</p>
+                    <div class="mt-4 pt-4 border-t" style="border-color: #F5F3EF;">
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Signal für ✅ validiert</p>
+                        <ul class="text-sm text-stone-600 space-y-1">
+                            <li>• 2 von 5 Schulleitungen sagen: "Das würden wir ausprobieren"</li>
+                            <li>• Hauptsorge ist Kinderschutz, keine generelle Ablehnung</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- H4 -->
+                <div id="h4" class="bg-white border rounded-xl p-6 mb-4" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">H4 · Lösungs-Hypothese</p>
+                            <h3 class="source-serif text-xl text-stone-900">Kinderschutz als USP</h3>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <div class="text-yellow-400 text-lg">⭐⭐</div>
+                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> ein professionelles Kinderschutz-Paket (Führungszeugnis, Schulung, Verhaltenskodex) ein entscheidender Differenzierungsfaktor gegenüber informellem Ehrenamt ist.</p>
+                    <div class="mt-4 pt-4 border-t" style="border-color: #F5F3EF;">
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Signal für ✅ validiert</p>
+                        <ul class="text-sm text-stone-600 space-y-1">
+                            <li>• Träger nennen Kinderschutz als Hauptgrund, uns zu wählen</li>
+                            <li>• Schulen fragen explizit nach dem Kinderschutz-Konzept</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- H5 -->
+                <div id="h5" class="bg-white border rounded-xl p-6 mb-4" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">H5 · Lösungs-Hypothese</p>
+                            <h3 class="source-serif text-xl text-stone-900">Material-Inklusive AG</h3>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <div class="text-yellow-400 text-lg">⭐⭐</div>
+                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> OGS-Träger und Schulen bereit sind, mehr zu zahlen, wenn Material inklusive ist und sie sich um nichts kümmern müssen.</p>
+                    <div class="mt-4 pt-4 border-t" style="border-color: #F5F3EF;">
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Signal für ✅ validiert</p>
+                        <ul class="text-sm text-stone-600 space-y-1">
+                            <li>• Träger bewerten "Material inklusive" als Top-3-Feature</li>
+                            <li>• Preisdifferenz (mit vs. ohne Material) wird akzeptiert</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- H6 -->
+                <div id="h6" class="bg-white border rounded-xl p-6 mb-4" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">H6 · Lösungs-Hypothese</p>
+                            <h3 class="source-serif text-xl text-stone-900">Vertretungspool entscheidend</h3>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <div class="text-yellow-400 text-lg">⭐⭐⭐</div>
+                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> ein Vertretungspool (Ausfall-Garantie) für Schulen ein entscheidender Faktor ist, uns einem Einzelanbieter vorzuziehen.</p>
+                    <div class="mt-4 pt-4 border-t" style="border-color: #F5F3EF;">
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Signal für ✅ validiert</p>
+                        <ul class="text-sm text-stone-600 space-y-1">
+                            <li>• 4 von 5 Schulen nennen "Zuverlässigkeit/Vertretung" als Top-Kriterium</li>
+                            <li>• Träger fragen aktiv nach Ausfall-Regelung</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- H7 -->
+                <div id="h7" class="bg-white border rounded-xl p-6 mb-4" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">H7 · Business-Hypothese</p>
+                            <h3 class="source-serif text-xl text-stone-900">Preisbereitschaft</h3>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <div class="text-yellow-400 text-lg">⭐⭐⭐</div>
+                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> OGS-Träger bereit sind, 99–125 € pro AG-Termin (bzw. 990–1.250 € pro 10er-Staffel) zu zahlen.</p>
+                    <div class="mt-4 pt-4 border-t" style="border-color: #F5F3EF;">
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Signal für ✅ validiert</p>
+                        <ul class="text-sm text-stone-600 space-y-1">
+                            <li>• 2 von 5 Träger sagen: "Das passt in unser Budget"</li>
+                            <li>• Keine Träger brechen das Gespräch ab beim Preis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- H8 -->
+                <div id="h8" class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between gap-4 mb-4">
+                        <div>
+                            <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">H8 · Business-Hypothese</p>
+                            <h3 class="source-serif text-xl text-stone-900">OGS-Träger als Gatekeeper</h3>
+                        </div>
+                        <div class="text-right shrink-0">
+                            <div class="text-yellow-400 text-lg">⭐⭐</div>
+                            <div class="text-xs text-stone-400 mt-1">🟡 Ungetestet</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-700 mb-3"><strong>Wir glauben, dass</strong> der schnellste Weg in die Schule über den OGS-Träger führt (nicht über die Kommune oder direkt zur Schule).</p>
+                    <div class="mt-4 pt-4 border-t" style="border-color: #F5F3EF;">
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Signal für ✅ validiert</p>
+                        <ul class="text-sm text-stone-600 space-y-1">
+                            <li>• OGS-Träger sagen: "Wir entscheiden über externe AG-Anbieter"</li>
+                            <li>• Schulen verweisen auf den Träger bei direkter Anfrage</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nächste Schritte -->
+            <section class="p-6 rounded-xl" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-2">Nächste Schritte</p>
+                <h2 class="source-serif text-lg text-stone-900 mb-4">Validierung der fünf kritischen Hypothesen</h2>
+                <ul class="text-sm text-stone-700 space-y-2">
+                    <li>• <strong>H1, H7, H8:</strong> 5 OGS-Träger-Interviews — siehe <a href="interviews.html" class="text-violet-500 hover:underline">Interviews</a></li>
+                    <li>• <strong>H3, H6:</strong> 5 Schulleitungs-Interviews</li>
+                    <li>• <strong>H2:</strong> 30 Senior:innen ansprechen, 10 konkretes Interesse</li>
+                    <li>• Ergebnisse dokumentieren, Hypothesen-Status updaten</li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="ag-service.js" data-active="hypothesen"></script>
+</body>
+</html>
