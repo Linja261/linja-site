@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>AG Service · Personas</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], serif: ['Source Serif 4', 'Georgia', 'serif'], mono: ['Geist Mono', 'monospace'] },
+                colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } } } }
+        }
+    </script>
+    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="ag-gate"></div>
+
+    <div id="ag-content" style="display:none">
+        <div id="ag-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Personas · Archetypen</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-3">Wer ist Kunde? Wer liefert das Produkt?</h1>
+                <p class="text-base text-stone-600 max-w-2xl">Zwei Design-Personas, noch nicht interview-validiert. Ergänzt um Schulleitung als Einflussperson.</p>
+                <div class="mt-4 inline-block px-3 py-1 rounded text-xs" style="background: #fae8de; color: #a86340;">
+                    ⚠️ Basiert auf Annahmen — Interview-Validierung in Phase 1 des Pilots
+                </div>
+            </header>
+
+            <!-- Sandra Card -->
+            <section class="mb-10 bg-white border rounded-2xl p-8" style="border-color: #E5E2DB;">
+                <div class="flex items-start gap-6 mb-6">
+                    <div class="shrink-0 w-20 h-20 rounded-full flex items-center justify-center text-2xl source-serif font-bold text-white" style="background: linear-gradient(135deg, #7b6ba5, #463863);">S</div>
+                    <div class="flex-1">
+                        <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">Persona 1 · Primärkundin</p>
+                        <h2 class="source-serif text-2xl text-stone-900 mb-1">Sandra, 42</h2>
+                        <p class="text-sm text-stone-600">OGS-Koordinatorin bei einem Wohlfahrtsverband · 8 Standorte · NRW</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+                    <div>
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Demografie</p>
+                        <ul class="text-[0.85rem] text-stone-700 space-y-1">
+                            <li>Träger-Typ: Wohlfahrtsverband (AWO, Caritas, DRK, Diakonie)</li>
+                            <li>Verantwortet 5–20 OGS-Standorte</li>
+                            <li>Team: 45 Teilzeit/Minijob/Honorar</li>
+                            <li>Budget-Hoheit für AG-Programme</li>
+                            <li>Berichtet an Geschäftsführung</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Ziele</p>
+                        <ul class="text-[0.85rem] text-stone-700 space-y-1">
+                            <li>Attraktives, pädagogisch wertvolles Programm</li>
+                            <li>Personaldecke halten, alle AGs besetzt</li>
+                            <li>Kinderschutz-Compliance erfüllen</li>
+                            <li>Mit begrenztem Budget maximalen Output</li>
+                            <li>Wenig Eskalationen von Schulen/Eltern</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+                    <div>
+                        <p class="font-mono text-[0.6rem] uppercase text-red-400 mb-2">Pain Points</p>
+                        <ul class="text-[0.85rem] text-stone-700 space-y-1.5">
+                            <li class="flex justify-between"><span>Personalsuche zeitaufwendig</span> <span class="text-red-400">🔴 Hoch</span></li>
+                            <li class="flex justify-between"><span>Ausfälle kurzfristig</span> <span class="text-red-400">🔴 Hoch</span></li>
+                            <li class="flex justify-between"><span>Kinderschutz-Dokumentation</span> <span class="text-orange-400">🟠 Mittel</span></li>
+                            <li class="flex justify-between"><span>Qualitätsschwankungen</span> <span class="text-orange-400">🟠 Mittel</span></li>
+                            <li class="flex justify-between"><span>Material-Organisation</span> <span class="text-yellow-400">🟡 Niedrig</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-mono text-[0.6rem] uppercase text-green-500 mb-2">Kaufkriterien (Annahme)</p>
+                        <ul class="text-[0.85rem] text-stone-700 space-y-1.5">
+                            <li class="flex justify-between"><span>Zuverlässigkeit</span> <span class="text-yellow-400">⭐⭐⭐ Muss</span></li>
+                            <li class="flex justify-between"><span>Kinderschutz nachgewiesen</span> <span class="text-yellow-400">⭐⭐⭐ Muss</span></li>
+                            <li class="flex justify-between"><span>Preis im Budget</span> <span class="text-yellow-400">⭐⭐⭐ Muss</span></li>
+                            <li class="flex justify-between"><span>Einfacher Prozess</span> <span class="text-yellow-400">⭐⭐ Soll</span></li>
+                            <li class="flex justify-between"><span>Flexibilität</span> <span class="text-yellow-400">⭐ Kann</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Heute löst sie das so</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-stone-100 text-stone-600">Interne Mitarbeiter:innen (Überlastung)</span>
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-stone-100 text-stone-600">Einzelne Honorarkräfte</span>
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-stone-100 text-stone-600">Vereine/Initiativen</span>
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-stone-100 text-stone-600">Ehrenamtliche (unzuverlässig)</span>
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-stone-100 text-stone-600">Notlösung: AG fällt aus</span>
+                    </div>
+                    <p class="text-[0.8rem] text-stone-500 mt-2">Typischer Aufwand pro AG-Akquise: <strong>3–5 Stunden</strong></p>
+                </div>
+
+                <div class="border-l-4 pl-5 py-2 italic text-stone-700 text-sm leading-relaxed" style="border-color: #7b6ba5;">
+                    "Ich verbringe Stunden damit, Honorarkräfte für AGs zu finden. Und dann sagen sie zwei Wochen später ab."
+                </div>
+                <p class="text-xs text-stone-400 mt-2">— Sandra (hypothetisches Zitat, noch nicht aus Interview)</p>
+            </section>
+
+            <!-- Thomas (Schulleitung) -->
+            <section class="mb-10 bg-white border rounded-2xl p-8" style="border-color: #E5E2DB;">
+                <div class="flex items-start gap-6 mb-6">
+                    <div class="shrink-0 w-20 h-20 rounded-full flex items-center justify-center text-2xl source-serif font-bold text-white" style="background: linear-gradient(135deg, #D4714E, #a86340);">T</div>
+                    <div class="flex-1">
+                        <p class="font-mono text-[0.65rem] uppercase mb-1" style="color: #a86340;">Persona 2 · Einflussperson</p>
+                        <h2 class="source-serif text-2xl text-stone-900 mb-1">Thomas, 52</h2>
+                        <p class="text-sm text-stone-600">Schulleiter einer Grundschule mit OGS · Mitspracherecht beim AG-Programm</p>
+                    </div>
+                </div>
+
+                <p class="text-sm text-stone-700 mb-5">OGS wird von externem Träger betrieben. Thomas hat Mitsprache, aber nicht die Budget-Hoheit. Seine Pain Points unterscheiden sich von Sandras.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+                    <div>
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Unterschiede zu Sandra</p>
+                        <ul class="text-[0.85rem] text-stone-700 space-y-1">
+                            <li>• Keine Budget-Hoheit (über Träger)</li>
+                            <li>• Niedrige operative Verantwortung</li>
+                            <li>• Fokus: Pädagogik, Elternkommunikation</li>
+                            <li>• Empfiehlt, entscheidet nicht</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-mono text-[0.6rem] uppercase text-red-400 mb-2">Pain Points</p>
+                        <ul class="text-[0.85rem] text-stone-700 space-y-1">
+                            <li>• Qualität der AGs schwankt</li>
+                            <li>• Elternbeschwerden landen bei ihm</li>
+                            <li>• Keine Zeit für AG-Organisation</li>
+                            <li>• Will attraktives Schulprofil</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Renate Card -->
+            <section class="mb-10 bg-white border rounded-2xl p-8" style="border-color: #E5E2DB;">
+                <div class="flex items-start gap-6 mb-6">
+                    <div class="shrink-0 w-20 h-20 rounded-full flex items-center justify-center text-2xl source-serif font-bold text-white" style="background: linear-gradient(135deg, #5b8a72, #31493d);">R</div>
+                    <div class="flex-1">
+                        <p class="font-mono text-[0.65rem] uppercase mb-1" style="color: #31493d;">Persona 3 · Supply-Seite</p>
+                        <h2 class="source-serif text-2xl text-stone-900 mb-1">Renate, 62</h2>
+                        <p class="text-sm text-stone-600">Ehemalige Grundschullehrerin · mittelgroße Stadt in NRW · Kinder erwachsen · keine Enkel in der Nähe</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+                    <div>
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Profil</p>
+                        <ul class="text-[0.85rem] text-stone-700 space-y-1">
+                            <li>Weiblich, 55+</li>
+                            <li>Verheiratet, Eigentumswohnung</li>
+                            <li>Berufshintergrund: Lehrerin/Erzieherin/Handwerkerin</li>
+                            <li>Freie Zeit Nachmittags (14–16 Uhr)</li>
+                            <li>Smartphone-sicher, digital aktiv</li>
+                            <li>Mobil (kann zur Schule kommen)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Kompetenzen</p>
+                        <ul class="text-[0.85rem] text-stone-700 space-y-1">
+                            <li>Handwerk: Stricken, Nähen, Holz, Weben</li>
+                            <li>Lebensfertigkeiten: Kochen, Natur, Uhr</li>
+                            <li>Lesen, Basteln, Drucken, Stempeln</li>
+                            <li>Hobbies: Fotografie, Garten, Schach</li>
+                            <li>Interagiert problemlos mit Kindern</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+                    <div>
+                        <p class="font-mono text-[0.6rem] uppercase text-green-500 mb-2">Ziele / Bedürfnisse</p>
+                        <ul class="text-[0.85rem] text-stone-700 space-y-1">
+                            <li>• Regelmäßiger Kontakt zu Kindern</li>
+                            <li>• Wissen weitergeben — altes Handwerk nicht verlieren</li>
+                            <li>• Sinnvolle Zeitnutzung</li>
+                            <li>• Soziale Verbindung, Gemeinschaft</li>
+                            <li>• Wertschätzung + Anerkennung</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="font-mono text-[0.6rem] uppercase text-red-400 mb-2">Frustrationen</p>
+                        <ul class="text-[0.85rem] text-stone-700 space-y-1">
+                            <li>• Fehlender Zugang zu Kindern</li>
+                            <li>• Unsicherheit über den Rahmen</li>
+                            <li>• Angst vor Überforderung</li>
+                            <li>• Aufwand für Materialien</li>
+                            <li>• Bürokratie (Führungszeugnis, Meldungen)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-2">Wo wir sie finden</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-green-50 text-green-700">Kirchen ⭐⭐⭐</span>
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-green-50 text-green-700">Landfrauen ⭐⭐⭐</span>
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-green-50 text-green-700">Seniorenbüros ⭐⭐⭐</span>
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-green-50 text-green-700">Mund-zu-Mund ⭐⭐⭐</span>
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-stone-100 text-stone-600">Ehrenamtsbörsen ⭐⭐</span>
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-stone-100 text-stone-600">VHS-Kurse ⭐⭐</span>
+                        <span class="text-[0.8rem] px-3 py-1 rounded bg-stone-100 text-stone-600">Facebook ⭐⭐</span>
+                    </div>
+                </div>
+
+                <div class="p-5 rounded-lg" style="background: #e8f0ec;">
+                    <p class="font-mono text-[0.6rem] uppercase mb-2" style="color: #31493d;">Muss-Kriterien für Einsatz</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-[0.8rem] text-stone-700">
+                        <div><strong>Zuverlässigkeit + Verbindlichkeit</strong> — Planbarkeit für Schulen</div>
+                        <div><strong>Kommunikationsfähigkeit</strong> — Kinder + OGS-Team</div>
+                        <div><strong>Gesundheitliche Eignung</strong> — 90 Min Gruppenleitung</div>
+                        <div><strong>Deutsch sicher</strong> — Vorlesen + Anleitung</div>
+                        <div class="md:col-span-2"><strong>Kinderschutz-Fit</strong> — Führungszeugnis, Schulung, Code of Conduct</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Link zu Interviews -->
+            <section class="p-6 rounded-xl" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-2">Persona-Validierung</p>
+                <h2 class="source-serif text-lg text-stone-900 mb-3">Jetzt: Interviews führen, Personas mit echten Zitaten füllen</h2>
+                <p class="text-sm text-stone-700 mb-3">Die drei Archetypen basieren auf Annahmen aus Recherche. Die Interviews in Phase 1 der Pilot-Validierung werden zeigen, wo sie richtig und wo sie zu optimistisch sind.</p>
+                <a href="interviews.html" class="inline-block text-sm font-medium text-violet-500 hover:text-violet-700">→ Zu den Interview-Leitfäden</a>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="ag-service.js" data-active="personas"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>AG Service · Markt & Ökonomie</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], serif: ['Source Serif 4', 'Georgia', 'serif'], mono: ['Geist Mono', 'monospace'] },
+                colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } } } }
+        }
+    </script>
+    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="ag-gate"></div>
+
+    <div id="ag-content" style="display:none">
+        <div id="ag-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Markt · Ökonomie · Skalierung</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-3">Wie groß? Wie profitabel? Wie schnell?</h1>
+                <p class="text-base text-stone-600 max-w-2xl">TAM/SAM/SOM bottom-up kalkuliert. Unit Economics pro Staffel. Sensitivitätsbetrachtung.</p>
+            </header>
+
+            <!-- TAM SAM SOM Funnel -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] uppercase text-stone-400 mb-4">Marktgröße · Bottom-up NRW-Fokus</p>
+
+                <div class="space-y-3">
+                    <!-- TAM -->
+                    <div class="rounded-2xl p-8" style="background: linear-gradient(135deg, #f6f4f9 0%, #ece8f2 100%); border: 1px solid #d9d1e5;">
+                        <div class="flex items-start justify-between flex-wrap gap-3">
+                            <div>
+                                <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">TAM · Total Addressable Market</p>
+                                <h3 class="source-serif text-2xl text-stone-900 mb-1">€50 Mio.</h3>
+                                <p class="text-sm text-stone-600">Alle extern beschaffbaren AG-Staffeln an deutschen Grundschulen</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-mono text-xl text-stone-900">~49.000</p>
+                                <p class="text-xs text-stone-500">Staffeln/Jahr</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SAM -->
+                    <div class="mx-4 md:mx-12 rounded-2xl p-8" style="background: linear-gradient(135deg, #ece8f2 0%, #d9d1e5 100%); border: 1px solid #9a82b5;">
+                        <div class="flex items-start justify-between flex-wrap gap-3">
+                            <div>
+                                <p class="font-mono text-[0.65rem] uppercase text-violet-700 mb-1">SAM · Serviceable Available Market</p>
+                                <h3 class="source-serif text-2xl text-stone-900 mb-1">€6,1 Mio.</h3>
+                                <p class="text-sm text-stone-600">NRW-Träger mit Budget und Bedarf</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-mono text-xl text-stone-900">~6.200</p>
+                                <p class="text-xs text-stone-500">Staffeln/Jahr</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SOM -->
+                    <div class="mx-8 md:mx-24 rounded-2xl p-8 text-white" style="background: linear-gradient(135deg, #7b6ba5 0%, #463863 100%);">
+                        <div class="flex items-start justify-between flex-wrap gap-3">
+                            <div>
+                                <p class="font-mono text-[0.65rem] uppercase text-violet-100 mb-1">SOM Y5 · Serviceable Obtainable Market</p>
+                                <h3 class="source-serif text-2xl mb-1">€1,0–1,8 Mio.</h3>
+                                <p class="text-sm text-violet-100">Ruhrgebiet-Fokus, konservative Durchdringung</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-mono text-xl">1.000–1.750</p>
+                                <p class="text-xs text-violet-200">Staffeln/Jahr</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-[0.8rem] text-stone-500 mt-4 text-center">16–29 % SAM-Durchdringung in NRW · Breakeven ab ~200 Staffeln in Jahr 3</p>
+            </section>
+
+            <!-- Kontext / Warum jetzt -->
+            <section class="mb-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-2">Regulatorischer Treiber</p>
+                    <h3 class="source-serif text-lg text-stone-900 mb-3">Rechtsanspruch ab 01.08.2026</h3>
+                    <ul class="text-sm text-stone-700 space-y-2">
+                        <li>• Stufenweise Ausweitung bis 2029/30</li>
+                        <li>• Bundesinvestitionen bis zu 3,5 Mrd. €</li>
+                        <li>• Ab 2030 bis 1,3 Mrd. € Betriebskostenanteil Bund</li>
+                        <li>• 300.000–600.000 zusätzliche Plätze bis 2030 nötig</li>
+                        <li>• 50.000–100.000 zusätzliche Mitarbeitende nötig</li>
+                    </ul>
+                </div>
+                <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-2">Marktgröße NRW</p>
+                    <h3 class="source-serif text-lg text-stone-900 mb-3">Datenbasis</h3>
+                    <ul class="text-sm text-stone-700 space-y-2">
+                        <li>• ~2.800 Grundschulen</li>
+                        <li>• ~179.100 Einschulungen/Jahrgang</li>
+                        <li>• Ganztagsquote steigt von ~50 % auf ~80 % (2030)</li>
+                        <li>• ~4 extern beschaffte AG-Staffeln pro Ganztagsschule</li>
+                        <li>• Land NRW: 1.105 €/Kind/Schuljahr (Grundfestbetrag)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Träger-Landschaft -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] uppercase text-stone-400 mb-3">Träger-Landschaft NRW</p>
+                <h2 class="source-serif text-2xl text-stone-900 mb-5">Wer kauft, wer zahlt?</h2>
+                <div class="bg-white border rounded-xl overflow-x-auto" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b" style="border-color: #E5E2DB; background: #f6f4f9;">
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Tier</th>
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Typ</th>
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Anzahl</th>
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Schulen/Träger</th>
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Zahlungsbereitschaft</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-stone-700">
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4"><strong>1</strong></td><td class="py-3 px-4">Große Wohlfahrtsverbände (AWO, Caritas, DRK, Diakonie)</td><td class="py-3 px-4">30–50</td><td class="py-3 px-4">20–50</td><td class="py-3 px-4">🟢 HOCH (Rahmenvertrag)</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4"><strong>2</strong></td><td class="py-3 px-4">Mittlere freie Träger (gGmbHs, Vereine)</td><td class="py-3 px-4">150–250</td><td class="py-3 px-4">5–15</td><td class="py-3 px-4">🟡 MITTEL-HOCH</td></tr>
+                            <tr><td class="py-3 px-4"><strong>3</strong></td><td class="py-3 px-4">Kleine Träger, Fördervereine, Elterninitiativen</td><td class="py-3 px-4">300–500</td><td class="py-3 px-4">1–3</td><td class="py-3 px-4">🟠 MITTEL (preissensibel)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Kostenmodell & Unit Economics -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] uppercase text-stone-400 mb-3">Unit Economics · pro Staffel</p>
+                <h2 class="source-serif text-2xl text-stone-900 mb-5">Was kostet eine Staffel?</h2>
+
+                <!-- Waterfall -->
+                <div class="bg-white border rounded-xl p-6 mb-4" style="border-color: #E5E2DB;">
+                    <p class="text-sm text-stone-600 mb-4">10 Termine á 90 Min, inkl. Material, Kinderschutz, Vertretung:</p>
+
+                    <div class="space-y-2">
+                        <!-- Preis -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-28 text-[0.8rem] text-stone-600">Angebotspreis</div>
+                            <div class="flex-1 bg-violet-400 text-white rounded px-3 py-2 text-sm font-medium" style="width: 85%;">€1.020 · 100%</div>
+                        </div>
+                        <!-- Seniorin -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-28 text-[0.8rem] text-stone-600">Seniorin</div>
+                            <div class="bg-stone-200 text-stone-700 rounded px-3 py-2 text-sm" style="width: 30%;">−€360 · 35%</div>
+                        </div>
+                        <!-- Koordination -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-28 text-[0.8rem] text-stone-600">Koordination</div>
+                            <div class="bg-stone-200 text-stone-700 rounded px-3 py-2 text-sm" style="width: 8%;">−€88</div>
+                        </div>
+                        <!-- Material -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-28 text-[0.8rem] text-stone-600">Material</div>
+                            <div class="bg-stone-200 text-stone-700 rounded px-3 py-2 text-sm" style="width: 8%;">−€90</div>
+                        </div>
+                        <!-- Vers./Kinderschutz -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-28 text-[0.8rem] text-stone-600">Vers./Kinderschutz</div>
+                            <div class="bg-stone-200 text-stone-700 rounded px-3 py-2 text-sm" style="width: 6%;">−€60</div>
+                        </div>
+                        <!-- Fahrt -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-28 text-[0.8rem] text-stone-600">Fahrtkosten</div>
+                            <div class="bg-stone-200 text-stone-700 rounded px-3 py-2 text-sm" style="width: 7%;">−€80</div>
+                        </div>
+                        <!-- Overhead -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-28 text-[0.8rem] text-stone-600">Overhead (20 %)</div>
+                            <div class="bg-stone-200 text-stone-700 rounded px-3 py-2 text-sm" style="width: 12%;">−€136</div>
+                        </div>
+                        <!-- DB -->
+                        <div class="flex items-center gap-3 pt-2 mt-2" style="border-top: 1px solid #E5E2DB;">
+                            <div class="w-28 text-[0.8rem] text-stone-900 font-medium">Deckungsbeitrag</div>
+                            <div class="rounded px-3 py-2 text-sm font-medium text-white" style="background: #5b8a72; width: 18%;">+€206 · 20,2%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div class="bg-white border rounded-xl p-5 text-center" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Selbstkosten</p>
+                        <p class="font-mono text-xl text-stone-900">€814</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5 text-center" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Preis/Termin</p>
+                        <p class="font-mono text-xl text-stone-900">99–125 €</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5 text-center" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Preis/Kind</p>
+                        <p class="font-mono text-xl text-stone-900">3–6 €</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5 text-center" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Breakeven (Pilot)</p>
+                        <p class="font-mono text-xl text-stone-900">8–10/Monat</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Jahres-P&L -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] uppercase text-stone-400 mb-3">Jahres-P&L · Base Case</p>
+                <h2 class="source-serif text-2xl text-stone-900 mb-5">Fünfjahresprojektion.</h2>
+                <div class="bg-white border rounded-xl overflow-x-auto" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b" style="border-color: #E5E2DB; background: #f6f4f9;">
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Position</th>
+                                <th class="text-right py-3 px-4 font-medium text-stone-600">Jahr 1</th>
+                                <th class="text-right py-3 px-4 font-medium text-stone-600">Jahr 2</th>
+                                <th class="text-right py-3 px-4 font-medium text-stone-600">Jahr 3</th>
+                                <th class="text-right py-3 px-4 font-medium text-stone-600">Jahr 4</th>
+                                <th class="text-right py-3 px-4 font-medium text-stone-600">Jahr 5</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-stone-700">
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4">Staffeln</td><td class="py-3 px-4 text-right font-mono">20</td><td class="py-3 px-4 text-right font-mono">130</td><td class="py-3 px-4 text-right font-mono">375</td><td class="py-3 px-4 text-right font-mono">775</td><td class="py-3 px-4 text-right font-mono">1.375</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4">Umsatz</td><td class="py-3 px-4 text-right font-mono">€20k</td><td class="py-3 px-4 text-right font-mono">€133k</td><td class="py-3 px-4 text-right font-mono">€383k</td><td class="py-3 px-4 text-right font-mono">€791k</td><td class="py-3 px-4 text-right font-mono">€1,4M</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4">DB</td><td class="py-3 px-4 text-right font-mono">€4k</td><td class="py-3 px-4 text-right font-mono">€27k</td><td class="py-3 px-4 text-right font-mono">€77k</td><td class="py-3 px-4 text-right font-mono">€160k</td><td class="py-3 px-4 text-right font-mono">€283k</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4">Fixkosten</td><td class="py-3 px-4 text-right font-mono">−€24k</td><td class="py-3 px-4 text-right font-mono">−€36k</td><td class="py-3 px-4 text-right font-mono">−€54k</td><td class="py-3 px-4 text-right font-mono">−€96k</td><td class="py-3 px-4 text-right font-mono">−€120k</td></tr>
+                            <tr style="background: #f6f4f9;"><td class="py-3 px-4 font-medium">Ergebnis</td><td class="py-3 px-4 text-right font-mono text-red-500">−€20k</td><td class="py-3 px-4 text-right font-mono text-red-500">−€9k</td><td class="py-3 px-4 text-right font-mono" style="color: #5b8a72;">+€23k</td><td class="py-3 px-4 text-right font-mono" style="color: #5b8a72;">+€64k</td><td class="py-3 px-4 text-right font-mono" style="color: #5b8a72;">+€163k</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Skalierungshebel -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] uppercase text-stone-400 mb-3">Skalierungshebel</p>
+                <h2 class="source-serif text-2xl text-stone-900 mb-5">Wie wächst das Modell?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Hebel 1 · Träger-Multiplikator</p>
+                        <p class="source-serif text-base text-stone-900 mb-2">1 Träger = 5–50 Schulen</p>
+                        <p class="text-[0.85rem] text-stone-600">1 Rahmenvertrag mit AWO/Caritas öffnet sofort 20–50 Schulen. Revenue/Vertriebsstunde 5–10× höher.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Hebel 2 · Senior:innen-Netzwerk</p>
+                        <p class="source-serif text-base text-stone-900 mb-2">Peer-Empfehlung</p>
+                        <p class="text-[0.85rem] text-stone-600">Jede aktive Seniorin wirbt 1–2 weitere. Supply ist kritischer Pfad, nicht Nachfrage.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Hebel 3 · Kommunaler Rahmenvertrag</p>
+                        <p class="source-serif text-base text-stone-900 mb-2">€200k+ Revenue aus einem Vertrag</p>
+                        <p class="text-[0.85rem] text-stone-600">z.B. Dortmund: ~70 OGS-Standorte → ~200 Staffeln/Jahr</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Hebel 4 · AG-Katalog-Lizenz</p>
+                        <p class="source-serif text-base text-stone-900 mb-2">Ohne Senior:innen skalierbar</p>
+                        <p class="text-[0.85rem] text-stone-600">Materialpaket + Anleitung an Tier-3-Träger lizenzieren. Margenstarkes Nebenprodukt ab Jahr 3.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sensitivität -->
+            <section>
+                <p class="font-mono text-[0.65rem] uppercase text-stone-400 mb-3">Sensitivität</p>
+                <h2 class="source-serif text-2xl text-stone-900 mb-5">Drei Szenarien.</h2>
+                <div class="bg-white border rounded-xl overflow-x-auto" style="border-color: #E5E2DB;">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b" style="border-color: #E5E2DB; background: #f6f4f9;">
+                                <th class="text-left py-3 px-4 font-medium text-stone-600">Szenario</th>
+                                <th class="text-right py-3 px-4 font-medium text-stone-600">Y3 Revenue</th>
+                                <th class="text-right py-3 px-4 font-medium text-stone-600">Y5 Revenue</th>
+                                <th class="text-right py-3 px-4 font-medium text-stone-600">Breakeven</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-stone-700">
+                            <tr class="border-b" style="border-color: #F5F3EF;"><td class="py-3 px-4">Pessimistisch (−40 %)</td><td class="py-3 px-4 text-right font-mono">€180k</td><td class="py-3 px-4 text-right font-mono">€700k</td><td class="py-3 px-4 text-right">Jahr 4</td></tr>
+                            <tr class="border-b" style="border-color: #F5F3EF; background: #f6f4f9;"><td class="py-3 px-4"><strong>Base Case</strong></td><td class="py-3 px-4 text-right font-mono"><strong>€383k</strong></td><td class="py-3 px-4 text-right font-mono"><strong>€1,4M</strong></td><td class="py-3 px-4 text-right"><strong>Jahr 3</strong></td></tr>
+                            <tr><td class="py-3 px-4">Optimistisch (+40 %)</td><td class="py-3 px-4 text-right font-mono">€540k</td><td class="py-3 px-4 text-right font-mono">€2,0M</td><td class="py-3 px-4 text-right">Jahr 2</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-[0.8rem] text-stone-500 mt-4">Details: <span class="font-mono">03_Business/TAM_SAM_SOM.md</span> und <span class="font-mono">03_Business/Kostenmodell.md</span></p>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="ag-service.js" data-active="markt"></script>
+</body>
+</html>
