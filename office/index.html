@@ -134,211 +134,236 @@
                     </div>
                 </a>
 
-                <!-- Tile: Reminder -->
-                <a href="reminder.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Reminder</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Inbox</h2>
-                        </div>
-                        <span class="font-mono text-xs text-stone-400" id="tile-reminder-summary">—</span>
-                    </div>
-                    <ul id="tile-reminder-list" class="text-sm text-stone-600 space-y-1.5">
-                        <li class="text-stone-400">Noch keine Reminder.</li>
-                    </ul>
-                </a>
+            </div>
 
-                <!-- Tile: Check-Log -->
-                <a href="checklog.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Check-Log</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Letzter Eintrag</h2>
-                        </div>
-                        <span class="text-base" id="tile-checklog-mood"></span>
-                    </div>
-                    <div id="tile-checklog-body" class="text-sm text-stone-600">
-                        <p class="text-stone-400">Noch kein Eintrag.</p>
-                    </div>
-                </a>
+            <!-- HEUTE -->
+            <section class="mt-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Heute</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-                <!-- Tile: Bewerbungen -->
-                <a href="bewerbungen.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Bewerbungen</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Pipeline</h2>
+                    <!-- Tile: Reminder -->
+                    <a href="reminder.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Reminder</p>
+                                <h2 class="source-serif text-lg text-stone-900 mt-1">Inbox</h2>
+                            </div>
+                            <span class="font-mono text-xs text-stone-400" id="tile-reminder-summary">—</span>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-4 gap-2 text-center">
-                        <div>
-                            <div class="font-mono text-xl text-stone-900" id="tile-app-entwurf">0</div>
-                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Entwurf</div>
-                        </div>
-                        <div>
-                            <div class="font-mono text-xl text-stone-900" id="tile-app-versendet">0</div>
-                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Sent</div>
-                        </div>
-                        <div>
-                            <div class="font-mono text-xl text-stone-900" id="tile-app-gespraech">0</div>
-                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Gespräch</div>
-                        </div>
-                        <div>
-                            <div class="font-mono text-xl text-stone-400" id="tile-app-abgelaufen">0</div>
-                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Abgel.</div>
-                        </div>
-                    </div>
-                </a>
+                        <ul id="tile-reminder-list" class="text-sm text-stone-600 space-y-1.5">
+                            <li class="text-stone-400">Noch keine Reminder.</li>
+                        </ul>
+                    </a>
 
-                <!-- Tile: Lernplan -->
-                <a href="lernplan.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Lernplan</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Now · Next · Later</h2>
+                    <!-- Tile: Check-Log -->
+                    <a href="checklog.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Check-Log</p>
+                                <h2 class="source-serif text-lg text-stone-900 mt-1">Letzter Eintrag</h2>
+                            </div>
+                            <span class="text-base" id="tile-checklog-mood"></span>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-2 text-center">
-                        <div>
-                            <div class="font-mono text-xl text-stone-900" id="tile-learn-now">0</div>
-                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Now</div>
+                        <div id="tile-checklog-body" class="text-sm text-stone-600">
+                            <p class="text-stone-400">Noch kein Eintrag.</p>
                         </div>
-                        <div>
-                            <div class="font-mono text-xl text-stone-900" id="tile-learn-next">0</div>
-                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Next</div>
-                        </div>
-                        <div>
-                            <div class="font-mono text-xl text-stone-400" id="tile-learn-later">0</div>
-                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Later</div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
 
-                <!-- Tile: Heute -->
-                <a href="zeit.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Heute</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Letzte Zeiteinträge</h2>
+                    <!-- Tile: Heute / Zeit -->
+                    <a href="zeit.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Heute</p>
+                                <h2 class="source-serif text-lg text-stone-900 mt-1">Zeiteinträge</h2>
+                            </div>
+                            <span class="font-mono text-xs text-stone-400" id="tile-today-hours">—</span>
                         </div>
-                        <span class="font-mono text-xs text-stone-400" id="tile-today-hours">—</span>
-                    </div>
-                    <ul id="tile-today-list" class="text-sm text-stone-600 space-y-1.5">
-                        <li class="text-stone-400">Noch keine Einträge heute.</li>
-                    </ul>
-                </a>
+                        <ul id="tile-today-list" class="text-sm text-stone-600 space-y-1.5">
+                            <li class="text-stone-400">Noch keine Einträge heute.</li>
+                        </ul>
+                    </a>
 
-                <!-- Tile: Woche Ziele -->
-                <a href="ziele.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Diese Woche</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Wochenziele</h2>
+                    <!-- Tile: Wochenziele -->
+                    <a href="ziele.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Diese Woche</p>
+                                <h2 class="source-serif text-lg text-stone-900 mt-1">Wochenziele</h2>
+                            </div>
+                            <span class="font-mono text-xs text-stone-400" id="tile-goals-progress">—</span>
                         </div>
-                        <span class="font-mono text-xs text-stone-400" id="tile-goals-progress">—</span>
-                    </div>
-                    <ul id="tile-goals-list" class="text-sm text-stone-600 space-y-1.5">
-                        <li class="text-stone-400">Keine Wochenziele gesetzt.</li>
-                    </ul>
-                </a>
+                        <ul id="tile-goals-list" class="text-sm text-stone-600 space-y-1.5">
+                            <li class="text-stone-400">Keine Wochenziele gesetzt.</li>
+                        </ul>
+                    </a>
+                </div>
+            </section>
 
-                <!-- Tile: Blog -->
-                <a href="blog.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Blog</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Pipeline</h2>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-2 text-center">
-                        <div>
-                            <div class="font-mono text-2xl text-stone-900" id="tile-blog-drafts">8</div>
-                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Drafts</div>
-                        </div>
-                        <div>
-                            <div class="font-mono text-2xl text-stone-900" id="tile-blog-live">9</div>
-                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Live</div>
-                        </div>
-                        <div>
-                            <div class="font-mono text-2xl text-stone-900" id="tile-blog-planned">6</div>
-                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Ideen</div>
-                        </div>
-                    </div>
-                </a>
+            <!-- KARRIERE & VERDIENEN -->
+            <section class="mt-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Karriere &amp; Verdienen</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                <!-- Tile: Promo Queue -->
-                <a href="promo.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Promo</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Substack + LinkedIn</h2>
+                    <!-- Tile: Bewerbungen -->
+                    <a href="bewerbungen.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Bewerbungen</p>
+                                <h2 class="source-serif text-lg text-stone-900 mt-1">Pipeline</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2 text-center">
-                        <div>
-                            <div class="font-mono text-2xl text-stone-900" id="tile-promo-substack-open">9</div>
-                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Substack</div>
+                        <div class="grid grid-cols-4 gap-2 text-center">
+                            <div>
+                                <div class="font-mono text-xl text-stone-900" id="tile-app-entwurf">0</div>
+                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Entwurf</div>
+                            </div>
+                            <div>
+                                <div class="font-mono text-xl text-stone-900" id="tile-app-versendet">0</div>
+                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Sent</div>
+                            </div>
+                            <div>
+                                <div class="font-mono text-xl text-stone-900" id="tile-app-gespraech">0</div>
+                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Gespräch</div>
+                            </div>
+                            <div>
+                                <div class="font-mono text-xl text-stone-400" id="tile-app-abgelaufen">0</div>
+                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Abgel.</div>
+                            </div>
                         </div>
-                        <div>
-                            <div class="font-mono text-2xl text-stone-900" id="tile-promo-linkedin-open">9</div>
-                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">LinkedIn</div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
 
-                <!-- Tile: Skills -->
-                <a href="skills.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Skills</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Claude-Skills</h2>
+                    <!-- Tile: Angebote -->
+                    <a href="angebote.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Angebote</p>
+                                <h2 class="source-serif text-lg text-stone-900 mt-1">Services</h2>
+                            </div>
                         </div>
-                    </div>
-                    <p class="text-sm text-stone-500 mb-3">25 Skills in 6 Rubriken</p>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/jtbd</span>
-                        <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/ost</span>
-                        <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/rice</span>
-                        <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/prototyp</span>
-                        <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-stone-100 text-stone-500">+9</span>
-                    </div>
-                </a>
+                        <div class="grid grid-cols-2 gap-2 text-center">
+                            <div>
+                                <div class="font-mono text-2xl text-stone-900">4</div>
+                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Live</div>
+                            </div>
+                            <div>
+                                <div class="font-mono text-2xl text-stone-900">2</div>
+                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Versteckt</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
 
-                <!-- Tile: Angebote -->
-                <a href="angebote.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Angebote</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Services</h2>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2 text-center">
-                        <div>
-                            <div class="font-mono text-2xl text-stone-900">4</div>
-                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Live</div>
-                        </div>
-                        <div>
-                            <div class="font-mono text-2xl text-stone-900">2</div>
-                            <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Versteckt</div>
-                        </div>
-                    </div>
-                </a>
+            <!-- CONTENT -->
+            <section class="mt-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Content</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                <!-- Tile: Aktionen -->
-                <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Quick Actions</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Jetzt erfassen</h2>
+                    <!-- Tile: Blog -->
+                    <a href="blog.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Blog</p>
+                                <h2 class="source-serif text-lg text-stone-900 mt-1">Pipeline</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div class="space-y-2">
+                        <div class="grid grid-cols-3 gap-2 text-center">
+                            <div>
+                                <div class="font-mono text-2xl text-stone-900" id="tile-blog-drafts">8</div>
+                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Drafts</div>
+                            </div>
+                            <div>
+                                <div class="font-mono text-2xl text-stone-900" id="tile-blog-live">9</div>
+                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Live</div>
+                            </div>
+                            <div>
+                                <div class="font-mono text-2xl text-stone-900" id="tile-blog-planned">6</div>
+                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Ideen</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Tile: Promo Queue -->
+                    <a href="promo.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Promo</p>
+                                <h2 class="source-serif text-lg text-stone-900 mt-1">Substack + LinkedIn</h2>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 text-center">
+                            <div>
+                                <div class="font-mono text-2xl text-stone-900" id="tile-promo-substack-open">9</div>
+                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Substack</div>
+                            </div>
+                            <div>
+                                <div class="font-mono text-2xl text-stone-900" id="tile-promo-linkedin-open">9</div>
+                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">LinkedIn</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- WISSEN -->
+            <section class="mt-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Wissen</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                    <!-- Tile: Lernplan -->
+                    <a href="lernplan.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Lernplan</p>
+                                <h2 class="source-serif text-lg text-stone-900 mt-1">Now · Next · Later</h2>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-center">
+                            <div>
+                                <div class="font-mono text-xl text-stone-900" id="tile-learn-now">0</div>
+                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Now</div>
+                            </div>
+                            <div>
+                                <div class="font-mono text-xl text-stone-900" id="tile-learn-next">0</div>
+                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Next</div>
+                            </div>
+                            <div>
+                                <div class="font-mono text-xl text-stone-400" id="tile-learn-later">0</div>
+                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Later</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Tile: Skills -->
+                    <a href="skills.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Skills</p>
+                                <h2 class="source-serif text-lg text-stone-900 mt-1">Claude-Skills</h2>
+                            </div>
+                        </div>
+                        <p class="text-sm text-stone-500 mb-3">25 Skills in 6 Rubriken</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/jtbd</span>
+                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/ost</span>
+                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/rice</span>
+                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/prototyp</span>
+                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-stone-100 text-stone-500">+9</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- ACTIONS -->
+            <section class="mt-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Quick Actions</p>
+                <div class="bg-white border rounded-xl p-5 md:p-6" style="border-color: #E5E2DB;">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                         <a href="zeit.html#neu" class="block w-full text-center bg-violet-400 hover:bg-violet-500 text-white font-medium py-2.5 rounded-lg text-sm transition-all">+ Zeit-Eintrag</a>
                         <a href="ziele.html#neu" class="block w-full text-center border hover:border-violet-300 text-stone-700 font-medium py-2.5 rounded-lg text-sm transition-all" style="border-color: #E5E2DB;">+ Wochenziel</a>
                     </div>
                 </div>
-
-            </div>
+            </section>
 
             <!-- Roadmap-Link -->
             <section class="mt-12 pt-8 text-center" style="border-top: 1px solid #E5E2DB;">
@@ -351,7 +376,7 @@
         </main>
     </div>
 
-    <script src="office.js" data-active="dashboard"></script>
+    <script src="office.js?v=2" data-active="dashboard"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Populate dashboard tiles from LocalStorage
