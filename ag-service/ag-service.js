@@ -39,15 +39,24 @@
             return '<a href="' + item.href + '" class="' + cls + '">' + item.label + '</a>';
         }).join('');
 
+        // Tool-Links: Deck + Landing sind aus jeder Seite 1-Click erreichbar.
+        // Visuell kleiner als Primary-Nav, aber immer sichtbar.
+        var tools = ''
+            + '<div class="flex items-center gap-2 shrink-0">'
+            + '<a href="deck.html" class="font-mono text-[0.65rem] tracking-wider uppercase px-2.5 py-1 rounded border hover:border-violet-300 hover:text-violet-500 transition-all" style="border-color: #E5E2DB; color: #44403c;" title="Pitch-Deck (Fullscreen)">Deck</a>'
+            + '<a href="/ag-service-pilot/" target="_blank" rel="noopener" class="font-mono text-[0.65rem] tracking-wider uppercase px-2.5 py-1 rounded border hover:border-violet-300 hover:text-violet-500 transition-all" style="border-color: #E5E2DB; color: #44403c;" title="Public Landing Page">Landing <span style="opacity: 0.5;">↗</span></a>'
+            + '</div>';
+
         return ''
             + '<nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(250,250,248,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid #E5E2DB;">'
-            + '<div class="max-w-[1100px] mx-auto px-6 py-4 flex items-center justify-between gap-6">'
-            + '<div class="flex items-center gap-3">'
+            + '<div class="max-w-[1100px] mx-auto px-6 py-4 flex items-center justify-between gap-4">'
+            + '<div class="flex items-center gap-3 shrink-0">'
             + '<span class="source-serif text-stone-900 text-base">AG Service</span>'
-            + '<span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">intern · Prototyp</span>'
+            + '<span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded hidden md:inline" style="background: #fae8de; color: #a86340;">intern</span>'
             + '</div>'
-            + '<div class="flex items-center gap-5 text-[0.8rem] overflow-x-auto">' + items + '</div>'
-            + '<button onclick="agLogout()" class="text-[0.7rem] text-stone-400 hover:text-stone-600 font-mono tracking-wide hidden sm:inline">LOGOUT</button>'
+            + '<div class="flex items-center gap-5 text-[0.8rem] overflow-x-auto flex-1 min-w-0">' + items + '</div>'
+            + tools
+            + '<button onclick="agLogout()" class="text-[0.7rem] text-stone-400 hover:text-stone-600 font-mono tracking-wide hidden lg:inline shrink-0">LOGOUT</button>'
             + '</div></nav>';
     }
 
