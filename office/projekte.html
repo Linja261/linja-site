@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Projekte – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], serif: ['Source Serif 4', 'Georgia', 'serif'], mono: ['Geist Mono', 'monospace'] },
+                colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } } } }
+        }
+    </script>
+    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Projekte · <span id="project-count"></span></p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Projekte.</h1>
+                <p class="text-sm text-stone-500">Alles, was gerade in Arbeit ist. Live-Prototypen, Design-Thinking-Sprints, WIP.</p>
+            </header>
+
+            <!-- Status-Übersicht / Summary -->
+            <section class="mb-10 grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div class="bg-white border rounded-xl p-5" style="border-color: #d9d1e5; background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%);">
+                    <p class="font-mono text-[0.6rem] uppercase text-violet-500 mb-1">Live</p>
+                    <p class="font-mono text-2xl text-stone-900" id="count-live">2</p>
+                    <p class="text-[0.7rem] text-stone-500 mt-1">Produktiv erreichbar</p>
+                </div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Prototyp</p>
+                    <p class="font-mono text-2xl text-stone-900" id="count-proto">2</p>
+                    <p class="text-[0.7rem] text-stone-500 mt-1">Demo-ready, Validierung läuft</p>
+                </div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Design Thinking</p>
+                    <p class="font-mono text-2xl text-stone-900" id="count-dt">0</p>
+                    <p class="text-[0.7rem] text-stone-500 mt-1">Konzept / Sprint</p>
+                </div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">WIP</p>
+                    <p class="font-mono text-2xl text-stone-900" id="count-wip">1</p>
+                    <p class="text-[0.7rem] text-stone-500 mt-1">In Arbeit, kein Prototyp</p>
+                </div>
+            </section>
+
+            <!-- LIVE -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">Live</p>
+                <div class="space-y-3">
+
+                    <!-- Koaly -->
+                    <article class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between gap-4 mb-3">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1 flex-wrap">
+                                    <h2 class="source-serif text-xl text-stone-900">Koaly</h2>
+                                    <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded text-white" style="background: #5b8a72;">Live</span>
+                                    <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded bg-stone-100 text-stone-500">Health</span>
+                                </div>
+                                <p class="text-sm text-stone-600">Gesundheits-App zwischen Physio-/Osteopathie-Terminen. Therapeut richtet ein, übergibt, sieht mit. Keine Consumer-Fitness, keine Körperoptik.</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-[0.8rem] mt-4 pt-4" style="border-top: 1px solid #F5F3EF;">
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Live-Prototyp</p>
+                                <a href="https://linja261.github.io/koaly-proto/" target="_blank" class="text-violet-500 hover:text-violet-700 font-medium">linja261.github.io/koaly-proto/ ↗</a>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Vault</p>
+                                <a href="obsidian://open?vault=KnowledgeOS&file=15_HEALTHAPP%2FREADME" class="text-stone-700 hover:text-violet-500">15_HEALTHAPP/README</a>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Next</p>
+                                <p class="text-stone-700">Demo beim Osteopathen vorführen</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- AG Service -->
+                    <article class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between gap-4 mb-3">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1 flex-wrap">
+                                    <h2 class="source-serif text-xl text-stone-900">AG Service</h2>
+                                    <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded text-white" style="background: #5b8a72;">Live</span>
+                                    <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">gated</span>
+                                    <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded bg-stone-100 text-stone-500">Bildung · B2B</span>
+                                </div>
+                                <p class="text-sm text-stone-600">Professioneller AG-Service für OGS-Träger in NRW. Senior:innen geprüft, Staffeln zu 1.000 €, Kinderschutz-Paket. Rechtsanspruch-getrieben.</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-[0.8rem] mt-4 pt-4" style="border-top: 1px solid #F5F3EF;">
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Frontend (gated)</p>
+                                <a href="https://linja.me/ag-service/" target="_blank" class="text-violet-500 hover:text-violet-700 font-medium">linja.me/ag-service/ ↗</a>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Vault</p>
+                                <a href="obsidian://open?vault=KnowledgeOS&file=12_AG_SERVICE%2F00_Index" class="text-stone-700 hover:text-violet-500">12_AG_SERVICE/00_Index</a>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Next</p>
+                                <p class="text-stone-700">5 Träger-Interviews (KW17–22)</p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- PROTOTYP -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-500">Prototyp · Demo-ready</p>
+                <div class="space-y-3">
+
+                    <!-- Reader -->
+                    <article class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between gap-4 mb-3">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1 flex-wrap">
+                                    <h2 class="source-serif text-xl text-stone-900">Reader</h2>
+                                    <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded text-white bg-violet-400">Prototyp</span>
+                                    <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded bg-stone-100 text-stone-500">Personal · ADHS</span>
+                                </div>
+                                <p class="text-sm text-stone-600">90-Sekunden-Audio-Reader für lange Artikel. Warme deutsche Stimme, neutraler TLDR-Stil. Zwei Use-Cases: Blog-Widget + Personal Web-App.</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-[0.8rem] mt-4 pt-4" style="border-top: 1px solid #F5F3EF;">
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Geplante URL</p>
+                                <p class="text-stone-500">reader.linja.me</p>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Vault</p>
+                                <a href="obsidian://open?vault=KnowledgeOS&file=16_READER%2FREADME" class="text-stone-700 hover:text-violet-500">16_READER/README</a>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Next</p>
+                                <p class="text-stone-700">Next.js-App deployen, Widget in Blog</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- MatGrid -->
+                    <article class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between gap-4 mb-3">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1 flex-wrap">
+                                    <h2 class="source-serif text-xl text-stone-900">MatGrid</h2>
+                                    <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded text-white bg-violet-400">Prototyp</span>
+                                    <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded bg-stone-100 text-stone-500">B2B · Handwerk · Panoptia</span>
+                                </div>
+                                <p class="text-sm text-stone-600">Mit David + Jan: Dachdecker-Lösung. Landing Page, Finanzmodell, App-Prototyp, Brand Kit — verteilt über vier Submodule.</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-[0.8rem] mt-4 pt-4" style="border-top: 1px solid #F5F3EF;">
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Repos</p>
+                                <p class="text-stone-500">matgrid-model / -landing-page / -app / -brand</p>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Vault</p>
+                                <a href="obsidian://open?vault=KnowledgeOS&file=13_MATGRID%2FPlaybook" class="text-stone-700 hover:text-violet-500">13_MATGRID/Playbook</a>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Next</p>
+                                <p class="text-stone-700">Pitch-Deck DD Airteam finalisieren</p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- WIP -->
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-stone-400">WIP · Konzept</p>
+                <div class="space-y-3">
+
+                    <!-- Mamahood -->
+                    <article class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between gap-4 mb-3">
+                            <div>
+                                <div class="flex items-center gap-2 mb-1 flex-wrap">
+                                    <h2 class="source-serif text-xl text-stone-900">Mamahood</h2>
+                                    <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded bg-stone-200 text-stone-600">WIP</span>
+                                </div>
+                                <p class="text-sm text-stone-600">Konzept-Phase. MVP-Plan steht, Design-Thinking-Durchlauf dokumentiert, Prototype-Repo angelegt.</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-[0.8rem] mt-4 pt-4" style="border-top: 1px solid #F5F3EF;">
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Prototype</p>
+                                <p class="text-stone-500">Submodule, noch nicht live</p>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Vault</p>
+                                <a href="obsidian://open?vault=KnowledgeOS&file=14_MAMAHOOD%2Fkonzept%2Fmvp-plan" class="text-stone-700 hover:text-violet-500">14_MAMAHOOD/konzept/mvp-plan</a>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Next</p>
+                                <p class="text-stone-700">Entscheidung: priorisieren oder parken?</p>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Legende -->
+            <section class="p-5 rounded-xl" style="background: #F5F3EF;">
+                <p class="font-mono text-[0.65rem] uppercase text-stone-400 mb-2">Status-Legende</p>
+                <div class="flex flex-wrap gap-x-5 gap-y-2 text-[0.8rem] text-stone-600">
+                    <span><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded text-white" style="background: #5b8a72;">Live</span> produktiv erreichbar</span>
+                    <span><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded text-white bg-violet-400">Prototyp</span> demo-ready, Validierung läuft</span>
+                    <span><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded bg-stone-200 text-stone-600">WIP</span> in Arbeit, kein Prototyp</span>
+                </div>
+                <p class="text-[0.75rem] text-stone-500 mt-3">Vault-Links öffnen die Notiz direkt in Obsidian (funktioniert auf Mac + iPhone).</p>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js" data-active="projekte"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var count = document.querySelectorAll('article').length;
+            var el = document.getElementById('project-count');
+            if (el) el.textContent = count + ' aktiv';
+        });
+    </script>
+</body>
+</html>
