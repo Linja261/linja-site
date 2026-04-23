@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Roadmap – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691' } },
+        } } }
+    </script>
+    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Roadmap</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Office · Now · Next · Later</h1>
+                <p class="text-sm text-stone-500">Was im Office gerade läuft, was als Nächstes kommt, was geparkt ist.</p>
+            </header>
+
+            <!-- Now -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Now</h2>
+                    <span class="font-mono text-[0.65rem] tracking-wider uppercase px-2 py-0.5 rounded text-violet-500" style="background: #ece8f2;">in Arbeit</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <a href="reminder.html" class="block p-5 rounded-xl bg-white border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <div class="font-medium text-stone-900 mb-1">Reminder-Inbox</div>
+                        <div class="text-xs text-stone-500">Datierte Reminder zentral. Heute · Diese Woche · Später · Erledigt.</div>
+                    </a>
+                    <a href="bewerbungen.html" class="block p-5 rounded-xl bg-white border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <div class="font-medium text-stone-900 mb-1">Bewerbungs-Pipeline</div>
+                        <div class="text-xs text-stone-500">Endlich. Läuft aus, sobald CE oder HERO unterschrieben sind.</div>
+                    </a>
+                    <a href="checklog.html" class="block p-5 rounded-xl bg-white border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <div class="font-medium text-stone-900 mb-1">Check-Log</div>
+                        <div class="text-xs text-stone-500">Mood, Fokus, offene Punkte aus /checkin und /checkout.</div>
+                    </a>
+                    <a href="lernplan.html" class="block p-5 rounded-xl bg-white border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <div class="font-medium text-stone-900 mb-1">Lernplan-Board</div>
+                        <div class="text-xs text-stone-500">Mittelfristige Lernpfade. Now · Next · Later.</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Next -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Next</h2>
+                    <span class="font-mono text-[0.65rem] tracking-wider uppercase px-2 py-0.5 rounded text-stone-500" style="background: #F5F3EF;">geplant</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="p-5 rounded-xl" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Captures-Inbox</div>
+                        <div class="text-xs text-stone-500">/captures-Inhalte sichtbar machen, Verarbeitungs-Status pro Capture.</div>
+                    </div>
+                    <div class="p-5 rounded-xl" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">MatGrid-Track</div>
+                        <div class="text-xs text-stone-500">Eigene Tile + Seite analog Nebentätigkeit für die Ausgründung.</div>
+                    </div>
+                    <div class="p-5 rounded-xl" style="background: #F5F3EF;">
+                        <div class="font-medium text-stone-800 mb-1">Textmodul-Bibliothek</div>
+                        <div class="text-xs text-stone-500">In Bewerbungs-Pipeline nachschieben, sobald Bedarf entsteht.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Later -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Later</h2>
+                    <span class="font-mono text-[0.65rem] tracking-wider uppercase px-2 py-0.5 rounded text-stone-400" style="background: #FAFAF8; border: 1px solid #E5E2DB;">Backlog</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="p-5 rounded-xl" style="background: #FAFAF8; border: 1px solid #E5E2DB;">
+                        <div class="font-medium text-stone-700 mb-1">Bücher-Tracker</div>
+                        <div class="text-xs text-stone-500">Eher Sub-Sektion im Lernplan als eigene Seite.</div>
+                    </div>
+                    <div class="p-5 rounded-xl" style="background: #FAFAF8; border: 1px solid #E5E2DB;">
+                        <div class="font-medium text-stone-700 mb-1">Projekt-Historie</div>
+                        <div class="text-xs text-stone-500">Lebt im Vault unter 03_Experience/Projects/. Office-Indexer denkbar.</div>
+                    </div>
+                    <div class="p-5 rounded-xl" style="background: #FAFAF8; border: 1px solid #E5E2DB;">
+                        <div class="font-medium text-stone-700 mb-1">Reminder-Auto-Sync</div>
+                        <div class="text-xs text-stone-500">Memory-Files automatisch in Reminder-Inbox seeden (per Skill).</div>
+                    </div>
+                    <div class="p-5 rounded-xl" style="background: #FAFAF8; border: 1px solid #E5E2DB;">
+                        <div class="font-medium text-stone-700 mb-1">Office-Suche</div>
+                        <div class="text-xs text-stone-500">Bei wachsender Seitenzahl: Volltextsuche über alle Tracks.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Done -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-700">Done</h2>
+                    <span class="font-mono text-[0.65rem] tracking-wider uppercase px-2 py-0.5 rounded text-stone-400" style="background: #F5F3EF;">live</span>
+                </div>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-sm text-stone-600">
+                    <li>· Dashboard mit Tiles</li>
+                    <li>· Blog-Cockpit</li>
+                    <li>· Promo-Queue</li>
+                    <li>· Zeit-Log</li>
+                    <li>· Wochen- und Monatsziele</li>
+                    <li>· Skills-Übersicht</li>
+                    <li>· Workflows-Quadranten</li>
+                    <li>· Interview-Spickzettel</li>
+                    <li>· Nebentätigkeit-Track</li>
+                    <li>· Angebote-Verwaltung</li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js" data-active="roadmap"></script>
+</body>
+</html>

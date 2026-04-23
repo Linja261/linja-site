@@ -106,30 +106,110 @@
                         <div>
                             <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500">Projekte · 5 aktiv</p>
                             <h2 class="source-serif text-lg text-stone-900 mt-1">AG Service · Koaly · Reader · MatGrid · Mamahood</h2>
-                            <p class="text-[0.78rem] text-stone-500 mt-1">Live-Prototypen, Demo-ready-Builds, WIP — mit Vault-Links + Next Steps.</p>
+                            <p class="text-[0.78rem] text-stone-500 mt-1">Vier Live-Apps, ein aktiver Pilot bei MatGrid, ein Prototyp — mit Vault-Links + Next Steps.</p>
                         </div>
                         <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded bg-violet-400 text-white">Neu</span>
                     </div>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
                         <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
                             <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #5b8a72;">Live</p>
-                            <p class="font-mono text-2xl text-stone-900">2</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">AG Service, Koaly</p>
+                            <p class="font-mono text-2xl text-stone-900">4</p>
+                            <p class="text-[0.72rem] text-stone-500 mt-1">AG Service, Koaly, MatGrid, Mamahood</p>
                         </div>
                         <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
                             <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Prototyp</p>
-                            <p class="font-mono text-2xl text-stone-900">2</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">Reader, MatGrid</p>
+                            <p class="font-mono text-2xl text-stone-900">1</p>
+                            <p class="text-[0.72rem] text-stone-500 mt-1">Reader</p>
                         </div>
                         <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">WIP</p>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #a86340;">Pilot</p>
                             <p class="font-mono text-2xl text-stone-900">1</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">Mamahood</p>
+                            <p class="text-[0.72rem] text-stone-500 mt-1">MatGrid · LOI-Flow</p>
                         </div>
                         <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
                             <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Next Focus</p>
                             <p class="font-medium text-stone-900 text-sm mt-1">Träger-Interviews</p>
                             <p class="text-[0.7rem] text-stone-500 mt-0.5">AG Service · KW17–22</p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Tile: Reminder -->
+                <a href="reminder.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Reminder</p>
+                            <h2 class="source-serif text-lg text-stone-900 mt-1">Inbox</h2>
+                        </div>
+                        <span class="font-mono text-xs text-stone-400" id="tile-reminder-summary">—</span>
+                    </div>
+                    <ul id="tile-reminder-list" class="text-sm text-stone-600 space-y-1.5">
+                        <li class="text-stone-400">Noch keine Reminder.</li>
+                    </ul>
+                </a>
+
+                <!-- Tile: Check-Log -->
+                <a href="checklog.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Check-Log</p>
+                            <h2 class="source-serif text-lg text-stone-900 mt-1">Letzter Eintrag</h2>
+                        </div>
+                        <span class="text-base" id="tile-checklog-mood"></span>
+                    </div>
+                    <div id="tile-checklog-body" class="text-sm text-stone-600">
+                        <p class="text-stone-400">Noch kein Eintrag.</p>
+                    </div>
+                </a>
+
+                <!-- Tile: Bewerbungen -->
+                <a href="bewerbungen.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Bewerbungen</p>
+                            <h2 class="source-serif text-lg text-stone-900 mt-1">Pipeline</h2>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2 text-center">
+                        <div>
+                            <div class="font-mono text-xl text-stone-900" id="tile-app-entwurf">0</div>
+                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Entwurf</div>
+                        </div>
+                        <div>
+                            <div class="font-mono text-xl text-stone-900" id="tile-app-versendet">0</div>
+                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Sent</div>
+                        </div>
+                        <div>
+                            <div class="font-mono text-xl text-stone-900" id="tile-app-gespraech">0</div>
+                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Gespräch</div>
+                        </div>
+                        <div>
+                            <div class="font-mono text-xl text-stone-400" id="tile-app-abgelaufen">0</div>
+                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Abgel.</div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Tile: Lernplan -->
+                <a href="lernplan.html" class="bg-white border rounded-xl p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Lernplan</p>
+                            <h2 class="source-serif text-lg text-stone-900 mt-1">Now · Next · Later</h2>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-center">
+                        <div>
+                            <div class="font-mono text-xl text-stone-900" id="tile-learn-now">0</div>
+                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Now</div>
+                        </div>
+                        <div>
+                            <div class="font-mono text-xl text-stone-900" id="tile-learn-next">0</div>
+                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Next</div>
+                        </div>
+                        <div>
+                            <div class="font-mono text-xl text-stone-400" id="tile-learn-later">0</div>
+                            <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Later</div>
                         </div>
                     </div>
                 </a>
@@ -260,32 +340,12 @@
 
             </div>
 
-            <!-- Roadmap Phase 2 -->
-            <section class="mt-12 pt-8" style="border-top: 1px solid #E5E2DB;">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Roadmap · Phase 2</p>
-                <h2 class="source-serif text-lg text-stone-900 mb-4">Was noch kommen könnte</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
-                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
-                        <div class="font-medium text-stone-800 mb-1">Bewerbungs-Pipeline</div>
-                        <div class="text-stone-500 text-xs">Anschreiben-Status, Textmodul-Bibliothek</div>
-                    </div>
-                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
-                        <div class="font-medium text-stone-800 mb-1">Lernplan-Board</div>
-                        <div class="text-stone-500 text-xs">Lern-Roadmap Now · Next · Later</div>
-                    </div>
-                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
-                        <div class="font-medium text-stone-800 mb-1">Projekt-Historie</div>
-                        <div class="text-stone-500 text-xs">Portfolio, Case-Study-Sourcing</div>
-                    </div>
-                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
-                        <div class="font-medium text-stone-800 mb-1">Bücher & Leseliste</div>
-                        <div class="text-stone-500 text-xs">Persönlicher Reading-Tracker</div>
-                    </div>
-                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
-                        <div class="font-medium text-stone-800 mb-1">Check-in/out-Log</div>
-                        <div class="text-stone-500 text-xs">Mood, Fokus, offene Punkte aus /checkin und /checkout</div>
-                    </div>
-                </div>
+            <!-- Roadmap-Link -->
+            <section class="mt-12 pt-8 text-center" style="border-top: 1px solid #E5E2DB;">
+                <a href="roadmap.html" class="inline-flex items-center gap-2 font-mono text-[0.7rem] tracking-wider uppercase text-stone-400 hover:text-violet-500 transition-all">
+                    <span>Roadmap · Now · Next · Later</span>
+                    <span>→</span>
+                </a>
             </section>
 
         </main>
@@ -329,6 +389,64 @@
                     return '<li class="flex items-start gap-2"><span class="font-mono text-xs ' + (g.done ? 'text-violet-400' : 'text-stone-300') + '">' + check + '</span><span class="' + cls + '">' + g.text + '</span></li>';
                 }).join('');
             }
+
+            // Reminder tile: count fällig heute / diese Woche
+            var reminders = window.officeStore.get('reminders', []);
+            var openRem = reminders.filter(function (r) { return !r.done; });
+            var dueToday = openRem.filter(function (r) { return r.dueDate <= today; });
+            (function () {
+                var d = new Date(); d.setHours(0,0,0,0);
+                var dayNr = (d.getDay() + 6) % 7;
+                d.setDate(d.getDate() + (6 - dayNr));
+                var weekEnd = d.toISOString().slice(0, 10);
+                var dueWeek = openRem.filter(function (r) { return r.dueDate > today && r.dueDate <= weekEnd; });
+                var sumEl = document.getElementById('tile-reminder-summary');
+                var listEl = document.getElementById('tile-reminder-list');
+                if (sumEl) sumEl.textContent = dueToday.length + ' heute · ' + dueWeek.length + ' Woche';
+                if (listEl && (dueToday.length + dueWeek.length) > 0) {
+                    var preview = dueToday.concat(dueWeek).slice(0, 4);
+                    listEl.innerHTML = preview.map(function (r) {
+                        var overdue = r.dueDate < today;
+                        var dot = overdue ? 'text-red-400' : 'text-violet-400';
+                        return '<li class="flex items-start gap-2"><span class="font-mono text-xs ' + dot + '">·</span><span class="text-stone-700 truncate">' + r.title + '</span></li>';
+                    }).join('');
+                }
+            })();
+
+            // Check-Log tile: latest entry
+            var checklog = window.officeStore.get('checklog', []);
+            if (checklog.length > 0) {
+                var latest = checklog.slice().sort(function (a, b) {
+                    var d = b.date.localeCompare(a.date);
+                    return d !== 0 ? d : (b.createdAt || '').localeCompare(a.createdAt || '');
+                })[0];
+                var moodEl = document.getElementById('tile-checklog-mood');
+                var bodyEl = document.getElementById('tile-checklog-body');
+                if (moodEl) moodEl.textContent = latest.mood || '';
+                if (bodyEl) {
+                    var dateStr = new Date(latest.date).toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: 'short' });
+                    var typeStr = latest.type === 'checkin' ? 'Check-in' : 'Check-out';
+                    bodyEl.innerHTML = '<p class="font-mono text-[0.65rem] tracking-wider uppercase text-stone-400 mb-1">' + dateStr + ' · ' + typeStr + '</p>'
+                        + (latest.focus ? '<p class="text-stone-700 mb-1">' + latest.focus + '</p>' : '')
+                        + (latest.openPoints && latest.openPoints.length > 0 ? '<p class="text-xs text-stone-500">' + latest.openPoints.length + ' offen</p>' : '');
+                }
+            }
+
+            // Bewerbungen tile: counts per status
+            var apps = window.officeStore.get('applications', []);
+            ['entwurf', 'versendet', 'gespraech', 'abgelaufen'].forEach(function (s) {
+                var cnt = apps.filter(function (a) { return a.status === s; }).length;
+                var el = document.getElementById('tile-app-' + s);
+                if (el) el.textContent = cnt;
+            });
+
+            // Lernplan tile: counts per lane
+            var learn = window.officeStore.get('learningplan', []);
+            ['now', 'next', 'later'].forEach(function (l) {
+                var cnt = learn.filter(function (a) { return a.lane === l; }).length;
+                var el = document.getElementById('tile-learn-' + l);
+                if (el) el.textContent = cnt;
+            });
         });
     </script>
 </body>

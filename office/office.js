@@ -16,37 +16,67 @@
     var activePage = scriptTag.getAttribute('data-active') || 'dashboard';
 
     // === NAV ===
-    var navItems = [
-        { id: 'dashboard', label: 'Dashboard', href: 'index.html' },
-        { id: 'projekte', label: 'Projekte', href: 'projekte.html' },
-        { id: 'interviews', label: 'Interviews', href: 'interviews.html' },
-        { id: 'nebentaetigkeit', label: 'Nebentätigkeit', href: 'nebentaetigkeit.html' },
-        { id: 'skills', label: 'Skills', href: 'skills.html' },
-        { id: 'blog', label: 'Blog', href: 'blog.html' },
-        { id: 'promo', label: 'Promo', href: 'promo.html' },
-        { id: 'angebote', label: 'Angebote', href: 'angebote.html' },
-        { id: 'ziele', label: 'Ziele', href: 'ziele.html' },
-        { id: 'zeit', label: 'Zeit', href: 'zeit.html' },
+    var clusters = [
+        { id: 'today', label: 'Heute', items: [
+            { id: 'dashboard', label: 'Dashboard', href: 'index.html' },
+            { id: 'reminder', label: 'Reminder', href: 'reminder.html' },
+            { id: 'checklog', label: 'Check-Log', href: 'checklog.html' },
+            { id: 'ziele', label: 'Ziele', href: 'ziele.html' },
+            { id: 'zeit', label: 'Zeit', href: 'zeit.html' },
+        ]},
+        { id: 'verdienen', label: 'Karriere & Verdienen', items: [
+            { id: 'bewerbungen', label: 'Bewerbungen', href: 'bewerbungen.html' },
+            { id: 'interviews', label: 'Interviews', href: 'interviews.html' },
+            { id: 'nebentaetigkeit', label: 'Nebentätigkeit', href: 'nebentaetigkeit.html' },
+            { id: 'angebote', label: 'Angebote', href: 'angebote.html' },
+        ]},
+        { id: 'content', label: 'Content', items: [
+            { id: 'blog', label: 'Blog', href: 'blog.html' },
+            { id: 'promo', label: 'Promo', href: 'promo.html' },
+        ]},
+        { id: 'wissen', label: 'Wissen', items: [
+            { id: 'skills', label: 'Skills', href: 'skills.html' },
+            { id: 'lernplan', label: 'Lernplan', href: 'lernplan.html' },
+        ]},
     ];
 
     function buildNav() {
-        var items = navItems.map(function (item) {
-            var isActive = item.id === activePage;
-            var cls = isActive
-                ? 'text-violet-500 font-medium border-b-2 border-violet-400 pb-1'
+        var clusterButtons = clusters.map(function (c) {
+            var hasActive = c.items.some(function (i) { return i.id === activePage; });
+            var btnCls = hasActive
+                ? 'text-violet-500 font-medium pb-1 border-b-2 border-violet-400'
                 : 'text-stone-500 hover:text-stone-800 transition-colors pb-1 border-b-2 border-transparent';
-            return '<a href="' + item.href + '" class="' + cls + '">' + item.label + '</a>';
+            var menuItems = c.items.map(function (i) {
+                var isActive = i.id === activePage;
+                var iCls = isActive
+                    ? 'block px-4 py-2 text-sm text-violet-500 bg-violet-50 font-medium'
+                    : 'block px-4 py-2 text-sm text-stone-700 hover:bg-stone-50 transition-colors';
+                return '<a href="' + i.href + '" class="' + iCls + '">' + i.label + '</a>';
+            }).join('');
+            return ''
+                + '<div class="relative">'
+                + '<button data-cluster-btn="' + c.id + '" onclick="officeToggleCluster(event, \'' + c.id + '\')" class="' + btnCls + ' flex items-center gap-1 cursor-pointer">'
+                + '<span>' + c.label + '</span>'
+                + '<svg class="w-3 h-3 transition-transform" data-cluster-chevron="' + c.id + '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>'
+                + '</button>'
+                + '<div data-cluster-menu="' + c.id + '" class="hidden absolute top-full left-0 mt-2 min-w-[180px] bg-white border rounded-lg shadow-lg overflow-hidden z-50" style="border-color: #E5E2DB;">'
+                + menuItems
+                + '</div>'
+                + '</div>';
         }).join('');
 
         return ''
             + '<nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(250,250,248,0.94); backdrop-filter: blur(8px); border-bottom: 1px solid #E5E2DB;">'
             + '<div class="max-w-[1100px] mx-auto px-6 py-4 flex items-center justify-between gap-6">'
-            + '<div class="flex items-center gap-3">'
-            + '<span class="source-serif text-stone-900 text-base">Office</span>'
+            + '<a href="index.html" class="flex items-center gap-3 group flex-shrink-0">'
+            + '<span class="source-serif text-stone-900 text-base group-hover:text-violet-500 transition-colors">Office</span>'
             + '<span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">intern</span>'
-            + '</div>'
-            + '<div class="flex items-center gap-5 text-[0.8rem] overflow-x-auto">' + items + '</div>'
+            + '</a>'
+            + '<div class="flex items-center gap-6 text-[0.8rem] overflow-x-auto">' + clusterButtons + '</div>'
+            + '<div class="flex items-center gap-4 flex-shrink-0">'
+            + '<a href="roadmap.html" class="hidden md:inline text-[0.7rem] text-stone-400 hover:text-violet-500 font-mono tracking-wide transition-colors">ROADMAP</a>'
             + '<button onclick="officeLogout()" class="text-[0.7rem] text-stone-400 hover:text-stone-600 font-mono tracking-wide hidden sm:inline">LOGOUT</button>'
+            + '</div>'
             + '</div></nav>';
     }
 
@@ -106,6 +136,43 @@
         sessionStorage.removeItem(AUTH_KEY);
         location.reload();
     };
+
+    // === CLUSTER DROPDOWNS ===
+    window.officeToggleCluster = function (ev, id) {
+        if (ev) ev.stopPropagation();
+        var menus = document.querySelectorAll('[data-cluster-menu]');
+        var chevrons = document.querySelectorAll('[data-cluster-chevron]');
+        menus.forEach(function (m) {
+            var thisId = m.getAttribute('data-cluster-menu');
+            if (thisId === id) {
+                m.classList.toggle('hidden');
+            } else {
+                m.classList.add('hidden');
+            }
+        });
+        chevrons.forEach(function (c) {
+            var thisId = c.getAttribute('data-cluster-chevron');
+            var menu = document.querySelector('[data-cluster-menu="' + thisId + '"]');
+            if (menu && !menu.classList.contains('hidden')) {
+                c.style.transform = 'rotate(180deg)';
+            } else {
+                c.style.transform = '';
+            }
+        });
+    };
+
+    document.addEventListener('click', function (ev) {
+        if (ev.target.closest('[data-cluster-btn]') || ev.target.closest('[data-cluster-menu]')) return;
+        document.querySelectorAll('[data-cluster-menu]').forEach(function (m) { m.classList.add('hidden'); });
+        document.querySelectorAll('[data-cluster-chevron]').forEach(function (c) { c.style.transform = ''; });
+    });
+
+    document.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Escape') {
+            document.querySelectorAll('[data-cluster-menu]').forEach(function (m) { m.classList.add('hidden'); });
+            document.querySelectorAll('[data-cluster-chevron]').forEach(function (c) { c.style.transform = ''; });
+        }
+    });
 
     // === LOCAL STORAGE HELPERS ===
     window.officeStore = {
