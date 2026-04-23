@@ -28,7 +28,15 @@
             },
         }
     </script>
-    <style>.source-serif { font-family: "Source Serif 4", Georgia, serif; }</style>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        /* Status-Dots statt Emojis — konsistent zum Brand-Kit CV-Pattern */
+        .dot { display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; vertical-align: middle; margin-right: 0.15rem; }
+        .dot-open { background: #E5E2DB; }
+        .dot-progress { background: #D4714E; }
+        .dot-done { background: #5b8a72; }
+        .dot-critical { background: #d95d5d; }
+    </style>
 </head>
 <body style="background: #FAFAF8;" class="font-sans text-stone-700">
 
@@ -53,39 +61,72 @@
                 </p>
             </header>
 
+            <!-- HEUTE · aus Tracker-LocalStorage (Live) -->
+            <section class="mb-10 p-6 rounded-xl" style="background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 100%); border: 1px solid #d9d1e5;">
+                <div class="flex items-start justify-between gap-4 flex-wrap mb-4">
+                    <div>
+                        <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">Heute · <span id="today-date"></span></p>
+                        <h2 class="source-serif text-lg text-stone-900">Stand der Validierung</h2>
+                    </div>
+                    <a href="tracker.html" class="font-mono text-[0.7rem] uppercase tracking-wider px-3 py-1.5 rounded border hover:border-violet-300 hover:text-violet-500 transition-all" style="border-color: #E5E2DB; color: #44403c;">→ Tracker öffnen</a>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Interviews</p>
+                        <p class="font-mono text-2xl text-stone-900" id="live-interviews">0</p>
+                        <p class="text-[0.7rem] text-stone-500 mt-1" id="live-interviews-detail">Noch kein Gespräch erfasst</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Ø Hypothesen-Signal</p>
+                        <p class="font-mono text-2xl text-stone-900" id="live-avg">—</p>
+                        <p class="text-[0.7rem] text-stone-500 mt-1" id="live-avg-detail">Skala 1–5 · über alle Hypothesen</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Letztes Interview</p>
+                        <p class="font-mono text-sm text-stone-900" id="live-last">—</p>
+                        <p class="text-[0.7rem] text-stone-500 mt-1" id="live-last-detail">Zuletzt erfasst</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Pilot-Commits</p>
+                        <p class="font-mono text-2xl text-stone-900" id="live-pilot">0</p>
+                        <p class="text-[0.7rem] text-stone-500 mt-1">Verbindliches Ja aus Interviews</p>
+                    </div>
+                </div>
+            </section>
+
             <!-- DESIGN THINKING PROGRESS -->
             <section class="mb-10">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-stone-400">Design-Thinking-Fortschritt</p>
                 <div class="grid grid-cols-5 gap-2">
                     <!-- Empathize -->
                     <div class="rounded-lg p-4 text-center border" style="border-color: #d9d1e5; background: #f6f4f9;">
-                        <div class="text-2xl mb-1">🟡</div>
+                        <div class="mb-2"><span class="dot dot-progress"></span></div>
                         <div class="font-medium text-stone-800 text-sm">Empathize</div>
                         <div class="text-[0.7rem] text-stone-500 mt-1">Personas + JTBD, Interviews stehen aus</div>
                     </div>
                     <!-- Define -->
                     <div class="rounded-lg p-4 text-center border" style="border-color: #9a82b5; background: #ece8f2;">
-                        <div class="text-2xl mb-1">✅</div>
+                        <div class="mb-2"><span class="dot dot-done"></span></div>
                         <div class="font-medium text-stone-800 text-sm">Define</div>
                         <div class="text-[0.7rem] text-stone-500 mt-1">Problem + Markt belegt</div>
                     </div>
                     <!-- Ideate -->
                     <div class="rounded-lg p-4 text-center border" style="border-color: #9a82b5; background: #ece8f2;">
-                        <div class="text-2xl mb-1">✅</div>
+                        <div class="mb-2"><span class="dot dot-done"></span></div>
                         <div class="font-medium text-stone-800 text-sm">Ideate</div>
                         <div class="text-[0.7rem] text-stone-500 mt-1">Value Prop, Prozess, 3 Module</div>
                     </div>
                     <!-- Prototype -->
                     <div class="rounded-lg p-4 text-center border" style="border-color: #E5E2DB; background: white;">
-                        <div class="text-2xl mb-1">🔴</div>
+                        <div class="mb-2"><span class="dot dot-progress"></span></div>
                         <div class="font-medium text-stone-800 text-sm">Prototype</div>
-                        <div class="text-[0.7rem] text-stone-500 mt-1">Diese Site ist der erste Prototyp</div>
+                        <div class="text-[0.7rem] text-stone-500 mt-1">Landing + Deck + Staffeln live</div>
                     </div>
                     <!-- Test -->
                     <div class="rounded-lg p-4 text-center border" style="border-color: #E5E2DB; background: white;">
-                        <div class="text-2xl mb-1">🟡</div>
+                        <div class="mb-2"><span class="dot dot-open"></span></div>
                         <div class="font-medium text-stone-800 text-sm">Test</div>
-                        <div class="text-[0.7rem] text-stone-500 mt-1">Hypothesen priorisiert, Pilot geplant</div>
+                        <div class="text-[0.7rem] text-stone-500 mt-1">Interview-Runde läuft</div>
                     </div>
                 </div>
             </section>
@@ -220,5 +261,63 @@
     </div>
 
     <script src="ag-service.js" data-active="dashboard"></script>
+    <script>
+    /* Live-Daten aus Tracker (localStorage "ag-interviews") ins Heute-Panel spiegeln.
+       Falls keine Daten: neutrale Defaults ("—"). */
+    document.addEventListener('DOMContentLoaded', function () {
+        var dateEl = document.getElementById('today-date');
+        if (dateEl) {
+            var now = new Date();
+            dateEl.textContent = now.toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: 'long' });
+        }
+
+        var raw = null;
+        try { raw = JSON.parse(localStorage.getItem('ag-interviews') || '[]'); } catch (e) { raw = []; }
+        if (!Array.isArray(raw) || raw.length === 0) return;
+
+        // Count
+        var nInterviews = raw.length;
+        document.getElementById('live-interviews').textContent = nInterviews;
+
+        // Gruppen
+        var tCount = { traeger: 0, schule: 0, seniorin: 0, kommune: 0 };
+        raw.forEach(function (iv) { if (tCount[iv.target] !== undefined) tCount[iv.target]++; });
+        var parts = [];
+        if (tCount.traeger) parts.push(tCount.traeger + ' Träger');
+        if (tCount.schule) parts.push(tCount.schule + ' Schule');
+        if (tCount.seniorin) parts.push(tCount.seniorin + ' Senior:in');
+        if (tCount.kommune) parts.push(tCount.kommune + ' Kommune');
+        if (parts.length) document.getElementById('live-interviews-detail').textContent = parts.join(' · ');
+
+        // Avg signal
+        var scores = [];
+        raw.forEach(function (iv) {
+            if (iv.hypotheses) {
+                Object.values(iv.hypotheses).forEach(function (h) {
+                    if (h && typeof h.score === 'number') scores.push(h.score);
+                });
+            }
+        });
+        if (scores.length) {
+            var avg = scores.reduce(function (s, v) { return s + v; }, 0) / scores.length;
+            document.getElementById('live-avg').textContent = avg.toFixed(1);
+            document.getElementById('live-avg-detail').textContent = scores.length + ' Signale aus ' + nInterviews + ' Interviews';
+        }
+
+        // Last interview
+        var sorted = raw.slice().sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+        var last = sorted[0];
+        if (last) {
+            var lastEl = document.getElementById('live-last');
+            var detailEl = document.getElementById('live-last-detail');
+            lastEl.textContent = last.name || '(unbenannt)';
+            if (last.date) detailEl.textContent = last.date;
+        }
+
+        // Pilot-Commits (hartes Ja)
+        var pilotHart = raw.filter(function (iv) { return iv.pilot === 'hart'; }).length;
+        document.getElementById('live-pilot').textContent = pilotHart;
+    });
+    </script>
 </body>
 </html>
