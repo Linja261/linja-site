@@ -148,6 +148,31 @@
             </h1>
         </header>
 
+        <!-- ======== 90-SEK-AUDIO-WIDGET ======== -->
+        <div class="reader-widget" style="margin: 0 0 2rem; padding: 0.9rem 1rem; background: #f6f4f9; border-left: 3px solid #7b6ba5; border-radius: 6px; display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap;">
+          <button
+            type="button"
+            class="reader-play"
+            aria-label="90-Sekunden-Zusammenfassung abspielen"
+            style="flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: #7b6ba5; color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s;"
+            onmouseover="this.style.background='#6b5691'"
+            onmouseout="this.style.background='#7b6ba5'"
+          >
+            <svg class="reader-play-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="reader-pause-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+          <div style="flex: 1; min-width: 180px;">
+            <div style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: #6b5691; margin-bottom: 0.1rem;">Lieber hören?</div>
+            <div style="font-size: 0.88rem; color: #463863; line-height: 1.35;"><span class="reader-status">90 Sekunden Zusammenfassung</span></div>
+          </div>
+          <audio class="reader-audio" preload="none" style="display: none;">
+            <source src="audio/pm-beziehungsarbeit.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <script>
+        (function(){var widgets=document.querySelectorAll('.reader-widget');widgets.forEach(function(w){var btn=w.querySelector('.reader-play'),audio=w.querySelector('.reader-audio'),status=w.querySelector('.reader-status'),playIcon=w.querySelector('.reader-play-icon'),pauseIcon=w.querySelector('.reader-pause-icon'),original=status.textContent;function fmt(s){s=Math.floor(s||0);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}btn.addEventListener('click',function(){audio.paused?audio.play():audio.pause();});audio.addEventListener('play',function(){playIcon.style.display='none';pauseIcon.style.display='block';});audio.addEventListener('pause',function(){playIcon.style.display='block';pauseIcon.style.display='none';});audio.addEventListener('ended',function(){playIcon.style.display='block';pauseIcon.style.display='none';status.textContent=original;});audio.addEventListener('timeupdate',function(){if(audio.duration&&!isNaN(audio.duration)){status.textContent='Läuft, '+fmt(audio.duration-audio.currentTime)+' verbleibend';}});audio.addEventListener('loadedmetadata',function(){status.textContent=fmt(audio.duration)+' Min Zusammenfassung';});});})();
+        </script>
+
         <!-- ======== ARTIKEL-CONTENT ======== -->
         <article class="prose pb-12">
 
