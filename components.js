@@ -105,4 +105,105 @@
             });
         }
     }, 0);
+
+    // ═══════════════════════════════════════════════════════════
+    // Scroll Progress Bar — global, dünne emerald-Leiste oben
+    // ═══════════════════════════════════════════════════════════
+    (function mountScrollProgress() {
+        if (document.getElementById('scroll-progress')) return;
+        var bar = document.createElement('div');
+        bar.id = 'scroll-progress';
+        bar.setAttribute('aria-hidden', 'true');
+        bar.style.cssText = 'position:fixed;top:0;left:0;height:2px;width:0%;background:#5b8a72;z-index:9999;transition:width 0.05s linear;pointer-events:none;';
+        document.body.appendChild(bar);
+        function update() {
+            var h = document.documentElement;
+            var scrollable = (h.scrollHeight - h.clientHeight);
+            var pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+            bar.style.width = pct + '%';
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
+    })();
+
+    // ═══════════════════════════════════════════════════════════
+    // Audio-Pill (schlank, emerald) — rendert aus data-attrs
+    // <div class="reader-audio-slot" data-audio-src="audio/{slug}.mp3" data-audio-label="90 Sek hören"></div>
+    // ═══════════════════════════════════════════════════════════
+    function mountAudioPills() {
+        var slots = document.querySelectorAll('.reader-audio-slot');
+        if (!slots.length) return;
+        slots.forEach(function (slot) {
+            if (slot.dataset.mounted) return;
+            slot.dataset.mounted = '1';
+            var src = slot.getAttribute('data-audio-src');
+            var label = slot.getAttribute('data-audio-label') || '90 Sek hören';
+            if (!src) return;
+
+            slot.innerHTML = '' +
+                '<button type="button" class="reader-pill" aria-label="' + label + ' abspielen" ' +
+                'style="display:inline-flex;align-items:center;gap:0.45rem;padding:0.35rem 0.9rem 0.35rem 0.55rem;' +
+                'border:1px solid #96bfaa;background:transparent;color:#31493d;border-radius:9999px;' +
+                'font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.15s;">' +
+                '<span class="reader-icon" style="display:inline-flex;width:22px;height:22px;border-radius:50%;background:#5b8a72;color:#fff;align-items:center;justify-content:center;flex-shrink:0;">' +
+                '<svg class="reader-play-icon" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>' +
+                '<svg class="reader-pause-icon" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>' +
+                '</span>' +
+                '<span class="reader-label">' + label + '</span>' +
+                '<span class="reader-dur" style="opacity:0.6;font-variant-numeric:tabular-nums;"></span>' +
+                '</button>' +
+                '<audio class="reader-audio" preload="metadata" style="display:none;"><source src="' + src + '" type="audio/mpeg"></audio>';
+
+            var pill = slot.querySelector('.reader-pill');
+            var audio = slot.querySelector('.reader-audio');
+            var playIcon = slot.querySelector('.reader-play-icon');
+            var pauseIcon = slot.querySelector('.reader-pause-icon');
+            var durEl = slot.querySelector('.reader-dur');
+            var labelEl = slot.querySelector('.reader-label');
+
+            function fmt(s) { s = Math.floor(s || 0); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+
+            pill.addEventListener('mouseenter', function () {
+                if (audio.paused) pill.style.background = '#f2f7f4';
+            });
+            pill.addEventListener('mouseleave', function () {
+                if (audio.paused) pill.style.background = 'transparent';
+            });
+            pill.addEventListener('click', function () { audio.paused ? audio.play() : audio.pause(); });
+
+            audio.addEventListener('play', function () {
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+                pill.style.background = '#5b8a72';
+                pill.style.color = '#fff';
+                pill.style.borderColor = '#5b8a72';
+            });
+            audio.addEventListener('pause', function () {
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+                pill.style.background = 'transparent';
+                pill.style.color = '#31493d';
+                pill.style.borderColor = '#96bfaa';
+            });
+            audio.addEventListener('ended', function () {
+                audio.currentTime = 0;
+                durEl.textContent = '(' + fmt(audio.duration) + ')';
+            });
+            audio.addEventListener('timeupdate', function () {
+                if (audio.duration && !isNaN(audio.duration) && !audio.paused) {
+                    var left = audio.duration - audio.currentTime;
+                    durEl.textContent = '(' + fmt(left) + ')';
+                }
+            });
+            audio.addEventListener('loadedmetadata', function () {
+                durEl.textContent = '(' + fmt(audio.duration) + ')';
+            });
+        });
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', mountAudioPills);
+    } else {
+        mountAudioPills();
+    }
 })();
