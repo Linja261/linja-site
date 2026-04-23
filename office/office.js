@@ -18,7 +18,6 @@
     // === NAV ===
     var clusters = [
         { id: 'today', label: 'Heute', items: [
-            { id: 'dashboard', label: 'Dashboard', href: 'index.html' },
             { id: 'reminder', label: 'Reminder', href: 'reminder.html' },
             { id: 'checklog', label: 'Check-Log', href: 'checklog.html' },
             { id: 'ziele', label: 'Ziele', href: 'ziele.html' },
