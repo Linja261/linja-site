@@ -41,7 +41,7 @@
     ];
 
     function buildNav() {
-        var clusterButtons = clusters.map(function (c) {
+        var clusterButtons = clusters.map(function (c, idx) {
             var hasActive = c.items.some(function (i) { return i.id === activePage; });
             var btnCls = hasActive
                 ? 'text-violet-500 font-medium pb-1 border-b-2 border-violet-400'
@@ -53,15 +53,33 @@
                     : 'block px-4 py-2 text-sm text-stone-700 hover:bg-stone-50 transition-colors';
                 return '<a href="' + i.href + '" class="' + iCls + '">' + i.label + '</a>';
             }).join('');
+            // Last cluster aligns dropdown to right edge to prevent off-screen
+            var alignCls = (idx === clusters.length - 1) ? 'right-0' : 'left-0';
             return ''
                 + '<div class="relative">'
-                + '<button data-cluster-btn="' + c.id + '" onclick="officeToggleCluster(event, \'' + c.id + '\')" class="' + btnCls + ' flex items-center gap-1 cursor-pointer">'
+                + '<button type="button" data-cluster-btn="' + c.id + '" class="' + btnCls + ' flex items-center gap-1 cursor-pointer" style="touch-action: manipulation;">'
                 + '<span>' + c.label + '</span>'
                 + '<svg class="w-3 h-3 transition-transform" data-cluster-chevron="' + c.id + '" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>'
                 + '</button>'
-                + '<div data-cluster-menu="' + c.id + '" class="hidden absolute top-full left-0 mt-2 min-w-[180px] bg-white border rounded-lg shadow-lg overflow-hidden z-50" style="border-color: #E5E2DB;">'
+                + '<div data-cluster-menu="' + c.id + '" class="hidden absolute top-full ' + alignCls + ' mt-2 min-w-[180px] bg-white border rounded-lg shadow-lg overflow-hidden z-50" style="border-color: #E5E2DB;">'
                 + menuItems
                 + '</div>'
+                + '</div>';
+        }).join('');
+
+        // Mobile burger panel: all clusters as sections
+        var mobileSections = clusters.map(function (c) {
+            var items = c.items.map(function (i) {
+                var isActive = i.id === activePage;
+                var iCls = isActive
+                    ? 'block px-4 py-3 text-sm text-violet-500 bg-violet-50 font-medium'
+                    : 'block px-4 py-3 text-sm text-stone-700 hover:bg-stone-50 transition-colors';
+                return '<a href="' + i.href + '" class="' + iCls + '">' + i.label + '</a>';
+            }).join('');
+            return ''
+                + '<div class="border-b" style="border-color: #E5E2DB;">'
+                + '<p class="px-4 pt-4 pb-2 font-mono text-[0.6rem] tracking-wider uppercase text-stone-400">' + c.label + '</p>'
+                + items
                 + '</div>';
         }).join('');
 
@@ -72,12 +90,24 @@
             + '<span class="source-serif text-stone-900 text-base group-hover:text-violet-500 transition-colors">Office</span>'
             + '<span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">intern</span>'
             + '</a>'
-            + '<div class="flex items-center gap-6 text-[0.8rem] overflow-x-auto">' + clusterButtons + '</div>'
-            + '<div class="flex items-center gap-4 flex-shrink-0">'
-            + '<a href="roadmap.html" class="hidden md:inline text-[0.7rem] text-stone-400 hover:text-violet-500 font-mono tracking-wide transition-colors">ROADMAP</a>'
-            + '<button onclick="officeLogout()" class="text-[0.7rem] text-stone-400 hover:text-stone-600 font-mono tracking-wide hidden sm:inline">LOGOUT</button>'
+            + '<div class="hidden md:flex items-center gap-6 text-[0.8rem]">' + clusterButtons + '</div>'
+            + '<div class="hidden md:flex items-center gap-4 flex-shrink-0">'
+            + '<a href="roadmap.html" class="text-[0.7rem] text-stone-400 hover:text-violet-500 font-mono tracking-wide transition-colors">ROADMAP</a>'
+            + '<button type="button" onclick="officeLogout()" class="text-[0.7rem] text-stone-400 hover:text-stone-600 font-mono tracking-wide">LOGOUT</button>'
             + '</div>'
-            + '</div></nav>';
+            + '<button type="button" id="office-burger" class="md:hidden flex items-center justify-center w-10 h-10 -mr-2 text-stone-700" style="touch-action: manipulation;" aria-label="Menü">'
+            + '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>'
+            + '</button>'
+            + '</div>'
+            + '<div id="office-mobile-panel" class="hidden md:hidden bg-white border-t" style="border-color: #E5E2DB; max-height: calc(100vh - 64px); overflow-y: auto;">'
+            + mobileSections
+            + '<div class="border-b" style="border-color: #E5E2DB;">'
+            + '<p class="px-4 pt-4 pb-2 font-mono text-[0.6rem] tracking-wider uppercase text-stone-400">Meta</p>'
+            + '<a href="roadmap.html" class="block px-4 py-3 text-sm text-stone-700 hover:bg-stone-50">Roadmap</a>'
+            + '<button type="button" onclick="officeLogout()" class="block w-full text-left px-4 py-3 text-sm text-stone-500 hover:bg-stone-50">Logout</button>'
+            + '</div>'
+            + '</div>'
+            + '</nav>';
     }
 
     // === GATE ===
@@ -114,12 +144,80 @@
             // Inject nav at top of content if placeholder exists
             var navPlaceholder = document.getElementById('office-nav');
             if (navPlaceholder) navPlaceholder.outerHTML = buildNav();
+            attachNavHandlers();
         } else {
             gate.innerHTML = buildGate();
             gate.style.display = 'block';
             content.style.display = 'none';
         }
     }
+
+    function closeAllClusters() {
+        document.querySelectorAll('[data-cluster-menu]').forEach(function (m) { m.classList.add('hidden'); });
+        document.querySelectorAll('[data-cluster-chevron]').forEach(function (c) { c.style.transform = ''; });
+    }
+
+    function toggleCluster(id) {
+        var menu = document.querySelector('[data-cluster-menu="' + id + '"]');
+        var chevron = document.querySelector('[data-cluster-chevron="' + id + '"]');
+        if (!menu) return;
+        var willOpen = menu.classList.contains('hidden');
+        // Close all first
+        closeAllClusters();
+        if (willOpen) {
+            menu.classList.remove('hidden');
+            if (chevron) chevron.style.transform = 'rotate(180deg)';
+        }
+    }
+
+    function attachNavHandlers() {
+        // Cluster buttons (desktop)
+        document.querySelectorAll('[data-cluster-btn]').forEach(function (btn) {
+            btn.addEventListener('click', function (ev) {
+                ev.stopPropagation();
+                ev.preventDefault();
+                toggleCluster(btn.getAttribute('data-cluster-btn'));
+            });
+        });
+
+        // Burger (mobile)
+        var burger = document.getElementById('office-burger');
+        var panel = document.getElementById('office-mobile-panel');
+        if (burger && panel) {
+            burger.addEventListener('click', function (ev) {
+                ev.stopPropagation();
+                ev.preventDefault();
+                panel.classList.toggle('hidden');
+            });
+            // Close panel on item click (links navigate, but panel state reset on next page)
+            panel.addEventListener('click', function (ev) {
+                if (ev.target.closest('a')) {
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+    }
+
+    // Outside-click closes any open cluster + mobile panel
+    document.addEventListener('click', function (ev) {
+        var inClusterBtn = ev.target.closest('[data-cluster-btn]');
+        var inClusterMenu = ev.target.closest('[data-cluster-menu]');
+        var inBurger = ev.target.closest('#office-burger');
+        var inPanel = ev.target.closest('#office-mobile-panel');
+        if (!inClusterBtn && !inClusterMenu) closeAllClusters();
+        if (!inBurger && !inPanel) {
+            var panel = document.getElementById('office-mobile-panel');
+            if (panel) panel.classList.add('hidden');
+        }
+    });
+
+    document.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Escape') {
+            closeAllClusters();
+            var panel = document.getElementById('office-mobile-panel');
+            if (panel) panel.classList.add('hidden');
+        }
+    });
 
     window.officeCheckPass = function () {
         var input = document.getElementById('office-pass').value;
@@ -136,43 +234,6 @@
         sessionStorage.removeItem(AUTH_KEY);
         location.reload();
     };
-
-    // === CLUSTER DROPDOWNS ===
-    window.officeToggleCluster = function (ev, id) {
-        if (ev) ev.stopPropagation();
-        var menus = document.querySelectorAll('[data-cluster-menu]');
-        var chevrons = document.querySelectorAll('[data-cluster-chevron]');
-        menus.forEach(function (m) {
-            var thisId = m.getAttribute('data-cluster-menu');
-            if (thisId === id) {
-                m.classList.toggle('hidden');
-            } else {
-                m.classList.add('hidden');
-            }
-        });
-        chevrons.forEach(function (c) {
-            var thisId = c.getAttribute('data-cluster-chevron');
-            var menu = document.querySelector('[data-cluster-menu="' + thisId + '"]');
-            if (menu && !menu.classList.contains('hidden')) {
-                c.style.transform = 'rotate(180deg)';
-            } else {
-                c.style.transform = '';
-            }
-        });
-    };
-
-    document.addEventListener('click', function (ev) {
-        if (ev.target.closest('[data-cluster-btn]') || ev.target.closest('[data-cluster-menu]')) return;
-        document.querySelectorAll('[data-cluster-menu]').forEach(function (m) { m.classList.add('hidden'); });
-        document.querySelectorAll('[data-cluster-chevron]').forEach(function (c) { c.style.transform = ''; });
-    });
-
-    document.addEventListener('keydown', function (ev) {
-        if (ev.key === 'Escape') {
-            document.querySelectorAll('[data-cluster-menu]').forEach(function (m) { m.classList.add('hidden'); });
-            document.querySelectorAll('[data-cluster-chevron]').forEach(function (c) { c.style.transform = ''; });
-        }
-    });
 
     // === LOCAL STORAGE HELPERS ===
     window.officeStore = {
