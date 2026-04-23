@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>AG Service · Interview-Tracker</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], serif: ['Source Serif 4', 'Georgia', 'serif'], mono: ['Geist Mono', 'monospace'] },
+                colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } } } }
+        }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        .rating-btn.active { background: #7b6ba5; color: white; border-color: #7b6ba5; }
+        input[type="text"], input[type="date"], select, textarea {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            border: 1px solid #E5E2DB;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-family: inherit;
+            background: white;
+            transition: border-color 120ms ease;
+        }
+        input[type="text"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #9a82b5;
+        }
+        textarea { resize: vertical; min-height: 80px; }
+        label { display: block; font-size: 0.72rem; font-family: 'Geist Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: #a8a29e; margin-bottom: 0.4rem; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="ag-gate"></div>
+
+    <div id="ag-content" style="display:none">
+        <div id="ag-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Interview-Tracker · lokal gespeichert</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-3">Interviews tracken.</h1>
+                <p class="text-base text-stone-600 max-w-2xl">Eingabe während oder direkt nach dem Gespräch. Alles bleibt im Browser (localStorage), kein Server. Export als JSON oder Markdown — dann ab ins Vault.</p>
+            </header>
+
+            <!-- Tabs -->
+            <div class="flex flex-wrap gap-2 mb-6">
+                <button onclick="showTab('new')" id="tab-new" class="font-mono text-[0.75rem] px-3 py-2 rounded bg-violet-400 text-white">+ Neues Interview</button>
+                <button onclick="showTab('list')" id="tab-list" class="font-mono text-[0.75rem] px-3 py-2 rounded bg-white border text-stone-700 hover:border-violet-300" style="border-color: #E5E2DB;">Alle Interviews (<span id="count">0</span>)</button>
+                <button onclick="showTab('summary')" id="tab-summary" class="font-mono text-[0.75rem] px-3 py-2 rounded bg-white border text-stone-700 hover:border-violet-300" style="border-color: #E5E2DB;">Hypothesen-Status</button>
+                <button onclick="exportAll()" class="font-mono text-[0.75rem] px-3 py-2 rounded bg-white border text-stone-700 hover:border-violet-300 ml-auto" style="border-color: #E5E2DB;">Export JSON</button>
+            </div>
+
+            <!-- === NEW INTERVIEW === -->
+            <section id="panel-new">
+                <div class="bg-white border rounded-2xl p-6 md:p-8" style="border-color: #E5E2DB;">
+                    <h2 class="source-serif text-xl text-stone-900 mb-1">Neues Interview</h2>
+                    <p class="text-[0.85rem] text-stone-500 mb-6">Auto-Save alle 5 Sekunden. Export unten fürs Vault.</p>
+
+                    <form id="interview-form" onsubmit="return saveInterview(event)">
+                        <input type="hidden" id="interview-id">
+
+                        <!-- META -->
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                            <div>
+                                <label for="date">Datum</label>
+                                <input type="date" id="date" required>
+                            </div>
+                            <div>
+                                <label for="target">Zielgruppe</label>
+                                <select id="target" onchange="updateHypothesenView()">
+                                    <option value="traeger">OGS-Träger</option>
+                                    <option value="schule">Schule/Leitung</option>
+                                    <option value="seniorin">Senior:in</option>
+                                    <option value="kommune">Kommune</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="name">Name / Organisation</label>
+                                <input type="text" id="name" placeholder="z.B. AWO Bochum">
+                            </div>
+                            <div>
+                                <label for="role">Rolle / Gesprächspartner</label>
+                                <input type="text" id="role" placeholder="z.B. Sandra, Koordination">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div>
+                                <label for="region">Region</label>
+                                <input type="text" id="region" placeholder="z.B. Bochum">
+                            </div>
+                            <div>
+                                <label for="tier">Tier / Größe</label>
+                                <select id="tier">
+                                    <option value="">—</option>
+                                    <option value="1">Tier 1 (Großer Wohlfahrtsverband)</option>
+                                    <option value="2">Tier 2 (Mittlerer freier Träger)</option>
+                                    <option value="3">Tier 3 (Klein / Förderverein)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="duration">Dauer (min)</label>
+                                <input type="text" id="duration" placeholder="z.B. 35">
+                            </div>
+                        </div>
+
+                        <!-- HYPOTHESEN -->
+                        <div id="hyp-block" class="mb-8">
+                            <h3 class="source-serif text-lg text-stone-900 mb-2">Hypothesen-Signale</h3>
+                            <p class="text-[0.8rem] text-stone-500 mb-4">Nach jeder Hypothese: 1–5 (1 = klar widerlegt, 5 = klar validiert). Optional freier Kommentar.</p>
+                            <div id="hypothesen-list"></div>
+                        </div>
+
+                        <!-- QUALITATIV -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label for="quotes">Kern-Zitate (wörtlich)</label>
+                                <textarea id="quotes" placeholder="— »Zitat 1«&#10;— »Zitat 2«"></textarea>
+                            </div>
+                            <div>
+                                <label for="objections">Einwände</label>
+                                <textarea id="objections" placeholder="— Einwand 1&#10;— Einwand 2"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label for="pilot">Pilot-Commitment-Signal</label>
+                                <select id="pilot">
+                                    <option value="">—</option>
+                                    <option value="hart">Verbindliches Ja</option>
+                                    <option value="weich">Weiches Interesse</option>
+                                    <option value="offen">Ergebnisoffen</option>
+                                    <option value="nein">Ablehnung</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="referrals">Referrals / Weiterempfehlungen</label>
+                                <input type="text" id="referrals" placeholder="Namen · Kontakte · Institutionen">
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="next">Nächste Schritte</label>
+                            <textarea id="next" placeholder="Was ist der nächste konkrete Schritt nach diesem Gespräch?"></textarea>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="notes">Freitext-Notizen</label>
+                            <textarea id="notes" placeholder="Alles, was sonst noch relevant war — Atmosphäre, Überraschungen, Lücken im Leitfaden, die aufgefallen sind ..." rows="5"></textarea>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3 items-center">
+                            <button type="submit" class="bg-violet-400 hover:bg-violet-500 text-white font-medium px-5 py-2.5 rounded-lg text-sm transition-all">Speichern</button>
+                            <button type="button" onclick="clearForm()" class="border hover:border-violet-300 text-stone-700 font-medium px-5 py-2.5 rounded-lg text-sm transition-all" style="border-color: #E5E2DB;">Formular leeren</button>
+                            <span id="save-hint" class="text-[0.75rem] text-stone-400 ml-auto font-mono"></span>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- === LIST === -->
+            <section id="panel-list" class="hidden">
+                <div id="list-container"></div>
+            </section>
+
+            <!-- === HYPOTHESEN-SUMMARY === -->
+            <section id="panel-summary" class="hidden">
+                <div class="bg-white border rounded-2xl p-6 md:p-8" style="border-color: #E5E2DB;">
+                    <h2 class="source-serif text-xl text-stone-900 mb-2">Hypothesen-Status — aggregiert</h2>
+                    <p class="text-[0.85rem] text-stone-500 mb-6">Durchschnittliche Signale über alle geführten Interviews. Interpretation: &lt;2.5 widerlegt, 2.5–3.5 ungetestet, &gt;3.5 validiert.</p>
+                    <div id="summary-container"></div>
+                </div>
+            </section>
+
+            <!-- HELPER BOX -->
+            <section class="mt-8 p-5 rounded-xl" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-2">So nutzt du den Tracker</p>
+                <ul class="text-[0.85rem] text-stone-700 space-y-1.5">
+                    <li>• <strong>Während oder direkt nach dem Gespräch</strong> ausfüllen — nicht Tage später</li>
+                    <li>• Daten bleiben lokal im Browser (sessionStorage-Auth + localStorage-Daten) — kein Server</li>
+                    <li>• Per <strong>Export JSON</strong> sicherst du alles für ein anderes Gerät oder ins Vault</li>
+                    <li>• Pro Interview <strong>1 Datensatz pro Datum + Name</strong> — editierbar über „Bearbeiten" in der Liste</li>
+                    <li>• Hypothesen-Leitfaden unter <a href="interviews.html" class="text-violet-500 hover:underline">Interviews</a></li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="ag-service.js" data-active="tracker"></script>
+    <script>
+    /* ================================================================
+       Interview-Tracker
+       Datenmodell: Array in localStorage key "ag-interviews"
+       Jeder Datensatz: { id, date, target, name, role, region, tier,
+                          duration, hypotheses: {H1: {score, note}, ...},
+                          quotes, objections, pilot, referrals, next, notes,
+                          createdAt, updatedAt }
+       ================================================================ */
+    const STORAGE_KEY = 'ag-interviews';
+    const AUTOSAVE_INTERVAL = 5000;
+
+    // Hypothesen-Definitionen je Zielgruppe (was für wen relevant ist)
+    const HYPOTHESES = {
+        H1: { label: 'H1 · Bedarf OGS-Träger', applies: ['traeger', 'kommune'] },
+        H2: { label: 'H2 · Senior:innen-Bereitschaft', applies: ['seniorin'] },
+        H3: { label: 'H3 · Schulen-Akzeptanz', applies: ['schule', 'traeger'] },
+        H4: { label: 'H4 · Kinderschutz als USP', applies: ['traeger', 'schule'] },
+        H5: { label: 'H5 · Material-Inklusive', applies: ['traeger', 'schule'] },
+        H6: { label: 'H6 · Vertretungspool entscheidend', applies: ['traeger', 'schule'] },
+        H7: { label: 'H7 · Preisbereitschaft', applies: ['traeger', 'kommune'] },
+        H8: { label: 'H8 · Träger als Gatekeeper', applies: ['traeger', 'schule'] },
+    };
+
+    // === Storage Helpers ===
+    function getAll() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+        catch (e) { return []; }
+    }
+    function saveAll(items) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+        updateCount();
+    }
+    function updateCount() {
+        document.getElementById('count').textContent = getAll().length;
+    }
+
+    // === Tab Navigation ===
+    function showTab(name) {
+        ['new', 'list', 'summary'].forEach(n => {
+            document.getElementById('panel-' + n).classList.add('hidden');
+            const tab = document.getElementById('tab-' + n);
+            tab.className = tab.className.replace('bg-violet-400 text-white', 'bg-white border text-stone-700 hover:border-violet-300');
+        });
+        document.getElementById('panel-' + name).classList.remove('hidden');
+        const activeTab = document.getElementById('tab-' + name);
+        activeTab.className = activeTab.className.replace('bg-white border text-stone-700 hover:border-violet-300', 'bg-violet-400 text-white');
+
+        if (name === 'list') renderList();
+        if (name === 'summary') renderSummary();
+    }
+
+    // === Rating Stars ===
+    function renderRating(hypId, selected) {
+        let html = '<div class="flex gap-1 mt-1" data-hyp="' + hypId + '">';
+        for (let i = 1; i <= 5; i++) {
+            const active = (selected === i) ? 'active' : '';
+            html += '<button type="button" class="rating-btn ' + active + '" data-val="' + i + '" onclick="setRating(\'' + hypId + '\', ' + i + ')" style="width: 2.25rem; height: 2.25rem; border: 1px solid #E5E2DB; border-radius: 6px; font-family: Geist Mono, monospace; font-size: 0.85rem; cursor: pointer; background: white;">' + i + '</button>';
+        }
+        html += '<button type="button" onclick="setRating(\'' + hypId + '\', null)" style="margin-left: 0.5rem; color: #a8a29e; font-size: 0.75rem; background: none; border: none; cursor: pointer;">löschen</button>';
+        html += '</div>';
+        return html;
+    }
+
+    const currentHyp = {}; // { H1: {score, note}, ... }
+
+    function setRating(hypId, val) {
+        if (!currentHyp[hypId]) currentHyp[hypId] = {};
+        currentHyp[hypId].score = val;
+        updateHypothesenView();
+    }
+
+    function updateHypothesenView() {
+        const target = document.getElementById('target').value;
+        const container = document.getElementById('hypothesen-list');
+        let html = '';
+
+        Object.entries(HYPOTHESES).forEach(([id, def]) => {
+            const relevant = def.applies.includes(target);
+            if (!relevant) return;
+            const hyp = currentHyp[id] || {};
+            html += '<div class="mb-5 p-4 rounded-lg border" style="border-color: #E5E2DB; background: #fafaf8;">';
+            html += '  <p class="text-sm text-stone-800 font-medium mb-2">' + def.label + '</p>';
+            html += renderRating(id, hyp.score);
+            html += '  <textarea data-hyp-note="' + id + '" placeholder="Kommentar (optional)" oninput="setNote(\'' + id + '\', this.value)" style="margin-top: 0.5rem; min-height: 48px; font-size: 0.8rem;">' + (hyp.note || '') + '</textarea>';
+            html += '</div>';
+        });
+
+        container.innerHTML = html;
+    }
+
+    function setNote(hypId, val) {
+        if (!currentHyp[hypId]) currentHyp[hypId] = {};
+        currentHyp[hypId].note = val;
+    }
+
+    // === Form Handling ===
+    function readForm() {
+        return {
+            id: document.getElementById('interview-id').value || ('iv-' + Date.now()),
+            date: document.getElementById('date').value,
+            target: document.getElementById('target').value,
+            name: document.getElementById('name').value.trim(),
+            role: document.getElementById('role').value.trim(),
+            region: document.getElementById('region').value.trim(),
+            tier: document.getElementById('tier').value,
+            duration: document.getElementById('duration').value.trim(),
+            hypotheses: JSON.parse(JSON.stringify(currentHyp)),
+            quotes: document.getElementById('quotes').value,
+            objections: document.getElementById('objections').value,
+            pilot: document.getElementById('pilot').value,
+            referrals: document.getElementById('referrals').value.trim(),
+            next: document.getElementById('next').value,
+            notes: document.getElementById('notes').value,
+        };
+    }
+
+    function writeForm(iv) {
+        document.getElementById('interview-id').value = iv.id || '';
+        document.getElementById('date').value = iv.date || '';
+        document.getElementById('target').value = iv.target || 'traeger';
+        document.getElementById('name').value = iv.name || '';
+        document.getElementById('role').value = iv.role || '';
+        document.getElementById('region').value = iv.region || '';
+        document.getElementById('tier').value = iv.tier || '';
+        document.getElementById('duration').value = iv.duration || '';
+        Object.keys(currentHyp).forEach(k => delete currentHyp[k]);
+        Object.assign(currentHyp, iv.hypotheses || {});
+        document.getElementById('quotes').value = iv.quotes || '';
+        document.getElementById('objections').value = iv.objections || '';
+        document.getElementById('pilot').value = iv.pilot || '';
+        document.getElementById('referrals').value = iv.referrals || '';
+        document.getElementById('next').value = iv.next || '';
+        document.getElementById('notes').value = iv.notes || '';
+        updateHypothesenView();
+    }
+
+    function saveInterview(event) {
+        if (event) event.preventDefault();
+        const iv = readForm();
+        if (!iv.date) { alert('Datum pflicht'); return false; }
+
+        const all = getAll();
+        const now = new Date().toISOString();
+        const existing = all.findIndex(x => x.id === iv.id);
+        if (existing >= 0) {
+            iv.createdAt = all[existing].createdAt;
+            iv.updatedAt = now;
+            all[existing] = iv;
+        } else {
+            iv.createdAt = now;
+            iv.updatedAt = now;
+            all.push(iv);
+        }
+        saveAll(all);
+        hint('Gespeichert ' + new Date().toLocaleTimeString('de-DE'));
+        return false;
+    }
+
+    function autoSave() {
+        const iv = readForm();
+        if (!iv.date || !iv.name) return; // only autosave if meaningful data
+        saveInterview(null);
+        hint('Auto-gespeichert ' + new Date().toLocaleTimeString('de-DE'));
+    }
+
+    function hint(msg) {
+        const el = document.getElementById('save-hint');
+        if (!el) return;
+        el.textContent = msg;
+        setTimeout(() => { el.textContent = ''; }, 3500);
+    }
+
+    function clearForm() {
+        if (!confirm('Formular leeren? Ungespeicherte Daten gehen verloren.')) return;
+        Object.keys(currentHyp).forEach(k => delete currentHyp[k]);
+        document.getElementById('interview-form').reset();
+        document.getElementById('interview-id').value = '';
+        document.getElementById('date').valueAsDate = new Date();
+        updateHypothesenView();
+    }
+
+    function loadInterview(id) {
+        const iv = getAll().find(x => x.id === id);
+        if (!iv) return;
+        writeForm(iv);
+        showTab('new');
+        window.scrollTo(0, 0);
+    }
+
+    function deleteInterview(id) {
+        if (!confirm('Interview wirklich löschen? Das lässt sich nicht rückgängig machen.')) return;
+        const all = getAll().filter(x => x.id !== id);
+        saveAll(all);
+        renderList();
+    }
+
+    // === List Rendering ===
+    function renderList() {
+        const all = getAll().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+        const container = document.getElementById('list-container');
+        if (all.length === 0) {
+            container.innerHTML = '<div class="bg-white border rounded-2xl p-10 text-center" style="border-color: #E5E2DB;">' +
+                '<p class="text-stone-500 text-sm">Noch keine Interviews erfasst. Wechsel auf „Neues Interview" oben.</p></div>';
+            return;
+        }
+        let html = '<div class="space-y-3">';
+        all.forEach(iv => {
+            const pilotMap = { hart: '🟢 Verbindlich', weich: '🟡 Interesse', offen: '⚪ Offen', nein: '🔴 Ablehnung' };
+            const pilotLabel = iv.pilot ? pilotMap[iv.pilot] || iv.pilot : '—';
+            const hypKeys = Object.keys(iv.hypotheses || {}).filter(k => iv.hypotheses[k].score != null);
+            const avg = hypKeys.length
+                ? (hypKeys.reduce((s, k) => s + iv.hypotheses[k].score, 0) / hypKeys.length).toFixed(1)
+                : '—';
+            html += '<article class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">';
+            html += '  <div class="flex items-start justify-between gap-3 flex-wrap">';
+            html += '    <div>';
+            html += '      <p class="font-mono text-[0.65rem] uppercase text-violet-500 mb-1">' + iv.date + ' · ' + targetLabel(iv.target) + (iv.region ? ' · ' + escapeHtml(iv.region) : '') + '</p>';
+            html += '      <h3 class="source-serif text-lg text-stone-900">' + escapeHtml(iv.name || '(unbenannt)') + '</h3>';
+            if (iv.role) html += '      <p class="text-[0.85rem] text-stone-500 mt-0.5">' + escapeHtml(iv.role) + '</p>';
+            html += '    </div>';
+            html += '    <div class="text-right">';
+            html += '      <p class="font-mono text-xs text-stone-500">' + pilotLabel + '</p>';
+            html += '      <p class="font-mono text-xs text-stone-400 mt-1">Ø Signal: <span class="text-stone-700">' + avg + '</span></p>';
+            html += '    </div>';
+            html += '  </div>';
+            if (iv.next) html += '  <p class="text-[0.85rem] text-stone-600 mt-3 border-t pt-3" style="border-color: #F5F3EF;"><strong class="text-stone-800">Next:</strong> ' + escapeHtml(iv.next).slice(0, 200) + '</p>';
+            html += '  <div class="flex gap-2 mt-3">';
+            html += '    <button onclick="loadInterview(\'' + iv.id + '\')" class="font-mono text-[0.7rem] px-2.5 py-1 rounded bg-violet-50 text-violet-500 hover:bg-violet-100">Bearbeiten</button>';
+            html += '    <button onclick="exportSingleMarkdown(\'' + iv.id + '\')" class="font-mono text-[0.7rem] px-2.5 py-1 rounded bg-stone-50 text-stone-600 hover:bg-stone-100">Als Markdown</button>';
+            html += '    <button onclick="deleteInterview(\'' + iv.id + '\')" class="font-mono text-[0.7rem] px-2.5 py-1 rounded text-red-500 hover:bg-red-50 ml-auto">Löschen</button>';
+            html += '  </div>';
+            html += '</article>';
+        });
+        html += '</div>';
+        container.innerHTML = html;
+    }
+
+    function targetLabel(t) {
+        return { traeger: 'Träger', schule: 'Schule', seniorin: 'Senior:in', kommune: 'Kommune' }[t] || t;
+    }
+
+    function escapeHtml(s) {
+        return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+    }
+
+    // === Summary ===
+    function renderSummary() {
+        const all = getAll();
+        const container = document.getElementById('summary-container');
+        if (all.length === 0) {
+            container.innerHTML = '<p class="text-stone-500 text-sm text-center py-6">Noch keine Interviews erfasst.</p>';
+            return;
+        }
+
+        const aggregate = {};
+        Object.keys(HYPOTHESES).forEach(h => { aggregate[h] = { scores: [], n: 0 }; });
+
+        all.forEach(iv => {
+            Object.entries(iv.hypotheses || {}).forEach(([h, v]) => {
+                if (aggregate[h] && v.score != null) {
+                    aggregate[h].scores.push(v.score);
+                    aggregate[h].n++;
+                }
+            });
+        });
+
+        let html = '<div class="space-y-2">';
+        Object.keys(HYPOTHESES).forEach(h => {
+            const d = aggregate[h];
+            const avg = d.n > 0 ? (d.scores.reduce((a, b) => a + b, 0) / d.n) : null;
+            let statusLabel = '🟡 Ungetestet', statusColor = '#a8a29e';
+            if (avg !== null) {
+                if (avg < 2.5) { statusLabel = '🔴 Widerlegt (' + avg.toFixed(1) + ')'; statusColor = '#d95d5d'; }
+                else if (avg > 3.5) { statusLabel = '✅ Validiert (' + avg.toFixed(1) + ')'; statusColor = '#5b8a72'; }
+                else { statusLabel = '🟡 Ungeklärt (' + avg.toFixed(1) + ')'; statusColor = '#7b6ba5'; }
+            }
+            const pct = avg !== null ? (avg / 5 * 100).toFixed(0) : 0;
+            html += '<div class="p-4 rounded-lg border" style="border-color: #E5E2DB;">';
+            html += '  <div class="flex items-center justify-between mb-2">';
+            html += '    <p class="text-sm text-stone-800 font-medium">' + HYPOTHESES[h].label + '</p>';
+            html += '    <p class="font-mono text-xs" style="color: ' + statusColor + ';">' + statusLabel + ' · n=' + d.n + '</p>';
+            html += '  </div>';
+            html += '  <div class="w-full h-2 rounded-full bg-stone-100 overflow-hidden">';
+            html += '    <div style="width: ' + pct + '%; height: 100%; background: ' + statusColor + ';"></div>';
+            html += '  </div>';
+            html += '</div>';
+        });
+        html += '</div>';
+        container.innerHTML = html;
+    }
+
+    // === Export ===
+    function exportAll() {
+        const all = getAll();
+        if (all.length === 0) { alert('Keine Daten zum Exportieren.'); return; }
+        const blob = new Blob([JSON.stringify(all, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'ag-interviews-' + new Date().toISOString().slice(0, 10) + '.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    function exportSingleMarkdown(id) {
+        const iv = getAll().find(x => x.id === id);
+        if (!iv) return;
+        let md = '# Interview: ' + (iv.name || 'Unbenannt') + '\n\n';
+        md += '- **Datum:** ' + iv.date + '\n';
+        md += '- **Zielgruppe:** ' + targetLabel(iv.target) + '\n';
+        if (iv.role) md += '- **Gesprächspartner:** ' + iv.role + '\n';
+        if (iv.region) md += '- **Region:** ' + iv.region + '\n';
+        if (iv.tier) md += '- **Tier:** ' + iv.tier + '\n';
+        if (iv.duration) md += '- **Dauer:** ' + iv.duration + ' min\n';
+        md += '\n## Hypothesen-Signale\n\n';
+        Object.entries(iv.hypotheses || {}).forEach(([h, v]) => {
+            if (v.score != null) {
+                md += '- **' + HYPOTHESES[h].label + ':** ' + v.score + '/5';
+                if (v.note) md += ' — ' + v.note;
+                md += '\n';
+            }
+        });
+        if (iv.quotes) md += '\n## Kern-Zitate\n\n' + iv.quotes + '\n';
+        if (iv.objections) md += '\n## Einwände\n\n' + iv.objections + '\n';
+        if (iv.pilot) md += '\n**Pilot-Signal:** ' + iv.pilot + '\n';
+        if (iv.referrals) md += '\n**Referrals:** ' + iv.referrals + '\n';
+        if (iv.next) md += '\n## Nächste Schritte\n\n' + iv.next + '\n';
+        if (iv.notes) md += '\n## Notizen\n\n' + iv.notes + '\n';
+
+        const blob = new Blob([md], { type: 'text/markdown' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        const slug = (iv.name || 'interview').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        a.href = url;
+        a.download = iv.date + '-' + slug + '.md';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    // === Init ===
+    document.addEventListener('DOMContentLoaded', function () {
+        // preset today's date
+        const dateInput = document.getElementById('date');
+        if (dateInput && !dateInput.value) dateInput.valueAsDate = new Date();
+        updateHypothesenView();
+        updateCount();
+
+        // Auto-save
+        setInterval(autoSave, AUTOSAVE_INTERVAL);
+    });
+    </script>
+
+</body>
+</html>

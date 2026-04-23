@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+
+    <title>AG Service · Senior:innen übernehmen die AG</title>
+    <meta name="description" content="Professioneller AG-Service für OGS-Träger in NRW. Geprüfte Senior:innen, fertige Staffeln, Kinderschutz-Paket, Vertretungspool. Ein Ansprechpartner, eine Rechnung. Pilot-Start 2026.">
+    <meta name="theme-color" content="#FAFAF8">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AG Service · Senior:innen übernehmen die AG">
+    <meta property="og:description" content="Professioneller AG-Service für OGS-Träger in NRW. Pilot-Start 2026.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* -----------------------------------------------------------
+           AG Service · Public Landing Page
+           Prinzipien: editorial Typografie · Stone + dosierte Akzente
+                       · generöse Abstände · keine stock-illustrationen
+           ----------------------------------------------------------- */
+        :root {
+            --bg:          #FAFAF8;
+            --bg-warm:     #F5F3EF;
+            --bg-card:     #FFFFFF;
+            --border:      #E5E2DB;
+            --text-muted:  #a8a29e;
+            --text-body:   #555555;
+            --text-dim:    #78716c;
+            --text-dark:   #44403c;
+            --text-ink:    #1A1A1A;
+
+            --violet-100:  #ece8f2;
+            --violet-200:  #d9d1e5;
+            --violet-300:  #9a82b5;
+            --violet-400:  #7b6ba5;
+            --violet-500:  #6b5691;
+            --violet-700:  #463863;
+
+            --amber-100:   #fae8de;
+            --amber-500:   #D4714E;
+            --amber-600:   #a86340;
+            --amber-700:   #73402e;
+
+            --emerald-100: #e0ede6;
+            --emerald-500: #5b8a72;
+            --emerald-700: #31493d;
+
+            --sans:  'Inter', system-ui, -apple-system, sans-serif;
+            --serif: 'Source Serif 4', Georgia, serif;
+            --mono:  'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+
+            --step--2: 0.75rem;
+            --step--1: 0.875rem;
+            --step-0:  1rem;
+            --step-1:  1.25rem;
+            --step-2:  1.563rem;
+            --step-3:  1.953rem;
+            --step-4:  2.441rem;
+            --step-5:  3.052rem;
+            --step-6:  4rem;
+            --step-7:  5rem;
+
+            --measure:  max(32rem, 52ch);
+            --container: 68rem;
+            --gutter:   max(5vw, 1.5rem);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text-body);
+            font-family: var(--sans);
+            font-size: 17px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection { background: var(--violet-100); color: var(--text-ink); }
+
+        /* --- Shell --- */
+        .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+        section { padding: clamp(4rem, 10vw, 8rem) 0; }
+
+        /* --- Typography --- */
+        h1.display, h2.heading, h3.sub {
+            font-family: var(--serif);
+            font-weight: 400;
+            color: var(--text-ink);
+            letter-spacing: -0.015em;
+        }
+        h1.display {
+            font-size: clamp(2.5rem, 7vw, var(--step-7));
+            line-height: 1.04;
+            letter-spacing: -0.025em;
+            max-width: 18ch;
+        }
+        h2.heading {
+            font-size: clamp(2rem, 4.5vw, var(--step-5));
+            line-height: 1.1;
+            max-width: 22ch;
+            margin-bottom: 2rem;
+        }
+        h3.sub {
+            font-size: clamp(1.25rem, 2vw, var(--step-2));
+            line-height: 1.3;
+        }
+
+        .kicker, .slide-tag {
+            font-family: var(--mono);
+            font-size: var(--step--1);
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--violet-400);
+            display: block;
+            margin-bottom: 1.5rem;
+        }
+
+        .lede {
+            font-family: var(--sans);
+            font-size: clamp(1.05rem, 1.4vw, var(--step-1));
+            line-height: 1.55;
+            color: var(--text-body);
+            max-width: 54ch;
+        }
+
+        .body { font-size: var(--step-0); line-height: 1.65; color: var(--text-body); max-width: var(--measure); }
+        .body p + p { margin-top: 1rem; }
+
+        .rule {
+            width: 3rem;
+            height: 2px;
+            background: var(--text-ink);
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- Nav --- */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(250, 250, 248, 0.92);
+            backdrop-filter: saturate(160%) blur(8px);
+            -webkit-backdrop-filter: saturate(160%) blur(8px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem 0;
+        }
+        .nav-brand {
+            font-family: var(--serif);
+            font-size: var(--step-1);
+            color: var(--text-ink);
+        }
+        .nav-brand em {
+            font-style: normal;
+            color: var(--violet-400);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: var(--step--1);
+        }
+        .nav-links a {
+            color: var(--text-body);
+            text-decoration: none;
+            padding-bottom: 2px;
+            border-bottom: 1px solid transparent;
+            transition: border-color 120ms ease, color 120ms ease;
+        }
+        .nav-links a:hover {
+            color: var(--text-ink);
+            border-color: var(--violet-400);
+        }
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: clamp(5rem, 14vh, 10rem) 0 clamp(6rem, 15vh, 12rem);
+        }
+        .hero-meta {
+            font-family: var(--mono);
+            font-size: var(--step--1);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--violet-500);
+            margin-bottom: 3rem;
+        }
+        .hero .lede {
+            margin-top: 2.5rem;
+            font-size: clamp(1.15rem, 1.8vw, var(--step-2));
+        }
+        .hero-cta {
+            margin-top: 4rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* --- CTA buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.95rem 1.4rem;
+            border-radius: 999px;
+            font-family: var(--sans);
+            font-size: var(--step--1);
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            text-decoration: none;
+            transition: transform 80ms ease, background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: var(--text-ink);
+            color: #fff;
+        }
+        .btn-primary:hover { background: var(--violet-500); }
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-ink);
+            border: 1px solid var(--border);
+        }
+        .btn-ghost:hover { border-color: var(--text-ink); }
+        .btn:active { transform: translateY(1px); }
+        .btn .arrow { transition: transform 120ms ease; }
+        .btn:hover .arrow { transform: translateX(3px); }
+
+        /* --- Stats strip --- */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .stat-num {
+            font-family: var(--mono);
+            font-size: clamp(1.75rem, 3.5vw, var(--step-4));
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: var(--text-ink);
+            line-height: 1;
+        }
+        .stat-label {
+            font-family: var(--mono);
+            font-size: var(--step--2);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        @media (max-width: 700px) {
+            .stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 2rem; }
+        }
+
+        /* --- Split sections --- */
+        .split {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            gap: clamp(2.5rem, 6vw, 6rem);
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .split { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        /* --- Cards --- */
+        .cards-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .cards-3 { grid-template-columns: 1fr; }
+        }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem;
+        }
+        .card-label {
+            font-family: var(--mono);
+            font-size: var(--step--2);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--violet-400);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .card .body { margin-top: 0.75rem; font-size: var(--step--1); }
+
+        /* --- Steps --- */
+        .steps {
+            margin-top: 2rem;
+        }
+        .step {
+            display: grid;
+            grid-template-columns: 4rem 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
+            align-items: baseline;
+        }
+        .step:last-child { border-bottom: 0; }
+        .step-num {
+            font-family: var(--mono);
+            font-size: var(--step-2);
+            font-weight: 500;
+            color: var(--violet-400);
+        }
+        .step-text {
+            font-family: var(--serif);
+            font-size: clamp(1.1rem, 1.8vw, var(--step-2));
+            line-height: 1.35;
+            color: var(--text-dark);
+        }
+
+        /* --- Checklist (Paket) --- */
+        .checklist {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem 2.5rem;
+        }
+        @media (max-width: 640px) {
+            .checklist { grid-template-columns: 1fr; }
+        }
+        .checklist li {
+            display: grid;
+            grid-template-columns: 1.25rem 1fr;
+            gap: 0.75rem;
+            align-items: baseline;
+            font-size: var(--step-0);
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+        .checklist li::before {
+            content: "";
+            display: block;
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background: var(--emerald-500);
+            margin-top: 0.4rem;
+            margin-left: 0.25rem;
+        }
+
+        /* --- Quote --- */
+        .quote-block {
+            max-width: 40rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .quote-block blockquote {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1.5rem, 3vw, var(--step-4));
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--text-ink);
+            letter-spacing: -0.01em;
+        }
+        .quote-block cite {
+            display: block;
+            margin-top: 1.5rem;
+            font-style: normal;
+            font-family: var(--mono);
+            font-size: var(--step--2);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* --- Pricing --- */
+        .pricing {
+            background: var(--bg-warm);
+            border-radius: 14px;
+            padding: clamp(2.5rem, 5vw, 4rem);
+            text-align: center;
+            max-width: 38rem;
+            margin: 0 auto;
+        }
+        .pricing .tag {
+            font-family: var(--mono);
+            font-size: var(--step--1);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--violet-500);
+        }
+        .pricing .amount {
+            font-family: var(--mono);
+            font-size: clamp(3rem, 8vw, var(--step-7));
+            font-weight: 500;
+            letter-spacing: -0.04em;
+            color: var(--text-ink);
+            line-height: 1;
+            margin: 1.5rem 0 0.75rem;
+        }
+        .pricing .per {
+            font-family: var(--sans);
+            font-size: var(--step-0);
+            color: var(--text-body);
+        }
+        .pricing .note {
+            margin-top: 2rem;
+            font-size: var(--step--1);
+            color: var(--text-dim);
+        }
+
+        /* --- CTA Block --- */
+        .cta-block {
+            background: var(--text-ink);
+            color: #fff;
+            border-radius: 16px;
+            padding: clamp(3rem, 6vw, 5rem);
+            text-align: left;
+        }
+        .cta-block h2.heading { color: #fff; }
+        .cta-block .lede { color: rgba(255,255,255,0.85); }
+        .cta-block a { color: #fff; }
+        .cta-contacts {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 700px) {
+            .cta-contacts { grid-template-columns: 1fr; }
+        }
+        .cta-contact .label {
+            font-family: var(--mono);
+            font-size: var(--step--2);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 0.5rem;
+        }
+        .cta-contact a {
+            font-size: var(--step-1);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.25);
+            padding-bottom: 2px;
+            transition: border-color 120ms ease;
+        }
+        .cta-contact a:hover { border-color: #fff; }
+
+        /* --- Footer --- */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 0 4rem;
+        }
+        .foot {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-family: var(--mono);
+            font-size: var(--step--2);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .foot a { color: var(--text-body); text-decoration: none; }
+        .foot a:hover { color: var(--text-ink); }
+
+        /* --- Fade in on scroll --- */
+        @media (prefers-reduced-motion: no-preference) {
+            [data-fade] {
+                opacity: 0;
+                transform: translateY(12px);
+                transition: opacity 700ms ease, transform 700ms ease;
+            }
+            [data-fade].is-in {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--violet-400);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+    <div class="container nav-inner">
+        <a href="#top" class="nav-brand">AG <em>Service.</em></a>
+        <nav class="nav-links" aria-label="Abschnitte">
+            <a href="#problem">Problem</a>
+            <a href="#loesung">Lösung</a>
+            <a href="#paket">Paket</a>
+            <a href="#preis">Preis</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+    <div class="container">
+        <p class="hero-meta">Pilot · NRW · ab 2026</p>
+        <h1 class="display" data-fade>
+            Senior:innen <em style="font-style: normal; color: var(--violet-400);">übernehmen</em> die AG.
+        </h1>
+        <p class="lede" data-fade>
+            Professioneller AG-Service für OGS-Träger: geprüfte Senior:innen, fertige
+            10er-Staffeln, Material inklusive, Kinderschutz-Paket, Vertretungspool.
+            Ein Ansprechpartner, eine Rechnung, ein Qualitätsstandard.
+        </p>
+        <div class="hero-cta" data-fade>
+            <a class="btn btn-primary" href="#kontakt">
+                Pilot anfragen
+                <span class="arrow">→</span>
+            </a>
+            <a class="btn btn-ghost" href="#loesung">
+                Wie es funktioniert
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ================= STATS STRIP ================= -->
+<section style="padding: 0;">
+    <div class="container">
+        <div class="stats">
+            <div>
+                <div class="stat-num">01.08.26</div>
+                <div class="stat-label">Rechtsanspruch Ganztag, Klasse 1</div>
+            </div>
+            <div>
+                <div class="stat-num">100.000</div>
+                <div class="stat-label">fehlende Fachkräfte bis 2030</div>
+            </div>
+            <div>
+                <div class="stat-num">€1.000</div>
+                <div class="stat-label">pro Staffel, alles inklusive</div>
+            </div>
+            <div>
+                <div class="stat-num">10×90′</div>
+                <div class="stat-label">pro Staffel, mit Material</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= PROBLEM ================= -->
+<section id="problem">
+    <div class="container">
+        <div class="split">
+            <div>
+                <span class="kicker" style="color: var(--amber-500);">Das Problem</span>
+                <h2 class="heading">Der Rechtsanspruch kommt.<br>Die Fachkräfte nicht.</h2>
+            </div>
+            <div class="body" data-fade>
+                <p>
+                    Ab dem 01.08.2026 gilt der Rechtsanspruch auf Ganztag an Grundschulen —
+                    stufenweise bis 2029/30. OGS-Träger investieren heute drei bis fünf
+                    Stunden in jede einzelne AG-Akquise. Und dann sagt die Honorarkraft
+                    zwei Wochen später ab.
+                </p>
+                <p>
+                    Bis 2030 fehlen in Deutschland zwischen 50.000 und 100.000 pädagogische
+                    Mitarbeitende. Die Lücke schließt sich nicht, indem man die gleichen
+                    Menschen schneller ausbildet.
+                </p>
+                <p>
+                    Sie schließt sich, indem man eine Ressource aktiviert, die bisher
+                    strukturiert nicht angesprochen wird: <strong style="color: var(--text-ink);">aktive Senior:innen mit Zeit,
+                    Lebenserfahrung und dem Wunsch, etwas weiterzugeben.</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= QUOTE ================= -->
+<section style="background: var(--bg-warm);">
+    <div class="container">
+        <div class="quote-block" data-fade>
+            <blockquote>
+                „Entscheidend ist nicht Kompetenz, sondern Verlässlichkeit und Wertschätzung."
+            </blockquote>
+            <cite>Aladin El-Mafaalani · Mythos Bildung</cite>
+        </div>
+    </div>
+</section>
+
+<!-- ================= LÖSUNG ================= -->
+<section id="loesung">
+    <div class="container">
+        <div class="split">
+            <div>
+                <span class="kicker">Die Lösung</span>
+                <h2 class="heading">Ein Rundum-Paket,<br>das wirklich liefert.</h2>
+            </div>
+            <div>
+                <p class="lede" style="margin-bottom: 3rem;">
+                    Wir bringen geprüfte Senior:innen in OGS-Schulen — in fertigen Staffeln,
+                    mit fertigem Material, mit fertigem Kinderschutz-Paket. Der Träger
+                    bekommt Planbarkeit, das Kind bekommt eine verlässliche Bezugsperson.
+                </p>
+
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-num">01</span>
+                        <span class="step-text">Träger oder Kommune beauftragt eine Staffel.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">02</span>
+                        <span class="step-text">Wir weisen Seniorin und Schule einander zu.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">03</span>
+                        <span class="step-text">10 wöchentliche Termine, Material gestellt, Ausfälle abgedeckt.</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">04</span>
+                        <span class="step-text">Eine zentrale Rechnung. Kein Koordinationsaufwand vor Ort.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= DREI LINIEN ================= -->
+<section style="background: var(--bg-warm);">
+    <div class="container">
+        <div style="max-width: 42rem; margin-bottom: 3.5rem;">
+            <span class="kicker">Das Portfolio</span>
+            <h2 class="heading">Drei Linien. Echtes Tun.</h2>
+            <p class="lede">
+                Kinder lernen durch praktisches Tun alltäglichen Lebens, in überschaubaren
+                Gruppen, mit sichtbaren Ergebnissen. Keine Noten, kein Vergleich, kein Druck.
+            </p>
+        </div>
+
+        <div class="cards-3" data-fade>
+            <article class="card">
+                <span class="card-label">Linie 1</span>
+                <h3 class="sub">Handwerk &amp; Gestalten</h3>
+                <p class="body">Stricken, Nähen, Sticken, Weben, einfache Holzarbeiten, Kunst. Feinmotorik und Geduld — als Nebenwirkung.</p>
+            </article>
+            <article class="card">
+                <span class="card-label">Linie 2</span>
+                <h3 class="sub">Lebensfertigkeiten</h3>
+                <p class="body">Kochen, Haushalt, Naturerfahrung, Zeit und Uhr lesen. Alltagskompetenz, die Schule nicht leisten kann.</p>
+            </article>
+            <article class="card">
+                <span class="card-label">Linie 3</span>
+                <h3 class="sub">Lesen &amp; Kreativ</h3>
+                <p class="body">Vorlesen, Geschichten schreiben, Basteln, Drucken, Stempeln. Sprache und Fantasie als Einladung.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ================= PAKET ================= -->
+<section id="paket">
+    <div class="container">
+        <div class="split">
+            <div>
+                <span class="kicker">Was steckt drin</span>
+                <h2 class="heading">Alles schon<br>gelöst.</h2>
+                <p class="body" style="margin-top: 2rem;">
+                    Sie buchen eine Staffel, wir liefern ein komplettes System drumherum.
+                    Kein Zusammensuchen, kein Nachorganisieren, keine Einzelverträge.
+                </p>
+            </div>
+            <div>
+                <ul class="checklist">
+                    <li>Geprüfte Senior:innen im Pool</li>
+                    <li>Erweitertes Führungszeugnis nach § 72a SGB VIII</li>
+                    <li>Verpflichtende Kinderschutz-Schulung</li>
+                    <li>Unterschriebener Verhaltenskodex</li>
+                    <li>Material-Paket pro Staffel</li>
+                    <li>Didaktisches 10-Wochen-Konzept</li>
+                    <li>Vertretungspool für Ausfälle</li>
+                    <li>Zentrale Abrechnung &amp; ein Ansprechpartner</li>
+                    <li>Haftpflicht- und Unfallversicherung</li>
+                    <li>Incident-Response-Prozess</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= PREIS ================= -->
+<section id="preis" style="background: var(--bg-warm);">
+    <div class="container">
+        <div style="text-align: center; max-width: 34rem; margin: 0 auto 3rem;">
+            <span class="kicker">Der Preis</span>
+            <h2 class="heading" style="margin: 0 auto;">Radikal transparent.</h2>
+        </div>
+
+        <div class="pricing" data-fade>
+            <div class="tag">Pro Staffel, pauschal</div>
+            <div class="amount">€1.000</div>
+            <div class="per">10 Termine à 90 Minuten · 20–25 Kinder · ~€4 pro Kind und Termin</div>
+            <p class="note">
+                Premium-Linien (Holz/Werkstatt) bis €1.250 wegen Material und Sicherheitskonzept.
+                Rahmenverträge mit Kommunen ab 50 Staffeln auf Anfrage.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FÜR WEN ================= -->
+<section>
+    <div class="container">
+        <div style="max-width: 42rem; margin-bottom: 3.5rem;">
+            <span class="kicker">Für wen</span>
+            <h2 class="heading">Drei Welten, ein Angebot.</h2>
+        </div>
+
+        <div class="cards-3">
+            <article class="card">
+                <span class="card-label" style="color: var(--violet-500);">OGS-Träger</span>
+                <h3 class="sub" style="margin-bottom: 1rem;">Entlastung statt Fluktuation.</h3>
+                <p class="body">Keine Honorarkraft-Jagd mehr. Keine Last-Minute-Ausfälle. Eine Rechnung, ein Ansprechpartner, ein nachweisbarer Kinderschutz.</p>
+            </article>
+            <article class="card">
+                <span class="card-label" style="color: var(--amber-600);">Schulen</span>
+                <h3 class="sub" style="margin-bottom: 1rem;">Attraktives Angebot, ohne Zusatzaufwand.</h3>
+                <p class="body">AG-Konzepte, die sich von der dritten Sport-AG unterscheiden. Rechtssicher, flexibel im Raumbedarf, Eltern-kompatibel.</p>
+            </article>
+            <article class="card">
+                <span class="card-label" style="color: var(--emerald-700);">Kommunen</span>
+                <h3 class="sub" style="margin-bottom: 1rem;">Rechtsanspruch erfüllen, Sozialziele treffen.</h3>
+                <p class="body">Rahmenverträge skalieren die Abdeckung, aktivieren zivilgesellschaftliche Ressourcen, dokumentieren Qualität.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ================= CALL / CTA ================= -->
+<section id="kontakt" style="padding-top: 3rem;">
+    <div class="container">
+        <div class="cta-block">
+            <span class="kicker" style="color: var(--violet-200); opacity: 0.75;">Jetzt · Pilot 2026</span>
+            <h2 class="heading">Vor dem Druck 2026<br>einmal richtig testen.</h2>
+            <p class="lede">
+                Wir starten einen 6-Monats-Pilot in NRW mit 2–3 Trägern und 5–10 Staffeln.
+                Sind Sie Träger, Schulleitung oder Kommune in NRW? Lassen Sie uns 30 Minuten sprechen.
+            </p>
+
+            <div class="cta-contacts">
+                <div class="cta-contact">
+                    <div class="label">E-Mail</div>
+                    <a href="mailto:scharffetter@linja.me?subject=AG%20Service%20Pilot%20NRW">scharffetter@linja.me</a>
+                </div>
+                <div class="cta-contact">
+                    <div class="label">Telefon</div>
+                    <a href="tel:+491724725757">+49 172 472 5757</a>
+                </div>
+                <div class="cta-contact">
+                    <div class="label">Mehr</div>
+                    <a href="https://linja.me" target="_blank" rel="noopener">linja.me</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <div class="container foot">
+        <div>AG Service · Linja Scharffetter · 2026</div>
+        <div>
+            <a href="https://linja.me/impressum.html">Impressum</a>
+            &nbsp;·&nbsp;
+            <a href="https://linja.me/datenschutz.html">Datenschutz</a>
+        </div>
+    </div>
+</footer>
+
+<!-- ================= Minimal JS: fade-in on scroll ================= -->
+<script>
+(function () {
+    if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('[data-fade]').forEach(el => el.classList.add('is-in'));
+        return;
+    }
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-in');
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-fade]').forEach(el => io.observe(el));
+})();
+</script>
+
+</body>
+</html>
