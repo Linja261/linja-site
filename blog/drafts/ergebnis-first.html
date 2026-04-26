@@ -1,8 +1,9 @@
 <!--
-  linja.me/blog/ergebnis-first – Beim Ergebnis anfangen
+  linja.me/blog/drafts/ergebnis-first – Beim Ergebnis anfangen
   Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
   Optionale Komponenten: Vergleichs-Cards
-  Entwurf: 2026-04-19
+  Bilingual: DE + EN
+  Entwurf: 2026-04-19 (Bilingual-Umbau: 2026-04-26)
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -17,132 +18,44 @@
     <title>Beim Ergebnis anfangen. Warum sichtbare Prototypen bessere Entscheidungen erzeugen. – Linja Scharffetter</title>
     <meta name="description" content="Die meisten Teams bauen von innen nach außen. KI dreht das um. Wer am sichtbaren Ergebnis anfängt, iteriert schneller und trifft bessere Entscheidungen.">
     <meta property="og:title" content="Beim Ergebnis anfangen. Warum sichtbare Prototypen bessere Entscheidungen erzeugen.">
-    <meta property="og:description" content="Die meisten Teams bauen von innen nach außen. KI dreht das um. Wer am sichtbaren Ergebnis anfängt, iteriert schneller.">
+    <meta property="og:description" content="Die meisten Teams bauen von innen nach außen. KI dreht das um.">
     <meta property="og:type" content="article">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        serif: ['Source Serif 4', 'Georgia', 'serif'],
-                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-                    },
-                    colors: {
-                        violet: {
-                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
-                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
-                        },
-                        amber: {
-                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
-                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
-                        },
-                        emerald: {
-                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
-                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
-                        },
-                    },
-                },
-            },
-        }
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','SFMono-Regular','monospace'] }, colors: { violet: { 50:'#f6f4f9',100:'#ece8f2',200:'#d9d1e5',300:'#9a82b5',400:'#7b6ba5',500:'#6b5691',700:'#463863' }, amber: { 50:'#fdf5f0',100:'#fae8de',200:'#ecb08e',400:'#c27a52',500:'#D4714E',600:'#a86340',700:'#73402e' }, emerald: { 50:'#f2f7f4',100:'#e0ede6',300:'#96bfaa',500:'#5b8a72',600:'#476f5b',700:'#31493d' } } } } }
     </script>
     <style>
-        .source-serif {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 500;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        #mobile-menu {
-            display: none;
-        }
-        #mobile-menu.open {
-            display: block;
-        }
-
-        /* Article prose styles */
-        .prose h2 {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 600;
-            font-size: 1.4rem;
-            color: #1A1A1A;
-            margin-top: 4rem;
-            margin-bottom: 1rem;
-        }
-        .prose h3 {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 600;
-            font-size: 1.15rem;
-            color: #1A1A1A;
-            margin-top: 2.75rem;
-            margin-bottom: 0.75rem;
-        }
-        .prose p {
-            margin-bottom: 2rem;
-            line-height: 1.75;
-        }
-        .prose strong {
-            color: #1A1A1A;
-            font-weight: 600;
-        }
-        .prose em {
-            font-style: italic;
-        }
-        .prose table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-        .prose th {
-            text-align: left;
-            font-weight: 600;
-            color: #1A1A1A;
-            border-bottom: 2px solid #E5E2DB;
-            padding: 0.5rem 0.75rem;
-        }
-        .prose td {
-            border-bottom: 1px solid #E5E2DB;
-            padding: 0.5rem 0.75rem;
-        }
-        .prose ol {
-            list-style: decimal;
-            padding-left: 1.5rem;
-            margin: 1rem 0;
-        }
-        .prose ul {
-            list-style: disc;
-            padding-left: 1.5rem;
-            margin: 1rem 0;
-        }
-        .prose li {
-            margin-bottom: 0.5rem;
-        }
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+        .prose h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.4rem; color: #1A1A1A; margin-top: 4rem; margin-bottom: 1rem; }
+        .prose h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.15rem; color: #1A1A1A; margin-top: 2.75rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 2rem; line-height: 1.75; }
+        .prose strong { color: #1A1A1A; font-weight: 600; }
+        .prose em { font-style: italic; }
+        .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .prose th { text-align: left; font-weight: 600; color: #1A1A1A; border-bottom: 2px solid #E5E2DB; padding: 0.5rem 0.75rem; }
+        .prose td { border-bottom: 1px solid #E5E2DB; padding: 0.5rem 0.75rem; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose li { margin-bottom: 0.5rem; }
     </style>
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
     <!-- Password Gate -->
     <div id="gate" class="min-h-screen flex items-center justify-center px-6">
         <div class="max-w-sm w-full text-center">
             <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Entwurf</p>
             <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
             <form onsubmit="return checkPass()">
-                <input type="password" id="pass" placeholder="Passwort" autofocus
-                    class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3"
-                    style="border-color: #E5E2DB;">
-                <button type="submit"
-                    class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">
-                    Öffnen
-                </button>
+                <input type="password" id="pass" placeholder="Passwort" autofocus class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3" style="border-color: #E5E2DB;">
+                <button type="submit" class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">Öffnen</button>
             </form>
             <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
         </div>
@@ -152,11 +65,12 @@
     <div id="content" class="hidden">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
-        <!-- ======== ARTIKEL-HEADER ======== -->
         <header class="pt-28 pb-8">
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
@@ -168,34 +82,30 @@
             </h1>
         </header>
 
-        <!-- ======== ARTIKEL-CONTENT ======== -->
-        <article class="prose pb-12">
+        <div class="reader-audio-slot my-4" data-audio-src="audio/ergebnis-first.mp3"></div>
 
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
-                 ══════════════════════════════════════════════ -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Klassische Softwareentwicklung baut von innen nach außen. KI dreht das um: zuerst das sichtbare Ergebnis, dann der Weg dahin. Wer am Prototyp anfängt, trifft bessere Entscheidungen, weil alle dasselbe sehen, statt sich Verschiedenes vorzustellen.
+            </p>
+        </div>
+
+        <article class="prose pb-12">
 
             <p>Bau zuerst das Sichtbare, dann den Rest. Es klingt kontraintuitiv, weil die Softwareentwicklung jahrzehntelang andersherum funktioniert hat: erst die Architektur, dann das Backend, dann irgendwann die Oberfläche. Jenny Wen nutzt das Bild der IKEA-Anleitung: Ohne das Bild des fertigen Regals auf Seite 1 sind die 47 Schritte danach sinnlos. Beim Bauen von Produkten gilt dasselbe. Wer am Ergebnis anfängt, sieht sofort, was funktioniert und was nicht. Nicht in der Theorie, sondern am lebenden Objekt. KI macht diesen Ansatz zum ersten Mal wirklich praktikabel.</p>
 
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 2: FUNDIERUNG
-                 ══════════════════════════════════════════════ -->
-
             <h2>Warum "Inside-Out" das Standardmodell ist</h2>
 
-            <p>Die klassische Softwareentwicklung folgt einer logischen Kette: Requirements, Architektur, Backend, Frontend, Launch. Das ist technisch nachvollziehbar, weil jede Schicht auf der vorherigen aufbaut. Aber es hat einen fundamentalen Nachteil: Die Oberfläche (das, was Nutzer sehen und bewerten können) kommt zuletzt. Feedback auf das Sichtbare entsteht erst spät im Prozess, wenn Änderungen teuer sind.</p>
+            <p>Die klassische Softwareentwicklung folgt einer logischen Kette: Requirements, Architektur, Backend, Frontend, Launch. Das ist technisch nachvollziehbar, weil jede Schicht auf der vorherigen aufbaut. Aber es hat einen fundamentalen Nachteil: Die Oberfläche, das was Nutzer sehen und bewerten können, kommt zuletzt. Feedback auf das Sichtbare entsteht erst spät im Prozess, wenn Änderungen teuer sind.</p>
 
             <p>Auch agile Teams fallen häufig in diese Logik zurück. Sprint-Planung orientiert sich an technischen Abhängigkeiten, nicht an User-Sichtbarkeit. Das Ergebnis: Produktentscheidungen werden abstrakt getroffen, auf Basis von Dokumenten, Diagrammen und Annahmen. Ohne das Ergebnis zu sehen.</p>
-
 
             <h2>Das Gegenmodell: Ergebnis-First</h2>
 
             <p><strong>Amazon "Working Backwards"</strong> ist die bekannteste Formalisierung dieses Prinzips. Bevor eine Zeile Code geschrieben wird, schreibt das Team eine interne Pressemitteilung und ein FAQ. Die Pressemitteilung beschreibt das fertige Produkt aus Kundensicht. Das FAQ adressiert kritische Fragen vorab. Der Zwang, das Endergebnis in Worte zu fassen, deckt Unklarheiten auf, die in einem Backlog unsichtbar bleiben.</p>
 
             <p>Jenny Wen geht einen Schritt weiter mit der <strong>IKEA-Anleitung-Analogie:</strong> Seite 1 zeigt das fertige Regal. Dann die Schritte. Nicht umgekehrt. Beim Produktbau bedeutet das: Zeige erst das Ergebnis (als Mockup, Prototyp oder Landing Page), dann baue den Weg dahin. Die Reihenfolge verändert die Qualität der Entscheidungen, weil visuelles Feedback andere kognitive Ressourcen aktiviert als abstraktes Denken. Allan Paivio hat das als Dual Coding Theory beschrieben: Menschen verarbeiten visuelle und verbale Informationen in getrennten Kanälen, und die Kombination beider führt zu besserem Verständnis und besserer Erinnerung.</p>
-
-            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
 
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
                 <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
@@ -204,8 +114,6 @@
             </div>
 
             <p><strong>KI als Enabler:</strong> Vor KI war "Ergebnis zuerst" teuer, weil Mockups und Prototypen Design-Zeit brauchten. Jetzt kannst du in Stunden eine funktionierende Oberfläche bauen und von dort iterieren. Das verändert nicht nur die Geschwindigkeit, sondern die Methodik: Statt "planen, dann bauen" wird es "bauen, dann entscheiden".</p>
-
-            <!-- ══ VERGLEICHS-CARDS ══ -->
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
                 <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
@@ -220,35 +128,19 @@
                 </div>
             </div>
 
-
             <h2>Case Study: linja.me</h2>
 
             <p>Der Aufbau von linja.me ist ein reales Beispiel für Ergebnis-First. Kein Wireframe, kein Design-System als Startpunkt. Stattdessen: direkt am lebenden HTML gebaut, zusammen mit Claude Code als Co-Pilot. Jede Iteration war sofort sichtbar und testbar. Navigation, Footer, Blog-Seite, Einzelartikel: alles entstand am fertigen Objekt, nicht auf dem Whiteboard.</p>
 
             <p>Der entscheidende Unterschied: Entscheidungen wurden AM Produkt getroffen. "Sieht die Navigation auf Mobile gut aus?" ist eine andere Frage als "Wie sollte die Navigation auf Mobile aussehen?". Die erste Frage hat eine sichtbare Antwort. Die zweite hat unendlich viele theoretische Antworten. Die geschätzte Zeitersparnis gegenüber einem klassischen Vorgehen (Wireframe, Design, Code): Faktor 3, bei mehr Iterationen und höherer Zufriedenheit mit dem Ergebnis.</p>
 
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 3: WAS ICH MIR VORNEHME
-                 ══════════════════════════════════════════════ -->
-
             <h2>Was ich mir vornehme</h2>
 
-            <p>Ich möchte künftig konsequenter mit dem Sichtbaren starten. Nicht mit einem Konzeptdokument, sondern mit einem Prototyp, den ich anfassen und zeigen kann. Bei linja.me hat das als rohe HTML-Seite funktioniert. Dieses Prinzip will ich auf weitere Projekte übertragen: bei Stakeholder-Präsentationen erst die Demo bauen, bevor ich Slides mache. Bei neuen Produktideen erst zeigen, dann erklären. Ob mir das konsequent gelingt, wird sich zeigen &mdash; die Versuchung, doch erst ein Konzept zu schreiben, ist real.</p>
-
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 4: KRITISCHE EINORDNUNG
-                 ══════════════════════════════════════════════ -->
+            <p>Ich möchte künftig konsequenter mit dem Sichtbaren starten. Nicht mit einem Konzeptdokument, sondern mit einem Prototyp, den ich anfassen und zeigen kann. Bei linja.me hat das als rohe HTML-Seite funktioniert. Dieses Prinzip will ich auf weitere Projekte übertragen: bei Stakeholder-Präsentationen erst die Demo bauen, bevor ich Slides mache. Bei neuen Produktideen erst zeigen, dann erklären. Ob mir das konsequent gelingt, wird sich zeigen. Die Versuchung, doch erst ein Konzept zu schreiben, ist real.</p>
 
             <h2>Kritische Einordnung</h2>
 
-            <p>Ergebnis-First funktioniert vermutlich nicht für alles. Sicherheitskritische Systeme, komplexe Backend-Logik und regulierte Branchen brauchen möglicherweise andere Reihenfolgen, weil die Architektur dort keine nachgelagerte Entscheidung ist. Es bleibt auch das Risiko der schönen Fassade: ein Prototyp, der überzeugend aussieht, aber technisch nicht umsetzbar ist. Ob der Ansatz in grossen Teams skaliert oder ein Solo- bzw. Kleinteam-Privileg bleibt, muss sich erst noch zeigen. Und die Frage nach Design Debt ist offen &mdash; wenn du direkt am Ergebnis baust, statt ein System darunter zu legen, kann das langfristig teuer werden.</p>
-
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG
-                 ══════════════════════════════════════════════ -->
+            <p>Ergebnis-First funktioniert vermutlich nicht für alles. Sicherheitskritische Systeme, komplexe Backend-Logik und regulierte Branchen brauchen möglicherweise andere Reihenfolgen, weil die Architektur dort keine nachgelagerte Entscheidung ist. Es bleibt auch das Risiko der schönen Fassade: ein Prototyp, der überzeugend aussieht, aber technisch nicht umsetzbar ist. Ob der Ansatz in grossen Teams skaliert oder ein Solo- bzw. Kleinteam-Privileg bleibt, muss sich erst noch zeigen. Und die Frage nach Design Debt ist offen: wenn du direkt am Ergebnis baust, statt ein System darunter zu legen, kann das langfristig teuer werden.</p>
 
             <div class="my-10">
                 <h2>Was bleibt für jeden Tag</h2>
@@ -268,10 +160,6 @@
                 </div>
             </div>
 
-            <!-- ══════════════════════════════════════════════
-                 QUELLEN
-                 ══════════════════════════════════════════════ -->
-
             <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
                 <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
@@ -282,10 +170,6 @@
                     <li><a href="https://basecamp.com/shapeup" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ryan Singer (2019). Shape Up. Basecamp.</a></li>
                 </ol>
             </div>
-
-            <!-- ══════════════════════════════════════════════
-                 GLOSSAR
-                 ══════════════════════════════════════════════ -->
 
             <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
@@ -301,26 +185,146 @@
 
         </article>
 
-        <!-- ======== ZURÜCK ======== -->
         <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
             <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodology</span>
+                <span class="text-[0.72rem] text-stone-400">April 19, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Start with the result. Why visible prototypes lead to better decisions.
+            </h1>
+        </header>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Classical software development builds from the inside out. AI flips this around: first the visible result, then the path to it. Starting at the prototype leads to better decisions, because everyone sees the same thing instead of imagining different ones.
+            </p>
+        </div>
+
+        <article class="prose pb-12">
+
+            <p>Build the visible part first, then the rest. It sounds counterintuitive, because software development worked the other way for decades: architecture first, then the backend, then eventually the surface. Jenny Wen uses the IKEA manual as a picture: without the image of the finished shelf on page 1, the 47 steps that follow are pointless. The same holds for building products. Whoever starts at the result sees immediately what works and what does not. Not in theory, but on the living object. AI makes this approach genuinely practical for the first time.</p>
+
+            <h2>Why "inside-out" is the standard model</h2>
+
+            <p>Classical software development follows a logical chain: requirements, architecture, backend, frontend, launch. That is technically reasonable, because each layer builds on the previous one. But it has a fundamental drawback: the surface, the part users see and can evaluate, comes last. Feedback on the visible only emerges late in the process, when changes are expensive.</p>
+
+            <p>Even agile teams often fall back into this logic. Sprint planning orients around technical dependencies, not user visibility. The result: product decisions get made in the abstract, on the basis of documents, diagrams, and assumptions. Without seeing the result.</p>
+
+            <h2>The counter-model: result-first</h2>
+
+            <p><strong>Amazon's Working Backwards</strong> is the best-known formalization of this principle. Before a single line of code is written, the team writes an internal press release and an FAQ. The press release describes the finished product from the customer's view. The FAQ addresses critical questions up front. The discipline of putting the end result into words exposes ambiguities that stay invisible in a backlog.</p>
+
+            <p>Jenny Wen takes this a step further with the <strong>IKEA manual analogy:</strong> page 1 shows the finished shelf. Then the steps. Not the other way around. For product building this means: show the result first (as a mockup, prototype, or landing page), then build the path to it. The order changes the quality of decisions, because visual feedback activates different cognitive resources than abstract thinking. Allan Paivio described this as Dual Coding Theory: people process visual and verbal information in separate channels, and combining the two leads to better understanding and better recall.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    The IKEA manual starts with the finished shelf. Product development should work the same way.
+                </p>
+            </div>
+
+            <p><strong>AI as enabler:</strong> before AI, "result first" was expensive because mockups and prototypes required design time. Now you can build a working surface in hours and iterate from there. That changes not only speed but methodology: instead of "plan, then build" it becomes "build, then decide".</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">Result-First</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-900 mb-3">2 hours</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Visible prototype, immediate feedback, decisions on the living object. Iteration starts on day 1.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #a8a29e; background: #FAFAF8;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3 text-stone-400">Classical</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-400 mb-3">6 weeks</p>
+                    <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Requirements, backend, frontend. First user feedback after weeks. Changes are expensive.</p>
+                </div>
+            </div>
+
+            <h2>Case study: linja.me</h2>
+
+            <p>Building linja.me is a real example of result-first. No wireframe, no design system as a starting point. Instead: built directly on living HTML, with Claude Code as a co-pilot. Every iteration was immediately visible and testable. Navigation, footer, blog page, individual articles: everything emerged on the finished object, not on a whiteboard.</p>
+
+            <p>The decisive difference: decisions were made AT the product. "Does the navigation look good on mobile?" is a different question than "How should the navigation look on mobile?" The first has a visible answer. The second has infinite theoretical answers. Estimated time savings compared to a classical approach (wireframe, design, code): factor 3, with more iterations and higher satisfaction with the result.</p>
+
+            <h2>What I commit to</h2>
+
+            <p>I want to be more consistent about starting with the visible. Not with a concept document, but with a prototype I can touch and show. With linja.me this worked as a raw HTML page. I want to carry this principle into other projects: for stakeholder presentations, build the demo before the slides. For new product ideas, show first, then explain. Whether I manage to be consistent about this remains to be seen. The temptation to write a concept first is real.</p>
+
+            <h2>A critical look</h2>
+
+            <p>Result-first probably does not work for everything. Safety-critical systems, complex backend logic, and regulated industries may need different orderings, because architecture there is not a downstream decision. There is also the risk of the beautiful facade: a prototype that looks convincing but is not technically feasible. Whether the approach scales in large teams or stays a privilege of solo or small teams remains to be seen. And the question of design debt is open: when you build directly at the result instead of laying down a system underneath, that can become expensive in the long run.</p>
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Show the result before you explain the path.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Stakeholders, teams, and you yourself benefit from the visible.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Build first what users see.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Everything else follows from what works.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">AI makes visibility cheap.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">A prototype in 2 hours beats a concept in 2 weeks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Colin Bryar &amp; Bill Carr (2021). Working Backwards: Insights, Stories, and Secrets from Inside Amazon. St. Martin's Press.</li>
+                    <li>Allan Paivio (1971). Dual Coding Theory. Imagery and Verbal Processes. Holt, Rinehart &amp; Winston.</li>
+                    <li>Teresa Torres (2021). Continuous Discovery Habits. Product Talk LLC.</li>
+                    <li>Alberto Savoia (2019). The Right It. Harper Business.</li>
+                    <li>Ryan Singer (2019). Shape Up. Basecamp.</li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Working Backwards</span> <span class="text-stone-400">— Amazon method: write press release and FAQ before development starts</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">PR/FAQ</span> <span class="text-stone-400">— Internal Amazon document made of press release and frequently asked questions</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Result-First</span> <span class="text-stone-400">— Approach starting from the visible end result instead of technical architecture</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Dual Coding Theory</span> <span class="text-stone-400">— Cognitive theory: visual and verbal information are processed in separate channels (Paivio)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Design Debt</span> <span class="text-stone-400">— Technical and design debt from fast building without a systematic foundation</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Rapid Prototyping</span> <span class="text-stone-400">— Fast creation of testable product versions for early validation</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <div id="site-footer"></div>
 
-    </div>
+    </div><!-- /content -->
 
     <script>
-        // Simple client-side gate — not real security, just keeps casual visitors out
         const PASS = 'Lagerfeuer2026';
-
         if (sessionStorage.getItem('drafts-auth') === 'true') {
             document.getElementById('gate').classList.add('hidden');
             document.getElementById('content').classList.remove('hidden');
         }
-
         function checkPass() {
             const input = document.getElementById('pass').value;
             if (input === PASS) {
@@ -333,7 +337,27 @@
             return false;
         }
     </script>
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
 
 </body>
-
 </html>
