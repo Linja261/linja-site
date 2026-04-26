@@ -2,7 +2,8 @@
   linja.me/blog/prototyping-pm – Wie prototype ich als PM?
   Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
   Optionale Komponenten: Datentabelle (Prototyping-Stufen)
-  Entwurf: 2026-04-18
+  Publiziert: 2026-04-26
+  Bilingual: DE + EN
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -60,6 +61,8 @@
         html {
             scroll-behavior: smooth;
         }
+
+        .lang-hidden { display: none !important; }
 
         #mobile-menu {
             display: none;
@@ -130,43 +133,36 @@
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
-    <!-- Password Gate -->
-    <div id="gate" class="min-h-screen flex items-center justify-center px-6">
-        <div class="max-w-sm w-full text-center">
-            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Entwurf</p>
-            <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
-            <form onsubmit="return checkPass()">
-                <input type="password" id="pass" placeholder="Passwort" autofocus
-                    class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3"
-                    style="border-color: #E5E2DB;">
-                <button type="submit"
-                    class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">
-                    Öffnen
-                </button>
-            </form>
-            <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
-        </div>
-    </div>
-
-    <!-- Content (hidden until authenticated) -->
-    <div id="content" class="hidden">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
         <!-- ======== ARTIKEL-HEADER ======== -->
         <header class="pt-28 pb-8">
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
-                <span class="text-[0.72rem] text-stone-400">18. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">26. April 2026</span>
                 <span class="text-[0.72rem] text-stone-400">&middot; 6 Min Lesezeit</span>
             </div>
             <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
                 Wie prototype ich als PM? Was mich von Designern unterscheidet, auch wenn wir dieselben Tools nutzen.
             </h1>
         </header>
+
+        <!-- ======== 90-SEK-AUDIO-PILL (schlank, emerald) ======== -->
+        <div class="reader-audio-slot my-4" data-audio-src="audio/prototyping-pm.mp3"></div>
+
+        <!-- ======== TL;DR ======== -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Mit KI-Tools kann jede PM heute Prototypen bauen, die wie Designer-Arbeit aussehen. Trotzdem bleibt der Unterschied: PM-Prototypen testen Geschäftshypothesen, Designer-Prototypen gestalten Erfahrungen. Die eigentliche PM-Superkraft ist nicht das Bauen, sondern das Framing.
+            </p>
+        </div>
 
         <!-- ======== ARTIKEL-CONTENT ======== -->
         <article class="prose pb-12">
@@ -271,7 +267,7 @@
 
             <h2>Kritische Einordnung</h2>
 
-            <p>Ob die Verschmelzung von PM- und Design-Prototyping langfristig funktioniert, hängt stark vom Kontext ab. In grossen Teams mit starkem Design könnte PM-Prototyping verschwendete Zeit sein, weil Designerinnen dasselbe schneller und besser können. Es bleibt auch das Risiko der Hybridrolle: PMs, die "auch Designerin spielen", werden möglicherweise weder der einen noch der anderen Rolle gerecht. Designer haben eine Ausbildung in visueller Kommunikation, Typografie und Interaktionsdesign, die kein KI-Tool ersetzt. Die Demokratisierung der Werkzeuge demokratisiert nicht automatisch die Perspektive &mdash; das wird sich erst noch beweisen müssen.</p>
+            <p>Ob die Verschmelzung von PM- und Design-Prototyping langfristig funktioniert, hängt stark vom Kontext ab. In grossen Teams mit starkem Design könnte PM-Prototyping verschwendete Zeit sein, weil Designerinnen dasselbe schneller und besser können. Es bleibt auch das Risiko der Hybridrolle: PMs, die "auch Designerin spielen", werden möglicherweise weder der einen noch der anderen Rolle gerecht. Designer haben eine Ausbildung in visueller Kommunikation, Typografie und Interaktionsdesign, die kein KI-Tool ersetzt. Die Demokratisierung der Werkzeuge demokratisiert nicht automatisch die Perspektive: das wird sich erst noch beweisen müssen.</p>
 
 
             <!-- ══════════════════════════════════════════════
@@ -336,32 +332,225 @@
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                <span class="text-[0.72rem] text-stone-400">April 26, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                How do I prototype as a PM? What sets me apart from designers, even when we use the same tools.
+            </h1>
+        </header>
+
+        <!-- ======== TL;DR ======== -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                AI tools let any PM build prototypes that look like designer work. The difference still holds: PM prototypes test business hypotheses, designer prototypes shape experiences. The real PM superpower is not building. It is framing.
+            </p>
+        </div>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 1: CORE MESSAGE + PROBLEM
+                 ══════════════════════════════════════════════ -->
+
+            <p>AI tools like Claude Code, Claude Design, and Lovable mean any PM can now build a prototype. The line between product management and design blurs. That sounds like democratization, but it raises a new question: if everyone can prototype, what makes a PM prototype different from a designer prototype? The answer is not in the tool. It is in the intent. A PM prototypes to test a hypothesis. A designer prototypes to shape an experience. Same tools, fundamentally different perspectives.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 2: FOUNDATION
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Two perspectives on the same prototype</h2>
+
+            <p>The PM asks: "Does this solve a real problem? Would users pay for it or switch?" The designer asks: "Does this feel right? Can users find their way?" Both questions matter, but they lead to fundamentally different prototypes. The PM prototype is deliberately low-fidelity. It shows just enough to validate a business hypothesis: a fake-door landing page, a Wizard-of-Oz test, a clickable shell. The designer prototype, by contrast, needs depth, because usability can only be tested on a concrete interface: micro-interactions, typography, visual hierarchy.</p>
+
+            <p>Marty Cagan describes product discovery as the answer to four risks: Value (does anyone want this?), Usability (can people use it?), Feasibility (can we build it?), and Business Viability (does this work commercially?). The PM owns value and viability. The designer owns usability. Engineering owns feasibility. The PM prototype targets the first two, not all four.</p>
+
+            <!-- ══ KEY INSIGHT QUOTE ══ -->
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    A PM prototype does not need to look beautiful. It needs to test a hypothesis.
+                </p>
+            </div>
+
+
+            <h2>Why the convergence is misleading</h2>
+
+            <p>AI lets both build the artifacts of the other. A PM can now build a clickable prototype in 30 minutes that looks like designer work. A designer can use AI to generate market analyses and business cases. But capability is not perspective. A PM building a Figma prototype still thinks (hopefully) like a PM: not in pixels, but in hypotheses.</p>
+
+            <p>The risk lies in the seduction of detail. Once you can adjust colors, shadows, and animation timing, it is easy to lose sight of the real question: are we testing the right thing? The opportunity, by contrast, is huge: PMs who build fast enough to test their own hypotheses, without waiting on design resources. That shortens the discovery cycle from weeks to hours.</p>
+
+
+            <h2>The PM prototyping superpower: framing</h2>
+
+            <p>The PM's most important contribution to prototyping is not building. It is deciding WHAT gets built. <strong>Framing skill</strong> determines which problem the prototype addresses, for whom, and in which context. <strong>Hypothesis thinking</strong> formulates a falsifiable claim before the first click: "If we show X, we expect Y." <strong>Scope discipline</strong> defines what you deliberately do NOT build, while still getting an answer. And <strong>business context</strong> connects the prototype to market, competition, and strategy.</p>
+
+            <!-- ══ DATA TABLE: PROTOTYPING LEVELS ══ -->
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Example</th>
+                        <th>PM use</th>
+                        <th>Designer use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sketch</strong></td>
+                        <td>Paper, whiteboard</td>
+                        <td>Communication</td>
+                        <td>Ideation</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wireframe</strong></td>
+                        <td>Simple layouts</td>
+                        <td>Stakeholder alignment</td>
+                        <td>Information architecture</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clickable</strong></td>
+                        <td>Figma, InVision</td>
+                        <td>Rarely directly</td>
+                        <td>Usability tests</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Coded</strong></td>
+                        <td>Claude Code, Lovable, HTML</td>
+                        <td>Fake-door, MVP</td>
+                        <td>Rarely</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Functional</strong></td>
+                        <td>Working software</td>
+                        <td>Delivery (not prototype)</td>
+                        <td>Delivery (not prototype)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 3: WHAT I COMMIT TO
+                 ══════════════════════════════════════════════ -->
+
+            <h2>What I commit to</h2>
+
+            <p>Since I started working with Claude Code, I want to build the prototypes I used to commission from the design team. I want to be deliberate about WHAT I build: landing pages for demand tests, clickable flows for stakeholder demos, coded prototypes for technical feasibility checks. What I will not build: final UI designs, micro-interactions, design system components. That is design work and should stay design work. Whether that line holds in practice, I still need to find out.</p>
+
+            <p>The biggest change is speed. Form a product hypothesis in the morning, have a testable prototype by midday, evaluate first feedback in the evening. That was unthinkable two years ago. But speed is only valuable if the hypothesis is right. Building the wrong thing fast is not better than building the wrong thing slowly.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 4: CRITICAL ASSESSMENT
+                 ══════════════════════════════════════════════ -->
+
+            <h2>A critical look</h2>
+
+            <p>Whether the convergence of PM and design prototyping holds long-term depends heavily on context. In large teams with strong design, PM prototyping might be wasted time, because designers can do the same faster and better. There is also the hybrid role risk: PMs who "play designer too" may end up serving neither role well. Designers carry training in visual communication, typography, and interaction design that no AI tool replaces. The democratization of tools does not automatically democratize perspective: that still has to be proven.</p>
+
+
+            <!-- ══════════════════════════════════════════════
+                 BLOCK 5: TAKEAWAYS
+                 ══════════════════════════════════════════════ -->
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Prototype the question, not the answer.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">A PM prototype does not need to look beautiful. It needs to test a hypothesis.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Your edge is framing.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Same tools, different perspective. Deciding WHAT to build is more valuable than building it.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Scope is a superpower.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Knowing what NOT to build is more valuable than building it fast.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 SOURCES
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.svpg.com/inspired-how-to-create-tech-products-customers-love/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Marty Cagan (2018). Inspired: How to Create Tech Products Customers Love. Wiley.</a></li>
+                    <li><a href="https://www.producttalk.org/2021/05/continuous-discovery-habits/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Teresa Torres (2021). Continuous Discovery Habits. Product Talk LLC.</a></li>
+                    <li><a href="https://shreyasdoshi.substack.com" class="hover:text-stone-600 transition-colors" style="color: inherit;">Shreyas Doshi (2026). Product Sense Decomposition.</a></li>
+                    <li><a href="https://www.pretotyping.org" class="hover:text-stone-600 transition-colors" style="color: inherit;">Alberto Savoia (2019). The Right It: Why So Many Ideas Fail and How to Make Sure Yours Succeed. Harper Business.</a></li>
+                    <li><a href="https://basecamp.com/shapeup" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ryan Singer (2019). Shape Up: Stop Running in Circles and Ship Work that Matters. Basecamp.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 GLOSSARY
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Prototype</span> <span class="text-stone-400">— A testable representation of a product idea, from sketch to coded</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Fidelity</span> <span class="text-stone-400">— The level of detail of a prototype (low, medium, high)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Fake-door test</span> <span class="text-stone-400">— A feature is announced before it exists, to measure demand</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Wizard-of-Oz</span> <span class="text-stone-400">— A prototype simulates automation but is actually run by hand</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Product discovery</span> <span class="text-stone-400">— The process of validating value, usability, feasibility, and viability</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Framing</span> <span class="text-stone-400">— Deciding which problem to address and how to formulate it</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Opportunity Solution Tree</span> <span class="text-stone-400">— A visualization of outcome, opportunities, solutions, and experiments (Teresa Torres)</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <div id="site-footer"></div>
 
-    </div>
-
-    <script>
-        // Simple client-side gate — not real security, just keeps casual visitors out
-        const PASS = 'Lagerfeuer2026';
-
-        if (sessionStorage.getItem('drafts-auth') === 'true') {
-            document.getElementById('gate').classList.add('hidden');
-            document.getElementById('content').classList.remove('hidden');
-        }
-
-        function checkPass() {
-            const input = document.getElementById('pass').value;
-            if (input === PASS) {
-                sessionStorage.setItem('drafts-auth', 'true');
-                document.getElementById('gate').classList.add('hidden');
-                document.getElementById('content').classList.remove('hidden');
-            } else {
-                document.getElementById('error').classList.remove('hidden');
-            }
-            return false;
-        }
-    </script>
+<script>
+function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+function setLang(lang) { localStorage.setItem('site-lang', lang); }
+function applyLanguage(lang) {
+    var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+    var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+    var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+    if (lang === 'en') {
+        de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+        if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+        navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+    } else {
+        de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+        if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+        navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+    }
+    document.documentElement.lang = lang;
+}
+function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+applyLanguage(getLang());
+</script>
 
 </body>
 
