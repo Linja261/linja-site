@@ -1,0 +1,342 @@
+<!--
+  linja.me/blog/drafts/zeigen-statt-erklaeren – Wie KI meine Rolle als Product Managerin verschiebt
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Bilingual: DE + EN
+  Entwurf: 2026-04-21 (Bilingual-Umbau + Variante A: 2026-04-26)
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Zeigen statt erklären. Wie KI meine Rolle als Product Managerin verschiebt. – Linja Scharffetter</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Prototypen verändern Gespräche. Regelwerke werden Daueraufgabe. Zuhören bleibt die Kernkompetenz, die KI nicht ersetzt. Drei Verschiebungen im PM-Alltag.">
+    <meta property="og:title" content="Zeigen statt erklären. Wie KI meine Rolle als Product Managerin verschiebt.">
+    <meta property="og:description" content="Drei Verschiebungen im Alltag einer Product Managerin und was sie sich daraus vornimmt.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','SFMono-Regular','monospace'] }, colors: { violet: { 50:'#f6f4f9',100:'#ece8f2',200:'#d9d1e5',300:'#9a82b5',400:'#7b6ba5',500:'#6b5691',700:'#463863' }, amber: { 50:'#fdf5f0',100:'#fae8de',200:'#ecb08e',400:'#c27a52',500:'#D4714E',600:'#a86340',700:'#73402e' }, emerald: { 50:'#f2f7f4',100:'#e0ede6',300:'#96bfaa',500:'#5b8a72',600:'#476f5b',700:'#31493d' } } } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+        .prose h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.4rem; color: #1A1A1A; margin-top: 4rem; margin-bottom: 1rem; }
+        .prose h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.15rem; color: #1A1A1A; margin-top: 2.75rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 2rem; line-height: 1.75; }
+        .prose strong { color: #1A1A1A; font-weight: 600; }
+        .prose em { font-style: italic; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../../components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- Draft-Banner: Original-Stand zum Vergleich -->
+        <div class="mt-24 mb-4 py-3 px-4 rounded-lg flex items-center gap-3" style="background: #fae8de; border-left: 3px solid #D4714E;">
+            <span class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #73402e;">Original</span>
+            <span class="text-[0.82rem]" style="color: #73402e;">Stand vor Live-Schaltung (Variante A, 26.04.). Vergleich: <a href="zeigen-statt-erklaeren-v3.html" class="underline" style="color: #73402e;">V3 mit Wording-Vorgaben</a>.</span>
+        </div>
+
+        <!-- ARTIKEL-HEADER -->
+        <header class="pt-4 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+                <span class="text-[0.72rem] text-stone-400">21. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Zeigen statt erklären. Wie KI meine Rolle als Product Managerin verschiebt.
+            </h1>
+        </header>
+
+        <!-- 90-SEK-AUDIO-PILL -->
+        <div class="reader-audio-slot my-4" data-audio-src="audio/zeigen-statt-erklaeren.mp3"></div>
+
+        <!-- TL;DR -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                KI verschiebt drei Dinge im PM-Alltag: Diskussionen am Prototyp ersetzen Argumente am Whiteboard, Designer werden Kuratoren, und Regelwerke werden Daueraufgabe. Was bleibt, ist Zuhören als Kernkompetenz, die KI nicht ersetzt.
+            </p>
+        </div>
+
+        <!-- ARTIKEL-CONTENT -->
+        <article class="prose pb-12">
+
+            <!-- BLOCK 1: KERNBOTSCHAFT + PROBLEM -->
+            <p>Als Product Managerin hast Du die Möglichkeit, schnell mit Claude Prototypen zu bauen. In dreißig Minuten schaffst Du es, Deine Idee funktional mit simplem Design umzusetzen. Der Mehrwert: Du kannst dem Team Deine Idee zeigen, statt nur zu erklären. Das beschleunigt die Diskussion enorm und bringt sie schnell zu den relevanten Punkten. Nicht weil der Prototyp perfekt ist, sondern weil alle dasselbe sehen. Kein Interpretationsspielraum, kein "ich stelle mir das aber anders vor". Ergebnis statt Idee.</p>
+
+            <p>Das ist die Verschiebung, die ich gerade erlebe. Nicht als großes Transformationsprojekt. Sondern als stille Veränderung in meinem Arbeitsalltag als Product Managerin.</p>
+
+            <!-- BLOCK 2: FUNDIERUNG -->
+            <h2>Drei Verschiebungen, die ich beobachte</h2>
+
+            <p>Ich war schon vor KI eine operative Schnittstelle. Ich übersetze Strategien in operative Tätigkeiten: mein ehemaliger Chef denkt in Flughöhe, die Entwickler und UXler wollen schaffen, und ich bin dazwischen. Das hat sich nicht geändert. Was sich geändert hat, ist die Art, wie ich übersetze.</p>
+
+            <p><strong>Von Erklären zu Zeigen.</strong> PM rückt näher an den Code, nicht weil ich programmiere, sondern weil ich am Prototyp diskutiere, statt strategisch zu erklären. Das verschiebt nicht nur die Gesprächsdynamik. Es verändert die Reihenfolge: zuerst das Sichtbare, dann die Argumente.</p>
+
+            <p><strong>Designer werden Kuratoren, nicht weniger wichtig.</strong> Klarheit wird für mich teurer, wenn ich alle Design-Varianten selbst bewerten muss. Sie wird günstiger, wenn Designer vorsortieren, mit ihrem Regelwerk und ihrer Expertise priorisieren, und ich einen Extrakt bekomme. Die Kernkompetenz von UX bleibt beim Designer. KI-Arbeit eines guten Designers, der sein Handwerk gelernt hat, sieht mit KI immer besser aus als das Ergebnis eines Designers ohne Grundausbildung. Bei mir als PM ist Design oft gut genug. Aber manchmal macht es einen subjektiven Unterschied, ob ein Kunde Vertrauen fasst. Dafür braucht es die Design-Brille: ergebnisorientiert, nicht nur chic.</p>
+
+            <p><strong>Regelwerke pflegen wird Daueraufgabe.</strong> Der Mensch sollte Beurteiler des Ergebnisses bleiben. Er allein kann beurteilen, ob etwas Output oder Outcome ist. Das Ergebnis der KI ist nur so gut wie die Regeln, die der Mensch definiert hat. Und diese Regeln müssen permanent angepasst werden. Nicht einmal aufsetzen und vergessen, sondern beobachten, nachjustieren, hinterfragen. Die Arbeit verschwindet nicht, sie verschiebt sich. Das gilt für mein persönliches Wissenssystem genauso wie für Produktteams: Wer glaubt, KI einmal konfigurieren zu können und dann laufen zu lassen, wird schnell merken, dass der Output veraltet, bevor er ankommt.</p>
+
+            <!-- KERNERKENNTNIS-QUOTE -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    KI verstärkt, was da ist. Wer gutes Handwerk gelernt hat, liefert mit KI bessere Ergebnisse. Wer es nicht gelernt hat, bekommt schnellere Ergebnisse, aber nicht unbedingt die richtigen.
+                </p>
+            </div>
+
+            <h2>Verstehen durch Bauen</h2>
+
+            <p>Ich bleibe bei Verstehen vor Handeln. Aber ich nutze KI, um besser zu verstehen. Und verstehen kann man wunderbar, indem man ein Ergebnis baut aus dem, was man befunden hat.</p>
+
+            <p>Bei meinem neuen Arbeitgeber setze ich das gerade um. Nicht als Methode, die ich verkünde, sondern als persönliche Arbeitsweise, die ich teste. Wenn ich ein neues Thema durchdringe, baue ich früher als vorher etwas Sichtbares daraus. Nicht um es fertig zu haben, sondern um zu prüfen, ob ich es verstanden habe. Der Prototyp als Erkenntnistool, nicht als Lieferobjekt.</p>
+
+            <p>Das verändert auch meine Rolle im Team. Früher war ich eher Trägerin: ich musste alles kontrollieren, alles durchsteuern. Jetzt versuche ich bewusst, Facilitatorin zu sein. Ich schaffe den Rahmen, in dem alle selbst laufen können. Ein System, das auch ohne mich funktioniert. Ich bin ersetzbar, zur Not auch durch gute Struktur. Aber nicht beim Zusammenbringen von Menschen. Zwischen den Zeilen lesen, Gruppendynamik verstehen, den richtigen Ton finden: das bleibt menschlich. Und wenn KI irgendwann Machtlinien dokumentiert oder Konflikte sichtbar macht, kann ich das als Werkzeug für mehr Transparenz nutzen. Aber die Interpretation bleibt bei mir.</p>
+
+            <p>Prototypen helfen auch hier. Wenn ein Team sich über die richtige Lösung streitet, hilft es, beim Ergebnis zu starten. Visuell diskutieren statt abstrakt argumentieren. Man kommt schneller zu einer Entscheidung, manchmal auch zu einer unvorhergesehenen Variante, die vorher niemand auf dem Tisch hatte.</p>
+
+            <!-- BLOCK 3: WAS ICH MIR VORNEHME -->
+            <h2>Was ich mir vornehme</h2>
+
+            <p>Drei Dinge, die ich bewusst anders machen will:</p>
+
+            <p><strong>Zuhören als Kernkompetenz schützen.</strong> Die Gefahr, die ich bei Nachwuchs-PMs sehe, ist keine fehlende Tool-Kompetenz. Es ist die fehlende Intuition. Das Zwischen-den-Zeilen-Lesen, wenn man immer nur KI-Output liest, aber nie mit Menschen und Kunden spricht. Zuhören, wirklich zuhören, ist eine Kernkompetenz von Product Management. Punkte zu Linien zusammenführen. Das will ich mir bewahren, auch wenn die Verlockung groß ist, stattdessen noch einen Prompt abzusetzen.</p>
+
+            <p><strong>Demütig Strukturen schaffen statt Methodik stapeln.</strong> Was Junior-PMs lernen sollten, ist nicht eine Fülle an Wissen oder eine Fülle an Methodik oder das Gefühl, sich positionieren zu müssen. Sondern demütig versuchen, gute Strukturen zu schaffen, mit KI als Werkzeug, nicht als Ersatz für Denken. Das will ich auch für mich beibehalten.</p>
+
+            <p><strong>KI als Werkzeug für Transparenz einsetzen.</strong> Der Spirit innerhalb einer Organisation bleibt. Ich muss trotzdem zwischen den Zeilen lesen, Menschen verstehen, Gruppendynamik lesen. Das ist meine Stärke, die mich von KI unterscheidet. Aber ich kann KI nutzen, um Dinge sichtbar zu machen, die sonst in Meetings untergehen. Wenn eine KI mir zeigt, dass in den letzten vier Retrospektiven dasselbe Thema ungelöst blieb, ist das kein Ersatz für meine Einschätzung, aber ein besserer Ausgangspunkt, als mich nur auf mein Gedächtnis zu verlassen.</p>
+
+            <!-- BLOCK 4: KRITISCHE EINORDNUNG -->
+            <h2>Kritische Einordnung</h2>
+
+            <p>Ob das alles eine echte Transformation ist oder eine gefühlte, weiß ich nicht. Kann gut sein, dass wir es überschätzen, wie stark die Rollen tatsächlich miteinander verwachsen. Dass PM, Design und Engineering durch KI so nah zusammenrücken, wie es gerade diskutiert wird, muss sich erst zeigen. Vielleicht bleibt am Ende mehr beim Alten, als wir denken. Die Werkzeuge sind neu, aber die Grundfragen, wer entscheidet was, wer versteht den Kunden, wer hält das Team zusammen, sind dieselben wie vor zehn Jahren.</p>
+
+            <p>Und es gibt eine echte Gefahr, über die wenig gesprochen wird: Wenn junge PMs mit KI sozialisiert werden, bevor sie gelernt haben, echten Kunden zuzuhören, fehlt die Grundlage. Man liest KI-Output, aber nie die Unsicherheit im Gesicht eines Nutzers. Man kennt Daten, aber nicht die Geschichte dahinter. Intuition entsteht nicht am Bildschirm, sie entsteht in Gesprächen, in wiederholter Erfahrung, im langsamen Aufbau von Mustererkennung. Wer diesen Schritt überspringt, wird effizient, aber nicht klug.</p>
+
+            <p>Trotzdem: Besser überschätzen als unterschätzen und sich kritisch damit auseinandersetzen. Die Verschiebungen, die ich beschrieben habe, sind real, zumindest in meinem Alltag. Ob sie sich in anderen Kontexten genauso zeigen, ob die Prototyping-Fähigkeit von PMs wirklich die Teamdynamik verändert oder nur eine nette Ergänzung bleibt, wird sich in den nächsten Monaten klären. Was ich sicher sagen kann: Die Fähigkeit, beim Ergebnis anzufangen statt bei der Idee, hat meine Gespräche verändert. Der Rest bleibt abzuwarten.</p>
+
+            <!-- BLOCK 5: WAS BLEIBT FÜR JEDEN TAG -->
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Beim Ergebnis anfangen, nicht bei der Erklärung.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Ein Prototyp, auch ein roher, verändert jedes Gespräch. Zeigen schlägt Erklären, weil alle dasselbe sehen statt sich Verschiedenes vorzustellen.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Output beurteilen bleibt menschlich.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">KI liefert Ergebnisse. Ob diese Ergebnisse Outcome sind, ob sie einen Unterschied machen, kann nur ein Mensch beurteilen. Die Regeln definieren und anpassen ist die eigentliche Arbeit.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Zuhören ist die Kernkompetenz, die KI nicht ersetzt.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Zwischen den Zeilen lesen, Gruppendynamik verstehen, Punkte zu Linien zusammenführen. Das unterscheidet gute PMs von guten Prompts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUELLEN -->
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Torres, Teresa (2021). <em>Continuous Discovery Habits.</em> Product Talk Press.</li>
+                    <li>Cagan, Marty (2018). <em>Inspired: How to Create Tech Products Customers Love.</em> Wiley.</li>
+                    <li>Klein, Gary (1998). <em>Sources of Power: How People Make Decisions.</em> MIT Press.</li>
+                </ol>
+            </div>
+
+            <!-- GLOSSAR -->
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Output vs. Outcome</span> <span class="text-stone-400">— Output ist das Ergebnis einer Tätigkeit, Outcome ist die Wirkung dieses Ergebnisses.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Facilitatorin</span> <span class="text-stone-400">— Rolle, die den Rahmen schafft, in dem andere selbstständig arbeiten können.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Prototyp als Erkenntnistool</span> <span class="text-stone-400">— Prototyp, der baut, um zu prüfen, ob man ein Problem verstanden hat.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Regelwerk</span> <span class="text-stone-400">— Vorgaben und Strukturen, die bestimmen, wie KI arbeitet.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— Phase, in der verstanden wird, was gebaut werden soll und warum.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="index.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Entwürfe</a>
+        </div>
+
+    </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <!-- Draft Banner -->
+        <div class="mt-24 mb-4 py-3 px-4 rounded-lg flex items-center gap-3" style="background: #fae8de; border-left: 3px solid #D4714E;">
+            <span class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #73402e;">Draft</span>
+            <span class="text-[0.82rem]" style="color: #73402e;">Not yet published. Review version.</span>
+        </div>
+
+        <!-- ARTICLE HEADER -->
+        <header class="pt-4 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; AI</span>
+                <span class="text-[0.72rem] text-stone-400">April 21, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Show, don't explain. How AI is shifting my role as a product manager.
+            </h1>
+        </header>
+
+        <!-- TL;DR -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                AI shifts three things in a PM's day: discussions at a prototype replace arguments at a whiteboard, designers become curators, and rule sets turn into ongoing work. What stays is listening as the core skill that AI cannot replace.
+            </p>
+        </div>
+
+        <article class="prose pb-12">
+
+            <p>As a product manager, you can build prototypes with Claude in minutes. In thirty minutes you turn an idea into something functional with simple design. The benefit: you can show the team your idea instead of just explaining it. That accelerates the discussion and brings it to the relevant points fast. Not because the prototype is perfect, but because everyone sees the same thing. No room for interpretation, no "but I imagined it differently". Result instead of idea.</p>
+
+            <p>That is the shift I am experiencing right now. Not as a big transformation project. As a quiet change in my daily work as a product manager.</p>
+
+            <h2>Three shifts I observe</h2>
+
+            <p>I was an operational interface long before AI. I translate strategy into operational work: my former boss thinks at altitude, the developers and UX designers want to ship, and I sit in between. That has not changed. What has changed is how I translate.</p>
+
+            <p><strong>From explaining to showing.</strong> PM moves closer to the code. Not because I program, but because I discuss at the prototype instead of arguing strategically. That shifts more than just the conversation dynamic. It changes the order: the visible first, the arguments second.</p>
+
+            <p><strong>Designers become curators, not less important.</strong> Clarity gets more expensive for me when I have to evaluate every design variant myself. It gets cheaper when designers pre-sort, prioritize with their rule set and expertise, and hand me a curated extract. The core competence of UX stays with the designer. AI work by a good designer who has learned the craft always looks better than the output of a designer without that grounding. For me as a PM, design is often good enough. But sometimes it makes a subjective difference whether a customer trusts the result. That requires the design lens: outcome-oriented, not just polished.</p>
+
+            <p><strong>Maintaining rule sets becomes ongoing work.</strong> Humans should remain the judge of the result. Only a human can tell whether something is output or outcome. The AI's result is only as good as the rules a human has defined. And those rules need constant adjustment. Not set and forget, but observe, recalibrate, question. The work does not disappear, it shifts. That holds for my personal knowledge system as much as for product teams: anyone who thinks they can configure AI once and let it run will quickly notice that the output goes stale before it lands.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    AI amplifies what is there. Those who learned the craft deliver better results with AI. Those who did not get faster results, not necessarily the right ones.
+                </p>
+            </div>
+
+            <h2>Understanding through building</h2>
+
+            <p>I still believe in understanding before acting. But I use AI to understand better. And you can understand wonderfully by building a result from what you have found.</p>
+
+            <p>At my new employer I am putting this into practice. Not as a method I announce, but as a personal way of working that I am testing. When I dig into a new topic, I build something visible earlier than I used to. Not to finish it, but to check whether I have understood it. The prototype as a tool for insight, not as a deliverable.</p>
+
+            <p>This also changes my role on the team. I used to be more of a carrier: I had to control everything, steer everything. Now I deliberately try to be a facilitator. I create the frame in which others can move on their own. A system that works without me. I am replaceable, even by good structure if needed. But not when it comes to bringing people together. Reading between the lines, understanding group dynamics, finding the right tone: that stays human. And when AI eventually documents power lines or surfaces conflicts, I can use that as a tool for more transparency. But the interpretation stays with me.</p>
+
+            <p>Prototypes help here too. When a team argues about the right solution, it helps to start at the result. Discuss visually instead of arguing in the abstract. You reach a decision faster, sometimes a variant nobody had on the table before.</p>
+
+            <h2>What I commit to</h2>
+
+            <p>Three things I want to do differently on purpose:</p>
+
+            <p><strong>Protect listening as a core skill.</strong> The risk I see in junior PMs is not a missing tool skill. It is missing intuition. Reading between the lines disappears when you only read AI output and never talk to people and customers. Listening, really listening, is a core skill of product management. Connecting the dots into a line. I want to keep that, even when it is tempting to fire off another prompt instead.</p>
+
+            <p><strong>Build humble structures instead of stacking methods.</strong> What junior PMs should learn is not a heap of knowledge or a heap of methodology or the urge to position themselves. It is humbly trying to create good structures with AI as a tool, not as a substitute for thinking. I want to keep that for myself too.</p>
+
+            <p><strong>Use AI as a tool for transparency.</strong> The spirit inside an organization stays. I still have to read between the lines, understand people, read group dynamics. That is my strength that distinguishes me from AI. But I can use AI to surface things that would otherwise get lost in meetings. When AI shows me that the same topic has been unresolved across the last four retrospectives, that is not a substitute for my judgment, but a better starting point than relying on memory alone.</p>
+
+            <h2>A critical look</h2>
+
+            <p>Whether all of this is a real transformation or a felt one, I do not know. We may be overestimating how strongly the roles really converge. Whether PM, design, and engineering merge through AI as closely as the current discourse suggests still has to prove itself. Maybe more stays the same than we think. The tools are new, but the underlying questions, who decides what, who understands the customer, who keeps the team together, are the same as ten years ago.</p>
+
+            <p>And there is a real risk that gets little airtime: when young PMs are socialized with AI before they have learned to listen to real customers, the foundation is missing. You read AI output, but never the uncertainty in a user's face. You know the data, but not the story behind it. Intuition does not form at a screen. It forms in conversation, in repeated experience, in the slow build-up of pattern recognition. Skip that step and you become efficient, not wise.</p>
+
+            <p>Still: better to overestimate than underestimate, and to engage critically. The shifts I described are real, at least in my own day. Whether they show up the same way in other contexts, whether the prototyping ability of PMs really changes team dynamics or stays a nice add-on, will become clearer over the next few months. What I can say with confidence: starting at the result instead of at the idea has changed my conversations. The rest remains to be seen.</p>
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Start at the result, not at the explanation.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Even a rough prototype changes every conversation. Showing beats explaining, because everyone sees the same thing instead of imagining different ones.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Judging the output stays human.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">AI delivers results. Whether those results are outcomes, whether they make a difference, can only be judged by a human. Defining and adjusting the rules is the real work.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Listening is the core skill AI cannot replace.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Reading between the lines, understanding group dynamics, connecting the dots. That separates good PMs from good prompts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Torres, Teresa (2021). <em>Continuous Discovery Habits.</em> Product Talk Press.</li>
+                    <li>Cagan, Marty (2018). <em>Inspired: How to Create Tech Products Customers Love.</em> Wiley.</li>
+                    <li>Klein, Gary (1998). <em>Sources of Power: How People Make Decisions.</em> MIT Press.</li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Output vs. Outcome</span> <span class="text-stone-400">— Output is the result of an activity, outcome is the effect of that result.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Facilitator</span> <span class="text-stone-400">— A role that creates the frame in which others can work on their own.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Prototype as insight tool</span> <span class="text-stone-400">— A prototype built to test whether you understood the problem.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Rule set</span> <span class="text-stone-400">— Guidelines and structures that govern how AI works.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— Phase in which the team understands what to build and why.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="index.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All drafts</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+</html>
