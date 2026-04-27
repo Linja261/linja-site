@@ -1,8 +1,9 @@
 <!--
-  linja.me/blog/ki-agenten-kategorien – Nicht jeder Agent ist gleich
+  linja.me/blog/drafts/ki-agenten-kategorien – Nicht jeder Agent ist gleich
   Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
   Optionale Komponenten: Datentabelle (3 Kategorien)
-  Entwurf: 2026-04-21
+  Bilingual: DE + EN
+  Entwurf: 2026-04-21 (Bilingual-Umbau: 2026-04-26)
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -15,148 +16,59 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
     <meta name="theme-color" content="#7B6BA5">
     <title>Nicht jeder Agent ist gleich. Ein Framework für PMs, die KI-Agenten priorisieren müssen. – Linja Scharffetter</title>
-    <meta name="description" content="60-70% der Agent-Ideen sind deterministische Workflows. Die meisten Teams over-engineeren mit Reasoning-Systemen. Ein Framework zur Kategorisierung und Priorisierung.">
+    <meta name="description" content="60-70% der Agent-Ideen sind deterministische Workflows. Ein Framework zur Triage in drei Kategorien und ein Test, was es im PM-Alltag ändert.">
     <meta property="og:title" content="Nicht jeder Agent ist gleich. Ein Framework für PMs, die KI-Agenten priorisieren müssen.">
-    <meta property="og:description" content="60-70% der Agent-Ideen sind deterministische Workflows. Ein Framework zur Kategorisierung und Priorisierung.">
+    <meta property="og:description" content="Drei Kategorien von KI-Agenten und eine Triage-Frage, die die Architektur klärt.">
     <meta property="og:type" content="article">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        serif: ['Source Serif 4', 'Georgia', 'serif'],
-                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-                    },
-                    colors: {
-                        violet: {
-                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
-                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
-                        },
-                        amber: {
-                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
-                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
-                        },
-                        emerald: {
-                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
-                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
-                        },
-                    },
-                },
-            },
-        }
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','SFMono-Regular','monospace'] }, colors: { violet: { 50:'#f6f4f9',100:'#ece8f2',200:'#d9d1e5',300:'#9a82b5',400:'#7b6ba5',500:'#6b5691',700:'#463863' }, amber: { 50:'#fdf5f0',100:'#fae8de',200:'#ecb08e',400:'#c27a52',500:'#D4714E',600:'#a86340',700:'#73402e' }, emerald: { 50:'#f2f7f4',100:'#e0ede6',300:'#96bfaa',500:'#5b8a72',600:'#476f5b',700:'#31493d' } } } } }
     </script>
     <style>
-        .source-serif {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 500;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        #mobile-menu {
-            display: none;
-        }
-        #mobile-menu.open {
-            display: block;
-        }
-
-        /* Article prose styles */
-        .prose h2 {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 600;
-            font-size: 1.4rem;
-            color: #1A1A1A;
-            margin-top: 4rem;
-            margin-bottom: 1rem;
-        }
-        .prose h3 {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 600;
-            font-size: 1.15rem;
-            color: #1A1A1A;
-            margin-top: 2.75rem;
-            margin-bottom: 0.75rem;
-        }
-        .prose p {
-            margin-bottom: 2rem;
-            line-height: 1.75;
-        }
-        .prose strong {
-            color: #1A1A1A;
-            font-weight: 600;
-        }
-        .prose em {
-            font-style: italic;
-        }
-        .prose table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-        .prose th {
-            text-align: left;
-            font-weight: 600;
-            color: #1A1A1A;
-            border-bottom: 2px solid #E5E2DB;
-            padding: 0.5rem 0.75rem;
-        }
-        .prose td {
-            border-bottom: 1px solid #E5E2DB;
-            padding: 0.5rem 0.75rem;
-        }
-        .prose ol {
-            list-style: decimal;
-            padding-left: 1.5rem;
-            margin: 1rem 0;
-        }
-        .prose ul {
-            list-style: disc;
-            padding-left: 1.5rem;
-            margin: 1rem 0;
-        }
-        .prose li {
-            margin-bottom: 0.5rem;
-        }
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+        .prose h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.4rem; color: #1A1A1A; margin-top: 4rem; margin-bottom: 1rem; }
+        .prose h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.15rem; color: #1A1A1A; margin-top: 2.75rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 2rem; line-height: 1.75; }
+        .prose strong { color: #1A1A1A; font-weight: 600; }
+        .prose em { font-style: italic; }
+        .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
+        .prose th { text-align: left; font-weight: 600; color: #1A1A1A; border-bottom: 2px solid #E5E2DB; padding: 0.5rem 0.75rem; }
+        .prose td { border-bottom: 1px solid #E5E2DB; padding: 0.5rem 0.75rem; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose li { margin-bottom: 0.5rem; }
     </style>
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
-    <!-- Password Gate -->
+
     <div id="gate" class="min-h-screen flex items-center justify-center px-6">
         <div class="max-w-sm w-full text-center">
             <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Entwurf</p>
             <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
             <form onsubmit="return checkPass()">
-                <input type="password" id="pass" placeholder="Passwort" autofocus
-                    class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3"
-                    style="border-color: #E5E2DB;">
-                <button type="submit"
-                    class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">
-                    Öffnen
-                </button>
+                <input type="password" id="pass" placeholder="Passwort" autofocus class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3" style="border-color: #E5E2DB;">
+                <button type="submit" class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">Öffnen</button>
             </form>
             <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
         </div>
     </div>
 
-    <!-- Content (hidden until authenticated) -->
     <div id="content" class="hidden">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
-        <!-- ======== ARTIKEL-HEADER ======== -->
         <header class="pt-28 pb-8">
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Product Management</span>
@@ -169,25 +81,22 @@
             </h1>
         </header>
 
-        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <div class="reader-audio-slot my-4" data-audio-src="audio/ki-agenten-kategorien.mp3"></div>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                60-70% aller Agent-Ideen sind deterministische Workflows mit einem LLM-Knoten. Das Framework von Farooq und Rajwani unterscheidet drei Kategorien (Automation, ReAct, Multi-Agent) und löst das Priorisierungs-Problem mit einer einzigen Triage-Frage: Kannst du ein Flussdiagramm zeichnen?
+            </p>
+        </div>
+
         <article class="prose pb-12">
 
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
-                 ══════════════════════════════════════════════ -->
-
             <p>Jedes Produktteam hat gerade eine Liste mit "Agent-Ideen". Das Problem: Die Liste enthält Dinge, die so unterschiedlich sind wie ein Toaster und ein Kernkraftwerk, aber alle heissen "KI-Agent". Ein Slack-Bot, der Support-Tickets klassifiziert, landet in derselben Priorisierung wie ein autonomer Assistent, der komplexe Geschäftsprozesse orchestriert. Das Ergebnis ist vorhersagbar: Teams over-engineeren einfache Probleme mit Reasoning-Frameworks und unterschätzen die Komplexität echter autonomer Systeme. Hamza Farooq und Jaya Rajwani haben in Lenny's Newsletter ein Framework vorgestellt, das dieses Problem löst.</p>
-
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 2: FUNDIERUNG
-                 ══════════════════════════════════════════════ -->
 
             <h2>Drei Kategorien, nicht eine</h2>
 
             <p>Das Framework unterscheidet drei Kategorien von KI-Agenten, die sich in Architektur, Aufwand, Team-Anforderungen und Timeline fundamental unterscheiden. Die Kategorie bestimmt, wie du priorisierst, budgetierst und baust.</p>
-
-            <!-- ══ DATENTABELLE: 3 KATEGORIEN ══ -->
 
             <table>
                 <thead>
@@ -199,36 +108,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>Typ</strong></td>
-                        <td>Deterministischer Workflow</td>
-                        <td>Reasoning-Agent</td>
-                        <td>Multi-Agent-Netzwerk</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tools</strong></td>
-                        <td>n8n, Zapier, Make</td>
-                        <td>LangGraph, Claude Code</td>
-                        <td>Custom Orchestration</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Anteil</strong></td>
-                        <td>60-70% der Opportunities</td>
-                        <td>25-30%</td>
-                        <td>&lt;5%</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Team</strong></td>
-                        <td>1 Person, Wochen</td>
-                        <td>2-3 Personen, Monate</td>
-                        <td>Dediziertes Team, Quartale</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Beispiel</strong></td>
-                        <td>Support-Ticket-Klassifikation</td>
-                        <td>Code-Review-Assistent</td>
-                        <td>Autonome Supply Chain</td>
-                    </tr>
+                    <tr><td><strong>Typ</strong></td><td>Deterministischer Workflow</td><td>Reasoning-Agent</td><td>Multi-Agent-Netzwerk</td></tr>
+                    <tr><td><strong>Tools</strong></td><td>n8n, Zapier, Make</td><td>LangGraph, Claude Code</td><td>Custom Orchestration</td></tr>
+                    <tr><td><strong>Anteil</strong></td><td>60-70% der Opportunities</td><td>25-30%</td><td>&lt;5%</td></tr>
+                    <tr><td><strong>Team</strong></td><td>1 Person, Wochen</td><td>2-3 Personen, Monate</td><td>Dediziertes Team, Quartale</td></tr>
+                    <tr><td><strong>Beispiel</strong></td><td>Support-Ticket-Klassifikation</td><td>Code-Review-Assistent</td><td>Autonome Supply Chain</td></tr>
                 </tbody>
             </table>
 
@@ -238,15 +122,11 @@
 
             <p><strong>Kategorie 3: Multi-Agent Networks.</strong> Mehrere Agenten koordinieren sich, um ein komplexes Ziel zu erreichen. Jeder Agent hat eigene Fähigkeiten und eigenes Wissen. Die Koordination selbst ist das schwierigste Problem. Diese Kategorie ist selten wirklich nötig und fast immer over-engineered, wenn sie zu früh eingesetzt wird.</p>
 
-
-            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
-
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
                 <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
                     Die meisten Agent-Ideen sind Workflows mit einem LLM-Knoten. Erkenne das, bevor du ein Reasoning-System baust.
                 </p>
             </div>
-
 
             <h2>Wie du triagierst</h2>
 
@@ -256,33 +136,17 @@
 
             <p>Der häufigste Fehler: Teams sehen "Agent" im Backlog und greifen sofort zu LangGraph oder AutoGen. Aber die Idee ist ein Workflow mit einem LLM-Knoten. Das Over-Engineering kostet Wochen, die ein n8n-Workflow in Tagen gelöst hätte.</p>
 
-
             <h2>Anwendung auf eigene Projekte</h2>
 
             <p>Das Framework klärt auch die eigene Arbeit. Mamahood-Matching (eine App, die Mütter mit ähnlichen Interessen verbindet) ist Kategorie 1: ein deterministischer Score-Algorithmus, der Kompatibilität berechnet. Ein LLM kann Profiltexte analysieren und Interessen extrahieren, aber der Matching-Prozess selbst ist ein festes Regelwerk. Ein zukünftiger konversationaler Matching-Assistent, der durch Gespräch herausfindet, was eine Mutter sucht, wäre Kategorie 2, weil er selbst entscheidet, welche Fragen er stellt. Mein persönliches KI-Setup (Claude Code mit Skills, CLAUDE.md, Memory) ist ebenfalls Kategorie 2: Claude entscheidet, welche Tools es nutzt und wie es meine Anfragen bearbeitet.</p>
 
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 3: WAS ICH MIR VORNEHME
-                 ══════════════════════════════════════════════ -->
-
             <h2>Was ich mir vornehme</h2>
 
-            <p>Ich möchte meine nächsten PM-Aufgaben mit einem Agenten vorab kategorisieren, bevor ich sie priorisiere. Die erste Frage soll dabei sein: Kann ich ein Flussdiagramm zeichnen? Wenn ja, baue ich einen Workflow (n8n, Zapier) und keinen Agent. Ich bin gespannt, welchen Unterschied dieser Ansatz für eine PM macht und ob ich dadurch auch in meinem Alltag &mdash; der ja weniger entwicklungsorientiert ist &mdash; wertvolle Zeit spare. Nur wenn der Lösungsweg nicht vorhersagbar ist, möchte ich zu Kategorie-2-Werkzeugen greifen. Kategorie 3 will ich vorerst bewusst vermeiden, weil die Koordinationskosten den Nutzen in meinem Kontext (Einzelperson, kleines Team) vermutlich nicht rechtfertigen.</p>
-
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 4: KRITISCHE EINORDNUNG
-                 ══════════════════════════════════════════════ -->
+            <p>Ich möchte meine nächsten PM-Aufgaben mit einem Agenten vorab kategorisieren, bevor ich sie priorisiere. Die erste Frage soll dabei sein: Kann ich ein Flussdiagramm zeichnen? Wenn ja, baue ich einen Workflow (n8n, Zapier) und keinen Agent. Ich bin gespannt, welchen Unterschied dieser Ansatz für eine PM macht und ob ich dadurch auch in meinem Alltag, der ja weniger entwicklungsorientiert ist, wertvolle Zeit spare. Nur wenn der Lösungsweg nicht vorhersagbar ist, möchte ich zu Kategorie-2-Werkzeugen greifen. Kategorie 3 will ich vorerst bewusst vermeiden, weil die Koordinationskosten den Nutzen in meinem Kontext (Einzelperson, kleines Team) vermutlich nicht rechtfertigen.</p>
 
             <h2>Kritische Einordnung</h2>
 
-            <p>Das Framework ist bewusst vereinfachend. In der Praxis dürfte es viele Hybride geben: ein Workflow, der an einer Stelle einen Reasoning-Schritt braucht, oder ein Agent, der 90% seiner Zeit deterministisch arbeitet. Die Grenzen zwischen den Kategorien sind vermutlich fliessender, als das Modell suggeriert &mdash; zumal mein Claude-Setup mir auch hilft, die richtigen Schritte zu planen, bevor ich sie ausführe. Ausserdem entwickelt sich die Tool-Landschaft schnell: Was heute ein Kategorie-2-Problem ist, kann morgen durch bessere Modelle zu Kategorie 1 werden. Ob die Triage-Frage ("Kann ich ein Flussdiagramm zeichnen?") in der Praxis wirklich so trennscharf funktioniert, muss sich erst zeigen.</p>
-
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG
-                 ══════════════════════════════════════════════ -->
+            <p>Das Framework ist bewusst vereinfachend. In der Praxis dürfte es viele Hybride geben: ein Workflow, der an einer Stelle einen Reasoning-Schritt braucht, oder ein Agent, der 90% seiner Zeit deterministisch arbeitet. Die Grenzen zwischen den Kategorien sind vermutlich fliessender, als das Modell suggeriert, zumal mein Claude-Setup mir auch hilft, die richtigen Schritte zu planen, bevor ich sie ausführe. Ausserdem entwickelt sich die Tool-Landschaft schnell: Was heute ein Kategorie-2-Problem ist, kann morgen durch bessere Modelle zu Kategorie 1 werden. Ob die Triage-Frage ("Kann ich ein Flussdiagramm zeichnen?") in der Praxis wirklich so trennscharf funktioniert, muss sich erst zeigen.</p>
 
             <div class="my-10">
                 <h2>Was bleibt für jeden Tag</h2>
@@ -302,10 +166,6 @@
                 </div>
             </div>
 
-            <!-- ══════════════════════════════════════════════
-                 QUELLEN
-                 ══════════════════════════════════════════════ -->
-
             <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
                 <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
@@ -316,45 +176,163 @@
                 </ol>
             </div>
 
-            <!-- ══════════════════════════════════════════════
-                 GLOSSAR
-                 ══════════════════════════════════════════════ -->
-
             <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
                     <p class="mb-0"><span class="text-stone-700 font-medium">Deterministic Automation</span> <span class="text-stone-400">— Fester Workflow mit vorhersagbarem Ablauf, ggf. mit LLM-Knoten (Kat. 1)</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">ReAct Agent</span> <span class="text-stone-400">— Agent, der beobachtet, nachdenkt und selbst entscheidet, welchen Schritt er als Nächstes nimmt (Kat. 2)</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Multi-Agent Network</span> <span class="text-stone-400">— Mehrere koordinierte Agenten mit eigenen Fähigkeiten und Wissen (Kat. 3)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">ReAct Agent</span> <span class="text-stone-400">— Agent, der beobachtet, nachdenkt und selbst entscheidet (Kat. 2)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Multi-Agent Network</span> <span class="text-stone-400">— Mehrere koordinierte Agenten mit eigenen Fähigkeiten (Kat. 3)</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">LLM-Knoten</span> <span class="text-stone-400">— Einzelner Schritt in einem Workflow, der ein Large Language Model aufruft</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">n8n / Zapier / Make</span> <span class="text-stone-400">— No-Code/Low-Code Plattformen für Workflow-Automatisierung</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">LangGraph</span> <span class="text-stone-400">— Framework für stateful, mehrstufige KI-Agenten (LangChain)</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Guardrails</span> <span class="text-stone-400">— Sicherheitsmechanismen, die Agent-Verhalten begrenzen und kontrollieren</span></p>
                 </div>
             </div>
 
         </article>
 
-        <!-- ======== ZURÜCK ======== -->
         <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
             <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Product Management</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Analysis</span>
+                <span class="text-[0.72rem] text-stone-400">April 21, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Not every agent is the same. A framework for PMs who need to prioritize AI agents.
+            </h1>
+        </header>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                60 to 70 percent of all "AI agent" ideas are deterministic workflows with an LLM node. The framework by Farooq and Rajwani distinguishes three categories (automation, ReAct, multi-agent) and solves the prioritization problem with a single triage question: can you draw a flowchart?
+            </p>
+        </div>
+
+        <article class="prose pb-12">
+
+            <p>Every product team currently has a list of "agent ideas". The problem: the list contains things as different as a toaster and a nuclear plant, but they all go by the name "AI agent". A Slack bot that classifies support tickets ends up in the same prioritization as an autonomous assistant orchestrating complex business processes. The result is predictable: teams over-engineer simple problems with reasoning frameworks and underestimate the complexity of real autonomous systems. Hamza Farooq and Jaya Rajwani published a framework in Lenny's Newsletter that solves this.</p>
+
+            <h2>Three categories, not one</h2>
+
+            <p>The framework distinguishes three categories of AI agents that differ fundamentally in architecture, effort, team requirements, and timeline. The category determines how you prioritize, budget, and build.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dimension</th>
+                        <th>Cat 1: Automation</th>
+                        <th>Cat 2: ReAct</th>
+                        <th>Cat 3: Multi-Agent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Type</strong></td><td>Deterministic workflow</td><td>Reasoning agent</td><td>Multi-agent network</td></tr>
+                    <tr><td><strong>Tools</strong></td><td>n8n, Zapier, Make</td><td>LangGraph, Claude Code</td><td>Custom orchestration</td></tr>
+                    <tr><td><strong>Share</strong></td><td>60-70% of opportunities</td><td>25-30%</td><td>&lt;5%</td></tr>
+                    <tr><td><strong>Team</strong></td><td>1 person, weeks</td><td>2-3 people, months</td><td>Dedicated team, quarters</td></tr>
+                    <tr><td><strong>Example</strong></td><td>Support ticket classification</td><td>Code review assistant</td><td>Autonomous supply chain</td></tr>
+                </tbody>
+            </table>
+
+            <p><strong>Category 1: Deterministic Automation.</strong> Fixed workflows with one LLM node inside. When X happens, do Y, where one step is an LLM call (classification, summarization, extraction). This is not an "agent" in the strict sense, because the system does not decide what to do next. But it is by far the most common and most valuable use case. 60 to 70 percent of all "agent ideas" in product backlogs are category 1.</p>
+
+            <p><strong>Category 2: ReAct Agents.</strong> Systems that decide based on observations which step to take next. They have access to tools and choose themselves which tool to use when. Claude Code is one example: it reads code, decides what to change, writes the change, tests, iterates. This requires reasoning capability and is significantly more complex in development and testing than category 1.</p>
+
+            <p><strong>Category 3: Multi-Agent Networks.</strong> Several agents coordinate to reach a complex goal. Each agent has its own capabilities and knowledge. The coordination itself is the hardest problem. This category is rarely truly necessary and almost always over-engineered when used too early.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Most agent ideas are workflows with an LLM node. Recognize that before you build a reasoning system.
+                </p>
+            </div>
+
+            <h2>How to triage</h2>
+
+            <p>The triage question is simple: <strong>can you draw a flowchart?</strong> If yes, it is category 1. Build a deterministic workflow with n8n or Zapier, place an LLM at the points where classification, summarization, or generation is needed. Done. No LangGraph, no agent framework, no over-engineering.</p>
+
+            <p>If the agent itself has to decide what to do next (because the path to a solution is not predictable), it is category 2. That requires a reasoning framework, tool integration, and significantly higher investment in testing and guardrails. And if multiple such agents need to be coordinated, you are in category 3, the enterprise space with a dedicated team and quarterly budgets.</p>
+
+            <p>The most common mistake: teams see "agent" in the backlog and immediately reach for LangGraph or AutoGen. But the idea is a workflow with one LLM node. The over-engineering costs weeks an n8n workflow could have solved in days.</p>
+
+            <h2>Application to my own projects</h2>
+
+            <p>The framework also clarifies my own work. Mamahood matching (an app that connects mothers with similar interests) is category 1: a deterministic score algorithm that calculates compatibility. An LLM can analyze profile texts and extract interests, but the matching process itself is a fixed rule set. A future conversational matching assistant, which finds out what a mother is looking for through conversation, would be category 2, because it decides itself which questions to ask. My personal AI setup (Claude Code with skills, CLAUDE.md, memory) is also category 2: Claude decides which tools to use and how to handle my requests.</p>
+
+            <h2>What I commit to</h2>
+
+            <p>I want to categorize my next PM tasks with an agent before I prioritize them. The first question should be: can I draw a flowchart? If yes, I build a workflow (n8n, Zapier), not an agent. I am curious whether this approach makes a difference for a PM and whether it saves valuable time in my day, which is less development-oriented anyway. Only when the path to a solution is not predictable will I reach for category 2 tools. Category 3 I want to deliberately avoid for now, because the coordination cost probably does not justify the benefit in my context (single person, small team).</p>
+
+            <h2>A critical look</h2>
+
+            <p>The framework is deliberately simplifying. In practice there will be many hybrids: a workflow that needs a reasoning step at one point, or an agent that works deterministically 90 percent of the time. The boundaries between categories are probably more fluid than the model suggests, especially since my Claude setup also helps me plan the right steps before executing them. The tool landscape also evolves quickly: what is a category 2 problem today can become category 1 tomorrow with better models. Whether the triage question ("can I draw a flowchart?") really works that cleanly in practice still has to prove itself.</p>
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Categorize first, prioritize second.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Don't compare workflows with reasoning systems. Different categories, different scales.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Start with category 1.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">60 to 70 percent of your agent ideas need a workflow, not an agent. That saves weeks.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Can you draw a flowchart?</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Yes = workflow. No = agent. This one question clarifies the architecture.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Hamza Farooq &amp; Jaya Rajwani (2026). AI Agent Categories for Product Teams. Lenny's Newsletter.</li>
+                    <li>Anthropic (2026). Claude Code: A ReAct-style coding agent.</li>
+                    <li>n8n. Workflow Automation Platform.</li>
+                    <li>LangChain (2026). LangGraph: Framework for building stateful, multi-step AI agents.</li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Deterministic Automation</span> <span class="text-stone-400">— Fixed workflow with predictable flow, possibly with an LLM node (Cat. 1)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">ReAct Agent</span> <span class="text-stone-400">— Agent that observes, reasons, and decides itself which step to take next (Cat. 2)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Multi-Agent Network</span> <span class="text-stone-400">— Several coordinated agents with their own capabilities and knowledge (Cat. 3)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">LLM Node</span> <span class="text-stone-400">— A single step in a workflow that calls a Large Language Model</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <div id="site-footer"></div>
 
-    </div>
+    </div><!-- /content -->
 
     <script>
-        // Simple client-side gate — not real security, just keeps casual visitors out
         const PASS = 'Lagerfeuer2026';
-
         if (sessionStorage.getItem('drafts-auth') === 'true') {
             document.getElementById('gate').classList.add('hidden');
             document.getElementById('content').classList.remove('hidden');
         }
-
         function checkPass() {
             const input = document.getElementById('pass').value;
             if (input === PASS) {
@@ -367,7 +345,27 @@
             return false;
         }
     </script>
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
 
 </body>
-
 </html>

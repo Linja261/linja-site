@@ -1,8 +1,9 @@
 <!--
-  linja.me/blog/ki-zeitmanagement – Wie KI ein gesünderes Zeitmanagement fördern kann
+  linja.me/blog/drafts/ki-zeitmanagement – Wie KI ein gesünderes Zeitmanagement fördern kann
   Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
   Optionale Komponenten: Kennzahl-Highlights
-  Entwurf: 2026-04-19
+  Bilingual: DE + EN
+  Entwurf: 2026-04-19 (Bilingual-Umbau: 2026-04-26)
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -15,148 +16,56 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
     <meta name="theme-color" content="#7B6BA5">
     <title>Wie KI ein gesünderes Zeitmanagement fördern kann. Das Smartphone-Paradox. – Linja Scharffetter</title>
-    <meta name="description" content="Das Smartphone kostet Stunden pro Tag und liefert gleichzeitig Zugang zu Struktur und Organisation. KI kann das Paradox auflösen, wenn die Absicht stimmt.">
+    <meta name="description" content="Smartphones sind Fluch und Werkzeug zugleich. KI verschärft das Paradox. Wie KI als Strukturgeber fungiert statt als Dauerablenkung.">
     <meta property="og:title" content="Wie KI ein gesünderes Zeitmanagement fördern kann. Das Smartphone-Paradox.">
-    <meta property="og:description" content="Das Smartphone kostet Stunden pro Tag und liefert gleichzeitig Zugang zu Struktur und Organisation. KI kann das Paradox auflösen.">
+    <meta property="og:description" content="Decision Fatigue, Mind Sweep, Spaced Repetition: wie KI gesünderes Arbeiten und Lernen ermöglicht.">
     <meta property="og:type" content="article">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        serif: ['Source Serif 4', 'Georgia', 'serif'],
-                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-                    },
-                    colors: {
-                        violet: {
-                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
-                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
-                        },
-                        amber: {
-                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
-                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
-                        },
-                        emerald: {
-                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
-                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
-                        },
-                    },
-                },
-            },
-        }
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','SFMono-Regular','monospace'] }, colors: { violet: { 50:'#f6f4f9',100:'#ece8f2',200:'#d9d1e5',300:'#9a82b5',400:'#7b6ba5',500:'#6b5691',700:'#463863' }, amber: { 50:'#fdf5f0',100:'#fae8de',200:'#ecb08e',400:'#c27a52',500:'#D4714E',600:'#a86340',700:'#73402e' }, emerald: { 50:'#f2f7f4',100:'#e0ede6',300:'#96bfaa',500:'#5b8a72',600:'#476f5b',700:'#31493d' } } } } }
     </script>
     <style>
-        .source-serif {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 500;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        #mobile-menu {
-            display: none;
-        }
-        #mobile-menu.open {
-            display: block;
-        }
-
-        /* Article prose styles */
-        .prose h2 {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 600;
-            font-size: 1.4rem;
-            color: #1A1A1A;
-            margin-top: 4rem;
-            margin-bottom: 1rem;
-        }
-        .prose h3 {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 600;
-            font-size: 1.15rem;
-            color: #1A1A1A;
-            margin-top: 2.75rem;
-            margin-bottom: 0.75rem;
-        }
-        .prose p {
-            margin-bottom: 2rem;
-            line-height: 1.75;
-        }
-        .prose strong {
-            color: #1A1A1A;
-            font-weight: 600;
-        }
-        .prose em {
-            font-style: italic;
-        }
-        .prose table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-        .prose th {
-            text-align: left;
-            font-weight: 600;
-            color: #1A1A1A;
-            border-bottom: 2px solid #E5E2DB;
-            padding: 0.5rem 0.75rem;
-        }
-        .prose td {
-            border-bottom: 1px solid #E5E2DB;
-            padding: 0.5rem 0.75rem;
-        }
-        .prose ol {
-            list-style: decimal;
-            padding-left: 1.5rem;
-            margin: 1rem 0;
-        }
-        .prose ul {
-            list-style: disc;
-            padding-left: 1.5rem;
-            margin: 1rem 0;
-        }
-        .prose li {
-            margin-bottom: 0.5rem;
-        }
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+        .prose h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.4rem; color: #1A1A1A; margin-top: 4rem; margin-bottom: 1rem; }
+        .prose h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.15rem; color: #1A1A1A; margin-top: 2.75rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 2rem; line-height: 1.75; }
+        .prose strong { color: #1A1A1A; font-weight: 600; }
+        .prose em { font-style: italic; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose li { margin-bottom: 0.5rem; }
     </style>
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
-    <!-- Password Gate -->
+
     <div id="gate" class="min-h-screen flex items-center justify-center px-6">
         <div class="max-w-sm w-full text-center">
             <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Entwurf</p>
             <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
             <form onsubmit="return checkPass()">
-                <input type="password" id="pass" placeholder="Passwort" autofocus
-                    class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3"
-                    style="border-color: #E5E2DB;">
-                <button type="submit"
-                    class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">
-                    Öffnen
-                </button>
+                <input type="password" id="pass" placeholder="Passwort" autofocus class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3" style="border-color: #E5E2DB;">
+                <button type="submit" class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">Öffnen</button>
             </form>
             <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
         </div>
     </div>
 
-    <!-- Content (hidden until authenticated) -->
     <div id="content" class="hidden">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
-        <!-- ======== ARTIKEL-HEADER ======== -->
         <header class="pt-28 pb-8">
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Gesundheit</span>
@@ -168,25 +77,22 @@
             </h1>
         </header>
 
-        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <div class="reader-audio-slot my-4" data-audio-src="audio/ki-zeitmanagement.mp3"></div>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Smartphones sind Fluch und Werkzeug zugleich. KI verschärft das Paradox: endlose Ablenkung oder persönlicher Strukturgeber. Entscheidend ist die Absicht, nicht die Technologie. Wer KI als Tagesstruktur-Partner nutzt, kann Decision Fatigue reduzieren und Fokus-Blöcke schützen.
+            </p>
+        </div>
+
         <article class="prose pb-12">
 
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
-                 ══════════════════════════════════════════════ -->
-
-            <p>Das Smartphone ist Fluch und Werkzeug zugleich. Es kostet Stunden pro Tag in Social-Media-Spiralen und liefert gleichzeitig Zugang zu Wissen, Kommunikation und Organisation. KI verschärft dieses Paradox: Sie kann endlose Ablenkung produzieren oder als persönlicher Strukturgeber fungieren, der dir hilft, gesünder zu arbeiten und zu lernen. Die Frage ist nicht "KI ja oder nein", sondern "KI wofür?". Die Antwort auf diese Frage macht den Unterschied zwischen digitalem Dauerstress und bewusster Gestaltung des eigenen Tages.</p>
-
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 2: FUNDIERUNG
-                 ══════════════════════════════════════════════ -->
+            <p>Das Smartphone ist Fluch und Werkzeug zugleich. Es kostet Stunden pro Tag in Social-Media-Spiralen und liefert gleichzeitig Zugang zu Wissen, Kommunikation und Organisation. KI verschärft dieses Paradox: Sie kann endlose Ablenkung produzieren oder als persönlicher Strukturgeber fungieren, der dir hilft, gesünder zu arbeiten und zu lernen. Die richtige Frage ist nicht KI ja oder nein. Die richtige Frage ist KI wofür. Die Antwort darauf macht den Unterschied zwischen digitalem Dauerstress und bewusster Gestaltung des eigenen Tages.</p>
 
             <h2>Das Paradox der Technologie</h2>
 
             <p>Die durchschnittliche Bildschirmzeit liegt bei knapp vier Stunden pro Tag. Ein Grossteil davon ist unbeabsichtigt: Social-Media-Plattformen sind auf Engagement optimiert, nicht auf Wohlbefinden. Variable Reward Schedules (das Slot-Machine-Prinzip) halten Nutzer in Dopamin-Loops, die Tristan Harris in "The Social Dilemma" dokumentiert hat. Aber dasselbe Gerät ermöglicht Navigation, Fernkommunikation, Wissenssuche und Gesundheits-Tracking.</p>
-
-            <!-- ══ KENNZAHL-HIGHLIGHTS ══ -->
 
             <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
                 <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
@@ -203,7 +109,6 @@
 
             <p>Die Kernunterscheidung ist nicht Bildschirmzeit, sondern Modus: passiver Konsum (Scrollen, Reagieren) versus aktiver Einsatz (Planen, Lernen, Schaffen). Andrew Przybylski von der Oxford University hat in seiner Goldilocks-Hypothese gezeigt, dass moderate digitale Nutzung nicht schädlich ist. Die entscheidende Variable ist Agency: passiver Konsum schadet, aktive Nutzung nicht. Nicht "weniger Technologie" ist die Lösung, sondern "bewusstere Technologie".</p>
 
-
             <h2>Wie KI Struktur schaffen kann</h2>
 
             <p>Roy Baumeister hat mit seiner Forschung zu Decision Fatigue gezeigt, dass Entscheidungsqualität mit der Anzahl der Entscheidungen sinkt. Jede Priorisierung, jede Planung, jede Abwägung kostet kognitive Energie. KI kann genau hier entlasten: nicht durch Übernahme der Entscheidungen, sondern durch Strukturierung der Optionen. Statt 47 offene Tasks zu sichten, zeigt KI die drei wichtigsten. Statt den Tag selbst zu planen, schlägt KI eine Struktur vor, die du anpasst.</p>
@@ -212,15 +117,11 @@
 
             <p>Für <strong>Studierende</strong> bietet KI besonderes Potenzial: Lernpläne erstellen, Wiederholungsintervalle vorschlagen (Spaced Repetition nach der Ebbinghaus-Vergessenskurve), Verständnisfragen stellen, Zusammenfassungen generieren. Retrieval Practice, also aktives Abrufen statt passives Wiederholen, ist eine der effektivsten Lernmethoden. KI kann diesen Prozess scaffolden, indem sie gezielt Fragen stellt, statt nur Antworten zu liefern.</p>
 
-
-            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
-
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
                 <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
                     Technologie ist neutral. Deine Absicht nicht. Entscheide vor dem Griff zum Handy: Konsumiere ich oder gestalte ich?
                 </p>
             </div>
-
 
             <h2>Gesundheit als Feature, nicht als Nebensache</h2>
 
@@ -228,28 +129,13 @@
 
             <p>Der Unterschied zu simplen Timer-Apps: KI agiert im Kontext. Sie weiss, woran du arbeitest, und kann einschätzen, ob eine Pause sinnvoll ist oder den Flow unterbricht. Sie kann am Ende eines Tages fragen: "Was hat heute Energie gekostet? Was war dein wichtigster Erfolg?" Das ist kein Ersatz für Selbstreflexion, sondern ein Impuls dafür.</p>
 
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 3: WAS ICH MIR VORNEHME
-                 ══════════════════════════════════════════════ -->
-
             <h2>Was ich mir vornehme</h2>
 
             <p>Ich möchte KI-gestützte Routinen stärker in meinen Arbeitsalltag integrieren: einen strukturierten Morgen-Check-in, der die Tagespriorität klärt. Einen Abend-Check-out, der den Tag reflektiert und offene Enden identifiziert. Eine wöchentliche Planung, die Muster in meiner Arbeitsbelastung erkennt. Erste Ansätze beschreibe ich in einem separaten Artikel zu <a href="../ki-routinen.html" style="color: #7b6ba5;">KI-Routinen</a>. Meine Hoffnung ist, dass KI als externer Strukturgeber es leichter macht, Gewohnheiten beizubehalten, die ich allein nach zwei Wochen wieder aufgebe. Ob die Regelmässigkeit tatsächlich hält, wird sich zeigen.</p>
 
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 4: KRITISCHE EINORDNUNG
-                 ══════════════════════════════════════════════ -->
-
             <h2>Kritische Einordnung</h2>
 
-            <p>KI ist kein Therapeut. Bei echtem Burnout oder psychischen Problemen ersetzt keine Routine eine professionelle Behandlung. Es besteht auch die Gefahr einer neuen Abhängigkeit: Wenn die KI ausfällt, fehlt die Struktur. Ob sich die Muster tatsächlich internalisieren lassen &mdash; KI als Trainingsrad statt als Dauerprothese &mdash; bleibt abzuwarten. Dazu kommt ein Privilege-Check: Zugang zu KI-Tools kostet Geld. Nicht alle können sich das leisten, und kostenlose Alternativen bieten nicht dieselbe Qualität. Und schliesslich der Datenschutz: Wer morgens seine Ängste und abends seine Fehler teilt, sollte wissen, wo diese Daten landen. Ob der Nutzen das Risiko überwiegt, muss jede Person für sich entscheiden.</p>
-
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG
-                 ══════════════════════════════════════════════ -->
+            <p>KI ist kein Therapeut. Bei echtem Burnout oder psychischen Problemen ersetzt keine Routine eine professionelle Behandlung. Es besteht auch die Gefahr einer neuen Abhängigkeit: Wenn die KI ausfällt, fehlt die Struktur. Ob sich die Muster tatsächlich internalisieren lassen, also KI als Trainingsrad statt als Dauerprothese funktioniert, bleibt abzuwarten. Dazu kommt ein Privilege-Check: Zugang zu KI-Tools kostet Geld. Nicht alle können sich das leisten, und kostenlose Alternativen bieten nicht dieselbe Qualität. Und schliesslich der Datenschutz: Wer morgens seine Ängste und abends seine Fehler teilt, sollte wissen, wo diese Daten landen. Ob der Nutzen das Risiko überwiegt, muss jede Person für sich entscheiden.</p>
 
             <div class="my-10">
                 <h2>Was bleibt für jeden Tag</h2>
@@ -269,25 +155,17 @@
                 </div>
             </div>
 
-            <!-- ══════════════════════════════════════════════
-                 QUELLEN
-                 ══════════════════════════════════════════════ -->
-
             <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
                 <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
-                    <li><a href="https://www.gloriamark.com/attention-span" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gloria Mark (2023). Attention Span: A Groundbreaking Way to Restore Balance, Happiness and Productivity. Hanover Square Press.</a></li>
-                    <li><a href="https://www.simonandschuster.com/books/Why-We-Sleep/Matthew-Walker/9781501144325" class="hover:text-stone-600 transition-colors" style="color: inherit;">Matthew Walker (2017). Why We Sleep: Unlocking the Power of Sleep and Dreams. Scribner.</a></li>
-                    <li><a href="https://www.penguin.co.uk/books/305927/digital-minimalism-by-newport-cal/9780241453575" class="hover:text-stone-600 transition-colors" style="color: inherit;">Cal Newport (2019). Digital Minimalism: Choosing a Focused Life in a Noisy World. Portfolio.</a></li>
+                    <li><a href="https://www.gloriamark.com/attention-span" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gloria Mark (2023). Attention Span. Hanover Square Press.</a></li>
+                    <li><a href="https://www.simonandschuster.com/books/Why-We-Sleep/Matthew-Walker/9781501144325" class="hover:text-stone-600 transition-colors" style="color: inherit;">Matthew Walker (2017). Why We Sleep. Scribner.</a></li>
+                    <li><a href="https://www.penguin.co.uk/books/305927/digital-minimalism-by-newport-cal/9780241453575" class="hover:text-stone-600 transition-colors" style="color: inherit;">Cal Newport (2019). Digital Minimalism. Portfolio.</a></li>
                     <li><a href="https://doi.org/10.1111/1467-8721.01232" class="hover:text-stone-600 transition-colors" style="color: inherit;">Roy Baumeister et al. (2003). Ego Depletion and Decision Fatigue. Current Directions in Psychological Science.</a></li>
                     <li><a href="https://doi.org/10.1177/0956797616678438" class="hover:text-stone-600 transition-colors" style="color: inherit;">Andrew Przybylski &amp; Netta Weinstein (2017). A Large-Scale Test of the Goldilocks Hypothesis. Psychological Science.</a></li>
-                    <li><a href="https://doi.org/10.3758/s13421-011-0073-5" class="hover:text-stone-600 transition-colors" style="color: inherit;">Roediger &amp; Butler (2011). The Critical Role of Retrieval Practice in Long-Term Retention. Cognitive Psychology.</a></li>
+                    <li><a href="https://doi.org/10.3758/s13421-011-0073-5" class="hover:text-stone-600 transition-colors" style="color: inherit;">Roediger &amp; Butler (2011). The Critical Role of Retrieval Practice in Long-Term Retention.</a></li>
                 </ol>
             </div>
-
-            <!-- ══════════════════════════════════════════════
-                 GLOSSAR
-                 ══════════════════════════════════════════════ -->
 
             <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
@@ -305,39 +183,182 @@
 
         </article>
 
-        <!-- ======== ZURÜCK ======== -->
         <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
             <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Health</span>
+                <span class="text-[0.72rem] text-stone-400">April 19, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                How AI can support healthier time management. The smartphone paradox.
+            </h1>
+        </header>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Smartphones are curse and tool at the same time. AI sharpens the paradox: endless distraction or personal structure. Intent matters, not technology. Used as a daily structure partner, AI can reduce decision fatigue and protect focus blocks.
+            </p>
+        </div>
+
+        <article class="prose pb-12">
+
+            <p>The smartphone is curse and tool at the same time. It costs hours per day in social media spirals and at the same time provides access to knowledge, communication, and organization. AI sharpens this paradox: it can produce endless distraction or act as a personal structure partner that helps you work and learn in a healthier way. The right question is not whether to use AI. The right question is what to use AI for. The answer makes the difference between digital permanent stress and conscious shaping of your day.</p>
+
+            <h2>The paradox of technology</h2>
+
+            <p>Average screen time sits at just under four hours per day. A large part of it is unintentional: social media platforms are optimized for engagement, not for wellbeing. Variable reward schedules (the slot machine principle) keep users in dopamine loops, which Tristan Harris documented in "The Social Dilemma". But the same device enables navigation, remote communication, knowledge search, and health tracking.</p>
+
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">3h 46min</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Average screen time per day</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Statista, 2024</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">23 min</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Recovery time after one interruption</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Gloria Mark, UC Irvine</p>
+                </div>
+            </div>
+
+            <p>The core distinction is not screen time but mode: passive consumption (scrolling, reacting) versus active use (planning, learning, creating). Andrew Przybylski at Oxford has shown with his Goldilocks hypothesis that moderate digital use is not harmful. The decisive variable is agency: passive consumption hurts, active use does not. The solution is not "less technology" but "more deliberate technology".</p>
+
+            <h2>How AI can create structure</h2>
+
+            <p>Roy Baumeister has shown with his research on decision fatigue that decision quality drops with the number of decisions. Every prioritization, every plan, every weighing costs cognitive energy. AI can offload exactly this: not by taking over the decisions, but by structuring the options. Instead of going through 47 open tasks, AI shows the three most important. Instead of planning the day yourself, AI suggests a structure you adjust.</p>
+
+            <p>Concretely, AI can act as a <strong>daily structure partner</strong>: a morning check-in that clarifies priorities. An evening check-out that reflects on the day. A weekly plan that recognizes patterns and suggests adjustments. Gloria Mark at UC Irvine measured that one interruption costs an average of 23 minutes of recovery time before the previous focus is restored. AI can help reduce these interruptions by bundling tasks and suggesting focus blocks.</p>
+
+            <p>For <strong>students</strong>, AI offers special potential: build study plans, suggest repetition intervals (spaced repetition based on Ebbinghaus's forgetting curve), ask comprehension questions, generate summaries. Retrieval practice, that is active recall instead of passive repetition, is one of the most effective learning methods. AI can scaffold this process by asking pointed questions instead of only delivering answers.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Technology is neutral. Your intent is not. Decide before you reach for the phone: am I consuming or am I creating?
+                </p>
+            </div>
+
+            <h2>Health as a feature, not a side note</h2>
+
+            <p>Digital wellbeing is not in conflict with productivity. Matthew Walker shows in his sleep research that sleep deprivation reduces cognitive performance comparable to being intoxicated. Anders Ericsson has documented that top performers do at most four hours per day of focused work and consciously recover the rest. AI can integrate these insights into daily life: as a reminder for breaks, as an observer of work patterns, as an impulse for recovery.</p>
+
+            <p>The difference to a simple timer app: AI acts in context. It knows what you are working on and can judge whether a break is useful or interrupts the flow. It can ask at the end of the day: "What cost energy today? What was your most important success?" That is not a replacement for self-reflection, but an impulse for it.</p>
+
+            <h2>What I commit to</h2>
+
+            <p>I want to integrate AI-supported routines more deeply into my day: a structured morning check-in that clarifies the day's priority. An evening check-out that reflects on the day and identifies open ends. A weekly plan that recognizes patterns in my workload. I describe first attempts in a separate piece on <a href="../ki-routinen.html" style="color: #7b6ba5;">AI routines</a>. My hope is that AI as an external structure partner makes it easier to maintain habits I would drop after two weeks on my own. Whether the regularity actually holds remains to be seen.</p>
+
+            <h2>A critical look</h2>
+
+            <p>AI is not a therapist. For real burnout or psychological issues, no routine replaces professional treatment. There is also the risk of a new dependency: if the AI fails, the structure is gone. Whether the patterns can actually be internalized, meaning AI as training wheels rather than a permanent prosthesis, remains to be seen. There is also a privilege check: access to AI tools costs money. Not everyone can afford it, and free alternatives do not offer the same quality. And finally the question of data: anyone who shares their fears in the morning and their mistakes in the evening should know where this data ends up. Whether the benefit outweighs the risk is for each person to decide.</p>
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Technology is neutral, your intent is not.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Decide before you reach for the phone: am I consuming or am I creating?</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Let AI take the routine, not the thinking.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Delegate structure, keep decisions.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Health is not a luxury, it is infrastructure.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Whoever works healthily works better for longer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Gloria Mark (2023). Attention Span. Hanover Square Press.</li>
+                    <li>Matthew Walker (2017). Why We Sleep. Scribner.</li>
+                    <li>Cal Newport (2019). Digital Minimalism. Portfolio.</li>
+                    <li>Roy Baumeister et al. (2003). Ego Depletion and Decision Fatigue. Current Directions in Psychological Science.</li>
+                    <li>Andrew Przybylski &amp; Netta Weinstein (2017). A Large-Scale Test of the Goldilocks Hypothesis. Psychological Science.</li>
+                    <li>Roediger &amp; Butler (2011). The Critical Role of Retrieval Practice in Long-Term Retention.</li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Decision Fatigue</span> <span class="text-stone-400">— Decline in decision quality after many consecutive decisions</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Spaced Repetition</span> <span class="text-stone-400">— Learning method with increasing intervals for long-term retention</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Variable Reward Schedule</span> <span class="text-stone-400">— Irregular reward pattern that fosters addictive behavior (Skinner)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Digital Wellbeing</span> <span class="text-stone-400">— Conscious, healthy use of digital devices and platforms</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Retrieval Practice</span> <span class="text-stone-400">— Active recall as a learning method instead of passive review</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Goldilocks Hypothesis</span> <span class="text-stone-400">— Moderate digital use is not harmful, agency is decisive (Przybylski)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Deliberate Practice</span> <span class="text-stone-400">— Focused practice with feedback and recovery (Ericsson)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Monotasking</span> <span class="text-stone-400">— Focus on one task instead of multitasking</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <div id="site-footer"></div>
 
-    </div>
+    </div><!-- /content -->
 
     <script>
-        // Simple client-side gate — not real security, just keeps casual visitors out
         const PASS = 'Lagerfeuer2026';
-
         if (sessionStorage.getItem('drafts-auth') === 'true') {
             document.getElementById('gate').classList.add('hidden');
             document.getElementById('content').classList.remove('hidden');
         }
-
         function checkPass() {
             const input = document.getElementById('pass').value;
             if (input === PASS) {
                 sessionStorage.setItem('drafts-auth', 'true');
-                document.getElementById('gate').classList.add('hidden');
                 document.getElementById('content').classList.remove('hidden');
+                document.getElementById('gate').classList.add('hidden');
             } else {
                 document.getElementById('error').classList.remove('hidden');
             }
             return false;
         }
     </script>
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
 
 </body>
-
 </html>

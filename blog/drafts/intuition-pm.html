@@ -1,8 +1,9 @@
 <!--
-  linja.me/blog/intuition-pm – Intuition als Produkt Managerin
+  linja.me/blog/drafts/intuition-pm – Intuition als Produkt Managerin
   Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
   Optionale Komponenten: Vergleichs-Cards
-  Entwurf: 2026-04-18
+  Bilingual: DE + EN
+  Entwurf: 2026-04-18 (Bilingual-Umbau: 2026-04-26)
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -15,148 +16,56 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
     <meta name="theme-color" content="#7B6BA5">
     <title>Intuition als Produkt Managerin. Wann Bauchgefühl bessere Entscheidungen trifft als Daten. – Linja Scharffetter</title>
-    <meta name="description" content="Intuition ist kein Bauchgefühl, sondern komprimierte Erfahrung. Wann PMs ihrer Mustererkennung vertrauen dürfen und wann Analyse nötig ist.">
+    <meta name="description" content="Intuition ist trainierte Mustererkennung, nicht Magie. Wann sie verlässlicher ist als Daten und wie PMs sie systematisch aufbauen.">
     <meta property="og:title" content="Intuition als Produkt Managerin. Wann Bauchgefühl bessere Entscheidungen trifft als Daten.">
-    <meta property="og:description" content="Intuition ist kein Bauchgefühl, sondern komprimierte Erfahrung. Wann PMs ihrer Mustererkennung vertrauen dürfen und wann Analyse nötig ist.">
+    <meta property="og:description" content="Klein, Kahneman, Doshi: was PMs über Product Intuition wissen sollten.">
     <meta property="og:type" content="article">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        serif: ['Source Serif 4', 'Georgia', 'serif'],
-                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-                    },
-                    colors: {
-                        violet: {
-                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
-                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
-                        },
-                        amber: {
-                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
-                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
-                        },
-                        emerald: {
-                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
-                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
-                        },
-                    },
-                },
-            },
-        }
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','SFMono-Regular','monospace'] }, colors: { violet: { 50:'#f6f4f9',100:'#ece8f2',200:'#d9d1e5',300:'#9a82b5',400:'#7b6ba5',500:'#6b5691',700:'#463863' }, amber: { 50:'#fdf5f0',100:'#fae8de',200:'#ecb08e',400:'#c27a52',500:'#D4714E',600:'#a86340',700:'#73402e' }, emerald: { 50:'#f2f7f4',100:'#e0ede6',300:'#96bfaa',500:'#5b8a72',600:'#476f5b',700:'#31493d' } } } } }
     </script>
     <style>
-        .source-serif {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 500;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        #mobile-menu {
-            display: none;
-        }
-        #mobile-menu.open {
-            display: block;
-        }
-
-        /* Article prose styles */
-        .prose h2 {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 600;
-            font-size: 1.4rem;
-            color: #1A1A1A;
-            margin-top: 4rem;
-            margin-bottom: 1rem;
-        }
-        .prose h3 {
-            font-family: "Source Serif 4", Georgia, serif;
-            font-weight: 600;
-            font-size: 1.15rem;
-            color: #1A1A1A;
-            margin-top: 2.75rem;
-            margin-bottom: 0.75rem;
-        }
-        .prose p {
-            margin-bottom: 2rem;
-            line-height: 1.75;
-        }
-        .prose strong {
-            color: #1A1A1A;
-            font-weight: 600;
-        }
-        .prose em {
-            font-style: italic;
-        }
-        .prose table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            font-size: 0.9rem;
-        }
-        .prose th {
-            text-align: left;
-            font-weight: 600;
-            color: #1A1A1A;
-            border-bottom: 2px solid #E5E2DB;
-            padding: 0.5rem 0.75rem;
-        }
-        .prose td {
-            border-bottom: 1px solid #E5E2DB;
-            padding: 0.5rem 0.75rem;
-        }
-        .prose ol {
-            list-style: decimal;
-            padding-left: 1.5rem;
-            margin: 1rem 0;
-        }
-        .prose ul {
-            list-style: disc;
-            padding-left: 1.5rem;
-            margin: 1rem 0;
-        }
-        .prose li {
-            margin-bottom: 0.5rem;
-        }
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+        .prose h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.4rem; color: #1A1A1A; margin-top: 4rem; margin-bottom: 1rem; }
+        .prose h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.15rem; color: #1A1A1A; margin-top: 2.75rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 2rem; line-height: 1.75; }
+        .prose strong { color: #1A1A1A; font-weight: 600; }
+        .prose em { font-style: italic; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose li { margin-bottom: 0.5rem; }
     </style>
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
-    <!-- Password Gate -->
+
     <div id="gate" class="min-h-screen flex items-center justify-center px-6">
         <div class="max-w-sm w-full text-center">
             <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Entwurf</p>
             <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
             <form onsubmit="return checkPass()">
-                <input type="password" id="pass" placeholder="Passwort" autofocus
-                    class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3"
-                    style="border-color: #E5E2DB;">
-                <button type="submit"
-                    class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">
-                    Öffnen
-                </button>
+                <input type="password" id="pass" placeholder="Passwort" autofocus class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3" style="border-color: #E5E2DB;">
+                <button type="submit" class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">Öffnen</button>
             </form>
             <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
         </div>
     </div>
 
-    <!-- Content (hidden until authenticated) -->
     <div id="content" class="hidden">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog"></script>
+    <script src="../../components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-8">
 
-        <!-- ======== ARTIKEL-HEADER ======== -->
         <header class="pt-28 pb-8">
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
@@ -168,19 +77,18 @@
             </h1>
         </header>
 
-        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <div class="reader-audio-slot my-4" data-audio-src="audio/intuition-pm.mp3"></div>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Intuition ist trainierte Mustererkennung, nicht Bauchgefühl. Bei reversiblen Entscheidungen in bekannten Domänen schlägt sie schnellere Datenanalyse. Aber: Kahneman und Klein zeigen, dass sie nur verlässlich ist, wenn die Umgebung Muster hat und Feedback schnell kommt.
+            </p>
+        </div>
+
         <article class="prose pb-12">
 
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
-                 ══════════════════════════════════════════════ -->
-
             <p>Es gibt Momente, in denen du als PM genau weisst, welche Entscheidung richtig ist, bevor du eine einzige Metrik angeschaut hast. Jenny Wen nennt es Product Intuition. Es klingt nach Magie, ist aber Wissenschaft: Mustererkennung, trainiert durch tausende kleine Datenpunkte, die dein Gehirn schneller verarbeitet als jede Tabelle. Das Problem: In einer Kultur, die "datengetrieben" als Synonym für "professionell" behandelt, fällt es schwer, dieser Intuition zu vertrauen. Dabei zeigt die Forschung, dass erfahrungsbasierte Intuition in bestimmten Situationen zuverlässiger ist als analytische Entscheidungsprozesse.</p>
-
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 2: FUNDIERUNG
-                 ══════════════════════════════════════════════ -->
 
             <h2>Was Intuition wirklich ist</h2>
 
@@ -190,15 +98,11 @@
 
             <p>2009 veröffentlichten Klein und Kahneman ein gemeinsames Paper, in dem sie ihre unterschiedlichen Positionen zusammenführten. Ihr Ergebnis: Intuition ist verlässlich, wenn zwei Bedingungen erfüllt sind. Erstens muss die Umgebung ausreichend reguläre Muster aufweisen (nicht chaotisch-zufällig wie Aktienmärkte). Zweitens braucht die Person ausreichend Übung mit schnellem, klarem Feedback auf ihre Entscheidungen. PM-Arbeit erfüllt beide Bedingungen teilweise: Produktmärkte haben Muster, aber Feedback auf Produktentscheidungen ist oft verzögert und mehrdeutig.</p>
 
-
             <h2>Wie PMs Intuition aufbauen</h2>
 
             <p>Shreyas Doshi zerlegt Product Sense in fünf Komponenten: Empathie, Simulation, Strategie, Geschmack und kreative Execution. Intuition ist der Moment, in dem alle fünf gleichzeitig feuern, ohne dass du bewusst darüber nachdenkst. Aber diese Fähigkeit entsteht nicht durch Talent. Sie entsteht durch systematische Praxis.</p>
 
             <p><strong>Kundennähe</strong> ist die wichtigste Quelle. Regelmäßige Support-Interaktionen, Nutzerinterviews, Customer Advisory Boards. Nicht delegiert, sondern selbst gemacht. Wer jeden Monat zehn Kundengespräche führt, baut ein Mustererkennungssystem auf, das kein Dashboard ersetzen kann. <strong>Marktwissen</strong> kommt als zweite Quelle dazu: Wettbewerb beobachten, Trends verfolgen, Adjacent Markets verstehen. Nicht als einmaliges Research-Projekt, sondern als kontinuierliche Praxis. <strong>Dogfooding</strong> bildet die dritte Säule: das eigene Produkt täglich nutzen, nicht als Pflichtübung, sondern als Intuitions-Training. Und schliesslich: <strong>Feedback-Loops verkürzen.</strong> Je schneller du siehst, ob eine Entscheidung richtig war, desto schneller trainierst du dein System 1.</p>
-
-
-            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
 
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
                 <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
@@ -206,14 +110,11 @@
                 </p>
             </div>
 
-
             <h2>Wann Intuition folgen, wann analysieren</h2>
 
             <p>Jeff Bezos unterscheidet zwischen One-Way Doors (irreversible Entscheidungen) und Two-Way Doors (reversible Entscheidungen). Die meisten Produktentscheidungen sind Two-Way Doors, aber viele Teams behandeln sie wie One-Way Doors und starten aufwendige Analyseprozesse für Entscheidungen, die sich in einer Woche korrigieren lassen.</p>
 
             <p><strong>Folge der Intuition</strong> bei reversiblen Entscheidungen, wenn schnelle Iteration möglich ist, wenn du die Domäne gut kennst und wenn die Kosten des Wartens höher sind als die Kosten eines Fehlers. <strong>Analysiere</strong> bei irreversiblen Entscheidungen, in neuen Domänen, bei hoher Investition und wenn das Team Alignment braucht. In letzterem Fall dienen Daten nicht als Entscheidungsmittel, sondern als Kommunikationsmittel.</p>
-
-            <!-- ══ VERGLEICHS-CARDS ══ -->
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
                 <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
@@ -230,30 +131,15 @@
 
             <p>Das Paradox: Analyse um der Analyse willen ist genauso gefährlich wie blinde Intuition. Viele Teams analysieren nicht, um besser zu entscheiden, sondern um Verantwortung zu verteilen. Wenn die Entscheidung auf einer Studie basiert, ist niemand persönlich schuld. Aber das ist kein Entscheidungsprozess, das ist Absicherungspolitik.</p>
 
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 3: WAS ICH MIR VORNEHME
-                 ══════════════════════════════════════════════ -->
-
             <h2>Was ich mir vornehme</h2>
 
             <p>Ich möchte aufhören, für jede Produktentscheidung reflexartig ein Dashboard zu bauen. Stattdessen will ich die Zeit in Kundennähe investieren: wöchentliche Support-Sessions, monatliche Nutzerinterviews, tägliches Dogfooding. Wenn ich merke, dass ich die Antwort schon kenne, bevor ich die Daten sehe, will ich zwei Dinge prüfen: Ist die Entscheidung reversibel? Kenne ich die Domäne gut genug? Wenn beides zutrifft, möchte ich schneller handeln und das Ergebnis eine Woche später prüfen. Ob mir dieses Vertrauen in die eigene Einschätzung dauerhaft gelingt, wird sich zeigen.</p>
 
             <p>Konkret würde das bedeuten: Bei Feature-Priorisierungen in bekannten Produktbereichen schneller entscheiden und die Hypothese dokumentieren statt einer langen Analyse. Bei strategischen Richtungsentscheidungen oder neuen Märkten weiterhin in gründliche Recherche investieren. Der Unterschied wäre nicht, ob ich Daten nutze, sondern wann.</p>
 
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 4: KRITISCHE EINORDNUNG
-                 ══════════════════════════════════════════════ -->
-
             <h2>Kritische Einordnung</h2>
 
-            <p>Survivor Bias ist real: Wir hören nur von den PMs, deren Intuition richtig lag. Die stillen Fehlentscheidungen bleiben unsichtbar. Ob Intuition in der eigenen Domäne wirklich verlässlich ist, bleibt eine offene Frage &mdash; Kahneman und Klein sind sich einig, dass sie in neuen Domänen unzuverlässig ist. Die Gefahr der Selbstüberschätzung darf nicht unterschätzt werden: "Ich weiss es einfach" kann Expertise sein, aber auch Overconfidence. Und Intuition ist geprägt von persönlicher Erfahrung, die blinde Flecken hat. Es bleibt abzuwarten, ob ein bewussterer Umgang mit Intuition tatsächlich bessere Ergebnisse liefert oder nur schnellere.</p>
-
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 5: WAS BLEIBT FÜR JEDEN TAG
-                 ══════════════════════════════════════════════ -->
+            <p>Survivor Bias ist real: Wir hören nur von den PMs, deren Intuition richtig lag. Die stillen Fehlentscheidungen bleiben unsichtbar. Ob Intuition in der eigenen Domäne wirklich verlässlich ist, bleibt eine offene Frage, denn Kahneman und Klein sind sich einig, dass sie in neuen Domänen unzuverlässig ist. Die Gefahr der Selbstüberschätzung darf nicht unterschätzt werden: "Ich weiss es einfach" kann Expertise sein, aber auch Overconfidence. Und Intuition ist geprägt von persönlicher Erfahrung, die blinde Flecken hat. Es bleibt abzuwarten, ob ein bewussterer Umgang mit Intuition tatsächlich bessere Ergebnisse liefert oder nur schnellere.</p>
 
             <div class="my-10">
                 <h2>Was bleibt für jeden Tag</h2>
@@ -273,10 +159,6 @@
                 </div>
             </div>
 
-            <!-- ══════════════════════════════════════════════
-                 QUELLEN
-                 ══════════════════════════════════════════════ -->
-
             <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
                 <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
@@ -288,18 +170,14 @@
                 </ol>
             </div>
 
-            <!-- ══════════════════════════════════════════════
-                 GLOSSAR
-                 ══════════════════════════════════════════════ -->
-
             <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
                     <p class="mb-0"><span class="text-stone-700 font-medium">Product Intuition</span> <span class="text-stone-400">— Erfahrungsbasierte Mustererkennung für Produktentscheidungen</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">RPD</span> <span class="text-stone-400">— Recognition-Primed Decision Making: Entscheidungsmodell basierend auf Mustererkennung (Gary Klein)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">RPD</span> <span class="text-stone-400">— Recognition-Primed Decision Making (Gary Klein)</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">System 1 / System 2</span> <span class="text-stone-400">— Kahnemans Modell: schnelles intuitives vs. langsames analytisches Denken</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Product Sense</span> <span class="text-stone-400">— Empathie + Simulation + Strategie + Geschmack + kreative Execution (Shreyas Doshi)</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">One-Way / Two-Way Door</span> <span class="text-stone-400">— Bezos-Framework: irreversible vs. reversible Entscheidungen</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Product Sense</span> <span class="text-stone-400">— Empathie + Simulation + Strategie + Geschmack + kreative Execution</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">One-Way / Two-Way Door</span> <span class="text-stone-400">— Bezos: irreversible vs. reversible Entscheidungen</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Analyse-Paralyse</span> <span class="text-stone-400">— Entscheidungsunfähigkeit durch übermässige Datensammlung</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Dogfooding</span> <span class="text-stone-400">— Das eigene Produkt regelmässig als Nutzerin verwenden</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Feedback-Loop</span> <span class="text-stone-400">— Rückkopplungsschleife zwischen Entscheidung und messbarem Ergebnis</span></p>
@@ -308,26 +186,152 @@
 
         </article>
 
-        <!-- ======== ZURÜCK ======== -->
         <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
             <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                <span class="text-[0.72rem] text-stone-400">April 18, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Intuition as a product manager. When gut feeling beats data.
+            </h1>
+        </header>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Intuition is trained pattern recognition, not gut feeling. For reversible decisions in familiar domains, it beats slower data analysis. But Kahneman and Klein agree: it is only reliable when the environment has patterns and feedback comes fast.
+            </p>
+        </div>
+
+        <article class="prose pb-12">
+
+            <p>There are moments when, as a PM, you know exactly which decision is right before you have looked at a single metric. Jenny Wen calls it Product Intuition. It sounds like magic but is science: pattern recognition, trained by thousands of small data points, that your brain processes faster than any spreadsheet. The problem: in a culture where "data-driven" is treated as a synonym for "professional", trusting that intuition is hard. Yet research shows that experience-based intuition in certain situations is more reliable than analytical decision processes.</p>
+
+            <h2>What intuition really is</h2>
+
+            <p>Cognitive scientist Gary Klein studied in the 1990s how fire commanders make decisions under time pressure. His finding: experts do not generate option lists or weigh pros and cons. They recognize a situation as an instance of a known pattern and act immediately. Klein calls this Recognition-Primed Decision Making (RPD). It works for surgeons, chess grandmasters, pilots. And for product managers.</p>
+
+            <p>Daniel Kahneman describes the same mechanism as System 1: fast, intuitive thinking that works automatically and effortlessly. In contrast stands System 2, slow analytical thinking that costs energy and requires conscious attention. Kahneman warns, however: System 1 is prone to systematic errors, especially in unfamiliar environments.</p>
+
+            <p>In 2009, Klein and Kahneman published a joint paper that brought their different positions together. Their finding: intuition is reliable when two conditions are met. First, the environment must show sufficiently regular patterns (not chaotic-random like stock markets). Second, the person needs enough practice with fast, clear feedback on their decisions. PM work meets both conditions partially: product markets have patterns, but feedback on product decisions is often delayed and ambiguous.</p>
+
+            <h2>How PMs build intuition</h2>
+
+            <p>Shreyas Doshi breaks Product Sense into five components: empathy, simulation, strategy, taste, and creative execution. Intuition is the moment when all five fire at once without you thinking about it consciously. But this ability is not the result of talent. It comes from systematic practice.</p>
+
+            <p><strong>Customer proximity</strong> is the most important source. Regular support interactions, user interviews, customer advisory boards. Not delegated, done yourself. Anyone who runs ten customer conversations a month builds a pattern recognition system no dashboard can replace. <strong>Market knowledge</strong> is the second source: watch competitors, follow trends, understand adjacent markets. Not as a one-time research project but as ongoing practice. <strong>Dogfooding</strong> is the third pillar: use your own product daily, not as a duty but as intuition training. And finally: <strong>shorten feedback loops.</strong> The faster you see whether a decision was right, the faster you train your System 1.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Intuition is not gut feeling. It is the sum of a thousand small data points your brain processes faster than any spreadsheet.
+                </p>
+            </div>
+
+            <h2>When to follow intuition, when to analyze</h2>
+
+            <p>Jeff Bezos distinguishes between one-way doors (irreversible decisions) and two-way doors (reversible decisions). Most product decisions are two-way doors, but many teams treat them like one-way doors and start expensive analysis processes for decisions that can be corrected within a week.</p>
+
+            <p><strong>Follow intuition</strong> for reversible decisions, when fast iteration is possible, when you know the domain well, and when the cost of waiting exceeds the cost of an error. <strong>Analyze</strong> for irreversible decisions, in new domains, with high investment, and when the team needs alignment. In the latter case, data is not a decision tool but a communication tool.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #5b8a72; background: #f2f7f4;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3" style="color: #5b8a72;">With market intuition</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-900 mb-3">Hours</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-0">Decision based on pattern recognition and domain knowledge. Same result, faster execution, team learns by iteration.</p>
+                </div>
+                <div class="border rounded-lg p-6" style="border-color: #e5e2db; border-left: 4px solid #a8a29e; background: #FAFAF8;">
+                    <p class="font-mono text-[0.68rem] tracking-wider uppercase mb-3 text-stone-400">Without market intuition</p>
+                    <p class="font-mono text-[1.4rem] font-medium text-stone-400 mb-3">Weeks</p>
+                    <p class="text-[0.82rem] text-stone-400 leading-relaxed mb-0">Analysis paralysis: dashboard reviews, stakeholder alignment, surveys. Same result, but the market has moved.</p>
+                </div>
+            </div>
+
+            <p>The paradox: analysis for the sake of analysis is as dangerous as blind intuition. Many teams do not analyze to decide better, but to spread responsibility. When the decision rests on a study, no one is personally to blame. But that is not a decision process. That is risk distribution politics.</p>
+
+            <h2>What I commit to</h2>
+
+            <p>I want to stop reflexively building a dashboard for every product decision. Instead, I want to invest the time in customer proximity: weekly support sessions, monthly user interviews, daily dogfooding. When I notice that I already know the answer before I see the data, I want to check two things: is the decision reversible? Do I know the domain well enough? If both apply, I want to act faster and check the result a week later. Whether this trust in my own judgment will hold up over time remains to be seen.</p>
+
+            <p>Concretely this would mean: for feature prioritizations in known product areas, decide faster and document the hypothesis instead of running a long analysis. For strategic direction decisions or new markets, keep investing in thorough research. The difference would not be whether I use data, but when.</p>
+
+            <h2>A critical look</h2>
+
+            <p>Survivor bias is real: we only hear from PMs whose intuition was right. The silent wrong decisions stay invisible. Whether intuition in your own domain is really reliable remains an open question, because Kahneman and Klein agree it is unreliable in new domains. The risk of overconfidence cannot be underestimated: "I just know" can be expertise, but also overconfidence. And intuition is shaped by personal experience that has blind spots. It remains to be seen whether a more conscious handling of intuition really delivers better results, or just faster ones.</p>
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Intuition is trainable.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">It comes from proximity to customers, market, and product, not from talent.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Not every decision needs a dashboard.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">For reversible decisions: act fast, learn fast.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The best analysis is the one you do not need.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">When you really know your market, you often already know the answer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Gary Klein (1998). Sources of Power: How People Make Decisions. MIT Press.</li>
+                    <li>Daniel Kahneman (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux.</li>
+                    <li>Kahneman &amp; Klein (2009). Conditions for Intuitive Expertise: A Failure to Disagree. American Psychologist.</li>
+                    <li>Shreyas Doshi (2026). Why Product Sense is the only product skill that will matter in the AI age.</li>
+                    <li>Jeff Bezos (2016). Letter to Shareholders: One-Way and Two-Way Doors.</li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Product Intuition</span> <span class="text-stone-400">— Experience-based pattern recognition for product decisions</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">RPD</span> <span class="text-stone-400">— Recognition-Primed Decision Making (Gary Klein)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">System 1 / System 2</span> <span class="text-stone-400">— Kahneman's model: fast intuitive vs. slow analytical thinking</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Product Sense</span> <span class="text-stone-400">— Empathy + simulation + strategy + taste + creative execution</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">One-Way / Two-Way Door</span> <span class="text-stone-400">— Bezos: irreversible vs. reversible decisions</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Analysis Paralysis</span> <span class="text-stone-400">— Inability to decide because of excessive data gathering</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Dogfooding</span> <span class="text-stone-400">— Using your own product regularly as a user</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Feedback Loop</span> <span class="text-stone-400">— Cycle between decision and measurable result</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
 
     <div id="site-footer"></div>
 
-    </div>
+    </div><!-- /content -->
 
     <script>
-        // Simple client-side gate — not real security, just keeps casual visitors out
         const PASS = 'Lagerfeuer2026';
-
         if (sessionStorage.getItem('drafts-auth') === 'true') {
             document.getElementById('gate').classList.add('hidden');
             document.getElementById('content').classList.remove('hidden');
         }
-
         function checkPass() {
             const input = document.getElementById('pass').value;
             if (input === PASS) {
@@ -340,7 +344,27 @@
             return false;
         }
     </script>
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
 
 </body>
-
 </html>
