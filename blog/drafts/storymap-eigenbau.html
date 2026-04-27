@@ -1,0 +1,349 @@
+<!--
+  linja.me/blog/drafts/storymap-eigenbau – Story-Map als Eigenbau
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Bilingual: DE + EN
+  Entwurf: 2026-04-26
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Story-Map als Eigenbau. Wie zwei Stunden mit Claude und ein Vercel-Deploy mein Team aufs MVP eingeschworen haben. – Linja Scharffetter</title>
+    <meta name="description" content="In zwei Stunden mit Claude einen Story-Map-Builder gebaut, auf Vercel deployt, mit Supabase Realtime. Wie das Tool eine Team-Session getragen hat.">
+    <meta property="og:title" content="Story-Map als Eigenbau. Wie zwei Stunden mit Claude und ein Vercel-Deploy mein Team aufs MVP eingeschworen haben.">
+    <meta property="og:description" content="PM baut sich das Tool selbst. Hypothesen, Swim-Lanes, Decision-Log, Realtime. Team-Alignment als Nebenprodukt.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','SFMono-Regular','monospace'] }, colors: { violet: { 50:'#f6f4f9',100:'#ece8f2',200:'#d9d1e5',300:'#9a82b5',400:'#7b6ba5',500:'#6b5691',700:'#463863' }, amber: { 50:'#fdf5f0',100:'#fae8de',200:'#ecb08e',400:'#c27a52',500:'#D4714E',600:'#a86340',700:'#73402e' }, emerald: { 50:'#f2f7f4',100:'#e0ede6',300:'#96bfaa',500:'#5b8a72',600:'#476f5b',700:'#31493d' } } } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+        .prose h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.4rem; color: #1A1A1A; margin-top: 4rem; margin-bottom: 1rem; }
+        .prose h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.15rem; color: #1A1A1A; margin-top: 2.75rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 2rem; line-height: 1.75; }
+        .prose strong { color: #1A1A1A; font-weight: 600; }
+        .prose em { font-style: italic; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="gate" class="min-h-screen flex items-center justify-center px-6">
+        <div class="max-w-sm w-full text-center">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Entwurf</p>
+            <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
+            <form onsubmit="return checkPass()">
+                <input type="password" id="pass" placeholder="Passwort" autofocus class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3" style="border-color: #E5E2DB;">
+                <button type="submit" class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">Öffnen</button>
+            </form>
+            <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
+        </div>
+    </div>
+
+    <div id="content" class="hidden">
+
+    <div id="site-nav"></div>
+    <script src="../../components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+                <span class="text-[0.72rem] text-stone-400">26. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Story-Map als Eigenbau. Wie zwei Stunden mit Claude und ein Vercel-Deploy mein Team aufs MVP eingeschworen haben.
+            </h1>
+        </header>
+
+        <div class="reader-audio-slot my-4" data-audio-src="audio/storymap-eigenbau.mp3"></div>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                In zwei Stunden mit Claude einen MVP-Story-Map-Builder geplant, auf Vercel deployt, mit Supabase als Realtime-Backend. In der Team-Session am Freitag hat das Tool ohne Methodendiskussion getragen: Hypothesen explizit, Swim-Lanes klar, Decision-Log automatisch. Alle waren danach aufs MVP eingeschworen.
+            </p>
+        </div>
+
+        <article class="prose pb-12">
+
+            <p>Vor zwei Wochen hätte ich für eine MVP-Scoping-Session einen Miro-Board aufgesetzt. Eine Woche vorher Templates suchen, Sticky Notes vorbereiten, Workshop-Skript schreiben. Diese Woche habe ich stattdessen zwei Stunden mit Claude einen eigenen Story-Map-Builder konzipiert, ihn auf Vercel deployt, ein Supabase-Backend angeschlossen und die Live-URL ans Team geschickt. <a href="https://matgrid-scope.vercel.app/" target="_blank" style="color: #7b6ba5;">matgrid-scope.vercel.app</a> ist das Ergebnis. Die Freitags-Session lief darüber. Alle waren am Ende aufs MVP eingeschworen, nicht trotz, sondern wegen des Tools.</p>
+
+            <h2>Wie der Eigenbau entstanden ist</h2>
+
+            <p>Story-Mapping nach Jeff Patton ist eine bekannte Methode: Journey-Steps horizontal, Stories vertikal, MVP-Linie quer durch die Karten. In der Praxis scheitert das Format oft an drei Dingen. Karten haben keinen Bezug zu Hypothesen. Entscheidungen werden in der Session getroffen, aber nirgendwo dokumentiert. Und die Übergabe vom Workshop in das Backlog ist manuelle Arbeit, die niemand macht. Genau diese drei Lücken wollte ich schließen.</p>
+
+            <p>Die ersten zwei Stunden waren reines Konzept: Welche Spalten? Welche Swim-Lanes? Wie sind Hypothesen mit Karten verknüpft? Brauchen wir Drag-and-Drop oder reicht ein Klick-Toggle? Wer darf editieren, wer nur lesen? Wie kommen die MVP-Karten in Linear? Diese Fragen habe ich mit Claude durchgegangen, eine Skizze gemacht, eine Datenstruktur festgelegt. Der Plan stand, bevor eine Zeile Code geschrieben war. Danach hat Claude den Build übernommen, ich habe iteriert.</p>
+
+            <h2>Die Features</h2>
+
+            <p>Das Tool ist eine einzelne Web-App mit zwei Seiten: Story-Map und DACI-Matrix. Auf der Story-Map sehen alle Beteiligten dieselben Daten in Echtzeit, dank Supabase. Die <strong>linke Sidebar</strong> listet neun Hypothesen (H1 bis H9). Klick auf eine Hypothese filtert die Map: nur Karten, die diese Hypothese adressieren, bleiben sichtbar. Die <strong>Karten</strong> sitzen in einem Grid aus Journey-Steps, in vier Swim-Lanes: MVP, Next, Nie, Undecided. Ein Modal erlaubt das Anlegen neuer Karten in der Session selbst, mit Titel, Begründung in einem Satz, Hypothesen-Chips und Swim-Lane. Der <strong>Coverage-Panel</strong> oben zeigt, welche Hypothesen bereits abgedeckt sind und welche im MVP fehlen. Die <strong>rechte Sidebar</strong> ist ein Decision-Log: jede Lane-Änderung wird automatisch festgehalten, mit Zeitstempel.</p>
+
+            <p>Drei Aktionen lösen den Übergang aus der Session in die echte Arbeit aus. <strong>Snapshot für Claude</strong> kopiert eine Markdown-Zusammenfassung des aktuellen Stands ins Clipboard und lädt JSON herunter. Damit kann ich nach der Session mit Claude an einer detaillierten Spec weiterarbeiten. <strong>MVP-Cards in Linear</strong> ist ein Bulk-Sync: alle Karten in der MVP-Lane werden als neue Linear-Issues angelegt. Vom Whiteboard ins Backlog mit einem Klick. <strong>Drucken / PDF</strong> ist die Print-View für Stakeholder, die nichts mit Linear oder Vercel zu tun haben.</p>
+
+            <p>Die DACI-Matrix daneben hat eigene Features: Zeilen für Entscheidungs-Typen, Spalten für Rollen, Zellen mit zyklischem Klick durch D, A, C, I, leer. Header sind direkt editierbar, Zeilen und Spalten lassen sich live hinzufügen. Auch hier: Snapshot für Claude und JSON-Export.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Das Tool ist nicht das Ergebnis. Das Tool ist das Format, in dem die Entscheidungen so passen, dass sie sich am Ende selbst exportieren.
+                </p>
+            </div>
+
+            <h2>Was ich dabei gelernt habe</h2>
+
+            <p>Es war mein erster Vercel-Deploy. Ich kannte die Plattform aus dem Hörensagen, hatte aber nie eine eigene App dort gehosted. Der Schritt von "lokaler Prototyp" zu "Live-URL, die mein Team aufrufen kann" hat fünf Minuten gedauert, nicht eine halbe Stunde, wie ich erwartet hatte. Was länger gedauert hat: die Supabase-Konfiguration. Realtime-Sync zwischen mehreren Browsern in derselben Session ist nicht trivial, weil Identitäten, Auth und Konfliktlösung dazukommen. Claude hat das Setup übernommen, aber ich musste die Konzepte verstehen, weil Bugs erklärt werden wollen. Postgres Row-Level-Security war ein Begriff, den ich nicht kannte. Jetzt schon.</p>
+
+            <p>Die größte methodische Lehre: <strong>Anpassungen unterwegs sind keine Schwäche, sondern Teil des Builds.</strong> Während der zwei Stunden haben wir gemeinsam Sachen verworfen, neu eingebaut, anders strukturiert. Drag-and-Drop kam später dazu, weil sich in der Konzept-Phase gezeigt hat, dass Klick-Toggle für Lane-Wechsel nicht reicht. Die Hypothesen-Chips wurden eingeführt, weil ich beim Skizzieren gemerkt habe, dass Karten ohne Hypothese-Bezug das Anti-Pattern sind, das ich vermeiden will. Diese Iterationen wären in einem klassischen Build mit ausgelagertem Engineering nicht möglich gewesen.</p>
+
+            <h2>Was die Session gemacht hat</h2>
+
+            <p>Am Freitag haben Jan, David und ich uns vor das Tool gesetzt. Ich hatte den ersten Stand vorbereitet: alle 9 Hypothesen drin, Karten als Vorschläge in Undecided. In der ersten halben Stunde haben wir Karten in MVP, Next oder Nie verschoben, jede Verschiebung einmal kurz begründet, der Decision-Log hat alles mitgeschrieben. Wenn ein Punkt strittig war, haben wir auf das Coverage-Panel geschaut: ist diese Hypothese sonst nirgends abgedeckt? Wenn ja, musste irgendetwas in die MVP-Lane.</p>
+
+            <p>Die zweite Stunde war intensiver. David hat über die DACI-Matrix gearbeitet und die UX-Verantwortung dort als Approver markiert. Als wir bei einer Karte zur Onboarding-Flow ins MVP-Tier gerutscht sind, hat er sein Veto eingelegt: "Ich verantworte UX und sage, dass die Lane jetzt nicht funktioniert, ohne diese Karte." Die Diskussion war in zwei Minuten durch, weil DACI klar gemacht hatte, wer hier den letzten Anstoß gibt. Jan hat die Hypothesen-Coverage moderiert und dafür gesorgt, dass keine Hypothese verwaist blieb. Ich habe als Driver Karten umgehängt und Begründungen festgehalten.</p>
+
+            <p>Am Ende stand: ein dokumentiertes MVP, Hypothesen explizit zugeordnet, ein Decision-Log mit Begründungen, und durch den Linear-Bulk-Sync war der ganze MVP-Scope fünf Minuten später als Issues im Repo. Was vorher zwei Wochen gedauert hätte, war an einem Nachmittag geklärt.</p>
+
+            <h2>Was ich mir vornehme</h2>
+
+            <p>Ich möchte das Pattern wiederholen, aber bewusster mit dem zeitlichen Trade-off umgehen. Zwei Stunden Konzeptarbeit vor einer wichtigen Session lohnen sich, wenn die Session selbst sonst zwei Tage gekostet hätte und das Ergebnis halb-strukturiert in einem Miro-Export verschwunden wäre. Das ist nicht jede Session. Für Routine-Standups oder kurze Abstimmungen ist der Eigenbau Overkill. Ich brauche ein Gespür dafür, wann der Aufwand passt.</p>
+
+            <p>Außerdem will ich die Tool-Sammlung als modulare Bausteine begreifen. Story-Map und DACI sind wiederverwendbar. Beim nächsten Projekt werde ich vermutlich nicht von Null anfangen, sondern aus der bestehenden Codebase forken. Das ist eine zusätzliche Lernkurve: Wie behalte ich diese Bausteine sortiert und wartbar, ohne dass die Sammlung selbst zur neuen Last wird.</p>
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Der Eigenbau funktioniert, weil ich mit Claude einen Co-Pilot habe, der Code schreibt. Ohne diese Hebelwirkung wäre der Aufwand für das Tool höher als der Nutzen. Es bleibt also ein Privileg, an das andere Teams ohne KI-Zugang nicht so leicht herankommen. Ich überschätze auch nicht, was eine einzelne Session ändert: Team-Alignment in zwei Stunden hält nur, wenn die Folge-Arbeit darauf aufbaut. Wenn das Tool nach der Session in der Schublade verschwindet, war der Aufwand umsonst. Und schließlich: die ganze Methode steht und fällt mit der Qualität der Hypothesen, die ich vorher formuliert habe. Schlechte Hypothesen führen zu schlechtem Scope, egal wie schön die Story-Map aussieht.</p>
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Eigene Tools sind nicht mehr Overkill.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wenn der Aufwand zwei Stunden ist und die Session sonst zwei Tage kostet, lohnt sich der Bau.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Hypothesen gehören aufs Board.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Karten ohne Hypothese-Bezug sind das Anti-Pattern. Sichtbar machen, nicht weg-moderieren.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Format trägt das Ergebnis.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wenn die Struktur stimmt, exportiert sich das Resultat fast von selbst. Decision-Log und Linear-Sync ersetzen das Workshop-Protokoll.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.jpattonassociates.com/user-story-mapping/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Jeff Patton (2014). User Story Mapping. O'Reilly.</a></li>
+                    <li><a href="https://matgrid-scope.vercel.app/" class="hover:text-stone-600 transition-colors" style="color: inherit;">matgrid-scope.vercel.app — eigenes Tool, Build mit Claude Opus 4.7.</a></li>
+                    <li><a href="https://supabase.com/docs/guides/realtime" class="hover:text-stone-600 transition-colors" style="color: inherit;">Supabase Realtime Documentation.</a></li>
+                    <li><a href="https://vercel.com/docs/deployments" class="hover:text-stone-600 transition-colors" style="color: inherit;">Vercel Deployment Documentation.</a></li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Story-Map</span> <span class="text-stone-400">— Visualisierung von Journey-Steps und Stories nach Jeff Patton</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Swim-Lane</span> <span class="text-stone-400">— Horizontale Spur, hier MVP, Next, Nie oder Undecided</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Hypothese</span> <span class="text-stone-400">— Falsifizierbare Annahme, die mit dem Produkt getestet wird</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Decision-Log</span> <span class="text-stone-400">— Automatische Liste aller Entscheidungen mit Zeitstempel</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Realtime-Sync</span> <span class="text-stone-400">— Mehrere Browser sehen dieselben Daten in Echtzeit (Supabase)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Bulk-Sync</span> <span class="text-stone-400">— Mehrere Karten gleichzeitig als Issues in Linear anlegen</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-8">
+
+        <header class="pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; AI</span>
+                <span class="text-[0.72rem] text-stone-400">April 26, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Story map, built it myself. How two hours with Claude and a Vercel deploy got my team aligned on the MVP.
+            </h1>
+        </header>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Two hours with Claude to plan an MVP story map builder, deployed on Vercel, with Supabase as the realtime backend. In the team session on Friday, the tool carried the room without a method debate: hypotheses explicit, swim-lanes clear, decision log automatic. Everyone was aligned on the MVP by the end.
+            </p>
+        </div>
+
+        <article class="prose pb-12">
+
+            <p>Two weeks ago, I would have set up a Miro board for an MVP scoping session. A week of preparation: find templates, prepare sticky notes, write a workshop script. This week I spent two hours with Claude designing my own story map builder, deployed it on Vercel, connected a Supabase backend, and sent the live URL to the team. <a href="https://matgrid-scope.vercel.app/" target="_blank" style="color: #7b6ba5;">matgrid-scope.vercel.app</a> is the result. The Friday session ran on top of it. Everyone was aligned on the MVP by the end, not in spite of the tool but because of it.</p>
+
+            <h2>How the build came about</h2>
+
+            <p>Story mapping in Jeff Patton's tradition is a known method: journey steps horizontal, stories vertical, MVP line cutting across. In practice the format often fails on three points. Cards have no link to hypotheses. Decisions made in the session are not documented anywhere. And the handover from workshop to backlog is manual work nobody does. Closing those three gaps was the goal.</p>
+
+            <p>The first two hours were pure concept: which columns? which swim-lanes? how are hypotheses linked to cards? do we need drag-and-drop or is a click toggle enough? who can edit, who can read? how do MVP cards get into Linear? I went through these questions with Claude, sketched the layout, defined the data structure. The plan was set before a line of code was written. Then Claude took over the build and I iterated.</p>
+
+            <h2>The features</h2>
+
+            <p>The tool is a single web app with two pages: story map and DACI matrix. On the story map, everyone in the room sees the same data in real time, thanks to Supabase. The <strong>left sidebar</strong> lists nine hypotheses (H1 to H9). Click a hypothesis and the map filters: only cards that address that hypothesis stay visible. <strong>Cards</strong> sit in a grid of journey steps, in four swim-lanes: MVP, Next, Never, Undecided. A modal allows creating new cards during the session itself, with title, one-sentence rationale, hypothesis chips, and swim-lane. The <strong>coverage panel</strong> at the top shows which hypotheses are already covered and which are missing in the MVP. The <strong>right sidebar</strong> is a decision log: every lane change is recorded automatically with a timestamp.</p>
+
+            <p>Three actions trigger the handover from session to actual work. <strong>Snapshot for Claude</strong> copies a markdown summary of the current state to the clipboard and downloads a JSON. With that, I can keep working with Claude on a detailed spec after the session. <strong>MVP cards into Linear</strong> is a bulk sync: every card in the MVP lane is created as a new Linear issue. From whiteboard to backlog with one click. <strong>Print / PDF</strong> is the print view for stakeholders who don't deal with Linear or Vercel.</p>
+
+            <p>The DACI matrix next to it has its own features: rows for decision types, columns for roles, cells with cyclic clicks through D, A, C, I, empty. Headers are directly editable, rows and columns can be added live. Same handover here: snapshot for Claude and JSON export.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    The tool is not the result. The tool is the format that fits decisions in such a way that they export themselves at the end.
+                </p>
+            </div>
+
+            <h2>What I learned</h2>
+
+            <p>It was my first Vercel deploy. I knew the platform by reputation but had never hosted my own app there. Going from "local prototype" to "live URL my team can open" took five minutes, not the half hour I had expected. What took longer: the Supabase configuration. Real-time sync between several browsers in the same session is not trivial, because identity, auth, and conflict resolution come in. Claude handled the setup, but I had to understand the concepts because bugs need explaining. Postgres row-level security was a term I did not know. Now I do.</p>
+
+            <p>The biggest methodological lesson: <strong>adjustments along the way are not weakness, they are part of the build.</strong> During the two hours we threw things out, added new ones, restructured. Drag-and-drop came later because the click toggle was not enough for lane changes. Hypothesis chips were introduced because while sketching I noticed that cards without a hypothesis link are exactly the anti-pattern I want to avoid. These iterations would not have been possible in a classical build with engineering outsourced.</p>
+
+            <h2>What the session did</h2>
+
+            <p>On Friday, Jan, David, and I sat down in front of the tool. I had prepared a first state: all nine hypotheses in, cards as suggestions in Undecided. In the first half hour we moved cards into MVP, Next, or Never, gave each move a brief justification, and the decision log captured everything. When a point was contested, we looked at the coverage panel: is this hypothesis covered anywhere else? If not, something had to go into the MVP lane.</p>
+
+            <p>The second hour was more intense. David worked through the DACI matrix and marked UX responsibility there as approver. When we slipped a card on the onboarding flow into the MVP tier, he vetoed: "I own UX and I'm telling you the lane does not work without that card right now." The discussion was over in two minutes because DACI had made it clear who calls the final shot here. Jan moderated the hypothesis coverage and made sure no hypothesis was orphaned. I as the driver moved cards and kept the rationales in the log.</p>
+
+            <p>By the end we had: a documented MVP, hypotheses explicitly mapped, a decision log with rationales, and through the Linear bulk sync the entire MVP scope was in the repo as issues five minutes later. What used to take two weeks was settled in one afternoon.</p>
+
+            <h2>What I commit to</h2>
+
+            <p>I want to repeat this pattern, but with more deliberate awareness of the time trade-off. Two hours of concept work before an important session pays off when the session would otherwise have cost two days and the result would have disappeared half-structured in a Miro export. That is not every session. For routine standups or short alignments, the build-it-yourself approach is overkill. I need a sense of when the effort fits.</p>
+
+            <p>I also want to treat the toolkit as modular building blocks. Story map and DACI are reusable. On the next project I will probably not start from zero but fork from the existing codebase. That is an additional learning curve: how to keep these blocks sorted and maintainable so the collection itself does not become the new burden.</p>
+
+            <h2>A critical look</h2>
+
+            <p>The build-it-yourself approach works because I have Claude as a copilot writing code. Without that leverage, the effort for the tool would be higher than the benefit. So it remains a privilege that other teams without AI access cannot easily reach. I am also not overestimating what a single session changes: team alignment in two hours only holds if the follow-up work builds on it. If the tool disappears in a drawer after the session, the effort was wasted. And finally: the whole method stands or falls with the quality of the hypotheses I formulated up front. Bad hypotheses lead to bad scope, no matter how nice the story map looks.</p>
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Custom tools are no longer overkill.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">When the build takes two hours and the session would otherwise cost two days, the build pays off.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Hypotheses belong on the board.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Cards without a hypothesis link are the anti-pattern. Make them visible, do not moderate them away.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Format carries the result.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">When the structure is right, the result almost exports itself. Decision log and Linear sync replace the workshop minutes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Jeff Patton (2014). User Story Mapping. O'Reilly.</li>
+                    <li>matgrid-scope.vercel.app — own tool, built with Claude Opus 4.7.</li>
+                    <li>Supabase Realtime Documentation.</li>
+                    <li>Vercel Deployment Documentation.</li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Story Map</span> <span class="text-stone-400">— Visualization of journey steps and stories after Jeff Patton</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Swim-Lane</span> <span class="text-stone-400">— Horizontal lane, here MVP, Next, Never, or Undecided</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Hypothesis</span> <span class="text-stone-400">— Falsifiable assumption tested through the product</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Decision Log</span> <span class="text-stone-400">— Automatic list of all decisions with timestamps</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Realtime Sync</span> <span class="text-stone-400">— Several browsers see the same data in real time (Supabase)</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Bulk Sync</span> <span class="text-stone-400">— Create multiple cards as Linear issues at once</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+    </div><!-- /content -->
+
+    <script>
+        const PASS = 'Lagerfeuer2026';
+        if (sessionStorage.getItem('drafts-auth') === 'true') {
+            document.getElementById('gate').classList.add('hidden');
+            document.getElementById('content').classList.remove('hidden');
+        }
+        function checkPass() {
+            const input = document.getElementById('pass').value;
+            if (input === PASS) {
+                sessionStorage.setItem('drafts-auth', 'true');
+                document.getElementById('gate').classList.add('hidden');
+                document.getElementById('content').classList.remove('hidden');
+            } else {
+                document.getElementById('error').classList.remove('hidden');
+            }
+            return false;
+        }
+    </script>
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+</html>
