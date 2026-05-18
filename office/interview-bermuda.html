@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Bermuda Digital Studio – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        .prose-box { font-size: 0.95rem; line-height: 1.7; }
+        .prose-box h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.4rem; color: #1c1917; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #E5E2DB; }
+        .prose-box h3 { font-weight: 600; font-size: 1.02rem; color: #44403c; margin-top: 1.8rem; margin-bottom: 0.6rem; }
+        .prose-box p { margin-bottom: 1rem; line-height: 1.7; }
+        .prose-box ul { list-style: none; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ul > li { position: relative; padding-left: 1.6rem; margin-bottom: 0.9rem; line-height: 1.65; }
+        .prose-box ul > li::before {
+            content: "▸";
+            position: absolute;
+            left: 0.2rem;
+            top: 0.05rem;
+            color: #7b6ba5;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .prose-box ol { list-style: none; counter-reset: item; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ol > li { position: relative; padding-left: 2rem; margin-bottom: 0.9rem; line-height: 1.65; counter-increment: item; }
+        .prose-box ol > li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            width: 1.4rem;
+            height: 1.4rem;
+            font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.7rem;
+            color: #6b5691;
+            background: #f6f4f9;
+            border: 1px solid #d9d1e5;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        .prose-box strong { color: #1c1917; font-weight: 600; }
+        .prose-box table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.9rem; }
+        .prose-box th, .prose-box td { text-align: left; padding: 0.8rem 1rem; border-bottom: 1px solid #E5E2DB; vertical-align: top; line-height: 1.55; }
+        .prose-box th { font-weight: 600; background: #F5F3EF; color: #44403c; font-size: 0.8rem; }
+        .prose-box blockquote { border-left: 3px solid #d9d1e5; padding: 0.7rem 1rem 0.7rem 1.2rem; margin: 1.3rem 0; color: #78716c; font-style: italic; line-height: 1.65; background: #faf9f6; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[900px] mx-auto px-4 sm:px-6 pt-24 pb-20">
+
+            <header class="mb-6">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Interview-Spickzettel</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Bermuda Digital Studio.</h1>
+                <p class="text-sm text-stone-500">Product Manager Digital · E.ON-Konzern · Bochum.</p>
+                <p class="text-xs text-stone-400 mt-2">Andere Spickzettel: <a href="interviews.html" class="text-violet-500 hover:underline">Wilo</a> · <a href="interview-douglas.html" class="text-violet-500 hover:underline">Douglas Retail Media</a></p>
+            </header>
+
+            <section class="prose-box text-sm text-stone-700">
+
+                <!-- Meta -->
+                <div class="bg-white border rounded-xl p-5 mb-6" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Gesprächspartner-Kontext</p>
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-[0.82rem] mt-3">
+                        <div><strong>Stelle:</strong><br>Product Manager Digital</div>
+                        <div><strong>Start:</strong><br>Juli/August 2026</div>
+                        <div><strong>Unternehmen:</strong><br>Bermuda Digital Studio<br>(enervolution GmbH)</div>
+                        <div><strong>Konzern:</strong><br>E.ON SE</div>
+                        <div><strong>Standort:</strong><br>Bochum · Kortumstraße 68</div>
+                        <div><strong>HR-Kontakt:</strong><br>Matthias Bätz</div>
+                        <div><strong>Bewerbung:</strong><br>02.03.2026</div>
+                        <div><strong>Range:</strong><br>90–110 k€ (Anker 100)</div>
+                    </div>
+                </div>
+
+                <!-- Quick-Nav -->
+                <div class="bg-violet-50 border border-violet-100 rounded-xl p-4 mb-6">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Quick-Nav</p>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <a href="#bm-kompass" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Kompass</a>
+                        <a href="#bm-warum" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Warum Bermuda?</a>
+                        <a href="#bm-pitch" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Pitch</a>
+                        <a href="#bm-fragen" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Antworten</a>
+                        <a href="#bm-meine" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Meine Fragen</a>
+                        <a href="#bm-rahmen" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Rahmen</a>
+                    </div>
+                </div>
+
+                <h2 id="bm-kompass">Kompass (30 Sek)</h2>
+                <ul>
+                    <li><strong>Bermuda Digital Studio</strong> ist das interne Digital-Studio im E.ON-Konzern, formal über die enervolution GmbH eingebettet.</li>
+                    <li><strong>Mandat:</strong> Digitale Produktentwicklung mit Startup-Mentalität, in der Reichweite eines Energiekonzerns.</li>
+                    <li><strong>Modell:</strong> Agile Squads, Produkt-Ownership, eigene Geschwindigkeit, aber Konzern-Backing.</li>
+                    <li><strong>Standort:</strong> Bochum (Kortumstraße 68). NRW-Heimspiel, Hybrid.</li>
+                    <li><strong>Mutter:</strong> E.ON SE — einer der größten europäischen Energiekonzerne. ~70.000 MA, ~80 Mrd. € Umsatz. Strategie auf Energiewende, Netze, Kundenlösungen.</li>
+                    <li><strong>Domäne:</strong> Energiewende, Wärme, Strom, B2C-Apps und B2B-Plattformen. Stark reguliert.</li>
+                </ul>
+
+                <h2 id="bm-warum">Warum Bermuda?</h2>
+                <ul>
+                    <li><strong>Energie-DNA aus ista.</strong> 6 Jahre im selben Ökosystem. Heizkostenabrechnung, ESG, EED-Direktive in 17 Ländern. Domäne ist Heimspiel, kein Lernkurven-Risiko.</li>
+                    <li><strong>Startup-im-Konzern reizt mich.</strong> Sweet Spot: Innovationsgeschwindigkeit mit Konzern-Hebel. Diese Spannungszone kenne ich seit Jahren.</li>
+                    <li><strong>NRW-Standort.</strong> Unna nach Bochum ca. 30 Min. Hybrid funktioniert, Präsenz selbstverständlich.</li>
+                    <li><strong>End-to-End Produktverantwortung.</strong> ABS-Bestellstrecke +3,5 Mio. € Umsatz, Doku-Tool +132 % aktive Nutzer. Genau die Art Arbeit, die ein Studio liefern muss.</li>
+                    <li><strong>Ausgründungs-Erfahrung.</strong> Tooltime und Objego aus ista heraus. Innovation, die im Markt landet, nicht in der PowerPoint.</li>
+                </ul>
+
+                <h2 id="bm-pitch">Pitch (2 Min)</h2>
+                <ul>
+                    <li>13 Jahre PM. Aktuell Senior PM ABS Safety, davor 6 Jahre ista in 4 Rollen.</li>
+                    <li><strong>ista (6 J.):</strong> Energiebranche, 17 Märkte, EU-weite Governance, 40+ Stakeholder. Direktes Reporting CEO/CFO. Zwei Ausgründungen begleitet (Tooltime, Objego).</li>
+                    <li><strong>ABS Safety (5 J.):</strong> Lateral 8 PMs. Bestellstrecke +3,5 Mio. € / −50 % Prozesszeit. Doku-Tool +132 % aktive Nutzer über 4 Jahre.</li>
+                    <li><strong>MatGrid parallel:</strong> Eigene Ausgründung (SaaS für Dachdecker). Produktarbeit von beiden Seiten — Intrapreneurin und Mitgründerin.</li>
+                    <li><strong>Jetzt:</strong> Digitale Produktentwicklung in einem Energie-Umfeld, das Tempo und Tiefe verbindet. Bermuda passt.</li>
+                </ul>
+
+                <h2 id="bm-fragen">Antworten auf typische Fragen</h2>
+
+                <h3>"Erzählen Sie von sich"</h3>
+                <p>13 Jahre PM. Senior PM bei ABS Safety mit lateralem 8-köpfigen Team und digitalem Portfolio. Davor 6 Jahre ista in 4 Rollen, Schwerpunkt Innovation und Customer Experience in der Energiebranche. Zwei Business-Modelle bis zur Ausgründungsreife begleitet. Parallel baue ich mit zwei Mitgründern MatGrid, eine SaaS für Dachdecker. Mein Fokus: Strategie und operative Realität zusammenbringen.</p>
+
+                <h3>"Warum Bermuda, warum jetzt?"</h3>
+                <p>Drei Gründe. Energie-Domäne kenne ich aus ista. NRW-Standort passt. Das Studio-Modell — Startup-Geschwindigkeit mit Konzern-Hebel — ist mein Sweet Spot.</p>
+
+                <h3>"Was wissen Sie über Bermuda Digital Studio?"</h3>
+                <p>Internes Digital-Studio im E.ON-Konzern, formal in der enervolution GmbH. Mandat: digitale Produktentwicklung mit Startup-Mentalität in Konzern-Reichweite. Standort Bochum. Kleine, agile Einheit mit eigener Produktverantwortung, aber Zugang zu E.ON-Kunden, Daten und Marken.</p>
+
+                <h3>"Sie kommen aus ista — wie war die Konzern-Erfahrung?"</h3>
+                <p>Lehrreich. Internationale Komplexität, regulatorisches Umfeld, lange Entscheidungswege. Aber auch: echte Hebel, große Datenmengen, viele Kunden. Ich habe gelernt, wie man trotz Konzernstruktur mit Geschwindigkeit arbeitet — über kleine Pilotprojekte, klare Hypothesen, frühe Allianzen mit Linienverantwortlichen.</p>
+
+                <h3>"Wie gehen Sie an ein neues digitales Produkt heran?"</h3>
+                <p>Problem vor Lösung. Tiefeninterviews mit Nutzern und Stakeholdern, Hypothesen, schnelle Prototypen, A/B-Tests. Methoden — Design Thinking, JTBD, Lean Startup, Continuous Discovery — wähle ich situativ. ABS-Bestellstrecke: 50+ Interviews, 3 Prototypen, MVP in 2 Monaten live, dann iterativ erweitert.</p>
+
+                <h3>"Energiebranche — was hat sich seit ista verändert?"</h3>
+                <p>Drei Linien. Energiewende ist von Strategie zu operativer Realität geworden — Wärmepumpen, PV, Smart Meter sind Mainstream. Daten als Asset, AI in Forecasting und Tarifgestaltung. B2C-Erwartung kommt in B2B-Apps an: UX-Standards steigen, Self-Service ist Default. Bermuda sitzt auf diesen drei Wellen.</p>
+
+                <h3>"Wie arbeiten Sie mit Engineering?"</h3>
+                <p>Cross-funktional, auf Augenhöhe. Discovery mit Eng und Design gemeinsam. Warum/Was kommt von mir, das Wie gehört dem Team. In einem Studio-Setup ist das Default — sonst funktioniert die Geschwindigkeit nicht.</p>
+
+                <h3>"KI im Produkt — wo sehen Sie Hebel?"</h3>
+                <p>Im Energie-Kontext besonders: Forecasting (Verbrauch und Erzeugung), personalisierte Tarifempfehlungen, automatisierte Vertrags- und Abrechnungsprozesse, Smart-Home-Steuerung. Praktisch nutze ich KI schon heute in der Discovery: Research-Synthese, Interview-Clustering, Hypothesen-Generierung.</p>
+
+                <h3>"Warum weg von ABS Safety?"</h3>
+                <p>Bei ABS ist das Portfolio aufgebaut, das Team steht. Der nächste Hebel für mich liegt in einer Rolle mit mehr Produktgestaltung und weniger Linienpflege. Bermuda bietet das — kleine Einheit, große Wirkung, klare Energie-Domäne.</p>
+
+                <h3>"MatGrid läuft parallel — Konflikt?"</h3>
+                <p>MatGrid ist SaaS für Dachdecker, B2B-Handwerk. Andere Domäne, andere Zielgruppe. Kein Konflikt mit E.ON-Energiethemen. Offen besprechbar, vertraglich klärbar.</p>
+
+                <h3>"100 Tage?"</h3>
+                <p>Zuhören. Produkt-Backlog und Roadmap verstehen, Kunden treffen über Field Visits und Hospitation, Stakeholder-Mapping im E.ON-Konzern, Studio-Setup intern beobachten. Vorschläge erst danach.</p>
+
+                <h2 id="bm-meine">Meine Fragen an Bermuda</h2>
+
+                <h3>Rolle &amp; Squad-Setup</h3>
+                <ol>
+                    <li><strong>Squad-Schnitt:</strong> Wie sind die Squads geschnitten — nach Produkt, Customer Journey, Geschäftseinheit? Bin ich Squad-Lead oder PM im Squad?</li>
+                    <li><strong>Konkrete Verantwortung:</strong> Welches Produkt würde meine Verantwortung sein? Welche Phase: 0→1, 1→10, Skalierung?</li>
+                    <li><strong>PM-Team:</strong> Wie viele PMs heute, wie viele am Ende des Jahres?</li>
+                    <li><strong>Open Question:</strong> Wichtigste ungelöste Produktfrage gerade?</li>
+                </ol>
+
+                <h3>Studio-Modell &amp; E.ON</h3>
+                <ol start="5">
+                    <li><strong>Autonomie:</strong> Wie ist das Verhältnis Bermuda ↔ E.ON-Konzern? Wo seid ihr autonom, wo gibt es Konzern-Schnittstellen (IT, Compliance, Brand)?</li>
+                    <li><strong>Auftraggeber:</strong> Wer beauftragt Produkte: konkrete Geschäftseinheiten, strategische Top-Linie, Mischform?</li>
+                    <li><strong>Priorisierung:</strong> Wie werden Produkt-Ideen priorisiert: Bermuda-intern, E.ON-Sponsoring, Mischform?</li>
+                </ol>
+
+                <h3>Produkt &amp; Discovery</h3>
+                <ol start="8">
+                    <li><strong>Kundennähe:</strong> Wie nah ist PM am Kunden? Eigene Research-Kapazität, Hospitation, Field Visits?</li>
+                    <li><strong>Discovery-Raum:</strong> Wie viel Discovery neben Delivery? Feature-Factory oder hypothesengetrieben?</li>
+                    <li><strong>North-Star:</strong> Welche Outcome-Metrik leitet die Produkte: Retention, Activation, Revenue, qualitativ?</li>
+                </ol>
+
+                <h3>Technologie &amp; KI</h3>
+                <ol start="11">
+                    <li><strong>Tech-Stack:</strong> Schwerpunkt? Welche Plattformen, welche Cloud, welcher Daten-Stack?</li>
+                    <li><strong>KI im Produkt:</strong> Experimentell, in Produktion, auf der Roadmap? Wo sind die größten Hebel im Energiekontext?</li>
+                </ol>
+
+                <h3>Kultur</h3>
+                <ol start="13">
+                    <li><strong>Entscheidungen:</strong> Squad-Autonomie oder Studio-Lead-getrieben?</li>
+                    <li><strong>Senior PM ↔ Studio-Lead:</strong> Welche Erwartungen, welche Eskalationswege?</li>
+                    <li><strong>"Startup-Mentalität":</strong> Was bedeutet das konkret im Alltag bei euch?</li>
+                </ol>
+
+                <h3>Rahmen</h3>
+                <ol start="16">
+                    <li><strong>Hybrid:</strong> Feste Bochum-Tage, Reisetätigkeit?</li>
+                </ol>
+
+                <h2 id="bm-rahmen">Rahmenbedingungen</h2>
+                <table>
+                    <thead><tr><th>Thema</th><th>Position</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Gehalt</strong></td><td><strong>Anker 100 k. Range 90–110 k (Anschreiben). Untergrenze 90 k.</strong></td></tr>
+                        <tr><td><strong>Start</strong></td><td>Juli/August 2026 (Kündigungsfrist ABS Safety)</td></tr>
+                        <tr><td><strong>Pendelsituation</strong></td><td>Unna → Bochum ca. 30 Min.</td></tr>
+                        <tr><td><strong>Hybrid</strong></td><td>Mix ideal. Bochum vor Ort wenn nötig.</td></tr>
+                        <tr><td><strong>Andere Bewerbungen</strong></td><td>Ja, in Gesprächen. Bermuda hoch priorisiert (Energie-Fit + NRW).</td></tr>
+                        <tr><td><strong>MatGrid</strong></td><td>Offen besprechbar. Andere Domäne (Handwerk), kein Energie-Konflikt.</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="mt-8 p-4 rounded-lg" style="background: #fef3ec; border: 1px solid #fae8de;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-amber-700 mb-2">NICHT sagen</p>
+                    <ul class="text-[0.82rem] text-stone-700 list-disc ml-5">
+                        <li>Nichts Negatives über ABS Safety</li>
+                        <li>Nicht "ich suche einfach was Neues" — Outcome-Story liefern</li>
+                        <li>E.ON-Mutter nicht ausschmücken — das Studio ist die eigene Identität</li>
+                        <li>Nicht "ich kenne keine SaaS-Reinkultur" — als Lernkurve framen</li>
+                        <li>MatGrid nicht als Konkurrenz framen</li>
+                    </ul>
+                </div>
+
+                <div class="mt-6 p-4 rounded-lg bg-white border" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Drei Anker für den ersten Eindruck</p>
+                    <ol class="text-[0.82rem] mb-0">
+                        <li><strong>Energie-DNA aus ista:</strong> 6 Jahre, 17 Länder, EU-Governance.</li>
+                        <li><strong>E2E-Produktverantwortung:</strong> +3,5 Mio. € Umsatz, +132 % Nutzer.</li>
+                        <li><strong>Ausgründungs-Logik:</strong> Tooltime, Objego, jetzt MatGrid.</li>
+                    </ol>
+                </div>
+
+                <blockquote class="mt-6">
+                    Studio-Setup im Konzern: pragmatisch, direkt, Klartext. Weniger Buzzwords, mehr operative Realität. Startup-Sprache erlaubt, aber mit Substanz unterlegt.
+                </blockquote>
+
+            </section>
+
+            <div style="height: 80px;"></div>
+
+        </main>
+    </div>
+
+    <script src="office.js?v=2" data-active="interviews"></script>
+</body>
+</html>
