@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Douglas Retail Media – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        .prose-box { font-size: 0.95rem; line-height: 1.7; }
+        .prose-box h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.4rem; color: #1c1917; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #E5E2DB; }
+        .prose-box h3 { font-weight: 600; font-size: 1.02rem; color: #44403c; margin-top: 1.8rem; margin-bottom: 0.6rem; }
+        .prose-box p { margin-bottom: 1rem; line-height: 1.7; }
+        .prose-box ul { list-style: none; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ul > li { position: relative; padding-left: 1.6rem; margin-bottom: 0.9rem; line-height: 1.65; }
+        .prose-box ul > li::before {
+            content: "▸";
+            position: absolute;
+            left: 0.2rem;
+            top: 0.05rem;
+            color: #7b6ba5;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .prose-box ol { list-style: none; counter-reset: item; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ol > li { position: relative; padding-left: 2rem; margin-bottom: 0.9rem; line-height: 1.65; counter-increment: item; }
+        .prose-box ol > li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            width: 1.4rem;
+            height: 1.4rem;
+            font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.7rem;
+            color: #6b5691;
+            background: #f6f4f9;
+            border: 1px solid #d9d1e5;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        .prose-box strong { color: #1c1917; font-weight: 600; }
+        .prose-box table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.9rem; }
+        .prose-box th, .prose-box td { text-align: left; padding: 0.8rem 1rem; border-bottom: 1px solid #E5E2DB; vertical-align: top; line-height: 1.55; }
+        .prose-box th { font-weight: 600; background: #F5F3EF; color: #44403c; font-size: 0.8rem; }
+        .prose-box blockquote { border-left: 3px solid #d9d1e5; padding: 0.7rem 1rem 0.7rem 1.2rem; margin: 1.3rem 0; color: #78716c; font-style: italic; line-height: 1.65; background: #faf9f6; }
+        .tab-active { color: #6b5691; border-bottom: 2px solid #7b6ba5; font-weight: 600; }
+        .tab-inactive { color: #78716c; border-bottom: 2px solid transparent; }
+        .tab-inactive:hover { color: #44403c; }
+        .hidden-tab { display: none; }
+        @media (max-width: 640px) {
+            .sticky-tabs { position: sticky; top: 72px; z-index: 30; background: rgba(250,250,248,0.96); backdrop-filter: blur(6px); padding: 0.5rem 0; margin: 0 -1rem; padding-left: 1rem; padding-right: 1rem; }
+        }
+        .sticky-tabs { position: sticky; top: 72px; z-index: 30; background: rgba(250,250,248,0.96); backdrop-filter: blur(6px); padding: 0.5rem 0; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[900px] mx-auto px-4 sm:px-6 pt-24 pb-20">
+
+            <header class="mb-6">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Interview-Spickzettel</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Douglas · Retail Media.</h1>
+                <p class="text-sm text-stone-500">Product &amp; Innovation Manager · Düsseldorf. Anschreiben EN — beide Sprachen vorbereitet.</p>
+                <p class="text-xs text-stone-400 mt-2">Andere Spickzettel: <a href="interviews.html" class="text-violet-500 hover:underline">Wilo</a> · <a href="interview-bermuda.html" class="text-violet-500 hover:underline">Bermuda Digital Studio</a></p>
+            </header>
+
+            <!-- Tabs -->
+            <div class="sticky-tabs flex items-center gap-6 text-sm mb-6" style="border-bottom: 1px solid #E5E2DB;">
+                <button id="tab-douglasde-btn" onclick="showTab('douglasde')" class="tab-active pb-3 pt-2 transition-colors">
+                    Douglas · DE
+                </button>
+                <button id="tab-douglasen-btn" onclick="showTab('douglasen')" class="tab-inactive pb-3 pt-2 transition-colors">
+                    Douglas · EN
+                </button>
+            </div>
+
+            <!-- ========================= DOUGLAS DE ========================= -->
+            <section id="tab-douglasde" class="prose-box text-sm text-stone-700">
+
+                <!-- Meta -->
+                <div class="bg-white border rounded-xl p-5 mb-6" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Gesprächspartner-Kontext</p>
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-[0.82rem] mt-3">
+                        <div><strong>Stelle:</strong><br>Product &amp; Innovation Manager (f/m/x) · Retail Media</div>
+                        <div><strong>Start:</strong><br>Juli/August 2026</div>
+                        <div><strong>Unternehmen:</strong><br>Douglas Group</div>
+                        <div><strong>Standort:</strong><br>Düsseldorf · Luise-Rainer-Straße 7-11</div>
+                        <div><strong>Branche:</strong><br>Beauty-Retail · Retail Media</div>
+                        <div><strong>Range:</strong><br>90–110 k€ (Anker 100)</div>
+                        <div><strong>Bewerbung:</strong><br>31.03.2026 (EN eingereicht)</div>
+                        <div><strong>Konzern:</strong><br>~85k MA · 1.900 Filialen · IPO 2024</div>
+                    </div>
+                </div>
+
+                <!-- Quick-Nav -->
+                <div class="bg-violet-50 border border-violet-100 rounded-xl p-4 mb-6">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Quick-Nav</p>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <a href="#dgde-kompass" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Kompass</a>
+                        <a href="#dgde-warum" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Warum Douglas?</a>
+                        <a href="#dgde-pitch" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Pitch</a>
+                        <a href="#dgde-fragen" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Antworten</a>
+                        <a href="#dgde-meine" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Meine Fragen</a>
+                        <a href="#dgde-rahmen" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Rahmen</a>
+                    </div>
+                </div>
+
+                <h2 id="dgde-kompass">Kompass (30 Sek)</h2>
+                <ul>
+                    <li><strong>Douglas Group:</strong> Größter Beauty-Retailer Europas. Sitz Düsseldorf. ~85.000 MA, ~1.900 Filialen in 22 Ländern. Umsatz ca. 4,5 Mrd. €.</li>
+                    <li><strong>IPO:</strong> März 2024 zurück an die Börse (zuvor CVC-Eigentum). Hoher Druck auf Profitabilität und neue Umsatzhebel.</li>
+                    <li><strong>Retail Media als Wachstumshebel:</strong> Douglas verkauft inzwischen nicht nur Produkte an Endkunden, sondern Werbeplatzierungen an Brands (L'Oréal, Estée Lauder etc.).</li>
+                    <li><strong>Kanäle:</strong> Onsite Display, Social, Connected TV, Programmatic, E-Mail.</li>
+                    <li><strong>Rolle:</strong> Skalierbare Monetarisierungsmodelle, Produktanforderungen, Pricing/Packaging, Cross-funktionales Alignment.</li>
+                    <li><strong>Marktdynamik:</strong> Retail Media ist das am schnellsten wachsende Werbesegment in Europa. Amazon dominiert, alle anderen Retailer bauen jetzt auf.</li>
+                </ul>
+
+                <h2 id="dgde-warum">Warum Douglas?</h2>
+                <ul>
+                    <li><strong>Retail Media ist Monetarisierung in der Skalierungsphase.</strong> Produkt funktioniert, jetzt Geschäftsmodell und Pricing entwickeln. Phase, in der PM strategisch am meisten Hebel hat.</li>
+                    <li><strong>B2B-Monetarisierung kenne ich.</strong> ABS-Bestellstrecke als B2B-Plattform mit Provisions- und Lizenzlogik. ista-Portfolio in 17 Ländern, Pricing pro Markt.</li>
+                    <li><strong>Cross-funktional auf Konzern-Niveau</strong> habe ich seit Jahren gemacht: 40+ Stakeholder ista, 8 PMs lateral ABS, Sales/Finance/Tech regelmäßig orchestriert.</li>
+                    <li><strong>Englisch + Deutsch fließend.</strong> Anschreiben bewusst EN eingereicht, weil Douglas Group international tickt (Multi-Country Retail Media).</li>
+                    <li><strong>Düsseldorf-Standort.</strong> Ruhrgebiet/NRW, Hybrid funktioniert, Präsenz selbstverständlich.</li>
+                </ul>
+
+                <h2 id="dgde-pitch">Pitch (2 Min)</h2>
+                <ul>
+                    <li>13 Jahre PM. Kombination aus Konzern (ista, ABS Safety) und Gründung (MatGrid).</li>
+                    <li><strong>ista (6 J.):</strong> 17 Märkte, EU-Direktive umgesetzt, 40+ Stakeholder zwischen Sales/Finance/Tech orchestriert. Genau die Multi-Stakeholder-Logik, die Retail Media braucht.</li>
+                    <li><strong>ABS Safety (5 J.):</strong> Digitale Bestellstrecke +3,5 Mio. € Umsatz. Doku-Tool +132 % aktive Nutzer, +178 % Volumen. Hypothesengetrieben, A/B-Testing, Pricing-Frameworks.</li>
+                    <li><strong>MatGrid parallel:</strong> Mitgründerin, SaaS für Dachdecker. Geschäftsmodell- und Pricing-Validierung aus erster Hand.</li>
+                    <li><strong>Jetzt:</strong> Retail Media als nächste Skalierungsstufe. Monetarisierung in einer wachsenden Plattform-Logik ist mein nächster Hebel.</li>
+                </ul>
+
+                <h2 id="dgde-fragen">Antworten auf typische Fragen</h2>
+
+                <h3>"Erzählen Sie von sich"</h3>
+                <p>13 Jahre PM. Aktuell Senior PM bei ABS Safety mit digitalem Portfolio und 8-köpfigem Team. Davor 6 Jahre ista, Energiebranche, 17 Länder. Zwei Ausgründungen begleitet. Parallel baue ich mit zwei Mitgründern MatGrid, eine SaaS für Dachdecker. Fokus: nutzerzentrierte Produktarbeit mit klarem Geschäftsmodell.</p>
+
+                <h3>"Warum Douglas, warum jetzt?"</h3>
+                <p>Drei Gründe. Retail Media ist die spannendste Monetarisierungs-Story in Europa gerade. Meine Erfahrung mit B2B-Plattformen, Pricing-Frameworks und Cross-funktionalem Alignment passt direkt. Düsseldorf-Standort macht es einfach.</p>
+
+                <h3>"Was wissen Sie über Retail Media bei Douglas?"</h3>
+                <p>Douglas baut ein eigenes Werbenetzwerk auf, in dem Brands (Skincare, Premium-Beauty) für Sichtbarkeit auf Onsite-Kanälen, Social, CTV und Programmatic zahlen. First-Party-Daten sind der entscheidende Asset — Douglas weiß, was Kundinnen kaufen, wann, in welchem Cluster. Das ist der USP gegenüber generischen Ad-Plattformen.</p>
+
+                <h3>"Erfahrung mit Werbe-/Ad-Tech-Plattformen?"</h3>
+                <p>Nicht direkt. Aber B2B-Monetarisierung, Pricing-Frameworks, Packaging und Cross-funktionales Sales-Alignment sind erprobt. Ad-Tech-spezifisches Vokabular (CPM, ROAS, Viewability, Brand-Lift) lerne ich schnell, weil das Methoden-Verständnis dahinter dasselbe ist.</p>
+
+                <h3>"Wie würden Sie ein neues Retail-Media-Produkt aufsetzen?"</h3>
+                <p>Drei Schritte. Welcher Schmerz bei Brand-Partnern ist heute am größten — schnelle Performance-Reports, Self-Service, Targeting-Granularität? 5–8 Tiefeninterviews mit großen Brands. Dann MVP gegen den größten Schmerz, klare Hypothese, A/B-Setup. Pricing-Modell und Packaging früh testen, weil dort später die Hebel liegen.</p>
+
+                <h3>"Cross-funktionales Alignment — wie?"</h3>
+                <p>Frühe Allianzen, nicht späte Approvals. Sales bringt die Brand-Schmerzpunkte, Finance die Margenlogik, Tech die machbare Architektur, Data den Targeting-Layer. Eine North-Star-Metrik, an der alle ziehen. Bei ista habe ich genau so über 17 Länder und 40+ Stakeholder Governance gefahren.</p>
+
+                <h3>"Pricing-Frameworks — wie geht man da ran?"</h3>
+                <p>Drei-Schritte-Logik. Wertbasiert denken, nicht kostenbasiert — was bringt es dem Brand, in dem Inventar zu sein? Drei Pakete im Markt testen (Basic/Performance/Premium), nicht 20 Optionen. Iteration über echte Verträge, nicht Marktforschung. Bei ABS habe ich mit dieser Logik die Bestellstrecke-Provisionsmodelle eingestellt.</p>
+
+                <h3>"Daten und Privacy?"</h3>
+                <p>Retail Media ist First-Party-Daten-getrieben — das ist Stärke und Pflicht zugleich. GDPR-Compliance, Cookie-freie Setups, Consent-Management müssen Produktdesign sein, nicht Legal-Audit. Bei ista war Privacy in 17 Märkten Pflichtprogramm.</p>
+
+                <h3>"Wie nah am Kunden (= Brand-Partner)?"</h3>
+                <p>Sehr nah. Quarterly Business Reviews mit Top-Brands, Field-Interviews mit Mid-Tier-Brands, Self-Service-Daten für Long Tail. Ich würde im ersten Quartal 10+ Brand-Interviews führen, bevor wir Roadmap-Entscheidungen treffen.</p>
+
+                <h3>"Warum jetzt weg von ABS Safety?"</h3>
+                <p>Bei ABS ist das digitale Portfolio aufgebaut, das Team steht. Der nächste Hebel für mich liegt in einer Monetarisierungs-Story mit größerem Markt und mehr Skalierungspotenzial. Retail Media bei Douglas passt auf Phase und Hebel.</p>
+
+                <h3>"MatGrid läuft parallel — Konflikt?"</h3>
+                <p>MatGrid ist SaaS für Dachdecker. Andere Domäne, andere Zielgruppe. Kein Konflikt mit Beauty-Retail oder Werbeplattformen. Offen besprechbar, vertraglich klärbar.</p>
+
+                <h3>"100 Tage?"</h3>
+                <p>Zuhören. Brand-Partner-Interviews (10+), Sales-Shadowing, Pricing-Inventur, Roadmap-Backlog verstehen. Stakeholder-Mapping: VP Retail Media, Head of Sales, Finance, Data. Vorschläge erst danach.</p>
+
+                <h2 id="dgde-meine">Meine Fragen an Douglas</h2>
+
+                <h3>Rolle &amp; Setup</h3>
+                <ol>
+                    <li><strong>Reporting:</strong> Wem berichtet die Rolle: VP Retail Media, CPO, CCO?</li>
+                    <li><strong>Konkrete Verantwortung:</strong> Welche Retail-Media-Produkte sind in meiner Hand — Onsite, Social, CTV, Programmatic? Querschnitt oder ein Channel-Fokus?</li>
+                    <li><strong>Team:</strong> Wie ist das Retail-Media-Produktteam aufgebaut: Größe, Disziplinen, Reifegrad?</li>
+                    <li><strong>Open Question:</strong> Welche Produkt- oder Pricing-Entscheidung soll die nächste Person als erstes mitgestalten?</li>
+                </ol>
+
+                <h3>Geschäftsmodell &amp; Skalierung</h3>
+                <ol start="5">
+                    <li><strong>North-Star:</strong> Outcome-Metrik für Retail Media — Net Revenue, Brand-NPS, Activation, ROAS für Brands?</li>
+                    <li><strong>Wachstumshebel:</strong> Welcher Kanal wächst am schnellsten (Onsite vs. CTV vs. Programmatic), wo liegt strategische Priorität?</li>
+                    <li><strong>Pricing-Reifegrad:</strong> Aktuell fixed-rate, performance-basiert, hybrid? Wo ist die größte Spannung im Pricing-Modell?</li>
+                    <li><strong>Brand-Portfolio:</strong> Wer sind die Top-3-Brand-Partner, wie groß ist der Long Tail?</li>
+                </ol>
+
+                <h3>Daten &amp; Tech</h3>
+                <ol start="9">
+                    <li><strong>First-Party-Daten:</strong> Welche Datenpunkte stehen Brand-Partnern heute zur Verfügung? Was kommt 2026 dazu?</li>
+                    <li><strong>Tech-Stack:</strong> Eigenentwicklung, Plattform-Buyout (Criteo, Mirakl), Mischmodell?</li>
+                    <li><strong>AI im Retail-Media-Produkt:</strong> Wo experimentiert ihr — Targeting, Creative-Generation, Performance-Reporting?</li>
+                </ol>
+
+                <h3>Cross-funktional &amp; Kultur</h3>
+                <ol start="12">
+                    <li><strong>Sales-Schnittstelle:</strong> Wie ist die Zusammenarbeit Product ↔ Brand-Sales? Eskalationswege?</li>
+                    <li><strong>Discovery-Raum:</strong> Wie viel Customer Discovery neben Roadmap-Delivery?</li>
+                    <li><strong>Kultur seit IPO:</strong> Was hat sich seit dem Börsengang 2024 verändert?</li>
+                </ol>
+
+                <h3>Rahmen</h3>
+                <ol start="15">
+                    <li><strong>Hybrid:</strong> Wie viele Bürotage in Düsseldorf, Reisen zu Brand-HQs?</li>
+                </ol>
+
+                <h2 id="dgde-rahmen">Rahmenbedingungen</h2>
+                <table>
+                    <thead><tr><th>Thema</th><th>Position</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Gehalt</strong></td><td><strong>Anker 100 k. Range 90–110 k (Anschreiben). Untergrenze 90 k.</strong></td></tr>
+                        <tr><td><strong>Start</strong></td><td>Juli/August 2026 (Kündigungsfrist ABS Safety)</td></tr>
+                        <tr><td><strong>Pendelsituation</strong></td><td>Unna → Düsseldorf ca. 50 Min.</td></tr>
+                        <tr><td><strong>Hybrid</strong></td><td>Mix ideal. Düsseldorf-Tage selbstverständlich.</td></tr>
+                        <tr><td><strong>Andere Bewerbungen</strong></td><td>Ja, in Gesprächen. Douglas hoch priorisiert (Skalierung + RM).</td></tr>
+                        <tr><td><strong>Sprache</strong></td><td>Anschreiben EN eingereicht. Gespräch DE oder EN möglich.</td></tr>
+                        <tr><td><strong>MatGrid</strong></td><td>Offen besprechbar. Andere Domäne, kein Retail-/Beauty-Konflikt.</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="mt-8 p-4 rounded-lg" style="background: #fef3ec; border: 1px solid #fae8de;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-amber-700 mb-2">NICHT sagen</p>
+                    <ul class="text-[0.82rem] text-stone-700 list-disc ml-5">
+                        <li>Nichts Negatives über ABS Safety</li>
+                        <li>Nicht "ich habe noch nie Ad-Tech gemacht" — als Lernkurve framen</li>
+                        <li>Nicht "ich bin keine Beauty-Konsumentin" — Domäne sekundär, Produktarbeit primär</li>
+                        <li>Nicht "ich suche einfach was Neues"</li>
+                        <li>MatGrid nicht als Konkurrenz framen</li>
+                    </ul>
+                </div>
+
+                <div class="mt-6 p-4 rounded-lg bg-white border" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Drei Anker für den ersten Eindruck</p>
+                    <ol class="text-[0.82rem] mb-0">
+                        <li><strong>Multi-Stakeholder-Alignment:</strong> 17 Länder ista, 40+ Stakeholder, CEO/CFO-Reporting.</li>
+                        <li><strong>B2B-Monetarisierung mit Outcome:</strong> ABS-Bestellstrecke +3,5 Mio. €, Pricing eingestellt.</li>
+                        <li><strong>Skalierungs-Phase ist Sweet Spot:</strong> Von 1→10 mit hypothesengetriebener Entwicklung.</li>
+                    </ol>
+                </div>
+
+                <blockquote class="mt-6">
+                    Börsennotierter Konzern in Skalierungsphase: Substanz, Zahlen, Klarheit. Englisch flexibel mitgehen, wenn das Gespräch dorthin kippt. Werbevokabular natürlich verwenden, Methoden-Tiefe wichtiger als Buzzwords.
+                </blockquote>
+
+            </section>
+
+            <!-- ========================= DOUGLAS EN ========================= -->
+            <section id="tab-douglasen" class="prose-box text-sm text-stone-700 hidden-tab">
+
+                <!-- Meta -->
+                <div class="bg-white border rounded-xl p-5 mb-6" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Interview context</p>
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-[0.82rem] mt-3">
+                        <div><strong>Role:</strong><br>Product &amp; Innovation Manager (f/m/x) · Retail Media</div>
+                        <div><strong>Start:</strong><br>July/August 2026</div>
+                        <div><strong>Company:</strong><br>Douglas Group</div>
+                        <div><strong>Location:</strong><br>Düsseldorf · Luise-Rainer-Straße 7-11</div>
+                        <div><strong>Industry:</strong><br>Beauty retail · retail media</div>
+                        <div><strong>Range:</strong><br>90 to 110 k€ (anchor 100)</div>
+                        <div><strong>Application:</strong><br>March 31, 2026 (submitted in EN)</div>
+                        <div><strong>Group:</strong><br>~85k staff · 1,900 stores · IPO 2024</div>
+                    </div>
+                </div>
+
+                <!-- Quick-Nav -->
+                <div class="bg-violet-50 border border-violet-100 rounded-xl p-4 mb-6">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Quick-Nav</p>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <a href="#dgen-compass" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Compass</a>
+                        <a href="#dgen-why" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Why Douglas?</a>
+                        <a href="#dgen-pitch" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Pitch</a>
+                        <a href="#dgen-answers" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Answers</a>
+                        <a href="#dgen-questions" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">My questions</a>
+                        <a href="#dgen-frame" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Frame</a>
+                    </div>
+                </div>
+
+                <h2 id="dgen-compass">Compass (30 sec)</h2>
+                <ul>
+                    <li><strong>Douglas Group:</strong> Europe's largest beauty retailer. Headquartered in Düsseldorf. Around 85,000 staff, 1,900 stores across 22 countries, revenue close to 4.5 billion EUR.</li>
+                    <li><strong>IPO:</strong> Back on the stock market in March 2024 (previously CVC-owned). Strong pressure on profitability and new revenue levers.</li>
+                    <li><strong>Retail Media as a growth lever:</strong> Douglas now sells ad placements to brands (L'Oréal, Estée Lauder and others) on top of selling products to consumers.</li>
+                    <li><strong>Channels:</strong> Onsite display, social, connected TV, programmatic, email.</li>
+                    <li><strong>Role focus:</strong> Scalable monetisation models, structured product requirements, pricing and packaging, cross-functional alignment.</li>
+                    <li><strong>Market dynamic:</strong> Retail media is the fastest-growing ad segment in Europe. Amazon leads, every other retailer is building now.</li>
+                </ul>
+
+                <h2 id="dgen-why">Why Douglas?</h2>
+                <ul>
+                    <li><strong>Retail media is monetisation in the scaling phase.</strong> The product works, now business model and pricing get built out. That is the phase where PM has the most leverage.</li>
+                    <li><strong>B2B monetisation is home turf.</strong> ABS order pipeline as a B2B platform with commission and licence logic. ista portfolio across 17 markets with country-specific pricing.</li>
+                    <li><strong>Cross-functional at corporate scale</strong> has been my daily work for years: 40+ stakeholders at ista, 8 PMs in lateral leadership at ABS, sales, finance and tech orchestrated continuously.</li>
+                    <li><strong>Fluent English and German.</strong> I submitted my application in English on purpose because Douglas operates internationally across many countries.</li>
+                    <li><strong>Düsseldorf location.</strong> Ruhr area home turf, hybrid works, presence is no issue.</li>
+                </ul>
+
+                <h2 id="dgen-pitch">Pitch (2 min)</h2>
+                <ul>
+                    <li>13 years in product. Combination of corporate experience (ista, ABS Safety) and founder experience (MatGrid).</li>
+                    <li><strong>ista (6 years):</strong> 17 markets, EU directive rolled out, 40 plus stakeholders orchestrated across sales, finance and tech. Exactly the multi-stakeholder logic retail media requires.</li>
+                    <li><strong>ABS Safety (5 years):</strong> Digital order pipeline produced 3.5 million EUR in additional revenue. Documentation tool grew active users by 132 percent and volume by 178 percent. Hypothesis-driven, A/B testing, pricing frameworks.</li>
+                    <li><strong>MatGrid in parallel:</strong> Co-founder of a SaaS for roofers. Business model and pricing validation from the inside.</li>
+                    <li><strong>Next step:</strong> Retail media as the next scaling stage. Monetisation in a growing platform logic is the lever I am looking for.</li>
+                </ul>
+
+                <h2 id="dgen-answers">Answers to likely questions</h2>
+
+                <h3>"Tell me about yourself."</h3>
+                <p>13 years in product. Currently Senior PM at ABS Safety with a digital portfolio and an 8-person team in lateral leadership. Before that, 6 years at ista in 4 roles across the energy industry in 17 markets. Two ventures spun out under my work. In parallel I am building MatGrid, a SaaS for roofers, with two co-founders. My focus: user-centric product work with a clear business model.</p>
+
+                <h3>"Why Douglas, why now?"</h3>
+                <p>Three reasons. Retail media is the most interesting monetisation story in Europe right now. My experience with B2B platforms, pricing frameworks and cross-functional alignment maps onto this role directly. And the location works.</p>
+
+                <h3>"What do you know about Retail Media at Douglas?"</h3>
+                <p>Douglas is building its own advertising network where brands pay for visibility across onsite, social, CTV and programmatic. First-party data is the decisive asset. Douglas knows what its customers buy, when, in which cluster. That is the USP against generic ad platforms.</p>
+
+                <h3>"Do you have ad tech experience?"</h3>
+                <p>Not directly. But B2B monetisation, pricing frameworks, packaging and cross-functional sales alignment are well-rehearsed. Ad-tech vocabulary like CPM, ROAS, viewability and brand lift is something I pick up fast, because the underlying method logic is the same.</p>
+
+                <h3>"How would you set up a new retail media product?"</h3>
+                <p>Three steps. First, identify the biggest pain on the brand side today: faster performance reports, self-service, targeting granularity? 5 to 8 deep interviews with major brands. Second, MVP against the biggest pain, clear hypothesis, A/B setup. Third, test pricing model and packaging early, because that is where the leverage sits.</p>
+
+                <h3>"How do you do cross-functional alignment?"</h3>
+                <p>Early alliances, not late approvals. Sales brings the brand pain points, finance the margin logic, tech the feasible architecture, data the targeting layer. One north-star metric the whole team pulls on. At ista I governed exactly this way across 17 countries and 40 plus stakeholders.</p>
+
+                <h3>"How do you approach pricing frameworks?"</h3>
+                <p>Three principles. Think value-based, not cost-based: what does it bring the brand to be in this inventory? Test three packages in the market (basic, performance, premium), not 20 options. Iterate on real contracts, not on market research. At ABS I set up the commission models of the order pipeline this way.</p>
+
+                <h3>"Data and privacy?"</h3>
+                <p>Retail media runs on first-party data. That is both strength and obligation. GDPR compliance, cookie-free setups and consent management have to be product design, not a legal audit. Privacy was a constant in my ista work across 17 markets.</p>
+
+                <h3>"How close to the customer (brand partner)?"</h3>
+                <p>Very close. Quarterly business reviews with top brands, field interviews with mid-tier brands, self-service data for the long tail. I would run 10 plus brand interviews in the first quarter before making roadmap calls.</p>
+
+                <h3>"Why leave ABS Safety now?"</h3>
+                <p>At ABS the digital portfolio is built and the team is in place. The next lever for me is a monetisation story in a larger market with more scaling headroom. Retail media at Douglas fits both phase and lever.</p>
+
+                <h3>"You run MatGrid in parallel. Is that a conflict?"</h3>
+                <p>MatGrid is a SaaS for roofers. Different domain and audience from beauty retail and ad platforms. No conflict. Open to discuss, contractually clarifiable.</p>
+
+                <h3>"What would you do in the first 100 days?"</h3>
+                <p>Listen first. 10 plus brand interviews, sales shadowing, pricing inventory, roadmap and backlog deep dive. Stakeholder mapping across VP Retail Media, Head of Sales, Finance and Data. Proposals only after that.</p>
+
+                <h2 id="dgen-questions">My questions for Douglas</h2>
+
+                <h3>Role &amp; setup</h3>
+                <ol>
+                    <li><strong>Reporting:</strong> Who does this role report to: VP Retail Media, CPO, CCO?</li>
+                    <li><strong>Scope:</strong> Which retail media products would be in scope: onsite, social, CTV, programmatic? Cross-channel or a single channel focus?</li>
+                    <li><strong>Team:</strong> How is the retail media product team set up: size, disciplines, maturity?</li>
+                    <li><strong>Open question:</strong> What is the first product or pricing decision the next person should help shape?</li>
+                </ol>
+
+                <h3>Business model &amp; scaling</h3>
+                <ol start="5">
+                    <li><strong>North star:</strong> What outcome metric leads retail media: net revenue, brand NPS, activation, ROAS for brands?</li>
+                    <li><strong>Growth lever:</strong> Which channel grows fastest (onsite vs. CTV vs. programmatic)? Where is the strategic priority?</li>
+                    <li><strong>Pricing maturity:</strong> Fixed rate, performance-based, hybrid? Where is the biggest tension in the pricing model?</li>
+                    <li><strong>Brand portfolio:</strong> Who are the top three brand partners and how large is the long tail?</li>
+                </ol>
+
+                <h3>Data &amp; tech</h3>
+                <ol start="9">
+                    <li><strong>First-party data:</strong> What data points do brand partners get access to today? What is on the 2026 roadmap?</li>
+                    <li><strong>Tech stack:</strong> In-house build, platform buyout (Criteo, Mirakl), mixed model?</li>
+                    <li><strong>AI in the product:</strong> Where are you experimenting: targeting, creative generation, performance reporting?</li>
+                </ol>
+
+                <h3>Cross-functional &amp; culture</h3>
+                <ol start="12">
+                    <li><strong>Sales interface:</strong> How does product work with brand sales? What are the escalation paths?</li>
+                    <li><strong>Discovery space:</strong> How much customer discovery sits next to roadmap delivery?</li>
+                    <li><strong>Culture post-IPO:</strong> What has changed since the 2024 listing?</li>
+                </ol>
+
+                <h3>Frame</h3>
+                <ol start="15">
+                    <li><strong>Hybrid:</strong> How many office days in Düsseldorf, what travel to brand HQs is expected?</li>
+                </ol>
+
+                <h2 id="dgen-frame">Frame</h2>
+                <table>
+                    <thead><tr><th>Topic</th><th>Position</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Salary</strong></td><td><strong>Anchor 100k. Range 90 to 110k (cover letter). Floor 90k.</strong></td></tr>
+                        <tr><td><strong>Start date</strong></td><td>July or August 2026 (notice period at ABS Safety)</td></tr>
+                        <tr><td><strong>Commute</strong></td><td>Unna to Düsseldorf around 50 minutes.</td></tr>
+                        <tr><td><strong>Hybrid</strong></td><td>Mix is ideal. Office days in Düsseldorf are fine.</td></tr>
+                        <tr><td><strong>Other applications</strong></td><td>Yes, in conversation. Douglas is high priority (scaling phase, retail media).</td></tr>
+                        <tr><td><strong>Language</strong></td><td>Cover letter submitted in English. Interview works in DE or EN.</td></tr>
+                        <tr><td><strong>MatGrid</strong></td><td>Open to discuss. Different domain (roofer SaaS). No retail or beauty conflict.</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="mt-8 p-4 rounded-lg" style="background: #fef3ec; border: 1px solid #fae8de;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-amber-700 mb-2">Do NOT say</p>
+                    <ul class="text-[0.82rem] text-stone-700 list-disc ml-5">
+                        <li>Nothing negative about ABS Safety.</li>
+                        <li>Avoid "I have never done ad tech". Frame it as a learning curve.</li>
+                        <li>Avoid "I am not a beauty consumer". Domain is secondary, product work primary.</li>
+                        <li>Avoid "I am just looking for something new".</li>
+                        <li>Do not frame MatGrid as competition.</li>
+                    </ul>
+                </div>
+
+                <div class="mt-6 p-4 rounded-lg bg-white border" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Three anchors for the first impression</p>
+                    <ol class="text-[0.82rem] mb-0">
+                        <li><strong>Multi-stakeholder alignment:</strong> 17 markets at ista, 40 plus stakeholders, CEO and CFO reporting.</li>
+                        <li><strong>B2B monetisation with outcome:</strong> ABS order pipeline at 3.5 million EUR additional revenue, pricing model rebuilt.</li>
+                        <li><strong>Scaling phase is the sweet spot:</strong> 1 to 10 with hypothesis-driven development.</li>
+                    </ol>
+                </div>
+
+                <blockquote class="mt-6">
+                    Listed corporate in scaling phase. Substance, numbers, clarity. Switch into English fluently if the conversation tilts that way. Use ad vocabulary naturally, but method depth beats buzzwords.
+                </blockquote>
+
+            </section>
+
+            <div style="height: 80px;"></div>
+
+        </main>
+    </div>
+
+    <script src="office.js?v=2" data-active="interviews"></script>
+    <script>
+        function showTab(name) {
+            var tabs = ['douglasde', 'douglasen'];
+            tabs.forEach(function(t) {
+                var sec = document.getElementById('tab-' + t);
+                var btn = document.getElementById('tab-' + t + '-btn');
+                if (t === name) {
+                    sec.classList.remove('hidden-tab');
+                    btn.classList.remove('tab-inactive');
+                    btn.classList.add('tab-active');
+                } else {
+                    sec.classList.add('hidden-tab');
+                    btn.classList.remove('tab-active');
+                    btn.classList.add('tab-inactive');
+                }
+            });
+            try { sessionStorage.setItem('douglas-last-tab', name); } catch (e) {}
+            window.scrollTo({ top: 120, behavior: 'smooth' });
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                var last = sessionStorage.getItem('douglas-last-tab');
+                if (last && last !== 'douglasde' && ['douglasde','douglasen'].indexOf(last) !== -1) showTab(last);
+            } catch (e) {}
+        });
+    </script>
+</body>
+</html>
