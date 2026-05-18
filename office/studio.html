@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Studio Panoptia – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: {
+                violet: { 50:'#f6f4f9',100:'#ece8f2',200:'#d9d1e5',300:'#9a82b5',400:'#7b6ba5',500:'#6b5691',700:'#463863' },
+                amber: { 50:'#fdf5f0',100:'#fae8de',400:'#c27a52',500:'#D4714E',600:'#a86340' },
+                emerald: { 50:'#f2f7f4',100:'#e0ede6',500:'#5b8a72',600:'#476f5b' },
+                sky: { 50:'#f0f7fb',100:'#ddeef7',400:'#5B96B8',500:'#4a7d9e' }
+            },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        .pkg-badge { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 0.25rem; }
+        table.cmp { width: 100%; border-collapse: collapse; }
+        table.cmp th, table.cmp td { padding: 0.6rem 0.8rem; text-align: left; font-size: 0.82rem; border-bottom: 1px solid #f0ede8; }
+        table.cmp th { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase; color: #78716c; background: #f5f3ef; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Studio · 18.05.2026 · KW21</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Panoptia Studio.</h1>
+                <p class="text-sm text-stone-500 max-w-[44em]">Strategische Reflexion vom Wochen-Kick-off KW21: Modell A (Stunden-basiert), drei Pakete, Business Case, Vergleich mit bestehenden Tracks, Akquise-Plan, Blog-Pipeline, LinkedIn-Screening.</p>
+            </header>
+
+            <!-- ====== ENTSCHEIDUNG ====== -->
+            <section class="mb-12">
+                <div class="rounded-xl p-6 lg:p-8" style="background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 70%); border: 1px solid #d9d1e5;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Strategische Entscheidung</p>
+                    <h2 class="source-serif text-xl text-stone-900 mb-3">Modell A — Panoptia als gemeinsames Studio mit Jan + David, "Stunden-basiert"</h2>
+                    <p class="text-sm text-stone-600 leading-relaxed mb-5 max-w-[48em]">
+                        Linja = Vollzeit-Person mit den meisten Studio-Stunden. Jan + David tendieren beide eher Hybrid (Hauptjobs daneben).
+                        David tendiert mehr Richtung Panoptia. Faires Modell: Jeder bekommt für seine Stunden den eigenen Tagessatz —
+                        kein gleicher Cash-Split, sondern Studio = Akquise-Plattform + Brand + gemeinsame Methodik.
+                        Verhindert "Linja trägt, andere ernten mit"-Risiko.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Pricing-Ziel</p>
+                            <p class="font-medium text-stone-900 text-sm">1.200 €/Tag</p>
+                            <p class="text-[0.72rem] text-stone-500 mt-0.5">Bandbreite 1.000–1.300 €</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Brutto-Bedarf</p>
+                            <p class="font-medium text-stone-900 text-sm">~9.000 €/Monat</p>
+                            <p class="text-[0.72rem] text-stone-500 mt-0.5">Survival-Modus mit KV + Rente</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Fakturierbare Tage</p>
+                            <p class="font-medium text-stone-900 text-sm">14–16/Monat</p>
+                            <p class="text-[0.72rem] text-stone-500 mt-0.5">4 Tage/Woche brutto</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #5b8a72;">Zielszenario</p>
+                            <p class="font-medium text-stone-900 text-sm">16.800 €/Monat</p>
+                            <p class="text-[0.72rem] text-stone-500 mt-0.5">1.200 € × 14 Tage Brutto</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== 3 STUDIO-PAKETE ====== -->
+            <section class="mb-14">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Drei Studio-Pakete</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                    <!-- Paket 1 -->
+                    <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                        <div class="px-6 pt-5 pb-4" style="border-bottom: 1px solid #E5E2DB; background: linear-gradient(180deg, #f2f7f4 0%, #ffffff 100%);">
+                            <span class="pkg-badge" style="background: #e0ede6; color: #476f5b;">Paket 1</span>
+                            <h3 class="source-serif text-lg text-stone-900 mt-3">Discovery-Sprint mit Claude</h3>
+                            <p class="text-[0.78rem] text-stone-500 mt-1">In 2 Wochen vom unklaren Problem zur entscheidungsreifen Roadmap.</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Format</p>
+                                <p class="text-sm text-stone-700">2 Wochen, ~8–10 Linja-Tage</p>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Preis</p>
+                                <p class="text-sm text-stone-900 font-medium">15.000–20.000 € Festpreis</p>
+                                <p class="text-[0.7rem] text-stone-500 mt-0.5">~1.500–2.000 €/Tag · Premium gerechtfertigt durch Outcome-Garantie + Templates</p>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Outcome</p>
+                                <ul class="text-[0.82rem] text-stone-600 space-y-1">
+                                    <li>· Klar geschnittenes Problem + Personas + Top-3-Opportunities</li>
+                                    <li>· 8–12 strukturierte Discovery-Interviews mit Synthese</li>
+                                    <li>· 1-Pager Decision-Doc (Go · Iterate · Drop)</li>
+                                    <li>· Templates + Methodik, mit denen das Team weitermacht</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Wer kauft</p>
+                                <p class="text-[0.82rem] text-stone-600">Scale-up-Gründer/CPOs (50–300 MA), die Discovery zu langsam empfinden. Corporate-Innovation-Leads ohne 6-Monats-Projekt-Budget.</p>
+                            </div>
+                            <div class="pt-3" style="border-top: 1px solid #f0ede8;">
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Studio-USP</p>
+                                <p class="text-[0.78rem] text-stone-500">Claude-First-Workflow (Synthese in Stunden), David bei Engineering-Spike, Templates bleiben.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paket 2 -->
+                    <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                        <div class="px-6 pt-5 pb-4" style="border-bottom: 1px solid #E5E2DB; background: linear-gradient(180deg, #f6f4f9 0%, #ffffff 100%);">
+                            <span class="pkg-badge" style="background: #ece8f2; color: #6b5691;">Paket 2</span>
+                            <h3 class="source-serif text-lg text-stone-900 mt-3">PM-Org-Setup für Scale-ups</h3>
+                            <p class="text-[0.78rem] text-stone-500 mt-1">Der erste PM-Prozess, der auch beim 3. PM noch funktioniert.</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Format</p>
+                                <p class="text-sm text-stone-700">6–8 Wochen, ~12–16 Linja-Tage</p>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Preis</p>
+                                <p class="text-sm text-stone-900 font-medium">30.000–50.000 € Festpreis</p>
+                                <p class="text-[0.7rem] text-stone-500 mt-0.5">oder 5–8k €/Monat × 3 Monate</p>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Outcome</p>
+                                <ul class="text-[0.82rem] text-stone-600 space-y-1">
+                                    <li>· Discovery → Spec → Roadmap Prozess, dokumentiert + gelebt</li>
+                                    <li>· KI-First-Workflow-Toolset (Interview-Synthese, Spec-Draft, Stakeholder-Update)</li>
+                                    <li>· 1–2 PM-Coachings/Woche während der 6–8 Wochen</li>
+                                    <li>· Onboarding-Playbook für den nächsten PM</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Wer kauft</p>
+                                <p class="text-[0.82rem] text-stone-600">Scale-up-CEOs/CPOs, die 2.–3. PM einstellen und merken: ohne Prozess skaliert nichts.</p>
+                            </div>
+                            <div class="pt-3" style="border-top: 1px solid #f0ede8;">
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Studio-USP</p>
+                                <p class="text-[0.78rem] text-stone-500">Linja Lead + Jan als Strategie-Sparring (Board, OKR) + David fallweise Engineering-Interface.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paket 3 -->
+                    <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                        <div class="px-6 pt-5 pb-4" style="border-bottom: 1px solid #E5E2DB; background: linear-gradient(180deg, #f0f7fb 0%, #ffffff 100%);">
+                            <span class="pkg-badge" style="background: #ddeef7; color: #2d4d63;">Paket 3</span>
+                            <h3 class="source-serif text-lg text-stone-900 mt-3">Fractional Senior PM</h3>
+                            <p class="text-[0.78rem] text-stone-500 mt-1">Senior-PM-Power ohne Senior-PM-Hiring-Zeit.</p>
+                        </div>
+                        <div class="p-6 space-y-4">
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Format</p>
+                                <p class="text-sm text-stone-700">1–2 Tage/Woche, min. 3 Monate, danach monatlich kündbar</p>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Preis</p>
+                                <p class="text-sm text-stone-900 font-medium">5.000 €/Monat (1 Tag/Woche)</p>
+                                <p class="text-sm text-stone-900 font-medium">9.000–10.000 €/Monat (2 Tage)</p>
+                                <p class="text-[0.7rem] text-stone-500 mt-0.5">~1.150–1.250 €/Tag, Discount für Planbarkeit</p>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Outcome</p>
+                                <ul class="text-[0.82rem] text-stone-600 space-y-1">
+                                    <li>· Senior-PM-Kapazität fortlaufend</li>
+                                    <li>· Discovery owned · Specs reviewed · Stakeholder-Updates</li>
+                                    <li>· Coaching junger PMs</li>
+                                    <li>· Quarterly Roadmap-Review + Board-Vorbereitung</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Wer kauft</p>
+                                <p class="text-[0.82rem] text-stone-600">Scale-ups/Mid-Corporates, die einen Senior-Lead brauchen, aber Hiring 4–6 Monate dauert.</p>
+                            </div>
+                            <div class="pt-3" style="border-top: 1px solid #f0ede8;">
+                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Studio-USP</p>
+                                <p class="text-[0.78rem] text-stone-500">Backup bei Krankheit/Urlaub via Jan oder David, externe Frische, KI-First-Toolset.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ====== VERGLEICH MIT BESTAND ====== -->
+            <section class="mb-14">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Vergleich mit bestehenden Tracks</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Was du schon hast — und was die Studio-Pakete ändern</h2>
+                <p class="text-sm text-stone-500 max-w-[48em] mb-6">
+                    Du hast zwei parallele Tracks vorbereitet: <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background: #f5f3ef;">angebote.html</code> (Strategy-Execution, öffentlich) und <code class="font-mono text-xs px-1.5 py-0.5 rounded" style="background: #f5f3ef;">product-management.html</code> (PM, versteckt). Die Studio-Pakete erweitern primär den PM-Track. Der Strategy-Track bleibt für andere Zielsegmente erhalten.
+                </p>
+
+                <div class="bg-white border rounded-xl overflow-hidden mb-6" style="border-color: #E5E2DB;">
+                    <table class="cmp">
+                        <thead>
+                            <tr>
+                                <th>Format</th>
+                                <th>Track 1: Strategy-Execution</th>
+                                <th>Track 2: PM (versteckt)</th>
+                                <th>Neu: Studio</th>
+                                <th>Markt-Benchmark</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-medium text-stone-800">Workshop (½ Tag)</td>
+                                <td>Strategy Clarity ab 1.500 €</td>
+                                <td>Discovery Workshop ab 1.000 €</td>
+                                <td>—</td>
+                                <td class="text-stone-500 text-xs">1.500–2.500 € (Halbtag · Premium 2.000 €)</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium text-stone-800">Diagnose/Discovery Sprint (2–3 Wo.)</td>
+                                <td>Diagnose-Sprint ab 4.000 €</td>
+                                <td>Discovery Sprint ab 5.000 €</td>
+                                <td style="background: #f2f7f4;"><strong>Discovery-Sprint mit Claude: 15.000–20.000 €</strong></td>
+                                <td class="text-stone-500 text-xs">Research Sprint 8–18k · Discovery Premium 12–18k</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium text-stone-800">Sprint (4–8 Wo.)</td>
+                                <td>Strategy-to-Execution ab 12.000 €</td>
+                                <td>Product Sprint ab 10.000 €</td>
+                                <td style="background: #f6f4f9;"><strong>PM-Org-Setup: 30.000–50.000 €</strong></td>
+                                <td class="text-stone-500 text-xs">Projektpauschale 15–40k · Premium 25–40k</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium text-stone-800">Retainer (laufend)</td>
+                                <td>Sparring-Retainer ab 1.500 €/Mon.</td>
+                                <td>PM-Retainer ab 1.000 €/Tag</td>
+                                <td style="background: #f0f7fb;"><strong>Fractional Senior PM: 5.000–10.000 €/Mon.</strong></td>
+                                <td class="text-stone-500 text-xs">Fractional C-Level 8–16k/Mon. · Sparring 2–5k/Mon.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="rounded-xl p-5" style="background: #fdf5f0; border: 1px solid #fae8de;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-2" style="color: #a86340;">Pricing-Beobachtung</p>
+                    <p class="text-sm text-stone-700 leading-relaxed">
+                        Deine bestehenden Preise (Discovery Sprint 5k, S2E 12k, Sparring-Retainer 1.500 €/Mon.) liegen <strong>~50% unter dem DACH-Marktwert für 13+ Jahre Seniority</strong>. Quelle: pricing_benchmark_dach.md im KOS.
+                        Das ist keine Studio-Frage, sondern eine generelle Pricing-Frage. Entscheidung steht aus:
+                        <em>Bestehende Tracks angleichen?</em> oder <em>Studio-Pakete als Premium-Tier daneben?</em>
+                    </p>
+                </div>
+            </section>
+
+            <!-- ====== BUSINESS CASE LIGHT ====== -->
+            <section class="mb-14">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Business Case Light</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Was muss reinkommen, was bleibt übrig</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+
+                    <!-- Bedarfsrechnung -->
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <h3 class="source-serif text-base text-stone-900 mb-4">Monats-Bedarf als Selbstständige</h3>
+                        <div class="space-y-2.5 text-[0.85rem]">
+                            <div class="flex justify-between"><span class="text-stone-600">Persönliche Fixkosten</span><span class="font-mono text-stone-900">2.200 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">KV (freiwillig gesetzlich)*</span><span class="font-mono text-stone-900">~800 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">Altersvorsorge</span><span class="font-mono text-stone-900">~300 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">Puffer Krankheit/Urlaub</span><span class="font-mono text-stone-900">~200 €</span></div>
+                            <div class="flex justify-between pt-2 border-t" style="border-color: #E5E2DB;"><span class="text-stone-700 font-medium">Fixkosten gesamt</span><span class="font-mono text-stone-900 font-medium">~3.500 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">+ Wunsch-Netto in Tasche</span><span class="font-mono text-stone-900">3.000 €</span></div>
+                            <div class="flex justify-between pt-2 border-t" style="border-color: #E5E2DB;"><span class="text-stone-700 font-medium">Netto-Bedarf nach ESt</span><span class="font-mono text-stone-900 font-medium">~6.500 €</span></div>
+                            <div class="flex justify-between pt-3" style="border-top: 2px solid #d9d1e5;">
+                                <span class="text-stone-900 font-medium">Brutto-Bedarf (ESt ~28%)</span>
+                                <span class="font-mono text-violet-500 font-semibold">~9.000 €/Mon.</span>
+                            </div>
+                        </div>
+                        <p class="text-[0.7rem] text-stone-400 mt-4">* Hausaufgabe: Familien-KV via Mann prüfen → würde ~800 € sparen</p>
+                    </div>
+
+                    <!-- Zielszenario -->
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB; background: linear-gradient(180deg, #f2f7f4 0%, #ffffff 100%);">
+                        <h3 class="source-serif text-base text-stone-900 mb-4">Zielszenario: 1.200 €/Tag · 14 Tage</h3>
+                        <div class="space-y-2.5 text-[0.85rem]">
+                            <div class="flex justify-between"><span class="text-stone-600">Brutto-Umsatz</span><span class="font-mono text-stone-900">16.800 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">– Einkommensteuer (~28%)</span><span class="font-mono text-stone-400">–4.700 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">– Fixkosten</span><span class="font-mono text-stone-400">–3.500 €</span></div>
+                            <div class="flex justify-between pt-2 border-t" style="border-color: #E5E2DB;"><span class="text-stone-700 font-medium">Netto verfügbar</span><span class="font-mono text-stone-900 font-medium">~8.600 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">– Wunsch-Netto in Tasche</span><span class="font-mono text-stone-400">–3.000 €</span></div>
+                            <div class="flex justify-between pt-3" style="border-top: 2px solid #5b8a72;">
+                                <span class="text-stone-900 font-medium">Übrig für Sparen/Puffer</span>
+                                <span class="font-mono font-semibold" style="color: #476f5b;">~5.600 €/Mon.</span>
+                            </div>
+                        </div>
+                        <p class="text-[0.78rem] text-stone-600 mt-4">→ Deutlich über Survival, ~5.600 € Puffer/Sparen pro Monat möglich.</p>
+                    </div>
+                </div>
+
+                <!-- Sensitivität -->
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <p class="px-6 pt-5 pb-3 font-mono text-[0.6rem] tracking-wider uppercase text-stone-400">Sensitivität · Tagessatz × Tage</p>
+                    <table class="cmp">
+                        <thead>
+                            <tr>
+                                <th>Tagessatz</th>
+                                <th>10 Tage/Mon.</th>
+                                <th>12 Tage/Mon.</th>
+                                <th>14 Tage/Mon. (Ziel)</th>
+                                <th>16 Tage/Mon.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="font-mono text-stone-700">900 €</td><td>9.000 € · knapp</td><td>10.800 € · knapp+</td><td>12.600 € · ok</td><td>14.400 € · komfort</td></tr>
+                            <tr style="background: #f2f7f4;"><td class="font-mono text-stone-900 font-medium">1.200 € (Ziel)</td><td>12.000 € · ok</td><td>14.400 € · komfort</td><td><strong>16.800 € · Ziel</strong></td><td>19.200 € · stark</td></tr>
+                            <tr><td class="font-mono text-stone-700">1.500 €</td><td>15.000 € · stark</td><td>18.000 € · sehr stark</td><td>21.000 € · sehr stark</td><td>24.000 € · Premium</td></tr>
+                            <tr><td class="font-mono text-stone-700">1.800 €</td><td>18.000 € · sehr stark</td><td>21.600 € · Premium</td><td>25.200 € · Premium</td><td>28.800 € · Top-Tier</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="px-6 py-4 text-[0.78rem] text-stone-500" style="border-top: 1px solid #E5E2DB; background: #fafaf8;">
+                        Magische Linie für "Survival" liegt bei ~9.000 € Brutto. "Komfort" startet bei ~14.000 €. Pricing-Hebel ist mächtiger als Tage-Hebel.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ====== ZIELSEGMENTE + AKQUISE 6-MONATS-PLAN ====== -->
+            <section class="mb-14">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Akquise</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Wer kauft + wie der Plan in 6 Monaten aussieht</h2>
+
+                <!-- Segmente -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">🥇 Segment 1</span>
+                            <h3 class="source-serif text-base text-stone-900">Scale-ups B2B SaaS · 50–300 MA</h3>
+                        </div>
+                        <p class="text-[0.82rem] text-stone-600 mb-2">Discovery wird brüchig, erste PM-Position offen, Hiring dauert. <strong>Budget:</strong> 15–40k €/Engagement.</p>
+                        <p class="text-[0.78rem] text-stone-500">Kanäle: LinkedIn (Gründer, CPOs), VC-Netzwerke (HV, Earlybird, Cherry), Pitch-Events, PM-Empfehlungen.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #ece8f2; color: #463863;">🥈 Segment 2</span>
+                            <h3 class="source-serif text-base text-stone-900">Corporate Innovation · NRW + DACH</h3>
+                        </div>
+                        <p class="text-[0.82rem] text-stone-600 mb-2">"KI nutzen, aber wie?" / "Discovery zu langsam". <strong>Budget:</strong> 20–50k €/Engagement.</p>
+                        <p class="text-[0.78rem] text-stone-500">Kanäle: Bosch IO, Lanxess Digital, Henkel X, RWE, Evonik, Bayer G4A, Telekom T-Labs, Vodafone Innovation Lab.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #ddeef7; color: #2d4d63;">🥉 Segment 3</span>
+                            <h3 class="source-serif text-base text-stone-900">Mid-Tier Beratungen als Sub-Kontraktor</h3>
+                        </div>
+                        <p class="text-[0.82rem] text-stone-600 mb-2">Mehr Mandate als Kapazität, Subkontraktoren mit gutem Profil gesucht. Kleinere Margen, Akquise minimal.</p>
+                        <p class="text-[0.78rem] text-stone-500">Kanäle: Etventure, Maibornwolff, Diconium, Comatch, me & company, Mind the Bridge.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">4. Segment</span>
+                            <h3 class="source-serif text-base text-stone-900">Eigenes Netzwerk reaktivieren</h3>
+                        </div>
+                        <p class="text-[0.82rem] text-stone-600 mb-2">Niedrigste Akquise-Schwelle, höchste Conversion. Erste 1–2 Kunden kommen mit hoher Wahrscheinlichkeit hier her.</p>
+                        <p class="text-[0.78rem] text-stone-500">Aktion: 20–30 Namen aus den letzten 5–10 Jahren listen, gezielte 1-1-Ansprache.</p>
+                    </div>
+                </div>
+
+                <!-- 6-Monats-Plan -->
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <p class="px-6 pt-5 pb-3 font-mono text-[0.6rem] tracking-wider uppercase text-stone-400">6-Monats-Akquise-Plan</p>
+                    <table class="cmp">
+                        <thead>
+                            <tr>
+                                <th>Monat</th>
+                                <th>Aktivität</th>
+                                <th>Realistischer Umsatz</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Netzwerk-Liste, Pakete final, LinkedIn-Profil + Studio-Brand aktivieren, 3–5 1-1-Gespräche</td><td class="font-mono">0–5k €</td></tr>
+                            <tr><td>2</td><td>Erste Sub-Kontraktor-Slots, vereinzelte Pilot-Sprints aus Netzwerk</td><td class="font-mono">5–15k €</td></tr>
+                            <tr><td>3</td><td>Erstes "richtiges" Paket-Engagement, erster Fractional-Slot</td><td class="font-mono">10–20k €</td></tr>
+                            <tr><td>4–6</td><td>Stabilisierung: 1–2 laufende Slots + 1–2 Sprints/Monat</td><td class="font-mono">15–25k €</td></tr>
+                            <tr><td>7–12</td><td>Studio-Brand greift, Empfehlungen kommen, Pricing nachschärfen</td><td class="font-mono">20–30k €</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="px-6 py-4 text-[0.78rem] text-stone-500" style="border-top: 1px solid #E5E2DB; background: #fdf5f0;">
+                        <strong>Cash-Gap Monate 1–3 ist real.</strong> Runway-Bedarf 3–6 Monate. Optionen: ControlExpert-Bridge, Erspartes, Familien-KV via Mann reduziert KV-Last in Anlaufphase.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ====== BLOG-EMPFEHLUNGEN ====== -->
+            <section class="mb-14">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Blog · Akquise-Pipeline</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-2">Artikel, die deine Akquise begleiten</h2>
+                <p class="text-sm text-stone-500 max-w-[48em] mb-6">12 Artikel-Ideen, sortiert nach Akquise-Funktion. Jeder hat klaren Kunden-Hook und Verbindung zu einem Paket. Reihenfolge spiegelt Funnel: Awareness → Trust → Conversion.</p>
+
+                <!-- Awareness -->
+                <div class="mb-6">
+                    <p class="font-mono text-[0.62rem] tracking-wider uppercase text-stone-500 mb-3">Stufe 1 · Awareness (4 Artikel)</p>
+                    <div class="space-y-3">
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Discovery-Sprint mit Claude: Wie wir in 2 Wochen schaffen, wofür Teams 8 Wochen brauchen</h4>
+                                <span class="font-mono text-[0.6rem] text-violet-400 whitespace-nowrap">Paket 1</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Hook: Tempo. Zielgruppe: Scale-up-Gründer. Konkretes Beispiel aus AG Service oder MatGrid. CTA: Discovery-Sprint-Paket.</p>
+                        </div>
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Warum euer erster PM-Prozess scheitern wird (und was stattdessen funktioniert)</h4>
+                                <span class="font-mono text-[0.6rem] text-violet-400 whitespace-nowrap">Paket 2</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Hook: Schmerz-Reframe. Zielgruppe: Scale-up-CEO ohne CPO. Anti-Pattern + Lösungs-Skizze. CTA: PM-Org-Setup.</p>
+                        </div>
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Fractional PM: Was es ist, wann es funktioniert, und für wen nicht</h4>
+                                <span class="font-mono text-[0.6rem] text-violet-400 whitespace-nowrap">Paket 3</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Hook: Aufklärung des Modells (noch nicht etabliert in DE). Zielgruppe: COOs/CEOs ohne PM-Lead. CTA: Erstgespräch.</p>
+                        </div>
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Die 3 KI-Workflows, die Senior-PMs gerade differenziert besser machen</h4>
+                                <span class="font-mono text-[0.6rem] text-violet-400 whitespace-nowrap">Brand</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Hook: Praxis-Showcase. Discovery-Synthese, Spec-Draft, Stakeholder-Update mit Claude. Beweist KI-First-Workflow-Anspruch.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trust -->
+                <div class="mb-6">
+                    <p class="font-mono text-[0.62rem] tracking-wider uppercase text-stone-500 mb-3">Stufe 2 · Trust (5 Artikel · Case Studies + Methoden)</p>
+                    <div class="space-y-3">
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Case: Wie wir bei MatGrid in 6 Wochen vom LOI-Flow zum ersten Pilotkunden kamen</h4>
+                                <span class="font-mono text-[0.6rem] text-stone-400 whitespace-nowrap">Case Study</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Echter Case mit konkreten Schritten, Misslungenem, Korrekturen. Trust-Anker. Bedingt MatGrid-OK.</p>
+                        </div>
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Discovery-Synthese mit Claude: Der Workflow Schritt für Schritt</h4>
+                                <span class="font-mono text-[0.6rem] text-stone-400 whitespace-nowrap">Methode</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Reproduzierbares Template inkl. Prompts. Lässt sich nachmachen — was Vertrauen schafft.</p>
+                        </div>
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Wenn der erste PM gehen will: Was ihr falsch gemacht habt — und wie ihr es repariert</h4>
+                                <span class="font-mono text-[0.6rem] text-stone-400 whitespace-nowrap">Schmerz</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Direkte Ansprache eines klassischen Scale-up-Schmerzes. Setup-Fragen statt Lösungs-Pitch.</p>
+                        </div>
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Spec-Writing mit Claude: Die 80%-Variante, die ich an Tag 1 nutze</h4>
+                                <span class="font-mono text-[0.6rem] text-stone-400 whitespace-nowrap">Methode</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Praktischer Show + Tell. Zeigt das KI-First-Workflow-Bekenntnis statt es nur zu behaupten.</p>
+                        </div>
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Studio statt Solo: Warum ich nicht allein freelance</h4>
+                                <span class="font-mono text-[0.6rem] text-stone-400 whitespace-nowrap">Brand</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Positioniert Panoptia-Modell. Erklärt Zusammenarbeit mit Jan + David, Backup-Logik, Brand-Idee.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conversion -->
+                <div>
+                    <p class="font-mono text-[0.62rem] tracking-wider uppercase text-stone-500 mb-3">Stufe 3 · Conversion (3 Artikel · Entscheidungs-Beschleuniger)</p>
+                    <div class="space-y-3">
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Senior PM Hiring dauert 4–6 Monate. Hier ist, was ihr in der Zwischenzeit tun könnt.</h4>
+                                <span class="font-mono text-[0.6rem] text-violet-400 whitespace-nowrap">Paket 3</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Direkter Pitch für Fractional PM. Konkrete Vorschläge + Eigenangebot am Ende.</p>
+                        </div>
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Was ein Discovery-Sprint mit Claude kostet — und warum 15k € ein Schnäppchen sind</h4>
+                                <span class="font-mono text-[0.6rem] text-violet-400 whitespace-nowrap">Paket 1</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Pricing-Transparenz als Vertrauen. Vergleich mit klassischen 6-Monats-Projekten. Trauen verkaufen.</p>
+                        </div>
+                        <div class="bg-white border rounded-lg p-4" style="border-color: #E5E2DB;">
+                            <div class="flex justify-between gap-3 mb-1">
+                                <h4 class="font-medium text-stone-900 text-sm">Warum euer nächster PM-Prozess KI-First sein muss (auch wenn ihr noch kein KI-Produkt baut)</h4>
+                                <span class="font-mono text-[0.6rem] text-violet-400 whitespace-nowrap">Paket 2</span>
+                            </div>
+                            <p class="text-[0.78rem] text-stone-500">Argumentations-Kette für Skeptiker. KI-First-Workflow als Produktivitäts-Hebel, nicht als KI-Produkt-Pflicht.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-[0.78rem] text-stone-500 mt-6 max-w-[48em]">
+                    Empfehlung Reihenfolge: Stufe 1 zuerst (2 Artikel in den ersten 4 Wochen), Stufe 2 ab Monat 2 (1 Artikel alle 2 Wochen), Stufe 3 ab Monat 4. Erst Brand, dann Trust, dann Sale.
+                </p>
+            </section>
+
+            <!-- ====== LINKEDIN-SCREENING ====== -->
+            <section class="mb-14">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Akquise · LinkedIn</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-2">Wen du in deinem Netzwerk screenen solltest</h2>
+                <p class="text-sm text-stone-500 max-w-[48em] mb-6">
+                    Aus deinem Vault habe ich keine LinkedIn-Connections-CSV. Stattdessen: <strong>Personas + Trigger</strong>, die du in deinem LinkedIn-Netzwerk filtern kannst (Suche: aktuelle Rolle, ehemalige Kollegen, 2nd-degree-Connections). Pro Persona: Wen ansprechen, was als Trigger, welches Paket.
+                </p>
+
+                <div class="space-y-4">
+
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between gap-3 mb-2">
+                            <div>
+                                <h4 class="source-serif text-base text-stone-900">Persona 1: Scale-up-Gründer:in ohne CPO</h4>
+                                <p class="text-[0.78rem] text-stone-500 mt-0.5">B2B SaaS · 30–200 MA · Series A/B</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #e0ede6; color: #476f5b;">Paket 1+2</span>
+                        </div>
+                        <p class="text-[0.82rem] text-stone-600 mb-2"><strong>LinkedIn-Filter:</strong> Connections + 2nd-degree mit Title "Founder", "CEO", "Co-founder" in DACH, Company-Size 11–200.</p>
+                        <p class="text-[0.82rem] text-stone-600 mb-2"><strong>Trigger im Post:</strong> "Wir wachsen so schnell, dass wir nicht wissen, was wir bauen sollen" / "Suchen Senior PM, dauert ewig" / Roadmap-Frust-Posts.</p>
+                        <p class="text-[0.78rem] text-stone-500"><strong>Pitch:</strong> "Habe gerade einen Discovery-Sprint für [ähnliches Profil] gemacht. In 2 Wochen Klarheit über Top-3-Opportunities. 15-Min-Call?"</p>
+                    </div>
+
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between gap-3 mb-2">
+                            <div>
+                                <h4 class="source-serif text-base text-stone-900">Persona 2: Head of Product / VP Product</h4>
+                                <p class="text-[0.78rem] text-stone-500 mt-0.5">Wachsendes PM-Team · braucht Fractional-Senior-Verstärkung</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #ddeef7; color: #2d4d63;">Paket 3</span>
+                        </div>
+                        <p class="text-[0.82rem] text-stone-600 mb-2"><strong>LinkedIn-Filter:</strong> Title "Head of Product", "VP Product", "CPO". DACH. Series A–C.</p>
+                        <p class="text-[0.82rem] text-stone-600 mb-2"><strong>Trigger im Post:</strong> "Suche Senior PM seit Monaten" / "Mein Team braucht Mentor" / Hiring-Frustrations-Posts.</p>
+                        <p class="text-[0.78rem] text-stone-500"><strong>Pitch:</strong> "Während ihr sucht: Fractional PM 1–2 Tage/Woche, sofort einsatzbereit, Senior-Level. Hilft auch beim Onboarding eures Hires danach."</p>
+                    </div>
+
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between gap-3 mb-2">
+                            <div>
+                                <h4 class="source-serif text-base text-stone-900">Persona 3: Corporate Innovation Lead / Digital Hub Director</h4>
+                                <p class="text-[0.78rem] text-stone-500 mt-0.5">NRW · DACH · Bosch IO, Lanxess Digital, Henkel X, RWE, Evonik etc.</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #ece8f2; color: #463863;">Paket 1+2</span>
+                        </div>
+                        <p class="text-[0.82rem] text-stone-600 mb-2"><strong>LinkedIn-Filter:</strong> Title "Innovation", "Digital", "Head of X Lab" in Konzernen im Großraum NRW.</p>
+                        <p class="text-[0.82rem] text-stone-600 mb-2"><strong>Trigger im Post:</strong> KI-Themen / Discovery-Erfahrungen / "Wir müssen schneller werden"-Posts.</p>
+                        <p class="text-[0.78rem] text-stone-500"><strong>Pitch:</strong> "KI-First-Discovery-Workflow als Pilot in 2 Wochen. Für ein konkretes Markt- oder Feature-Thema bei euch. Übergabe inkl."</p>
+                    </div>
+
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between gap-3 mb-2">
+                            <div>
+                                <h4 class="source-serif text-base text-stone-900">Persona 4: Ehemalige Kolleg:innen / Ex-Manager:innen</h4>
+                                <p class="text-[0.78rem] text-stone-500 mt-0.5">Aus 13 Jahren Karriere · jetzt selbst in Lead-Position</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #fae8de; color: #a86340;">Alle Pakete</span>
+                        </div>
+                        <p class="text-[0.82rem] text-stone-600 mb-2"><strong>LinkedIn-Filter:</strong> "1st-degree-Connections, gefiltert nach Title (CEO/CPO/HoP/VP Product/Founder)". Schau alphabetisch durch deine Liste — 100–300 Namen meist überschaubar.</p>
+                        <p class="text-[0.82rem] text-stone-600 mb-2"><strong>Trigger:</strong> Nichts Spezifisches nötig — Vertrauensbonus aus gemeinsamer Vergangenheit.</p>
+                        <p class="text-[0.78rem] text-stone-500"><strong>Pitch:</strong> "Hey [Name], ich bin selbstständig — mit Jan + David als Studio. Wir machen [Paket-Mix]. Falls dir jemand einfällt, der gerade Discovery oder PM-Setup braucht, freue ich mich über einen Tipp."</p>
+                    </div>
+
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <div class="flex items-start justify-between gap-3 mb-2">
+                            <div>
+                                <h4 class="source-serif text-base text-stone-900">Persona 5: Mid-Tier-Beratungs-Partner:innen</h4>
+                                <p class="text-[0.78rem] text-stone-500 mt-0.5">Etventure, Maibornwolff, Diconium, me &amp; company, Mind the Bridge etc.</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #fdf5f0; color: #c27a52;">Sub-Slot</span>
+                        </div>
+                        <p class="text-[0.82rem] text-stone-600 mb-2"><strong>LinkedIn-Filter:</strong> "Partner", "Director", "Principal" bei den o.g. Beratungen — DACH.</p>
+                        <p class="text-[0.82rem] text-stone-600 mb-2"><strong>Trigger:</strong> Keine Trigger-Posts nötig — direkter Outreach.</p>
+                        <p class="text-[0.78rem] text-stone-500"><strong>Pitch:</strong> "Bin als Senior-PM-Freelancerin verfügbar (mit Studio-Backup). Auch für Sub-Kontraktoring offen. Magst du mein 1-Pager-Profil schicken bekommen?"</p>
+                    </div>
+
+                </div>
+
+                <div class="rounded-xl p-5 mt-6" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-2 text-violet-500">Aktion · diese Woche</p>
+                    <ol class="text-sm text-stone-700 space-y-1 list-decimal pl-5">
+                        <li>LinkedIn-Connections exportieren (Settings → Data Privacy → Get a copy → "Connections"). Du bekommst eine CSV.</li>
+                        <li>CSV durchgehen, nach den 5 Personas filtern. Realistisches Ziel: 20–30 Namen.</li>
+                        <li>Pro Name notieren: Persona, Trigger-Hypothese, Reihenfolge der Ansprache. Liste in <code class="font-mono text-xs">89_TEAM/Netzwerk_Liste.md</code> ablegen.</li>
+                        <li>Ab KW22: 3–5 Erstgespräche/Woche. Pitch je nach Persona.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- ====== HAUSAUFGABEN ====== -->
+            <section class="mb-14">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Offene Hausaufgaben</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Was als Nächstes geklärt sein muss</h2>
+
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="cmp">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Hausaufgabe</th>
+                                <th>Hebel</th>
+                                <th>Deadline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="font-mono text-stone-400">1</td><td class="font-medium">KV-Status klären (Familien-KV via Mann?)</td><td><span class="font-mono text-[0.62rem] px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">HOCH</span> ~800 €/Mon. Hebel</td><td class="text-stone-500">KW21</td></tr>
+                            <tr><td class="font-mono text-stone-400">2</td><td class="font-medium">ControlExpert entwirren (Deadline + Plan-B)</td><td><span class="font-mono text-[0.62rem] px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">HOCH</span> Bridge-Finanzierung</td><td class="text-stone-500">KW21</td></tr>
+                            <tr><td class="font-mono text-stone-400">3</td><td class="font-medium">Studio-Setup-Gespräch mit Jan + David (Briefing bereit)</td><td><span class="font-mono text-[0.62rem] px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">HOCH</span> Vor-Entscheidung</td><td class="text-stone-500">KW21–22</td></tr>
+                            <tr><td class="font-mono text-stone-400">4</td><td>Studio-Brand-Entscheidung (Panoptia oder neuer Name?)</td><td><span class="font-mono text-[0.62rem] px-2 py-0.5 rounded" style="background: #f5f3ef; color: #78716c;">MITTEL</span></td><td class="text-stone-500">KW22–23</td></tr>
+                            <tr><td class="font-mono text-stone-400">5</td><td>LinkedIn-Export + 20–30er Netzwerk-Liste</td><td><span class="font-mono text-[0.62rem] px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">HOCH</span> Pipeline-Aufbau</td><td class="text-stone-500">KW22</td></tr>
+                            <tr><td class="font-mono text-stone-400">6</td><td>Pricing-Entscheidung Bestandstracks (anheben oder Studio separat?)</td><td><span class="font-mono text-[0.62rem] px-2 py-0.5 rounded" style="background: #f5f3ef; color: #78716c;">MITTEL</span></td><td class="text-stone-500">KW22–23</td></tr>
+                            <tr><td class="font-mono text-stone-400">7</td><td>Erstes Paket als verkaufsfähiger 1-Pager (Discovery-Sprint)</td><td><span class="font-mono text-[0.62rem] px-2 py-0.5 rounded" style="background: #f5f3ef; color: #78716c;">MITTEL</span></td><td class="text-stone-500">KW22–23</td></tr>
+                            <tr><td class="font-mono text-stone-400">8</td><td>Blog-Artikel #1 ("Discovery-Sprint mit Claude")</td><td><span class="font-mono text-[0.62rem] px-2 py-0.5 rounded" style="background: #f5f3ef; color: #78716c;">MITTEL</span></td><td class="text-stone-500">KW23–24</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ====== ANSCHLUSS-LINKS ====== -->
+            <section class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Vertiefung</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Briefing</p>
+                        <h4 class="source-serif text-base text-stone-900 mb-2">Gespräch Jan + David</h4>
+                        <p class="text-[0.78rem] text-stone-500 mb-3">Strukturiertes Briefing für das Studio-Setup-Gespräch: Modell-Vorschlag, Pricing, Pakete, Erwartungen, Spielregeln.</p>
+                        <p class="font-mono text-[0.72rem] text-violet-500"><code>89_TEAM/Studio_Gespraech_Jan_David.md</code></p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Strategie</p>
+                        <h4 class="source-serif text-base text-stone-900 mb-2">Volldokument</h4>
+                        <p class="text-[0.78rem] text-stone-500 mb-3">Vollständige Strategie-Datei: Modell-Vergleich, alle Pricing-Szenarien, detaillierter Akquise-Plan, Q2-Lernplan-Anschluss.</p>
+                        <p class="font-mono text-[0.72rem] text-violet-500"><code>89_TEAM/Panoptia_Studio_Strategie.md</code></p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Pricing</p>
+                        <h4 class="source-serif text-base text-stone-900 mb-2">Markt-Benchmarks</h4>
+                        <p class="text-[0.78rem] text-stone-500 mb-3">Honorar-Bandbreiten DACH-Markt: Fractional CoS, Workshop, UX Research, Moderation, Sparring. Web-Recherche März 2026.</p>
+                        <p class="font-mono text-[0.72rem] text-violet-500"><code>linja-site/pricing_benchmark_dach.md</code></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer-Link -->
+            <section class="mt-12 pt-8 text-center" style="border-top: 1px solid #E5E2DB;">
+                <a href="index.html" class="inline-flex items-center gap-2 font-mono text-[0.7rem] tracking-wider uppercase text-stone-400 hover:text-violet-500 transition-all">
+                    <span>← Zurück zum Dashboard</span>
+                </a>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js?v=2" data-active="studio"></script>
+</body>
+</html>
