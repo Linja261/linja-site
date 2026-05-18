@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Angebote-Optimierung – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: {
+                violet: { 50:'#f6f4f9',100:'#ece8f2',200:'#d9d1e5',300:'#9a82b5',400:'#7b6ba5',500:'#6b5691' },
+                amber: { 50:'#fdf5f0',100:'#fae8de',400:'#c27a52',500:'#D4714E',600:'#a86340' },
+                emerald: { 50:'#f2f7f4',100:'#e0ede6',500:'#5b8a72',600:'#476f5b' },
+                sky: { 50:'#f0f7fb',100:'#ddeef7',400:'#5B96B8',500:'#4a7d9e' }
+            },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        table.cmp { width: 100%; border-collapse: collapse; }
+        table.cmp th, table.cmp td { padding: 0.7rem 0.85rem; text-align: left; font-size: 0.82rem; border-bottom: 1px solid #f0ede8; vertical-align: top; }
+        table.cmp th { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase; color: #78716c; background: #f5f3ef; }
+        .row-track-strategy { background: #fafaf8; }
+        .row-track-pm { background: #f6f4f9; }
+        .delta-up { color: #476f5b; font-weight: 500; }
+        .delta-keep { color: #78716c; }
+        .delta-merge { color: #a86340; font-weight: 500; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Angebote · Optimierung · 18.05.2026</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Bestehende Angebote im Markt-Check.</h1>
+                <p class="text-sm text-stone-500 max-w-[44em]">8 Angebote über 3 Seiten (Strategy + PM + Studio) — Optimierungs-Empfehlung pro Format. Pricing-Vergleich, Konsolidierungs-Vorschlag, Migrations-Schritte.</p>
+            </header>
+
+            <!-- ====== HEADLINE-INSIGHT ====== -->
+            <section class="mb-12">
+                <div class="rounded-xl p-6 lg:p-8" style="background: linear-gradient(135deg, #fdf5f0 0%, #ffffff 70%); border: 1px solid #fae8de;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-2" style="color: #a86340;">Headline-Insight</p>
+                    <h2 class="source-serif text-xl text-stone-900 mb-3">Du verkaufst gerade ~50% unter Marktwert. Und 8 Formate sind 4 zu viele.</h2>
+                    <p class="text-sm text-stone-600 leading-relaxed mb-5 max-w-[48em]">
+                        Acht parallele Formate über drei Track-Seiten verwirren den Kunden. Pricing liegt überwiegend in der unteren Hälfte des DACH-Marktes für Senior-Profile (13+ Jahre Seniority).
+                        Empfehlung: <strong>Konsolidieren auf 4 saubere Formate + Studio-Premium-Variante</strong>. Pricing anheben auf Marktmitte. Klarere Positionierung, weniger Abstimmungs-Overhead, höherer Cash bei gleichem Aufwand.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Heute</p>
+                            <p class="font-mono text-2xl text-stone-900">8</p>
+                            <p class="text-[0.7rem] text-stone-500 mt-0.5">Formate über 3 Seiten</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Vorschlag</p>
+                            <p class="font-mono text-2xl" style="color: #5b8a72;">4 + 3</p>
+                            <p class="text-[0.7rem] text-stone-500 mt-0.5">4 Solo · 3 Studio-Premium</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Pricing-Delta</p>
+                            <p class="font-mono text-2xl" style="color: #5b8a72;">+50–80%</p>
+                            <p class="text-[0.7rem] text-stone-500 mt-0.5">Zu Marktmitte</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Umsatzpotenzial</p>
+                            <p class="font-mono text-2xl text-violet-500">14k → 22k</p>
+                            <p class="text-[0.7rem] text-stone-500 mt-0.5">€/Monat bei gleicher Kapazität</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== ANGEBOT FÜR ANGEBOT ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Angebot für Angebot</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Pro bestehendes Format: Aktuell · Markt · Empfehlung</h2>
+
+                <div class="bg-white border rounded-xl overflow-hidden mb-6" style="border-color: #E5E2DB;">
+                    <table class="cmp">
+                        <thead>
+                            <tr>
+                                <th style="width: 26%;">Format</th>
+                                <th style="width: 14%;">Aktuell</th>
+                                <th style="width: 16%;">Markt (DACH Senior)</th>
+                                <th style="width: 18%;">Empfehlung</th>
+                                <th>Begründung</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <!-- TRACK 1: Strategy-Execution (live) -->
+                            <tr><td colspan="5" class="font-mono text-[0.62rem] tracking-wider uppercase text-stone-500" style="background: #f5f3ef; padding: 0.5rem 0.85rem;">Track 1 · Strategy-Execution · linja.me/angebote (öffentlich)</td></tr>
+
+                            <tr class="row-track-strategy">
+                                <td>
+                                    <p class="font-medium text-stone-900">Strategy Clarity Workshop</p>
+                                    <p class="text-[0.72rem] text-stone-500 mt-0.5">Halber Tag · Diagnose-Impuls</p>
+                                </td>
+                                <td class="font-mono text-stone-700">ab 1.500 €</td>
+                                <td class="text-stone-600 text-[0.78rem]">2.000–2.500 €<br><span class="text-[0.7rem] text-stone-400">Halbtag Premium inkl. Prep</span></td>
+                                <td><span class="delta-up">ab 2.500 €</span></td>
+                                <td class="text-[0.78rem] text-stone-600">Markt-Untergrenze für Senior-Workshop liegt bei 2k. Inkl. Vor-/Nachbereitung rechtfertigen sich 2.500 €. Aktuell ~40% unter Marktwert.</td>
+                            </tr>
+
+                            <tr class="row-track-strategy">
+                                <td>
+                                    <p class="font-medium text-stone-900">Diagnose-Sprint</p>
+                                    <p class="text-[0.72rem] text-stone-500 mt-0.5">2 Wochen · strukturierte Analyse · Report</p>
+                                </td>
+                                <td class="font-mono text-stone-700">ab 4.000 €</td>
+                                <td class="text-stone-600 text-[0.78rem]">8.000–15.000 €<br><span class="text-[0.7rem] text-stone-400">Research Sprint 2 Wo. Senior</span></td>
+                                <td><span class="delta-up">ab 10.000–12.000 €</span></td>
+                                <td class="text-[0.78rem] text-stone-600">Aktueller Preis = Junior-Berater-Niveau. 2-Wochen-Sprint mit Senior-Lead und Report kostet im Markt 8–15k €. Bei 4k schenkst du ~60% her.</td>
+                            </tr>
+
+                            <tr class="row-track-strategy">
+                                <td>
+                                    <p class="font-medium text-stone-900">Strategy-to-Execution Sprint</p>
+                                    <p class="text-[0.72rem] text-stone-500 mt-0.5">4–8 Wochen · funktionierende Struktur · Exit</p>
+                                </td>
+                                <td class="font-mono text-stone-700">ab 12.000 €</td>
+                                <td class="text-stone-600 text-[0.78rem]">15.000–40.000 €<br><span class="text-[0.7rem] text-stone-400">Projektpauschale 4–8 Wo.</span></td>
+                                <td><span class="delta-up">ab 22.000 €</span><br><span class="text-[0.72rem] text-stone-500">(Bandbreite 18–35k je Scope)</span></td>
+                                <td class="text-[0.78rem] text-stone-600">Markt-Mitte für Senior-Lead über 4–8 Wochen inkl. OKR-Framework + Übergabe liegt bei 20–30k. Aktuelle 12k Untermarkt für Premium-Sprint.</td>
+                            </tr>
+
+                            <tr class="row-track-strategy">
+                                <td>
+                                    <p class="font-medium text-stone-900">Sparring-Retainer</p>
+                                    <p class="text-[0.72rem] text-stone-500 mt-0.5">Monatlich · 2–4h strategisch</p>
+                                </td>
+                                <td class="font-mono text-stone-700">ab 1.500 €/Mon.</td>
+                                <td class="text-stone-600 text-[0.78rem]">2.000–4.000 €/Mon.<br><span class="text-[0.7rem] text-stone-400">C-Level Sparring 2× 90 Min</span></td>
+                                <td><span class="delta-up">ab 2.500 €/Mon.</span></td>
+                                <td class="text-[0.78rem] text-stone-600">C-Level-tauglich + 13 Jahre Seniority rechtfertigen 2.500 €+/Monat. 1.500 € positioniert dich als Junior-Berater.</td>
+                            </tr>
+
+                            <!-- TRACK 2: Product Management (versteckt) -->
+                            <tr><td colspan="5" class="font-mono text-[0.62rem] tracking-wider uppercase text-stone-500" style="background: #f5f3ef; padding: 0.5rem 0.85rem;">Track 2 · Product Management · linja.me/product-management (versteckt)</td></tr>
+
+                            <tr class="row-track-pm">
+                                <td>
+                                    <p class="font-medium text-stone-900">PM-Retainer</p>
+                                    <p class="text-[0.72rem] text-stone-500 mt-0.5">Laufende Produktverantwortung</p>
+                                </td>
+                                <td class="font-mono text-stone-700">ab 1.000 €/Tag</td>
+                                <td class="text-stone-600 text-[0.78rem]">1.200–1.500 €/Tag<br><span class="text-[0.7rem] text-stone-400">Fractional Senior PM</span></td>
+                                <td><span class="delta-merge">→ Fractional Senior PM</span><br><span class="text-[0.72rem] text-stone-500">5–10k €/Mon. (1–2 Tg./Wo.)</span></td>
+                                <td class="text-[0.78rem] text-stone-600">Statt Tagessatz: Paketpreis pro Monat. Plant Kunden besser, parkt dich nicht in Stunden-Diskussionen.</td>
+                            </tr>
+
+                            <tr class="row-track-pm">
+                                <td>
+                                    <p class="font-medium text-stone-900">Product Discovery Workshop</p>
+                                    <p class="text-[0.72rem] text-stone-500 mt-0.5">Halber Tag · Hypothesen + Opportunity Map</p>
+                                </td>
+                                <td class="font-mono text-stone-700">ab 1.000 €</td>
+                                <td class="text-stone-600 text-[0.78rem]">1.500–2.500 €<br><span class="text-[0.7rem] text-stone-400">Halbtag Workshop Senior</span></td>
+                                <td><span class="delta-merge">→ Clarity Workshop konsolidieren</span><br><span class="text-[0.72rem] text-stone-500">2.500 € (gleiches Format)</span></td>
+                                <td class="text-[0.78rem] text-stone-600">Inhaltlich = Strategy Clarity Workshop, nur anderer Hook. Ein gemeinsames Workshop-Format mit Strategy- ODER Discovery-Schwerpunkt je nach Kunde.</td>
+                            </tr>
+
+                            <tr class="row-track-pm">
+                                <td>
+                                    <p class="font-medium text-stone-900">Discovery Sprint</p>
+                                    <p class="text-[0.72rem] text-stone-500 mt-0.5">2–3 Wochen · 10–15 Interviews · Personas</p>
+                                </td>
+                                <td class="font-mono text-stone-700">ab 5.000 €</td>
+                                <td class="text-stone-600 text-[0.78rem]">8.000–18.000 €<br><span class="text-[0.7rem] text-stone-400">Interview-Programm 10–15 Stk.</span></td>
+                                <td><span class="delta-up">ab 12.000 €</span><br><span class="text-[0.72rem] text-stone-500">Studio: 15–20k € (mit Claude)</span></td>
+                                <td class="text-[0.78rem] text-stone-600">Hier die größte Überlappung mit Studio. 5k ist ein Bruchteil des Marktwerts. Solo ab 12k, mit Studio-USP (KI-First, David-Backup) 15–20k.</td>
+                            </tr>
+
+                            <tr class="row-track-pm">
+                                <td>
+                                    <p class="font-medium text-stone-900">Product Sprint</p>
+                                    <p class="text-[0.72rem] text-stone-500 mt-0.5">4–8 Wo. · Strategie, Metriken, KI-Cases, GTM</p>
+                                </td>
+                                <td class="font-mono text-stone-700">ab 10.000 €</td>
+                                <td class="text-stone-600 text-[0.78rem]">15.000–40.000 €<br><span class="text-[0.7rem] text-stone-400">Projektpauschale 4–8 Wo.</span></td>
+                                <td><span class="delta-merge">→ Execution Sprint konsolidieren</span><br><span class="text-[0.72rem] text-stone-500">22k Solo · 30–50k Studio</span></td>
+                                <td class="text-[0.78rem] text-stone-600">Inhaltlich = Strategy-to-Execution Sprint, anderer Hook. Ein Sprint-Format mit Strategy- ODER Product-Schwerpunkt. Studio-Variante = PM-Org-Setup.</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ====== KONSOLIDIERUNG: 4 SOLO + 3 STUDIO ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Konsolidierungs-Vorschlag</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-2">Vier Solo-Formate + drei Studio-Premium-Varianten</h2>
+                <p class="text-sm text-stone-500 max-w-[48em] mb-6">Klare Treppe: Vom Einstieg (Workshop) bis zur laufenden Begleitung (Fractional). Studio-Pakete sitzen als Premium-Variante über den Solo-Formaten. Kunde versteht in 30 Sekunden, was du anbietest.</p>
+
+                <!-- Solo-Formate -->
+                <div class="mb-6">
+                    <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-3 text-stone-500">Vier Solo-Formate (Linja allein)</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+                        <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB; border-top: 4px solid #7b6ba5;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Stufe 1 · Einstieg</p>
+                            <h3 class="source-serif text-base text-stone-900 mb-2">Clarity Workshop</h3>
+                            <p class="text-[0.78rem] text-stone-500 mb-3">Halber Tag · Strategy ODER Discovery-Hook je Kunde</p>
+                            <p class="font-mono text-stone-900 font-medium">ab 2.500 €</p>
+                            <p class="text-[0.7rem] text-stone-400 mt-1">vorher: 1.000–1.500 €</p>
+                        </div>
+
+                        <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB; border-top: 4px solid #D4714E;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Stufe 2 · Diagnose</p>
+                            <h3 class="source-serif text-base text-stone-900 mb-2">Diagnose-/Discovery-Sprint</h3>
+                            <p class="text-[0.78rem] text-stone-500 mb-3">2 Wochen · Analyse + Report + Empfehlung</p>
+                            <p class="font-mono text-stone-900 font-medium">ab 12.000 €</p>
+                            <p class="text-[0.7rem] text-stone-400 mt-1">vorher: 4.000–5.000 €</p>
+                        </div>
+
+                        <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB; border-top: 4px solid #5b8a72;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Stufe 3 · Umsetzung</p>
+                            <h3 class="source-serif text-base text-stone-900 mb-2">Execution Sprint</h3>
+                            <p class="text-[0.78rem] text-stone-500 mb-3">4–8 Wo. · Struktur bauen + übergeben</p>
+                            <p class="font-mono text-stone-900 font-medium">ab 22.000 €</p>
+                            <p class="text-[0.7rem] text-stone-400 mt-1">vorher: 10.000–12.000 €</p>
+                        </div>
+
+                        <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB; border-top: 4px solid #5B96B8;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Stufe 4 · Laufend</p>
+                            <h3 class="source-serif text-base text-stone-900 mb-2">Sparring oder Fractional</h3>
+                            <p class="text-[0.78rem] text-stone-500 mb-3">Sparring 2.500 €/Mon. oder Fractional 5–10k €/Mon.</p>
+                            <p class="font-mono text-stone-900 font-medium">ab 2.500 €/Mon.</p>
+                            <p class="text-[0.7rem] text-stone-400 mt-1">vorher: 1.500 €/Mon. · 1.000 €/Tag</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Studio-Premium -->
+                <div>
+                    <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-3 text-violet-500">Drei Studio-Premium-Varianten (Panoptia · mit Jan/David-Backup)</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                        <div class="border rounded-xl p-5" style="background: linear-gradient(180deg, #f2f7f4 0%, #ffffff 100%); border-color: #d9d1e5;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #476f5b;">Premium · Discovery</p>
+                            <h3 class="source-serif text-base text-stone-900 mb-2">Discovery-Sprint mit Claude</h3>
+                            <p class="text-[0.78rem] text-stone-500 mb-3">2 Wo. · KI-First-Workflow · 8–12 Interviews · David fallweise</p>
+                            <p class="font-mono text-stone-900 font-medium">15.000–20.000 €</p>
+                            <p class="text-[0.7rem] text-stone-500 mt-1">~+30% gegenüber Solo (Stufe 2)</p>
+                        </div>
+
+                        <div class="border rounded-xl p-5" style="background: linear-gradient(180deg, #f6f4f9 0%, #ffffff 100%); border-color: #d9d1e5;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #6b5691;">Premium · Setup</p>
+                            <h3 class="source-serif text-base text-stone-900 mb-2">PM-Org-Setup</h3>
+                            <p class="text-[0.78rem] text-stone-500 mb-3">6–8 Wo. · Linja Lead + Jan Strategie + David Engineering</p>
+                            <p class="font-mono text-stone-900 font-medium">30.000–50.000 €</p>
+                            <p class="text-[0.7rem] text-stone-500 mt-1">~+50% gegenüber Solo (Stufe 3)</p>
+                        </div>
+
+                        <div class="border rounded-xl p-5" style="background: linear-gradient(180deg, #f0f7fb 0%, #ffffff 100%); border-color: #d9d1e5;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #2d4d63;">Premium · Laufend</p>
+                            <h3 class="source-serif text-base text-stone-900 mb-2">Fractional Senior PM</h3>
+                            <p class="text-[0.78rem] text-stone-500 mb-3">1–2 Tg./Wo. · KI-First-Toolset · Backup via Jan/David</p>
+                            <p class="font-mono text-stone-900 font-medium">5.000–10.000 €/Mon.</p>
+                            <p class="text-[0.7rem] text-stone-500 mt-1">Inhaltlich ähnlich Solo · Brand-Premium</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== POSITIONIERUNGS-LOGIK ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Positionierungs-Logik</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Wann Solo, wann Studio?</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <h3 class="source-serif text-base text-stone-900 mb-3">Solo-Formate verkaufen an:</h3>
+                        <ul class="text-[0.85rem] text-stone-600 space-y-2">
+                            <li class="flex gap-2"><span class="text-stone-400">·</span><span><strong>Mittelstand</strong> (50–500 MA, klassisch positioniert)</span></li>
+                            <li class="flex gap-2"><span class="text-stone-400">·</span><span><strong>Familienunternehmen</strong> mit traditioneller Beratungs-Erwartung</span></li>
+                            <li class="flex gap-2"><span class="text-stone-400">·</span><span><strong>Kunden mit klarem Beratungs-Bedarf</strong> (nicht KI-getrieben)</span></li>
+                            <li class="flex gap-2"><span class="text-stone-400">·</span><span><strong>Wenn Brand Solo wichtig ist</strong> ("Linja persönlich, nicht Team")</span></li>
+                            <li class="flex gap-2"><span class="text-stone-400">·</span><span><strong>Strategy-Execution-Hook</strong> dominiert</span></li>
+                        </ul>
+                    </div>
+                    <div class="rounded-xl p-5" style="background: linear-gradient(180deg, #f6f4f9 0%, #ffffff 100%); border: 1px solid #d9d1e5;">
+                        <h3 class="source-serif text-base text-stone-900 mb-3">Studio-Premium verkaufen an:</h3>
+                        <ul class="text-[0.85rem] text-stone-600 space-y-2">
+                            <li class="flex gap-2"><span class="text-stone-400">·</span><span><strong>Scale-ups B2B SaaS</strong> (50–300 MA, Series A/B)</span></li>
+                            <li class="flex gap-2"><span class="text-stone-400">·</span><span><strong>Tech-affine Corporate-Innovation-Einheiten</strong> (Bosch IO, Lanxess Digital etc.)</span></li>
+                            <li class="flex gap-2"><span class="text-stone-400">·</span><span><strong>Kunden mit KI-Hunger</strong> (KI-First-Workflow als USP)</span></li>
+                            <li class="flex gap-2"><span class="text-stone-400">·</span><span><strong>Wenn Team-Tiefe verkauft</strong> (Engineering, Strategie, Discovery)</span></li>
+                            <li class="flex gap-2"><span class="text-stone-400">·</span><span><strong>Discovery-/PM-Hook</strong> dominiert</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="rounded-xl p-5 mt-6" style="background: #fdf5f0; border: 1px solid #fae8de;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-2" style="color: #a86340;">Wichtig</p>
+                    <p class="text-sm text-stone-700 leading-relaxed">
+                        Solo + Studio sind <strong>nicht konkurrierend, sondern komplementär</strong>. Der Kunde landet bei einem Format — abhängig davon, wo er herkommt (Hook) und was er kauft (Strategy vs. Discovery, allein vs. Team-Tiefe).
+                        Du kannst beide Brands parallel führen, solange die Eingangs-Routen klar sind: Strategy-Hook → linja.me/angebote. Discovery/PM-Hook → panoptia.io (oder linja.me/studio).
+                    </p>
+                </div>
+            </section>
+
+            <!-- ====== UMSATZ-VERGLEICH ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Was die Optimierung finanziell bedeutet</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Beispiel-Monat: Heute vs. nach Optimierung</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-3">Heute · Bestandspreise</p>
+                        <h3 class="source-serif text-base text-stone-900 mb-4">Typischer Monat (14 fakturierbare Tage)</h3>
+                        <div class="space-y-2 text-[0.85rem]">
+                            <div class="flex justify-between"><span class="text-stone-600">1× Diagnose-Sprint</span><span class="font-mono text-stone-900">4.000 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">1× S2E-Sprint (anteilig 1 Mon.)</span><span class="font-mono text-stone-900">6.000 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">2× Sparring-Retainer</span><span class="font-mono text-stone-900">3.000 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">1× Workshop</span><span class="font-mono text-stone-900">1.500 €</span></div>
+                            <div class="flex justify-between pt-3" style="border-top: 2px solid #E5E2DB;">
+                                <span class="text-stone-900 font-medium">Brutto-Umsatz</span>
+                                <span class="font-mono text-stone-900 font-semibold">14.500 €</span>
+                            </div>
+                            <div class="flex justify-between text-stone-500"><span>Netto verfügbar nach ESt + Fixkosten</span><span class="font-mono">~7.000 €</span></div>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-xl p-6" style="background: linear-gradient(180deg, #f2f7f4 0%, #ffffff 100%); border-color: #d9d1e5;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-3" style="color: #476f5b;">Nach Optimierung · Marktwert</p>
+                        <h3 class="source-serif text-base text-stone-900 mb-4">Gleicher Aufwand, neuer Pricing</h3>
+                        <div class="space-y-2 text-[0.85rem]">
+                            <div class="flex justify-between"><span class="text-stone-600">1× Diagnose-Sprint</span><span class="font-mono text-stone-900">10.000 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">1× Execution Sprint (anteilig 1 Mon.)</span><span class="font-mono text-stone-900">8.000 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">2× Sparring-Retainer</span><span class="font-mono text-stone-900">5.000 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">1× Clarity Workshop</span><span class="font-mono text-stone-900">2.500 €</span></div>
+                            <div class="flex justify-between pt-3" style="border-top: 2px solid #5b8a72;">
+                                <span class="text-stone-900 font-medium">Brutto-Umsatz</span>
+                                <span class="font-mono font-semibold" style="color: #476f5b;">25.500 €</span>
+                            </div>
+                            <div class="flex justify-between" style="color: #476f5b;"><span class="font-medium">Netto verfügbar nach ESt + Fixkosten</span><span class="font-mono font-medium">~14.800 €</span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="rounded-xl p-5 mt-4" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                    <p class="text-sm text-stone-700 leading-relaxed">
+                        <strong>+11.000 € Brutto-Umsatz/Monat bei gleichem Aufwand</strong> — allein durch Pricing-Korrektur auf Marktwert. Nach Steuer und Fixkosten landen davon ~7.800 € zusätzlich bei dir.
+                        Das ist das Geld, das du gerade auf dem Tisch liegen lässt.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ====== EINWÄNDE ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Innere Einwände vorab</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Was dein Bauch sagt — und was darauf zu antworten ist</h2>
+
+                <div class="space-y-3">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.62rem] tracking-wider uppercase text-stone-400 mb-1">Einwand 1</p>
+                        <p class="text-sm text-stone-700 mb-2"><strong>"Ich kriege keine Kunden, wenn ich höher gehe."</strong></p>
+                        <p class="text-[0.82rem] text-stone-600">
+                            Empirisch falsch. Bei 1.500 € Workshop und 4k Sprint positionierst du dich als Junior. Senior-Käufer (Scale-up-CEOs, Innovation-Heads) ignorieren niedrige Preise — sie sehen es als Qualitäts-Signal in <em>beide</em> Richtungen. Wer 12k zahlt, signalisiert sich selbst "echtes Problem, ernsthafte Lösung". Niedrigpreis = "Verlegenheits-Wahl, wenn nichts Besseres da ist."
+                        </p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.62rem] tracking-wider uppercase text-stone-400 mb-1">Einwand 2</p>
+                        <p class="text-sm text-stone-700 mb-2"><strong>"Aber meine Preise stehen schon online. Ich kann nicht einfach erhöhen."</strong></p>
+                        <p class="text-[0.82rem] text-stone-600">
+                            Doch. Die Seite ist sechs Wochen alt, du hattest noch keinen einzigen Live-Kunden darüber. Es gibt keine Erwartungs-Spur, die du verlässt. Update gilt ab heute. Bestehende Kontakte (3–5 Personen?) kriegen den alten Preis, wenn sie dieses Quartal abschließen — danach Marktwert.
+                        </p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.62rem] tracking-wider uppercase text-stone-400 mb-1">Einwand 3</p>
+                        <p class="text-sm text-stone-700 mb-2"><strong>"Aber 8 Formate machen mich flexibler — ich kann auf alles reagieren."</strong></p>
+                        <p class="text-[0.82rem] text-stone-600">
+                            Das ist Reaktivität verkleidet als Auswahl. Mit 4 klaren Formaten reagierst du genauso flexibel — du modifizierst den Scope eines Formats statt ein neues anzubieten. Kunden, die "Ihr 5. Format" wollen, sind 90% Zeitfresser ohne Budget. Klare Formate filtern ernsthafte Kunden vor.
+                        </p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.62rem] tracking-wider uppercase text-stone-400 mb-1">Einwand 4</p>
+                        <p class="text-sm text-stone-700 mb-2"><strong>"Mit Studio-Preisen dazu wird's verwirrend."</strong></p>
+                        <p class="text-[0.82rem] text-stone-600">
+                            Nur wenn Solo + Studio auf der gleichen Seite stehen. Lösung: Solo lebt unter linja.me/angebote, Studio unter eigener Domain (panoptia.io) oder linja.me/studio. Eingangs-Routen klar, kein Mix. Der Kunde sieht ein Set, nicht beide.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== MIGRATION ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Migration · Was konkret tun</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Schritte zur Umsetzung</h2>
+
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="cmp">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th style="width: 30%;">Schritt</th>
+                                <th style="width: 24%;">Datei / Ort</th>
+                                <th>Was tun</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="font-mono text-stone-400">1</td><td class="font-medium">Pricing-Entscheidung treffen</td><td class="text-[0.78rem] text-stone-500">—</td><td class="text-[0.82rem]">Empfehlung annehmen / verwerfen / modifizieren. Vor allen weiteren Schritten.</td></tr>
+                            <tr><td class="font-mono text-stone-400">2</td><td class="font-medium">linja.me/angebote anpassen</td><td class="text-[0.78rem] text-stone-500"><code>angebote.html</code></td><td class="text-[0.82rem]">Pricing aktualisieren (1.500→2.500, 4k→10–12k, 12k→22k, 1.500→2.500 €/Mon.).</td></tr>
+                            <tr><td class="font-mono text-stone-400">3</td><td class="font-medium">Versteckte PM-Seite entscheiden</td><td class="text-[0.78rem] text-stone-500"><code>product-management.html</code></td><td class="text-[0.82rem]">Entweder löschen (konsolidieren in angebote.html) oder als Discovery-Hook-Variante behalten mit angepasstem Pricing.</td></tr>
+                            <tr><td class="font-mono text-stone-400">4</td><td class="font-medium">Versteckte Strategy-Execution-Seite entscheiden</td><td class="text-[0.78rem] text-stone-500"><code>strategy-execution.html</code></td><td class="text-[0.82rem]">Wahrscheinlich Duplikat zu angebote.html. Prüfen + entweder löschen oder als Detail-Seite belassen.</td></tr>
+                            <tr><td class="font-mono text-stone-400">5</td><td class="font-medium">Studio-Brand entscheiden</td><td class="text-[0.78rem] text-stone-500"><code>89_TEAM/</code></td><td class="text-[0.82rem]">Panoptia-Domain registrieren oder linja.me/studio nutzen. Vor Jan/David-Gespräch klären.</td></tr>
+                            <tr><td class="font-mono text-stone-400">6</td><td class="font-medium">Office-Angebote-Übersicht aktualisieren</td><td class="text-[0.78rem] text-stone-500"><code>office/angebote.html</code></td><td class="text-[0.82rem]">Liste der Live-Angebote auf die neuen 4 Formate reduzieren + Studio-Premium-Sektion ergänzen.</td></tr>
+                            <tr><td class="font-mono text-stone-400">7</td><td class="font-medium">Pricing-Benchmark im KOS aktualisieren</td><td class="text-[0.78rem] text-stone-500"><code>linja-site/pricing_benchmark_dach.md</code></td><td class="text-[0.82rem]">Eigene neue Pricing-Range als "Aktuelles Linja-Pricing" am Ende der Datei ergänzen.</td></tr>
+                            <tr><td class="font-mono text-stone-400">8</td><td class="font-medium">Commit + Push</td><td class="text-[0.78rem] text-stone-500">linja-site Repo</td><td class="text-[0.82rem]">Alle Änderungen committen, Push auf GitHub. Live ab Commit.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ====== ANSCHLUSS-LINKS ====== -->
+            <section class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Verwandt</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="studio.html" class="bg-white border rounded-xl p-5 hover:border-violet-300 transition-all block" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Studio</p>
+                        <h4 class="source-serif text-base text-stone-900 mb-1">Panoptia Studio.</h4>
+                        <p class="text-[0.78rem] text-stone-500">Strategische Reflexion: 3 Studio-Pakete, Business Case, Akquise-Plan.</p>
+                    </a>
+                    <a href="angebote.html" class="bg-white border rounded-xl p-5 hover:border-violet-300 transition-all block" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Bestand</p>
+                        <h4 class="source-serif text-base text-stone-900 mb-1">Office-Angebote</h4>
+                        <p class="text-[0.78rem] text-stone-500">Aktuelle Übersicht: Live · versteckt · Pipeline.</p>
+                    </a>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Markt</p>
+                        <h4 class="source-serif text-base text-stone-900 mb-1">Pricing-Benchmark</h4>
+                        <p class="text-[0.78rem] text-stone-500"><code class="font-mono text-xs">linja-site/pricing_benchmark_dach.md</code></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-12 pt-8 text-center" style="border-top: 1px solid #E5E2DB;">
+                <a href="index.html" class="inline-flex items-center gap-2 font-mono text-[0.7rem] tracking-wider uppercase text-stone-400 hover:text-violet-500 transition-all">
+                    <span>← Zurück zum Dashboard</span>
+                </a>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js?v=2" data-active="angebote"></script>
+</body>
+</html>

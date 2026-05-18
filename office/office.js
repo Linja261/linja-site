@@ -31,6 +31,7 @@
             { id: 'interviews', label: 'Interviews', href: 'interviews.html' },
             { id: 'nebentaetigkeit', label: 'Nebentätigkeit', href: 'nebentaetigkeit.html' },
             { id: 'angebote', label: 'Angebote', href: 'angebote.html' },
+            { id: 'studio', label: 'Studio · Panoptia', href: 'studio.html' },
         ]},
         { id: 'content', label: 'Content', items: [
             { id: 'blog', label: 'Blog', href: 'blog.html' },
