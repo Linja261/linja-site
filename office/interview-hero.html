@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · HERO Software – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        .prose-box { font-size: 0.95rem; line-height: 1.7; }
+        .prose-box h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.4rem; color: #1c1917; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #E5E2DB; }
+        .prose-box h3 { font-weight: 600; font-size: 1.02rem; color: #44403c; margin-top: 1.8rem; margin-bottom: 0.6rem; }
+        .prose-box p { margin-bottom: 1rem; line-height: 1.7; }
+        .prose-box ul { list-style: none; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ul > li { position: relative; padding-left: 1.6rem; margin-bottom: 0.9rem; line-height: 1.65; }
+        .prose-box ul > li::before {
+            content: "▸";
+            position: absolute;
+            left: 0.2rem;
+            top: 0.05rem;
+            color: #7b6ba5;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .prose-box ol { list-style: none; counter-reset: item; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ol > li { position: relative; padding-left: 2rem; margin-bottom: 0.9rem; line-height: 1.65; counter-increment: item; }
+        .prose-box ol > li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            width: 1.4rem;
+            height: 1.4rem;
+            font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.7rem;
+            color: #6b5691;
+            background: #f6f4f9;
+            border: 1px solid #d9d1e5;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        .prose-box strong { color: #1c1917; font-weight: 600; }
+        .prose-box table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.9rem; }
+        .prose-box th, .prose-box td { text-align: left; padding: 0.8rem 1rem; border-bottom: 1px solid #E5E2DB; vertical-align: top; line-height: 1.55; }
+        .prose-box th { font-weight: 600; background: #F5F3EF; color: #44403c; font-size: 0.8rem; }
+        .prose-box blockquote { border-left: 3px solid #d9d1e5; padding: 0.7rem 1rem 0.7rem 1.2rem; margin: 1.3rem 0; color: #78716c; font-style: italic; line-height: 1.65; background: #faf9f6; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[900px] mx-auto px-4 sm:px-6 pt-24 pb-20">
+
+            <header class="mb-6">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Interview-Spickzettel · 20.04.2026</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">HERO Software.</h1>
+                <p class="text-sm text-stone-500">Senior Product Manager · Hannover / Berlin / Remote.</p>
+                <p class="text-xs text-stone-400 mt-2">Andere Spickzettel: <a href="interviews.html" class="text-violet-500 hover:underline">Wilo</a> · <a href="interview-bfs.html" class="text-violet-500 hover:underline">BFS health finance</a> · <a href="interview-bermuda.html" class="text-violet-500 hover:underline">Bermuda</a> · <a href="interview-douglas.html" class="text-violet-500 hover:underline">Douglas</a></p>
+            </header>
+
+            <section class="prose-box text-sm text-stone-700">
+
+                <!-- Meta -->
+                <div class="bg-white border rounded-xl p-5 mb-6" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Gesprächspartner-Kontext</p>
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-[0.82rem] mt-3">
+                        <div><strong>Stelle:</strong><br>Senior Product Manager (w/m/d)</div>
+                        <div><strong>Start:</strong><br>01.05.2026</div>
+                        <div><strong>Unternehmen:</strong><br>HERO Software GmbH</div>
+                        <div><strong>Standort:</strong><br>Hannover + Berlin + Remote</div>
+                        <div><strong>Branche:</strong><br>SaaS für Handwerker</div>
+                        <div><strong>Funding:</strong><br>€40M Series B (2024)</div>
+                    </div>
+                </div>
+
+                <!-- Quick-Nav -->
+                <div class="bg-violet-50 border border-violet-100 rounded-xl p-4 mb-6">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Quick-Nav</p>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <a href="#hero-kompass" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Kompass</a>
+                        <a href="#hero-warum" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Warum HERO?</a>
+                        <a href="#hero-pitch" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Pitch</a>
+                        <a href="#hero-fragen" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Antworten</a>
+                        <a href="#hero-meine" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Meine Fragen</a>
+                        <a href="#hero-rahmen" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Rahmen</a>
+                    </div>
+                </div>
+
+                <h2 id="hero-kompass">Kompass (30 Sek-Version)</h2>
+                <ul>
+                    <li><strong>Gegründet 2020</strong> von Dr. Michael Kessler &amp; Philipp Lyding (beide BWI Hannover, 20+ J. befreundet)</li>
+                    <li><strong>17.000 Handwerker-Betriebe</strong> nutzen HERO → ~3,1 Mrd. € Umsatz laufen drüber</li>
+                    <li><strong>120+ Mitarbeiter</strong>, Marktführer DACH in Cloud-Handwerkersoftware</li>
+                    <li><strong>€40 Mio. Series B (2024)</strong> — Lead: Eight Roads Ventures</li>
+                    <li><strong>Produkt:</strong> All-in-one-SaaS — CRM, Angebote/Rechnungen, Projektplanung, Baustellen-Doku, Ressourcen, BI. Web + Mobile App.</li>
+                    <li><strong>Mission:</strong> Handwerker digitalisieren — Papierkram in die Cloud</li>
+                </ul>
+
+                <h2 id="hero-warum">Warum HERO?</h2>
+                <ul>
+                    <li><strong>Handwerk ist meine Zielgruppe, nicht nur ein Kunde.</strong> ABS Safety = Safety-Equipment für Handwerk. Mit MatGrid baue ich gerade eine eigene Lösung für Dachdecker. Ich verstehe, wie Handwerker denken, kaufen, arbeiten — und wie hoch die Eintrittshürde für Software ist.</li>
+                    <li><strong>SaaS mit echtem Outcome.</strong> 3,1 Mrd. € laufen über die Plattform. Kein Toy — Mission-Critical für Nutzer. Genau die Art Produkt, wo PM Zeit- und Geldwirkung liefern muss.</li>
+                    <li><strong>Skalierungsphase nach Series B.</strong> Produkt funktioniert, jetzt Tiefe + neue Verticals + Internationalisierung. Die Phase, in der PM strategisch am meisten Hebel hat.</li>
+                    <li><strong>Discovery + hypothesengetrieben</strong> passt zur Startup-Kultur. Research-Muskel + Fähigkeit, konservative Zielgruppen an Software heranzuführen.</li>
+                    <li><strong>Cultural Fit:</strong> Pragmatisch, nah am Kunden, kein Feature-Factory-Feeling.</li>
+                </ul>
+
+                <h2 id="hero-pitch">Pitch (2 Min)</h2>
+                <ul>
+                    <li>13 J. Erfahrung — Schnittstelle Produkt × Business × Transformation</li>
+                    <li><strong>Roter Faden:</strong> komplexe Domänen → tragfähige Produktstrategien → messbare Ergebnisse</li>
+                    <li><strong>ista (6 J.):</strong> 4 Rollen, 17 Ländermärkte, 2 Ausgründungen (Tooltime, Objego) — international + SMB-Handwerkermarkt</li>
+                    <li><strong>ABS Safety (5 J.):</strong> E2E, Team 1→8 PMs, digitale Bestellstrecke in 2 Monaten live → 3,5 Mio. € Umsatz, 50% Prozesseffizienz. Zielgruppe: Handwerk.</li>
+                    <li><strong>MatGrid:</strong> eigene Ausgründung, Produktkonzept für Dachdecker — kenne die Zielgruppe von innen</li>
+                    <li><strong>Jetzt:</strong> will skalierendes SaaS mit Domain-Tiefe — HERO ist genau das</li>
+                </ul>
+
+                <h2 id="hero-fragen">Antworten auf typische Fragen</h2>
+
+                <h3>"Erzählen Sie von sich"</h3>
+                <p>13 J. Product, aktuell Senior PM bei ABS Safety (Safety für Handwerk), davor ista (international, 17 Länder). Ich bringe Produktstrategie und operative Realität zusammen — von Discovery bis Go-to-Market. Nebenbei baue ich mit zwei Mitgründern eine eigene SaaS-Lösung für Dachdecker.</p>
+
+                <h3>"Warum HERO, warum jetzt?"</h3>
+                <p>Drei Gründe: Zielgruppe kenne ich (ABS, MatGrid), Skalierungsphase reizt mich (Series B → Wachstum), Produkt-Philosophie passt (pragmatisch, kundennah).</p>
+
+                <h3>"Was wissen Sie über unser Produkt?"</h3>
+                <p>All-in-one SaaS: CRM, Angebot/Rechnung, Projektplanung, Baustellen-Doku, Ressourcen, BI. Mobile + Desktop. 17.000 Betriebe, 3,1 Mrd. € Umsatz. Der Moat: ihr ersetzt mehrere Einzelsysteme durch ein integriertes Betriebssystem.</p>
+
+                <h3>"Wie gehen Sie an ein neues Feature ran?"</h3>
+                <p>Problem vor Feature. User Research, Hypothesen, schnelles Prototyping, datengestützte Priorisierung (RICE, Impact Mapping). Bestellstrecke ABS: 50+ Interviews, 3 Prototypen, MVP in 2 Monaten, iterative Erweiterung → 3,5 Mio. €.</p>
+
+                <h3>"Wie überzeugen Sie Handwerker von neuer Software?"</h3>
+                <p>Handwerker kaufen über Schmerz, nicht Feature-Liste. Hospitation auf der Baustelle + einfache Sprache + ROI-Story ("wieviel Zeit/€ spart das") + Testimonials von Peers. Keine Buzzwords, kein Demo-Theater.</p>
+
+                <h3>"Erfahrung mit Mobile Apps?"</h3>
+                <p>Ja — bei ABS mobile Doku-Tools für den Einsatz auf dem Dach. Gelernt: Netzanbindung wegdenken, Handschuh-tauglich, Screens die in 3 Sek. verständlich sind.</p>
+
+                <h3>"Wie priorisieren Sie mit einem Engineering-Team?"</h3>
+                <p>Cross-funktional, auf Augenhöhe. Discovery mit Eng + Design zusammen, nicht "Ticket über die Mauer werfen". Ich gebe das Warum/Was, das Wie gehört dem Team.</p>
+
+                <h3>"Wie viele Produkte parallel?"</h3>
+                <p>Bei ABS 3 Produktlinien parallel, Team von 1 auf 8. Fokus + Breite managen, mit klaren Outcome-Guardrails statt Feature-Stream.</p>
+
+                <h3>"KI im Produkt — wo siehst du Chancen für HERO?"</h3>
+                <p>Zwei Hebel: (1) Angebots-/Rechnungs-Automatisierung (NLP auf Messwerte, Fotos, Sprachnotizen) → Handwerker tippt weniger, Angebot schneller raus. (2) Baustellen-Assistent (Foto → Schadensklassifikation, Materialliste). KI als Arbeitsentlastung, nicht als Gimmick.</p>
+
+                <h3>"Warum weg von ABS?"</h3>
+                <p>An der Decke angekommen. 5 J. Produktteam aufgebaut, Strecken auf Umsatz gebracht, Discovery-Kultur etabliert. Will Wachstumsphase mit mehr Hebel — HERO ist richtige Größe + Phase.</p>
+
+                <h2 id="hero-meine">Meine Fragen an HERO</h2>
+
+                <div class="bg-violet-50 border border-violet-100 rounded-xl p-4 mb-4">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Heute: Head of PM</p>
+                    <p class="text-[0.82rem] text-stone-700 m-0">Sie arbeiten in <strong>Squads</strong>, PMs = <strong>Squad Leads</strong>. Der unten stehende Block "Squads &amp; Wertschöpfungskette" ist für heute Prio 1 — zeigt operatives PM-Verständnis und klärt gleichzeitig die Rolle.</p>
+                </div>
+
+                <h3>Squads &amp; Wertschöpfungskette (Prio für Head of PM)</h3>
+                <ol>
+                    <li><strong>Wie sind eure Squads geschnitten</strong> — nach Produkt-Domäne (CRM, Angebot, Baustelle), User-Journey-Phase, Business-Outcome oder Plattform-Layer? Und warum dieser Schnitt?</li>
+                    <li><strong>End-to-End je Squad</strong> oder getrennte Ebenen — macht jeder Squad Discovery + Build + Analytics selbst, oder gibt es horizontale Funktionen (Research-Team, Growth, Platform)?</li>
+                    <li><strong>PM als Squad Lead</strong> — disziplinarische Führung für Eng/Design oder lateral? Personal-Entwicklung und Performance-Reviews mit in eurer Rolle?</li>
+                    <li><strong>Wie viele Squads heute</strong>, wie viele bis Jahresende — und welche wachsen, welche werden konsolidiert?</li>
+                    <li><strong>Wertschöpfung über Squads hinweg</strong> — wer entscheidet, wenn zwei Squads auf dieselben Plattform-Ressourcen (Daten, Design-System, Identity) zugreifen wollen?</li>
+                    <li><strong>Squad-Autonomie:</strong> Gibt die Leadership Outcome-OKRs vor und die Squads wählen Lösungen frei — oder ist die Roadmap enger geführt?</li>
+                    <li><strong>Was erwartest du von einem Senior PM / Squad Lead in den ersten 90 Tagen</strong> — Execution-Fokus, Prozess-Intervention, strategische Neuausrichtung?</li>
+                    <li><strong>Dein größter Pain-Point</strong> im aktuellen PM-Setup — wo hättest du gern gestern jemand Neues?</li>
+                </ol>
+
+                <h3>Produkt &amp; Rolle</h3>
+                <ol start="9">
+                    <li>Welcher konkrete Squad / Produktbereich wäre meine Verantwortung? (Kern-CRM, Baustellen-App, neue Verticals, Platform?)</li>
+                    <li>Wichtigste ungelöste Produktentscheidung, die der nächste Squad Lead mitgestalten soll?</li>
+                    <li>Wie nah ist PM am Kunden — Hospitation, Field Research, eigene Research-Kapazitäten?</li>
+                </ol>
+
+                <h3>Strategie &amp; Wachstum</h3>
+                <ol start="12">
+                    <li>Nach Series B: größter Wachstumshebel — Tiefe (Module), Breite (Gewerke), Geografie (über DACH)?</li>
+                    <li>North-Star-Outcome für Produkt? (Retention, ARR-Expansion, NPS?)</li>
+                    <li>Wo steht ihr bei KI im Produkt — experimentell, in Produktion, Roadmap?</li>
+                </ol>
+
+                <h3>Arbeitsweise &amp; Kultur</h3>
+                <ol start="15">
+                    <li>Wie werden übergreifende Produktentscheidungen getroffen — gründergetrieben, PM-getrieben, hybrid?</li>
+                    <li>Wie viel Discovery-Raum neben Delivery? User Research Luxus oder Feature-Factory?</li>
+                </ol>
+
+                <h3>Arbeitsbedingungen</h3>
+                <ol start="17">
+                    <li>Remote/Hybrid: Tage Hannover/Berlin, flexibel? Erwartung Reisetätigkeit zu Kunden?</li>
+                </ol>
+
+                <h2 id="hero-rahmen">Rahmenbedingungen</h2>
+                <table>
+                    <thead><tr><th>Thema</th><th>Antwort</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Gehalt (Remote)</strong></td><td><strong>Ziel 100k, ankern 95-100k, Untergrenze 85k.</strong> HERO-Budget aktuell max. 78k (wird gerade angepasst) — 78k ist unter meiner Grenze, dazu bitte Budget-Stand verstehen.</td></tr>
+                        <tr><td><strong>Start</strong></td><td>Juli/August 2026 (Kündigungsfrist ABS)</td></tr>
+                        <tr><td><strong>Remote</strong></td><td>Remote ideal, 1-2 Präsenztage Hannover ok. Unna → Hannover gut erreichbar</td></tr>
+                        <tr><td><strong>Andere Bewerbungen</strong></td><td>Ja, in Gesprächen — HERO spannend wg. Zielgruppen-Fit</td></tr>
+                        <tr><td><strong>Nebentätigkeit</strong></td><td>MatGrid läuft — klärbar, solange keine Konkurrenz (anderer Vertical)</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="mt-6 p-4 rounded-lg bg-white border" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Gehalts-Logik: Remote HERO vs. Controlexpert</p>
+                    <table class="mt-2">
+                        <thead><tr><th>Posten</th><th>Controlexpert (Präsenz NRW)</th><th>HERO (Remote)</th></tr></thead>
+                        <tbody>
+                            <tr><td>Grundgehalt</td><td>90k</td><td>?</td></tr>
+                            <tr><td>Bonus</td><td>10k erreichbar</td><td>vermutlich 0-10%</td></tr>
+                            <tr><td>Dienstwagen</td><td>ja (~7k geldw. Vorteil)</td><td>nein</td></tr>
+                            <tr><td>Pendeln</td><td>~1h/Tag Langenfeld</td><td>0 (ca. 500h/Jahr gewonnen)</td></tr>
+                            <tr><td><strong>Cash-Gesamtwert</strong></td><td><strong>~107k</strong></td><td><strong>Grundgehalt ± Zeit-Wert</strong></td></tr>
+                        </tbody>
+                    </table>
+                    <p class="text-[0.82rem] text-stone-700 mt-3 mb-2"><strong>Meine Schwellen:</strong></p>
+                    <ul class="text-[0.82rem] mb-0">
+                        <li><strong>Untergrenze 85k</strong> — darunter bin ich wirtschaftlich schlechter gestellt als bei CE, trotz Zeit-Gewinn durch Remote</li>
+                        <li><strong>Gleichstand 90-95k</strong> — hier kompensiert der Zeit-Gewinn (~500h/Jahr) die fehlenden 10k + Dienstwagen</li>
+                        <li><strong>Klar besser ab 100k</strong> — ankern im Gespräch</li>
+                        <li><strong>78k = Nein</strong> — wirtschaftlich ~70k CE-Äquivalenz. Nur machbar mit substantiellem Equity oder klarem schnellen Gehaltspfad (&lt;12 Monate)</li>
+                    </ul>
+                </div>
+
+                <div class="mt-8 p-4 rounded-lg" style="background: #fef3ec; border: 1px solid #fae8de;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-amber-700 mb-2">NICHT sagen</p>
+                    <ul class="text-[0.82rem] text-stone-700 list-disc ml-5">
+                        <li>Nichts Negatives über ABS Safety</li>
+                        <li>Nicht "suche einfach was Neues" — immer Outcome-Story</li>
+                        <li>MatGrid nicht als Konkurrenz framen, sondern als Beleg für Domain-Fit</li>
+                    </ul>
+                </div>
+
+                <blockquote class="mt-6">
+                    Startup-Gespräch = locker, direkt, Klartext. Pragmatismus zeigen, keine Konzern-Sprache.
+                </blockquote>
+
+            </section>
+
+            <div style="height: 80px;"></div>
+
+        </main>
+    </div>
+
+    <script src="office.js?v=2" data-active="interviews"></script>
+</body>
+</html>
