@@ -87,11 +87,17 @@
 
         <article class="prose pb-12">
 
-            <p>Vor zwei Wochen hätte ich für eine MVP-Scoping-Session einen Miro-Board aufgesetzt. Eine Woche vorher Templates suchen, Sticky Notes vorbereiten, Workshop-Skript schreiben. Diese Woche habe ich stattdessen zwei Stunden mit Claude einen eigenen Story-Map-Builder konzipiert, ihn auf Vercel deployt, ein Supabase-Backend angeschlossen und die Live-URL ans Team geschickt. <a href="https://matgrid-scope.vercel.app/" target="_blank" style="color: #7b6ba5;">matgrid-scope.vercel.app</a> ist das Ergebnis. Die Freitags-Session lief darüber. Alle waren am Ende aufs MVP eingeschworen, nicht trotz, sondern wegen des Tools.</p>
+            <p>Vor zwei Wochen hätte ich für eine MVP-Scoping-Session einen Miro-Board aufgesetzt. Eine Woche vorher Templates suchen, Sticky Notes vorbereiten, Workshop-Skript schreiben. Diese Woche habe ich stattdessen zwei Stunden mit Claude einen eigenen Story-Map-Builder konzipiert, ihn auf Vercel deployt, ein Supabase-Backend angeschlossen und die Live-URL ans Team geschickt. Alle waren am Ende aufs MVP eingeschworen, nicht trotz, sondern wegen des Tools.</p>
 
             <h2>Wie der Eigenbau entstanden ist</h2>
 
-            <p>Story-Mapping nach Jeff Patton ist eine bekannte Methode: Journey-Steps horizontal, Stories vertikal, MVP-Linie quer durch die Karten. In der Praxis scheitert das Format oft an drei Dingen. Karten haben keinen Bezug zu Hypothesen. Entscheidungen werden in der Session getroffen, aber nirgendwo dokumentiert. Und die Übergabe vom Workshop in das Backlog ist manuelle Arbeit, die niemand macht. Genau diese drei Lücken wollte ich schließen.</p>
+            <p>Story-Mapping nach Jeff Patton ist eine bekannte Methode: Journey-Steps horizontal, Stories vertikal, MVP-Linie quer durch die Karten. In der Praxis scheitert das Format oft an drei Dingen:</p>
+            <ol>
+                <li>Karten haben keinen Bezug zu Hypothesen.</li>
+                <li>Entscheidungen werden in der Session getroffen, aber nirgendwo dokumentiert.</li>
+                <li>Die Übergabe vom Workshop in das Backlog ist manuelle Arbeit, die niemand macht.</li>
+            </ol>
+            <p>Genau diese drei Lücken wollte ich schließen.</p>
 
             <p>Die ersten zwei Stunden waren reines Konzept: Welche Spalten? Welche Swim-Lanes? Wie sind Hypothesen mit Karten verknüpft? Brauchen wir Drag-and-Drop oder reicht ein Klick-Toggle? Wer darf editieren, wer nur lesen? Wie kommen die MVP-Karten in Linear? Diese Fragen habe ich mit Claude durchgegangen, eine Skizze gemacht, eine Datenstruktur festgelegt. Der Plan stand, bevor eine Zeile Code geschrieben war. Danach hat Claude den Build übernommen, ich habe iteriert.</p>
 
@@ -117,9 +123,9 @@
 
             <h2>Was die Session gemacht hat</h2>
 
-            <p>Am Freitag haben Jan, David und ich uns vor das Tool gesetzt. Ich hatte den ersten Stand vorbereitet: alle 9 Hypothesen drin, Karten als Vorschläge in Undecided. In der ersten halben Stunde haben wir Karten in MVP, Next oder Nie verschoben, jede Verschiebung einmal kurz begründet, der Decision-Log hat alles mitgeschrieben. Wenn ein Punkt strittig war, haben wir auf das Coverage-Panel geschaut: ist diese Hypothese sonst nirgends abgedeckt? Wenn ja, musste irgendetwas in die MVP-Lane.</p>
+            <p>In der Session saß das Team vor dem Tool. Der erste Stand war vorbereitet: alle 9 Hypothesen drin, Karten als Vorschläge in Undecided. In der ersten halben Stunde wanderten Karten in MVP, Next oder Nie, jede Verschiebung kurz begründet, der Decision-Log schrieb alles mit. War ein Punkt strittig, zeigte das Coverage-Panel die Antwort: ist diese Hypothese sonst nirgends abgedeckt? Wenn nicht, musste etwas in die MVP-Lane.</p>
 
-            <p>Die zweite Stunde war intensiver. David hat über die DACI-Matrix gearbeitet und die UX-Verantwortung dort als Approver markiert. Als wir bei einer Karte zur Onboarding-Flow ins MVP-Tier gerutscht sind, hat er sein Veto eingelegt: "Ich verantworte UX und sage, dass die Lane jetzt nicht funktioniert, ohne diese Karte." Die Diskussion war in zwei Minuten durch, weil DACI klar gemacht hatte, wer hier den letzten Anstoß gibt. Jan hat die Hypothesen-Coverage moderiert und dafür gesorgt, dass keine Hypothese verwaist blieb. Ich habe als Driver Karten umgehängt und Begründungen festgehalten.</p>
+            <p>Die zweite Stunde war intensiver, und hier zeigte sich der Wert der DACI-Matrix. Die Rollen waren vorab geklärt: Wer die UX verantwortet, war als Approver markiert. Als eine Karte zum Onboarding-Flow ins MVP-Tier rutschte, kam von dort das Veto, die Lane funktioniere ohne diese Karte nicht. Die Diskussion war in zwei Minuten durch, weil DACI klargemacht hatte, wer hier den letzten Anstoß gibt. Parallel sorgte die moderierende Rolle dafür, dass keine Hypothese verwaiste, während der Driver Karten umhängte und Begründungen festhielt. Nicht die Personen entschieden den Streit, sondern die vorher verteilten Verantwortlichkeiten.</p>
 
             <p>Am Ende stand: ein dokumentiertes MVP, Hypothesen explizit zugeordnet, ein Decision-Log mit Begründungen, und durch den Linear-Bulk-Sync war der ganze MVP-Scope fünf Minuten später als Issues im Repo. Was vorher zwei Wochen gedauert hätte, war an einem Nachmittag geklärt.</p>
 
