@@ -81,7 +81,7 @@
         <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
             <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
-                In zwei Stunden mit Claude einen MVP-Story-Map-Builder geplant, auf Vercel deployt, mit Supabase als Realtime-Backend. In der Team-Session am Freitag hat das Tool ohne Methodendiskussion getragen: Hypothesen explizit, Swim-Lanes klar, Decision-Log automatisch. Alle waren danach aufs MVP eingeschworen.
+                In zwei Stunden mit Claude einen MVP-Story-Map-Builder geplant, auf Vercel deployt, mit Supabase als Realtime-Backend. In der Team-Session hat das Tool ohne Methodendiskussion getragen: Hypothesen explizit, Swim-Lanes klar, Decision-Log automatisch. Alle waren danach aufs MVP eingeschworen.
             </p>
         </div>
 
@@ -161,7 +161,7 @@
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
                 <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
                     <li><a href="https://www.jpattonassociates.com/user-story-mapping/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Jeff Patton (2014). User Story Mapping. O'Reilly.</a></li>
-                    <li><a href="https://matgrid-scope.vercel.app/" class="hover:text-stone-600 transition-colors" style="color: inherit;">matgrid-scope.vercel.app — eigenes Tool, Build mit Claude Opus 4.7.</a></li>
+                    <li>Eigenes Story-Map-Tool (Eigenbau), Build mit Claude Opus 4.7.</li>
                     <li><a href="https://supabase.com/docs/guides/realtime" class="hover:text-stone-600 transition-colors" style="color: inherit;">Supabase Realtime Documentation.</a></li>
                     <li><a href="https://vercel.com/docs/deployments" class="hover:text-stone-600 transition-colors" style="color: inherit;">Vercel Deployment Documentation.</a></li>
                 </ol>
@@ -206,17 +206,23 @@
         <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
             <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
-                Two hours with Claude to plan an MVP story map builder, deployed on Vercel, with Supabase as the realtime backend. In the team session on Friday, the tool carried the room without a method debate: hypotheses explicit, swim-lanes clear, decision log automatic. Everyone was aligned on the MVP by the end.
+                Two hours with Claude to plan an MVP story map builder, deployed on Vercel, with Supabase as the realtime backend. In the team session, the tool carried the room without a method debate: hypotheses explicit, swim-lanes clear, decision log automatic. Everyone was aligned on the MVP by the end.
             </p>
         </div>
 
         <article class="prose pb-12">
 
-            <p>Two weeks ago, I would have set up a Miro board for an MVP scoping session. A week of preparation: find templates, prepare sticky notes, write a workshop script. This week I spent two hours with Claude designing my own story map builder, deployed it on Vercel, connected a Supabase backend, and sent the live URL to the team. <a href="https://matgrid-scope.vercel.app/" target="_blank" style="color: #7b6ba5;">matgrid-scope.vercel.app</a> is the result. The Friday session ran on top of it. Everyone was aligned on the MVP by the end, not in spite of the tool but because of it.</p>
+            <p>Two weeks ago, I would have set up a Miro board for an MVP scoping session. A week of preparation: find templates, prepare sticky notes, write a workshop script. This week I spent two hours with Claude designing my own story map builder, deployed it on Vercel, connected a Supabase backend, and sent the live URL to the team. Everyone was aligned on the MVP by the end, not in spite of the tool but because of it.</p>
 
             <h2>How the build came about</h2>
 
-            <p>Story mapping in Jeff Patton's tradition is a known method: journey steps horizontal, stories vertical, MVP line cutting across. In practice the format often fails on three points. Cards have no link to hypotheses. Decisions made in the session are not documented anywhere. And the handover from workshop to backlog is manual work nobody does. Closing those three gaps was the goal.</p>
+            <p>Story mapping in Jeff Patton's tradition is a known method: journey steps horizontal, stories vertical, MVP line cutting across. In practice the format often fails on three points:</p>
+            <ol>
+                <li>Cards have no link to hypotheses.</li>
+                <li>Decisions made in the session are not documented anywhere.</li>
+                <li>The handover from workshop to backlog is manual work nobody does.</li>
+            </ol>
+            <p>Closing those three gaps was the goal.</p>
 
             <p>The first two hours were pure concept: which columns? which swim-lanes? how are hypotheses linked to cards? do we need drag-and-drop or is a click toggle enough? who can edit, who can read? how do MVP cards get into Linear? I went through these questions with Claude, sketched the layout, defined the data structure. The plan was set before a line of code was written. Then Claude took over the build and I iterated.</p>
 
@@ -242,9 +248,9 @@
 
             <h2>What the session did</h2>
 
-            <p>On Friday, Jan, David, and I sat down in front of the tool. I had prepared a first state: all nine hypotheses in, cards as suggestions in Undecided. In the first half hour we moved cards into MVP, Next, or Never, gave each move a brief justification, and the decision log captured everything. When a point was contested, we looked at the coverage panel: is this hypothesis covered anywhere else? If not, something had to go into the MVP lane.</p>
+            <p>In the session the team sat down in front of the tool. A first state was prepared: all nine hypotheses in, cards as suggestions in Undecided. In the first half hour cards moved into MVP, Next, or Never, each move briefly justified, and the decision log captured everything. When a point was contested, the coverage panel gave the answer: is this hypothesis covered anywhere else? If not, something had to go into the MVP lane.</p>
 
-            <p>The second hour was more intense. David worked through the DACI matrix and marked UX responsibility there as approver. When we slipped a card on the onboarding flow into the MVP tier, he vetoed: "I own UX and I'm telling you the lane does not work without that card right now." The discussion was over in two minutes because DACI had made it clear who calls the final shot here. Jan moderated the hypothesis coverage and made sure no hypothesis was orphaned. I as the driver moved cards and kept the rationales in the log.</p>
+            <p>The second hour was more intense, and here the value of the DACI matrix showed. The roles were clarified in advance: whoever owns UX was marked as approver. When a card on the onboarding flow slipped into the MVP tier, the veto came from there: the lane does not work without that card. The discussion was over in two minutes because DACI had made it clear who calls the final shot. In parallel, the moderating role made sure no hypothesis was orphaned, while the driver moved cards and kept the rationales in the log. It was not the people who settled the dispute, but the responsibilities assigned beforehand.</p>
 
             <p>By the end we had: a documented MVP, hypotheses explicitly mapped, a decision log with rationales, and through the Linear bulk sync the entire MVP scope was in the repo as issues five minutes later. What used to take two weeks was settled in one afternoon.</p>
 
@@ -280,7 +286,7 @@
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
                 <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
                     <li>Jeff Patton (2014). User Story Mapping. O'Reilly.</li>
-                    <li>matgrid-scope.vercel.app — own tool, built with Claude Opus 4.7.</li>
+                    <li>Own story map tool (self-built), built with Claude Opus 4.7.</li>
                     <li>Supabase Realtime Documentation.</li>
                     <li>Vercel Deployment Documentation.</li>
                 </ol>
