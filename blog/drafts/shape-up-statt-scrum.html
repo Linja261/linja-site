@@ -149,7 +149,7 @@
 
         <article class="prose pb-12">
 
-            <p>Scrum hat ein Problem der frühen 2000er Jahre gelöst: zu lange Wasserfall-Projekte, zu wenig Kundennähe, zu wenig Liefertakt. 25 Jahre später hat Scrum selbst ein Problem. Studien zeigen, dass Entwicklungsteams bis zu 15 Prozent ihrer Zeit in Ceremonies verbringen, Backlogs wachsen endlos, und Ziele verschieben sich alle zwei Wochen. Shape Up, entwickelt von Basecamp und 2019 von Ryan Singer in einem gleichnamigen Buch beschrieben, ist ein Gegenentwurf. Ich habe von dem Ansatz im Gespräch mit einem Hannoveraner Scale-up gehört, und was ich daran spannend finde, muss ich ausprobieren, bevor ich es weiterempfehle.</p>
+            <p>Scrum hat ein Problem der frühen 2000er Jahre gelöst: zu lange Wasserfall-Projekte, zu wenig Kundennähe, zu wenig Liefertakt. 25 Jahre später hat Scrum selbst ein Problem. Studien zeigen, dass Entwicklungsteams bis zu 15 Prozent ihrer Zeit in Ceremonies verbringen, Backlogs wachsen endlos, und Ziele verschieben sich alle zwei Wochen. Shape Up, entwickelt von Basecamp und 2019 von Ryan Singer in einem gleichnamigen Buch beschrieben, ist ein Gegenentwurf. Ich habe von dem Ansatz im Gespräch mit einem Scale-up gehört, und was ich daran spannend finde, muss ich ausprobieren, bevor ich es weiterempfehle.</p>
 
             <h2>Woran Scrum stumpf wird</h2>
 
@@ -165,6 +165,29 @@
 
             <p>Vor dem Zyklus steht das <strong>Shaping</strong>. Eine kleine Gruppe erfahrener Leute, bei Basecamp sind das Gründer und leitende Produkt- und Entwicklungspersonen, arbeitet an einem Pitch: Problem, grobe Lösungsrichtung, grober Umfang. Das Ergebnis ist keine fertige Spezifikation, sondern ein Dokument, das konkret genug ist, um eine Richtung zu setzen, und abstrakt genug, um dem umsetzenden Team echten Gestaltungsraum zu lassen. Am <strong>Betting Table</strong> entscheidet die Leitung, welche Pitches im nächsten Zyklus gebaut werden. Das ist eine Wette, keine Backlog-Abarbeitung.</p>
 
+            <figure class="my-10 p-6 rounded-xl" style="background: #faf9fc; border: 1px solid #ece8f2;">
+                <figcaption class="font-mono text-[0.6rem] tracking-wider uppercase mb-5 text-center" style="color: #7b6ba5;">Der Shape-Up-Zyklus</figcaption>
+                <div class="flex items-end gap-2" style="height: 92px;">
+                    <div class="rounded-md flex items-center justify-center text-center px-1" style="flex: 2; height: 40px; background: #ece8f2; border: 1px dashed #9a82b5;">
+                        <span class="text-[0.6rem] font-medium" style="color: #6b5691;">Shaping</span>
+                    </div>
+                    <div class="rounded-md flex items-center justify-center text-center px-1" style="flex: 1; height: 58px; background: #d9d1e5;">
+                        <span class="text-[0.55rem] font-medium leading-tight" style="color: #463863;">Betting&nbsp;Table</span>
+                    </div>
+                    <div class="rounded-md flex items-center justify-center text-center px-1" style="flex: 6; height: 92px; background: #7b6ba5;">
+                        <span class="text-[0.72rem] font-semibold text-white">Build &middot; 6 Wochen</span>
+                    </div>
+                    <div class="rounded-md flex items-center justify-center text-center px-1" style="flex: 2; height: 62px; background: #e0ede6;">
+                        <span class="text-[0.6rem] font-medium leading-tight" style="color: #476f5b;">Cool-Down &middot; 2 Wochen</span>
+                    </div>
+                </div>
+                <div class="flex gap-2 mt-3">
+                    <p class="text-[0.58rem] text-stone-400 text-center mb-0" style="flex: 3;">vor dem Zyklus</p>
+                    <p class="text-[0.58rem] text-stone-400 text-center mb-0" style="flex: 6;">geschützte Zeit &middot; fixe Deadline</p>
+                    <p class="text-[0.58rem] text-stone-400 text-center mb-0" style="flex: 2;">Puffer</p>
+                </div>
+            </figure>
+
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
                 <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
                     Die Deadline ist heilig, der Scope darf kleiner werden. Genau umgekehrt zu dem, was in der Praxis meist passiert.
@@ -175,11 +198,31 @@
 
             <h2>Warum das in der Praxis besser funktionieren kann</h2>
 
-            <p>Drei Effekte überzeugen mich auf dem Papier. Erstens: mehr geschützte Zeit für echte Produktarbeit. Wenn das Meeting-Pensum im Vergleich zu Scrum sinkt und der Fokus für sechs Wochen steht, entsteht Raum, in dem man Dinge wirklich durchdenkt, statt sie alle zwei Wochen neu zu sortieren.</p>
+            <p>Drei Effekte überzeugen mich auf dem Papier:</p>
 
-            <p>Zweitens: klare Entscheidungen. Der Betting Table zwingt die Leitung zu wählen. Nicht alles gleichzeitig, nicht alles irgendwann, sondern diese sechs Wochen dieses Pitch. Das erzeugt Outcome-Druck auf der richtigen Ebene: bei denen, die entscheiden, was gemacht wird, nicht bei denen, die es bauen.</p>
-
-            <p>Drittens: Ownership im Team. Ein grob geformter Pitch mit echten Lösungsfreiheiten gibt dem Team mehr zu tun als eine detaillierte Story. Design-Entscheidungen fallen nah an der Umsetzung, technische Einschätzung kommt früh, und der Fortschritt wird über <strong>Hill Charts</strong> sichtbar gemacht: erst den Berg hochklettern, solange Unsicherheit da ist, dann den Berg runter, wenn es ans Fertigmachen geht.</p>
+            <div class="my-8 space-y-3">
+                <div class="flex gap-4 p-4 rounded-lg" style="background: #faf9fc; border: 1px solid #ece8f2;">
+                    <span class="font-mono text-xl font-semibold flex-shrink-0" style="color: #9a82b5;">1</span>
+                    <div>
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: 0.2rem;">Mehr geschützte Zeit</p>
+                        <p class="text-[0.85rem] text-stone-600" style="margin-bottom: 0;">Sinkt das Meeting-Pensum im Vergleich zu Scrum und steht der Fokus für sechs Wochen, entsteht Raum, Dinge wirklich durchzudenken, statt sie alle zwei Wochen neu zu sortieren.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-4 rounded-lg" style="background: #faf9fc; border: 1px solid #ece8f2;">
+                    <span class="font-mono text-xl font-semibold flex-shrink-0" style="color: #9a82b5;">2</span>
+                    <div>
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: 0.2rem;">Klare Entscheidungen</p>
+                        <p class="text-[0.85rem] text-stone-600" style="margin-bottom: 0;">Der Betting Table zwingt die Leitung zu wählen: nicht alles gleichzeitig, nicht alles irgendwann, sondern diese sechs Wochen dieses Pitch. Outcome-Druck auf der richtigen Ebene, bei denen, die entscheiden, nicht bei denen, die bauen.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-4 rounded-lg" style="background: #faf9fc; border: 1px solid #ece8f2;">
+                    <span class="font-mono text-xl font-semibold flex-shrink-0" style="color: #9a82b5;">3</span>
+                    <div>
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: 0.2rem;">Ownership im Team</p>
+                        <p class="text-[0.85rem] text-stone-600" style="margin-bottom: 0;">Ein grob geformter Pitch mit echten Lösungsfreiheiten gibt dem Team mehr zu tun als eine detaillierte Story. Design-Entscheidungen fallen nah an der Umsetzung, technische Einschätzung kommt früh, und der Fortschritt wird über <strong>Hill Charts</strong> sichtbar: erst den Berg hoch, solange Unsicherheit da ist, dann runter, wenn es ans Fertigmachen geht.</p>
+                    </div>
+                </div>
+            </div>
 
             <h2>Was ich mir vornehme</h2>
 
@@ -271,7 +314,7 @@
 
         <article class="prose pb-12">
 
-            <p>Scrum solved a problem of the early 2000s: waterfall projects that ran too long, too little customer proximity, too little shipping cadence. 25 years on, Scrum itself has a problem. Studies show development teams spending up to 15 percent of their time in ceremonies, backlogs grow indefinitely, and goals shift every two weeks. Shape Up, developed by Basecamp and published by Ryan Singer in a book of the same name in 2019, is a counter-proposal. I heard about the approach in a conversation with a Hanover-based scale-up, and what I find compelling about it is something I want to try before recommending.</p>
+            <p>Scrum solved a problem of the early 2000s: waterfall projects that ran too long, too little customer proximity, too little shipping cadence. 25 years on, Scrum itself has a problem. Studies show development teams spending up to 15 percent of their time in ceremonies, backlogs grow indefinitely, and goals shift every two weeks. Shape Up, developed by Basecamp and published by Ryan Singer in a book of the same name in 2019, is a counter-proposal. I heard about the approach in a conversation with a scale-up, and what I find compelling about it is something I want to try before recommending.</p>
 
             <h2>Where Scrum becomes dull</h2>
 
@@ -287,6 +330,29 @@
 
             <p>Before the cycle comes <strong>shaping</strong>. A small group of experienced people, at Basecamp the founders and senior product and engineering leads, works on a pitch: the problem, a rough direction for a solution, a rough scope. The output is not a finished specification but a document concrete enough to give direction and abstract enough to leave the implementing team real room to design. At the <strong>betting table</strong>, leadership decides which pitches ship in the next cycle. That is a bet, not backlog processing.</p>
 
+            <figure class="my-10 p-6 rounded-xl" style="background: #faf9fc; border: 1px solid #ece8f2;">
+                <figcaption class="font-mono text-[0.6rem] tracking-wider uppercase mb-5 text-center" style="color: #7b6ba5;">The Shape Up cycle</figcaption>
+                <div class="flex items-end gap-2" style="height: 92px;">
+                    <div class="rounded-md flex items-center justify-center text-center px-1" style="flex: 2; height: 40px; background: #ece8f2; border: 1px dashed #9a82b5;">
+                        <span class="text-[0.6rem] font-medium" style="color: #6b5691;">Shaping</span>
+                    </div>
+                    <div class="rounded-md flex items-center justify-center text-center px-1" style="flex: 1; height: 58px; background: #d9d1e5;">
+                        <span class="text-[0.55rem] font-medium leading-tight" style="color: #463863;">Betting&nbsp;Table</span>
+                    </div>
+                    <div class="rounded-md flex items-center justify-center text-center px-1" style="flex: 6; height: 92px; background: #7b6ba5;">
+                        <span class="text-[0.72rem] font-semibold text-white">Build &middot; 6 weeks</span>
+                    </div>
+                    <div class="rounded-md flex items-center justify-center text-center px-1" style="flex: 2; height: 62px; background: #e0ede6;">
+                        <span class="text-[0.6rem] font-medium leading-tight" style="color: #476f5b;">Cool-Down &middot; 2 weeks</span>
+                    </div>
+                </div>
+                <div class="flex gap-2 mt-3">
+                    <p class="text-[0.58rem] text-stone-400 text-center mb-0" style="flex: 3;">before the cycle</p>
+                    <p class="text-[0.58rem] text-stone-400 text-center mb-0" style="flex: 6;">protected time &middot; fixed deadline</p>
+                    <p class="text-[0.58rem] text-stone-400 text-center mb-0" style="flex: 2;">buffer</p>
+                </div>
+            </figure>
+
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
                 <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
                     The deadline is fixed, the scope is what flexes. Exactly the opposite of what usually happens in practice.
@@ -297,11 +363,31 @@
 
             <h2>Why this can work better in practice</h2>
 
-            <p>Three effects convince me on paper. First: more protected time for real product work. If the meeting load drops compared to Scrum and focus holds for six weeks, space opens up to actually think things through rather than reshuffle them every two weeks.</p>
+            <p>Three effects convince me on paper:</p>
 
-            <p>Second: clear decisions. The betting table forces leadership to choose. Not everything at once, not everything eventually, but this pitch for these six weeks. That creates outcome pressure at the right level, on those who decide what gets done, not on those who build it.</p>
-
-            <p>Third: ownership in the team. A roughly shaped pitch with real solution freedom gives the team more to do than a detailed story. Design decisions happen close to implementation, technical judgment comes in early, and progress is visible through <strong>hill charts</strong>: climbing the hill while uncertainty is still there, heading down the hill once it is about finishing.</p>
+            <div class="my-8 space-y-3">
+                <div class="flex gap-4 p-4 rounded-lg" style="background: #faf9fc; border: 1px solid #ece8f2;">
+                    <span class="font-mono text-xl font-semibold flex-shrink-0" style="color: #9a82b5;">1</span>
+                    <div>
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: 0.2rem;">More protected time</p>
+                        <p class="text-[0.85rem] text-stone-600" style="margin-bottom: 0;">If the meeting load drops compared to Scrum and focus holds for six weeks, space opens up to actually think things through rather than reshuffle them every two weeks.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-4 rounded-lg" style="background: #faf9fc; border: 1px solid #ece8f2;">
+                    <span class="font-mono text-xl font-semibold flex-shrink-0" style="color: #9a82b5;">2</span>
+                    <div>
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: 0.2rem;">Clear decisions</p>
+                        <p class="text-[0.85rem] text-stone-600" style="margin-bottom: 0;">The betting table forces leadership to choose: not everything at once, not everything eventually, but this pitch for these six weeks. Outcome pressure at the right level, on those who decide, not on those who build.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 p-4 rounded-lg" style="background: #faf9fc; border: 1px solid #ece8f2;">
+                    <span class="font-mono text-xl font-semibold flex-shrink-0" style="color: #9a82b5;">3</span>
+                    <div>
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: 0.2rem;">Ownership in the team</p>
+                        <p class="text-[0.85rem] text-stone-600" style="margin-bottom: 0;">A roughly shaped pitch with real solution freedom gives the team more to do than a detailed story. Design decisions happen close to implementation, technical judgment comes in early, and progress is visible through <strong>hill charts</strong>: climbing the hill while uncertainty is still there, heading down once it is about finishing.</p>
+                    </div>
+                </div>
+            </div>
 
             <h2>What I want to try</h2>
 
