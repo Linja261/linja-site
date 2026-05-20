@@ -2,7 +2,7 @@
   linja.me/blog/drafts/storymap-eigenbau – Story-Map als Eigenbau
   Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
   Bilingual: DE + EN
-  Entwurf: 2026-04-26
+  Publiziert: 2026-05-18
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -44,20 +44,6 @@
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
-    <div id="gate" class="min-h-screen flex items-center justify-center px-6">
-        <div class="max-w-sm w-full text-center">
-            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Entwurf</p>
-            <h1 class="source-serif text-2xl text-stone-900 mb-6">Nur für Linja.</h1>
-            <form onsubmit="return checkPass()">
-                <input type="password" id="pass" placeholder="Passwort" autofocus class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3" style="border-color: #E5E2DB;">
-                <button type="submit" class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">Öffnen</button>
-            </form>
-            <p id="error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>
-        </div>
-    </div>
-
-    <div id="content" class="hidden">
-
     <div id="site-nav"></div>
     <script src="../../components.js" data-active="blog" data-bilingual="true"></script>
 
@@ -68,7 +54,7 @@
         <header class="pt-28 pb-8">
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
-                <span class="text-[0.72rem] text-stone-400">26. April 2026</span>
+                <span class="text-[0.72rem] text-stone-400">18. Mai 2026</span>
                 <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
             </div>
             <h1 class="source-serif text-[2rem] text-stone-900 leading-[1.2] mb-0">
@@ -315,26 +301,6 @@
 
     <div id="site-footer"></div>
 
-    </div><!-- /content -->
-
-    <script>
-        const PASS = 'Lagerfeuer2026';
-        if (sessionStorage.getItem('drafts-auth') === 'true') {
-            document.getElementById('gate').classList.add('hidden');
-            document.getElementById('content').classList.remove('hidden');
-        }
-        function checkPass() {
-            const input = document.getElementById('pass').value;
-            if (input === PASS) {
-                sessionStorage.setItem('drafts-auth', 'true');
-                document.getElementById('gate').classList.add('hidden');
-                document.getElementById('content').classList.remove('hidden');
-            } else {
-                document.getElementById('error').classList.remove('hidden');
-            }
-            return false;
-        }
-    </script>
     <script>
     function getLang() { return localStorage.getItem('site-lang') || 'de'; }
     function setLang(lang) { localStorage.setItem('site-lang', lang); }
