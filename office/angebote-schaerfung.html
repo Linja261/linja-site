@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Angebot schärfen (Solo) – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: {
+                violet: { 50:'#f6f4f9',100:'#ece8f2',200:'#d9d1e5',300:'#9a82b5',400:'#7b6ba5',500:'#6b5691',700:'#463863' },
+                amber: { 50:'#fdf5f0',100:'#fae8de',400:'#c27a52',500:'#D4714E',600:'#a86340' },
+                emerald: { 50:'#f2f7f4',100:'#e0ede6',500:'#5b8a72',600:'#476f5b' },
+                sky: { 50:'#f0f7fb',100:'#ddeef7',400:'#5B96B8',500:'#4a7d9e' }
+            },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        table.cmp { width: 100%; border-collapse: collapse; }
+        table.cmp th, table.cmp td { padding: 0.7rem 0.85rem; text-align: left; font-size: 0.82rem; border-bottom: 1px solid #f0ede8; vertical-align: top; }
+        table.cmp th { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase; color: #78716c; background: #f5f3ef; }
+        .delta-up { color: #476f5b; font-weight: 500; }
+        .delta-new { color: #6b5691; font-weight: 500; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Angebote · Schärfung · Solo · 21.05.2026</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Dein Solo-Angebot schärfen.</h1>
+                <p class="text-sm text-stone-500 max-w-[46em]">Optimierungs-Vorschlag auf Basis von Price's Law. Wie du dein Solo-Angebot fokussierst, sichtbar machst und auf Marktwert bepreist — inkl. Interim PM als möglichem Anker und einer Break-even-Rechnung. Reiner Vorschlag, kein Eingriff ins Live-Angebot.</p>
+            </header>
+
+            <!-- Scope-Hinweis -->
+            <div class="rounded-xl p-4 mb-10 flex items-start gap-3" style="background: #f0f7fb; border: 1px solid #ddeef7;">
+                <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded mt-0.5" style="background: #ddeef7; color: #2d4d63;">Scope</span>
+                <p class="text-[0.82rem] text-stone-600 leading-relaxed">Diese Seite ist <strong>nur ein Backoffice-Vorschlag</strong>. Am Live-Angebot (linja.me/angebote) wird nichts geändert, bis du den Umbau ausdrücklich anweist. Alle Pricing- und Kostenzahlen sind Empfehlungen <strong>zur Bestätigung</strong>.</p>
+            </div>
+
+            <!-- ====== 1 · HEADLINE-EMPFEHLUNG ====== -->
+            <section class="mb-12">
+                <div class="rounded-xl p-6 lg:p-8" style="background: linear-gradient(135deg, #fdf5f0 0%, #ffffff 70%); border: 1px solid #fae8de;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-2" style="color: #a86340;">Headline-Empfehlung</p>
+                    <h2 class="source-serif text-xl text-stone-900 mb-3">Schärfen heißt: eine sichtbare Spitze, Senior-Preise, ein planbarer Anker.</h2>
+                    <p class="text-sm text-stone-600 leading-relaxed mb-5 max-w-[48em]">
+                        Dein Solo-Angebot ist strukturell sauber (klare Treppe), aber <strong>positionierungs-diffus und unterpreist</strong>. Die Format-Namen klingen wie bei jeder Senior-Beratung, dein Differenzierer (KI-First Discovery) ist unsichtbar, und die Preise liegen ~40–60 % unter DACH-Marktwert für 13+ Jahre Seniorität. Drei Hebel:
+                        <strong>(1) eine Spitze sichtbar machen</strong>, <strong>(2) Pricing auf Marktmitte</strong>, <strong>(3) Interim PM als planbaren Cash-Anker</strong> aufnehmen.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Pricing heute</p>
+                            <p class="font-mono text-2xl" style="color: #D4714E;">−40 bis −60%</p>
+                            <p class="text-[0.7rem] text-stone-500 mt-0.5">unter Senior-Marktwert</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Differenzierer</p>
+                            <p class="font-mono text-2xl text-stone-900">unsichtbar</p>
+                            <p class="text-[0.7rem] text-stone-500 mt-0.5">KI-First Discovery fehlt</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Anker-Vorschlag</p>
+                            <p class="font-mono text-2xl" style="color: #6b5691;">Interim PM</p>
+                            <p class="text-[0.7rem] text-stone-500 mt-0.5">planbarer Monats-Cash</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Break-even</p>
+                            <p class="font-mono text-2xl" style="color: #476f5b;">~9.000 €</p>
+                            <p class="text-[0.7rem] text-stone-500 mt-0.5">Brutto/Monat (zu bestätigen)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== 2 · DENKRAHMEN PRICE'S LAW ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Denkrahmen</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Price's Law: wenige Treffer tragen den Großteil</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-2">Das Prinzip</p>
+                        <p class="text-[0.85rem] text-stone-600 leading-relaxed">Grob die <strong>Wurzel(n)</strong> deiner Outputs/Skills trägt ~50 % des Ergebnisses. Aufwand ≠ Ergebnis. Du kannst die Gewinner <strong>nicht vorher</strong> erkennen.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-2">Die 3 Phasen</p>
+                        <p class="text-[0.85rem] text-stone-600 leading-relaxed"><strong>Explore</strong> (Menge) → <strong>Identify</strong> (Muster erkennen) → <strong>Exploit</strong> (verdoppeln, Rest killen). Fürs Angebot heißt das: jetzt fokussieren, statt 8 Formate parallel zu pflegen.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-2">„Wertvoll" =</p>
+                        <p class="text-[0.85rem] text-stone-600 leading-relaxed">Nicht Likes/Subs, sondern: <strong>führt es zu einem Gespräch / Inbound / Mandat?</strong> Das ist der einzige Maßstab, der für dein Angebot zählt.</p>
+                    </div>
+                </div>
+                <p class="text-[0.75rem] text-stone-400 mt-3">Heuristik, kein Naturgesetz: die Richtung stimmt, die exakte √n-Zahl nicht überinterpretieren.</p>
+            </section>
+
+            <!-- ====== 3 · DIAGNOSE ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Diagnose</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Dein Solo-Angebot heute: generisch + unterpreist</h2>
+
+                <div class="bg-white border rounded-xl overflow-hidden mb-5" style="border-color: #E5E2DB;">
+                    <table class="cmp">
+                        <thead>
+                            <tr>
+                                <th style="width: 26%;">Live-Format</th>
+                                <th style="width: 14%;">Aktuell</th>
+                                <th style="width: 20%;">Markt (DACH Senior)</th>
+                                <th>Delta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><p class="font-medium text-stone-900">Strategy Clarity Workshop</p><p class="text-[0.72rem] text-stone-500 mt-0.5">Halber Tag</p></td>
+                                <td class="font-mono text-stone-700">ab 1.500 €</td>
+                                <td class="text-stone-600 text-[0.78rem]">2.000–2.500 €</td>
+                                <td class="text-[0.82rem]" style="color: #D4714E;">~40 % unter Markt</td>
+                            </tr>
+                            <tr>
+                                <td><p class="font-medium text-stone-900">Diagnose-Sprint</p><p class="text-[0.72rem] text-stone-500 mt-0.5">2 Wochen</p></td>
+                                <td class="font-mono text-stone-700">ab 4.000 €</td>
+                                <td class="text-stone-600 text-[0.78rem]">8.000–15.000 €</td>
+                                <td class="text-[0.82rem]" style="color: #D4714E;">~60 % unter Markt</td>
+                            </tr>
+                            <tr>
+                                <td><p class="font-medium text-stone-900">Strategy-to-Execution Sprint</p><p class="text-[0.72rem] text-stone-500 mt-0.5">4–8 Wochen</p></td>
+                                <td class="font-mono text-stone-700">ab 12.000 €</td>
+                                <td class="text-stone-600 text-[0.78rem]">15.000–40.000 €</td>
+                                <td class="text-[0.82rem]" style="color: #D4714E;">untermarkt</td>
+                            </tr>
+                            <tr>
+                                <td><p class="font-medium text-stone-900">Sparring-Retainer</p><p class="text-[0.72rem] text-stone-500 mt-0.5">monatlich</p></td>
+                                <td class="font-mono text-stone-700">ab 1.500 €/Mon.</td>
+                                <td class="text-stone-600 text-[0.78rem]">2.000–4.000 €/Mon.</td>
+                                <td class="text-[0.82rem]" style="color: #D4714E;">~40 % unter Markt</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #a86340;">Befund 1</p>
+                        <h3 class="source-serif text-base text-stone-900 mb-2">Generische Namen</h3>
+                        <p class="text-[0.82rem] text-stone-600">„Workshop · Diagnose · Strategy-to-Execution · Sparring" sagen weder <em>wer</em> (Zielgruppe) noch <em>was einzigartig</em> ist. Klingt wie jede Senior-Beratung.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #a86340;">Befund 2</p>
+                        <h3 class="source-serif text-base text-stone-900 mb-2">8 Formate, 4 zu viele</h3>
+                        <p class="text-[0.82rem] text-stone-600">Neben der Live-Seite liegen versteckte Doppel-Seiten (<code class="font-mono text-[0.7rem]">product-management.html</code>, <code class="font-mono text-[0.7rem]">strategy-execution.html</code>) mit überlappenden Formaten. Konsolidieren auf 4–5 klare.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #a86340;">Befund 3</p>
+                        <h3 class="source-serif text-base text-stone-900 mb-2">Spitze unsichtbar</h3>
+                        <p class="text-[0.82rem] text-stone-600">Dein stärkster Differenzierer (KI-First Product Discovery) taucht im Angebot nirgends auf. Genau das hebt dich von „noch einer Senior-PM-Beraterin" ab.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== 4 · DIE SCHÄRFUNG ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Die Schärfung</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-2">Eine Spitze nach vorn — getragen vom Fundament</h2>
+                <p class="text-sm text-stone-500 max-w-[48em] mb-6">Logik nach Price's Law / Hedgehog: Top 10 % × Top 10 % = Top 1 %. Du musst nicht die beste Strategin <em>und</em> die beste Schreiberin der Welt sein. Die <strong>Kombination</strong> deiner zwei, drei Multiplikatoren macht die Position.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB; border-top: 4px solid #5b8a72;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Fundament</p>
+                        <h3 class="source-serif text-base text-stone-900 mb-2">Strategie→Umsetzung-Bridge</h3>
+                        <p class="text-[0.78rem] text-stone-500">13+ Jahre an der Schnittstelle Business ↔ Produkt ↔ Org. Deine Glaubwürdigkeit, kein Differenzierer.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB; border-top: 4px solid #7b6ba5;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Spitze</p>
+                        <h3 class="source-serif text-base text-stone-900 mb-2">KI-First Product Discovery</h3>
+                        <p class="text-[0.78rem] text-stone-500">Claude-gestützte Synthese in Stunden statt Tagen. Hat ein generischer Senior-PM nicht. Zeitfenster ist jetzt.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB; border-top: 4px solid #5B96B8;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Methode</p>
+                        <h3 class="source-serif text-base text-stone-900 mb-2">Kundenzentrierung als Hebel</h3>
+                        <p class="text-[0.78rem] text-stone-500">Echte Kundenperspektive als neutraler Boden in festgefahrenen Entscheidungen. Daten statt Meinungen.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB; border-top: 4px solid #D4714E;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Verstärker</p>
+                        <h3 class="source-serif text-base text-stone-900 mb-2">Klares Schreiben</h3>
+                        <p class="text-[0.78rem] text-stone-500">Der Blog ist Demo <em>und</em> Vertriebskanal in einem. Macht die Spitze sichtbar und auffindbar.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-xl p-5" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-2 text-violet-500">Verkäufliche Kombi</p>
+                    <p class="text-sm text-stone-700 leading-relaxed">„<strong>Senior-PM-Bridge × KI-First-Discovery × klares Schreiben</strong>". Wenn eine Spitze nach vorn muss: <strong>KI-First Discovery für Scale-ups</strong>. Alles andere ist Fundament, nicht Schaufenster. Diese Kombi gehört in die Headline von Startseite + Angebot — heute steht sie nirgends.</p>
+                </div>
+            </section>
+
+            <!-- ====== 5 · INTERIM PM ====== -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-2">
+                    <p class="font-mono text-[0.65rem] tracking-wider uppercase text-stone-400">Neue Option</p>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #ece8f2; color: #6b5691;">Empfohlener Anker · Vorschlag</span>
+                </div>
+                <h2 class="source-serif text-xl text-stone-900 mb-2">Interim PM als Cash-Anker</h2>
+                <p class="text-sm text-stone-500 max-w-[48em] mb-6">Du überlegst, dich als Interim PM anzubieten. Empfehlung: <strong>ja, und zwar als Anker</strong> — das ist das am klarsten verkäufliche, am besten planbare Format. Die leichten Formate (Workshop, Sprint) werden zu Einstiegen, die in ein Interim-Mandat führen können.</p>
+
+                <div class="bg-white border rounded-xl overflow-hidden mb-5" style="border-color: #E5E2DB;">
+                    <table class="cmp">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Format</th>
+                                <th>Intensität</th>
+                                <th>Dauer</th>
+                                <th>Verantwortung</th>
+                                <th>Wofür</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #f6f4f9;">
+                                <td class="font-medium text-stone-900">Interim PM</td>
+                                <td>3–4 Tage/Woche</td>
+                                <td>fest, 3–6 Monate</td>
+                                <td><strong>operativ, eingebettet</strong></td>
+                                <td class="text-[0.8rem]">PM-Vakanz überbrücken, Skalierungsphase tragen. Du <em>bist</em> die PM auf Zeit.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium text-stone-900">Fractional PM</td>
+                                <td>1–2 Tage/Woche</td>
+                                <td>laufend, monatlich</td>
+                                <td>teilweise, begleitend</td>
+                                <td class="text-[0.8rem]">Senior-Kapazität dauerhaft dazu, ohne Vollzeit-Hire.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium text-stone-900">Sparring</td>
+                                <td>2–4 h/Monat</td>
+                                <td>laufend</td>
+                                <td>keine (nur advisory)</td>
+                                <td class="text-[0.8rem]">Challenge + Außenperspektive für GF/Produktleitung.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Zielsituation</p>
+                        <p class="text-[0.82rem] text-stone-600">Scale-up / Mittelstand mit offener PM-Position (Hiring dauert 4–6 Monate) oder kritischer Produktphase ohne Senior-Lead.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Warum Anker</p>
+                        <p class="text-[0.82rem] text-stone-600">Planbarer Monats-Cash, klar verständlich, schnell verkäuflich. Ein Mandat deckt deinen Break-even allein (siehe Rechnung unten). Schließt den Cash-Gap der Anlaufphase.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Pricing-Vorschlag</p>
+                        <p class="text-[0.82rem] text-stone-600"><strong>ab 1.200 €/Tag</strong>, typ. 3–4 Tage/Woche → ~14–20k €/Monat. Marktüblich für Senior-Interim DACH. <span class="text-stone-400">(Benchmark, zu bestätigen.)</span></p>
+                    </div>
+                </div>
+
+                <div class="rounded-xl p-4 mt-4 flex items-start gap-3" style="background: #fdf5f0; border: 1px solid #fae8de;">
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded mt-0.5" style="background: #fae8de; color: #a86340;">Spannung</span>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed">Interim ist kapazitäts-intensiv (3–4 Tage/Woche) und konkurriert mit den Sprints um deine Zeit. Heißt: Interim als <strong>Anker</strong> + 1–2 leichte Formate als Einstieg/Pipeline — nicht alles gleichzeitig auf Vollgas.</p>
+                </div>
+            </section>
+
+            <!-- ====== 6 · PRICING-EMPFEHLUNG ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Pricing-Empfehlung Solo</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Auf Marktmitte, nicht Junior-Niveau</h2>
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <table class="cmp">
+                        <thead>
+                            <tr>
+                                <th style="width: 28%;">Format</th>
+                                <th>Heute</th>
+                                <th>Empfehlung</th>
+                                <th>Marktbegründung</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-medium text-stone-900">Clarity Workshop (½ Tag)</td>
+                                <td class="font-mono text-stone-500">1.500 €</td>
+                                <td class="font-mono"><span class="delta-up">2.500 €</span></td>
+                                <td class="text-[0.8rem] text-stone-600">Senior-Halbtag inkl. Vor-/Nachbereitung. Markt-Untergrenze 2k.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium text-stone-900">Diagnose-/Discovery-Sprint (2 Wo.)</td>
+                                <td class="font-mono text-stone-500">4.000 €</td>
+                                <td class="font-mono"><span class="delta-up">12.000 €</span></td>
+                                <td class="text-[0.8rem] text-stone-600">2-Wochen-Sprint mit Senior-Lead + Report kostet 8–15k. KI-First-Hook hier verankern.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium text-stone-900">Execution-Sprint (4–8 Wo.)</td>
+                                <td class="font-mono text-stone-500">12.000 €</td>
+                                <td class="font-mono"><span class="delta-up">22.000 €</span></td>
+                                <td class="text-[0.8rem] text-stone-600">Markt-Mitte für Senior-Lead über 4–8 Wo. inkl. OKR + Übergabe: 20–30k. Bandbreite 18–35k je Scope.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium text-stone-900">Sparring-Retainer (laufend)</td>
+                                <td class="font-mono text-stone-500">1.500 €/Mon.</td>
+                                <td class="font-mono"><span class="delta-up">2.500 €/Mon.</span></td>
+                                <td class="text-[0.8rem] text-stone-600">C-Level-tauglich + 13 J. Seniorität rechtfertigen 2,5k+/Monat.</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium text-stone-900">Fractional Senior PM <span class="font-mono text-[0.6rem] px-1.5 py-0.5 rounded ml-1" style="background: #ece8f2; color: #6b5691;">neu</span></td>
+                                <td class="font-mono text-stone-400">—</td>
+                                <td class="font-mono"><span class="delta-new">5–10k €/Mon.</span></td>
+                                <td class="text-[0.8rem] text-stone-600">1–2 Tage/Woche, ~1.150–1.250 €/Tag, Discount für Planbarkeit.</td>
+                            </tr>
+                            <tr style="background: #f6f4f9;">
+                                <td class="font-medium text-stone-900">Interim PM <span class="font-mono text-[0.6rem] px-1.5 py-0.5 rounded ml-1" style="background: #ece8f2; color: #6b5691;">neu · Anker</span></td>
+                                <td class="font-mono text-stone-400">—</td>
+                                <td class="font-mono"><span class="delta-new">ab 1.200 €/Tag</span></td>
+                                <td class="text-[0.8rem] text-stone-600">3–4 Tage/Woche, 3–6 Monate → ~14–20k €/Monat. Eingebettete PM-Rolle auf Zeit.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-[0.75rem] text-stone-400 mt-3">Markt-Quelle: <code class="font-mono text-[0.7rem]">linja-site/pricing_benchmark_dach.md</code>. Alle Empfehlungen zur Bestätigung.</p>
+            </section>
+
+            <!-- ====== 7 · BREAK-EVEN-RECHNUNG ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Kosten-Rechnung Solo</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-2">Wie viel musst du umsetzen, um deine Kosten zu tragen?</h2>
+                <p class="text-sm text-stone-500 max-w-[48em] mb-6">Alle Zahlen sind Annahmen aus deiner Strategie-Notiz, <strong>von dir zu bestätigen</strong>. Sobald KV/Steuer geklärt sind, scharfstellen.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+                    <!-- Bedarf -->
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <h3 class="source-serif text-base text-stone-900 mb-4">Was du brauchst (Monat)</h3>
+                        <div class="space-y-2.5 text-[0.85rem]">
+                            <div class="flex justify-between"><span class="text-stone-600">Persönliche Fixkosten</span><span class="font-mono text-stone-900">2.200 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">KV (freiwillig gesetzlich)*</span><span class="font-mono text-stone-900">~800 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">Altersvorsorge</span><span class="font-mono text-stone-900">~300 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">Puffer Krankheit/Urlaub</span><span class="font-mono text-stone-900">~200 €</span></div>
+                            <div class="flex justify-between pt-2 border-t" style="border-color: #E5E2DB;"><span class="text-stone-700 font-medium">Fixkosten gesamt</span><span class="font-mono text-stone-900 font-medium">~3.500 €</span></div>
+                            <div class="flex justify-between"><span class="text-stone-600">+ Wunsch-Netto in Tasche</span><span class="font-mono text-stone-900">3.000 €</span></div>
+                            <div class="flex justify-between pt-2 border-t" style="border-color: #E5E2DB;"><span class="text-stone-700 font-medium">Netto-Bedarf nach ESt</span><span class="font-mono text-stone-900 font-medium">~6.500 €</span></div>
+                            <div class="flex justify-between pt-3" style="border-top: 2px solid #5b8a72;">
+                                <span class="text-stone-900 font-medium">Brutto-Bedarf (ESt ~28 %)</span>
+                                <span class="font-mono font-semibold" style="color: #476f5b;">~9.000 €/Mon.</span>
+                            </div>
+                        </div>
+                        <p class="text-[0.7rem] text-stone-400 mt-4">* Familien-KV via Mann prüfen → spart ggf. ~800 €/Mon. → Break-even fällt auf ~7.800 €.</p>
+                    </div>
+
+                    <!-- Was deckt es -->
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB; background: linear-gradient(180deg, #f6f4f9 0%, #ffffff 100%);">
+                        <h3 class="source-serif text-base text-stone-900 mb-4">Was den Break-even deckt</h3>
+                        <div class="space-y-3 text-[0.85rem]">
+                            <div class="flex items-start gap-2">
+                                <span class="w-2 h-2 rounded-full flex-shrink-0 mt-1.5" style="background: #6b5691;"></span>
+                                <p class="text-stone-700"><strong>1 Interim-Mandat (3 Tg./Wo. × 1.200 €)</strong> ≈ <span class="font-mono">15.600 €/Mon.</span> → deckt Break-even allein, mit ~6,6k Puffer.</p>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="w-2 h-2 rounded-full flex-shrink-0 mt-1.5" style="background: #5B96B8;"></span>
+                                <p class="text-stone-700"><strong>2 Fractional-Slots</strong> (je ~5k) ≈ <span class="font-mono">10.000 €/Mon.</span> → über Break-even.</p>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="w-2 h-2 rounded-full flex-shrink-0 mt-1.5" style="background: #5b8a72;"></span>
+                                <p class="text-stone-700"><strong>Projekt-Mix</strong>: 1 Diagnose-Sprint (12k) + 2 Sparring (5k) in einem Monat ≈ <span class="font-mono">17.000 €</span>.</p>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <span class="w-2 h-2 rounded-full flex-shrink-0 mt-1.5" style="background: #D4714E;"></span>
+                                <p class="text-stone-700">Bei <strong>alten Preisen</strong> bräuchtest du das ~2,5-fache an Volumen für denselben Cash.</p>
+                            </div>
+                        </div>
+                        <p class="text-[0.78rem] text-stone-600 mt-4 pt-3" style="border-top: 1px solid #E5E2DB;">→ Die <strong>magische Zahl</strong>: ~9.000 € Brutto/Monat. Ein Anker-Mandat genügt, um sie zu reißen.</p>
+                    </div>
+                </div>
+
+                <!-- Sensitivität -->
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <p class="px-6 pt-5 pb-3 font-mono text-[0.6rem] tracking-wider uppercase text-stone-400">Wie viel arbeiten · Tagessatz × fakturierbare Tage/Monat</p>
+                    <table class="cmp">
+                        <thead>
+                            <tr>
+                                <th>Tagessatz</th>
+                                <th>8 Tage</th>
+                                <th>10 Tage</th>
+                                <th>12 Tage</th>
+                                <th>14 Tage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="font-mono text-stone-700">1.000 €</td><td>8.000 € · knapp</td><td>10.000 € · ok</td><td>12.000 € · komfort</td><td>14.000 € · komfort</td></tr>
+                            <tr style="background: #f6f4f9;"><td class="font-mono text-stone-900 font-medium">1.200 € (Ziel)</td><td>9.600 € · deckt</td><td>12.000 € · komfort</td><td><strong>14.400 € · stark</strong></td><td>16.800 € · stark</td></tr>
+                            <tr><td class="font-mono text-stone-700">1.500 €</td><td>12.000 € · komfort</td><td>15.000 € · stark</td><td>18.000 € · sehr stark</td><td>21.000 € · sehr stark</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="px-6 py-4 text-[0.78rem] text-stone-500" style="border-top: 1px solid #E5E2DB; background: #fafaf8;">
+                        Break-even-Linie (~9.000 €) bei 1.200 €/Tag ab ~8 fakturierbaren Tagen erreicht. Der <strong>Pricing-Hebel ist stärker als der Tage-Hebel</strong>: 1.500 € statt 1.000 € macht denselben Cash mit 1/3 weniger Tagen.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ====== 8 · EINWÄNDE ====== -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Innere Einwände vorab</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Was dein Bauch sagt — und die Antwort darauf</h2>
+                <div class="space-y-3">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="text-sm text-stone-700 mb-2"><strong>„Ich kriege keine Kunden, wenn ich höher gehe."</strong></p>
+                        <p class="text-[0.82rem] text-stone-600">Empirisch falsch. Bei 1.500 € Workshop und 4k Sprint positionierst du dich als Junior. Senior-Käufer lesen niedrige Preise als Qualitäts-Signal nach unten. Wer 12k zahlt, signalisiert sich selbst „echtes Problem, ernsthafte Lösung".</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="text-sm text-stone-700 mb-2"><strong>„Aber die Preise stehen schon online."</strong></p>
+                        <p class="text-[0.82rem] text-stone-600">Die Seite ist jung, du hattest noch keinen Live-Kunden darüber. Es gibt keine Erwartungs-Spur, die du verlässt. Update gilt ab dem Tag, an dem du es entscheidest. Bestehende Kontakte können den alten Preis behalten, wenn sie dieses Quartal abschließen.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="text-sm text-stone-700 mb-2"><strong>„8 Formate machen mich flexibler."</strong></p>
+                        <p class="text-[0.82rem] text-stone-600">Das ist Reaktivität verkleidet als Auswahl. Mit 4–5 klaren Formaten reagierst du genauso flexibel (Scope modifizieren statt neues Format erfinden). Klare Formate filtern ernsthafte Kunden vor.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="text-sm text-stone-700 mb-2"><strong>„Interim PM bindet mich zu sehr."</strong></p>
+                        <p class="text-[0.82rem] text-stone-600">Genau das ist der Punkt: gebundene Tage = planbarer Cash = Cash-Gap weg. Du machst Interim als Anker (1 Mandat) + behältst 1–2 Tage/Woche für Akquise, Sprints und Content. Fester Zeitraum (3–6 Mon.) heißt: planbares Ende, keine Endlos-Bindung.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== 9 · LIVE-UMBAU-VORSCHLAG ====== -->
+            <section class="mb-12">
+                <div class="rounded-xl p-4 mb-5 flex items-start gap-3" style="background: #fdf5f0; border: 1px solid #fae8de;">
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded mt-0.5" style="background: #fae8de; color: #a86340;">Nur Vorschlag</span>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed"><strong>Passiert jetzt NICHT.</strong> Das ist die Vorlage für den späteren Live-Umbau, wenn du ihn anweist. Bis dahin bleibt linja.me/angebote unverändert.</p>
+                </div>
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Wenn du später umbaust</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Vorschlag: so könnte das Live-Angebot aussehen</h2>
+
+                <div class="bg-white border rounded-xl overflow-hidden mb-5" style="border-color: #E5E2DB;">
+                    <table class="cmp">
+                        <thead>
+                            <tr>
+                                <th style="width: 22%;">Heute</th>
+                                <th style="width: 26%;">Vorschlag (Name + Hook)</th>
+                                <th>Preis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-stone-500">Strategy Clarity Workshop</td>
+                                <td><p class="font-medium text-stone-900">Clarity Workshop</p><p class="text-[0.75rem] text-stone-500">„In 4 Stunden wisst ihr, wo Strategie oder Discovery bricht."</p></td>
+                                <td class="font-mono">2.500 €</td>
+                            </tr>
+                            <tr>
+                                <td class="text-stone-500">Diagnose-Sprint</td>
+                                <td><p class="font-medium text-stone-900">Discovery-Sprint (KI-First)</p><p class="text-[0.75rem] text-stone-500">„2 Wochen, klares Problem, entscheidungsreife Roadmap — Synthese mit Claude in Stunden."</p></td>
+                                <td class="font-mono">ab 12.000 €</td>
+                            </tr>
+                            <tr>
+                                <td class="text-stone-500">Strategy-to-Execution Sprint</td>
+                                <td><p class="font-medium text-stone-900">Execution-Sprint</p><p class="text-[0.75rem] text-stone-500">„Von der Strategie zur Struktur, die euer Team selbst trägt. 4–8 Wochen, klarer Exit."</p></td>
+                                <td class="font-mono">ab 22.000 €</td>
+                            </tr>
+                            <tr style="background: #f6f4f9;">
+                                <td class="text-stone-400">—</td>
+                                <td><p class="font-medium text-stone-900">Interim PM (Anker)</p><p class="text-[0.75rem] text-stone-500">„Eure PM auf Zeit. 3–4 Tage/Woche, 3–6 Monate, KI-First-Workflow inklusive."</p></td>
+                                <td class="font-mono">ab 1.200 €/Tag</td>
+                            </tr>
+                            <tr>
+                                <td class="text-stone-500">Sparring-Retainer</td>
+                                <td><p class="font-medium text-stone-900">Sparring oder Fractional</p><p class="text-[0.75rem] text-stone-500">„Strategische Sparringspartnerin auf Abruf — oder laufende Senior-PM-Kapazität."</p></td>
+                                <td class="font-mono">2.500 €/Mon. · 5–10k</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-3">Headline-Copy für Startseite + Angebot (2 Varianten)</p>
+                    <div class="space-y-3 text-[0.88rem]">
+                        <p class="text-stone-700 pl-3" style="border-left: 3px solid #7b6ba5;"><strong>A (Spitze zuerst):</strong> „KI-First Product Discovery für Scale-ups. In 2 Wochen vom unklaren Problem zur entscheidungsreifen Roadmap — oder als eure PM auf Zeit."</p>
+                        <p class="text-stone-700 pl-3" style="border-left: 3px solid #5b8a72;"><strong>B (Bridge zuerst):</strong> „13 Jahre Strategie-zu-Umsetzung, jetzt KI-First. Ich bringe Discovery, Struktur und Senior-PM-Kapazität — als Sprint oder eingebettet auf Zeit."</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ====== 10 · OFFENE ENTSCHEIDUNGEN ====== -->
+            <section class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-stone-400">Für dich zu entscheiden</p>
+                <h2 class="source-serif text-xl text-stone-900 mb-4">Was du prüfen / freigeben musst</h2>
+                <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <ul class="space-y-3 text-[0.88rem] text-stone-700">
+                        <li class="flex gap-3"><span class="font-mono text-stone-300">☐</span><span><strong>Interim PM als Anker</strong> aufnehmen? (Empfehlung: ja)</span></li>
+                        <li class="flex gap-3"><span class="font-mono text-stone-300">☐</span><span><strong>Pricing-Empfehlung</strong> annehmen / anpassen? (Workshop 2,5k · Sprint 12k · Execution 22k · Sparring 2,5k · Interim ab 1.200/Tag)</span></li>
+                        <li class="flex gap-3"><span class="font-mono text-stone-300">☐</span><span><strong>KI-First Discovery</strong> als sichtbare Spitze in Headline + Angebot? (Empfehlung: ja)</span></li>
+                        <li class="flex gap-3"><span class="font-mono text-stone-300">☐</span><span><strong>Kostenzahlen bestätigen</strong> (Fixkosten, KV, ESt-Annahme) — danach Break-even scharfstellen</span></li>
+                        <li class="flex gap-3"><span class="font-mono text-stone-300">☐</span><span><strong>Versteckte Doppelseiten</strong> (product-management.html, strategy-execution.html) konsolidieren oder löschen?</span></li>
+                        <li class="flex gap-3"><span class="font-mono text-stone-300">☐</span><span>Danach: <strong>Anweisung für den Live-Umbau</strong> geben</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Anschluss-Links -->
+            <section class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Verwandt</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="angebote-optimierung.html" class="bg-white border rounded-xl p-5 hover:border-violet-300 transition-all block" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Kombiniert</p>
+                        <h4 class="source-serif text-base text-stone-900 mb-1">Solo + Panoptia</h4>
+                        <p class="text-[0.78rem] text-stone-500">Wie Solo und der geparkte Panoptia-Track sinnvoll zusammenspielen.</p>
+                    </a>
+                    <a href="angebote.html" class="bg-white border rounded-xl p-5 hover:border-violet-300 transition-all block" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Bestand</p>
+                        <h4 class="source-serif text-base text-stone-900 mb-1">Office-Angebote</h4>
+                        <p class="text-[0.78rem] text-stone-500">Aktuelle Übersicht: Live · versteckt · Pipeline.</p>
+                    </a>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Markt</p>
+                        <h4 class="source-serif text-base text-stone-900 mb-1">Pricing-Benchmark</h4>
+                        <p class="text-[0.78rem] text-stone-500"><code class="font-mono text-xs">linja-site/pricing_benchmark_dach.md</code></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-12 pt-8 text-center" style="border-top: 1px solid #E5E2DB;">
+                <a href="index.html" class="inline-flex items-center gap-2 font-mono text-[0.7rem] tracking-wider uppercase text-stone-400 hover:text-violet-500 transition-all">
+                    <span>← Zurück zum Dashboard</span>
+                </a>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js?v=2" data-active="angebote"></script>
+</body>
+</html>
