@@ -70,6 +70,14 @@
         #mobile-menu.open {
             display: block;
         }
+
+        table.fmt { width: 100%; border-collapse: collapse; }
+        table.fmt th, table.fmt td { padding: 0.7rem 0.85rem; text-align: left; font-size: 0.85rem; border-bottom: 1px solid #ece8e1; vertical-align: top; }
+        table.fmt th { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; color: #78716c; background: #f5f3ef; font-weight: 500; }
+        table.fmt tr:last-child td { border-bottom: none; }
+        table.fmt .fmt-name { font-weight: 600; color: #1c1917; }
+        table.fmt .fmt-price { font-family: "Geist Mono", ui-monospace, monospace; color: #1c1917; white-space: nowrap; }
+        table.fmt .fmt-dur { color: #57534e; }
     </style>
 </head>
 
@@ -170,45 +178,45 @@
                 Alle Formate laufen KI-gestützt: schnellere Synthese, belastbarere Erkenntnisse in Stunden statt Wochen.
             </p>
             <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #e5e2db;">
-                <table class="w-full" style="border-collapse: collapse;">
+                <table class="fmt">
                     <thead>
                         <tr>
-                            <th class="text-left font-mono text-[0.6rem] tracking-wider uppercase text-stone-500 px-3.5 py-3 align-top" style="background: #f5f3ef; border-bottom: 1px solid #ece8e1; width: 22%;">Format</th>
-                            <th class="text-left font-mono text-[0.6rem] tracking-wider uppercase text-stone-500 px-3.5 py-3 align-top" style="background: #f5f3ef; border-bottom: 1px solid #ece8e1; width: 14%;">Dauer</th>
-                            <th class="text-left font-mono text-[0.6rem] tracking-wider uppercase text-stone-500 px-3.5 py-3 align-top" style="background: #f5f3ef; border-bottom: 1px solid #ece8e1; width: 13%;">ab-Preis</th>
-                            <th class="text-left font-mono text-[0.6rem] tracking-wider uppercase text-stone-500 px-3.5 py-3 align-top" style="background: #f5f3ef; border-bottom: 1px solid #ece8e1;">Was Sie davon haben</th>
+                            <th style="width: 22%;">Format</th>
+                            <th style="width: 14%;">Dauer</th>
+                            <th style="width: 13%;">ab-Preis</th>
+                            <th>Was Sie davon haben</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="px-3.5 py-3.5 align-top font-medium text-stone-900 text-[0.9rem]" style="border-bottom: 1px solid #ece8e1;">Clarity Workshop</td>
-                            <td class="px-3.5 py-3.5 align-top text-[0.83rem] text-stone-600" style="border-bottom: 1px solid #ece8e1;">halber Tag</td>
-                            <td class="px-3.5 py-3.5 align-top font-mono text-stone-900 text-[0.85rem]" style="border-bottom: 1px solid #ece8e1;">ab 1.000 €</td>
-                            <td class="px-3.5 py-3.5 align-top text-[0.85rem] text-stone-600" style="border-bottom: 1px solid #ece8e1;">Bestandsaufnahme Ihrer Herausforderungen oder Produktidee. Danach wissen wir, ob wir bei Alignment, Messbarkeit, Priorisierung, Hypothesen oder Kundenproblem ansetzen sollten, und definieren konkrete nächste Schritte.</td>
+                            <td class="fmt-name">Clarity Workshop</td>
+                            <td class="fmt-dur">halber Tag</td>
+                            <td class="fmt-price">ab 1.000 €</td>
+                            <td>Bestandsaufnahme Ihrer Herausforderungen oder Produktidee. Danach wissen wir, ob wir bei Alignment, Messbarkeit, Priorisierung, Hypothesen oder Kundenproblem ansetzen sollten, und definieren konkrete nächste Schritte.</td>
                         </tr>
                         <tr>
-                            <td class="px-3.5 py-3.5 align-top font-medium text-stone-900 text-[0.9rem]" style="border-bottom: 1px solid #ece8e1;">Discovery-Sprint</td>
-                            <td class="px-3.5 py-3.5 align-top text-[0.83rem] text-stone-600" style="border-bottom: 1px solid #ece8e1;">2-3 Wochen</td>
-                            <td class="px-3.5 py-3.5 align-top font-mono text-stone-900 text-[0.85rem]" style="border-bottom: 1px solid #ece8e1;">ab 4.000 €</td>
-                            <td class="px-3.5 py-3.5 align-top text-[0.85rem] text-stone-600" style="border-bottom: 1px solid #ece8e1;">Eine dokumentierte Diagnose aus echten Stakeholder- und Kundengesprächen führt zu einer Strategie, die auf Evidenz basiert. Daraus abgeleitete, priorisierte Handlungsempfehlungen ermöglichen eine konsequente Operationalisierung.</td>
+                            <td class="fmt-name">Discovery-Sprint</td>
+                            <td class="fmt-dur">2-3 Wochen</td>
+                            <td class="fmt-price">ab 4.000 €</td>
+                            <td>Eine dokumentierte Diagnose aus echten Stakeholder- und Kundengesprächen führt zu einer Strategie, die auf Evidenz basiert. Daraus abgeleitete, priorisierte Handlungsempfehlungen ermöglichen eine konsequente Operationalisierung.</td>
                         </tr>
                         <tr>
-                            <td class="px-3.5 py-3.5 align-top font-medium text-stone-900 text-[0.9rem]" style="border-bottom: 1px solid #ece8e1;">Delivery-Sprint</td>
-                            <td class="px-3.5 py-3.5 align-top text-[0.83rem] text-stone-600" style="border-bottom: 1px solid #ece8e1;">4-8 Wochen</td>
-                            <td class="px-3.5 py-3.5 align-top font-mono text-stone-900 text-[0.85rem]" style="border-bottom: 1px solid #ece8e1;">ab 10.000 €</td>
-                            <td class="px-3.5 py-3.5 align-top text-[0.85rem] text-stone-600" style="border-bottom: 1px solid #ece8e1;">Gemeinsame Umsetzung der erarbeiteten Strategie. Echte gemeinsame Strategie- und Produktarbeit auf Augenhöhe.</td>
+                            <td class="fmt-name">Delivery-Sprint</td>
+                            <td class="fmt-dur">4-8 Wochen</td>
+                            <td class="fmt-price">ab 10.000 €</td>
+                            <td>Gemeinsame Umsetzung der erarbeiteten Strategie. Echte gemeinsame Strategie- und Produktarbeit auf Augenhöhe.</td>
                         </tr>
                         <tr style="background: #f6f4f9;">
-                            <td class="px-3.5 py-3.5 align-top text-[0.9rem]" style="border-bottom: 1px solid #ece8e1;"><span class="font-medium text-stone-900">Interim / Fractional PM</span> <span class="font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded inline-block mt-1" style="background: #ece8f2; color: #6b5691;">Anker</span></td>
-                            <td class="px-3.5 py-3.5 align-top text-[0.83rem] text-stone-600" style="border-bottom: 1px solid #ece8e1;">laufend, Tage/Woche</td>
-                            <td class="px-3.5 py-3.5 align-top font-mono text-stone-900 text-[0.85rem]" style="border-bottom: 1px solid #ece8e1;">ab 1.000 €/Tag</td>
-                            <td class="px-3.5 py-3.5 align-top text-[0.85rem] text-stone-600" style="border-bottom: 1px solid #ece8e1;">Product Discovery und Delivery inkl. Roadmap-Priorisierung aus einer Hand. Senior-Kapazität ab Tag eins, ohne Recruiting, Einarbeitung oder Festanstellung.</td>
+                            <td><span class="fmt-name">Interim / Fractional PM</span> <span class="font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded inline-block" style="background: #ece8f2; color: #6b5691;">Anker</span></td>
+                            <td class="fmt-dur">laufend, Tage/Woche</td>
+                            <td class="fmt-price">ab 1.000 €/Tag</td>
+                            <td>Product Discovery und Delivery inkl. Roadmap-Priorisierung aus einer Hand. Senior-Kapazität ab Tag eins, ohne Recruiting, Einarbeitung oder Festanstellung.</td>
                         </tr>
                         <tr>
-                            <td class="px-3.5 py-3.5 align-top font-medium text-stone-900 text-[0.9rem]">Sparring</td>
-                            <td class="px-3.5 py-3.5 align-top text-[0.83rem] text-stone-600">laufend, 2-4 h/Mon</td>
-                            <td class="px-3.5 py-3.5 align-top font-mono text-stone-900 text-[0.85rem]">ab 1.500 €/Mon</td>
-                            <td class="px-3.5 py-3.5 align-top text-[0.85rem] text-stone-600">Zwei bis vier Stunden Sparring im Monat, schnell verfügbar bei Unsicherheit vor dringenden Entscheidungen. Ein vertraulicher Resonanzraum, der Annahmen hinterfragt und Prioritäten schärft.</td>
+                            <td class="fmt-name">Sparring</td>
+                            <td class="fmt-dur">laufend, 2-4 h/Mon</td>
+                            <td class="fmt-price">ab 1.500 €/Mon</td>
+                            <td>Zwei bis vier Stunden Sparring im Monat, schnell verfügbar bei Unsicherheit vor dringenden Entscheidungen. Ein vertraulicher Resonanzraum, der Annahmen hinterfragt und Prioritäten schärft.</td>
                         </tr>
                     </tbody>
                 </table>
