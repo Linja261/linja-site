@@ -85,10 +85,17 @@
         navPlaceholder.outerHTML = navHTML;
     }
 
-    // Inject footer
-    var footerPlaceholder = document.getElementById('site-footer');
-    if (footerPlaceholder) {
-        footerPlaceholder.outerHTML = footerHTML;
+    // Inject footer — Platzhalter steht hinter diesem Script im DOM, daher ggf. auf DOMContentLoaded warten
+    function injectFooter() {
+        var footerPlaceholder = document.getElementById('site-footer');
+        if (footerPlaceholder) footerPlaceholder.outerHTML = footerHTML;
+    }
+    if (document.getElementById('site-footer')) {
+        injectFooter();
+    } else if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', injectFooter);
+    } else {
+        injectFooter();
     }
 
     // Mobile menu toggle
