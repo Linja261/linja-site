@@ -44,7 +44,7 @@
 
     var navHTML = ''
         + '<nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">'
-        + '<div class="max-w-[860px] mx-auto px-8 py-5 flex items-center justify-between">'
+        + '<div class="max-w-[860px] mx-auto px-5 sm:px-8 py-5 flex items-center justify-between">'
         + '<a href="' + homeLinkHref + '" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>'
         + '<div class="flex items-center gap-6 text-[0.8rem] text-stone-500">'
         + '<a href="' + base + 'blog.html" class="' + blogClass + '">Blog</a>'
@@ -52,7 +52,7 @@
         + '<a href="' + contactHref + '" class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors hidden sm:inline-block" style="background: #7b6ba5;">' + contactDeLabel + '</a>'
         + '<button id="menu-toggle" class="sm:hidden p-1" aria-label="Menü öffnen"><svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg></button>'
         + '</div></div>'
-        + '<div id="mobile-menu" class="sm:hidden border-t px-8 py-4 space-y-3 text-[0.85rem]" style="border-color: #e5e2db; background: rgba(250,250,248,0.98);">'
+        + '<div id="mobile-menu" class="sm:hidden border-t px-5 py-4 space-y-3 text-[0.85rem]" style="border-color: #e5e2db; background: rgba(250,250,248,0.98);">'
         + '<a href="' + base + 'blog.html" class="' + blogClassMobile + '">Blog</a>'
         + langToggleMobile
         + '<a href="' + contactHref + '" class="block font-medium" style="color: #7b6ba5;">' + contactDeLabel + '</a>'
@@ -75,7 +75,7 @@
 
     var footerHTML = ''
         + '<footer style="background: #F5F3EF;" class="py-8">'
-        + '<div class="max-w-[860px] mx-auto px-8 flex items-center justify-center gap-4 text-[0.72rem] text-stone-300">'
+        + '<div class="max-w-[860px] mx-auto px-5 sm:px-8 flex items-center justify-center gap-4 text-[0.72rem] text-stone-300">'
         + footerLinksHTML
         + '</div></footer>';
 
@@ -125,6 +125,22 @@
         window.addEventListener('scroll', update, { passive: true });
         window.addEventListener('resize', update);
         update();
+    })();
+
+    // ═══════════════════════════════════════════════════════════
+    // Mobile-Feinschliff — nur <640px, Desktop (>=640px) unberührt
+    // ═══════════════════════════════════════════════════════════
+    (function mountMobileStyles() {
+        if (document.getElementById('mobile-tweaks')) return;
+        var st = document.createElement('style');
+        st.id = 'mobile-tweaks';
+        st.textContent = '@media (max-width:639px){'
+            + '.prose h2{font-size:1.15rem;}'
+            + '.prose h3{font-size:0.98rem;}'
+            + '.prose table{display:block;overflow-x:auto;}'
+            + '.prose pre{overflow-x:auto;}'
+            + '}';
+        document.head.appendChild(st);
     })();
 
     // ═══════════════════════════════════════════════════════════
