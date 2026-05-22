@@ -15,6 +15,18 @@
     var scriptTag = scripts[scripts.length - 1];
     var activePage = scriptTag.getAttribute('data-active') || 'dashboard';
 
+    // === MOBILE-FEINSCHLIFF (<640px, Desktop unberührt) ===
+    (function () {
+        if (document.getElementById('office-mobile-tweaks')) return;
+        var st = document.createElement('style');
+        st.id = 'office-mobile-tweaks';
+        st.textContent = '@media (max-width:639px){'
+            + 'table.cmp{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}'
+            + 'table.cmp thead,table.cmp tbody{display:table;width:100%;min-width:560px;}'
+            + '}';
+        document.head.appendChild(st);
+    })();
+
     // === NAV ===
     var clusters = [
         { id: 'projekte', label: 'Projekte', items: [
