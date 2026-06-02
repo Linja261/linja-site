@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Digital Ruhr – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        .prose-box { font-size: 0.95rem; line-height: 1.7; }
+        .prose-box h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.4rem; color: #1c1917; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #E5E2DB; }
+        .prose-box h3 { font-weight: 600; font-size: 1.02rem; color: #44403c; margin-top: 1.8rem; margin-bottom: 0.6rem; }
+        .prose-box p { margin-bottom: 1rem; line-height: 1.7; }
+        .prose-box ul { list-style: none; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ul > li { position: relative; padding-left: 1.6rem; margin-bottom: 0.9rem; line-height: 1.65; }
+        .prose-box ul > li::before {
+            content: "▸";
+            position: absolute;
+            left: 0.2rem;
+            top: 0.05rem;
+            color: #7b6ba5;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .prose-box ol { list-style: none; counter-reset: item; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ol > li { position: relative; padding-left: 2rem; margin-bottom: 0.9rem; line-height: 1.65; counter-increment: item; }
+        .prose-box ol > li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            width: 1.4rem;
+            height: 1.4rem;
+            font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.7rem;
+            color: #6b5691;
+            background: #f6f4f9;
+            border: 1px solid #d9d1e5;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        .prose-box strong { color: #1c1917; font-weight: 600; }
+        .prose-box table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.9rem; }
+        .prose-box th, .prose-box td { text-align: left; padding: 0.8rem 1rem; border-bottom: 1px solid #E5E2DB; vertical-align: top; line-height: 1.55; }
+        .prose-box th { font-weight: 600; background: #F5F3EF; color: #44403c; font-size: 0.8rem; }
+        .prose-box blockquote { border-left: 3px solid #d9d1e5; padding: 0.7rem 1rem 0.7rem 1.2rem; margin: 1.3rem 0; color: #78716c; font-style: italic; line-height: 1.65; background: #faf9f6; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[900px] mx-auto px-4 sm:px-6 pt-24 pb-20">
+
+            <header class="mb-6">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Interview-Spickzettel · Vor-Ort-Termin Juni 2026</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Digital Ruhr.</h1>
+                <p class="text-sm text-stone-500">Digital Solution Manager · Mülheim an der Ruhr · DCC.RUHR.</p>
+                <p class="text-xs text-stone-400 mt-2">Andere Spickzettel: <a href="interviews.html" class="text-violet-500 hover:underline">Wilo</a> · <a href="interview-bermuda.html" class="text-violet-500 hover:underline">Bermuda</a> · <a href="interview-douglas.html" class="text-violet-500 hover:underline">Douglas</a> · <a href="interview-hero.html" class="text-violet-500 hover:underline">HERO</a> · <a href="interview-bfs.html" class="text-violet-500 hover:underline">BFS health finance</a></p>
+            </header>
+
+            <section class="prose-box text-sm text-stone-700">
+
+                <!-- Meta -->
+                <div class="bg-white border rounded-xl p-5 mb-6" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Gesprächspartner-Kontext</p>
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-[0.82rem] mt-3">
+                        <div><strong>Stelle:</strong><br>Digital Solution Manager (m/w/d)</div>
+                        <div><strong>Format:</strong><br>Vollzeit · bis 3 Tage Homeoffice</div>
+                        <div><strong>Unternehmen:</strong><br>Digital Ruhr GmbH (DCC.RUHR)</div>
+                        <div><strong>Standort:</strong><br>Mülheim an der Ruhr</div>
+                        <div><strong>Branche:</strong><br>Digitalagentur · Web, Plattform, Software</div>
+                        <div><strong>Größe:</strong><br>~25–30 Digital-Spezialist:innen, gegr. 2018</div>
+                    </div>
+                </div>
+
+                <!-- Quick-Nav -->
+                <div class="bg-violet-50 border border-violet-100 rounded-xl p-4 mb-6">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Quick-Nav</p>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <a href="#rd-kompass" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Kompass</a>
+                        <a href="#rd-warum" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Warum Ruhr Digital?</a>
+                        <a href="#rd-pitch" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Pitch</a>
+                        <a href="#rd-denken" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Wie ich denke</a>
+                        <a href="#rd-fragen" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Antworten</a>
+                        <a href="#rd-tech" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Tech-Vokabular</a>
+                        <a href="#rd-meine" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Meine Fragen</a>
+                        <a href="#rd-rahmen" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Rahmen</a>
+                    </div>
+                </div>
+
+                <div class="bg-violet-50 border border-violet-100 rounded-xl p-4 mb-6">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Das Wichtigste in einem Satz</p>
+                    <p class="text-[0.82rem] text-stone-700 m-0">Sie suchen <strong>keine Projektverwaltung und kein Methoden-Theater</strong>, sondern jemanden, der <strong>das Problem hinter der Anforderung versteht</strong> und in Systemen, Prozessen, Datenstrukturen und Nutzerführung denkt. Genau meine Schnittstelle. Im Gespräch zählt: <strong>wie ich denke und Probleme löse</strong> — also laut denken, an konkreten Beispielen.</p>
+                </div>
+
+                <h2 id="rd-kompass">Kompass (30 Sek-Version)</h2>
+                <ul>
+                    <li><strong>Digital Ruhr GmbH</strong>, Marke <strong>DCC.RUHR</strong> (Digital Competence Center Ruhr), Sitz Mülheim an der Ruhr (Friedrich-Ebert-Str. 33)</li>
+                    <li><strong>Gegründet 2018</strong> von Holger &amp; Dennis — Holger 25+ J. Live-/Markenkommunikation, Dennis 17+ J. Web/Mobile (erste eigene Agentur 2004)</li>
+                    <li><strong>~25–30 Digital-Spezialist:innen</strong> am Standort Mülheim, interdisziplinär</li>
+                    <li><strong>Leistungen:</strong> Websites, Web-Anwendungen, Plattformen &amp; Portale, Mobile Apps, Design-Systeme, Headless &amp; Multi-Channel, PIM, SSO/Identity, Schnittstellen/Microservices, KI-Agenten &amp; KI-Integration, Technologieberatung, Kreativ-Workshops</li>
+                    <li><strong>Tech-Stack:</strong> TYPO3, Craft CMS, Pimcore, Laravel, Vue.js, Node.js, Flutter, Capacitor, AWS, Keycloak (SSO), Solr/Elasticsearch, Mautic, Socket.io</li>
+                    <li><strong>Selbstbild:</strong> pragmatisch, kurze Wege, keine Konzernbürokratie, kein Methoden-Theater. „Bessere Kommunikation in der digitalen Welt."</li>
+                </ul>
+
+                <h2 id="rd-warum">Warum Ruhr Digital?</h2>
+                <ul>
+                    <li><strong>Genau meine Schnittstelle.</strong> Anforderung challengen, das eigentliche Problem freilegen, in Prozessen, Datenstrukturen, Systemlogik und Nutzerführung denken — und daraus eine Lösung machen, die technisch tragfähig, wirtschaftlich sinnvoll und nutzerzentriert ist. Das ist seit 13 Jahren mein Alltag, nicht Ticket-Verwaltung.</li>
+                    <li><strong>Agentur-Vielfalt statt Inhouse-Einbahn.</strong> Viele Domänen, echte fachliche und technische Herausforderungen, kurze Entscheidungswege. Das ist mehr Lernfläche pro Jahr als ein einzelnes Inhouse-Produkt.</li>
+                    <li><strong>Auf Augenhöhe mit Entwicklung.</strong> Ich verstehe APIs, Datenmodelle und Systemlogik gut genug, um Auswirkungen einzuschätzen und Trade-offs mitzuentscheiden — ohne selbst Entwicklerin sein zu wollen. Mit MatGrid baue ich gerade genau so mit einem Dev-Team.</li>
+                    <li><strong>KI ist mein aktiver Fokus.</strong> Ich arbeite KI-basiert von der Strategie bis ins Produkt. Ihr habt KI-Agenten und KI-Integration im Portfolio — da bringe ich Substanz mit, kein Buzzword.</li>
+                    <li><strong>Region bewusst.</strong> Ruhrgebiet ist mein Lebensmittelpunkt. Unna → Mülheim ist machbar, bis 3 Tage Homeoffice passen. Gezielte Bewerbung, keine Streuung.</li>
+                </ul>
+
+                <h2 id="rd-pitch">Pitch (2 Min)</h2>
+                <ul>
+                    <li>13 J. Erfahrung an der Schnittstelle Produkt × Business × Technologie</li>
+                    <li><strong>Roter Faden:</strong> komplexe Anforderungen durchdenken → tragfähige digitale Lösungen → messbare Ergebnisse</li>
+                    <li><strong>ista (6 J.):</strong> 4 Rollen, 17 Ländermärkte, 2 Ausgründungen (Tooltime, Objego) — Plattform- und Datenthemen über Märkte hinweg</li>
+                    <li><strong>ABS Safety (5 J.):</strong> E2E-Verantwortung. Digitale Bestellstrecke von der Anforderung bis Go-Live: ERP-Anbindung, Datenmodell, mobile Nutzerführung → +3,5 Mio. € Umsatz, −50 % Prozesszeit. Team 1→8.</li>
+                    <li><strong>MatGrid (eigene Ausgründung):</strong> baue gerade eine SaaS für Dachdecker mit einem Dev-Team auf — Datenmodell, API-Logik, UX. Technik von innen, nicht aus der Folie.</li>
+                    <li><strong>Jetzt:</strong> digitale Lösungen end-to-end gestalten, nah an Technik und Nutzer — Digital Solution Manager ist genau das.</li>
+                </ul>
+
+                <h2 id="rd-denken">Wie ich denke (mein Vorzeige-Beispiel)</h2>
+                <p>Sie wollen sehen, <em>wie</em> ich ein Problem löse. Eine Geschichte, die ich vorbereitet im Kopf habe — die ABS-Bestellstrecke, durchdekliniert genau auf ihre vier Ebenen:</p>
+                <ul>
+                    <li><strong>Anforderung challengen:</strong> Der Wunsch kam als „wir brauchen einen Online-Shop". Die echte Frage war nicht „Shop ja/nein", sondern: warum dauert eine Bestellung heute so lang und bindet Vertrieb? Problem hinter der Anforderung = Prozesseffizienz, nicht ein Feature.</li>
+                    <li><strong>In Prozessen denken:</strong> Bestellweg von Anfrage bis Lieferung aufgenommen, Bruchstellen markiert (manuelle Konditionspflege, Rückfragen, Medienbrüche).</li>
+                    <li><strong>In Datenstrukturen denken:</strong> Artikelstamm, kundenindividuelle Konditionen, Lagerstände — was muss aus dem ERP kommen, was lebt im neuen System, wo ist die Quelle der Wahrheit?</li>
+                    <li><strong>In Systemlogik denken:</strong> Schnittstelle zum ERP statt Datendoppelung, klare Sync-Logik, was passiert bei Konflikten.</li>
+                    <li><strong>In Nutzerführung denken:</strong> Zielgruppe Handwerk, mobil, oft unterwegs — wenige Klicks, keine Schulung nötig.</li>
+                    <li><strong>Ergebnis:</strong> MVP statt Maximalshop, in 2 Monaten live, dann iterativ. +3,5 Mio. € Umsatz, halbe Prozesszeit. Das ist der Unterschied zwischen „Feature aufnehmen" und „Lösung verantworten".</li>
+                </ul>
+
+                <h2 id="rd-fragen">Antworten auf typische Fragen</h2>
+
+                <h3>"Erzählen Sie von sich"</h3>
+                <p>13 Jahre an der Schnittstelle Produkt, Business und Technologie — bei ista international über 17 Märkte, bei ABS Safety mit E2E-Verantwortung von der Anforderung bis Go-Live. Parallel baue ich mit zwei Mitgründern MatGrid auf, eine Software für Dachdecker, dort arbeite ich täglich mit einem Dev-Team an Datenmodell und API-Logik. Mich interessiert nicht das Ticket, sondern das Problem dahinter.</p>
+
+                <h3>"Warum Agentur, warum wir?"</h3>
+                <p>Inhouse vertieft man ein Produkt, Agentur multipliziert die Lernfläche — viele Domänen, viele Systemlandschaften, echte technische Herausforderungen. Genau die Breite reizt mich nach Jahren Inhouse. Und ihr seid explizit gegen Projektverwaltung und Methoden-Theater positioniert — das ist meine Arbeitsweise, nicht nur ein Claim.</p>
+
+                <h3>"Wie gehst du mit einer unklaren Anforderung um?"</h3>
+                <p>Erst das Problem hinter der Anforderung freilegen, statt das Feature aufzunehmen. Ich frage so lange „warum" und „was passiert, wenn nicht", bis die eigentliche Aufgabe sichtbar ist, und übersetze sie dann in Prozess, Datenstruktur, Systemlogik und Nutzerführung. Oft stellt sich heraus, dass die gewünschte Lösung nicht das günstigste Mittel für das eigentliche Ziel ist.</p>
+
+                <h3>"Erzähl von einem Projekt, in dem du fachlich, technisch oder konzeptionell Verantwortung übernommen hast"</h3>
+                <p>Die ABS-Bestellstrecke (Beispiel oben durchdekliniert): aus „wir brauchen einen Shop" wurde nach dem Durchdenken ein Prozess-Redesign mit ERP-Schnittstelle und mobiler Nutzerführung. Ich habe Anforderung, Datenmodell, Systemlogik, UX-Briefing und Priorisierung verantwortet. Ergebnis: +3,5 Mio. € Umsatz, halbe Prozesszeit, live in 2 Monaten.</p>
+
+                <h3>"Wie tief ist dein technisches Verständnis? Wie arbeitest du mit Entwicklung?"</h3>
+                <p>Ich code nicht selbst und behaupte das auch nicht — aber ich verstehe APIs, Datenmodelle, Relationen und Systemlogik gut genug, um Auswirkungen und Aufwände einzuschätzen und mit Entwicklung auf Augenhöhe zu diskutieren. Das Warum und Was kommt von mir, das Wie gehört dem Team. Bei MatGrid sitze ich genau in dieser Rolle.</p>
+
+                <h3>"Wie bewertest du UX und wie briefst du UX/UI?"</h3>
+                <p>UX bewerte ich an der Nutzerführung: schafft der Nutzer sein Ziel in möglichst wenigen, klaren Schritten? Ich briefe nicht in Screens, sondern in Jobs, Kontext und Constraints — wer nutzt das wo, unter welchen Bedingungen, was ist der kritische Pfad. Dann lasse ich Design den Lösungsraum öffnen, statt ihn vorzugeben.</p>
+
+                <h3>"Wie gehst du mit Budget, Aufwand und Nutzen um?"</h3>
+                <p>Jede Lösung hat einen Aufwand-Nutzen-Hebel. Ich denke in MVP zuerst — was ist das kleinste Ding, das das eigentliche Problem löst — und baue dann iterativ aus. Maximalscope ohne Validierung ist das teuerste Risiko. Bei ABS war der Maximalshop das Naheliegende, der MVP war das Wirtschaftliche.</p>
+
+                <h3>"Erfahrung mit CMS- oder API-basierten Systemen?"</h3>
+                <p>Ja — Plattform- und Datenprojekte über Systemgrenzen hinweg, Schnittstellen zu ERP und Drittsystemen, content- und produktdatengetriebene Anwendungen. Headless, PIM und API-First sind mir als Konzept und in der Auswirkung vertraut; eure konkreten Werkzeuge (TYPO3, Craft, Pimcore, Laravel/Vue) sind teils neu, das Muster dahinter nicht.</p>
+
+                <h3>"KI und Automatisierung — wo siehst du Hebel?"</h3>
+                <p>Zwei Ebenen. Im Projekt: KI-Integration als echte Arbeitsentlastung beim Kunden — Inhalte, Datenanreicherung, Self-Service statt Support. In der Agentur selbst: KI in Anforderungsanalyse, Research-Synthese und Spezifikation, um schneller von Idee zu tragfähigem Konzept zu kommen. KI nur, wenn sie Zeit oder Fehler spart — nicht als Gimmick.</p>
+
+                <h3>"Wie hältst du mehrere Projekte parallel?"</h3>
+                <p>Bei ABS zuletzt drei Produktlinien parallel. Fokus halte ich über klare Ziele und Prioritäten je Projekt, nicht über Multitasking im Kopf. Wichtig ist ein verlässlicher Rhythmus, in dem jedes Projekt seinen Slot hat und nichts stillschweigend liegen bleibt.</p>
+
+                <h3>"Warum weg von ABS?"</h3>
+                <p>Portfolio und Team stehen, die nächste interne Stufe wäre mehr vom Gleichen. Ich will wieder mehr Breite und näher an unterschiedliche Systemlandschaften — und genau das bietet die Agentur-Seite.</p>
+
+                <h2 id="rd-tech">Tech-Vokabular parat (falls es technisch wird)</h2>
+                <div class="bg-white border rounded-xl p-5 mb-4" style="border-color: #E5E2DB;">
+                    <p class="text-[0.82rem] text-stone-600 mb-3 mt-0">Ehrlich bleiben: <strong>Konzepte und Auswirkungen verstehe ich, ich code nicht.</strong> Diese Begriffe sicher einordnen können:</p>
+                    <ul class="text-[0.82rem] mb-0">
+                        <li><strong>API / REST / Webhook:</strong> Systeme reden über definierte Schnittstellen; Webhook = System meldet sich selbst, wenn etwas passiert, statt ständig nachzufragen.</li>
+                        <li><strong>Datenmodell / Relationen:</strong> wie Daten strukturiert und verknüpft sind; wo die Quelle der Wahrheit liegt, statt Daten doppelt zu pflegen.</li>
+                        <li><strong>Headless CMS:</strong> Inhalte vom Frontend entkoppelt, Auslieferung über API auf mehrere Kanäle (Web, App). Multi-Channel-Logik.</li>
+                        <li><strong>PIM (z.B. Pimcore):</strong> zentrale Produktdaten als Single Source, von dort in Shop, Web, App, Print.</li>
+                        <li><strong>SSO / Identity (Keycloak):</strong> ein Login über mehrere Systeme, zentrale Rechte- und Rollenverwaltung.</li>
+                        <li><strong>Microservices vs. Monolith:</strong> Funktionen als getrennte, austauschbare Dienste statt ein großer Block — Trade-off Flexibilität vs. Komplexität.</li>
+                        <li><strong>Aufwand einschätzen:</strong> nicht die Story-Points, aber die Frage „berührt das eine Schnittstelle / ein Datenmodell / nur das Frontend?" als Komplexitäts-Indikator.</li>
+                    </ul>
+                </div>
+
+                <h2 id="rd-meine">Meine Fragen an Ruhr Digital</h2>
+
+                <h3>Rolle &amp; Abgrenzung</h3>
+                <ol>
+                    <li>Wie ist der Digital Solution Manager geschnitten gegenüber Projektleitung, PO oder Consultant bei euch — wo beginnt und endet meine Verantwortung über den Go-Live hinaus?</li>
+                    <li>Wie viele Projekte typischerweise parallel, und wie groß ist ein typisches Projekt (Budget, Laufzeit, Teamgröße)?</li>
+                    <li>Was ist die größte ungelöste Herausforderung, für die ihr genau diese Rolle gerade besetzt?</li>
+                    <li>Woran würdet ihr in 6 und 12 Monaten sehen, dass die Besetzung der Rolle erfolgreich war?</li>
+                </ol>
+
+                <h3>Team &amp; Zusammenarbeit</h3>
+                <ol start="5">
+                    <li>Wie spielen Solution Manager, UX/UI und Entwicklung im Projekt zusammen — wer entscheidet was, wo sind heute die Reibungspunkte?</li>
+                    <li>Wie viel Discovery und Anforderungs-Challenge ist real drin, bevor gebaut wird — oder kommen Kunden oft schon mit fertiger Lösungsvorstellung?</li>
+                    <li>Wer entscheidet über den Tech-Stack pro Projekt — wann TYPO3 vs. Craft vs. Pimcore vs. Custom (Laravel/Vue), ihr oder der Kunde?</li>
+                </ol>
+
+                <h3>Kunden, KI &amp; Wachstum</h3>
+                <ol start="8">
+                    <li>Welche Branchen und Kundentypen sind typisch — eher Mittelstand, Industrie, öffentlicher Sektor?</li>
+                    <li>Wo steht ihr beim Thema KI-Agenten und KI-Integration — eigene Pilotprojekte, schon produktiv beim Kunden, oder im Aufbau?</li>
+                    <li>Ihr seid ~25–30 Leute — wohin wollt ihr in den nächsten zwei, drei Jahren, und welche Rolle spielt diese Position dabei?</li>
+                </ol>
+
+                <h3>Rahmen</h3>
+                <ol start="11">
+                    <li>Homeoffice-Modell konkret: wie sind die bis zu 3 HO-Tage verteilt, welche Präsenz erwartet ihr in Mülheim, und gibt es Reisetätigkeit zu Kunden?</li>
+                </ol>
+
+                <h2 id="rd-rahmen">Rahmenbedingungen</h2>
+                <table>
+                    <thead><tr><th>Thema</th><th>Antwort</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Gehalt</strong></td><td><strong>Ziel 80–85k, ankern 82k, Untergrenze ~72k.</strong> Agentur-Gehälter liegen meist unter Konzern — Wert hier sind Gestaltungsspielraum, KI-Fokus, Region und bis 3 Tage HO. Konkrete Range erfragen, dann einordnen.</td></tr>
+                        <tr><td><strong>Start</strong></td><td>Juli/August 2026 (Kündigungsfrist ABS)</td></tr>
+                        <tr><td><strong>Standort / Pendeln</strong></td><td>Unna → Mülheim ca. 50 Min. Präsenz an Office-Tagen selbstverständlich, bis 3 Tage HO laut Ausschreibung.</td></tr>
+                        <tr><td><strong>Andere Bewerbungen</strong></td><td>Ja, in Gesprächen. Ruhr Digital gezielt ausgesucht wegen Rollen-Fit + KI + Region.</td></tr>
+                        <tr><td><strong>MatGrid</strong></td><td>Eigene Ausgründung, andere Domäne (Dachdecker-SaaS) — kein Konflikt, vertraglich klärbar. Beleg für meine Technik- und Produkt-Nähe.</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="mt-8 p-4 rounded-lg" style="background: #fef3ec; border: 1px solid #fae8de;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-amber-700 mb-2">NICHT sagen</p>
+                    <ul class="text-[0.82rem] text-stone-700 list-disc ml-5">
+                        <li>Kein Framework-Buzzword-Gewitter — sie lehnen „Methoden-Theater" explizit ab. Methoden nur als Werkzeug nennen, nie als Selbstzweck.</li>
+                        <li>Nicht als „klassische Projektmanagerin / Koordinatorin" verkaufen — sie suchen Lösungs-Verantwortung.</li>
+                        <li>Nicht so tun, als wäre ich Entwicklerin. Ehrlich: ich verstehe Technik und Auswirkungen, ich code nicht.</li>
+                        <li>Nichts Negatives über ABS Safety.</li>
+                        <li>Nicht „suche einfach was Neues" — immer Outcome- und Problem-Story.</li>
+                    </ul>
+                </div>
+
+                <div class="mt-6 p-4 rounded-lg bg-white border" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Drei Anker für den ersten Eindruck</p>
+                    <ol class="text-[0.82rem] mb-0">
+                        <li><strong>Problem vor Feature:</strong> Ich nehme keine Anforderungen auf, ich lege das Problem dahinter frei (ABS-Beispiel parat).</li>
+                        <li><strong>Augenhöhe mit Technik:</strong> APIs, Datenmodelle, Systemlogik verstehe ich — code aber nicht. MatGrid belegt das täglich.</li>
+                        <li><strong>KI als Handwerk:</strong> Ich arbeite KI-basiert von Strategie bis Produkt, kein Buzz.</li>
+                    </ol>
+                </div>
+
+                <blockquote class="mt-6">
+                    Inhabergeführte Ruhrgebiets-Agentur: pragmatisch, kurze Wege, Klartext, kein Buzzword-Bingo. Sie wollen sehen, wie ich denke und Probleme löse — also laut denken, an konkreten Beispielen, Substanz vor Methode.
+                </blockquote>
+
+            </section>
+
+            <div style="height: 80px;"></div>
+
+        </main>
+    </div>
+
+    <script src="office.js?v=2" data-active="interviews"></script>
+</body>
+</html>
