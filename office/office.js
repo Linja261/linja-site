@@ -49,6 +49,7 @@
         { id: 'content', label: 'Content', items: [
             { id: 'blog', label: 'Blog', href: 'blog.html' },
             { id: 'promo', label: 'Promo', href: 'promo.html' },
+            { id: 'analytics', label: 'Analytics', href: 'analytics.html' },
         ]},
         { id: 'wissen', label: 'Wissen', items: [
             { id: 'skills', label: 'Skills', href: 'skills.html' },

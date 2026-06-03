@@ -9,6 +9,14 @@
  * Auth-Muster aus office.js übernommen (sessionStorage, eigener Storage-Key ag-service-auth).
  */
 (function () {
+    // Cookieloses Tracking laden (no-op solange in analytics.js keine ID gesetzt ist)
+    if (!document.querySelector('script[src$="/analytics.js"]')) {
+        var trk = document.createElement('script');
+        trk.defer = true;
+        trk.src = '/analytics.js';
+        document.head.appendChild(trk);
+    }
+
     var PASS = 'Lagerfeuer2026';
     var AUTH_KEY = 'ag-service-auth';
 

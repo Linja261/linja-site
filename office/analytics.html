@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Analytics – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; }
+        .funnel-bar { background: linear-gradient(90deg, #7b6ba5 0%, #9a82b5 100%); }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Analytics · linja.me</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Reichweite &amp; Funnel.</h1>
+                <p class="text-sm text-stone-500">Cookielose Messung (Umami). Office-Cockpit ist aus den Zahlen ausgeschlossen.
+                    Claude aktualisiert diese Seite wöchentlich.</p>
+                <!-- DATA:STAND -->
+                <p class="font-mono text-[0.62rem] tracking-wider uppercase text-stone-400 mt-3">Stand: noch nicht aktiviert · Zeitraum: —</p>
+                <!-- /DATA:STAND -->
+            </header>
+
+            <!-- SETUP-HINWEIS (entfernt Claude beim ersten echten Report) -->
+            <!-- DATA:SETUP -->
+            <div class="border rounded-xl p-5 mb-10" style="border-color: #d9d1e5; background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%);">
+                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-1">Setup offen</p>
+                <p class="text-sm text-stone-700 mb-2">Das Tracking ist im Code eingebaut, aber noch <strong>nicht scharfgeschaltet</strong>.
+                    Sobald die Umami-Website-ID in <span class="font-mono text-[0.78rem]">analytics.js</span> steht und erste Besuche eingehen,
+                    erscheinen hier die Zahlen.</p>
+                <p class="text-xs text-stone-500">Bis dahin zeigen alle Felder „—".</p>
+            </div>
+            <!-- /DATA:SETUP -->
+
+            <!-- ÜBERBLICK -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Überblick · diese Woche</p>
+                <!-- DATA:KPIS -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Besucher</p>
+                        <p class="font-mono text-2xl text-stone-900">—</p>
+                        <p class="text-[0.7rem] text-stone-400 mt-1">vs. Vorwoche —</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Seitenaufrufe</p>
+                        <p class="font-mono text-2xl text-stone-900">—</p>
+                        <p class="text-[0.7rem] text-stone-400 mt-1">vs. Vorwoche —</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Ø Verweildauer</p>
+                        <p class="font-mono text-2xl text-stone-900">—</p>
+                        <p class="text-[0.7rem] text-stone-400 mt-1">pro Besuch</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Bounce-Rate</p>
+                        <p class="font-mono text-2xl text-stone-900">—</p>
+                        <p class="text-[0.7rem] text-stone-400 mt-1">Single-Page-Visits</p>
+                    </div>
+                </div>
+                <!-- /DATA:KPIS -->
+            </section>
+
+            <!-- FUNNEL 1: AKQUISE -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-stone-400">Funnel 1 · Akquise</p>
+                <p class="text-sm text-stone-500 mb-4">Start → Angebote → Leistungsdetail → Kontakt-Klick. Das Geld-Funnel.</p>
+                <!-- DATA:FUNNEL_AKQUISE -->
+                <div class="bg-white border rounded-xl p-6 space-y-3" style="border-color: #E5E2DB;">
+                    <div>
+                        <div class="flex justify-between text-sm mb-1"><span class="text-stone-700">Startseite</span><span class="font-mono text-stone-400">—</span></div>
+                        <div class="h-6 rounded bg-violet-50"><div class="funnel-bar h-6 rounded" style="width:100%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1"><span class="text-stone-700">Angebote</span><span class="font-mono text-stone-400">—</span></div>
+                        <div class="h-6 rounded bg-violet-50"><div class="funnel-bar h-6 rounded" style="width:0%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1"><span class="text-stone-700">Leistungsdetail (Strategy / Product)</span><span class="font-mono text-stone-400">—</span></div>
+                        <div class="h-6 rounded bg-violet-50"><div class="funnel-bar h-6 rounded" style="width:0%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1"><span class="text-stone-700">Kontakt-Klick (Mail / Tel / CTA)</span><span class="font-mono text-stone-400">—</span></div>
+                        <div class="h-6 rounded bg-violet-50"><div class="funnel-bar h-6 rounded" style="width:0%"></div></div>
+                    </div>
+                    <p class="text-[0.7rem] text-stone-400 pt-2">Conversion Start → Kontakt: —</p>
+                </div>
+                <!-- /DATA:FUNNEL_AKQUISE -->
+            </section>
+
+            <!-- FUNNEL 2: CONTENT -> LEAD -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-stone-400">Funnel 2 · Content → Lead</p>
+                <p class="text-sm text-stone-500 mb-4">Blog-Liste → Artikel → Angebote/Start → Kontakt. Wird Content zu Anfragen?</p>
+                <!-- DATA:FUNNEL_CONTENT -->
+                <div class="bg-white border rounded-xl p-6 space-y-3" style="border-color: #E5E2DB;">
+                    <div>
+                        <div class="flex justify-between text-sm mb-1"><span class="text-stone-700">Blog-Besuch (Liste oder Artikel)</span><span class="font-mono text-stone-400">—</span></div>
+                        <div class="h-6 rounded bg-violet-50"><div class="funnel-bar h-6 rounded" style="width:100%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1"><span class="text-stone-700">weiter zu Angebote / Start</span><span class="font-mono text-stone-400">—</span></div>
+                        <div class="h-6 rounded bg-violet-50"><div class="funnel-bar h-6 rounded" style="width:0%"></div></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1"><span class="text-stone-700">Kontakt-Klick</span><span class="font-mono text-stone-400">—</span></div>
+                        <div class="h-6 rounded bg-violet-50"><div class="funnel-bar h-6 rounded" style="width:0%"></div></div>
+                    </div>
+                    <p class="text-[0.7rem] text-stone-400 pt-2">Conversion Blog → Kontakt: —</p>
+                </div>
+                <!-- /DATA:FUNNEL_CONTENT -->
+            </section>
+
+            <!-- ARTIKEL-ENGAGEMENT -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-stone-400">Artikel-Engagement</p>
+                <p class="text-sm text-stone-500 mb-4">Was wird gelesen, bis zu Ende gelesen, angehört, gewechselt.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- DATA:TOP_ARTIKEL -->
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-3">Meistgelesene Artikel</p>
+                        <ul class="text-sm text-stone-600 space-y-2">
+                            <li class="flex justify-between"><span class="text-stone-400">—</span><span class="font-mono text-stone-400">—</span></li>
+                        </ul>
+                    </div>
+                    <!-- /DATA:TOP_ARTIKEL -->
+                    <!-- DATA:ENGAGEMENT_EVENTS -->
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-3">Events</p>
+                        <ul class="text-sm text-stone-600 space-y-2">
+                            <li class="flex justify-between"><span>Artikel zu Ende gelesen (75%)</span><span class="font-mono text-stone-400">—</span></li>
+                            <li class="flex justify-between"><span>Reader-Audio gestartet</span><span class="font-mono text-stone-400">—</span></li>
+                            <li class="flex justify-between"><span>Sprachwechsel DE/EN</span><span class="font-mono text-stone-400">—</span></li>
+                            <li class="flex justify-between"><span>Termin-Buchung (Calendly)</span><span class="font-mono text-stone-400">—</span></li>
+                        </ul>
+                    </div>
+                    <!-- /DATA:ENGAGEMENT_EVENTS -->
+                </div>
+            </section>
+
+            <!-- QUELLEN + GERÄTE + GEO -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Herkunft</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- DATA:QUELLEN -->
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-3">Top-Verweisquellen</p>
+                        <ul class="text-sm text-stone-600 space-y-2"><li class="flex justify-between"><span class="text-stone-400">—</span><span class="font-mono text-stone-400">—</span></li></ul>
+                    </div>
+                    <!-- /DATA:QUELLEN -->
+                    <!-- DATA:GERAETE -->
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-3">Geräte</p>
+                        <ul class="text-sm text-stone-600 space-y-2"><li class="flex justify-between"><span class="text-stone-400">—</span><span class="font-mono text-stone-400">—</span></li></ul>
+                    </div>
+                    <!-- /DATA:GERAETE -->
+                    <!-- DATA:GEO -->
+                    <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-3">Länder</p>
+                        <ul class="text-sm text-stone-600 space-y-2"><li class="flex justify-between"><span class="text-stone-400">—</span><span class="font-mono text-stone-400">—</span></li></ul>
+                    </div>
+                    <!-- /DATA:GEO -->
+                </div>
+            </section>
+
+            <!-- MATGRID-PILOT -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-stone-400">MatGrid-Pilot · ag-service/</p>
+                <p class="text-sm text-stone-500 mb-4">Pitch → Hypothesen → Pilot. Passwort-geschützte Mini-Site — Aktivität von Pilot-Kontakten.</p>
+                <!-- DATA:AGSERVICE -->
+                <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <ul class="text-sm text-stone-600 space-y-2">
+                        <li class="flex justify-between"><span>Aufrufe ag-service/</span><span class="font-mono text-stone-400">—</span></li>
+                        <li class="flex justify-between"><span>Eindeutige Besucher</span><span class="font-mono text-stone-400">—</span></li>
+                    </ul>
+                </div>
+                <!-- /DATA:AGSERVICE -->
+            </section>
+
+            <!-- CLAUDES NOTIZ -->
+            <section class="mb-12">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Claudes Lesart der Woche</p>
+                <!-- DATA:NOTIZ -->
+                <div class="border rounded-xl p-6" style="border-color: #d9d1e5; background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%);">
+                    <p class="text-sm text-stone-600">Sobald Daten reinkommen, steht hier 1x/Woche meine Kurz-Einordnung:
+                        was auffällt, welcher Funnel-Schritt klemmt, was du als Nächstes drehen kannst.</p>
+                </div>
+                <!-- /DATA:NOTIZ -->
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js?v=2" data-active="analytics"></script>
+</body>
+</html>
