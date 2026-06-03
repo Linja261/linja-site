@@ -19,7 +19,7 @@
     'use strict';
 
     // ====== KONFIG ======
-    var WEBSITE_ID = '__UMAMI_WEBSITE_ID__';            // <- hier echte ID einsetzen
+    var WEBSITE_ID = '77bcb3b9-f5d7-444c-bf59-59de5286f2c0'; // linja.me (Umami Cloud)
     var SCRIPT_SRC = 'https://cloud.umami.is/script.js'; // EU-Region: 'https://eu.umami.is/script.js'
     // =====================
 
