@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <meta name="theme-color" content="#7B6BA5">
+  <title>Hero Software — Case Study · Linja Scharffetter</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #FAFAF8;
+      --border: #E5E2DB;
+      --text: #44403c;
+      --text-muted: #a8a29e;
+      --black: #1A1A1A;
+      --violet: #7b6ba5;
+      --violet-dark: #463863;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      line-height: 1.6;
+    }
+    .gate {
+      width: 100%;
+      max-width: 440px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 36px;
+      box-shadow: 0 12px 40px rgba(70, 56, 99, 0.08);
+    }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--violet);
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .sub {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 13px 15px;
+      font-size: 15px;
+      font-family: inherit;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg);
+      color: var(--text);
+      transition: border-color 0.15s;
+    }
+    input[type="password"]:focus {
+      outline: none;
+      border-color: var(--violet);
+    }
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 13px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      color: #fff;
+      background: var(--violet);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    button:hover { background: var(--violet-dark); }
+    .error {
+      margin-top: 14px;
+      font-size: 13.5px;
+      color: #D93025;
+      display: none;
+    }
+    .error.show { display: block; }
+
+    /* Unlocked: choose version */
+    .choose { display: none; }
+    .choose.show { display: block; }
+    .gate.unlocked .lock-view { display: none; }
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-top: 14px;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .card:hover { border-color: var(--violet); transform: translateY(-2px); }
+    .card h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .arrow { float: right; color: var(--violet); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="gate" id="gate">
+    <div class="lock-view">
+      <div class="eyebrow">Case Study · Vertraulich</div>
+      <h1>Hero Software</h1>
+      <p class="sub">Diese Case Study ist passwortgeschützt. Bitte gib das Passwort ein.</p>
+      <form id="gateForm" autocomplete="off">
+        <label for="pw">Passwort</label>
+        <input type="password" id="pw" autofocus>
+        <button type="submit">Öffnen</button>
+        <p class="error" id="err">Falsches Passwort. Bitte erneut versuchen.</p>
+      </form>
+    </div>
+
+    <div class="choose" id="choose">
+      <div class="eyebrow">Hero Software · Case Study</div>
+      <h1>Zwei Versionen</h1>
+      <p class="sub">Wähle, wie du einsteigen möchtest.</p>
+      <a class="card" href="volltext.html">
+        <span class="arrow">→</span>
+        <h2>Vollständige Case Study</h2>
+        <p>Der ausführliche Durchlauf mit allen Details.</p>
+      </a>
+      <a class="card" href="onepager.html">
+        <span class="arrow">→</span>
+        <h2>Onepager</h2>
+        <p>Die komprimierte Version auf einen Blick.</p>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Leichter Sichtschutz fuer den Versand an David – keine echte Sicherheit.
+    var PASSWORD = "hero2026";
+    var gate = document.getElementById("gate");
+    var choose = document.getElementById("choose");
+    var err = document.getElementById("err");
+
+    function unlock() {
+      gate.classList.add("unlocked");
+      choose.classList.add("show");
+    }
+
+    if (sessionStorage.getItem("hero_ok") === "1") { unlock(); }
+
+    document.getElementById("gateForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var val = document.getElementById("pw").value.trim();
+      if (val === PASSWORD) {
+        sessionStorage.setItem("hero_ok", "1");
+        unlock();
+      } else {
+        err.classList.add("show");
+        document.getElementById("pw").value = "";
+      }
+    });
+  </script>
+</body>
+</html>
