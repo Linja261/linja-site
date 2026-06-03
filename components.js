@@ -9,6 +9,14 @@
  *   data-contact-target="..."  → Kontakt-Link-Ziel (default: auto)
  */
 (function () {
+    // Cookieloses Tracking laden (no-op solange in analytics.js keine ID gesetzt ist)
+    if (!document.querySelector('script[src$="/analytics.js"]')) {
+        var trk = document.createElement('script');
+        trk.defer = true;
+        trk.src = '/analytics.js';
+        document.head.appendChild(trk);
+    }
+
     // Detect base path from script src
     var scripts = document.querySelectorAll('script[src*="components.js"]');
     var scriptTag = scripts[scripts.length - 1];
