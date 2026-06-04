@@ -347,26 +347,26 @@
     }
 
     /* ── PRINT ── */
-    @page { size: A4; margin: 9mm 14mm; }
+    @page { size: A4; margin: 12mm 14mm; }
     @media print {
       html, body {
         background: var(--bg);
         padding: 0;
         margin: 0;
         font-size: 8.5pt;
-        line-height: 1.42;
+        line-height: 1.5;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
       /* Methodik-Fußzeile im Druck weglassen (würde sonst auf Seite 2 rutschen) */
       .footer { display: none; }
-      /* Vertikal komprimieren, damit alles auf 1 Seite passt */
-      .op-header { margin-bottom: 0.75rem; }
-      .section { margin-bottom: 0.95rem; }
-      .section-head { margin-bottom: 0.42rem; padding-bottom: 0.24rem; break-after: avoid; }
-      .mvp-row { margin: 0.5rem 0 0.15rem; }
-      .key-points { margin-top: 0.45rem; }
-      p { margin-bottom: 0.32rem; }
+      /* Spacing fürs Druckbild: luftig, aber sicher auf 1 Seite */
+      .op-header { margin-bottom: 1.05rem; }
+      .section { margin-bottom: 1.35rem; }
+      .section-head { margin-bottom: 0.6rem; padding-bottom: 0.3rem; break-after: avoid; }
+      .mvp-row { margin: 0.68rem 0 0.2rem; }
+      .key-points { margin-top: 0.62rem; }
+      p { margin-bottom: 0.4rem; }
       .mvp-row, .mvp-box, .road-strip, .key-points, .key-points li,
       .metrics-row, .metric-col, .impact-cols, .phone { break-inside: avoid; }
       a { color: var(--violet); text-decoration: none; }
