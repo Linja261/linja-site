@@ -441,6 +441,8 @@
       .section-head { break-after: avoid; }
       .mvp-row, .mvp-box, .road-strips-row, .road-strip, .metric-block,
       .callout, .phone { break-inside: avoid; }
+      /* Schatten im Druck weg (rendert sonst als grauer Klotz) */
+      .phone { box-shadow: none; }
       a { color: var(--violet); text-decoration: none; }
     }
   </style>

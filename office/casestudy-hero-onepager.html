@@ -369,6 +369,8 @@
       p { margin-bottom: 0.4rem; }
       .mvp-row, .mvp-box, .road-strip, .key-points, .key-points li,
       .metrics-row, .metric-col, .impact-cols, .phone { break-inside: avoid; }
+      /* Schatten im Druck weg (rendert sonst als grauer Klotz) */
+      .phone { box-shadow: none; }
       a { color: var(--violet); text-decoration: none; }
     }
   </style>
