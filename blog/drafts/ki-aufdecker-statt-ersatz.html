@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>KI als Aufdecker, nicht als Ersatz – Linja Scharffetter</title>
+    <meta name="description" content="Wie IKEA aus einem KI-Chatbot einen Milliardenkanal machte: drei Stufen, mit denen Unternehmen das durch Automatisierung freigesetzte Potenzial heben.">
+    <meta property="og:title" content="KI als Aufdecker, nicht als Ersatz">
+    <meta property="og:description" content="Wie IKEA aus einem KI-Chatbot einen Milliardenkanal machte: drei Stufen, mit denen Unternehmen das durch Automatisierung freigesetzte Potenzial heben.">
+    <meta property="og:type" content="article">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .lang-hidden { display: none !important; }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        .prose h2 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p {
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../../components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Strategie</span>
+                <span class="text-[0.72rem] text-stone-400">8. Juni 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                KI als Aufdecker, nicht als Ersatz
+            </h1>
+        </header>
+
+        <!-- TL;DR -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Die meisten Unternehmen fragen bei KI, wo sie Personal abbauen können. IKEA fragte, was diese Menschen können, das die KI nicht kann. Aus der Umkehrung entstand ein Beratungskanal mit 1,3 Milliarden Euro Umsatz. Der Weg dahin lässt sich in drei aufeinander aufbauenden Stufen nachbauen: aufdecken, umbauen, befähigen.
+            </p>
+        </div>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- BLOCK 1 -->
+            <p>IKEA führte den KI-Chatbot Billie im Kundenservice ein. Innerhalb kurzer Zeit löste er rund 47 Prozent aller Anfragen und sparte knapp 13 Millionen Euro. Der naheliegende nächste Schritt wäre gewesen, die Abteilung zu verkleinern und die Einsparung als Erfolg zu melden. Stattdessen drehte das Unternehmen die Frage um und baute aus dem Kundenservice einen Umsatzkanal. Genau diese Umkehrung lässt sich systematisch reproduzieren.</p>
+
+            <!-- BLOCK 2 -->
+            <h2>Das Muster hinter der IKEA-Story</h2>
+
+            <p>Billie löste rund 47 Prozent aller Anfragen, etwa 3,2 Millionen Gespräche, und erzeugte knapp 13 Millionen Euro Einsparung.¹ Die Frage, die IKEA danach stellte, war nicht, wen die KI ersetzt, sondern welcher Wert brachliegt, wenn die Routine wegfällt. Die Antwort lag in der Beratung: 8.500 Servicekräfte wurden zu Remote-Einrichtungsberatern umgeschult. Aus einer Kostenstelle wurde ein Vertriebskanal, der bis zum Geschäftsjahresende 1,3 Milliarden Euro Umsatz machte.¹</p>
+
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">47 %</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">der Serviceanfragen von Billie gelöst, rund 3,2 Mio. Gespräche</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#quellen" style="color: inherit;">Ingka Group</a></p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">1,3 Mrd. €</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Remote-Selling-Umsatz nach der Umschulung von 8.500 Mitarbeitenden</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#quellen" style="color: inherit;">Ingka Group</a></p>
+                </div>
+            </div>
+
+            <p>Das ist keine Sozialromantik, sondern eine kühle Geschäftsentscheidung. Die KI war stark bei transaktionalen Fragen und schwach bei Anliegen wie „Wie mache ich meine kleine Wohnung gemütlich". Genau dort, wo die KI scheiterte, lag das Geld. Und genau das Team, das die Routine bediente, brachte die Voraussetzungen mit: Produktwissen, Markenverständnis und geschulte Empathie.</p>
+
+            <h2>Warum die meisten den falschen Hebel ziehen</h2>
+
+            <p>KI-Automatisierung erzeugt fast immer denselben Reflex. Eine Tätigkeit wird billiger, also wird die Tätigkeit abgebaut. Das ist Subtraktionslogik. Sie spart einmalig und ignoriert, was dabei verloren geht: das gebundene Wissen, die Markenbindung und die Fähigkeit, einen Menschen durch eine unklare Entscheidung zu führen.</p>
+
+            <p>Addition nutzt dieselbe Automatisierung, um Kapazität für etwas Neues freizusetzen. Die erste Logik liefert eine Zeile im Quartalsbericht. Die zweite baut einen Kanal, der über Jahre trägt. Der Unterschied liegt nicht in der Technik, sondern in der Frage, die man vor der Technik stellt.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Automatisierung deckt nicht auf, wen man ersetzen kann. Sie deckt auf, wo menschlicher Wert wirklich liegt.
+                </p>
+            </div>
+
+            <h2>Drei Stufen, um das Potenzial zu heben</h2>
+
+            <p>Die IKEA-Logik lässt sich in drei Schritten reproduzieren. Sie bauen aufeinander auf: Stufe eins liefert die Landkarte, Stufe zwei das Geschäftsmodell, Stufe drei die Umsetzung. Keine Stufe funktioniert ohne die vorherige.</p>
+
+            <h3>Stufe 1: Das Potenzial aufdecken</h3>
+
+            <p>Bevor man etwas umbaut, braucht man eine ehrliche Bestandsaufnahme. Welche Prozesse sind durch KI tatsächlich automatisierbar, und welche menschlichen Kompetenzen werden dadurch frei? Das Ergebnis ist eine Landkarte mit drei Feldern: automatisieren (Routine, die ein Modell besser und günstiger erledigt), beibehalten (was Menschen tun, aber nicht skaliert) und freisetzen (Kompetenz, die heute in Routine gebunden ist und woanders mehr Wert schafft). Der entscheidende Teil ist das dritte Feld. Es zwingt zur IKEA-Frage: Was kann mein Team, das die KI nicht kann, und wofür würde ein Kunde zahlen.</p>
+
+            <h3>Stufe 2: Die Kostenstelle in ein Profit-Center umbauen</h3>
+
+            <p>Die freigesetzte Kompetenz braucht ein Ziel. Hier wird eine kundennahe Kostenstelle wie Support, Service oder Innendienst auf ihr Umsatzpotenzial durchleuchtet. Die zentrale Methode ist eine Analyse der unerledigten Kundenaufgaben: Welche funktionalen, emotionalen und sozialen Jobs erledigt die KI gerade nicht, und welche davon ist ein Kunde bereit zu vergüten. Bei IKEA war das die Einrichtungsberatung mit Geschmack und Kontext. In anderen Branchen ist es die Konfigurationshilfe, die persönliche Onboarding-Begleitung oder die Premium-Diagnose vor dem Verkauf. Das Ergebnis ist ein konkretes Service- oder Vertriebsmodell, in dem der Mensch das Produkt ist und nicht der Overhead.</p>
+
+            <h3>Stufe 3: Die Menschen gezielt befähigen</h3>
+
+            <p>Eine Strategie ohne Befähigungspfad bleibt eine Folie. Die dritte Stufe übersetzt das neue Modell in einen konkreten Umschulungsweg: von der heutigen, KI-bedrohten Rolle zur neuen, KI-resistenten und umsatzgenerierenden Rolle. Das umfasst eine Skill-Gap-Analyse, einen Lernpfad und einen Business Case, der zeigt, warum Halten und Umschulen günstiger ist als Entlassen und neu Aufbauen. Dieser Vergleich wird systematisch unterschätzt. Eine Entlassung kostet nicht nur Abfindung, sondern den Verlust von Wissen, Markenbindung und Teammoral, plus den Aufbau eines komplett neuen Vertriebs von null.</p>
+
+            <!-- BLOCK 3 -->
+            <h2>Was ich daraus als Beratung baue</h2>
+
+            <p>Ich möchte die drei Stufen als festen Rahmen anbieten, wenn ein Unternehmen vor einer KI-Einführung steht oder gerade Automatisierung ausgerollt hat. Statt mit der Technik zu starten, will ich mit der Aufdeckungsfrage beginnen, weil sie die Richtung der ganzen Initiative bestimmt: Subtraktion oder Addition.</p>
+
+            <p>Konkret stelle ich mir drei aufeinander aufbauende Formate vor. Ein kompakter Audit, der automatisierbare Routine von gebundener Kompetenz trennt, bevor eine einzige Entscheidung über Stellen fällt. Ein Sprint, der eine kundennahe Kostenstelle auf ihr Umsatzpotenzial durchleuchtet und ein Service-Modell skizziert. Und ein Umschulungs-Blueprint, der den Lernpfad und den Business Case dafür liefert. Ob diese Reihenfolge in der Praxis trägt, will ich an den ersten Mandaten testen.</p>
+
+            <!-- BLOCK 4 -->
+            <h2>Kritische Einordnung</h2>
+
+            <p>IKEA hatte günstige Voraussetzungen: eine starke Marke, ein Produkt, das Beratung sinnvoll macht, und eine Belegschaft, die bereits am Kunden saß. Nicht jede automatisierte Funktion sitzt so nah an einem zahlungsbereiten Bedarf. Wo die freigesetzte Kompetenz keinen Markt findet, trägt das Modell nicht, und dann ist die Umschulung ein Kostenfaktor ohne Gegenwert.</p>
+
+            <p>Auch die oft zitierte Umsatzzahl gehört eingeordnet. Die 1,3 Milliarden Euro sind der gesamte Remote-Selling-Umsatz, nicht ein isolierter Effekt des Chatbots. Die Stufen sind kein Garant für Milliarden, sondern ein Denkrahmen, der den Default vom Abbau zur Wertschöpfung verschiebt. Ob er trägt, entscheidet die Nähe zwischen freigesetzter Kompetenz und echtem Bedarf.</p>
+
+            <!-- BLOCK 5 -->
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Erst die Frage, dann die Technik</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Vor jeder Automatisierung klären, ob man Kosten subtrahieren oder Wert addieren will. Die Antwort bestimmt alles Weitere.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Freigesetzte Kompetenz ist ein Asset, kein Überschuss</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wer Menschen als Kompetenzbündel sieht statt als Rollen, findet den nächsten Umsatzkanal oft im eigenen Haus.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Die drei Stufen bauen aufeinander auf</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Aufdecken ohne Umbauen bleibt Analyse, Umbauen ohne Befähigen bleibt eine Folie. Nur die ganze Kette dreht eine Kostenstelle in ein Profit-Center.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUELLEN -->
+            <div id="quellen" class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.ingka.com/newsroom/ai-and-remote-selling-bring-ikea-design-expertise-to-the-many/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ingka Group (2023). AI and Remote Selling bring IKEA design expertise to the many. Newsroom.</a></li>
+                    <li><a href="https://www.pymnts.com/news/artificial-intelligence/2026/ikea-turned-8500-call-agents-into-design-consultants/" class="hover:text-stone-600 transition-colors" style="color: inherit;">PYMNTS (2026). IKEA Turned 8,500 Call Agents Into Design Consultants.</a></li>
+                </ol>
+            </div>
+
+            <!-- GLOSSAR -->
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Reskilling</span> <span class="text-stone-400">— Gezielte Umschulung von Mitarbeitenden auf neue Kompetenzen, statt Abbau und Neueinstellung.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Cost- / Profit-Center</span> <span class="text-stone-400">— Abteilung, die nur Kosten verursacht, gegenüber einer, die eigenen Umsatz erzeugt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Jobs to be Done</span> <span class="text-stone-400">— Methode, die fragt, welche Aufgabe ein Kunde wirklich erledigt haben will, funktional, emotional und sozial.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Subtraktion vs. Addition</span> <span class="text-stone-400">— KI nutzen, um Kosten zu entfernen, gegenüber KI nutzen, um Kapazität für Neues freizusetzen.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Strategy</span>
+                <span class="text-[0.72rem] text-stone-400">June 8, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                AI as a revealer, not a replacement
+            </h1>
+        </header>
+
+        <!-- TL;DR -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Most companies ask AI where they can cut headcount. IKEA asked what these people can do that AI cannot. That reversal created a consulting channel worth 1.3 billion euros. The path is reproducible in three stages that build on each other: reveal, redesign, enable.
+            </p>
+        </div>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- BLOCK 1 -->
+            <p>IKEA rolled out the AI chatbot Billie in customer service. Within a short time it resolved around 47 percent of all inquiries and saved nearly 13 million euros. The obvious next step would have been to shrink the department and report the savings as a win. Instead the company flipped the question and turned customer service into a revenue channel. That reversal is exactly what can be reproduced systematically.</p>
+
+            <!-- BLOCK 2 -->
+            <h2>The pattern behind the IKEA story</h2>
+
+            <p>Billie resolved around 47 percent of all inquiries, roughly 3.2 million conversations, and generated nearly 13 million euros in savings.¹ The question IKEA asked afterward was not who AI replaces, but what value sits idle once the routine disappears. The answer was design advice. 8,500 service workers were reskilled into remote interior design consultants. A cost center became a sales channel that reached 1.3 billion euros in revenue by the end of the fiscal year.¹</p>
+
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">47%</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">of service inquiries resolved by Billie, about 3.2M conversations</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#sources" style="color: inherit;">Ingka Group</a></p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">€1.3B</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">remote selling revenue after reskilling 8,500 employees</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#sources" style="color: inherit;">Ingka Group</a></p>
+                </div>
+            </div>
+
+            <p>This is not social romanticism but a cold business decision. The AI was strong on transactional questions and weak on requests like "how do I make my small apartment feel cozy." The money sat exactly where the AI failed. And the very team that handled the routine already had the prerequisites: product knowledge, brand understanding and trained empathy.</p>
+
+            <h2>Why most pull the wrong lever</h2>
+
+            <p>AI automation almost always triggers the same reflex. A task gets cheaper, so the task gets cut. That is subtraction logic. It saves once and ignores what gets lost in the process: the bound knowledge, the brand loyalty and the ability to guide a person through an unclear decision.</p>
+
+            <p>Addition uses the same automation to free up capacity for something new. The first logic produces a line in the quarterly report. The second builds a channel that carries for years. The difference is not in the technology but in the question you ask before the technology.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Automation does not reveal who you can replace. It reveals where human value actually sits.
+                </p>
+            </div>
+
+            <h2>Three stages to unlock the potential</h2>
+
+            <p>The IKEA logic can be reproduced in three steps. They build on each other: stage one delivers the map, stage two the business model, stage three the execution. No stage works without the previous one.</p>
+
+            <h3>Stage 1: Reveal the potential</h3>
+
+            <p>Before you redesign anything, you need an honest inventory. Which processes can AI actually automate, and which human competencies become free as a result? The result is a map with three fields: automate (routine a model handles better and cheaper), keep (what humans do but does not scale) and free up (competence that is bound in routine today and creates more value elsewhere). The decisive part is the third field. It forces the IKEA question: what can my team do that AI cannot, and what would a customer pay for.</p>
+
+            <h3>Stage 2: Turn the cost center into a profit center</h3>
+
+            <p>The freed competence needs a target. Here a customer-facing cost center such as support, service or inside sales is examined for its revenue potential. The core method is an analysis of unmet customer jobs: which functional, emotional and social jobs is AI not doing, and which of those is a customer willing to pay for. At IKEA that was interior design advice with taste and context. In other industries it is configuration help, personal onboarding or premium diagnosis before the sale. The result is a concrete service or sales model in which the human is the product, not the overhead.</p>
+
+            <h3>Stage 3: Enable the people deliberately</h3>
+
+            <p>A strategy without an enablement path stays a slide. The third stage translates the new model into a concrete reskilling route: from today's AI-threatened role to the new, AI-resistant and revenue-generating role. It includes a skill gap analysis, a learning path and a business case showing why keeping and reskilling is cheaper than firing and rebuilding. This comparison is systematically underestimated. A layoff costs more than severance. It costs the loss of knowledge, brand loyalty and team morale, plus building an entirely new sales function from zero.</p>
+
+            <!-- BLOCK 3 -->
+            <h2>What I am building from this</h2>
+
+            <p>I want to offer the three stages as a fixed frame when a company faces an AI rollout or has just deployed automation. Instead of starting with the technology, I want to start with the reveal question, because it sets the direction of the whole initiative: subtraction or addition.</p>
+
+            <p>Concretely I picture three formats that build on each other. A compact audit that separates automatable routine from bound competence before a single decision about jobs is made. A sprint that examines a customer-facing cost center for its revenue potential and sketches a service model. And a reskilling blueprint that delivers the learning path and the business case for it. Whether this sequence holds in practice is something I want to test with the first engagements.</p>
+
+            <!-- BLOCK 4 -->
+            <h2>A critical look</h2>
+
+            <p>IKEA had favorable conditions: a strong brand, a product that makes advice meaningful, and a workforce that already sat close to the customer. Not every automated function sits that close to a paying need. Where the freed competence finds no market, the model does not carry, and then reskilling is a cost factor without return.</p>
+
+            <p>The often-cited revenue figure also needs context. The 1.3 billion euros is the total remote selling revenue, not an isolated effect of the chatbot. The stages are no guarantee of billions but a thinking frame that shifts the default from cutting to value creation. Whether it carries depends on the closeness between freed competence and real need.</p>
+
+            <!-- BLOCK 5 -->
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The question first, the technology second</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Before any automation, decide whether you want to subtract cost or add value. The answer drives everything else.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Freed competence is an asset, not surplus</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">See people as bundles of competence rather than roles, and the next revenue channel often sits in your own house.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The three stages build on each other</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Revealing without redesigning stays analysis, redesigning without enabling stays a slide. Only the full chain turns a cost center into a profit center.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOURCES -->
+            <div id="sources" class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.ingka.com/newsroom/ai-and-remote-selling-bring-ikea-design-expertise-to-the-many/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ingka Group (2023). AI and Remote Selling bring IKEA design expertise to the many. Newsroom.</a></li>
+                    <li><a href="https://www.pymnts.com/news/artificial-intelligence/2026/ikea-turned-8500-call-agents-into-design-consultants/" class="hover:text-stone-600 transition-colors" style="color: inherit;">PYMNTS (2026). IKEA Turned 8,500 Call Agents Into Design Consultants.</a></li>
+                </ol>
+            </div>
+
+            <!-- GLOSSARY -->
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Reskilling</span> <span class="text-stone-400">— Deliberately retraining employees into new competencies instead of cutting and rehiring.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Cost / profit center</span> <span class="text-stone-400">— A department that only generates cost versus one that generates its own revenue.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Jobs to be Done</span> <span class="text-stone-400">— A method asking what task a customer truly wants done, functionally, emotionally and socially.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Subtraction vs. addition</span> <span class="text-stone-400">— Using AI to remove cost versus using AI to free capacity for something new.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+    <!-- ======== LANGUAGE TOGGLE (controlled by components.js nav) ======== -->
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+
+</html>
