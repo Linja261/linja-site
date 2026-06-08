@@ -1,0 +1,523 @@
+<!--
+  linja.me/blog – Blog-Übersicht
+  Design System: Vanille-Heidelbeer (gedämpft)
+  Stand: 2026-03-23 – Language Toggle DE/EN
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Blog – Linja Scharffetter</title>
+    <meta name="description" content="Erfahrungen, Methoden und Werkzeuge zu Strategie, Produktmanagement und Organisation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'], serif: ['Source Serif 4', 'Georgia', 'serif'], mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'] }, colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' }, amber: { 50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e', 400: '#c27a52', 500: '#FF6230', 600: '#a86340', 700: '#73402e' }, emerald: { 50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa', 500: '#5b8a72', 600: '#476f5b', 700: '#31493d' } } } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="components-v3.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ======== GERMAN CONTENT ======== -->
+    <div id="site-de">
+    <div class="max-w-[860px] mx-auto px-5 sm:px-8">
+
+        <header class="pt-24 sm:pt-36 pb-10">
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-3">Laut gedacht.</h1>
+            <p class="text-[0.9rem] text-stone-600 leading-relaxed max-w-[34em]">
+                Erfahrungen, Methoden und Werkzeuge zu Strategie, Produktmanagement und Organisation.
+            </p>
+            <a href="glossar.html" class="inline-block mt-4 text-[0.78rem] hover:text-stone-800 transition-colors" style="color: #7b6ba5;">Glossar &rarr;</a>
+        </header>
+
+        <section class="pb-20">
+            <a href="blog/shape-up-statt-scrum.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Methodik</span>
+                    <span class="text-[0.72rem] text-stone-400">25. Mai 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Shape Up statt Scrum
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Sechs-Wochen-Zyklen statt Zwei-Wochen-Sprints. Warum Shape Up genau die Stellen adressiert, an denen Scrum nach 25 Jahren stumpf wird, und was ich davon in meiner eigenen Produktarbeit teste.
+                </p>
+            </a>
+            <a href="/blog/ki-zeitmanagement.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">KI &amp; Gesundheit</span>
+                    <span class="text-[0.72rem] text-stone-400">21. Mai 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Wie KI ein gesünderes Zeitmanagement fördern kann. Das Smartphone-Paradox.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Dasselbe Ger&auml;t lenkt ab und strukturiert. Decision Fatigue, die 23-Minuten-Regel von Gloria Mark, und wie KI als Tagesstruktur-Partner ein ges&uuml;nderes Zeitmanagement f&ouml;rdern kann.
+                </p>
+            </a>
+            <a href="/blog/storymap-eigenbau.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">PM &amp; KI</span>
+                    <span class="text-[0.72rem] text-stone-400">19. Mai 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Story-Map als Eigenbau. Wie zwei Stunden mit Claude und ein Vercel-Deploy mein Team aufs MVP eingeschworen haben.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Story-Mapping nach Jeff Patton, aber als eigenes Tool: Hypothesen explizit verkn&uuml;pft, Decision-Log automatisch, MVP-Karten per Klick ins Backlog. Ein Eigenbau mit Claude, der die Session selbst getragen hat.
+                </p>
+            </a>
+            <a href="/blog/ergebnis-first.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Methodik</span>
+                    <span class="text-[0.72rem] text-stone-400">18. Mai 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Beim Ergebnis anfangen. Warum sichtbare Prototypen bessere Entscheidungen erzeugen.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Die meisten Teams bauen von innen nach au&szlig;en. KI dreht das um. Wer am sichtbaren Ergebnis anf&auml;ngt, iteriert schneller und trifft bessere Entscheidungen: Working Backwards, IKEA-Effekt, Dual Coding.
+                </p>
+            </a>
+            <a href="/blog/ki-agenten-kategorien.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">KI &amp; Product Management</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Einordnung</span>
+                    <span class="text-[0.72rem] text-stone-400">15. Mai 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Nicht jeder Agent ist gleich. Ein Framework für PMs, die KI-Agenten priorisieren müssen.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    60-70% der Agent-Ideen sind in Wahrheit deterministische Workflows. Ein Framework zur Triage in drei Kategorien und ein Test, was es wirklich im PM-Alltag &auml;ndert.
+                </p>
+            </a>
+            <a href="/blog/intuition-pm.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Product Management</span>
+                    <span class="text-[0.72rem] text-stone-400">29. April 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Intuition als Produkt Managerin. Wann Bauchgef&uuml;hl bessere Entscheidungen trifft als Daten.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Intuition ist kein Bauchgef&uuml;hl, sondern komprimierte Erfahrung. Gary Klein nennt es Recognition-Primed Decision Making: trainierbar durch Kundenn&auml;he, Marktbeobachtung, Dogfooding. Wann PMs ihrer Mustererkennung vertrauen d&uuml;rfen.
+                </p>
+            </a>
+            <a href="/blog/zeigen-statt-erklaeren.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">PM &amp; KI</span>
+                    <span class="text-[0.72rem] text-stone-400">27. April 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Zeigen statt erkl&auml;ren. Wie KI meine Rolle als Product Managerin verschiebt.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Drei Verschiebungen im PM-Alltag: Diskussionen am Prototyp ersetzen Argumente am Whiteboard, Design bleibt Sache der Designer, Regelwerke werden Daueraufgabe. Was bleibt, ist Zuh&ouml;ren.
+                </p>
+            </a>
+            <a href="blog/pm-beziehungsarbeit.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Product Management</span>
+                    <span class="text-[0.72rem] text-stone-400">22. April 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Product Work Is Relationship Work. Warum die PM-Rolle im KI-Zeitalter nicht verschwindet.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    KI macht das Bauen schneller, aber kann Beziehungsarbeit nicht ersetzen: Stakeholder-Alignment, gemeinsames Verst&auml;ndnis, Curiosity. Warum PMs im KI-Zeitalter wichtiger werden &mdash; nicht ersetzt.
+                </p>
+            </a>
+            <a href="/blog/teams-ohne-vertrag.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Organisation &amp; Remote</span>
+                    <span class="text-[0.72rem] text-stone-400">19. April 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Teams ohne Vertrag. Koordination, wenn KI das Routing &uuml;bernimmt.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Lose Teams in der KI-Zeit brauchen keine Hierarchie, aber klare Rollen und Rituale. Was KI am Koordinieren &uuml;bernimmt, was menschlich bleibt, und warum sechs leichte Rituale den Arbeitsvertrag ersetzen k&ouml;nnen.
+                </p>
+            </a>
+            <a href="/blog/design-thinking-ki.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Methodik</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Experiment</span>
+                    <span class="text-[0.72rem] text-stone-400">17. April 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Design Thinking an einem Abend. Was bleibt, wenn KI die H&auml;lfte &uuml;bernimmt.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Design Thinking braucht normalerweise Tage, ein Team und einen Raum voller Post-its. Mit KI-Co-Creation habe ich den kompletten Zyklus an einem Abend durchlaufen. Was funktioniert, was fehlt, und was PMs daraus f&uuml;r den Alltag mitnehmen k&ouml;nnen.
+                </p>
+            </a>
+            <a href="/blog/ki-kontext-teilen.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">KI & Produktivit&auml;t</span>
+                    <span class="text-[0.72rem] text-stone-400">16. April 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    KI-Kontext teilen. Was ich von Teresa Torres &uuml;ber Obsidian, Git und Symlinks gelernt habe.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Kontext und Skills sind die Investition, das Teilen ist die Infrastruktur. Obsidian Sync, Git und die Claude-App im Vergleich &mdash; und warum mein KnowledgeOS einen anderen Weg geht.
+                </p>
+            </a>
+            <a href="/blog/vibe-coding-ist-produktdenken.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">KI & Produktivit&auml;t</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Einordnung</span>
+                    <span class="text-[0.72rem] text-stone-400">3. April 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Vibe Coding ist Produktdenken
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Teresa Torres zeigt: Wer mit KI Software baut, braucht keine Code-Kenntnisse, aber Produktdisziplin. Warum Vibe Coding die gleichen Feedback-Loops braucht wie gute Discovery.
+                </p>
+            </a>
+            <a href="/blog/hierarchie-intelligenz.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">KI in Organisationen</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Einordnung</span>
+                    <span class="text-[0.72rem] text-stone-400">1. April 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 8 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Wie KI Organisationsmodelle ver&auml;ndert
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Jack Dorsey und Sequoia beschreiben, wie Block seine Organisation umstellt: von Hierarchie zu KI-gesteuerter Koordination. Was das f&uuml;r Product Management bedeutet.
+                </p>
+            </a>
+            <a href="/blog/knowledgeos.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">KI & Produktivität</span>
+                    <span class="text-[0.72rem] text-stone-400">23. März 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 10 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Mein Wissen hat eine Architektur. Und eine KI, die sie kennt.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Wie ich mit Obsidian, Git und Claude ein persönliches Betriebssystem für mein berufliches Wissen gebaut habe — und wie du dein eigenes an einem Nachmittag starten kannst.
+                </p>
+            </a>
+            <a href="blog/ki-routinen.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">KI & Produktivität</span>
+                    <span class="text-[0.72rem] text-stone-400">26. März 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Mein KI-Assistent arbeitet 24/7. Ich nicht.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Eine KI, die den Wochenplan kennt, Prioritäten prüft und offene Aufgaben verfolgt. Fünf Routinen, die aus einem Chatbot einen echten Arbeitspartner machen.
+                </p>
+            </a>
+            <a href="/blog/ki-produktivfalle.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">KI & Produktivität</span>
+                    <span class="text-[0.72rem] text-stone-400">9. März 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    KI macht nicht produktiver – sie macht beschäftigter
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    100+ Dateien mit KI erstellt, zwei davon wiederverwendet. Über Dopamin-Schleifen, kognitive Verzerrungen und vier Muster, die den Unterschied machen.
+                </p>
+            </a>
+        </section>
+
+    </div>
+    </div><!-- /site-de -->
+
+    <!-- ======== ENGLISH CONTENT ======== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[860px] mx-auto px-5 sm:px-8">
+
+        <header class="pt-24 sm:pt-36 pb-10">
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-3">Thinking out loud.</h1>
+            <p class="text-[0.9rem] text-stone-600 leading-relaxed max-w-[34em]">
+                Experiences, methods, and tools on strategy, product management, and organization.
+            </p>
+            <a href="glossar.html" class="inline-block mt-4 text-[0.78rem] hover:text-stone-800 transition-colors" style="color: #7b6ba5;">Glossary &rarr;</a>
+        </header>
+
+        <section class="pb-20">
+            <a href="blog/shape-up-statt-scrum.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Methodology</span>
+                    <span class="text-[0.72rem] text-stone-400">May 25, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Shape Up Instead of Scrum
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Six-week cycles instead of two-week sprints. Why Shape Up targets exactly where Scrum has become dull after 25 years, and what I am testing from it in my own product work.
+                </p>
+            </a>
+            <a href="/blog/ki-zeitmanagement.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">AI &amp; Health</span>
+                    <span class="text-[0.72rem] text-stone-400">May 21, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    How AI can support healthier time management. The smartphone paradox.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    The same device distracts and structures. Decision fatigue, Gloria Mark's 23-minute rule, and how AI as a daily structure partner can support healthier time management.
+                </p>
+            </a>
+            <a href="/blog/storymap-eigenbau.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">PM &amp; AI</span>
+                    <span class="text-[0.72rem] text-stone-400">May 19, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Story map, built it myself. How two hours with Claude and a Vercel deploy got my team aligned on the MVP.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Story mapping in Jeff Patton's tradition, but as my own tool: hypotheses explicitly linked, decision log automatic, MVP cards into the backlog with one click. A self-build with Claude that carried the session itself.
+                </p>
+            </a>
+            <a href="/blog/ergebnis-first.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Methodology</span>
+                    <span class="text-[0.72rem] text-stone-400">May 18, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Start with the result. Why visible prototypes lead to better decisions.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Most teams build from the inside out. AI flips this around. Starting at the visible result means faster iteration and better decisions: Working Backwards, IKEA effect, dual coding.
+                </p>
+            </a>
+            <a href="/blog/ki-agenten-kategorien.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">AI &amp; Product Management</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Analysis</span>
+                    <span class="text-[0.72rem] text-stone-400">May 15, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Not every agent is the same. A framework for PMs who need to prioritize AI agents.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    60-70% of agent ideas are really deterministic workflows. A framework to triage them into three categories, and a test for what actually changes in daily PM work.
+                </p>
+            </a>
+            <a href="/blog/intuition-pm.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Product Management</span>
+                    <span class="text-[0.72rem] text-stone-400">April 29, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Intuition as a product manager. When gut feeling makes better decisions than data.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Intuition is not a hunch. It is compressed experience. Gary Klein calls it Recognition-Primed Decision Making: trainable through customer proximity, market observation, dogfooding. When PMs can trust their pattern recognition.
+                </p>
+            </a>
+            <a href="/blog/zeigen-statt-erklaeren.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">PM &amp; AI</span>
+                    <span class="text-[0.72rem] text-stone-400">April 27, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Show, don't explain. How AI is shifting my role as a product manager.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Three shifts in a PM's day: discussions at a prototype replace arguments at a whiteboard, design stays the designers' craft, rule sets turn into ongoing work. What stays is listening.
+                </p>
+            </a>
+            <a href="blog/pm-beziehungsarbeit.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Product Management</span>
+                    <span class="text-[0.72rem] text-stone-400">April 22, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Product Work Is Relationship Work. Why the PM role does not disappear in the AI age.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    AI makes building faster, but it cannot replace relationship work: stakeholder alignment, shared understanding, curiosity. Why PMs become more important in the AI age, not replaced.
+                </p>
+            </a>
+            <a href="/blog/teams-ohne-vertrag.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Organization &amp; Remote</span>
+                    <span class="text-[0.72rem] text-stone-400">April 19, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Teams without a contract. Coordination when AI handles the routing.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Loose teams in the AI age do not need hierarchy, but clear roles and rituals. What AI takes over in coordination, what stays human, and why six light rituals can replace the employment contract.
+                </p>
+            </a>
+            <a href="/blog/design-thinking-ki.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">Methodology</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Experiment</span>
+                    <span class="text-[0.72rem] text-stone-400">April 17, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Design Thinking in a single evening. What stays when AI takes over half.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Design thinking normally needs days, a team, and a room full of Post-its. With AI co-creation I ran the full cycle in a single evening. What works, what is missing, and what PMs can take into their daily practice.
+                </p>
+            </a>
+            <a href="/blog/ki-kontext-teilen.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">AI &amp; Productivity</span>
+                    <span class="text-[0.72rem] text-stone-400">April 16, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Sharing AI context. What I learned from Teresa Torres about Obsidian, Git, and symlinks.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Context and skills are the investment, sharing them is the infrastructure. Obsidian Sync, Git, and the Claude app compared, and why my KnowledgeOS takes a different path.
+                </p>
+            </a>
+            <a href="/blog/vibe-coding-ist-produktdenken.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">AI &amp; Productivity</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Analysis</span>
+                    <span class="text-[0.72rem] text-stone-400">April 3, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    Vibe Coding Is Product Thinking
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Teresa Torres shows: building software with AI doesn't require coding skills, but product discipline. Why vibe coding needs the same feedback loops as good discovery.
+                </p>
+            </a>
+            <a href="/blog/hierarchie-intelligenz.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">AI in Organizations</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Analysis</span>
+                    <span class="text-[0.72rem] text-stone-400">April 1, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 8 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    How AI Changes Organizational Models
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    Jack Dorsey and Sequoia describe how Block is restructuring: from hierarchy to AI-driven coordination. What this means for product management.
+                </p>
+            </a>
+            <a href="/blog/knowledgeos.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">AI & Productivity</span>
+                    <span class="text-[0.72rem] text-stone-400">March 23, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 10 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    My knowledge has an architecture. And an AI that knows it.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    How I built a personal operating system for professional knowledge with Obsidian, Git, and Claude — and how you can start your own in an afternoon.
+                </p>
+            </a>
+            <a href="blog/ki-routinen.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">AI & Productivity</span>
+                    <span class="text-[0.72rem] text-stone-400">March 26, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    My AI assistant works 24/7. I don't.
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    An AI that knows your weekly plan, checks priorities, and tracks open tasks. Five routines that turn a chatbot into a real work partner.
+                </p>
+            </a>
+            <a href="/blog/ki-produktivfalle.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #FFE6DA; color: #C2410C;">AI & Productivity</span>
+                    <span class="text-[0.72rem] text-stone-400">March 9, 2026</span>
+                    <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
+                </div>
+                <h2 class="source-serif text-[1.25rem] text-stone-900 group-hover:text-violet-400 transition-colors mb-1.5">
+                    AI doesn't make you more productive – it makes you busier
+                </h2>
+                <p class="text-[0.88rem] text-stone-600 leading-relaxed">
+                    100+ AI-generated files, two actually reused. On dopamine loops, cognitive biases, and four patterns that make the difference.
+                </p>
+            </a>
+        </section>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+</html>
