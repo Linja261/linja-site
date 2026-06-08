@@ -1,17 +1,15 @@
 /*
- * components-v3.js – ENTWURF "Vanille-Heidelbeer WILD" – Nav + Footer für linja.me/v3
+ * components-v3.js – ENTWURF "Vanille-Heidelbeer LEBENDIG" (mamabande-Energie)
  * Wegwerf-Variante. Berührt die Live-Site NICHT.
- * Basis: Original-Brandfarben (Heidelbeer-Violett #7b6ba5 + Vanille-Creme) + Orange-Akzent #FF6230.
- * Extras: Gradient-Mesh-Hintergrund, Notizblock-Karten, Checkerboard, Squiggle-Divider.
+ * Basis: Original-Brandfarben (Heidelbeer-Violett #7b6ba5 + Vanille-Creme) + Orange #FF6230.
+ * Extras: Gradient-Mesh, gefüllte Wellen-Trenner, handgezeichnete Wackel-Ränder (SVG-Filter),
+ *         gekippte Karten, weiche Blobs, Scroll-Reveal, Fraunces-Headlines.
  */
 (function () {
-    // KEIN Tracking im Wegwerf-Entwurf
-
     var scripts = document.querySelectorAll('script[src*="components-v3.js"]');
     var scriptTag = scripts[scripts.length - 1];
     var src = scriptTag.getAttribute('src') || '';
     var base = src.replace('components-v3.js', '');
-
     var activePage = scriptTag.getAttribute('data-active') || '';
     var bilingual = scriptTag.getAttribute('data-bilingual') === 'true';
 
@@ -35,19 +33,18 @@
     var contactDeLabel = bilingual ? '<span class="nav-de">Kontakt</span><span class="nav-en lang-hidden">Contact</span>' : 'Kontakt';
     var homeLinkHref = base + 'index.html';
 
-    // Nav: Heidelbeer-Wortmarke, Orange CTA-Button
     var navHTML = ''
-        + '<nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(250,250,248,0.82); backdrop-filter: blur(10px); border-bottom: 1px solid #e9e4f0;">'
+        + '<nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(250,250,248,0.80); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(70,56,99,0.10);">'
         + '<div class="max-w-[920px] mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">'
         + '<a href="' + homeLinkHref + '" class="source-serif text-stone-900 text-lg flex items-center gap-2">'
         + '<span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:#FF6230;"></span>Linja Scharffetter</a>'
         + '<div class="flex items-center gap-6 text-[0.8rem] text-stone-500">'
         + '<a href="' + base + 'blog.html" class="' + blogClass + '">Blog</a>'
         + langToggleDesktop
-        + '<a href="' + contactHref + '" class="px-3.5 py-1.5 rounded-full text-white text-[0.75rem] font-medium transition-transform hover:scale-105 hidden sm:inline-block" style="background: #FF6230;">' + contactDeLabel + '</a>'
+        + '<a href="' + contactHref + '" class="px-4 py-2 rounded-full text-white text-[0.75rem] font-semibold transition-transform hover:scale-105 hidden sm:inline-block" style="background: #FF6230; box-shadow:0 6px 16px -4px rgba(255,98,48,0.5);">' + contactDeLabel + '</a>'
         + '<button id="menu-toggle" class="sm:hidden p-1" aria-label="Menü öffnen"><svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg></button>'
         + '</div></div>'
-        + '<div id="mobile-menu" class="sm:hidden border-t px-5 py-4 space-y-3 text-[0.85rem]" style="border-color: #e9e4f0; background: rgba(250,250,248,0.98);">'
+        + '<div id="mobile-menu" class="sm:hidden border-t px-5 py-4 space-y-3 text-[0.85rem]" style="border-color: rgba(70,56,99,0.10); background: rgba(250,250,248,0.98);">'
         + '<a href="' + base + 'blog.html" class="' + blogClassMobile + '">Blog</a>'
         + langToggleMobile
         + '<a href="' + contactHref + '" class="block font-medium" style="color: #FF6230;">' + contactDeLabel + '</a>'
@@ -59,20 +56,22 @@
         { href: '/index.html', label: bilingual ? '<span class="nav-de">Zurück zur Live-Site</span><span class="nav-en lang-hidden">Back to live site</span>' : 'Live-Site' },
     ];
     var footerLinksHTML = footerLinks.map(function (link) {
-        return '<a href="' + link.href + '" class="hover:text-stone-600 transition-colors">' + link.label + '</a>';
+        return '<a href="' + link.href + '" class="hover:text-white transition-colors">' + link.label + '</a>';
     }).join('\n            ');
 
+    // Footer = Ink-Band (#463863) mit GEFÜLLTER Wellen-Oberkante (keine sichtbare Naht)
     var footerHTML = ''
-        + '<footer class="relative py-10 mt-8" style="background: #f6f4f9;">'
-        + '<div class="v3-squiggle" style="position:absolute;top:-1px;left:0;right:0;"></div>'
-        + '<div class="max-w-[920px] mx-auto px-5 sm:px-8 flex flex-col items-center gap-3 text-[0.72rem] text-stone-400">'
+        + '<footer style="position:relative; margin-top:5rem;">'
+        + '<svg viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:100%;height:44px;margin-bottom:-1px;">'
+        + '<path d="M0,24 Q100,6 200,20 T400,20 T600,20 T800,20 T1000,20 T1200,20 V40 H0 Z" fill="#463863"/></svg>'
+        + '<div style="background:#463863;" class="py-10">'
+        + '<div class="max-w-[920px] mx-auto px-5 sm:px-8 flex flex-col items-center gap-3 text-[0.72rem]" style="color:rgba(247,241,234,0.55);">'
         + '<div class="flex items-center justify-center gap-4">' + footerLinksHTML + '</div>'
-        + '<span class="font-mono text-[0.6rem] tracking-wider uppercase px-2.5 py-0.5 rounded-full" style="background:#FF6230; color:#fff;">Entwurf v3 · Wild</span>'
-        + '</div></footer>';
+        + '<span class="font-mono text-[0.6rem] tracking-wider uppercase px-2.5 py-0.5 rounded-full" style="background:#FF6230; color:#fff;">Entwurf v3 · Lebendig</span>'
+        + '</div></div></footer>';
 
     var navPlaceholder = document.getElementById('site-nav');
     if (navPlaceholder) navPlaceholder.outerHTML = navHTML;
-
     function injectFooter() {
         var fp = document.getElementById('site-footer');
         if (fp) fp.outerHTML = footerHTML;
@@ -92,11 +91,26 @@
     }, 0);
 
     // ═══════════════════════════════════════════════════════════
-    // WILD DECO — Gradient-Mesh-Hintergrund, Notizblock, Checkerboard, Squiggle
+    // DECO: SVG-Wackelfilter, Gradient-BG, Karten, Wellen, Reveal
     // ═══════════════════════════════════════════════════════════
     (function mountDeco() {
         if (document.getElementById('v3-deco')) return;
-        // Fixed gradient-mesh background layer
+
+        // Inline SVG-Filter für handgezeichnete Ränder (verdrängt nur die Border-Overlay-Ebene)
+        var svg = document.createElement('div');
+        svg.setAttribute('aria-hidden', 'true');
+        svg.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;';
+        svg.innerHTML = '<svg width="0" height="0"><defs>'
+            + '<filter id="wobble" x="-6%" y="-6%" width="112%" height="112%">'
+            + '<feTurbulence type="turbulence" baseFrequency="0.013" numOctaves="2" seed="7" result="n"/>'
+            + '<feDisplacementMap in="SourceGraphic" in2="n" scale="9"/></filter>'
+            + '<filter id="wobble2" x="-6%" y="-6%" width="112%" height="112%">'
+            + '<feTurbulence type="turbulence" baseFrequency="0.016" numOctaves="2" seed="13" result="n"/>'
+            + '<feDisplacementMap in="SourceGraphic" in2="n" scale="8"/></filter>'
+            + '</defs></svg>';
+        document.body.insertBefore(svg, document.body.firstChild);
+
+        // Gradient-Mesh-Hintergrund (fix)
         var bg = document.createElement('div');
         bg.className = 'v3-bg';
         bg.setAttribute('aria-hidden', 'true');
@@ -105,50 +119,62 @@
         var st = document.createElement('style');
         st.id = 'v3-deco';
         st.textContent = ''
-            // gradient mesh: vanille creme + heidelbeer violett + ein hauch orange
             + '.v3-bg{position:fixed;inset:0;z-index:-2;pointer-events:none;background:'
-            + 'radial-gradient(46vw 46vw at 10% 4%, rgba(217,209,229,0.60), transparent 62%),'
-            + 'radial-gradient(40vw 40vw at 92% 16%, rgba(255,98,48,0.14), transparent 60%),'
-            + 'radial-gradient(50vw 50vw at 78% 88%, rgba(123,107,165,0.22), transparent 62%),'
-            + 'radial-gradient(38vw 38vw at 20% 96%, rgba(255,98,48,0.10), transparent 60%),'
+            + 'radial-gradient(46vw 46vw at 8% 2%, rgba(217,209,229,0.65), transparent 60%),'
+            + 'radial-gradient(40vw 40vw at 94% 12%, rgba(255,98,48,0.13), transparent 58%),'
+            + 'radial-gradient(52vw 52vw at 80% 86%, rgba(123,107,165,0.22), transparent 60%),'
+            + 'radial-gradient(40vw 40vw at 16% 98%, rgba(255,98,48,0.10), transparent 58%),'
             + '#FAFAF8;}'
-            // headline punch (keep Source Serif, just bolder/tighter)
-            + 'h1.source-serif{letter-spacing:-0.02em;line-height:1.04;}'
-            // Notizblock-Karte: liniertes Papier + Perforation + Badge
-            + '.notepad{position:relative;background:#ffffff;border-radius:16px;padding:2.4rem 1.9rem 1.9rem;'
+            // Fraunces-Headlines: fett, eng, verspielt
+            + '.source-serif{font-weight:600 !important;letter-spacing:-0.015em;font-variation-settings:"SOFT" 30,"WONK" 0;}'
+            + 'h1.source-serif{font-weight:800 !important;letter-spacing:-0.03em;line-height:1.02;font-variation-settings:"SOFT" 50,"WONK" 1;}'
+            + 'h2.source-serif,.prose h2{font-weight:700;letter-spacing:-0.02em;}'
+            // Notizblock-Karte
+            + '.notepad{position:relative;background:#fff;border-radius:16px;padding:2.4rem 1.9rem 1.9rem;'
             + 'box-shadow:0 18px 50px -18px rgba(70,56,99,0.30);'
             + 'background-image:repeating-linear-gradient(180deg,transparent,transparent 31px,#ece8f2 31px,#ece8f2 32px);'
             + 'background-position:0 2.7rem;border:1px solid #efeaf4;}'
             + '.notepad::before{content:"";position:absolute;top:13px;left:20px;right:20px;height:7px;'
-            + 'background-image:radial-gradient(circle at center,#d9d1e5 0 2.6px,transparent 3px);'
-            + 'background-size:17px 7px;background-repeat:repeat-x;}'
+            + 'background-image:radial-gradient(circle at center,#d9d1e5 0 2.6px,transparent 3px);background-size:17px 7px;background-repeat:repeat-x;}'
             + '.notepad-badge{position:absolute;top:-23px;left:24px;width:56px;height:56px;border-radius:50%;'
             + 'background:#7b6ba5;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;'
             + 'font-family:"Geist Mono",ui-monospace,monospace;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;line-height:1.15;'
             + 'box-shadow:0 8px 20px -6px rgba(123,107,165,0.6);}'
             + '.notepad-badge.orange{background:#FF6230;box-shadow:0 8px 20px -6px rgba(255,98,48,0.6);}'
-            // Checkerboard-Panel (Deko hinter/neben Porträt)
-            + '.v3-checker{background-image:'
-            + 'conic-gradient(#7b6ba5 0 25%, transparent 0 50%, #7b6ba5 0 75%, transparent 0);'
-            + 'background-size:38px 38px;background-color:#ece8f2;}'
-            // kleines Checker-Eck als Akzent
-            + '.v3-checker-mini{background-image:'
-            + 'conic-gradient(#FF6230 0 25%, transparent 0 50%, #FF6230 0 75%, transparent 0);'
-            + 'background-size:20px 20px;}'
-            // Squiggle-Divider (welle)
-            + '.v3-squiggle{height:14px;background-repeat:repeat-x;background-size:48px 14px;'
-            + 'background-image:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'14\' viewBox=\'0 0 48 14\'><path d=\'M0 7 C 8 -2, 16 16, 24 7 S 40 -2, 48 7\' fill=\'none\' stroke=\'%23FF6230\' stroke-width=\'2.5\'/></svg>");}'
-            // Statement-Karte (große Aussage auf Farbe mit Squiggle-Hintergrund)
-            + '.v3-statement{position:relative;overflow:hidden;border-radius:20px;padding:3rem 2.4rem;'
-            + 'background:#7b6ba5;color:#fff;}'
-            + '.v3-statement::before{content:"";position:absolute;inset:0;opacity:0.16;background-repeat:repeat;background-size:120px 120px;'
-            + 'background-image:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'120\' viewBox=\'0 0 120 120\'><path d=\'M-10 40 C 20 10, 40 70, 70 40 S 110 10, 140 40\' fill=\'none\' stroke=\'%23ffffff\' stroke-width=\'8\'/><path d=\'M-10 90 C 20 60, 40 120, 70 90 S 110 60, 140 90\' fill=\'none\' stroke=\'%23ffffff\' stroke-width=\'8\'/></svg>");}'
-            + '.v3-statement > *{position:relative;z-index:1;}'
-            + '@media (max-width:639px){'
-            + '.prose h2{font-size:1.15rem;}.prose h3{font-size:0.98rem;}'
-            + '.prose table{display:block;overflow-x:auto;}.prose pre{overflow-x:auto;}'
-            + '}';
+            // Checkerboard
+            + '.v3-checker{background-image:conic-gradient(#7b6ba5 0 25%, transparent 0 50%, #7b6ba5 0 75%, transparent 0);background-size:38px 38px;background-color:#ece8f2;}'
+            + '.v3-checker-mini{background-image:conic-gradient(#FF6230 0 25%, transparent 0 50%, #FF6230 0 75%, transparent 0);background-size:20px 20px;}'
+            // Wackel-Rand (handgezeichnet) — nur Border-Overlay wird verdrängt, Inhalt bleibt scharf
+            + '.wobble-box{position:relative;}'
+            + '.wobble-box::before{content:"";position:absolute;inset:-7px;border:2.5px solid #7b6ba5;border-radius:22px;filter:url(#wobble);pointer-events:none;z-index:2;}'
+            + '.wobble-box.wb-orange::before{border-color:#FF6230;filter:url(#wobble2);}'
+            // Gekippte Karten
+            + '.tilt-l{transform:rotate(-1.4deg);}.tilt-r{transform:rotate(1.4deg);}'
+            + '@media(max-width:639px){.tilt-l,.tilt-r{transform:none;}}'
+            // Blobs
+            + '.blob{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;z-index:0;}'
+            // Scroll-Reveal
+            + '.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}'
+            + '.reveal.show{opacity:1;transform:none;}'
+            + '@media(prefers-reduced-motion:reduce){.reveal{opacity:1 !important;transform:none !important;}}'
+            // Mobile
+            + '@media (max-width:639px){.prose h2{font-size:1.15rem;}.prose h3{font-size:0.98rem;}.prose table{display:block;overflow-x:auto;}.prose pre{overflow-x:auto;}}';
         document.head.appendChild(st);
+    })();
+
+    // Scroll-Reveal Observer (+ Fallback: nie dauerhaft versteckt)
+    (function mountReveal() {
+        function reveal(el) { el.classList.add('show'); }
+        if (!('IntersectionObserver' in window)) {
+            document.querySelectorAll('.reveal').forEach(reveal); return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } });
+        }, { threshold: 0.10 });
+        function bind() { document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); }); }
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bind); else bind();
+        // Sicherheits-Fallback nach 2.5s: alles zeigen, falls Observer hängt
+        window.addEventListener('load', function () { setTimeout(function () { document.querySelectorAll('.reveal:not(.show)').forEach(reveal); }, 2500); });
     })();
 
     // Scroll Progress Bar — Orange
@@ -159,17 +185,12 @@
         bar.setAttribute('aria-hidden', 'true');
         bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;width:0%;background:#FF6230;z-index:9999;transition:width 0.05s linear;pointer-events:none;';
         document.body.appendChild(bar);
-        function update() {
-            var h = document.documentElement;
-            var s = (h.scrollHeight - h.clientHeight);
-            bar.style.width = (s > 0 ? (h.scrollTop / s) * 100 : 0) + '%';
-        }
+        function update() { var h = document.documentElement; var s = (h.scrollHeight - h.clientHeight); bar.style.width = (s > 0 ? (h.scrollTop / s) * 100 : 0) + '%'; }
         window.addEventListener('scroll', update, { passive: true });
-        window.addEventListener('resize', update);
-        update();
+        window.addEventListener('resize', update); update();
     })();
 
-    // Audio-Pill — Heidelbeer + Orange
+    // Audio-Pill — Orange
     function mountAudioPills() {
         var slots = document.querySelectorAll('.reader-audio-slot');
         if (!slots.length) return;
