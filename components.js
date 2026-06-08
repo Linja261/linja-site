@@ -53,7 +53,7 @@
     var navHTML = ''
         + '<nav class="fixed top-0 left-0 right-0 z-50" style="background: rgba(250,250,248,0.92); backdrop-filter: blur(8px);">'
         + '<div class="max-w-[860px] mx-auto px-5 sm:px-8 py-5 flex items-center justify-between">'
-        + '<a href="' + homeLinkHref + '" class="source-serif text-stone-900 text-lg">Linja Scharffetter</a>'
+        + '<a href="' + homeLinkHref + '" class="source-serif text-lg" style="color: #7b6ba5;">Linja Scharffetter</a>'
         + '<div class="flex items-center gap-6 text-[0.8rem] text-stone-500">'
         + '<a href="' + base + 'blog.html" class="' + blogClass + '">Blog</a>'
         + langToggleDesktop
@@ -82,10 +82,13 @@
     }).join('\n            ');
 
     var footerHTML = ''
-        + '<footer style="background: #F5F3EF;" class="py-8">'
+        + '<footer style="position: relative; margin-top: 3rem;">'
+        + '<svg viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:100%;height:40px;margin-bottom:-1px;">'
+        + '<path d="M0,24 Q100,6 200,20 T400,20 T600,20 T800,20 T1000,20 T1200,20 V40 H0 Z" fill="#F5F3EF"/></svg>'
+        + '<div style="background: #F5F3EF;" class="pt-2 pb-8">'
         + '<div class="max-w-[860px] mx-auto px-5 sm:px-8 flex items-center justify-center gap-4 text-[0.72rem] text-stone-300">'
         + footerLinksHTML
-        + '</div></footer>';
+        + '</div></div></footer>';
 
     // Inject nav
     var navPlaceholder = document.getElementById('site-nav');
@@ -140,6 +143,20 @@
         window.addEventListener('scroll', update, { passive: true });
         window.addEventListener('resize', update);
         update();
+    })();
+
+    // ═══════════════════════════════════════════════════════════
+    // Fraunces-Feinschliff (zentral) — Headlines etwas fetter & enger
+    // ═══════════════════════════════════════════════════════════
+    (function mountFontTweaks() {
+        if (document.getElementById('font-tweaks')) return;
+        var st = document.createElement('style');
+        st.id = 'font-tweaks';
+        st.textContent = ''
+            + '.source-serif{font-weight:600 !important;letter-spacing:-0.015em;}'
+            + 'h1.source-serif{letter-spacing:-0.025em;line-height:1.06;}'
+            + '.prose h2,.prose h3{letter-spacing:-0.01em;}';
+        document.head.appendChild(st);
     })();
 
     // ═══════════════════════════════════════════════════════════
