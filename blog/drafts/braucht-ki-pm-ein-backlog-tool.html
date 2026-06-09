@@ -22,7 +22,7 @@
     <meta property="og:type" content="article">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -30,8 +30,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        sans: ['Fraunces', 'Georgia', 'serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
                         mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
                     },
                     colors: {
@@ -45,12 +45,12 @@
         }
     </script>
     <style>
-        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        .source-serif { font-family: "Fraunces", Georgia, serif; font-weight: 500; }
 
         html { scroll-behavior: smooth; }
 
         .prose h2 {
-            font-family: "Source Serif 4", Georgia, serif;
+            font-family: "Fraunces", Georgia, serif;
             font-weight: 600;
             font-size: 1.4rem;
             color: #1A1A1A;
@@ -58,7 +58,7 @@
             margin-bottom: 1rem;
         }
         .prose h3 {
-            font-family: "Source Serif 4", Georgia, serif;
+            font-family: "Fraunces", Georgia, serif;
             font-weight: 600;
             font-size: 1.15rem;
             color: #1A1A1A;
@@ -82,7 +82,7 @@
     <div class="max-w-[680px] mx-auto px-5 sm:px-8">
 
         <!-- Draft-Banner -->
-        <div class="mt-24 mb-4 py-3 px-4 rounded-lg flex items-center gap-3" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+        <div class="mt-24 mb-4 py-3 px-4 rounded-lg flex items-center gap-3" style="background: #f6f4f9;">
             <span class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #6b5691;">Entwurf</span>
             <span class="text-[0.82rem]" style="color: #6b5691;">Vollständiger DE-Entwurf. EN-Version und Reader-Audio folgen beim Publish.</span>
         </div>
@@ -104,7 +104,7 @@
         <article class="prose pb-12">
 
             <!-- TLDR -->
-            <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9;">
                 <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
                 <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
                     Solo mit einem KI-Assistenten brauche ich kein Ticket-Tool. Der Backlog lebt im Dialog, der aktuelle Stand in lebenden Dokumenten, der Verlauf in Git. Sobald mehrere Menschen asynchron arbeiten, verschiebt sich die Antwort: dann zählen geteilte Artefakte für Alignment und Sichtbarkeit. Und selbst dort, wo ein Ticket-Tool bleibt, verändert KI seine Rolle, vom passiven Speicher zur aktiv gesteuerten Übersicht. Die eigentliche Frage ist nicht KI gegen Tool, sondern wie viele Köpfe denselben Stand sehen müssen, ohne darüber zu reden.
@@ -112,12 +112,12 @@
             </div>
 
             <!-- BLOCK 1: KERNBOTSCHAFT + PROBLEM -->
-            <h2>Kernbotschaft und Problem</h2>
+            <h2>Warum das Ticket-Board ungeöffnet blieb</h2>
 
             <p>Ich baue derzeit mehrere Produkte weitgehend allein, mit Claude als Assistenten. Eines davon ist Mamabande, eine App für Mütter, deren gesamter Stand in meinem Obsidian-Wissenssystem liegt. Linear hatte ich dafür aufgesetzt, weil es zum Standardrepertoire gehört. Dann blieb es zwei Wochen lang ungeöffnet, nicht aus Nachlässigkeit, sondern weil es keinen Zweck mehr erfüllte: Der aktuelle Stand stand längst woanders, präziser und ohne dass ich Tickets pflegen musste. Das eigentliche Problem ist deshalb nicht das Werkzeug, sondern die selten hinterfragte Annahme, dass Produktarbeit zwingend ein Ticket-Board braucht. Diese Annahme stammt aus einer Zeit, in der ein Backlog der einzige geteilte Speicher zwischen vielen Beteiligten war. In der Solo-Arbeit mit einem KI-Assistenten und lebenden Dokumenten trägt sie nicht mehr.</p>
 
             <!-- BLOCK 2: FUNDIERUNG -->
-            <h2>Fundierung</h2>
+            <h2>Was ein Tool leistet, was KI ersetzt</h2>
 
             <h3>Was ein Backlog-Tool eigentlich leistet</h3>
 
@@ -146,7 +146,7 @@
 
             <p>Den Verlauf übernimmt Git: Jede Änderung an diesen Dateien ist ein datierter, nachvollziehbarer Commit, also ein vollständiger Audit-Trail ohne manuelle Ticketpflege. Priorisierung und das Schneiden der Inkremente entstehen im Dialog: Ich beschreibe das Ziel, der Assistent schlägt einen Schnitt vor, wir verhandeln ihn, und das Ergebnis landet im lebenden Backlog. Der entscheidende Unterschied liegt in der Aktivität des Gegenübers. Ein Ticket-Board ist ein passiver Speicher, in den ich aktiv hineinschreiben muss. Ein KI-Assistent ist ein aktiver Gegenpart, der den Stand zwischen den Sitzungen hält und mir die Pflege abnimmt.</p>
 
-            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9;">
                 <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
                     Ein Speicher ohne Leser schafft keinen Wert. Er erzeugt nur Pflegeaufwand.
                 </p>
