@@ -135,7 +135,7 @@
         var bar = document.createElement('div');
         bar.id = 'scroll-progress';
         bar.setAttribute('aria-hidden', 'true');
-        bar.style.cssText = 'position:fixed;top:0;left:0;height:2px;width:0%;background:#5b8a72;z-index:9999;transition:width 0.05s linear;pointer-events:none;';
+        bar.style.cssText = 'position:fixed;top:0;left:0;height:2px;width:0%;background:#FF6634;z-index:9999;transition:width 0.05s linear;pointer-events:none;';
         document.body.appendChild(bar);
         function update() {
             var h = document.documentElement;
@@ -161,6 +161,7 @@
             + '.prose h2,.prose h3{letter-spacing:-0.01em;}'
             // Heading-Farbe midnight (Ueberschriften + Zwischenueberschriften); inline-Styles (z.B. Strategy Execution grapefruit) gewinnen
             + 'h1.source-serif,h2.source-serif,h3.source-serif{color:#472E56;}'
+            + 'h3.font-semibold{color:#472E56;}'
             + '.prose h2,.prose h3{color:#472E56;}'
             // text-wrap: balance fuer ausgewogene Ueberschriften-Umbrueche (alle Seiten)
             + 'h1,h2,h3,.prose h2,.prose h3{text-wrap:balance;}';
@@ -200,9 +201,9 @@
             slot.innerHTML = '' +
                 '<button type="button" class="reader-pill" aria-label="Audio-Zusammenfassung abspielen" ' +
                 'style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.35rem 0.9rem 0.35rem 0.5rem;max-width:100%;' +
-                'border:1px solid #96bfaa;background:transparent;color:#31493d;border-radius:9999px;' +
+                'border:1px solid #ffc2ac;background:transparent;color:#9a3a14;border-radius:9999px;' +
                 'font-size:0.8rem;font-weight:500;cursor:pointer;transition:all 0.15s;white-space:nowrap;overflow:hidden;">' +
-                '<span class="reader-icon" style="display:inline-flex;width:22px;height:22px;border-radius:50%;background:#5b8a72;color:#fff;align-items:center;justify-content:center;flex-shrink:0;">' +
+                '<span class="reader-icon" style="display:inline-flex;width:22px;height:22px;border-radius:50%;background:#FF6634;color:#fff;align-items:center;justify-content:center;flex-shrink:0;">' +
                 '<svg class="reader-play-icon" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>' +
                 '<svg class="reader-pause-icon" width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>' +
                 '</span>' +
@@ -221,7 +222,7 @@
             function fmt(s) { s = Math.floor(s || 0); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
 
             pill.addEventListener('mouseenter', function () {
-                if (audio.paused) pill.style.background = '#f2f7f4';
+                if (audio.paused) pill.style.background = '#fff1ec';
             });
             pill.addEventListener('mouseleave', function () {
                 if (audio.paused) pill.style.background = 'transparent';
@@ -231,16 +232,16 @@
             audio.addEventListener('play', function () {
                 playIcon.style.display = 'none';
                 pauseIcon.style.display = 'block';
-                pill.style.background = '#5b8a72';
+                pill.style.background = '#FF6634';
                 pill.style.color = '#fff';
-                pill.style.borderColor = '#5b8a72';
+                pill.style.borderColor = '#FF6634';
             });
             audio.addEventListener('pause', function () {
                 playIcon.style.display = 'block';
                 pauseIcon.style.display = 'none';
                 pill.style.background = 'transparent';
-                pill.style.color = '#31493d';
-                pill.style.borderColor = '#96bfaa';
+                pill.style.color = '#9a3a14';
+                pill.style.borderColor = '#ffc2ac';
             });
             audio.addEventListener('ended', function () {
                 audio.currentTime = 0;
