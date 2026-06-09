@@ -56,7 +56,7 @@
             <!-- Counter -->
             <div class="grid grid-cols-4 gap-2 mb-6">
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-xl text-stone-900" id="count-substack-open">7</div>
+                    <div class="font-mono text-xl text-stone-900" id="count-substack-open">8</div>
                     <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Substack offen</div>
                 </div>
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
@@ -64,7 +64,7 @@
                     <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Substack geteilt</div>
                 </div>
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-xl text-stone-900" id="count-linkedin-open">7</div>
+                    <div class="font-mono text-xl text-stone-900" id="count-linkedin-open">8</div>
                     <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">LinkedIn offen</div>
                 </div>
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
@@ -79,6 +79,74 @@
 
             <!-- Queue -->
             <div id="queue-list" class="space-y-6">
+
+                <!-- ========= ENTRY: braucht-ki-pm-ein-backlog-tool ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="braucht-ki-pm-ein-backlog-tool">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">11.06.2026</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Brauche ich noch ein Backlog-Tool, wenn ich mit KI arbeite?</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/braucht-ki-pm-ein-backlog-tool.html" target="_blank" class="hover:text-violet-400">linja.me/blog/braucht-ki-pm-ein-backlog-tool &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="4" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Ich hatte Linear für mein Solo-Projekt aufgesetzt und zwei Wochen nicht geöffnet. Nicht aus Faulheit, sondern weil der aktuelle Stand längst woanders lag: im Dialog mit der KI, in lebenden Dokumenten, im Git-Verlauf. Wann ein Backlog-Tool trotzdem zählt, steht im Artikel: linja.me/blog/braucht-ki-pm-ein-backlog-tool</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="22" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Ich hatte Linear aufgesetzt, weil man das eben so macht. Dann blieb es zwei Wochen ungeöffnet.
+
+Nicht aus Nachlässigkeit. Der aktuelle Stand meines Solo-Projekts lag längst woanders: im Dialog mit dem KI-Assistenten, in ein paar lebenden Dokumenten, im Git-Verlauf. Ein Ticket-Board hätte nur Pflegeaufwand erzeugt, den niemand liest.
+
+Das warf eine selten gestellte Frage auf, nämlich was ein Backlog-Tool eigentlich leistet.
+
+Vier seiner Funktionen sind kognitive Arbeit: priorisieren, Inkremente schneiden, Status halten, Verlauf dokumentieren. Die trägt ein KI-Assistent mit lebenden Dokumenten und Git heute mühelos. Zwei Funktionen sind sozialer Natur: Sichtbarkeit und Verbindlichkeit über mehrere Menschen hinweg. Die kann er nicht ersetzen.
+
+An dieser Trennlinie entscheidet sich alles. Solo bin ich der einzige Kopf im System und muss mir nichts sichtbar machen, was ich ohnehin weiß. Kommt ein zweiter Mensch dazu, kippt die Rechnung: dann zählt das geteilte Artefakt. Für ein Team-Projekt habe ich deshalb keine Tickets verteilt, sondern eine interaktive Story-Map gebaut, die alle auf einen Blick sehen.
+
+Und selbst dort, wo ein Ticket-Tool bleibt, beim großen Team mit hohem Durchsatz, verändert KI seine Rolle. Aus dem passiven Speicher, in den ich Views konfiguriere, wird ein aktiver Gegenpart, der die Boards teamübergreifend liest und das Wesentliche zusammenzieht.
+
+Die eigentliche Frage ist deshalb nicht KI gegen Tool. Sie lautet: wie viele Köpfe müssen denselben Stand sehen, ohne darüber zu reden.
+
+Ganzer Artikel mit Quellen und Praxis: linja.me/blog/braucht-ki-pm-ein-backlog-tool
+
+#ProductManagement #KI</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
 
                 <!-- ========= ENTRY: design-thinking-ki (Fokus: Mamahood-Prototyp) ========= -->
                 <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="design-thinking-ki">
