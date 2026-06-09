@@ -158,7 +158,12 @@
         st.textContent = ''
             + '.source-serif{font-weight:600 !important;letter-spacing:-0.015em;}'
             + 'h1.source-serif{letter-spacing:-0.025em;line-height:1.06;}'
-            + '.prose h2,.prose h3{letter-spacing:-0.01em;}';
+            + '.prose h2,.prose h3{letter-spacing:-0.01em;}'
+            // Heading-Farbe midnight (Ueberschriften + Zwischenueberschriften); inline-Styles (z.B. Strategy Execution grapefruit) gewinnen
+            + 'h1.source-serif,h2.source-serif,h3.source-serif{color:#472E56;}'
+            + '.prose h2,.prose h3{color:#472E56;}'
+            // text-wrap: balance fuer ausgewogene Ueberschriften-Umbrueche (alle Seiten)
+            + 'h1,h2,h3,.prose h2,.prose h3{text-wrap:balance;}';
         document.head.appendChild(st);
     })();
 
