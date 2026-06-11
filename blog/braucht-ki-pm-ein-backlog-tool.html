@@ -1,0 +1,402 @@
+<!--
+  linja.me/blog/braucht-ki-pm-ein-backlog-tool – Brauche ich noch ein Backlog-Tool, wenn ich mit KI arbeite?
+  Schema: artikel_baukasten.md (5 Blöcke + Quellen + Glossar)
+  Bilingual: DE + EN
+  Publiziert: 2026-06-11
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Brauche ich noch ein Backlog-Tool, wenn ich mit KI arbeite? – Linja Scharffetter</title>
+    <meta name="description" content="Solo mit KI-Assistent ersetzt ein Ticket-Tool. Sobald mehrere Menschen asynchron arbeiten, kippt die Antwort: dann zählen geteilte Artefakte.">
+    <meta property="og:title" content="Brauche ich noch ein Backlog-Tool, wenn ich mit KI arbeite?">
+    <meta property="og:description" content="Die Entscheidung ist nicht KI gegen Tool, sondern: Wie viele Köpfe müssen denselben Stand sehen, ohne zu reden?">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Fraunces','Georgia','serif'], serif: ['Fraunces','Georgia','serif'], mono: ['Geist Mono','ui-monospace','SFMono-Regular','monospace'] }, colors: { violet: { 50:'#f6f4f9',100:'#ece8f2',200:'#d9d1e5',300:'#9a82b5',400:'#7b6ba5',500:'#6b5691',700:'#463863' }, amber: { 50:'#fdf5f0',100:'#fae8de',200:'#ecb08e',400:'#c27a52',500:'#D4714E',600:'#a86340',700:'#73402e' }, emerald: { 50:'#f2f7f4',100:'#e0ede6',300:'#96bfaa',500:'#5b8a72',600:'#476f5b',700:'#31493d' } } } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Fraunces", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+        .prose h2 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.4rem; color: #1A1A1A; margin-top: 4rem; margin-bottom: 1rem; }
+        .prose h3 { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 1.15rem; color: #1A1A1A; margin-top: 2.75rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 2rem; line-height: 1.75; }
+        .prose strong { color: #1A1A1A; font-weight: 600; }
+        .prose em { font-style: italic; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ARTIKEL-HEADER -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+                <span class="text-[0.72rem] text-stone-400">11. Juni 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 8 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-3">
+                Brauche ich noch ein Backlog-Tool, wenn ich mit KI arbeite?
+            </h1>
+            <p class="text-[0.92rem] text-stone-500 mb-0">Warum ein Ticket-Board solo überflüssig wird, im Team trotzdem zählt, und wie KI verändert, was es leistet.</p>
+        </header>
+
+        <!-- 90-SEK-AUDIO-PILL -->
+        <div class="reader-audio-slot my-4" data-audio-src="audio/braucht-ki-pm-ein-backlog-tool.mp3"></div>
+
+        <!-- TL;DR -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Solo mit einem KI-Assistenten brauche ich kein Ticket-Tool. Der Backlog lebt im Dialog, der aktuelle Stand in lebenden Dokumenten, der Verlauf in Git. Sobald mehrere Menschen asynchron arbeiten, verschiebt sich die Antwort: dann zählen geteilte Artefakte für Alignment und Sichtbarkeit. Und selbst dort, wo ein Ticket-Tool bleibt, verändert KI seine Rolle, vom passiven Speicher zur aktiv gesteuerten Übersicht. Die eigentliche Frage ist nicht KI gegen Tool, sondern wie viele Köpfe denselben Stand sehen müssen, ohne darüber zu reden.
+            </p>
+        </div>
+
+        <!-- ARTIKEL-CONTENT -->
+        <article class="prose pb-12">
+
+            <!-- BLOCK 1: KERNBOTSCHAFT + PROBLEM -->
+            <h2>Warum das Ticket-Board ungeöffnet blieb</h2>
+
+            <p>Ich baue derzeit mehrere Produkte weitgehend allein, mit Claude als Assistenten. Eines davon ist Mamabande, eine App für Mütter, deren gesamter Stand in meinem Obsidian-Wissenssystem liegt. Linear hatte ich dafür aufgesetzt, weil es zum Standardrepertoire gehört. Dann blieb es zwei Wochen lang ungeöffnet, nicht aus Nachlässigkeit, sondern weil es keinen Zweck mehr erfüllte: Der aktuelle Stand stand längst woanders, präziser und ohne dass ich Tickets pflegen musste. Das eigentliche Problem ist deshalb nicht das Werkzeug, sondern die selten hinterfragte Annahme, dass Produktarbeit zwingend ein Ticket-Board braucht. Diese Annahme stammt aus einer Zeit, in der ein Backlog der einzige geteilte Speicher zwischen vielen Beteiligten war. In der Solo-Arbeit mit einem KI-Assistenten und lebenden Dokumenten trägt sie nicht mehr.</p>
+
+            <!-- BLOCK 2: FUNDIERUNG -->
+            <h2>Was ein Tool leistet, was KI ersetzt</h2>
+
+            <h3>Was ein Backlog-Tool eigentlich leistet</h3>
+
+            <p>Bevor sich beurteilen lässt, ob ein Werkzeug entfallen kann, muss klar sein, welche Arbeit es überhaupt erledigt. Ein Ticket-Tool wie Linear oder Jira bündelt mehrere Funktionen, die in der Praxis meist als eine wahrgenommen werden:</p>
+
+            <ul>
+                <li><strong>Priorisierung:</strong> Was kommt als Nächstes, was wartet, was fällt raus.</li>
+                <li><strong>Inkremente schneiden:</strong> Große Vorhaben in machbare Einheiten zerlegen.</li>
+                <li><strong>Status:</strong> Wo steht jede Einheit gerade, was ist erledigt, was blockiert.</li>
+                <li><strong>Verlauf:</strong> Wer hat wann was entschieden und warum.</li>
+                <li><strong>Sichtbarkeit:</strong> Andere können nachsehen, ohne mich zu fragen.</li>
+                <li><strong>Verbindlichkeit:</strong> Eine Zuweisung ist eine sichtbare Zusage.</li>
+            </ul>
+
+            <p>Die ersten vier Funktionen sind kognitive Arbeit: ordnen, zerlegen, festhalten, nachvollziehen. Die letzten beiden sind soziale Arbeit: sehen lassen und sich verpflichten. Genau an dieser Trennlinie entscheidet sich, ob ein KI-Assistent das Tool ersetzen kann.</p>
+
+            <h3>Was ein KI-Assistent plus lebende Dokumente übernimmt</h3>
+
+            <p>Die kognitiven Funktionen kann ein KI-Assistent zusammen mit drei lebenden Dokumenten tragen. Lebend heißt: ein Dokument, das immer den aktuellen Stand zeigt statt einer Historie aus Tickets. In meiner Solo-Arbeit sind das drei Dateien:</p>
+
+            <ul>
+                <li>Eine <strong>Produkt-Doku</strong>, die den aktuellen Stand beschreibt, nicht die Vergangenheit. Was ist gebaut, was ist als Nächstes dran.</li>
+                <li>Ein <strong>Backlog als lebende Datei</strong>, eine geordnete Liste statt einzelner Karten. Die Priorität ergibt sich aus der Reihenfolge.</li>
+                <li>Ein <strong>Decision-Log</strong> für Architektur- und Produktentscheidungen, ein leichtgewichtiges ADR-Format. Warum so entschieden wurde und welche Alternativen es gab.</li>
+            </ul>
+
+            <p>Den Verlauf übernimmt Git: Jede Änderung an diesen Dateien ist ein datierter, nachvollziehbarer Commit, also ein vollständiger Audit-Trail ohne manuelle Ticketpflege. Priorisierung und das Schneiden der Inkremente entstehen im Dialog: Ich beschreibe das Ziel, der Assistent schlägt einen Schnitt vor, wir verhandeln ihn, und das Ergebnis landet im lebenden Backlog. Der entscheidende Unterschied liegt in der Aktivität des Gegenübers. Ein Ticket-Board ist ein passiver Speicher, in den ich aktiv hineinschreiben muss. Ein KI-Assistent ist ein aktiver Gegenpart, der den Stand zwischen den Sitzungen hält und mir die Pflege abnimmt.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Ein Speicher ohne Leser schafft keinen Wert. Er erzeugt nur Pflegeaufwand.
+                </p>
+            </div>
+
+            <p>Daraus folgt ein einfaches Kriterium: Was als Nebenprodukt der eigentlichen Arbeit einen aktuellen Stand hinterlässt, trägt. Was zusätzliche Pflege verlangt, die niemand liest, fällt mit der Zeit durch. Die Interaktion mit dem Assistenten ist die Arbeit selbst, nicht ihre Buchhaltung, und gerade das macht sie haltbar.</p>
+
+            <h3>Was der Assistent allein nicht übernimmt</h3>
+
+            <p>Was lebende Dokumente und Dialog nicht leisten, sind die sozialen Funktionen: Sichtbarkeit und Verbindlichkeit über mehrere Menschen hinweg. Solange ich der einzige Mensch im System bin, fällt das nicht ins Gewicht, denn ich muss mir nichts sichtbar machen, was ich ohnehin weiß. Sobald ein zweiter Mensch hinzukommt, ändert sich die Rechnung grundlegend. Asynchrone Zusammenarbeit lebt davon, dass jeder denselben Stand sehen kann, ohne dass ich ihn erzähle. Genau hier hat ein geteiltes Artefakt seine Berechtigung, die im Solo-Fall vollständig fehlt. Linear, ein Board oder eine geteilte Map lösen primär ein Kommunikationsproblem zwischen Menschen, kein Denkproblem in einem einzelnen Kopf.</p>
+
+            <!-- BLOCK 3: WAS ICH VERÄNDERT HABE -->
+            <h2>Was ich verändert habe</h2>
+
+            <p>Solo arbeite ich heute ohne Ticket-Tool. Mein Setup besteht aus den drei lebenden Dateien, dem Dialog mit dem Assistenten und Git als Verlauf. Den Backlog halte ich als geordnete Liste statt als Kartenstapel und priorisiere durch Umsortieren, nicht durch Status-Felder.</p>
+
+            <p>Im Team mache ich es bewusst anders. Gerade arbeite ich mit mehreren Beteiligten an einer Produktidee: MatGrid, einer KI-gestützten Plattform, die Dachdeckern die Materialermittlung für ihre Projekte abnimmt und den Rechercheaufwand zwischen Herstellerdaten, Normen und Produktauswahl automatisiert. Dort reicht der Stand in meinem Kopf nicht mehr, weil ihn andere sehen müssen. Statt Tickets zu verteilen, habe ich fürs MVP-Scoping eine interaktive Story-Map gebaut: eine deployte, geteilte Seite im eigenen Branding, ergänzt um eine DACI-Matrix für die Rollenklärung. Alle sehen denselben Zusammenhang auf einen Blick, ohne synchron darüber reden zu müssen. Das ist kein Widerspruch zur Solo-Position, sondern ihre logische Fortsetzung: Das Medium folgt der Zahl der Köpfe, die denselben Stand sehen müssen.</p>
+
+            <!-- BLOCK 4: WENN DAS TOOL BLEIBT -->
+            <h2>Wenn das Tool bleibt: KI statt statischer Views</h2>
+
+            <p>Es gibt einen dritten Fall, in dem ein Ticket-Tool nicht verschwindet: das größere Team mit hohem Durchsatz, vielen parallelen Strängen und echten Abhängigkeiten zwischen den Funktionen. Hier trägt Linear weiter. Doch auch in diesem Fall verändert ein KI-Assistent, was das Tool überhaupt leisten kann.</p>
+
+            <p>Klassisch arbeitet man in Linear mit gespeicherten Views, also vordefinierten Filtern über Zuständigkeit, Label und Status. Eine View beantwortet eine Frage, die ich vorab kenne, in der Struktur, die das Tool zulässt. Sie zeigt eine Liste, und ich muss sie selbst lesen, deuten und gegen die Lage von gestern halten. Ändert sich meine Frage, baue oder pflege ich die nächste View.</p>
+
+            <p>Ein Assistent mit Zugriff auf die Boards arbeitet anders. Er liest nicht nur die Metadaten, sondern den Inhalt der Tickets, und das über alle Teams hinweg. So beantwortet er die Frage, die ich heute habe, etwa was diese Woche quer durch fünf Teams den Launch blockiert. Das ist keine gespeicherte Abfrage, sondern eine Interpretation. Der Gewinn liegt auf drei Ebenen. Erstens entfällt die Pflege der Views, weil die Frage sich täglich ändern darf, ohne dass ich etwas umkonfiguriere. Zweitens zieht der Assistent aus vielen Boards die wenigen Punkte zusammen, die zählen, samt teamübergreifender Abhängigkeiten, die eine einzelne View gar nicht abbilden kann, etwa wenn ein Ticket in Team A ein Ticket in Team B aufhält. Drittens bleibt es nicht bei einer Liste: Der Assistent erklärt, warum ein Punkt kritisch ist und was als Nächstes ansteht, und meldet von sich aus, wenn Tickets stillstehen oder ihren Zuschnitt verändern.</p>
+
+            <p>Der Unterschied zur eigenen View ist damit kein gradueller. Eine View strukturiert vorhandene Daten nach einer Frage von gestern. Ein Assistent synthetisiert aus denselben Daten eine Antwort auf die Frage von heute und nimmt mir das Lesen, Verknüpfen und Einordnen ab. Der Engpass verschiebt sich vom Konfigurieren der Filter zum Stellen der richtigen Frage.</p>
+
+            <p>Diese Wirkung hat eine Bedingung, die man ehrlich benennen muss: Der Assistent ist nur so gut wie die Datenpflege in den Tickets. Wo Titel nichtssagend und Beschreibungen leer sind, synthetisiert auch eine KI nur Nebel. Die Sichtbarkeit, die ein Team in seine Tickets investiert, bekommt es als Übersicht zurück, nicht mehr und nicht weniger.</p>
+
+            <!-- BLOCK 5: KRITISCHE EINORDNUNG -->
+            <h2>Kritische Einordnung</h2>
+
+            <p>Funktioniert dieser Verzicht nur bei mir? Teilweise, denn jedes Setup trägt eine persönliche Arbeitsweise mit. Die Logik dahinter ist jedoch allgemein: Ein Speicher ohne Leser ist verschwendete Arbeit. Die Grenze des Solo-Setups ist klar benannt. Es skaliert nicht über eine Person hinaus, und schon bei vielen parallelen Strängen mit dichten Abhängigkeiten stößt eine lineare lebende Datei an ihre Grenzen. Dann hilft die explizite Struktur eines Tools, das Status und Abhängigkeiten modelliert, idealerweise gesteuert von einem Assistenten wie oben beschrieben. Auch der Eigenbau hat eine Grenze: Eine selbstgebaute Story-Map lohnt sich, wenn das geteilte Bild den Aufwand trägt, für eine schnelle Solo-Notiz ist sie Overengineering. Das Werkzeug folgt dem Problem, nicht umgekehrt.</p>
+
+            <!-- BLOCK 6: DREI OPTIONEN, DREI EINSATZFELDER -->
+            <h2>Drei Optionen, drei Einsatzfelder</h2>
+
+            <p>Die belastbare Antwort auf die Leitfrage ist deshalb keine Ja-Nein-Entscheidung, sondern eine Zuordnung von Medium zu Kontext:</p>
+
+            <ul>
+                <li><strong>Lebende Docs plus Dialog</strong> sind das richtige Medium für die Solo-Arbeit mit einem KI-Assistenten. Die kognitive Arbeit erledigt der Assistent, der Stand steht in den Dateien, der Verlauf in Git. Ein Ticket-Tool ist hier überflüssig.</li>
+                <li><strong>Eine visuelle Story-Map</strong> schlägt das Ticket-Board, sobald ein kleines Team asynchron ein gemeinsames Bild braucht, etwa für MVP-Scoping, Roadmap-Alignment und Rollenklärung. Eine Karte zeigt Zusammenhang und Priorität auf einen Blick, ein Board zeigt nur eine Liste von Karten.</li>
+                <li><strong>Ein Ticket-Tool wie Linear</strong> trägt, wenn ein größeres Team mit hohem Durchsatz das laufende Wie koordinieren muss. Seinen Wert entfaltet es heute aber weniger über manuell gepflegte Views als über einen KI-Assistenten, der die Boards teamübergreifend liest und das Wesentliche zusammenzieht.</li>
+            </ul>
+
+            <p>Map und Ticket-Tool schließen sich nicht aus. In der Praxis klärt die Story-Map zuerst das gemeinsame Bild, und erst die daraus geschnittenen MVP-Karten wandern für die Umsetzung ins Ticket-Tool.</p>
+
+            <!-- BLOCK 7: WAS BLEIBT FÜR JEDEN TAG -->
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Die Frage ist nicht KI gegen Tool, sondern wie viele Köpfe denselben Stand sehen müssen.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Solo trägt der Dialog plus lebende Dokumente, im Team trägt das geteilte Artefakt. Über das Medium entscheidet die Zahl der Beteiligten, nicht die Technologie.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Ein Tool, das niemand öffnet, schafft keinen Wert.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Bevor ein Ticket-Board aufgesetzt wird, lohnt die Frage, wer hineinschaut. Lautet die Antwort niemand außer mir, und ich kenne den Stand ohnehin, bleibt es weg.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Wo ein Tool nötig ist, steuert es die KI, nicht der manuelle Filter.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Der Hebel liegt nicht mehr im Konfigurieren von Views, sondern darin, dem Assistenten die richtige Frage zu stellen und die Tickets so zu pflegen, dass er sie beantworten kann.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUELLEN -->
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Patton, Jeff (2014). <em>User Story Mapping.</em> O'Reilly. Grundlage des Story-Map-Formats.</li>
+                    <li>Nygard, Michael (2011). <em>Documenting Architecture Decisions.</em> Ursprung des ADR-Formats als leichtgewichtiges Decision-Log.</li>
+                    <li>Atlassian / Intuit. <em>DACI: A decision-making framework.</em> Driver, Approver, Contributor, Informed.</li>
+                    <li>Eigene Praxis: Solo-Setup (Mamabande, KnowledgeOS) und Team-Setup (MatGrid Story-Map), Mai und Juni 2026.</li>
+                </ol>
+            </div>
+
+            <!-- GLOSSAR -->
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Backlog</span> <span class="text-stone-400">— Geordnete Liste offener Aufgaben und Vorhaben eines Produkts.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Ticket-Tool</span> <span class="text-stone-400">— Software wie Linear oder Jira, die Aufgaben als Karten mit Status verwaltet.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">View (Linear)</span> <span class="text-stone-400">— Gespeicherter Filter über Tickets, etwa nach Zuständigkeit, Label oder Status.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Lebendes Dokument</span> <span class="text-stone-400">— Datei, die immer den aktuellen Stand zeigt statt einer Historie. Der Verlauf liegt in Git.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">ADR / Decision-Log</span> <span class="text-stone-400">— Architecture Decision Record. Kurz: was entschieden, warum, welche Alternativen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Inkrement</span> <span class="text-stone-400">— Eine machbare, in sich abgeschlossene Einheit eines größeren Vorhabens.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Story-Map</span> <span class="text-stone-400">— Visuelle Karte der Nutzer-Journey mit Stories pro Schritt und einer MVP-Linie.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">DACI</span> <span class="text-stone-400">— Rollenmodell für Entscheidungen: Driver, Approver, Contributor, Informed.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ARTICLE HEADER -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; AI</span>
+                <span class="text-[0.72rem] text-stone-400">June 11, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 8 min read</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-3">
+                Do I still need a backlog tool when I work with AI?
+            </h1>
+            <p class="text-[0.92rem] text-stone-500 mb-0">Why a ticket board becomes pointless solo, still counts in a team, and how AI changes what it does.</p>
+        </header>
+
+        <!-- TL;DR -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Working solo with an AI assistant, I do not need a ticket tool. The backlog lives in the dialogue, the current state in living documents, the history in Git. As soon as several people work asynchronously, the answer flips: then shared artifacts matter for alignment and visibility. And even where a ticket tool stays, AI changes its role, from a passive store into an actively steered overview. The real question is not AI versus tool, but how many heads need to see the same state without talking about it.
+            </p>
+        </div>
+
+        <article class="prose pb-12">
+
+            <h2>Why the ticket board stayed closed</h2>
+
+            <p>I am currently building several products largely on my own, with Claude as my assistant. One of them is Mamabande, an app for mothers, whose entire state lives in my Obsidian knowledge system. I had set up Linear for it because it is part of the standard repertoire. Then it stayed closed for two weeks, not out of negligence, but because it no longer served a purpose. The current state was already somewhere else, more precise and without me having to maintain tickets. The real problem is therefore not the tool, but the rarely questioned assumption that product work necessarily needs a ticket board. That assumption comes from a time when a backlog was the only shared store between many people. In solo work with an AI assistant and living documents, it no longer holds.</p>
+
+            <h2>What a tool does, what AI replaces</h2>
+
+            <h3>What a backlog tool actually does</h3>
+
+            <p>Before you can judge whether a tool can go, you need to be clear about the work it does in the first place. A ticket tool like Linear or Jira bundles several functions that in practice are usually perceived as one:</p>
+
+            <ul>
+                <li><strong>Prioritization:</strong> what comes next, what waits, what gets dropped.</li>
+                <li><strong>Slicing increments:</strong> breaking large efforts into workable units.</li>
+                <li><strong>Status:</strong> where each unit stands, what is done, what is blocked.</li>
+                <li><strong>History:</strong> who decided what, when, and why.</li>
+                <li><strong>Visibility:</strong> others can check without asking me.</li>
+                <li><strong>Commitment:</strong> an assignment is a visible promise.</li>
+            </ul>
+
+            <p>The first four functions are cognitive work: ordering, slicing, recording, tracing. The last two are social work: letting others see, and committing. That dividing line is exactly where it is decided whether an AI assistant can replace the tool.</p>
+
+            <h3>What an AI assistant plus living documents takes over</h3>
+
+            <p>The cognitive functions can be carried by an AI assistant together with three living documents. Living means a document that always shows the current state instead of a history of tickets. In my solo work these are three files:</p>
+
+            <ul>
+                <li>A <strong>product doc</strong> that describes the current state, not the past. What is built, what comes next.</li>
+                <li>A <strong>backlog as a living file</strong>, an ordered list instead of separate cards. Priority follows from the order.</li>
+                <li>A <strong>decision log</strong> for architecture and product decisions, a lightweight ADR format. Why a choice was made and what the alternatives were.</li>
+            </ul>
+
+            <p>Git takes over the history. Every change to these files is a dated, traceable commit, a full audit trail without manual ticket upkeep. Prioritization and slicing increments emerge in the dialogue. I describe the goal, the assistant proposes a cut, we negotiate it, and the result lands in the living backlog. The decisive difference lies in how active the counterpart is. A ticket board is a passive store that I have to actively write into. An AI assistant is an active counterpart that holds the state between sessions and takes the upkeep off my hands.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    A store without a reader creates no value. It only creates maintenance.
+                </p>
+            </div>
+
+            <p>From this follows a simple criterion. What leaves a current state behind as a byproduct of the actual work holds up. What demands extra upkeep that nobody reads falls away over time. The interaction with the assistant is the work itself, not its bookkeeping, and that is exactly what makes it durable.</p>
+
+            <h3>What the assistant does not take over on its own</h3>
+
+            <p>What living documents and dialogue do not provide are the social functions: visibility and commitment across several people. As long as I am the only person in the system, that does not weigh much, because I do not need to make visible to myself what I already know. As soon as a second person joins, the calculation changes fundamentally. Asynchronous collaboration depends on everyone seeing the same state without me telling it to them. This is exactly where a shared artifact earns its place, the place that is entirely absent in the solo case. Linear, a board, or a shared map primarily solve a communication problem between people, not a thinking problem inside a single head.</p>
+
+            <h2>What I changed</h2>
+
+            <p>Solo, I work without a ticket tool today. My setup is the three living files, the dialogue with the assistant, and Git as the history. I keep the backlog as an ordered list instead of a stack of cards, and I prioritize by reordering, not by status fields.</p>
+
+            <p>In a team I deliberately do it differently. Right now I am working with several people on a product idea: MatGrid, an AI-supported platform that takes the material estimation for roofers' projects off their hands and automates the research effort across manufacturer data, standards, and product selection. There the state in my head is no longer enough, because others need to see it. Instead of handing out tickets, I built an interactive story map for MVP scoping: a deployed, shared page in our own branding, complemented by a DACI matrix for clarifying roles. Everyone sees the same context at a glance, without having to talk about it synchronously. This is not a contradiction to the solo position, but its logical continuation. The medium follows the number of heads that need to see the same state.</p>
+
+            <h2>When the tool stays: AI instead of static views</h2>
+
+            <p>There is a third case in which a ticket tool does not disappear: the larger team with high throughput, many parallel threads, and real dependencies between functions. Here Linear still carries. But even in this case an AI assistant changes what the tool can do at all.</p>
+
+            <p>Classically you work in Linear with saved views, predefined filters over ownership, label, and status. A view answers a question I know in advance, in the structure the tool allows. It shows a list, and I have to read it myself, interpret it, and hold it against yesterday's situation. If my question changes, I build or maintain the next view.</p>
+
+            <p>An assistant with access to the boards works differently. It reads not just the metadata but the content of the tickets, and it does so across all teams. So it answers the question I have today, for example what is blocking the launch this week across five teams. That is not a saved query, it is an interpretation. The gain sits on three levels. First, the upkeep of views falls away, because the question may change daily without me reconfiguring anything. Second, the assistant pulls from many boards the few points that matter, including cross-team dependencies that a single view cannot represent at all, for instance when a ticket in team A holds up a ticket in team B. Third, it does not stop at a list. The assistant explains why a point is critical and what comes next, and it flags on its own when tickets stall or change their scope.</p>
+
+            <p>The difference from your own view is therefore not gradual. A view structures existing data along a question from yesterday. An assistant synthesizes from the same data an answer to today's question and takes the reading, connecting, and sorting off my hands. The bottleneck shifts from configuring the filters to asking the right question.</p>
+
+            <p>This effect has a condition that must be named honestly. The assistant is only as good as the data hygiene in the tickets. Where titles say nothing and descriptions are empty, even an AI only synthesizes fog. The visibility a team invests in its tickets is what it gets back as an overview, no more and no less.</p>
+
+            <h2>A critical look</h2>
+
+            <p>Does this kind of opting out only work for me? Partly, because every setup carries a personal way of working. The logic behind it, however, is general: a store without a reader is wasted work. The limit of the solo setup is clearly named. It does not scale beyond one person, and even with many parallel threads and dense dependencies a linear living file reaches its limits. Then the explicit structure of a tool that models status and dependencies helps, ideally steered by an assistant as described above. The do-it-yourself route has a limit too. A self-built story map pays off when the shared picture justifies the effort, but for a quick solo note it is overengineering. The tool follows the problem, not the other way around.</p>
+
+            <h2>Three options, three use cases</h2>
+
+            <p>The robust answer to the guiding question is therefore not a yes or no decision, but a mapping of medium to context:</p>
+
+            <ul>
+                <li><strong>Living docs plus dialogue</strong> are the right medium for solo work with an AI assistant. The assistant does the cognitive work, the state lives in the files, the history in Git. A ticket tool is pointless here.</li>
+                <li><strong>A visual story map</strong> beats the ticket board as soon as a small team needs a shared picture asynchronously, for example for MVP scoping, roadmap alignment, and role clarification. A map shows context and priority at a glance, a board only shows a list of cards.</li>
+                <li><strong>A ticket tool like Linear</strong> carries when a larger team with high throughput has to coordinate the ongoing how. Today it unfolds its value less through manually maintained views than through an AI assistant that reads the boards across teams and pulls together what matters.</li>
+            </ul>
+
+            <p>Map and ticket tool are not mutually exclusive. In practice the story map first clarifies the shared picture, and only the MVP cards sliced from it move into the ticket tool for delivery.</p>
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The question is not AI versus tool, but how many heads need to see the same state.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Solo, the dialogue plus living documents carries; in a team, the shared artifact carries. The medium is decided by the number of people involved, not by the technology.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">A tool nobody opens creates no value.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Before setting up a ticket board, ask who looks into it. If the answer is nobody but me, and I know the state anyway, it stays off.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Where a tool is needed, AI steers it, not the manual filter.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">The leverage no longer sits in configuring views, but in asking the assistant the right question and keeping the tickets so it can answer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Patton, Jeff (2014). <em>User Story Mapping.</em> O'Reilly. Basis of the story-map format.</li>
+                    <li>Nygard, Michael (2011). <em>Documenting Architecture Decisions.</em> Origin of the ADR format as a lightweight decision log.</li>
+                    <li>Atlassian / Intuit. <em>DACI: A decision-making framework.</em> Driver, Approver, Contributor, Informed.</li>
+                    <li>Own practice: solo setup (Mamabande, KnowledgeOS) and team setup (MatGrid story map), May and June 2026.</li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Backlog</span> <span class="text-stone-400">— Ordered list of a product's open tasks and plans.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Ticket tool</span> <span class="text-stone-400">— Software like Linear or Jira that manages tasks as cards with a status.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">View (Linear)</span> <span class="text-stone-400">— Saved filter over tickets, e.g. by ownership, label, or status.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Living document</span> <span class="text-stone-400">— File that always shows the current state instead of a history. The history lives in Git.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">ADR / decision log</span> <span class="text-stone-400">— Architecture Decision Record. Short note: what was decided, why, which alternatives.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Increment</span> <span class="text-stone-400">— A workable, self-contained unit of a larger effort.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Story map</span> <span class="text-stone-400">— Visual map of the user journey with stories per step and an MVP line.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">DACI</span> <span class="text-stone-400">— Decision role model: Driver, Approver, Contributor, Informed.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+</html>
