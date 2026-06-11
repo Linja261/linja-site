@@ -121,6 +121,8 @@
 
             <p>Daraus folgt ein einfaches Kriterium: Was als Nebenprodukt der eigentlichen Arbeit einen aktuellen Stand hinterlässt, trägt. Was zusätzliche Pflege verlangt, die niemand liest, fällt mit der Zeit durch. Die Interaktion mit dem Assistenten ist die Arbeit selbst, nicht ihre Buchhaltung, und gerade das macht sie haltbar.</p>
 
+            <p>Hier lohnt eine Präzisierung der eigenen These. Lebende Dokumente sind kein Speicher ohne Leser, denn sie haben einen: den Assistenten. Er liest sie bei jeder Sitzung. Das verschiebt die Frage. Nicht ob ich einen Speicher pflege, sondern ob er so strukturiert ist, dass sein wichtigster Leser ihn versteht. Eine unsortierte Notizhalde trägt einen Assistenten so wenig wie einen Menschen. Die Pflege verschwindet damit nicht, sie wandert vom Ticketstatus zur Lesbarkeit für die Maschine.</p>
+
             <h3>Was der Assistent allein nicht übernimmt</h3>
 
             <p>Was lebende Dokumente und Dialog nicht leisten, sind die sozialen Funktionen: Sichtbarkeit und Verbindlichkeit über mehrere Menschen hinweg. Solange ich der einzige Mensch im System bin, fällt das nicht ins Gewicht, denn ich muss mir nichts sichtbar machen, was ich ohnehin weiß. Sobald ein zweiter Mensch hinzukommt, ändert sich die Rechnung grundlegend. Asynchrone Zusammenarbeit lebt davon, dass jeder denselben Stand sehen kann, ohne dass ich ihn erzähle. Genau hier hat ein geteiltes Artefakt seine Berechtigung, die im Solo-Fall vollständig fehlt. Linear, ein Board oder eine geteilte Map lösen primär ein Kommunikationsproblem zwischen Menschen, kein Denkproblem in einem einzelnen Kopf.</p>
@@ -143,10 +145,18 @@
 
             <p>Der Unterschied zur eigenen View ist damit kein gradueller. Eine View strukturiert vorhandene Daten nach einer Frage von gestern. Ein Assistent synthetisiert aus denselben Daten eine Antwort auf die Frage von heute und nimmt mir das Lesen, Verknüpfen und Einordnen ab. Der Engpass verschiebt sich vom Konfigurieren der Filter zum Stellen der richtigen Frage.</p>
 
+            <p>Das ist keine Zukunftsvision am Reißbrett. Die Plattformen selbst bewegen sich genau dorthin: Ticket-Tools binden inzwischen Assistenten direkt ein, die Tickets lesen, zuordnen und Fragen dazu beantworten. Die Frage ist deshalb nicht mehr, ob ein Assistent das Board steuert, sondern wessen Assistent es tut und wie gut er die Daten vorfindet.</p>
+
             <p>Diese Wirkung hat eine Bedingung, die man ehrlich benennen muss: Der Assistent ist nur so gut wie die Datenpflege in den Tickets. Wo Titel nichtssagend und Beschreibungen leer sind, synthetisiert auch eine KI nur Nebel. Die Sichtbarkeit, die ein Team in seine Tickets investiert, bekommt es als Übersicht zurück, nicht mehr und nicht weniger.</p>
 
             <!-- BLOCK 5: KRITISCHE EINORDNUNG -->
             <h2>Kritische Einordnung</h2>
+
+            <h3>Was lebende Dokumente kosten</h3>
+
+            <p>Dieser Verzicht hat einen Preis, den man ehrlich benennen muss. Git speichert den Verlauf, aber es verhindert keine Drift. Lebende Dateien laufen mit der Zeit auseinander: Benennungen werden uneinheitlich, die Struktur franst aus, und nach einigen Monaten ist nicht mehr selbstverständlich, welche Datei den gültigen Stand hält. Solo trage ich diese Pflege still mit, weil ich das System im Kopf habe. Sobald ein zweiter Mensch oder ein zweiter Assistent dazukommt, wird sie zur expliziten Aufgabe: Wer hält die Dokumente konsistent, wer ist der Linter? Dazu kommt eine Voraussetzung, die selten erfüllt ist, nämlich das Warum mitzuschreiben und nicht nur das Was. Ein Decision-Log trägt nur, wenn es wirklich geführt wird. Lebende Dokumente schaffen den Aufwand also nicht ab, sie verschieben ihn vom Ticketstatus zur Konsistenz der Dateien.</p>
+
+            <p>Dass dahinter kein Einzelfall-Reflex steckt, zeigt der Blick in die Fachdebatte. Erfahrene Agile-Praktiker kommen unabhängig zur selben Schlussfolgerung, versionierte und strukturierte Dateien als Wissensmodell für KI statt fragmentierter Tickets, und sie benennen dieselbe Achillesferse: die Governance dieser Dateien. Der Konsens ist nicht, dass das Tool verschwindet, sondern dass sich der Ort der Wahrheit verschiebt und die Pflege ihm folgt.</p>
 
             <p>Funktioniert dieser Verzicht nur bei mir? Teilweise, denn jedes Setup trägt eine persönliche Arbeitsweise mit. Die Logik dahinter ist jedoch allgemein: Ein Speicher ohne Leser ist verschwendete Arbeit. Die Grenze des Solo-Setups ist klar benannt. Es skaliert nicht über eine Person hinaus, und schon bei vielen parallelen Strängen mit dichten Abhängigkeiten stößt eine lineare lebende Datei an ihre Grenzen. Dann hilft die explizite Struktur eines Tools, das Status und Abhängigkeiten modelliert, idealerweise gesteuert von einem Assistenten wie oben beschrieben. Auch der Eigenbau hat eine Grenze: Eine selbstgebaute Story-Map lohnt sich, wenn das geteilte Bild den Aufwand trägt, für eine schnelle Solo-Notiz ist sie Overengineering. Das Werkzeug folgt dem Problem, nicht umgekehrt.</p>
 
@@ -189,6 +199,7 @@
                     <li>Patton, Jeff (2014). <em>User Story Mapping.</em> O'Reilly. Grundlage des Story-Map-Formats.</li>
                     <li>Nygard, Michael (2011). <em>Documenting Architecture Decisions.</em> Ursprung des ADR-Formats als leichtgewichtiges Decision-Log.</li>
                     <li>Atlassian / Intuit. <em>DACI: A decision-making framework.</em> Driver, Approver, Contributor, Informed.</li>
+                    <li>Wolpers, Stefan (2026). <em>From Jira to AI Agents.</em> Age of Product. Versionierte Wissensmodelle für KI-Agenten und die Governance-Frage.</li>
                     <li>Eigene Praxis: Solo-Setup (Mamabande, KnowledgeOS) und Team-Setup (MatGrid Story-Map), Mai und Juni 2026.</li>
                 </ol>
             </div>
@@ -285,6 +296,8 @@
 
             <p>From this follows a simple criterion. What leaves a current state behind as a byproduct of the actual work holds up. What demands extra upkeep that nobody reads falls away over time. The interaction with the assistant is the work itself, not its bookkeeping, and that is exactly what makes it durable.</p>
 
+            <p>This is where a sharpening of my own thesis pays off. Living documents are not a store without a reader, because they have one: the assistant. It reads them in every session. That shifts the question. Not whether I maintain a store, but whether it is structured so that its most important reader understands it. An unsorted pile of notes carries an assistant as little as it carries a human. The upkeep does not disappear, then, it moves from ticket status to readability for the machine.</p>
+
             <h3>What the assistant does not take over on its own</h3>
 
             <p>What living documents and dialogue do not provide are the social functions: visibility and commitment across several people. As long as I am the only person in the system, that does not weigh much, because I do not need to make visible to myself what I already know. As soon as a second person joins, the calculation changes fundamentally. Asynchronous collaboration depends on everyone seeing the same state without me telling it to them. This is exactly where a shared artifact earns its place, the place that is entirely absent in the solo case. Linear, a board, or a shared map primarily solve a communication problem between people, not a thinking problem inside a single head.</p>
@@ -305,9 +318,17 @@
 
             <p>The difference from your own view is therefore not gradual. A view structures existing data along a question from yesterday. An assistant synthesizes from the same data an answer to today's question and takes the reading, connecting, and sorting off my hands. The bottleneck shifts from configuring the filters to asking the right question.</p>
 
+            <p>This is not a vision drawn on a whiteboard. The platforms themselves are moving exactly there: ticket tools now embed assistants directly, ones that read tickets, assign them, and answer questions about them. The question is therefore no longer whether an assistant steers the board, but whose assistant does it and how good the data it finds is.</p>
+
             <p>This effect has a condition that must be named honestly. The assistant is only as good as the data hygiene in the tickets. Where titles say nothing and descriptions are empty, even an AI only synthesizes fog. The visibility a team invests in its tickets is what it gets back as an overview, no more and no less.</p>
 
             <h2>A critical look</h2>
+
+            <h3>What living documents cost</h3>
+
+            <p>This opting out has a price that must be named honestly. Git stores the history, but it does not prevent drift. Living files diverge over time: naming becomes inconsistent, structure frays, and after a few months it is no longer obvious which file holds the valid state. Solo, I carry this upkeep silently because I have the system in my head. As soon as a second person or a second assistant joins, it becomes an explicit task: who keeps the documents consistent, who is the linter? On top of that comes a prerequisite that is rarely met, namely writing down the why and not just the what. A decision log only holds up if it is actually kept. Living documents therefore do not abolish the effort, they shift it from ticket status to the consistency of the files.</p>
+
+            <p>That this is not a one-off reflex is clear from the wider debate. Experienced agile practitioners arrive independently at the same conclusion, versioned and structured files as a knowledge model for AI instead of fragmented tickets, and they name the same Achilles heel: the governance of those files. The consensus is not that the tool disappears, but that the place of truth shifts and the upkeep follows it.</p>
 
             <p>Does this kind of opting out only work for me? Partly, because every setup carries a personal way of working. The logic behind it, however, is general: a store without a reader is wasted work. The limit of the solo setup is clearly named. It does not scale beyond one person, and even with many parallel threads and dense dependencies a linear living file reaches its limits. Then the explicit structure of a tool that models status and dependencies helps, ideally steered by an assistant as described above. The do-it-yourself route has a limit too. A self-built story map pays off when the shared picture justifies the effort, but for a quick solo note it is overengineering. The tool follows the problem, not the other way around.</p>
 
@@ -347,6 +368,7 @@
                     <li>Patton, Jeff (2014). <em>User Story Mapping.</em> O'Reilly. Basis of the story-map format.</li>
                     <li>Nygard, Michael (2011). <em>Documenting Architecture Decisions.</em> Origin of the ADR format as a lightweight decision log.</li>
                     <li>Atlassian / Intuit. <em>DACI: A decision-making framework.</em> Driver, Approver, Contributor, Informed.</li>
+                    <li>Wolpers, Stefan (2026). <em>From Jira to AI Agents.</em> Age of Product. Versioned knowledge models for AI agents and the governance question.</li>
                     <li>Own practice: solo setup (Mamabande, KnowledgeOS) and team setup (MatGrid story map), May and June 2026.</li>
                 </ol>
             </div>
