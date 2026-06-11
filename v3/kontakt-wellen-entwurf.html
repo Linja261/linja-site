@@ -32,7 +32,7 @@
 
         <header class="mb-12">
             <p class="text-[0.72rem] uppercase tracking-[0.18em] text-stone-400 mb-2">Brand-Element · Entwurf</p>
-            <h1 class="source-serif text-[1.6rem] sm:text-[2rem] mb-3">Variante A · mit Lilac-Wellen</h1>
+            <h1 class="source-serif text-[1.6rem] sm:text-[2rem] mb-3">Variante A · Knoten in durchlaufender Linie</h1>
             <p class="text-[0.74rem] text-stone-400">
                 <span class="swatch" style="background:#F6EDDE"></span>Sand-Fläche ·
                 <span class="swatch" style="background:#E3CCFF"></span>Lilac-Wellen ·
@@ -44,13 +44,18 @@
         <section class="wave-box mb-12">
             <svg class="wave-bg" viewBox="0 0 920 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <rect width="920" height="400" fill="#F6EDDE"/>
-                <g fill="none" stroke="#E3CCFF" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
-                    <!-- obere Linie: tritt OBEN ein, läuft nach RECHTS raus -->
-                    <path d="M320,-40 C 330,80 230,100 260,190 C 285,265 400,225 440,285 C 495,365 600,320 615,225 C 628,150 695,158 698,218 C 701,275 645,270 662,212 C 690,132 800,150 850,215 C 900,278 955,252 1000,205"/>
-                    <!-- linke Linie: tritt LINKS ein, läuft nach UNTEN raus -->
-                    <path d="M-40,150 C 130,110 170,215 280,195 C 360,181 360,110 450,135 C 540,159 520,250 600,255 C 690,261 690,180 770,205 C 840,227 840,330 760,365 C 700,392 720,440 690,475"/>
-                    <!-- dritte Linie: tritt UNTEN ein, läuft nach OBEN raus -->
-                    <path d="M150,440 C 160,330 260,340 270,250 C 278,180 200,170 230,120 C 260,75 360,90 380,160 C 402,235 330,262 420,292 C 500,318 560,250 540,180 C 522,118 600,90 640,40 C 662,12 688,-12 700,-40"/>
+                <g transform="translate(40,0)">
+                    <!-- Durchlaufende Linie: links rein, Knoten in der Mitte, rechts raus -->
+                    <path fill="none" stroke="#E3CCFF" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"
+                          d="M-120,300 C 120,300 380,298 500,288 C 545,284 585,280 611,275 L608,228 L625,180 L659,141 L700,120 L739,120 L764,140 L768,172 L749,205 L710,231 L660,240 L610,231 L571,205 L552,172 L556,140 L581,120 L620,120 L661,141 L695,180 L712,228 L709,275 C 735,283 760,287 820,295 C 950,308 1100,300 1180,300"/>
+                    <!-- Verschlingung: Sand-Lücken auf den Unter-Strängen -->
+                    <line x1="613" y1="200" x2="603" y2="260" stroke="#F6EDDE" stroke-width="40" stroke-linecap="round"/>
+                    <line x1="684" y1="241" x2="740" y2="219" stroke="#F6EDDE" stroke-width="40" stroke-linecap="round"/>
+                    <line x1="683" y1="159" x2="637" y2="121" stroke="#F6EDDE" stroke-width="40" stroke-linecap="round"/>
+                    <!-- Ober-Stränge wiederherstellen -->
+                    <line x1="571" y1="215" x2="645" y2="245" stroke="#E3CCFF" stroke-width="30" stroke-linecap="round"/>
+                    <line x1="718" y1="270" x2="706" y2="190" stroke="#E3CCFF" stroke-width="30" stroke-linecap="round"/>
+                    <line x1="691" y1="115" x2="629" y2="165" stroke="#E3CCFF" stroke-width="30" stroke-linecap="round"/>
                 </g>
             </svg>
             <div class="wave-content py-16 px-8 sm:px-12">
@@ -67,9 +72,9 @@
         </section>
 
         <p class="text-[0.8rem] text-stone-500 max-w-[64ch]">
-            Ein einheitliches Lilac, zwei wild verschlungene Bänder mit vielen tiefen Lappen und
-            Hairpins. Schrift bleibt Midnight auf Sand und damit klar lesbar, weil Lilac deutlich
-            heller als der Text ist.
+            Eine durchgehende Lilac-Linie: kommt links rein, verknotet sich in der Mitte
+            (Überhand-Knoten mit echter Über-/Unter-Verschlingung wie im Seil-Screenshot),
+            läuft rechts weiter raus. Sinnbild für „Verbindung knüpfen / Kontakt aufnehmen".
         </p>
 
     </div>
