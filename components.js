@@ -52,7 +52,7 @@
 
     var navHTML = ''
         + '<nav class="fixed top-0 left-0 right-0 z-50">'
-        + '<div style="background: #F5F3EF;">'
+        + '<div style="background: rgba(245, 243, 239, 0.72); -webkit-backdrop-filter: saturate(150%) blur(14px); backdrop-filter: saturate(150%) blur(14px); border-bottom: 1px solid rgba(71, 46, 86, 0.10);">'
         + '<div class="max-w-[860px] mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">'
         + '<a href="' + homeLinkHref + '" class="source-serif text-lg" style="color: #472E56;">Linja Scharffetter</a>'
         + '<div class="flex items-center gap-6 text-[0.8rem] text-stone-500">'
@@ -61,12 +61,11 @@
         + '<a href="' + contactHref + '" class="px-3.5 py-1.5 rounded text-white text-[0.75rem] font-medium transition-colors hidden sm:inline-block" style="background: #472E56;">' + contactDeLabel + '</a>'
         + '<button id="menu-toggle" class="sm:hidden p-1" aria-label="Menü öffnen"><svg class="w-6 h-6 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg></button>'
         + '</div></div></div>'
-        + '<div id="mobile-menu" class="sm:hidden px-5 py-4 space-y-3 text-[0.85rem]" style="background: #F5F3EF;">'
+        + '<div id="mobile-menu" class="sm:hidden px-5 py-4 space-y-3 text-[0.85rem]" style="background: rgba(245, 243, 239, 0.92); -webkit-backdrop-filter: saturate(150%) blur(14px); backdrop-filter: saturate(150%) blur(14px); border-bottom: 1px solid rgba(71, 46, 86, 0.10);">'
         + '<a href="' + base + 'blog.html" class="' + blogClassMobile + '">Blog</a>'
         + langToggleMobile
         + '<a href="' + contactHref + '" class="block font-medium" style="color: #472E56;">' + contactDeLabel + '</a>'
         + '</div>'
-        + '<svg viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:100%;height:30px;margin-top:-1px;"><path d="M0,0 H1200 V16 Q1100,32 1000,18 T800,18 T600,18 T400,18 T200,18 T0,18 Z" fill="#F5F3EF"/></svg>'
         + '</nav>';
 
     // Build footer HTML
