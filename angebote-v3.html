@@ -1,0 +1,597 @@
+<!--
+  linja.me/angebote-v3 – Angebotsseite NEU (Review-Version)
+  Startseite + Angebote zusammengefuehrt, mit Anker-Navigation.
+  Design System: Brand 2026 (Midnight-Headings, Grapefruit-Akzent, Lavendel-Tags, Emerald-Outcome)
+  Brand Kit: brand-kit.md
+  Stand: 2026-06-16
+  WICHTIG: nicht in Nav/Footer verlinken. Live-Seiten bleiben unangetastet. DE-only (EN folgt).
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Angebote – Linja Scharffetter</title>
+    <meta name="description"
+        content="Strategie, die aus echten Kundenbedürfnissen entsteht und die jeder versteht. Ein Prozess in fünf Schritten, vom Kundenproblem bis zur Organisation, die liefert.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Fraunces', 'Georgia', 'serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                        sky: {
+                            50: '#f0f7fb', 100: '#ddeef7', 300: '#89bed8',
+                            400: '#5B96B8', 500: '#4a7d9e', 700: '#2d4d63',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif { font-family: "Fraunces", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+
+        /* Anker-Ziele unter fixierter Nav + Subnav freihalten */
+        :root { --navh: 3.25rem; }
+        #zusammenarbeit, #methodik, #beleg, #maerkte, #kontakt, #blog { scroll-margin-top: 6.5rem; }
+
+        /* Anker-Subnav */
+        #anchor-nav { position: sticky; top: var(--navh); z-index: 40; background: #FAFAF8; border-bottom: 1px solid #ece8f2; }
+        .anchor-link { color: #8a8079; transition: color .2s, border-color .2s; border-bottom: 2px solid transparent; }
+        .anchor-link:hover { color: #472E56; }
+        .anchor-link.active { color: #472E56; border-bottom-color: #472E56; }
+
+        /* Prozess-Slider */
+        .proc-track { position: relative; display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 0.25rem 0 1.25rem; scrollbar-width: none; }
+        .proc-track::-webkit-scrollbar { display: none; }
+        .proc-card { flex: 0 0 84%; scroll-snap-align: center; }
+        @media (min-width: 640px) { .proc-card { flex-basis: 62%; } }
+        .proc-tab { transition: background .2s, color .2s, border-color .2s; }
+        .proc-tab.active { background: #472E56; color: #fff; border-color: #472E56; }
+        .proc-nav-btn:disabled { opacity: .3; cursor: default; }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="components.js" data-active=""></script>
+
+    <!-- ======== ANKER-SUBNAV ======== -->
+    <nav id="anchor-nav" aria-label="Seitenabschnitte">
+        <div class="max-w-[860px] mx-auto px-5 sm:px-8">
+            <div class="flex gap-5 sm:gap-7 overflow-x-auto py-3 font-mono text-[0.62rem] tracking-[0.14em] uppercase" style="scrollbar-width:none;">
+                <a href="#zusammenarbeit" class="anchor-link whitespace-nowrap pb-1">Zusammenarbeit</a>
+                <a href="#methodik" class="anchor-link whitespace-nowrap pb-1">Methodik</a>
+                <a href="#beleg" class="anchor-link whitespace-nowrap pb-1">Beleg</a>
+                <a href="#kontakt" class="anchor-link whitespace-nowrap pb-1">Kontakt</a>
+                <a href="#blog" class="anchor-link whitespace-nowrap pb-1">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-[860px] mx-auto px-5 sm:px-8">
+
+        <!-- ======== 1. HEADER (aus angebote-v2) ======== -->
+        <header id="top" class="pt-16 sm:pt-24 pb-12">
+            <div class="flex flex-col sm:flex-row items-stretch gap-10">
+                <picture style="display:contents">
+                    <source srcset="profile.webp" type="image/webp">
+                    <img src="profile.jpg" alt="Linja Scharffetter"
+                        class="w-full sm:w-56 h-96 sm:h-auto rounded-lg object-cover object-[center_30%] sm:object-[center_15%] flex-shrink-0"
+                        style="border: 2px solid #e5e2db;">
+                </picture>
+                <div class="flex-1 flex flex-col justify-between gap-4">
+                    <div>
+                        <p class="font-mono text-[0.62rem] tracking-[0.18em] uppercase mb-3" style="color: #472E56;">Strategisches Produktmanagement &amp; Systemgestaltung</p>
+                        <h1 class="source-serif text-[1.6rem] sm:text-[2.4rem] text-stone-900 leading-[1.15]">
+                            Ich bringe komplexe Innovationsvorhaben von der Kundenstimme bis in die Umsetzung.
+                        </h1>
+                    </div>
+                    <div class="space-y-3">
+                        <p class="text-[1.05rem] text-stone-700 leading-relaxed">Viele Vorhaben scheitern nicht an der Idee, sondern daran, dass Strategie und operatives Tun auseinanderlaufen. Ich schließe diese Lücke: an echten Kunden geprüft, KI-gestützt, operativ.</p>
+                        <p class="text-[0.9rem] text-stone-600 leading-relaxed">Meine Stärke ist, mich schnell in Markt, Kunden und Wettbewerb einzudenken und C-Level-Entscheidungen in etwas zu übersetzen, das jedes Team umsetzen kann. Dabei hilft mir meine Expertise aus 13 Jahren an der Schnittstelle von Strategie, Kunde, Markt, Produkt und Organisation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8">
+                <p class="font-mono text-[0.6rem] tracking-wide uppercase text-stone-500 mb-3">Was Sie davon haben</p>
+                <ul class="space-y-2.5 text-[0.88rem] text-stone-700">
+                    <li class="flex gap-2"><span style="color:#7b6ba5;">→</span><span><strong class="font-semibold text-stone-900">Neutrale Außensicht</strong> statt betriebliche Befangenheit</span></li>
+                    <li class="flex gap-2"><span style="color:#7b6ba5;">→</span><span><strong class="font-semibold text-stone-900">Sparring auf Augenhöhe</strong> für komplexe Entscheidungen</span></li>
+                    <li class="flex gap-2"><span style="color:#7b6ba5;">→</span><span><strong class="font-semibold text-stone-900">Geschwindigkeit</strong> durch Erkenntnisse in Tagen statt Wochen</span></li>
+                    <li class="flex gap-2"><span style="color:#7b6ba5;">→</span><span><strong class="font-semibold text-stone-900">Operative Impulse</strong> aus aktueller Produktpraxis</span></li>
+                    <li class="flex gap-2"><span style="color:#7b6ba5;">→</span><span><strong class="font-semibold text-stone-900">Entscheidungsvorlagen</strong> statt Bauchgefühl</span></li>
+                    <li class="flex gap-2"><span style="color:#7b6ba5;">→</span><span><strong class="font-semibold text-stone-900">Branchentiefe</strong> in regulierten Märkten (Energie, Bau, Wohnungswirtschaft)</span></li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="my-9" aria-hidden="true"><svg viewBox="0 0 1200 8" preserveAspectRatio="none" style="display:block;width:100%;height:6px;opacity:.5"><path d="M0,4 Q40,0 80,4 T160,4 T240,4 T320,4 T400,4 T480,4 T560,4 T640,4 T720,4 T800,4 T880,4 T960,4 T1040,4 T1120,4 T1200,4" fill="none" stroke="#cbbfdf" stroke-width="1.5"/></svg></div>
+
+        <!-- ======== 2. ZUSAMMENARBEIT (interaktiver Prozess + Dokumente + Ausstieg) ======== -->
+        <section id="zusammenarbeit" class="pt-4 pb-12">
+            <p class="font-mono text-[0.62rem] tracking-[0.18em] uppercase mb-3" style="color: #472E56;">Die Zusammenarbeit</p>
+            <h2 class="source-serif text-stone-900 text-[1.3rem] sm:text-[1.6rem] mb-3">Gemeinsam zu funktionierenden Geschäftsmodellen, die Ihr Team trägt.</h2>
+            <p class="text-[0.9rem] text-stone-600 leading-relaxed mb-7 max-w-[640px]">
+                Sie steigen dort ein, wo Sie heute stehen. Fünf Schritte, von der ersten Standortbestimmung bis zur Wirkung im Markt. Jeder Schritt hat eine eigene Form der Zusammenarbeit und ein greifbares Ergebnis.
+            </p>
+
+            <!-- Step-Tabs -->
+            <div class="flex flex-wrap gap-2 mb-5" id="proc-tabs">
+                <button class="proc-tab active flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[0.62rem] tracking-wide uppercase text-stone-600" style="border-color:#d9d1e5;" data-step="0"><span class="font-semibold">01</span> Standortbestimmung</button>
+                <button class="proc-tab flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[0.62rem] tracking-wide uppercase text-stone-600" style="border-color:#d9d1e5;" data-step="1"><span class="font-semibold">02</span> Kundenwahrheit</button>
+                <button class="proc-tab flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[0.62rem] tracking-wide uppercase text-stone-600" style="border-color:#d9d1e5;" data-step="2"><span class="font-semibold">03</span> Übersetzung</button>
+                <button class="proc-tab flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[0.62rem] tracking-wide uppercase text-stone-600" style="border-color:#d9d1e5;" data-step="3"><span class="font-semibold">04</span> Befähigung</button>
+                <button class="proc-tab flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[0.62rem] tracking-wide uppercase text-stone-600" style="border-color:#d9d1e5;" data-step="4"><span class="font-semibold">05</span> Wirkung</button>
+            </div>
+
+            <!-- Slider -->
+            <div class="proc-track" id="proc-track">
+                <!-- 01 -->
+                <article class="proc-card bg-white border rounded-xl p-6 sm:p-7 flex flex-col" style="border-color:#e3d9f0;">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg border" style="border-color:#d9d1e5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#472E56" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="#472E56"/></svg></span>
+                        <span class="font-mono text-[0.8rem] text-stone-300">01</span>
+                    </div>
+                    <h3 class="source-serif text-[1.15rem] text-stone-900 mb-2">Standortbestimmung</h3>
+                    <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&laquo;Wir wissen, dass wir etwas ändern müssen, aber nicht, wo wir anfangen sollen.&raquo;</p>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed mb-4">Ich höre allen relevanten Stimmen in Ihrem Unternehmen zu, bilde daraus implizite Annahmen und mache Zielkonflikte sichtbar. Dabei trenne ich Symptom von Ursache.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-4">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Stakeholder-Interviews</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Annahmen-Check</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Ursachenanalyse</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Zielkonflikt-Mapping</span>
+                    </div>
+                    <div class="rounded-md px-4 py-3 mt-auto" style="background:#f6f4f9;">
+                        <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Ergebnis</span>
+                        <p class="text-[0.85rem] text-stone-700 leading-relaxed">Gemeinsames Verständnis über Ihre Herausforderungen und Chancen. Sie entscheiden, an welcher Stelle wir ansetzen.</p>
+                    </div>
+                </article>
+                <!-- 02 -->
+                <article class="proc-card bg-white border rounded-xl p-6 sm:p-7 flex flex-col" style="border-color:#e3d9f0;">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg border" style="border-color:#d9d1e5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#472E56" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="#472E56"/></svg></span>
+                        <span class="font-mono text-[0.8rem] text-stone-300">02</span>
+                    </div>
+                    <h3 class="source-serif text-[1.15rem] text-stone-900 mb-2">Kundenwahrheit</h3>
+                    <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&laquo;Wir sind überzeugt von unserer Idee, aber ob der Markt das auch so sieht, wissen wir nicht.&raquo;</p>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed mb-4">Strukturierte Gespräche mit echten Kunden und Stakeholdern, um niedriginvestiv Ihre Möglichkeiten abzustecken. Wir bewerten Problembewusstsein, Lösungsoptionen und Zahlungsbereitschaft.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-4">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Kundeninterviews</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Hypothesen</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Opportunity Map</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Prototyping</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Zahlungsbereitschaft</span>
+                    </div>
+                    <div class="rounded-md px-4 py-3 mt-auto" style="background:#f6f4f9;">
+                        <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Ergebnis</span>
+                        <p class="text-[0.85rem] text-stone-700 leading-relaxed">Ein Validierungsbericht mit klarer Empfehlung für oder gegen die Umsetzung, auf Basis von echtem, bewertetem Kundenfeedback.</p>
+                    </div>
+                </article>
+                <!-- 03 -->
+                <article class="proc-card bg-white border rounded-xl p-6 sm:p-7 flex flex-col" style="border-color:#e3d9f0;">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg border" style="border-color:#d9d1e5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#472E56" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="#472E56"/></svg></span>
+                        <span class="font-mono text-[0.8rem] text-stone-300">03</span>
+                    </div>
+                    <h3 class="source-serif text-[1.15rem] text-stone-900 mb-2">Übersetzung</h3>
+                    <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&laquo;Wir haben eine Strategie, aber im Alltag versteht jeder etwas anderes darunter.&raquo;</p>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed mb-4">Ich übersetze die Strategie in klare operative Handlungsoptionen. Je Entscheidungsweiche mache ich die Konsequenzen sichtbar und verbinde sie mit Verantwortung und Zielen.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-4">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Strategie-Landkarte</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Entscheidungsweichen</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Priorisierung (RICE)</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">OKR-Ableitung</span>
+                    </div>
+                    <div class="rounded-md px-4 py-3 mt-auto" style="background:#f6f4f9;">
+                        <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Ergebnis</span>
+                        <p class="text-[0.85rem] text-stone-700 leading-relaxed">Eine Strategie-Landkarte, auf der die Geschäftsführung sinnvoll entscheiden kann und jedes Team seinen Anteil erkennt.</p>
+                    </div>
+                </article>
+                <!-- 04 -->
+                <article class="proc-card bg-white border rounded-xl p-6 sm:p-7 flex flex-col" style="border-color:#e3d9f0;">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg border" style="border-color:#d9d1e5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#472E56" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="#472E56"/></svg></span>
+                        <span class="font-mono text-[0.8rem] text-stone-300">04</span>
+                    </div>
+                    <h3 class="source-serif text-[1.15rem] text-stone-900 mb-2">Befähigung</h3>
+                    <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&laquo;Die Entscheidung steht längst, nur in der Umsetzung passiert nichts.&raquo;</p>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed mb-4">Ich begleite Sie bei der Umsetzung und sorge dafür, dass jedes Teammitglied befähigt ist, seinen Anteil zum Erfolg zu leisten.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-4">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Priorisierte Roadmap</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">OKR-Verankerung</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Stakeholder-Map</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Rollen &amp; Entscheidungswege</span>
+                    </div>
+                    <div class="rounded-md px-4 py-3 mt-auto" style="background:#f6f4f9;">
+                        <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Ergebnis</span>
+                        <p class="text-[0.85rem] text-stone-700 leading-relaxed">Eine Struktur, die Ihr Team eigenständig weiterführt, mit klaren Zuständigkeiten und Standards der Zusammenarbeit.</p>
+                    </div>
+                </article>
+                <!-- 05 -->
+                <article class="proc-card bg-white border rounded-xl p-6 sm:p-7 flex flex-col" style="border-color:#e3d9f0;">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg border" style="border-color:#d9d1e5;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#472E56" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="#472E56"/></svg></span>
+                        <span class="font-mono text-[0.8rem] text-stone-300">05</span>
+                    </div>
+                    <h3 class="source-serif text-[1.15rem] text-stone-900 mb-2">Wirkung und Nachsteuern</h3>
+                    <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&laquo;Nach dem Projekt fällt alles zurück in die alten Muster.&raquo;</p>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed mb-4">Wir definieren Metriken und Handlungsmuster, etablieren einen Rhythmus der Überprüfung und justieren nach, wo die Realität es verlangt.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-4">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">North Star</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Metriken-Framework</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Review-Cadence</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">A/B-Test</span>
+                    </div>
+                    <div class="rounded-md px-4 py-3 mt-auto" style="background:#f6f4f9;">
+                        <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Ergebnis</span>
+                        <p class="text-[0.85rem] text-stone-700 leading-relaxed">Eine Strategie, die lebendig bleibt, statt in einer Präsentation einzufrieren.</p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Slider-Steuerung -->
+            <div class="flex items-center justify-between mb-10">
+                <p class="text-[0.78rem] text-stone-400">Schritte durchblättern, oder direkt oben anwählen.</p>
+                <div class="flex gap-2">
+                    <button id="proc-prev" class="proc-nav-btn w-9 h-9 rounded-full border flex items-center justify-center text-stone-600 hover:text-stone-900 transition-colors" style="border-color:#d9d1e5;" aria-label="Zurück"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+                    <button id="proc-next" class="proc-nav-btn w-9 h-9 rounded-full border flex items-center justify-center text-stone-600 hover:text-stone-900 transition-colors" style="border-color:#d9d1e5;" aria-label="Weiter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+                </div>
+            </div>
+
+            <!-- Integrierte Outcomes: strukturierte Dokumente -->
+            <h3 class="source-serif text-stone-900 text-[1.1rem] sm:text-[1.2rem] mb-2">Was am Ende in Ihren Händen liegt.</h3>
+            <p class="text-[0.9rem] text-stone-600 leading-relaxed mb-6 max-w-[640px]">
+                Strukturierte Dokumente, mit denen Sie direkt weiterarbeiten. Zwei treten besonders häufig auf, als Beispiele zu verstehen, nicht als abschließender Katalog.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                <div class="bg-white border rounded-lg p-6 sm:p-7" style="border-color: #c4b6df;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-2" style="color: #6b5691;">Aus Schritt 02</p>
+                    <h4 class="source-serif text-[1.1rem] mb-2" style="color: #472E56;">Validierungsbericht</h4>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed">Die Evidenz, ob sich die Investition lohnt: reales Problem, belastbare Zahlungsbereitschaft, eine klare Empfehlung für oder gegen die Umsetzung. Aus echten Gesprächen, nicht aus Annahmen.</p>
+                </div>
+                <div class="bg-white border rounded-lg p-6 sm:p-7" style="border-color: #ffc2ac;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-2" style="color: #a86340;">Aus Schritt 03 und 04</p>
+                    <h4 class="source-serif text-[1.1rem] mb-2" style="color: #FF6634;">Strategie-Landkarte</h4>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed">Die Ambition in einem Bild, zerlegt in Initiativen, die jeder versteht. Mit Entscheidungsweichen, ihren Konsequenzen, der Verantwortung je Einheit und messbaren Zielen.</p>
+                </div>
+            </div>
+
+            <!-- Ausstiegspunkt -->
+            <div class="rounded-xl p-6 sm:p-7" style="background:#f2f7f4; border:1px solid #cfe3d7;">
+                <div class="flex items-center gap-2 mb-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#476f5b" stroke-width="1.8"><path d="M5 12l5 5L20 7"/></svg>
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase" style="color:#476f5b;">Mein Mandat hat ein Ende</p>
+                </div>
+                <p class="text-[0.92rem] leading-relaxed" style="color:#31493d;">
+                    <span class="font-semibold">Ich arbeite mich überflüssig.</span>
+                    Das Mandat endet, wenn Ihr Geschäftsmodell trägt: validiert, operativ verankert und von Ihrem Team eigenständig weitergeführt. Ich steige aus, sobald das Produkt funktioniert und aus eigener Kraft wachsen kann. Kein Dauerauftrag, sondern ein definierter Übergabepunkt.
+                </p>
+            </div>
+        </section>
+
+        <div class="my-9" aria-hidden="true"><svg viewBox="0 0 1200 8" preserveAspectRatio="none" style="display:block;width:100%;height:6px;opacity:.5"><path d="M0,4 Q40,0 80,4 T160,4 T240,4 T320,4 T400,4 T480,4 T560,4 T640,4 T720,4 T800,4 T880,4 T960,4 T1040,4 T1120,4 T1200,4" fill="none" stroke="#cbbfdf" stroke-width="1.5"/></svg></div>
+
+        <!-- ======== 3. METHODIK + BELEG (eine Trennlinie) ======== -->
+        <section class="pt-4 pb-12">
+            <!-- Methodik & Handwerk -->
+            <div id="methodik">
+                <p class="font-mono text-[0.62rem] tracking-[0.18em] uppercase mb-3" style="color: #472E56;">Methodik</p>
+                <h2 class="source-serif text-stone-900 text-[1.3rem] sm:text-[1.6rem] mb-3">Methodik &amp; Handwerk.</h2>
+                <p class="text-[0.9rem] text-stone-600 mb-8 max-w-[640px]">
+                    Fundierte Entscheidungen auf exzellentem handwerklichen Niveau. Methoden setze ich gezielt dort ein, wo sie Wirkung entfalten.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                        <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Forschung &amp; Strategie</h3>
+                        <p class="text-[0.85rem] text-stone-600 leading-relaxed text-justify hyphens-auto">Ich starte nicht mit Frameworks, sondern mit Ursachen. Erst klären, welche Wirkung wir erzielen wollen – dann entscheiden, ob Dialog, Datenanalyse oder Experimente den größten Erkenntnisgewinn bringen.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                        <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Produktentwicklung &amp; Umsetzung</h3>
+                        <p class="text-[0.85rem] text-stone-600 leading-relaxed text-justify hyphens-auto">Build–measure–learn ist für mich ein Steuerungsrahmen, kein Ritual. Ich validiere gezielt dort, wo Unsicherheit entsteht, und nutze KI, wenn sie Erkenntnis beschleunigt, ohne handwerkliche Qualität zu ersetzen.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                        <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Führung &amp; Zusammenarbeit</h3>
+                        <p class="text-[0.85rem] text-stone-600 leading-relaxed text-justify hyphens-auto">Tragfähige Entscheidungen entstehen durch Klarheit, nicht durch Hierarchie. Ich mache Annahmen explizit, dokumentiere Denkwege und schaffe Räume für konstruktiven Widerspruch – damit Teams Verantwortung übernehmen.</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                        <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Metriken &amp; Lernen</h3>
+                        <p class="text-[0.85rem] text-stone-600 leading-relaxed text-justify hyphens-auto">Ich messe, um Entscheidungsqualität zu erhöhen, nicht um Ergebnisse zu rechtfertigen. Explorative Signale in der Discovery, belastbare KPIs im Scale. Analyse dient Steuerung und Lernen, nicht Reporting.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beleg: Stimmen + Vergleich -->
+            <div id="beleg" class="pt-14">
+                <p class="font-mono text-[0.62rem] tracking-[0.18em] uppercase mb-5" style="color: #472E56;">Beleg</p>
+                <!-- Stimmen -->
+                <div class="rounded-lg py-8 px-5 sm:py-12 sm:px-8 mb-12" style="background: #f6f4f9;" id="testimonials-root">
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <div class="testimonial-slide transition-opacity duration-500" data-slide="0">
+                                <div class="border-l-3 pl-5 py-6 sm:pl-8" style="border-color: #472E56;">
+                                    <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">&ldquo;Linja denkt strategisch und bleibt dabei menschlich. Sie hat die seltene Fähigkeit, implizite Annahmen sichtbar zu machen und als Übersetzerin zwischen Disziplinen zu wirken. Auch in schwierigen Situationen behält sie Humor und Klarheit.&rdquo;</p>
+                                    <p class="font-mono text-[0.72rem] text-stone-500 tracking-wider uppercase"><a href="https://linkedin.com/in/janhoelter" target="_blank" class="font-medium text-stone-600 hover:text-stone-800 transition-colors">Jan Hölter</a> · Abteilungsleiter Digitale Produkte · ABS Safety</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-slide transition-opacity duration-500 hidden" data-slide="1">
+                                <div class="border-l-3 pl-5 py-6 sm:pl-8" style="border-color: #472E56;">
+                                    <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">&ldquo;Was mich überzeugt hat: Linja gibt klaren Kontext. Warum machen wir das? Für wen? Mit welcher Hypothese? Dann lässt sie Raum für eigene Lösungen. Sie vereint verschiedene Disziplinen unter einer gemeinsamen Vision, ohne sich in Details einzumischen.&rdquo;</p>
+                                    <p class="font-mono text-[0.72rem] text-stone-500 tracking-wider uppercase"><a href="https://linkedin.com/in/davidlatz" target="_blank" class="font-medium text-stone-600 hover:text-stone-800 transition-colors">David Latz</a> · Team Lead UX/UI · ABS Safety</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-slide transition-opacity duration-500 hidden" data-slide="2">
+                                <div class="border-l-3 pl-5 py-6 sm:pl-8" style="border-color: #472E56;">
+                                    <p class="source-serif text-[1.1rem] text-stone-700 leading-relaxed mb-4">&ldquo;Linja war zentrale Ansprechpartnerin in unserer internationalen Zusammenarbeit. Sie hat es geschafft, zwischen Länderorganisationen zu vermitteln, kulturelle Unterschiede zu berücksichtigen und die EU-weite Steuerung über 17 Märkte mit Ruhe und Struktur zu koordinieren.&rdquo;</p>
+                                    <p class="font-mono text-[0.72rem] text-stone-500 tracking-wider uppercase"><a href="https://linkedin.com/in/marianpintea" target="_blank" class="font-medium text-stone-600 hover:text-stone-800 transition-colors">Marian Pintea</a> · AI Business Solutions Lead · Microsoft</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center gap-2 mt-5">
+                            <button class="testimonial-dot w-2 h-2 rounded-full transition-colors" data-dot="0" style="background: #7b6ba5;" aria-label="Zitat 1"></button>
+                            <button class="testimonial-dot w-2 h-2 rounded-full transition-colors" data-dot="1" style="background: #d9d1e5;" aria-label="Zitat 2"></button>
+                            <button class="testimonial-dot w-2 h-2 rounded-full transition-colors" data-dot="2" style="background: #d9d1e5;" aria-label="Zitat 3"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Warum nicht Beratung / Festanstellung -->
+                <h3 class="source-serif text-stone-900 text-[1.2rem] sm:text-[1.4rem] mb-3">Warum nicht einfach eine Beratung beauftragen oder jemanden einstellen?</h3>
+                <p class="text-[0.9rem] text-stone-600 mb-10 max-w-[640px]">
+                    Können Sie. Aber Beratungen liefern Slides, keine Strukturen. Und eine Festanstellung bindet Sie, bevor Sie wissen, was Sie eigentlich brauchen. Ich arbeite dazwischen: Senior-Erfahrung, flexibler Einsatz, ein klares Ende.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-[1fr_1fr] gap-x-12">
+                    <p class="font-mono text-[0.72rem] text-stone-400 tracking-wider uppercase pb-4" style="border-bottom: 1px solid #e5e2db;">Klassischer Weg</p>
+                    <p class="font-mono text-[0.72rem] text-stone-900 tracking-wider uppercase pb-4" style="border-bottom: 1px solid #e5e2db;">Mit mir</p>
+
+                    <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Senior pitcht, Junioren liefern</p>
+                    <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Ich bin die, die anfängt und die, die liefert</p>
+
+                    <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Standardisierte Frameworks</p>
+                    <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Passend für genau Ihr Unternehmen</p>
+
+                    <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Lernt Ihren Markt auf Ihre Kosten kennen</p>
+                    <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">In Wochen tief in Markt, Kunden und Wettbewerb</p>
+
+                    <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Strategie bleibt Theorie</p>
+                    <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Validiert an echten Kunden, bevor investiert wird</p>
+
+                    <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">Lange Bindung, unklares Ende</p>
+                    <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Klarer Scope, definierter Exit</p>
+
+                    <p class="py-4 text-[0.88rem] text-stone-400" style="border-bottom: 1px solid #f0ede8;">PowerPoint-Berge</p>
+                    <p class="py-4 text-[0.88rem] text-stone-900 font-medium" style="border-bottom: 1px solid #f0ede8;">Strukturen, die Ihr Team selbst trägt</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="my-9" aria-hidden="true"><svg viewBox="0 0 1200 8" preserveAspectRatio="none" style="display:block;width:100%;height:6px;opacity:.5"><path d="M0,4 Q40,0 80,4 T160,4 T240,4 T320,4 T400,4 T480,4 T560,4 T640,4 T720,4 T800,4 T880,4 T960,4 T1040,4 T1120,4 T1200,4" fill="none" stroke="#cbbfdf" stroke-width="1.5"/></svg></div>
+
+        <!-- ======== 4. ZUHAUSE IN REGULIERTEN MÄRKTEN (aus Startseite) ======== -->
+        <section id="maerkte" class="pt-4 pb-12">
+            <h2 class="source-serif text-stone-900 text-[1.3rem] sm:text-[1.6rem] mb-3">Zuhause in regulierten, traditionellen Märkten.</h2>
+            <p class="text-[0.9rem] text-stone-600 mb-8 max-w-[640px]">
+                Meine Stärke ist, mich schnell in einen Markt, seine Kunden und seinen Wettbewerb einzudenken und daraus belastbare Produktentscheidungen abzuleiten. Belegt dort, wo das schwer ist: wo Regulierung, lange Zyklen und etablierte Player den Takt vorgeben.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                    <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Bau &amp; Handwerk</h3>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed text-justify hyphens-auto">4,5&nbsp;Jahre Dachbaustoffe beim Hersteller. Digitale Bestellstrecke: +3,5&nbsp;Mio.&nbsp;€ Umsatz. Doku-Tool: +132&nbsp;% aktive Nutzer. KI-Dachassistent vom Konzept zum Launch in 2&nbsp;Monaten.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                    <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Immobilienwirtschaft</h3>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed text-justify hyphens-auto">Mieter- und Vermieterplattformen aus 40+&nbsp;Tiefeninterviews mit Hausverwaltern entwickelt, von Discovery bis Go-live, samt Nebenkostenabrechnung unter regulatorischen Vorgaben.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6" style="border: 1px solid #d9d1e5;">
+                    <h3 class="font-semibold text-stone-900 text-[0.9rem] mb-2">Energie</h3>
+                    <p class="text-[0.85rem] text-stone-600 leading-relaxed text-justify hyphens-auto">8&nbsp;Jahre bei einem Energiedienstleister. EU-Energieeffizienz-Direktive über 17&nbsp;Ländermärkte fristgerecht umgesetzt, inklusive Regulierungs- und Lobbyarbeit zum Sub-Metering.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="my-9" aria-hidden="true"><svg viewBox="0 0 1200 8" preserveAspectRatio="none" style="display:block;width:100%;height:6px;opacity:.5"><path d="M0,4 Q40,0 80,4 T160,4 T240,4 T320,4 T400,4 T480,4 T560,4 T640,4 T720,4 T800,4 T880,4 T960,4 T1040,4 T1120,4 T1200,4" fill="none" stroke="#cbbfdf" stroke-width="1.5"/></svg></div>
+
+        <!-- ======== 5. KONTAKT (aus angebote) ======== -->
+        <section id="kontakt" class="pt-12 pb-16">
+            <div class="rounded-lg py-8 px-5 sm:py-12 sm:px-8" style="background: #f6f4f9;">
+                <h2 class="source-serif text-[1.2rem] sm:text-[1.4rem] text-stone-900 mb-4">Lassen Sie uns gemeinsam herausfinden, wo unsere Zusammenarbeit startet.</h2>
+                <p class="text-[0.9rem] text-stone-600 mb-6">
+                    In 30 Minuten erzählen Sie mir von Ihrer Herausforderung. Ich sage Ihnen, bei welchem Schritt wir sinnvoll ansetzen.
+                </p>
+                <ul class="text-[0.9rem] text-stone-600 space-y-2 mb-8 list-disc pl-5">
+                    <li>Sie erzählen mir von Ihrer Herausforderung, ob Strategie, Produkt oder beides.</li>
+                    <li>Ich gebe Ihnen eine erste Einschätzung und mögliche nächste Schritte.</li>
+                    <li>Unverbindlich, 30 Minuten, ohne Vorbereitung.</li>
+                </ul>
+                <div>
+                    <a href="https://calendly.com/linja-scharffetter/30min"
+                        class="inline-block px-7 py-3 rounded text-white text-[0.9rem] font-medium transition-colors hover:opacity-90"
+                        style="background: #472E56;">Gespräch buchen</a>
+                    <p class="text-[0.9rem] text-stone-600 mt-4">oder per E-Mail an
+                        <a href="mailto:info@linja.me" class="hover:text-stone-800 transition-colors" style="color: #472E56;">info@linja.me</a></p>
+                </div>
+            </div>
+        </section>
+
+        <div class="my-9" aria-hidden="true"><svg viewBox="0 0 1200 8" preserveAspectRatio="none" style="display:block;width:100%;height:6px;opacity:.5"><path d="M0,4 Q40,0 80,4 T160,4 T240,4 T320,4 T400,4 T480,4 T560,4 T640,4 T720,4 T800,4 T880,4 T960,4 T1040,4 T1120,4 T1200,4" fill="none" stroke="#cbbfdf" stroke-width="1.5"/></svg></div>
+
+        <!-- ======== 6. BLOG-ANKER (aus Startseite) ======== -->
+        <section id="blog" class="pt-4 pb-20">
+            <h2 class="source-serif text-stone-900 text-[1.3rem] sm:text-[1.6rem] mb-6">Laut gedacht.</h2>
+            <div class="space-y-4">
+                <a href="blog/braucht-ki-pm-ein-backlog-tool.html" class="flex items-baseline justify-between gap-4 group" style="border-bottom: 1px solid #f0ede8;">
+                    <span class="text-[0.9rem] text-stone-900 group-hover:text-violet-400 transition-colors pb-4">Brauche ich noch ein Backlog-Tool, wenn ich mit KI arbeite?</span>
+                    <span class="font-mono text-[0.72rem] text-stone-400 whitespace-nowrap pb-4">PM &amp; KI</span>
+                </a>
+                <a href="blog/shape-up-statt-scrum.html" class="flex items-baseline justify-between gap-4 group" style="border-bottom: 1px solid #f0ede8;">
+                    <span class="text-[0.9rem] text-stone-900 group-hover:text-violet-400 transition-colors pb-4">Shape Up statt Scrum</span>
+                    <span class="font-mono text-[0.72rem] text-stone-400 whitespace-nowrap pb-4">Methodik</span>
+                </a>
+                <a href="blog/ki-zeitmanagement.html" class="flex items-baseline justify-between gap-4 group" style="border-bottom: 1px solid #f0ede8;">
+                    <span class="text-[0.9rem] text-stone-900 group-hover:text-violet-400 transition-colors pb-4">Wie KI ein gesünderes Zeitmanagement fördern kann. Das Smartphone-Paradox.</span>
+                    <span class="font-mono text-[0.72rem] text-stone-400 whitespace-nowrap pb-4">KI &amp; Gesundheit</span>
+                </a>
+                <a href="blog/storymap-eigenbau.html" class="flex items-baseline justify-between gap-4 group" style="border-bottom: 1px solid #f0ede8;">
+                    <span class="text-[0.9rem] text-stone-900 group-hover:text-violet-400 transition-colors pb-4">Story-Map als Eigenbau. Wie zwei Stunden mit Claude und ein Vercel-Deploy mein Team aufs MVP eingeschworen haben.</span>
+                    <span class="font-mono text-[0.72rem] text-stone-400 whitespace-nowrap pb-4">PM &amp; KI</span>
+                </a>
+                <a href="blog/ergebnis-first.html" class="flex items-baseline justify-between gap-4 group" style="border-bottom: 1px solid #f0ede8;">
+                    <span class="text-[0.9rem] text-stone-900 group-hover:text-violet-400 transition-colors pb-4">Beim Ergebnis anfangen. Warum sichtbare Prototypen bessere Entscheidungen erzeugen.</span>
+                    <span class="font-mono text-[0.72rem] text-stone-400 whitespace-nowrap pb-4">Methodik</span>
+                </a>
+            </div>
+            <a href="blog.html" class="text-[0.82rem] font-medium hover:text-stone-800 transition-colors mt-6 inline-block" style="color: #472E56;">Alle Artikel &rarr;</a>
+        </section>
+
+    </div>
+
+    <!-- ======== SCRIPTS ======== -->
+    <script>
+        // Testimonial-Karussell
+        (function initCarousel() {
+            var root = document.getElementById('testimonials-root');
+            if (!root) return;
+            var current = 0;
+            var slides = root.querySelectorAll('.testimonial-slide');
+            var dots = root.querySelectorAll('.testimonial-dot');
+            var container = root.querySelector('.overflow-hidden');
+            if (!slides.length || !container) return;
+            var total = slides.length;
+            function setFixedHeight() {
+                container.style.height = 'auto';
+                slides.forEach(function(s) { s.classList.remove('hidden'); s.style.position = 'static'; });
+                var maxH = 0;
+                slides.forEach(function(s) { if (s.offsetHeight > maxH) maxH = s.offsetHeight; });
+                if (maxH === 0) return;
+                container.style.minHeight = maxH + 'px';
+                container.style.height = maxH + 'px';
+                slides.forEach(function(s, i) {
+                    s.style.position = 'absolute'; s.style.top = '0'; s.style.left = '0'; s.style.right = '0';
+                    if (i !== current) s.classList.add('hidden');
+                });
+                container.style.position = 'relative';
+            }
+            setFixedHeight();
+            window.addEventListener('resize', setFixedHeight);
+            function show(index) {
+                slides.forEach(function(s) { s.classList.add('hidden'); });
+                slides[index].classList.remove('hidden');
+                dots.forEach(function(d) { d.style.background = '#d9d1e5'; });
+                dots[index].style.background = '#7b6ba5';
+                current = index;
+            }
+            dots.forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    show(parseInt(this.dataset.dot)); clearInterval(timer); timer = setInterval(next, 6000);
+                });
+            });
+            function next() { show((current + 1) % total); }
+            var timer = setInterval(next, 6000);
+        })();
+
+        // Prozess-Slider
+        (function initProcess() {
+            var track = document.getElementById('proc-track');
+            if (!track) return;
+            var cards = Array.prototype.slice.call(track.querySelectorAll('.proc-card'));
+            var tabs = Array.prototype.slice.call(document.querySelectorAll('.proc-tab'));
+            var prev = document.getElementById('proc-prev');
+            var next = document.getElementById('proc-next');
+            var idx = 0, lock = false;
+
+            function setActive(i) {
+                idx = i;
+                tabs.forEach(function(t, j) { t.classList.toggle('active', j === i); });
+                if (prev) prev.disabled = (i === 0);
+                if (next) next.disabled = (i === cards.length - 1);
+            }
+            function go(i) {
+                i = Math.max(0, Math.min(cards.length - 1, i));
+                var card = cards[i];
+                var left = card.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+                lock = true;
+                track.scrollTo({ left: left, behavior: 'smooth' });
+                setActive(i);
+                setTimeout(function(){ lock = false; }, 450);
+            }
+            tabs.forEach(function(t, i) { t.addEventListener('click', function() { go(i); }); });
+            if (prev) prev.addEventListener('click', function() { go(idx - 1); });
+            if (next) next.addEventListener('click', function() { go(idx + 1); });
+
+            var raf;
+            track.addEventListener('scroll', function() {
+                if (lock) return;
+                if (raf) cancelAnimationFrame(raf);
+                raf = requestAnimationFrame(function() {
+                    var center = track.scrollLeft + track.clientWidth / 2;
+                    var best = 0, bestDist = Infinity;
+                    cards.forEach(function(c, i) {
+                        var cc = c.offsetLeft + c.clientWidth / 2;
+                        var d = Math.abs(cc - center);
+                        if (d < bestDist) { bestDist = d; best = i; }
+                    });
+                    setActive(best);
+                });
+            }, { passive: true });
+            setActive(0);
+        })();
+
+        // Anker-Subnav: aktiven Abschnitt hervorheben + Nav-Hoehe messen
+        (function initAnchorNav() {
+            var nav = document.querySelector('#site-nav nav');
+            if (nav) document.documentElement.style.setProperty('--navh', nav.offsetHeight + 'px');
+            var links = Array.prototype.slice.call(document.querySelectorAll('.anchor-link'));
+            var map = {};
+            links.forEach(function(l) {
+                var id = l.getAttribute('href').slice(1);
+                var sec = document.getElementById(id);
+                if (sec) map[id] = l;
+            });
+            var sections = Object.keys(map).map(function(id) { return document.getElementById(id); });
+            var io = new IntersectionObserver(function(entries) {
+                entries.forEach(function(en) {
+                    if (en.isIntersecting) {
+                        links.forEach(function(l) { l.classList.remove('active'); });
+                        if (map[en.target.id]) map[en.target.id].classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+            sections.forEach(function(s) { io.observe(s); });
+        })();
+    </script>
+
+</body>
+
+</html>
