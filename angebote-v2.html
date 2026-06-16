@@ -70,8 +70,6 @@
         #mobile-menu { display: none; }
         #mobile-menu.open { display: block; }
 
-        /* Prozess-Schritte */
-        .step-card { position: relative; background: #fff; border: 1px solid #e5e2db; border-radius: 0.6rem; padding: 1.25rem 1.4rem; }
 
     </style>
 </head>
@@ -87,15 +85,34 @@
 
         <!-- ======== HEADER ======== -->
         <header class="pt-24 sm:pt-36 pb-12">
-            <h1 class="source-serif text-[1.6rem] sm:text-[2.4rem] text-stone-900 leading-[1.15] mb-6">
-                Strategie, die aus echten Kundenbedürfnissen entsteht und die jeder versteht.
-            </h1>
-            <p class="source-serif text-[1.2rem] sm:text-[1.4rem] leading-snug mb-6" style="color: #472E56;">
-                Sie entscheiden auf Evidenz statt auf Annahmen, und Ihre Strategie kommt in der Umsetzung tatsächlich an.
-            </p>
-            <p class="text-[0.9rem] text-stone-600 leading-relaxed text-justify">
-                In vielen Unternehmen entstehen gute Ideen schneller, als sich klären lässt, ob sie ein reales Problem lösen und ob dafür Zahlungsbereitschaft besteht. Strategien werden formuliert, aber nicht verstanden, und versanden zwischen den Abteilungen. Genau hier setze ich an: Ich prüfe mit echten Kundenstimmen, ob sich die Umsetzung lohnt, übersetze die validierte Richtung in eine Strategie, die jeder versteht, und befähige Ihr Team, sie selbst zu tragen. Dabei denke ich mich schnell in Ihren Markt, Ihre Kunden und Ihren Wettbewerb ein, gerade in komplexen, regulierten Umfeldern wie Energie, Bau oder Immobilien. Durch meine KI-gestützte Arbeitsweise kommen wir schneller zu belastbaren Erkenntnissen.
-            </p>
+            <div class="flex flex-col sm:flex-row sm:items-start gap-7 sm:gap-9">
+                <div class="flex-1">
+                    <h1 class="source-serif text-[1.6rem] sm:text-[2.4rem] text-stone-900 leading-[1.15] mb-5">
+                        Strategie, die aus echten Kundenbedürfnissen entsteht und die jeder versteht.
+                    </h1>
+                    <p class="source-serif text-[1.2rem] sm:text-[1.35rem] leading-snug mb-5" style="color: #472E56;">
+                        Sie entscheiden auf Evidenz statt auf Annahmen, und Ihre Strategie kommt in der Umsetzung tatsächlich an.
+                    </p>
+                    <p class="text-[0.9rem] text-stone-600 leading-relaxed mb-5">
+                        Ich prüfe mit echten Kundenstimmen, ob sich eine Idee lohnt, übersetze die validierte Richtung in eine Strategie, die jeder versteht, und befähige Ihr Team, sie selbst zu tragen. KI-gestützt, damit wir schneller zu belastbaren Entscheidungen kommen.
+                    </p>
+                    <p class="text-[0.82rem] leading-relaxed font-medium" style="color:#6b5691;">
+                        Für Mittelstand und Scale-ups in komplexen, regulierten Märkten: Energie, Bau, Immobilien und angrenzende Felder.
+                    </p>
+                </div>
+                <picture style="display:contents">
+                    <source srcset="profile.webp" type="image/webp">
+                    <img src="profile.jpg" alt="Linja Scharffetter"
+                        class="w-full sm:w-44 h-80 sm:h-56 rounded-lg object-cover object-[center_20%] flex-shrink-0"
+                        style="border: 2px solid #e5e2db;">
+                </picture>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-7">
+                <span class="font-mono text-[0.62rem] tracking-wide px-2.5 py-1 rounded" style="background:#f0ebf7;color:#6b5691;">13+ Jahre Produkt &amp; Strategie</span>
+                <span class="font-mono text-[0.62rem] tracking-wide px-2.5 py-1 rounded" style="background:#f0ebf7;color:#6b5691;">+3,5 Mio € Umsatz</span>
+                <span class="font-mono text-[0.62rem] tracking-wide px-2.5 py-1 rounded" style="background:#f0ebf7;color:#6b5691;">100+ Kundeninterviews</span>
+                <span class="font-mono text-[0.62rem] tracking-wide px-2.5 py-1 rounded" style="background:#f0ebf7;color:#6b5691;">regulierte Märkte</span>
+            </div>
         </header>
 
         <div class="my-9" aria-hidden="true"><svg viewBox="0 0 1200 8" preserveAspectRatio="none" style="display:block;width:100%;height:6px;opacity:.5"><path d="M0,4 Q40,0 80,4 T160,4 T240,4 T320,4 T400,4 T480,4 T560,4 T640,4 T720,4 T800,4 T880,4 T960,4 T1040,4 T1120,4 T1200,4" fill="none" stroke="#cbbfdf" stroke-width="1.5"/></svg></div>
@@ -107,63 +124,104 @@
                 Aus Ihren Ideen oder Beobachtungen können funktionierende Geschäftsmodelle entstehen, die Ihre Teams operativ umsetzen. Dazu braucht es manchmal mehr Klarheit über Marktanforderungen und Kundenbedürfnisse, eine saubere, stringente Operationalisierung oder Strategie-Sparring auf Augenhöhe. Sie wissen am besten, wo Sie stehen und was Sie brauchen, um Ihre Idee erfolgreich zu machen. Ich liefere Ihnen die passenden Methoden, um Wissenslücken oder Umsetzungsschwierigkeiten zu lösen. Zu jedem Schritt gehört eine passende Form der Zusammenarbeit. Brauchen Sie durchgehend Senior-Kapazität, begleite ich Sie als Interim- oder Fractional-Product-Managerin über mehrere Schritte hinweg. Die genaue Tiefe und Dauer stimmen wir im Gespräch ab.
             </p>
 
-            <div class="grid grid-cols-1 gap-4">
-                <!-- Schritt 1 -->
-                <div class="step-card">
-                    <h3 class="source-serif text-[1.05rem] text-stone-900 mb-2">Schritt 01: Standortbestimmung</h3>
+            <!-- Mini-Übersicht der 5 Schritte -->
+            <div class="flex flex-wrap gap-x-4 gap-y-2 mb-9">
+                <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] tracking-wide uppercase text-stone-500"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-[0.55rem]" style="background:#9a82b5;">01</span>Standortbestimmung</span>
+                <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] tracking-wide uppercase text-stone-500"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-[0.55rem]" style="background:#9a82b5;">02</span>Kundenwahrheit</span>
+                <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] tracking-wide uppercase text-stone-500"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-[0.55rem]" style="background:#9a82b5;">03</span>Übersetzung</span>
+                <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] tracking-wide uppercase text-stone-500"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-[0.55rem]" style="background:#9a82b5;">04</span>Befähigung</span>
+                <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] tracking-wide uppercase text-stone-500"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-[0.55rem]" style="background:#9a82b5;">05</span>Wirkung</span>
+            </div>
+
+            <!-- Vertikale Timeline -->
+            <ol class="relative ml-3 border-l-2" style="border-color:#e3d9f0;">
+                <li class="relative pl-6 sm:pl-8 pb-9 last:pb-0">
+                    <span class="absolute -left-[13px] top-0 flex items-center justify-center w-6 h-6 rounded-full font-mono text-[0.6rem] text-white" style="background:#7b6ba5;">01</span>
+                    <h3 class="source-serif text-[1.1rem] text-stone-900 mb-2">Standortbestimmung</h3>
                     <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&laquo;Wir wissen, dass wir etwas ändern müssen, aber nicht, wo wir anfangen sollen.&raquo;</p>
                     <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Ausgangslage</span>Wir setzen auf Ihren Beobachtungen und Vorhaben auf, egal ob neue Produktidee, veränderte Marktsituation, neu entstehende Trends oder stagnierende Umsätze.</p>
-                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-3"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Wir erarbeiten</span>Ich höre allen relevanten Stimmen innerhalb Ihres Unternehmens zu, bilde daraus implizite Annahmen und mache Zielkonflikte sichtbar. Dabei trenne ich Symptom von Ursache.</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Wir erarbeiten</span>Ich höre allen relevanten Stimmen innerhalb Ihres Unternehmens zu, bilde daraus implizite Annahmen und mache Zielkonflikte sichtbar. Dabei trenne ich Symptom von Ursache.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Stakeholder-Interviews</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Annahmen-Check</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Ursachenanalyse</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Zielkonflikt-Mapping</span>
+                    </div>
                     <div class="rounded-md px-4 py-3" style="background:#f6f4f9;">
                         <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Ergebnis</span>
                         <p class="text-[0.85rem] text-stone-700 leading-relaxed">Gemeinsames Verständnis über Ihre aktuellen Herausforderungen und Chancen. Sie entscheiden, an welcher Stelle wir ansetzen.</p>
                     </div>
-                </div>
-                <!-- Schritt 2 -->
-                <div class="step-card">
-                    <h3 class="source-serif text-[1.05rem] text-stone-900 mb-2">Schritt 02: Kundenwahrheit</h3>
+                </li>
+                <li class="relative pl-6 sm:pl-8 pb-9 last:pb-0">
+                    <span class="absolute -left-[13px] top-0 flex items-center justify-center w-6 h-6 rounded-full font-mono text-[0.6rem] text-white" style="background:#7b6ba5;">02</span>
+                    <h3 class="source-serif text-[1.1rem] text-stone-900 mb-2">Kundenwahrheit</h3>
                     <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&laquo;Wir sind überzeugt von unserer Idee, aber ob der Markt das auch so sieht, wissen wir nicht.&raquo;</p>
                     <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Ausgangslage</span>Wir gehen tiefer in eine Richtung oder Produktidee, die Sie für vielversprechend halten.</p>
-                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-3"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Wir erarbeiten</span>Strukturierte Gespräche mit echten Kunden und Stakeholdern, um niedriginvestiv Ihre Möglichkeiten abzustecken. Dabei bewerten wir Problembewusstsein, Lösungsoptionen und Zahlungsbereitschaft Ihrer Kunden.</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Wir erarbeiten</span>Strukturierte Gespräche mit echten Kunden und Stakeholdern, um niedriginvestiv Ihre Möglichkeiten abzustecken. Dabei bewerten wir Problembewusstsein, Lösungsoptionen und Zahlungsbereitschaft Ihrer Kunden.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Kundeninterviews</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Hypothesen</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Opportunity Map</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Prototyping</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Zahlungsbereitschaft</span>
+                    </div>
                     <div class="rounded-md px-4 py-3" style="background:#f6f4f9;">
                         <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Ergebnis</span>
                         <p class="text-[0.85rem] text-stone-700 leading-relaxed">Ein Validierungsbericht mit klarer Empfehlung für oder gegen die Umsetzung. Sie investieren auf Basis von echtem, bewertetem Kundenfeedback und erhöhen die Chancen, dass sich Ihre Idee am Markt bewährt.</p>
                     </div>
-                </div>
-                <!-- Schritt 3 -->
-                <div class="step-card">
-                    <h3 class="source-serif text-[1.05rem] text-stone-900 mb-2">Schritt 03: Übersetzung</h3>
+                </li>
+                <li class="relative pl-6 sm:pl-8 pb-9 last:pb-0">
+                    <span class="absolute -left-[13px] top-0 flex items-center justify-center w-6 h-6 rounded-full font-mono text-[0.6rem] text-white" style="background:#7b6ba5;">03</span>
+                    <h3 class="source-serif text-[1.1rem] text-stone-900 mb-2">Übersetzung</h3>
                     <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&laquo;Wir haben eine Strategie, aber im Alltag versteht jeder etwas anderes darunter.&raquo;</p>
                     <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Ausgangslage</span>Eine validierte Richtung und die Bereitschaft, eine Entscheidung zu treffen.</p>
-                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-3"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Wir erarbeiten</span>Ich übersetze die Strategie in klare operative Handlungsoptionen. Sollte es mehrere Optionen geben, mache ich je Entscheidungsweiche die Konsequenzen sichtbar und verbinde sie mit operativer Verantwortung und Zielen.</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Wir erarbeiten</span>Ich übersetze die Strategie in klare operative Handlungsoptionen. Sollte es mehrere Optionen geben, mache ich je Entscheidungsweiche die Konsequenzen sichtbar und verbinde sie mit operativer Verantwortung und Zielen.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Strategie-Landkarte</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Entscheidungsweichen</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Priorisierung (RICE)</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">OKR-Ableitung</span>
+                    </div>
                     <div class="rounded-md px-4 py-3" style="background:#f6f4f9;">
                         <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Ergebnis</span>
                         <p class="text-[0.85rem] text-stone-700 leading-relaxed">Eine Strategie-Landkarte, auf der die Geschäftsführung sinnvoll entscheiden kann und jedes Team seinen Anteil zum Erfolg erkennt.</p>
                     </div>
-                </div>
-                <!-- Schritt 4 -->
-                <div class="step-card">
-                    <h3 class="source-serif text-[1.05rem] text-stone-900 mb-2">Schritt 04: Befähigung</h3>
+                </li>
+                <li class="relative pl-6 sm:pl-8 pb-9 last:pb-0">
+                    <span class="absolute -left-[13px] top-0 flex items-center justify-center w-6 h-6 rounded-full font-mono text-[0.6rem] text-white" style="background:#7b6ba5;">04</span>
+                    <h3 class="source-serif text-[1.1rem] text-stone-900 mb-2">Befähigung</h3>
                     <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&laquo;Die Entscheidung steht längst, nur in der Umsetzung passiert nichts.&raquo;</p>
                     <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Ausgangslage</span>Eine getroffene Entscheidung und ein Team, das sie tragen soll.</p>
-                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-3"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Wir erarbeiten</span>Ich begleite Sie bei der Umsetzung der Idee und helfe dabei, dass jedes Teammitglied befähigt ist, seinen Anteil zum Erfolg zu leisten.</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Wir erarbeiten</span>Ich begleite Sie bei der Umsetzung der Idee und helfe dabei, dass jedes Teammitglied befähigt ist, seinen Anteil zum Erfolg zu leisten.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Priorisierte Roadmap</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">OKR-Verankerung</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Stakeholder-Map</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Rollen &amp; Entscheidungswege</span>
+                    </div>
                     <div class="rounded-md px-4 py-3" style="background:#f6f4f9;">
                         <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Ergebnis</span>
                         <p class="text-[0.85rem] text-stone-700 leading-relaxed">Eine Struktur, die Ihr Team eigenständig weiterführt, mit klaren Zuständigkeiten und Standards der Zusammenarbeit.</p>
                     </div>
-                </div>
-                <!-- Schritt 5 -->
-                <div class="step-card">
-                    <h3 class="source-serif text-[1.05rem] text-stone-900 mb-2">Schritt 05: Wirkung und Nachsteuern</h3>
+                </li>
+                <li class="relative pl-6 sm:pl-8 pb-9 last:pb-0">
+                    <span class="absolute -left-[13px] top-0 flex items-center justify-center w-6 h-6 rounded-full font-mono text-[0.6rem] text-white" style="background:#7b6ba5;">05</span>
+                    <h3 class="source-serif text-[1.1rem] text-stone-900 mb-2">Wirkung und Nachsteuern</h3>
                     <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&laquo;Nach dem Projekt fällt alles zurück in die alten Muster.&raquo;</p>
                     <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Ausgangslage</span>Eine laufende Umsetzung und Ziele, die messbar werden sollen.</p>
-                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-3"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Wir erarbeiten</span>Wir definieren Metriken und Handlungsmuster, die Ihnen und Ihren Teams bei der Umsetzung von Ideen helfen. Wir etablieren einen Rhythmus der Überprüfung und justieren nach, wo die Realität es verlangt.</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Wir erarbeiten</span>Wir definieren Metriken und Handlungsmuster, die Ihnen und Ihren Teams bei der Umsetzung von Ideen helfen. Wir etablieren einen Rhythmus der Überprüfung und justieren nach, wo die Realität es verlangt.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">North Star</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Metriken-Framework</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Review-Cadence</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">A/B-Test</span>
+                    </div>
                     <div class="rounded-md px-4 py-3" style="background:#f6f4f9;">
                         <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Ergebnis</span>
                         <p class="text-[0.85rem] text-stone-700 leading-relaxed">Eine Strategie, die lebendig bleibt, statt in einer Präsentation einzufrieren.</p>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ol>
             <div class="rounded-lg p-4 sm:p-5 mt-7" style="background: #f6f4f9;">
                 <p class="text-[0.88rem] text-stone-700 leading-relaxed">
                     <span class="font-semibold" style="color: #472E56;">Steigen Sie dort ein, wo Sie heute stehen.</span>
@@ -379,15 +437,34 @@
 
         <!-- ======== HEADER ======== -->
         <header class="pt-24 sm:pt-36 pb-12">
-            <h1 class="source-serif text-[1.6rem] sm:text-[2.4rem] text-stone-900 leading-[1.15] mb-6">
-                Strategy that grows from real customer needs and that everyone understands.
-            </h1>
-            <p class="source-serif text-[1.2rem] sm:text-[1.4rem] leading-snug mb-6" style="color: #472E56;">
-                You decide on evidence instead of assumptions, and your strategy actually reaches execution.
-            </p>
-            <p class="text-[0.9rem] text-stone-600 leading-relaxed text-justify">
-                In many companies, good ideas arrive faster than the answer to whether they solve a real problem and whether there is willingness to pay for them. Strategies get written but not understood, and fade away between departments. This is where I come in: I use real customer voices to test whether the work is worth it, translate the validated direction into a strategy everyone understands, and enable your team to carry it themselves. I get up to speed fast on your market, your customers, and your competition, especially in complex, regulated environments like energy, construction, or real estate. Thanks to my AI-supported way of working, we reach solid insights faster.
-            </p>
+            <div class="flex flex-col sm:flex-row sm:items-start gap-7 sm:gap-9">
+                <div class="flex-1">
+                    <h1 class="source-serif text-[1.6rem] sm:text-[2.4rem] text-stone-900 leading-[1.15] mb-5">
+                        Strategy that grows from real customer needs and that everyone understands.
+                    </h1>
+                    <p class="source-serif text-[1.2rem] sm:text-[1.35rem] leading-snug mb-5" style="color: #472E56;">
+                        You decide on evidence instead of assumptions, and your strategy actually reaches execution.
+                    </p>
+                    <p class="text-[0.9rem] text-stone-600 leading-relaxed mb-5">
+                        I use real customer voices to test whether an idea is worth it, translate the validated direction into a strategy everyone understands, and enable your team to carry it themselves. AI-supported, so we reach solid decisions faster.
+                    </p>
+                    <p class="text-[0.82rem] leading-relaxed font-medium" style="color:#6b5691;">
+                        For mid-market companies and scale-ups in complex, regulated markets: energy, construction, real estate, and adjacent fields.
+                    </p>
+                </div>
+                <picture style="display:contents">
+                    <source srcset="profile.webp" type="image/webp">
+                    <img src="profile.jpg" alt="Linja Scharffetter"
+                        class="w-full sm:w-44 h-80 sm:h-56 rounded-lg object-cover object-[center_20%] flex-shrink-0"
+                        style="border: 2px solid #e5e2db;">
+                </picture>
+            </div>
+            <div class="flex flex-wrap gap-2 mt-7">
+                <span class="font-mono text-[0.62rem] tracking-wide px-2.5 py-1 rounded" style="background:#f0ebf7;color:#6b5691;">13+ years product &amp; strategy</span>
+                <span class="font-mono text-[0.62rem] tracking-wide px-2.5 py-1 rounded" style="background:#f0ebf7;color:#6b5691;">+3.5M € revenue</span>
+                <span class="font-mono text-[0.62rem] tracking-wide px-2.5 py-1 rounded" style="background:#f0ebf7;color:#6b5691;">100+ customer interviews</span>
+                <span class="font-mono text-[0.62rem] tracking-wide px-2.5 py-1 rounded" style="background:#f0ebf7;color:#6b5691;">regulated markets</span>
+            </div>
         </header>
 
         <div class="my-9" aria-hidden="true"><svg viewBox="0 0 1200 8" preserveAspectRatio="none" style="display:block;width:100%;height:6px;opacity:.5"><path d="M0,4 Q40,0 80,4 T160,4 T240,4 T320,4 T400,4 T480,4 T560,4 T640,4 T720,4 T800,4 T880,4 T960,4 T1040,4 T1120,4 T1200,4" fill="none" stroke="#cbbfdf" stroke-width="1.5"/></svg></div>
@@ -399,58 +476,104 @@
                 From your ideas or observations, working business models can emerge that your teams put into practice. Sometimes that takes more clarity about market requirements and customer needs, a clean and rigorous operationalization, or strategy sparring at eye level. You know best where you stand and what you need to make your idea succeed. I bring you the right methods to close knowledge gaps or resolve implementation hurdles. Each step comes with a fitting form of collaboration. If you need senior capacity throughout, I work alongside you as an interim or fractional product manager across several steps. We agree on the exact depth and duration in conversation.
             </p>
 
-            <div class="grid grid-cols-1 gap-4">
-                <div class="step-card">
-                    <h3 class="source-serif text-[1.05rem] text-stone-900 mb-2">Step 01: Taking stock</h3>
+            <!-- 5-step mini overview -->
+            <div class="flex flex-wrap gap-x-4 gap-y-2 mb-9">
+                <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] tracking-wide uppercase text-stone-500"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-[0.55rem]" style="background:#9a82b5;">01</span>Taking stock</span>
+                <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] tracking-wide uppercase text-stone-500"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-[0.55rem]" style="background:#9a82b5;">02</span>Customer truth</span>
+                <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] tracking-wide uppercase text-stone-500"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-[0.55rem]" style="background:#9a82b5;">03</span>Translation</span>
+                <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] tracking-wide uppercase text-stone-500"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-[0.55rem]" style="background:#9a82b5;">04</span>Enablement</span>
+                <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] tracking-wide uppercase text-stone-500"><span class="inline-flex items-center justify-center w-5 h-5 rounded-full text-white text-[0.55rem]" style="background:#9a82b5;">05</span>Impact</span>
+            </div>
+
+            <!-- Vertical timeline -->
+            <ol class="relative ml-3 border-l-2" style="border-color:#e3d9f0;">
+                <li class="relative pl-6 sm:pl-8 pb-9 last:pb-0">
+                    <span class="absolute -left-[13px] top-0 flex items-center justify-center w-6 h-6 rounded-full font-mono text-[0.6rem] text-white" style="background:#7b6ba5;">01</span>
+                    <h3 class="source-serif text-[1.1rem] text-stone-900 mb-2">Taking stock</h3>
                     <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&ldquo;We know we need to change something, but not where to start.&rdquo;</p>
                     <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Starting point</span>We build on your observations and plans, whether a new product idea, a shifting market, emerging trends, or stagnating revenue.</p>
-                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-3"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">We work out</span>I listen to all relevant voices inside your company, form the implicit assumptions behind them, and make conflicting goals visible. In doing so, I separate symptom from cause.</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">We work out</span>I listen to all relevant voices inside your company, form the implicit assumptions behind them, and make conflicting goals visible. In doing so, I separate symptom from cause.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Stakeholder interviews</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Assumption check</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Root-cause analysis</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Goal-conflict mapping</span>
+                    </div>
                     <div class="rounded-md px-4 py-3" style="background:#f6f4f9;">
                         <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Result</span>
                         <p class="text-[0.85rem] text-stone-700 leading-relaxed">A shared understanding of your current challenges and opportunities. You decide where we start.</p>
                     </div>
-                </div>
-                <div class="step-card">
-                    <h3 class="source-serif text-[1.05rem] text-stone-900 mb-2">Step 02: Customer truth</h3>
+                </li>
+                <li class="relative pl-6 sm:pl-8 pb-9 last:pb-0">
+                    <span class="absolute -left-[13px] top-0 flex items-center justify-center w-6 h-6 rounded-full font-mono text-[0.6rem] text-white" style="background:#7b6ba5;">02</span>
+                    <h3 class="source-serif text-[1.1rem] text-stone-900 mb-2">Customer truth</h3>
                     <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&ldquo;We are convinced of our idea, but whether the market agrees, we do not know.&rdquo;</p>
                     <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Starting point</span>We go deeper into a direction or product idea you consider promising.</p>
-                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-3"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">We work out</span>Structured conversations with real customers and stakeholders to map your options at low investment. We assess problem awareness, solution options, and your customers' willingness to pay.</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">We work out</span>Structured conversations with real customers and stakeholders to map your options at low investment. We assess problem awareness, solution options, and your customers' willingness to pay.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Customer interviews</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Hypotheses</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Opportunity map</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Prototyping</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Willingness to pay</span>
+                    </div>
                     <div class="rounded-md px-4 py-3" style="background:#f6f4f9;">
                         <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Result</span>
                         <p class="text-[0.85rem] text-stone-700 leading-relaxed">A validation report with a clear recommendation for or against building. You invest based on real, assessed customer feedback and raise the odds that your idea proves itself in the market.</p>
                     </div>
-                </div>
-                <div class="step-card">
-                    <h3 class="source-serif text-[1.05rem] text-stone-900 mb-2">Step 03: Translation</h3>
+                </li>
+                <li class="relative pl-6 sm:pl-8 pb-9 last:pb-0">
+                    <span class="absolute -left-[13px] top-0 flex items-center justify-center w-6 h-6 rounded-full font-mono text-[0.6rem] text-white" style="background:#7b6ba5;">03</span>
+                    <h3 class="source-serif text-[1.1rem] text-stone-900 mb-2">Translation</h3>
                     <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&ldquo;We have a strategy, but in daily work everyone understands something different by it.&rdquo;</p>
                     <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Starting point</span>A validated direction and the readiness to make a decision.</p>
-                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-3"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">We work out</span>I translate the strategy into clear operational options for action. Where several options exist, I make the consequences of each junction visible and connect them to operational ownership and goals.</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">We work out</span>I translate the strategy into clear operational options for action. Where several options exist, I make the consequences of each junction visible and connect them to operational ownership and goals.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Strategy map</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Decision junctions</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Prioritization (RICE)</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">OKR derivation</span>
+                    </div>
                     <div class="rounded-md px-4 py-3" style="background:#f6f4f9;">
                         <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Result</span>
                         <p class="text-[0.85rem] text-stone-700 leading-relaxed">A strategy map on which leadership can decide soundly and every team recognizes its share in the success.</p>
                     </div>
-                </div>
-                <div class="step-card">
-                    <h3 class="source-serif text-[1.05rem] text-stone-900 mb-2">Step 04: Enablement</h3>
+                </li>
+                <li class="relative pl-6 sm:pl-8 pb-9 last:pb-0">
+                    <span class="absolute -left-[13px] top-0 flex items-center justify-center w-6 h-6 rounded-full font-mono text-[0.6rem] text-white" style="background:#7b6ba5;">04</span>
+                    <h3 class="source-serif text-[1.1rem] text-stone-900 mb-2">Enablement</h3>
                     <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&ldquo;The decision was made long ago, yet in execution nothing happens.&rdquo;</p>
                     <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Starting point</span>A decision made, and a team meant to carry it.</p>
-                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-3"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">We work out</span>I accompany you through the implementation and help ensure every team member is enabled to contribute their share to the success.</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">We work out</span>I accompany you through the implementation and help ensure every team member is enabled to contribute their share to the success.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Prioritized roadmap</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">OKR anchoring</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Stakeholder map</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Roles &amp; decision paths</span>
+                    </div>
                     <div class="rounded-md px-4 py-3" style="background:#f6f4f9;">
                         <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Result</span>
                         <p class="text-[0.85rem] text-stone-700 leading-relaxed">A structure your team carries forward on its own, with clear ownership and standards of collaboration.</p>
                     </div>
-                </div>
-                <div class="step-card">
-                    <h3 class="source-serif text-[1.05rem] text-stone-900 mb-2">Step 05: Impact and adjustment</h3>
+                </li>
+                <li class="relative pl-6 sm:pl-8 pb-9 last:pb-0">
+                    <span class="absolute -left-[13px] top-0 flex items-center justify-center w-6 h-6 rounded-full font-mono text-[0.6rem] text-white" style="background:#7b6ba5;">05</span>
+                    <h3 class="source-serif text-[1.1rem] text-stone-900 mb-2">Impact and adjustment</h3>
                     <p class="source-serif italic text-[0.95rem] leading-snug mb-3" style="color:#472E56;">&ldquo;After the project, everything falls back into the old patterns.&rdquo;</p>
                     <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">Starting point</span>An ongoing implementation and goals that should become measurable.</p>
-                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-3"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">We work out</span>We define metrics and patterns of action that help you and your teams turn ideas into reality. We establish a rhythm of review and adjust where reality demands it.</p>
+                    <p class="text-[0.82rem] text-stone-600 leading-relaxed mb-2"><span class="block font-mono text-[0.58rem] tracking-wider uppercase text-stone-400 mb-0.5">We work out</span>We define metrics and patterns of action that help you and your teams turn ideas into reality. We establish a rhythm of review and adjust where reality demands it.</p>
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">North star</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Metrics framework</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">Review cadence</span>
+                        <span class="font-mono text-[0.58rem] tracking-wide px-2 py-0.5 rounded" style="background:#f0ebf7;color:#6b5691;">A/B testing</span>
+                    </div>
                     <div class="rounded-md px-4 py-3" style="background:#f6f4f9;">
                         <span class="block font-mono text-[0.58rem] tracking-wider uppercase mb-0.5" style="color:#6b5691;">Result</span>
                         <p class="text-[0.85rem] text-stone-700 leading-relaxed">A strategy that stays alive instead of freezing in a slide deck.</p>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ol>
             <div class="rounded-lg p-4 sm:p-5 mt-7" style="background: #f6f4f9;">
                 <p class="text-[0.88rem] text-stone-700 leading-relaxed">
                     <span class="font-semibold" style="color: #472E56;">Enter where you stand today.</span>
