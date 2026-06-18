@@ -70,7 +70,6 @@
 
     // Build footer HTML
     var footerLinks = [
-        { href: base + 'index.html', label: 'Start' },
         { href: base + 'blog.html', label: 'Blog' },
         { href: base + 'glossar.html', label: bilingual ? '<span class="nav-de">Glossar</span><span class="nav-en lang-hidden">Glossary</span>' : 'Glossar' },
         { href: 'https://cv.linja.me', label: 'CV' },
