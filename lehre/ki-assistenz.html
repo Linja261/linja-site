@@ -223,17 +223,14 @@
     .num.alt { background: var(--heidelbeer); color: #fff; }
 
     /* ── Legend ── */
-    .legend { max-width: 74ch; margin: 0.8rem auto 0; }
-    .legend-row {
-      display: grid; grid-template-columns: auto max-content 1fr;
-      align-items: center; column-gap: 1.3rem;
-      padding: 0.95rem 0; border-bottom: 1px solid var(--border);
-      font-size: 1.15rem; color: var(--body);
-    }
-    .legend-row:last-child { border-bottom: none; }
-    .legend-row strong { color: var(--midnight); font-weight: 700; }
-    .legend-row .desc { color: var(--muted); }
-    .dot { width: 0.9rem; height: 0.9rem; border-radius: 50%; flex-shrink: 0; }
+    .legend { width: auto; table-layout: auto; border-collapse: collapse; margin-top: 0.9rem; }
+    .legend td { padding: 0.9rem 0; border-bottom: 1px solid var(--border); font-size: 1.15rem; color: var(--body); vertical-align: middle; width: auto; }
+    .legend tr:last-child td { border-bottom: none; }
+    .legend .col-dot { width: 1.7rem; }
+    .legend .col-label { padding-right: 1.6rem; white-space: nowrap; }
+    .legend .col-label strong { color: var(--midnight); font-weight: 700; }
+    .legend .col-desc { color: var(--muted); }
+    .dot { display: inline-block; vertical-align: middle; width: 0.9rem; height: 0.9rem; border-radius: 50%; }
     .card-tag { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--heidelbeer); margin-bottom: 0.5rem; }
 
     /* ── Tabelle — gleichschenkelig (gleiche Spaltenbreiten) ── */
@@ -618,12 +615,12 @@ Live-Tool öffnen, Prompt eingeben. Aufmerksamkeit auf Quellen und Forschungslü
 <section class="slide">
   <div class="eyebrow">Markierungs-Legende</div>
   <h2>Was wir gleich bewerten</h2>
-  <div class="legend">
-    <div class="legend-row"><span class="dot" style="background:#EF4444;"></span><strong>Erfunden / nicht verifizierbar</strong><span class="desc">Quelle, Autor oder Studie existiert nicht</span></div>
-    <div class="legend-row"><span class="dot" style="background:#F97316;"></span><strong>Plausibel, aber generisch</strong><span class="desc">keine echte Forschungslücke, Worthülse</span></div>
-    <div class="legend-row"><span class="dot" style="background:#EAB308;"></span><strong>Veraltet</strong><span class="desc">Knowledge Cutoff, Stand nicht gesichert</span></div>
-    <div class="legend-row"><span class="dot" style="background:#22C55E;"></span><strong>Belastbar</strong><span class="desc">prüfbar, korrekt, nachvollziehbar</span></div>
-  </div>
+  <table class="legend">
+    <tr><td class="col-dot"><span class="dot" style="background:#EF4444;"></span></td><td class="col-label"><strong>Erfunden / nicht verifizierbar</strong></td><td class="col-desc">Quelle, Autor oder Studie existiert nicht</td></tr>
+    <tr><td class="col-dot"><span class="dot" style="background:#F97316;"></span></td><td class="col-label"><strong>Plausibel, aber generisch</strong></td><td class="col-desc">keine echte Forschungslücke, Worthülse</td></tr>
+    <tr><td class="col-dot"><span class="dot" style="background:#EAB308;"></span></td><td class="col-label"><strong>Veraltet</strong></td><td class="col-desc">Knowledge Cutoff, Stand nicht gesichert</td></tr>
+    <tr><td class="col-dot"><span class="dot" style="background:#22C55E;"></span></td><td class="col-label"><strong>Belastbar</strong></td><td class="col-desc">prüfbar, korrekt, nachvollziehbar</td></tr>
+  </table>
   <div class="note">Diese Folie während der Demo sichtbar lassen — sie gibt Studierenden einen Bewertungsrahmen und trainiert nebenbei kritisches Quellendenken.</div>
 </section>
 
