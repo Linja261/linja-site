@@ -158,6 +158,56 @@
     .card p  { font-size: 1rem; line-height: 1.5; color: #1A1A1A; }
     .principle { font-size: 1.2rem; color: var(--midnight); font-weight: 600; margin-top: 1.5rem; }
 
+    /* ── Schichten-Stack (gestapelt, Lila-Töne) ── */
+    .layers { display: flex; flex-direction: column; margin-top: 0.5rem; }
+    .layer { border: 1px solid var(--lilac-br); padding: 1.4rem 1.9rem; }
+    .layer:first-child { border-radius: 12px 12px 0 0; }
+    .layer:last-child  { border-radius: 0 0 12px 12px; }
+    .layer + .layer { border-top: none; }
+    .layer .layer-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.35rem; }
+    .layer h3 { margin: 0; font-size: 1.25rem; font-weight: 700; color: var(--midnight); }
+    .layer .schicht { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--heidelbeer); }
+    .layer p { font-size: 1.05rem; line-height: 1.5; color: var(--body); }
+    .layer.l3 { background: #F6F4F9; }
+    .layer.l2 { background: #ECE8F2; }
+    .layer.l1 { background: #DED2EC; }
+    .sysframe { border: 2px solid var(--heidelbeer); border-radius: 14px; padding: 1.1rem 1.2rem 1.2rem; margin-top: 0.4rem; }
+    .sysframe-head { display: flex; justify-content: space-between; align-items: baseline; }
+    .sysframe-head h3 { margin: 0; font-size: 1.25rem; font-weight: 700; color: var(--midnight); }
+    .sysframe-head .schicht { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--heidelbeer); }
+    .sysframe > p { font-size: 1.02rem; line-height: 1.45; color: var(--body); margin: 0.3rem 0 0.9rem; }
+
+    /* ── Gerahmte Abbildung (weiß, lilaner Rahmen) ── */
+    .figpanel { background:#fff; border:1px solid var(--lilac-br); border-radius:12px; padding:1.5rem 1.5rem 1rem; margin-top:0.5rem; }
+    .figpanel svg { width:100%; height:auto; display:block; }
+    .fighead { margin-top:0.6rem; }
+    .fighead svg { width:100%; height:auto; display:block; }
+
+    /* ── Synthese-Fluss (Setup → KI-Gedächtnis → Ergebnis) ── */
+    .synthflow { display:grid; grid-template-columns: 1fr auto 1.05fr auto 1fr; align-items:stretch; gap:1rem; margin-top:0.7rem; }
+    .synth-col { display:flex; flex-direction:column; gap:0.55rem; }
+    .synth-cap { font-family:var(--mono); font-size:0.64rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--heidelbeer); margin-bottom:0.1rem; }
+    .synth-arrow { font-family:var(--mono); font-size:1.7rem; color:var(--heidelbeer); align-self:center; }
+    .sysmini { border:2px solid var(--heidelbeer); border-radius:11px; padding:0.65rem 0.7rem; display:flex; flex-direction:column; gap:0.5rem; flex:1; justify-content:center; }
+    .sbar { background:#ECE8F2; border-radius:6px; padding:0.5rem 0.65rem; font-size:0.92rem; color:var(--midnight); line-height:1.3; }
+    .sbar.sys { background:#fff; border:1px solid var(--lilac-br); }
+    .sbox { border:1px solid var(--lilac-br); border-radius:9px; background:#fff; padding:0.62rem 0.8rem; }
+    .synth-col .sbox { flex:1; display:flex; flex-direction:column; justify-content:center; }
+    .sbox h4 { font-size:1rem; font-weight:700; color:var(--midnight); margin:0; }
+    .sbox span { display:block; font-size:0.8rem; color:var(--muted); line-height:1.35; margin-top:0.12rem; }
+    .sbox.good { border-color:rgba(29,71,53,0.35); } .sbox.good h4 { color:#1D4735; }
+    .sbox.warn { border-color:rgba(185,28,28,0.30); } .sbox.warn h4 { color:#B91C1C; }
+    .sout { border:1px solid var(--lilac-br); border-radius:9px; background:var(--lilac-tint); padding:1rem; font-size:1rem; color:var(--midnight); font-weight:600; line-height:1.45; flex:1; display:flex; flex-direction:column; justify-content:center; }
+
+    /* ── Mapping (KI-Gedächtnis → meine Struktur) ── */
+    .cmap { display:flex; flex-direction:column; margin-top:0.5rem; }
+    .cmap-row { display:grid; grid-template-columns: 0.85fr auto 1.35fr; align-items:center; gap:1.8rem; padding:1.2rem 0; border-bottom:1px solid var(--border); }
+    .cmap-row:last-child { border-bottom:none; }
+    .cmap-mem h3 { font-size:1.2rem; color:var(--midnight); margin:0 0 0.2rem; }
+    .cmap-mem .ml { font-family:var(--mono); font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--heidelbeer); }
+    .cmap-arrow { font-family:var(--mono); font-size:1.5rem; color:var(--heidelbeer); }
+    .cmap-give { font-size:1.1rem; color:var(--body); line-height:1.5; }
+
     /* ── Steps — linksbündige Marker-Spalte ── */
     .steps  { display: flex; flex-direction: column; gap: 1.6rem; max-width: 78ch; }
     .step   { display: grid; grid-template-columns: 2.4rem 1fr; gap: 1.3rem; align-items: start; }
@@ -173,13 +223,18 @@
     .num.alt { background: var(--heidelbeer); color: #fff; }
 
     /* ── Legend ── */
+    .legend { max-width: 74ch; margin: 0.8rem auto 0; }
     .legend-row {
-      display: flex; align-items: center; gap: 1.2rem;
-      padding: 1rem 0; border-bottom: 1px solid var(--border);
-      font-size: 1.2rem; color: var(--body);
+      display: grid; grid-template-columns: auto max-content 1fr;
+      align-items: center; column-gap: 1.3rem;
+      padding: 0.95rem 0; border-bottom: 1px solid var(--border);
+      font-size: 1.15rem; color: var(--body);
     }
     .legend-row:last-child { border-bottom: none; }
+    .legend-row strong { color: var(--midnight); font-weight: 700; }
+    .legend-row .desc { color: var(--muted); }
     .dot { width: 0.9rem; height: 0.9rem; border-radius: 50%; flex-shrink: 0; }
+    .card-tag { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--heidelbeer); margin-bottom: 0.5rem; }
 
     /* ── Tabelle — gleichschenkelig (gleiche Spaltenbreiten) ── */
     table { width: 100%; border-collapse: collapse; table-layout: fixed; }
@@ -261,6 +316,9 @@
 <section class="slide dark on">
   <div class="eyebrow">Linja Scharffetter · 27. Juni 2026</div>
   <p class="statement" style="max-width:28ch;">KI als Assistenz bewusst steuern, statt ihr blind zu vertrauen.</p>
+  <div class="note">Gesprochener Einstieg: „Wie kann KI als Assistenz im Studium helfen? Und wie viel Denkleistung nimmt sie mir wirklich ab?"
+
+Intro (~2 Min): Wer bin ich, warum dieses Thema? Die Lehrende hat mich über einen Blog-Post kontaktiert — das ist kein Prompting-Workshop, sondern eine epistemische Haltung.</div>
 </section>
 
 <!-- ②  HOOK · INHALT (Quellen neutral) ───────────── -->
@@ -276,11 +334,13 @@
       Schneider (2021) belegt in „Bildungsgerechtigkeit im internationalen Vergleich", dass das deutsche Schulsystem zu den gerechtesten in Europa zählt.
     </p>
   </div>
+  <div class="note">Ihr habt bestimmt alle schon einmal KI für eine Seminararbeit benutzt und vielleicht auch einen Prompt in der Richtung abgesetzt. Klingt erstmal logisch: ich möchte die schwierigste Aufgabe, nämlich das Finden der Forschungslücke, an die KI abgeben. Komplexes Denken ist halt manchmal anstrengend, das kennen wir alle. Unser Kopf liebt Abkürzungen. Aber ist es hier wirklich sinnvoll? Wie können wir beurteilen, ob das, was wir hier sehen, wirklich stimmt?</div>
 </section>
 
 <!-- ③  FRAGE · LILA ──────────────────────────────── -->
 <section class="slide dark">
   <p class="statement" style="max-width:24ch;">Klingt wie eine solide Grundlage für eine Seminararbeit. Oder?</p>
+  <div class="note">Ich bin fachfremd auf dem Gebiet der Bildungsforschung, weswegen ich sagen würde: „Das klingt wie eine solide Grundlage für eine Seminararbeit. Oder?"</div>
 </section>
 
 <!-- ④  HOOK · AUFLÖSUNG (Quellen rot) ─────────────── -->
@@ -298,18 +358,20 @@
       belegt in „Bildungsgerechtigkeit im internationalen Vergleich", dass das deutsche Schulsystem zu den gerechtesten in Europa zählt.
     </p>
   </div>
+  <div class="note">Leider nein. Denn diese Quellen gibt es gar nicht. Da ich fachfremd bin, glaube ich der KI tendenziell aber, dass sie alles richtig weiß, und gehe darüber hinweg. Und hier schlummert die Gefahr.</div>
 </section>
 
 <!-- ⑤  ZITATE · LILA ─────────────────────────────── -->
 <section class="slide dark">
   <p class="statement" style="max-width:33ch;">Das Modell kennt das Muster von Zitationen und imitiert es ohne Beweis. Es rekonstruiert eine plausibel klingende Kombination aus Autor, Jahr, Titel, Verlag. Die Einzelteile sind real, die Kombination ist erfunden.</p>
+  <div class="note">Bibliografische Halluzinationen sind besonders tückisch: Sie sehen tadellos aus — korrektes Format, plausibler Autorenname, realistisches Jahr. Gegenmaßnahme: Jede Quelle im Bibliothekskatalog / Google Scholar / DOI prüfen. Default-Misstrauen, nicht Default-Vertrauen.</div>
 </section>
 
 <!-- ⑥  WARUM HALLUZINIERT KI · INHALT ────────────── -->
 <section class="slide" style="padding-left:4.5rem; padding-right:4.5rem;">
   <div class="eyebrow">Warum halluziniert KI?</div>
   <h2>Mehr Daten lösen das nicht</h2>
-  <p class="mw" style="font-size:1.15rem; margin-bottom:1.6rem; color:var(--body);">Der Mythos: Die KI durchsucht eine Datenbank und erfindet, wo Lücken sind. Tatsächlich greift sie beim Generieren auf keine Datenbank zu. Das Problem steckt im Mechanismus selbst:</p>
+  <p style="font-size:1.15rem; margin-bottom:1.6rem; color:var(--body);">Der Mythos: Die KI durchsucht eine Datenbank und erfindet, wo Lücken sind. Tatsächlich greift sie beim Generieren auf keine Datenbank zu. Das Problem steckt im Mechanismus selbst:</p>
   <figure>
     <div class="flow flow-3">
       <div class="flow-box">
@@ -331,11 +393,27 @@
       <span class="cap-plus">+</span><span>Dazu kommt: Die KI kennt die Welt nur bis zum Trainingszeitpunkt (Knowledge Cutoff) und prüft beim Generieren nichts gegen die Wahrheit. Mehr Daten machen die Antworten plausibler, nicht wahrer.</span>
     </figcaption>
   </figure>
+  <div class="note">Das verbreitete Bild ist: KI greift auf eine riesige Datenbank zu, und wo Lücken sind, erfindet sie. Mehr Daten, weniger Lücken, weniger Halluzination. Klingt logisch. Stimmt aber nicht.
+
+Beim Generieren greift das Modell auf gar keine Datenbank zu. Es hat Text während des Trainings verlustbehaftet in Gewichte komprimiert, wie wenn Du ein Buch tausendmal paraphrasierst und danach versuchst, eine Fußnote wortwörtlich zu zitieren. Die grobe Idee sitzt. Der genaue Autor, die Jahreszahl, der Titel: das ist Rekonstruktion.
+
+Und jetzt der entscheidende Punkt: Das Modell ist darauf trainiert, den wahrscheinlichsten nächsten Satz zu erzeugen, nicht den wahren. Es gibt keine eingebaute Stopp-Funktion, die sagt „das weiß ich nicht". Es produziert immer etwas, das sich richtig anfühlt.
+
+Mehr Daten machen die Antworten plausibler. Sie machen sie nicht wahrer. Der Wahrheitscheck fehlt im Mechanismus selbst.
+
+KI sagt nicht, dass sie etwas nicht weiß. Es gibt keinen internen Prüfschritt, der den Output gegen Fakten validiert. Falsches klingt exakt so selbstbewusst wie Richtiges.
+
+Und: das Modell kennt die Welt nur bis zum Ende seines Trainingszeitraums. Neuere Forschung wird nicht nachgelernt, sondern hochgerechnet. Muster von heute werden auf zukünftige Szenarien angewendet. Hier passt das Wort halluziniert also.</div>
 </section>
 
 <!-- ⑩  NOVIZEN-PARADOX · LILA ────────────────────── -->
 <section class="slide dark">
-  <p class="statement" style="max-width:30ch;">Das Novizen-Problem: KI ist am gefährlichsten genau dort, wo du am wenigsten weißt.</p>
+  <p class="statement" style="max-width:30ch;">Das Novizen-Problem: KI ist am gefährlichsten genau dort, wo Du am wenigsten weißt.</p>
+  <div class="note">Prüfen setzt Vorwissen voraus, nicht nur Sorgfalt. Beim Einstieg in ein Thema fehlt genau dieses Vorwissen.
+
+Der Kern des Novizen-Problems: Um einen Fehler zu erkennen, muss ich schon genug wissen, um ihn überhaupt als Fehler zu sehen. Wer ein Thema neu lernt, kann nicht beurteilen, ob die Antwort stimmt. Genau das macht KI so tückisch: Sie produziert kompetent klingende Texte, und gerade Einsteiger können sie nicht als fehlerhaft erkennen. Das ist kein Versagen der Sorgfalt, sondern liegt in der Sache selbst.
+
+(Hintergrund, nicht aussprechen: Metakognition, Flavell 1979; Dunning &amp; Kruger 1999.) Kurz stehen lassen.</div>
 </section>
 
 <!-- ⑪  HANDLUNGSREGEL · INHALT ───────────────────── -->
@@ -347,194 +425,247 @@
       <div class="num">1</div>
       <div>
         <h3>Erst selbst lesen und formulieren</h3>
-        <p>Pflichtlektüre, eigene These, eigene Gliederung. Das schafft das Vorwissen, das für Schritt 2 nötig ist.</p>
+        <p>Für wissenschaftliches Arbeiten solltest Du Pflichtlektüren kennen, eine eigene These und Gliederung als Grundlage erarbeiten, bevor Du KI dazu ziehst. Das schafft elementares Basiswissen und ermöglicht kritisches Prüfen von KI-Output.</p>
       </div>
     </div>
     <div class="step">
       <div class="num">2</div>
       <div>
         <h3>Dann KI als Kritiker einsetzen</h3>
-        <p>Nicht als Lieferant, sondern als Gegner. KI greift das eigene Denken an, schärft es, liefert es nicht.</p>
+        <p>Nutze KI als Sparrings-Partner oder kritischen Gegner Deiner Arbeit. KI kann zu einem besseren Ergebnis führen, wenn sie Dein Denken und Konzept kritisch prüft und darüber optimiert. Sie sollte aber nicht die Basis liefern.</p>
       </div>
     </div>
     <div class="step">
       <div class="num no">✗</div>
       <div>
         <h3>Nie als Erstquelle für ein unbekanntes Thema</h3>
-        <p>Wo man noch nichts weiß, kann man nichts prüfen. Das ist nicht Vorsicht, sondern Struktur.</p>
+        <p>Vor allem im wissenschaftlichen Kontext ist es wichtig, sorgfältig und quellenbasiert zu arbeiten. Wenn Basiswissen fehlt, wird das Ergebnis unscharf.</p>
       </div>
     </div>
   </div>
+  <div class="note">Das ist kein Verbot — es ist ein Nutzungsmodus. Entscheidend ist nicht ob, sondern wann im Lernprozess KI eingesetzt wird. Analogie: Ein Gegenleser kann nur sinnvoll arbeiten, wenn der Autor bereits eine eigene Position hat.</div>
 </section>
 
 <!-- ⑫  PROMPTING VS CE · INHALT ──────────────────── -->
 <section class="slide">
   <div class="eyebrow">Die eigentliche Kompetenz</div>
-  <h2>Prompting vs. Context Engineering</h2>
+  <h2>Context Engineering als Schlüssel für kompetente Ergebnisse</h2>
   <div class="row row-2 gap-lg">
     <div class="box warn">
       <h3 style="color:#B91C1C;">Prompting</h3>
-      <p>Wie man fragt: Formulierungen, Vorlagen, Tricks. Das verfällt mit jeder Modellversion, weil Techniken von Modell A bei Modell B oft nicht mehr greifen.</p>
+      <p>Die Art, Befehle zu schreiben. Umfasst Formulierungen, Vorlagen und Tricks. Aber das verfällt mit jeder Modellversion, weil Techniken von Modell A zu Modell B abweichen und gelerntes Prompting nicht mehr funktioniert.</p>
     </div>
     <div class="box good">
       <h3 style="color:#1D4735;">Context Engineering</h3>
-      <p>Was man der KI als Arbeitsgrundlage gibt. Das bleibt die eigentliche Kompetenz: Die Output-Qualität ist nach oben begrenzt durch die Qualität des Kontexts.</p>
+      <p>Eine Art Arbeitsgrundlage und -vertrag mit der KI. Es bestimmt die Art des Ergebnisses und die Vorgehensweise beim Ermitteln und Prüfen. Hier entsteht das kompetente, verlässliche Arbeiten mit der KI. Die Output-Qualität hängt von der Qualität des Kontexts ab: Je mehr die KI über mich, meine Fähigkeiten und meinen Kontext weiß, umso besser ist der zu bewertende Output.</p>
     </div>
   </div>
+  <div class="note">Begriff „Context Engineering" (Karpathy 2025): Kompetenz, das Kontextfenster optimal zu befüllen. Technisch: Das Kontextfenster ist das temporäre Arbeitsgedächtnis des Modells (In-Context Learning, Brown et al. 2020/GPT-3). Was im Kontext steht, ist zuverlässiger abrufbar als was verlustbehaftet in den Gewichten liegt — das ist der technische Mechanismus dahinter, keine Metapher.</div>
 </section>
 
-<!-- ⑬  CONTEXT ENGINEERING · INHALT ──────────────── -->
-<section class="slide">
-  <div class="eyebrow">Context Engineering — die zweite Säule</div>
-  <h2>Output-Qualität ist gedeckelt durch Kontext-Qualität</h2>
-  <p class="mw" style="font-size:1.35rem; line-height:1.7;">Guter Kontext ist die eigene Vorarbeit. Wer keinen guten Kontext formulieren kann, hat das Thema noch nicht durchdrungen. Context Engineering setzt Denken voraus, es ersetzt es nicht: wissenschaftliche Integrität und sinnvoller KI-Einsatz sind dieselbe Münze.</p>
+<!-- ⑬  CE-BRÜCKE · LILA ───────────────────────────── -->
+<section class="slide dark">
+  <p class="statement" style="max-width:26ch;">Context Engineering setzt Denken voraus. Es ersetzt es nicht.</p>
+  <div class="note">Guter Kontext ist die eigene Vorarbeit. Wer keinen guten Kontext formulieren kann, hat das Thema noch nicht durchdrungen. Genau deshalb ist „guten Kontext bauen" zugleich der beste Test, ob ihr das Thema verstanden habt: „Erst selbst denken" und „guten Kontext bauen" sind dieselbe Handlung. Damit sind wissenschaftliche Integrität und sinnvoller KI-Einsatz dieselbe Münze.
+
+Technisch: Fakten im Kontextfenster werden zuverlässiger reproduziert als Fakten aus komprimierten Gewichten.</div>
 </section>
 
 <!-- ⑬b  DREI SCHICHTEN · ABBILDUNG ────────────────── -->
 <section class="slide">
-  <div class="eyebrow">So sieht das konkret aus — mein KnowledgeOS</div>
-  <h2>Drei Schichten, eine Quelle</h2>
-  <div class="cards cards-3">
-    <div class="card">
-      <h3>Knowledge</h3>
-      <p>Fachwissen unabhängig von mir: Methoden, Frameworks, Fallstudien.</p>
+  <div class="eyebrow">Basis von Context Engineering</div>
+  <h2>Wissen trennscharf in drei Schichten verteilen, eingebettet in ein starkes System</h2>
+  <div class="sysframe">
+    <div class="sysframe-head"><h3>System</h3><span class="schicht">Rahmen</span></div>
+    <p>Regelwerk bzw. Arbeitsvertrag mit dem KI-Tool wie CLAUDE.md, rules.md, Memory.</p>
+    <div class="layers">
+    <div class="layer l3">
+      <div class="layer-head"><h3>Sensemaking</h3><span class="schicht">Schicht 3</span></div>
+      <p>Muster erkennen, Entscheidungen oder Gelesenes einordnen, reflektieren, eigene Schlüsse oder Argumente entwickeln.</p>
     </div>
-    <div class="card">
-      <h3>Identity</h3>
-      <p>Wer ich beruflich bin: Skills, Projekte, Karriere. Die einzige Quelle für CV, Bewerbungen und LinkedIn.</p>
+    <div class="layer l2">
+      <div class="layer-head"><h3>Identity</h3><span class="schicht">Schicht 2</span></div>
+      <p>Deine Fähigkeiten, Notizen, Thesen, bisherige Arbeiten und Projekte. Alles, was Du schon weißt und Dich ausmacht.</p>
     </div>
-    <div class="card">
-      <h3>Sensemaking</h3>
-      <p>Muster erkennen, Entscheidungen einordnen, strategisch reflektieren.</p>
+    <div class="layer l1">
+      <div class="layer-head"><h3>Knowledge</h3><span class="schicht">Schicht 1</span></div>
+      <p>Fachwissen, das unabhängig von Dir existiert: Theorien, Methoden, Quellen und Literatur.</p>
     </div>
   </div>
-  <p class="principle">Jede Information existiert genau einmal.</p>
+  </div>
+  <div class="note">Um Context Engineering zu ermöglichen, musst Du Wissen in Schichten trennen. Innerhalb dieser Schichten existiert jede Information nur einmal.
+
+Unten das Fachwissen, das unabhängig von Dir existiert. Darüber Deine eigene Arbeit. Ganz oben Deine Schlüsse daraus. Diese Trennung ist die Basis von Context Engineering: Du gibst der KI gezielt die richtige Schicht statt alles auf einmal. Die Idee ist nicht neu (Luhmanns Zettelkasten, Forte „Building a Second Brain"), neu ist, sie für die Arbeit mit KI zu nutzen. Context Engineering ist ein wachsendes Feld.
+
+Und der Rahmen um die drei Schichten ist das System: das Regelwerk oder der Arbeitsvertrag mit dem KI-Tool, bei mir CLAUDE.md, rules.md und Memory. Das ist kein viertes Stockwerk an Wissen, sondern die Ebene darüber. Sie legt fest, wie die KI mit Deinen drei Schichten umgeht: wer ich bin, wie ich arbeite, was die KI darf und was nicht. Deshalb umschließt der Rahmen die Schichten, statt sich danebenzustellen. Erst dieses System macht aus losen Schichten eine verlässliche Arbeitsgrundlage, die über einzelne Sessions hinweg trägt.
+
+Konkret für eine Seminararbeit kann es so aussehen: Schicht 1 ist die Pflichtlektüre, Schicht 2 Deine Notizen und These, Schicht 3 Deine Argumentation. Wenn Du Schicht 1 und 2 gut ausgestaltet hast, kann KI Schicht 3 übernehmen. KI ist darauf trainiert, Zusammenhänge zu erkennen und Muster abzuleiten. Die Basis kommt aber von Dir. Das System ist hier die Vorgabe, die Du einmal festhältst und die über allem steht: Thema und Fragestellung, Umfang, Zitierstil, die Regeln des Lehrstuhls und wie die KI Dich dabei unterstützen soll.</div>
 </section>
 
-<!-- ⑬c  VIER EBENEN · ABBILDUNG ────────────────────── -->
-<section class="slide" style="padding-left:4.5rem; padding-right:4.5rem;">
-  <div class="eyebrow">Wie ich Claude steuere</div>
-  <h2>CLAUDE.md ist mein Arbeitsvertrag mit Claude</h2>
-  <div class="cards cards-4">
+<!-- ⑬c  DREI GEDÄCHTNISSE · ABBILDUNG (Transfer) ───── -->
+<section class="slide">
+  <div class="eyebrow">Womit Context Engineering arbeitet</div>
+  <h2>KI hat drei Gedächtnisse, steuerbar ist vor allem das Arbeitsgedächtnis</h2>
+  <figure class="fighead">
+    <svg viewBox="0 0 1000 440" xmlns="http://www.w3.org/2000/svg" font-family="Fraunces, Georgia, serif" role="img" aria-label="Kopf-Profil mit drei Gedächtnistypen der KI">
+      <defs>
+        <filter id="lilatint" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+          <feFlood flood-color="#7b6ba5" result="flood"/>
+          <feComposite in="flood" in2="SourceGraphic" operator="in"/>
+        </filter>
+      </defs>
+      <!-- Kopf 1:1 aus Kopf.png, Linien lila eingefärbt -->
+      <image href="Kopf.png" xlink:href="Kopf.png" x="300" y="15" width="400" height="400" preserveAspectRatio="xMidYMid meet" filter="url(#lilatint)"/>
+      <!-- Verbindungslinien -->
+      <line x1="322" y1="158" x2="372" y2="158" stroke="#472E56" stroke-width="2"/>
+      <line x1="664" y1="165" x2="752" y2="165" stroke="#472E56" stroke-width="2"/>
+      <line x1="624" y1="345" x2="752" y2="345" stroke="#472E56" stroke-width="2"/>
+      <!-- Verbindungspunkte -->
+      <circle cx="374" cy="158" r="6" fill="#7b6ba5"/>
+      <circle cx="658" cy="165" r="6" fill="#7b6ba5"/>
+      <circle cx="618" cy="345" r="6" fill="#7b6ba5"/>
+      <!-- Label links: Wissensbasis -->
+      <text x="305" y="148" text-anchor="end" font-size="18" font-weight="700" fill="#472E56">Die Wissensbasis</text>
+      <text x="305" y="166" text-anchor="end" font-size="9.5" letter-spacing="0.8" fill="#7b6ba5" font-family="ui-monospace, 'Courier New', monospace">SEMANTISCHES GEDÄCHTNIS</text>
+      <text x="305" y="181" text-anchor="end" font-size="12" fill="#78716C">Antrainiertes Faktenwissen, kontextunabhängig</text>
+      <!-- Label rechts oben: Erinnerung -->
+      <text x="756" y="155" font-size="18" font-weight="700" fill="#472E56">Die Erinnerung</text>
+      <text x="756" y="173" font-size="9.5" letter-spacing="0.8" fill="#7b6ba5" font-family="ui-monospace, 'Courier New', monospace">LANGZEITGEDÄCHTNIS</text>
+      <text x="756" y="188" font-size="12" fill="#78716C">Bleibt über Sessions hinweg</text>
+      <!-- Label rechts unten: Gespräch -->
+      <text x="756" y="335" font-size="18" font-weight="700" fill="#472E56">Das Gespräch</text>
+      <text x="756" y="353" font-size="9.5" letter-spacing="0.8" fill="#7b6ba5" font-family="ui-monospace, 'Courier New', monospace">ARBEITSGEDÄCHTNIS</text>
+      <text x="756" y="368" font-size="12" fill="#78716C">Der aktuelle Kontext im Gespräch</text>
+    </svg>
+  </figure>
+  <div class="note">Drei Arten, wie die KI Kontext hält. Das Gespräch ist das Arbeitsgedächtnis: das aktuelle Kontextfenster, nach dem Schließen weg. Die Erinnerung ist das Langzeitgedächtnis: was über Sessions bleibt, wenn die Memory-Funktion aktiv ist (ein Produkt-Feature, nicht das Modell selbst). Die Wissensbasis ist das semantische Gedächtnis: das antrainierte Weltwissen aus den Gewichten, das Du nicht änderst.
+
+Der Punkt für Context Engineering: Steuern kannst Du vor allem das Arbeitsgedächtnis, also was Du der KI jetzt gibst. Genau da setzt Deine Vorarbeit an. Im nächsten Schritt zeige ich, wie mein Aufbau jedes dieser drei Gedächtnisse gezielt bedient.</div>
+</section>
+
+<!-- ⑬c-ALT  DREI GEDÄCHTNISSE · AUFZÄHLUNG (Alternative ohne Kopf) ── -->
+<section class="slide">
+  <div class="eyebrow">Womit Context Engineering arbeitet</div>
+  <h2>KI hat drei Gedächtnisse, steuerbar ist vor allem das Arbeitsgedächtnis</h2>
+  <div class="cards cards-3">
     <div class="card">
-      <h3>CLAUDE.md</h3>
-      <p>Immer dabei. Die Grundregeln der Zusammenarbeit, lebt und wächst mit: über 20 Änderungen in drei Monaten.</p>
+      <h3>Das Gespräch</h3>
+      <div class="card-tag">Arbeitsgedächtnis · steuerbar</div>
+      <p>Der aktuelle Kontext im laufenden Gespräch, das Kontextfenster. Hält Informationen nur für die aktuelle Aufgabe. Hier setzt Deine Vorarbeit an, das steuerst Du direkt.</p>
     </div>
     <div class="card">
-      <h3>Rules</h3>
-      <p>Bei Bedarf. Entstehen, wenn ich merke: das erkläre ich immer wieder.</p>
+      <h3>Die Erinnerung</h3>
+      <div class="card-tag">Langzeitgedächtnis</div>
+      <p>Dauerhafter Wissensspeicher über Sessions hinweg. CLAUDE.md, Rules und Memory halten Deine Vorgaben fest, ohne dass Du Dich wiederholst.</p>
     </div>
     <div class="card">
-      <h3>Workflows</h3>
-      <p>Auf Kommando. Wiederkehrende Abläufe, zum Beispiel der Morgen-Check-in.</p>
-    </div>
-    <div class="card">
-      <h3>Memory</h3>
-      <p>Für die Zukunft. Claude merkt sich Arbeitsstil und Präferenzen.</p>
+      <h3>Die Wissensbasis</h3>
+      <div class="card-tag">Semantisches Gedächtnis</div>
+      <p>Antrainiertes Faktenwissen, kontextunabhängig. Das Weltwissen aus den Modellgewichten, das Du nicht änderst, sondern nur als Fallback nutzt.</p>
     </div>
   </div>
+  <div class="note">Alternative zur Kopf-Abbildung: dieselben drei Gedächtnisse als Aufzählung. Das Gespräch ist das Arbeitsgedächtnis (Kontextfenster, steuerbar). Die Erinnerung ist das Langzeitgedächtnis (bleibt über Sessions). Die Wissensbasis ist das semantische Gedächtnis (antrainiert, fix). Im finalen Deck nur eine der beiden Varianten behalten, Kopf oder Aufzählung.</div>
+</section>
+
+<!-- ⑬e  SYNTHESE · ABBILDUNG (Teil 1 + Teil 2) ─────── -->
+<section class="slide">
+  <div class="eyebrow">Context Engineering steigert die KI-Leistung</div>
+  <h2>Sauberer Kontext entscheidet, ob KI Dir gute Leistung liefert</h2>
+  <div class="synthflow">
+    <div class="synth-col">
+      <div class="synth-cap">Dein KI-Setup</div>
+      <div class="sysmini">
+        <div class="sbar sys"><b>System-Rahmen</b> — Lehrstuhl-Vorgaben, CLAUDE.md</div>
+        <div class="sbar"><b>Knowledge</b> — Pflichtlektüre</div>
+        <div class="sbar"><b>Identity</b> — Deine Notizen, Deine These</div>
+        <div class="sbar"><b>Sensemaking</b> — Deine Argumentation</div>
+      </div>
+    </div>
+    <div class="synth-arrow">→</div>
+    <div class="synth-col">
+      <div class="synth-cap">KI-Gedächtnis</div>
+      <div class="sbox good"><h4>Arbeitsgedächtnis</h4><span>pro Aufgabe befüllt, wird zuverlässig genutzt</span></div>
+      <div class="sbox"><h4>Langzeitgedächtnis</h4><span>System-Rahmen lädt automatisch, jede Session</span></div>
+      <div class="sbox warn"><h4>Semantisches Gedächtnis</h4><span>antrainiert, verlustbehaftet, nur Fallback</span></div>
+    </div>
+    <div class="synth-arrow">→</div>
+    <div class="synth-col">
+      <div class="synth-cap">Ergebnis</div>
+      <div class="sout">Belastbarer KI-Output, den Du verantworten und im wissenschaftlichen Arbeiten weiterverwenden kannst.</div>
+    </div>
+  </div>
+  <div class="note">Hier setzt sich zusammen, was wir in Teil 1 und Teil 2 gesehen haben. Teil 1 war das Problem: KI generiert Plausibles, kein Wissen, und ist am gefährlichsten dort, wo Du am wenigsten weißt. Teil 2 war die Antwort: Die Qualität des Outputs ist gedeckelt durch die Qualität des Kontexts, und guter Kontext ist Deine eigene Vorarbeit.
+
+Spielen wir es an einer Seminararbeit durch. Links liegt Dein gepflegtes Setup. In der Knowledge-Schicht Deine Pflichtlektüre. In der Identity-Schicht Deine eigenen Notizen und Deine These. In der Sensemaking-Schicht Deine Argumentation. Um alles herum der System-Rahmen: die Vorgaben des Lehrstuhls, Umfang, Zitierstil, bei mir die CLAUDE.md.
+
+Jetzt der entscheidende Schritt in die Mitte. Der System-Rahmen lädt automatisch ins Langzeitgedächtnis, jede Session neu, ohne dass Du Dich wiederholst. Pro Aufgabe gibst Du gezielt die passende Schicht ins Arbeitsgedächtnis, also genau die Lektüre und die These, um die es gerade geht. Das semantische Gedächtnis, das antrainierte Weltwissen, ist nur noch Fallback, weil es verlustbehaftet ist und genau da erfindet, wo es unscharf wird.
+
+Und jetzt schließt sich der Kreis zu Teil 1: Das Arbeitsgedächtnis ist die einzige Stelle, an der die KI zuverlässig liest. Liegt Dein geprüftes Material dort, arbeitet die KI damit, statt zu raten. Damit verschiebst Du die KI aus der gefährlichen Zone, der Erstquelle für Unbekanntes, in die nützliche, den Kritiker für das, was Du schon erarbeitet hast.
+
+Deshalb ist sauberer Kontext so wichtig. Sind die Schichten unordentlich, Infos doppelt oder veraltet, fütterst Du das zuverlässige Gedächtnis mit schlechtem Material, und der Output wird schlechter, ohne dass Du es unbedingt merkst. Genau das ist die Brücke zwischen beiden Teilen: Kontext pflegen ist nicht Ordnungsliebe, sondern die Bedingung dafür, dass KI Dir gute und überprüfbare Leistung liefert.</div>
 </section>
 
 <!-- ⑬d  VIER SCHRITTE · INHALT ─────────────────────── -->
 <section class="slide">
-  <div class="eyebrow">Für dich zum Mitnehmen</div>
-  <h2>In vier Schritten starten</h2>
+  <div class="eyebrow">Für Dich zum Mitnehmen</div>
+  <h2>In vier Schritten ein eigenes Setup initialisieren</h2>
   <div class="steps" style="max-width:90ch;">
     <div class="step">
       <div class="num">1</div>
       <div>
-        <h3>Grundstruktur anlegen</h3>
-        <p>Ein paar Ordner, in jedem eine README, die erklärt, was reingehört. Die Struktur hilft auch der KI, alles richtig einzuordnen.</p>
+        <h3>Alles an einen Ort</h3>
+        <p>Eine Ordnerstruktur, zum Beispiel in Obsidian. Jede Ablage mit einer kurzen Erklärung, was reingehört. Dein Wissen liegt gebündelt statt verstreut.</p>
       </div>
     </div>
     <div class="step">
       <div class="num">2</div>
       <div>
-        <h3>Claude interviewen lassen</h3>
-        <p>Nicht allein vor dem leeren Dokument. Claude die Struktur zeigen und sagen: „Interview mich." Daraus entsteht die CLAUDE.md.</p>
+        <h3>In KI-lesbare Formate übergehen</h3>
+        <p>Von doc und PDF zu Markdown. Auch PDFs, Docs und Fotos liegen dort. Nur was die KI lesen kann, kann sie auch nutzen.</p>
       </div>
     </div>
     <div class="step">
       <div class="num">3</div>
       <div>
-        <h3>Erste Routine einrichten</h3>
-        <p>Morgens fünf Minuten: Wochenplan prüfen, drei Prioritäten setzen. Der erste wiederverwendbare Workflow.</p>
+        <h3>Kontext als Datei festhalten</h3>
+        <p>Deine Vorgaben in eine Regel-Datei (bei mir CLAUDE.md). Modell-unabhängig: Claude, Codex oder ein anderes greifen auf dieselbe Datei zu.</p>
       </div>
     </div>
     <div class="step">
       <div class="num">4</div>
       <div>
         <h3>Organisch wachsen lassen</h3>
-        <p>Wiederkehrende Erklärungen aufschreiben, Routinen zu Workflows machen. Nicht vorher alles durchplanen.</p>
+        <p>Wiederkehrende Erklärungen aufschreiben. Nicht vorher alles durchplanen.</p>
       </div>
     </div>
   </div>
-  <p class="flow-cap" style="margin-top:1.4rem;"><span class="cap-plus">+</span><span>Sinnvoll mit der Bezahlversion: größeres Kontextfenster und stärkere Modelle, dazu Datei-Upload, Projektordner und Websuche. Genau das ist automatisiertes Context Engineering.</span></p>
+  <p class="flow-cap" style="margin-top:1.4rem;"><span class="cap-plus">+</span><span>Nur KI-lesbar abgelegtes Wissen (Markdown statt PDF-Wust) kann die KI nutzen. Erst dann greift sie auf Deine drei Schichten zu.</span></p>
+  <div class="note">Der eigentliche Hebel: Wissen ki-lesbar an einem Ort. Ich bin von doc und PDF zu Markdown übergegangen und lasse das in Obsidian visualisieren. Dort liegen auch passende PDFs, Docs und Fotos, mit denen die KI direkt arbeiten kann, alles an einem Ort. Nur wenn Wissen lesbar abgelegt ist, kann die KI auf meine drei Schichten zugreifen.
+
+Modell-unabhängig: Die Regel-Datei heißt bei mir CLAUDE.md, weil ich mit Claude arbeite, aber auch Codex oder andere Modelle bedienen sich an derselben Datei. Das ganze System ist bewusst tool-agnostisch: reines Markdown, keine proprietären Formate.
+
+Für eine Seminararbeit: der Ordner ist Eure Lektüre, Notizen und These; die Regel-Datei sind Eure Vorgaben (Thema, Umfang, Lehrstuhl-Regeln). Sinnvoll mit der Bezahlversion: größeres Kontextfenster, Datei-Upload und Projektordner nehmen Euch das Zusammensuchen ab.</div>
 </section>
 
-<!-- ⑬e  WAS BLEIBT FÜR JEDEN TAG · INHALT ──────────── -->
-<section class="slide">
-  <div class="eyebrow">Was vom Block bleibt</div>
-  <h2>Was bleibt für jeden Tag</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="num alt">1</div>
-      <div>
-        <h3>Erst Struktur, dann Inhalte.</h3>
-        <p>Ordner, READMEs und CLAUDE.md stehen, bevor der erste Inhalt reinkommt.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="num alt">2</div>
-      <div>
-        <h3>Lass dich interviewen, nicht briefen.</h3>
-        <p>Claude stellt die richtigen Fragen und legt die Antworten richtig ab.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="num alt">3</div>
-      <div>
-        <h3>Das System lebt durch Routinen, nicht durch Dateien.</h3>
-        <p>Fünf Minuten Check-in am Morgen machen den Unterschied zwischen einem Ordner und einem Arbeitspartner.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ⑭  TRENNLINIE · INHALT ───────────────────────── -->
-<section class="slide">
-  <div class="eyebrow">Die entscheidende Unterscheidung</div>
-  <h2>Kritiker erden vs. Denken auslagern</h2>
-  <div class="row row-2 gap-lg">
-    <div class="box good">
-      <h3 style="color:#1D4735;">Kritiker erden — gut</h3>
-      <p>Eigene Lektüre und eigene These als Kontext einbringen. Die KI soll das Argument prüfen, nicht liefern. Das setzt Vorwissen voraus und schärft das eigene Denken.</p>
-    </div>
-    <div class="box warn">
-      <h3 style="color:#B91C1C;">Denken auslagern — Falle</h3>
-      <p>Die KI als Erstquelle nutzen, um Denkarbeit zu umgehen. Das ist kein schlechter Prompt, sondern der falsche Modus: Genau die Lernleistung fällt dabei weg.</p>
-    </div>
-  </div>
-  <div class="box mt2">
-    <p style="font-size:1.05rem; color:var(--body);"><strong>Modell vs. Produkt:</strong> Websuche und RAG hängen einen Datenabruf vor den Generierungsschritt. Das reduziert Halluzination, beseitigt sie nicht. Im Kern ist es automatisiertes Context Engineering.</p>
-  </div>
-</section>
-
-<!-- ⑮  DEMO-ÜBERGANG · LILA ──────────────────────── -->
+<!-- ⑭  DEMO-ÜBERGANG · LILA ──────────────────────── -->
 <section class="slide dark">
-  <p class="statement" style="max-width:30ch;">„Stelle mir das Konzept Chancengleichheit vor und leite mir wertvolle Forschungslücken für eine Seminararbeit ab."</p>
+  <p class="statement" style="max-width:32ch;">Demo vom Wirken der KI mit und ohne Kontext am Beispiel der Seminararbeit zum Thema Chancengleichheit</p>
+  <div class="note">Lauf A: kein Kontext · Lauf B: eigener Kontext, Rolle geflippt.
+
+Live-Tool öffnen, Prompt eingeben. Aufmerksamkeit auf Quellen und Forschungslücken lenken — die Konzepterklärung ist auf diesem gut abgedeckten Thema korrekt (Easy Mode). Auf Nischenthemen wäre schon die Zusammenfassung falsch — das im Vortrag erwähnen. Screenshot-Backup: Vortrag_KI_Demo_Chancengleichheit.md</div>
 </section>
 
 <!-- ⑯  LEGENDE · INHALT ──────────────────────────── -->
 <section class="slide">
   <div class="eyebrow">Markierungs-Legende</div>
   <h2>Was wir gleich bewerten</h2>
-  <div class="mw">
-    <div class="legend-row"><div class="dot" style="background:#EF4444;"></div><strong>Erfunden / nicht verifizierbar</strong> — Quelle, Autor oder Studie existiert nicht</div>
-    <div class="legend-row"><div class="dot" style="background:#F97316;"></div><strong>Plausibel, aber generisch</strong> — keine echte Forschungslücke, Worthülse</div>
-    <div class="legend-row"><div class="dot" style="background:#EAB308;"></div><strong>Veraltet</strong> — Knowledge Cutoff, Stand nicht gesichert</div>
-    <div class="legend-row"><div class="dot" style="background:#22C55E;"></div><strong>Belastbar</strong> — prüfbar, korrekt, nachvollziehbar</div>
+  <div class="legend">
+    <div class="legend-row"><span class="dot" style="background:#EF4444;"></span><strong>Erfunden / nicht verifizierbar</strong><span class="desc">Quelle, Autor oder Studie existiert nicht</span></div>
+    <div class="legend-row"><span class="dot" style="background:#F97316;"></span><strong>Plausibel, aber generisch</strong><span class="desc">keine echte Forschungslücke, Worthülse</span></div>
+    <div class="legend-row"><span class="dot" style="background:#EAB308;"></span><strong>Veraltet</strong><span class="desc">Knowledge Cutoff, Stand nicht gesichert</span></div>
+    <div class="legend-row"><span class="dot" style="background:#22C55E;"></span><strong>Belastbar</strong><span class="desc">prüfbar, korrekt, nachvollziehbar</span></div>
   </div>
+  <div class="note">Diese Folie während der Demo sichtbar lassen — sie gibt Studierenden einen Bewertungsrahmen und trainiert nebenbei kritisches Quellendenken.</div>
 </section>
 
 <!-- ⑰  DEMO LAUF A · INHALT ──────────────────────── -->
@@ -545,6 +676,7 @@
     <div class="demo-lbl">Live-Demo</div>
     <p>KI ohne eigenen Kontext: „Leite mir Forschungslücken ab." Quellen anschließend live im Katalog suchen.</p>
   </div>
+  <div class="note">Fokus auf Forschungslücken und Quellen, nicht auf die Konzepterklärung (die stimmt). Müller &amp; Hartmann (2022) live suchen lassen. Pointe: "Du erkennst das nur, weil Du den Forschungsstand kennst oder die Quelle prüfst."</div>
 </section>
 
 <!-- ⑱  DEMO LAUF B · INHALT ──────────────────────── -->
@@ -555,25 +687,19 @@
     <div class="demo-lbl">Live-Demo</div>
     <p>Eigene These und selbst gelesene Quellen als Kontext. Die KI soll meine Lücke angreifen, nicht eine liefern.</p>
   </div>
+  <div class="note">Explizit sagen: „Ich habe das vorbereitet. Das ist, was ihr am Ende des Semesters habt — nicht in Woche 1." Context Engineering ist kein Shortcut, es setzt Arbeit voraus. Das ist der Punkt, an dem die beiden Säulen des Vortrags sichtbar zusammenfallen.</div>
 </section>
 
 <!-- ⑲  LEKTION · INHALT ──────────────────────────── -->
 <section class="slide">
   <div class="eyebrow">Was die Demo zeigt</div>
-  <h2>Drei Beobachtungen</h2>
+  <h2>Zwei Beobachtungen</h2>
   <div class="steps">
     <div class="step">
       <div class="num alt">A</div>
       <div>
-        <h3>Auf den ersten Blick top, auf den zweiten Quatsch</h3>
-        <p>Konzepterklärung korrekt. Forschungslücken teils längst beforscht, teils Worthülse, teils erfunden, inklusive nicht existierender Quellen.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="num">!</div>
-      <div>
-        <h3>Man erkennt es nur, weil man es kann</h3>
-        <p>Ohne Kenntnis des Forschungsstands wäre die Halluzination unsichtbar geblieben. Das Novizen-Paradox live: kein Sorgfaltsproblem, sondern ein Wissensproblem.</p>
+        <h3>Auf den ersten Blick top, auf den zweiten Flop</h3>
+        <p>Konzepterklärung korrekt, aber Forschungslücken teils längst beforscht, teils Worthülse, teils erfunden, inklusive nicht existierender Quellen.</p>
       </div>
     </div>
     <div class="step">
@@ -584,6 +710,9 @@
       </div>
     </div>
   </div>
+  <div class="note">Man erkennt es nur, weil man es kann: Ohne Kenntnis des Forschungsstands wäre die Halluzination unsichtbar geblieben. Das Novizen-Paradox live, kein Sorgfaltsproblem, sondern ein Wissensproblem.
+
+Auch Lauf B kann halluzinieren, zum Beispiel Studienergebnisse falsch zuschreiben. Der Gewinn ist nicht „wahrerer Output", sondern besseres eigenes Denken. Prüfpflicht gilt immer.</div>
 </section>
 
 <!-- ⑳  INTEGRITÄT · INHALT ───────────────────────── -->
@@ -604,11 +733,15 @@
       <p>„ChatGPT hat gesagt" ist kein Beleg. Der Forschungsstand kann nicht durch KI-Output ersetzt werden.</p>
     </div>
   </div>
+  <div class="note">DFG-Leitlinien zur guten wissenschaftlichen Praxis (2022): Nachvollziehbarkeit und Reproduzierbarkeit als Grundprinzipien. KI-generierter Text erfüllt beides nicht — er ist nicht reproduzierbar (nächster Lauf = andere Antwort) und nicht nachvollziehbar (kein Quellennachweis möglich). Das ist der wissenschaftliche Kern des Transparenzgebots, nicht nur eine formale Regel.</div>
 </section>
 
 <!-- ㉑  DENKMODELL · LILA ─────────────────────────── -->
 <section class="slide dark">
-  <p class="statement" style="max-width:28ch;">KI-Output ist eine unbelegte Behauptung. Die Beweislast liegt bei dir.</p>
+  <p class="statement" style="max-width:28ch;">KI-Output ist eine unbelegte Behauptung. Die Beweislast liegt bei Dir.</p>
+  <div class="note">Das gilt unabhängig davon, welches Modell in sechs Monaten leistungsfähiger ist.
+
+Das ist die epistemische Haltung, die bleibt — während Prompt-Tricks veralten. Nicht „vertrau, aber prüfe" (setzt Vertrauen als Default), sondern „behandle es als unbelegte Behauptung". Das ist der wissenschaftliche Default gegenüber jeder unkritisierten Quelle — KI ist kein Sonderfall, sie macht das Problem nur unsichtbarer.</div>
 </section>
 
 <!-- ㉒  NUTZUNGSLANDKARTE · INHALT ────────────────── -->
@@ -647,27 +780,12 @@
     </tbody>
   </table>
   <div class="box hl mt2">
-    <p style="font-size:1.1rem;"><strong>Faustregel:</strong> Struktur delegieren, Urteil behalten.</p>
+    <p style="font-size:1.1rem;"><strong>Faustregel:</strong> Struktur kannst Du delegieren. Eigenes Urteilen und Denken im komplexen, wissenschaftlichen Rahmen lässt sich aber nicht umgehen.</p>
   </div>
+  <div class="note">Persönliche Brücke: Die Lehrende hat mich über einen Blog-Post kontaktiert, in dem es genau darum geht — wie KI beim Strukturieren und Routinisieren hilft. Das ist kein Widerspruch zum Vortrag, sondern der Ausblick: Wenn das Denken getan ist, darf KI Struktur übernehmen.</div>
 </section>
 
-<!-- ㉓  BIAS / ETHIK · INHALT ─────────────────────── -->
-<section class="slide">
-  <div class="eyebrow">Ehrliche Einschränkungen</div>
-  <h2>Was man mitdenken muss</h2>
-  <div class="row row-2 gap-lg">
-    <div class="box">
-      <h3>Bias &amp; Repräsentation</h3>
-      <p>Trainingsdaten spiegeln, was im Korpus über- und unterrepräsentiert ist: sprachlich, kulturell, perspektivisch. Das schlägt direkt in den Output durch. Was nicht in den Trainingsdaten war, existiert für das Modell nicht.</p>
-    </div>
-    <div class="box">
-      <h3>Eigenbeispiel</h3>
-      <p>„Auch ich schreibe manchmal 'die KI weiß'." Sprache formt Erwartungen: „Wissen" impliziert Verständnis, und genau das hat das Modell nicht.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ㉔  TAKE-AWAYS · INHALT ───────────────────────── -->
+<!-- ㉓  TAKE-AWAYS · INHALT ───────────────────────── -->
 <section class="slide">
   <div class="eyebrow">Das bleibt</div>
   <h2>3 Take-aways</h2>
@@ -676,13 +794,13 @@
       <div class="num">1</div>
       <div>
         <h3>KI generiert Plausibles, kein Wissen.</h3>
-        <p>Die Beweislast liegt bei dir. Jede Aussage ist eine unbelegte Behauptung bis zum Beweis des Gegenteils.</p>
+        <p>Die Beweislast liegt bei Dir. Jede Aussage ist eine unbelegte Behauptung bis zum Beweis des Gegenteils.</p>
       </div>
     </div>
     <div class="step">
       <div class="num">2</div>
       <div>
-        <h3>KI ist am gefährlichsten, wo du am wenigsten weißt.</h3>
+        <h3>KI ist am gefährlichsten, wo Du am wenigsten weißt.</h3>
         <p>Erst lesen, dann KI als Kritiker. Guter Kontext ist die eigene Vorarbeit, also setzt Context Engineering Denken voraus, es ersetzt es nicht.</p>
       </div>
     </div>
@@ -694,13 +812,19 @@
       </div>
     </div>
   </div>
+  <div class="note">Kurze Pause. Dann: „Fragen?" — Häufige Fragen und Antworten: Vortrag_KI_als_Assistenz.md, Abschnitt 4.</div>
+</section>
+
+<!-- ㉔  ABSCHLUSS · LILA ──────────────────────────── -->
+<section class="slide dark">
+  <p class="statement" style="max-width:22ch;">Vielen Dank für Eure Aufmerksamkeit. Habt Ihr Fragen?</p>
 </section>
 
 </div><!-- #deck -->
 
 <div id="nav">
   <button onclick="go(-1)">←</button>
-  <span id="ctr">1 / 25</span>
+  <span id="ctr">1 / 22</span>
   <button onclick="go(1)">→</button>
 </div>
 
