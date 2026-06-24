@@ -111,6 +111,20 @@
     .merk .ml { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--heidelbeer); display: block; margin-bottom: 0.2rem; }
 
+    /* ── Prompt-Box (Copy-Vorlage) ── */
+    .prompt { font-family: var(--mono); font-size: 0.73rem; line-height: 1.5; color: var(--ink);
+      background: #F7F6F9; border: 1px solid var(--lilac-br); border-radius: 7px;
+      padding: 0.55rem 0.7rem; margin-top: 0.5rem; white-space: pre-wrap; }
+    .prompt .pl { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--heidelbeer); display: block; margin-bottom: 0.28rem; }
+    /* ── Tool-Mapping-Tabelle (neutral, ohne Ampel) ── */
+    .map { border-spacing: 0; border-collapse: collapse; }
+    .map th { background: var(--lilac-tint); color: var(--midnight); border: 1px solid var(--lilac-br);
+      border-radius: 0; padding: 0.4rem 0.6rem; }
+    .map th:first-child { width: 30%; }
+    .map td { font-size: 0.77rem; border: 1px solid var(--border); padding: 0.4rem 0.6rem; }
+    .map td:first-child { font-weight: 600; color: var(--midnight); }
+
     /* ════ 02 · VERGLEICH (rot vs grün) ════ */
     .vs { display: grid; grid-template-columns: 1fr 1.4rem 1fr; align-items: stretch; gap: 0; }
     .vs-card { border-radius: 10px; padding: 0.85rem 1rem; display: flex; flex-direction: column; }
@@ -328,26 +342,50 @@
 
     <!-- ── 03 ── -->
     <section>
-      <div class="sec-head"><span class="sec-no n-mid">03</span><h2>Setup-Anleitung: Dein eigenes Setup in drei Schritten</h2></div>
+      <div class="sec-head"><span class="sec-no n-mid">03</span><h2>Praxis: Setup aufsetzen und mit Kontext arbeiten</h2></div>
+      <p class="kicker">Einmal ~1–2 Stunden investiert, danach trägst Du pro Arbeit nur die Quellen nach. Alles in der Gratis-Version von ChatGPT und Claude.</p>
+
+      <div class="subhead">Wohin kommt welcher Kontext?</div>
+      <table class="map">
+        <thead>
+          <tr><th>Ebene</th><th>ChatGPT (gratis)</th><th>Claude (gratis)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>System-Rahmen (Arbeitsvertrag)</td><td>Custom Instructions, Feld 2</td><td>Profil-Präferenzen</td></tr>
+          <tr><td>Identity (wer Du bist)</td><td>Custom Instructions Feld 1 + Memory</td><td>Profil + Memory</td></tr>
+          <tr><td>Knowledge (Lektüre, Quellen)</td><td>Projects → Dateien hochladen</td><td>Projects (bis 5) → Dateien hochladen</td></tr>
+          <tr><td>Arbeitsgedächtnis (die Aufgabe)</td><td>der Chat im Projekt</td><td>der Chat im Projekt</td></tr>
+        </tbody>
+      </table>
+      <p class="micro">Faustregel: Wer Du bist → einmal zentral. Quellen pro Thema → ins Projekt. Die konkrete Frage → in den Chat. Beides läuft komplett im Browser, eine App ist nur Komfort.</p>
+
+      <div class="subhead">In drei Schritten aufsetzen</div>
       <div class="steps">
         <div class="step"><div class="num">1</div><div>
-          <span class="tag">Einmalig, ~30 Min · System + Identity</span>
-          <h3>Kontext-Doku schreiben</h3>
-          <p>Ein Dokument: Wer bin ich, was studiere ich, Thema und These, Lehrstuhl-Vorgaben (Zitierstil, Umfang) und wie die KI helfen soll.</p>
+          <span class="tag">Identity · einmalig</span>
+          <h3>Profil bauen</h3>
+          <p>Den <strong>Interview-Prompt</strong> in einen neuen Chat posten. Die KI fragt Dich zu Studium, Stärken, Arbeitsweise und Thema ab und baut einen „Über mich"-Block. Den speicherst Du in Custom Instructions (Feld 1) bzw. den Profil-Präferenzen.</p>
         </div></div>
         <div class="step"><div class="num">2</div><div>
-          <span class="tag">Persistenz · Knowledge</span>
-          <h3>Dauerhaft ablegen</h3>
-          <p>In Custom Instructions oder Memory packen, oder ein Project anlegen und gelesene Quellen und Notizen hochladen.</p>
+          <span class="tag">System-Rahmen · einmalig</span>
+          <h3>Arbeitsvertrag setzen</h3>
+          <p>Den <strong>Arbeitsvertrag-Prompt</strong> in Custom Instructions (Feld 2) / Profil / Projekt-Instruktion einsetzen. Er legt fest: kritischer Sparringspartner statt Ghostwriter, niemals Quellen erfinden, kein fertiger Abgabetext.</p>
         </div></div>
         <div class="step"><div class="num">3</div><div>
-          <span class="tag">Arbeitsgedächtnis · Sensemaking</span>
-          <h3>Pro Aufgabe gezielt füttern</h3>
-          <p>Vor jeder Frage die passende Lektüre und Deine These reingeben. Die KI soll <strong>kritisieren, nicht liefern</strong>.</p>
+          <span class="tag">Knowledge + Arbeitsgedächtnis · pro Arbeit</span>
+          <h3>Projekt anlegen und gezielt füttern</h3>
+          <p>Pro Hausarbeit ein Project: Pflichtlektüre, Notizen und Deine These hochladen. Vor jeder Frage nur die passende Lektüre und These reingeben. Die KI soll <strong>kritisieren, nicht liefern</strong>.</p>
         </div></div>
       </div>
-      <div class="merk"><span class="ml">Mini-Einstieg · 2 Min, ohne Setup</span><p>Bevor Du fragst, schreib drei Sätze: Deine These, was Du schon weißt, was Du genau brauchst. Gib das mit und lass die KI Deinen Gedanken angreifen.</p></div>
-      <div class="plus"><span class="ic">+</span><span>Läuft in der Gratis-Version. Bezahlung spart nur Reibung (größeres Kontextfenster, Upload, Projekte). Tool-agnostisch: bei Claude CLAUDE.md, in ChatGPT Custom Instructions.</span></div>
+      <div class="plus"><span class="ic">+</span><span>Die fertigen Prompt-Vorlagen für <strong>Profil-Interview (Schritt 1)</strong> und <strong>Arbeitsvertrag (Schritt 2)</strong> bekommst Du im Vortrag und postest sie direkt in den Chat.</span></div>
+
+      <div class="subhead">Mit Deinem Kontext weiterarbeiten</div>
+      <p style="font-size:0.81rem; line-height:1.5;">Jetzt steht Dein Kontext. Arbeite <strong>im Projekt</strong> und nutze Prompts, die gezielt auf Dein hinterlegtes Profil, Deine Quellen und Deine These zugreifen, statt alles neu zu erklären:</p>
+      <div class="prompt"><span class="pl">These angreifen</span>Du kennst aus meinem Profil mein Thema und meine Schwächen. Hier ist meine These: [...]. Greif sie auf Basis der Quellen in diesem Projekt an: Wo ist sie zu breit, wo nicht gedeckt? Nenne nur Quellen, die du sicher belegen kannst.</div>
+      <div class="prompt"><span class="pl">Quelle prüfen</span>Nutze die Dateien in diesem Projekt. Ich habe [Quelle] so verstanden: [...]. Wo widerspreche ich der Quelle oder überdehne ich sie? Frag nach, wenn Dir mein Verständnis unklar ist.</div>
+      <div class="prompt"><span class="pl">Argumentation testen</span>Auf Basis meiner hochgeladenen Gliederung und These: Wo springt meine Argumentation? Stell mir vor Deiner Antwort die drei Fragen, die ein Gutachter stellen würde.</div>
+      <div class="merk"><span class="ml">Merksatz</span><p>Ein guter Prompt erklärt nicht alles neu, er <strong>zeigt auf Deinen Kontext</strong>. „Greif <strong>meine</strong> These an" schlägt „Erkläre mir das Thema". Und: Auch mit Kontext bleibt jede Quelle prüfpflichtig — Link ≠ gelesen ≠ sagt das ≠ passende Quelle.</p></div>
+      <div class="merk"><span class="ml">Mini-Einstieg · 2 Min, ohne Setup</span><p>Bevor Du fragst, schreib drei Sätze: Deine These, was Du schon weißt, was Du genau brauchst. Gib das mit und lass die KI Deinen Gedanken angreifen. Läuft in der Gratis-Version, Bezahlung spart nur Reibung.</p></div>
     </section>
 
     <!-- ── 04 ── -->
