@@ -197,6 +197,11 @@
     .sbox span { display:block; font-size:0.8rem; color:var(--muted); line-height:1.35; margin-top:0.12rem; }
     .sbox.good { border-color:rgba(29,71,53,0.35); } .sbox.good h4 { color:#1D4735; }
     .sbox.warn { border-color:rgba(185,28,28,0.30); } .sbox.warn h4 { color:#B91C1C; }
+    /* „von Dir gesteuert" — Arbeits- + Langzeitgedächtnis */
+    .sbox.steer { border:1.5px solid rgba(29,107,69,0.45); background:rgba(29,107,69,0.08); }
+    .sbox.steer h4 { color:#1D6B45; }
+    .sbox .steer-tag { display:block; font-family:var(--mono); font-size:0.6rem; letter-spacing:0.08em;
+      text-transform:uppercase; color:#1D6B45; font-weight:700; margin:0 0 0.15rem; }
     .sout { border:1px solid var(--lilac-br); border-radius:9px; background:var(--lilac-tint); padding:1rem; font-size:1rem; color:var(--midnight); font-weight:600; line-height:1.45; flex:1; display:flex; flex-direction:column; justify-content:center; }
 
     /* ── Mapping (KI-Gedächtnis → meine Struktur) ── */
@@ -545,7 +550,7 @@ Technisch: Fakten im Kontextfenster werden zuverlässiger reproduziert als Fakte
   </div>
   <div class="note">Um Context Engineering zu ermöglichen, musst Du Wissen in Schichten trennen. Innerhalb dieser Schichten existiert jede Information nur einmal.
 
-Unten das Fachwissen, das unabhängig von Dir existiert. Darüber Deine eigene Arbeit. Ganz oben Deine Schlüsse daraus. Diese Trennung ist die Basis von Context Engineering: Du gibst der KI gezielt die richtige Schicht statt alles auf einmal. Die Idee ist nicht neu (Luhmanns Zettelkasten, Forte „Building a Second Brain"), neu ist, sie für die Arbeit mit KI zu nutzen. Context Engineering ist ein wachsendes Feld.
+Unten das Fachwissen, das unabhängig von Dir existiert. Darüber Deine eigene Arbeit. Ganz oben Deine Schlüsse daraus. Diese Trennung ist die Basis von Context Engineering: Du gibst der KI gezielt die richtige Schicht statt alles auf einmal. Die Idee, Wissen so zu schichten, ist nicht neu, sondern steht auf etablierten Modellen: die DIKW-Pyramide (Daten, Information, Wissen) für die Knowledge-Schicht, Polanyis Unterscheidung von explizitem und implizitem Wissen für Identity, Karl Weicks Sensemaking-Begriff für die oberste Schicht. Luhmanns Zettelkasten und Forte „Building a Second Brain" sind die populären Verwandten. Und das junge Feld Context Engineering bestätigt genau diese Schichtung: Anthropic zerlegt Kontext in System-Prompt, Gespräch, Erinnerung und Wissensbasis, fast deckungsgleich mit den vier Ebenen hier. Neu ist also nicht die Schichtung, neu ist, sie gezielt für die Arbeit mit KI zu nutzen. Die konkrete Zusammenführung dieser drei Schichten plus System ist meine eigene. Context Engineering ist ein wachsendes Feld.
 
 Und der Rahmen um die drei Schichten ist das System: das Regelwerk oder der Arbeitsvertrag mit dem KI-Tool, bei mir CLAUDE.md, rules.md und Memory. Das ist kein viertes Stockwerk an Wissen, sondern die Ebene darüber. Sie legt fest, wie die KI mit Deinen drei Schichten umgeht: wer ich bin, wie ich arbeite, was die KI darf und was nicht. Deshalb umschließt der Rahmen die Schichten, statt sich danebenzustellen. Erst dieses System macht aus losen Schichten eine verlässliche Arbeitsgrundlage, die über einzelne Sessions hinweg trägt.
 
@@ -596,9 +601,9 @@ Framing (Codex-Hinweis): explizit als Denkmodell ansagen, nicht als wörtliche t
     <div class="synth-arrow">→</div>
     <div class="synth-col">
       <div class="synth-cap">KI-Gedächtnis</div>
-      <div class="sbox good"><h4>Arbeitsgedächtnis</h4><span>pro Aufgabe befüllt, wird zuverlässig genutzt</span></div>
-      <div class="sbox"><h4>Langzeitgedächtnis</h4><span>System-Rahmen lädt automatisch, jede Session</span></div>
-      <div class="sbox warn"><h4>Semantisches Gedächtnis</h4><span>antrainiert, verlustbehaftet, nur Fallback</span></div>
+      <div class="sbox steer"><span class="steer-tag">Du steuerst · pro Aufgabe</span><h4>Arbeitsgedächtnis</h4><span>Du gibst gezielt die passende Schicht rein — die einzige Stelle, an der KI zuverlässig liest.</span></div>
+      <div class="sbox steer"><span class="steer-tag">Du beeinflusst · dauerhaft</span><h4>Langzeitgedächtnis</h4><span>Du schreibst den System-Rahmen (CLAUDE.md, Rules, Memory). Lädt dann automatisch, jede Session.</span></div>
+      <div class="sbox warn"><h4>Semantisches Gedächtnis</h4><span>antrainiert, verlustbehaftet, <strong>nicht steuerbar</strong> — nur Fallback.</span></div>
     </div>
     <div class="synth-arrow">→</div>
     <div class="synth-col">
@@ -610,7 +615,7 @@ Framing (Codex-Hinweis): explizit als Denkmodell ansagen, nicht als wörtliche t
 
 Spielen wir es an einer Seminararbeit durch. Links liegt Dein gepflegtes Setup. In der Knowledge-Schicht Deine Pflichtlektüre. In der Identity-Schicht Deine eigenen Notizen und Deine These. In der Sensemaking-Schicht Deine Argumentation. Um alles herum der System-Rahmen: die Vorgaben des Lehrstuhls, Umfang, Zitierstil, bei mir die CLAUDE.md.
 
-Jetzt der entscheidende Schritt in die Mitte. Der System-Rahmen lädt automatisch ins Langzeitgedächtnis, jede Session neu, ohne dass Du Dich wiederholst. Pro Aufgabe gibst Du gezielt die passende Schicht ins Arbeitsgedächtnis, also genau die Lektüre und die These, um die es gerade geht. Das semantische Gedächtnis, das antrainierte Weltwissen, ist nur noch Fallback, weil es verlustbehaftet ist und genau da erfindet, wo es unscharf wird.
+Jetzt der entscheidende Schritt in die Mitte. Zwei der drei Gedächtnisse steuerst Du selbst, deshalb sind beide grün. Das Langzeitgedächtnis beeinflusst Du dauerhaft: Den System-Rahmen schreibst Du ja selbst (CLAUDE.md, Rules, Memory), er lädt dann automatisch jede Session, ohne dass Du Dich wiederholst. Das Arbeitsgedächtnis steuerst Du pro Aufgabe, indem Du gezielt die passende Schicht reingibst, also genau die Lektüre und die These, um die es gerade geht. „Automatisch" heißt hier also nicht „nicht steuerbar", sondern „einmal eingerichtet, läuft von allein". Nur das semantische Gedächtnis, das antrainierte Weltwissen, ist Fallback und nicht steuerbar, weil es verlustbehaftet ist und genau da erfindet, wo es unscharf wird.
 
 Und jetzt schließt sich der Kreis zu Teil 1: Das Arbeitsgedächtnis ist die einzige Stelle, an der die KI zuverlässig liest. Liegt Dein geprüftes Material dort, arbeitet die KI damit, statt zu raten. Damit verschiebst Du die KI aus der gefährlichen Zone, der Erstquelle für Unbekanntes, in die nützliche, den Kritiker für das, was Du schon erarbeitet hast.
 
