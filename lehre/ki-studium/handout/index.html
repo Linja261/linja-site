@@ -15,21 +15,29 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
+      /* Brand: Midnight = Struktur/Überschriften · Heidelbeer = Labels */
       --midnight:   #472E56;
       --heidelbeer: #7b6ba5;
       --lilac-br:   #D4C4EC;
       --lilac-tint: rgba(212,196,236,0.32);
       --bg:         #FAFAF8;
-      --ink:        #1A1A1A;
       --body:       #3A3540;
       --muted:      #6F6877;
       --border:     #E2DEE8;
-      /* Semantik — nur am Bildschirm, im Druck neutralisiert */
+      /* Semantik — nur wo Bedeutung (Gefahr / gut / Ampel), im Druck neutralisiert */
       --red:   #B0341F; --red-bg:  #FBF1EE; --red-br:  #E7C7BD;
       --green: #1D6B45; --green-bg:#EDF5F0; --green-br:#BFD9CC;
       --amber: #8A6312; --amber-bg:#F8F2E6; --amber-br:#E3D3B0;
-      --serif:      'Fraunces', Georgia, serif;
-      --mono:       ui-monospace, 'Courier New', monospace;
+      /* Type-Scale — bewusst nur 6 Stufen + Badge */
+      --fs-h1:    2.2rem;
+      --fs-h2:    1.2rem;
+      --fs-title: 0.9rem;
+      --fs-body:  0.84rem;
+      --fs-sm:    0.78rem;
+      --fs-label: 0.6rem;
+      --fs-badge: 0.8rem;
+      --serif:    'Fraunces', Georgia, serif;
+      --mono:     ui-monospace, 'Courier New', monospace;
     }
 
     html { font-size: 16px; }
@@ -46,129 +54,114 @@
       box-shadow: 0 1px 36px rgba(71,46,86,0.07);
     }
 
-    /* ── Typo ── */
-    .eyebrow { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em;
+    /* ── Type-Rollen ── */
+    .label { font-family: var(--mono); font-size: var(--fs-label); letter-spacing: 0.09em;
       text-transform: uppercase; color: var(--heidelbeer); }
-    h1 { font-size: 2.25rem; font-weight: 300; line-height: 1.1; color: var(--midnight); text-wrap: balance; }
-    h2 { font-size: 1.24rem; font-weight: 500; line-height: 1.2; color: var(--midnight); }
-    h3 { font-size: 0.94rem; font-weight: 600; line-height: 1.3; color: var(--midnight); }
-    p  { font-size: 0.875rem; line-height: 1.55; color: var(--body); }
-    strong { color: var(--ink); font-weight: 600; }
-    .lead { font-size: 0.95rem; color: var(--muted); line-height: 1.5; }
+    h1 { font-size: var(--fs-h1); font-weight: 300; line-height: 1.1; color: var(--midnight); text-wrap: balance; }
+    h2 { font-size: var(--fs-h2); font-weight: 500; line-height: 1.2; color: var(--midnight); }
+    h3 { font-size: var(--fs-title); font-weight: 600; line-height: 1.3; color: var(--midnight); }
+    p  { font-size: var(--fs-body); line-height: 1.55; color: var(--body); }
+    strong { color: var(--body); font-weight: 600; }
+    .lead { font-size: var(--fs-body); color: var(--muted); line-height: 1.5; }
 
     /* ── Kopf ── */
     .head { border-bottom: 3px solid var(--midnight); padding-bottom: 1.3rem; margin-bottom: 0.6rem; }
+    .head .eyebrow { font-family: var(--mono); font-size: var(--fs-label); letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--heidelbeer); }
     .head h1 { margin: 0.5rem 0 0.55rem; }
-    .head .meta { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
-      gap: 0.4rem; margin-top: 0.85rem; font-family: var(--mono); font-size: 0.66rem;
-      letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-    .head .meta a { color: var(--heidelbeer); text-decoration: none; }
 
     /* ── Sektion: klare Trennung ── */
     section { margin-top: 1.7rem; padding-top: 1.5rem; border-top: 1px solid var(--border); break-inside: avoid; }
     section:first-of-type { border-top: none; }
     .sec-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.95rem; }
-    .sec-no { font-family: var(--mono); font-size: 0.82rem; font-weight: 700; color: #fff;
-      width: 1.85rem; height: 1.85rem; border-radius: 7px; display: flex; align-items: center;
-      justify-content: center; flex-shrink: 0; }
+    .sec-no { font-family: var(--mono); font-size: var(--fs-badge); font-weight: 700; color: #fff;
+      background: var(--midnight); width: 1.85rem; height: 1.85rem; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .sec-head h2 { flex: 1; }
-    .n-red   { background: var(--red); }
-    .n-heid  { background: var(--heidelbeer); }
-    .n-mid   { background: var(--midnight); }
-    .n-green { background: var(--green); }
-    .kicker { font-size: 0.82rem; color: var(--muted); font-style: italic; margin: -0.5rem 0 0.85rem 2.55rem; }
+    .kicker { font-size: var(--fs-body); color: var(--muted); font-style: italic; margin: -0.5rem 0 0.85rem 2.55rem; }
+
+    /* gemeinsames Mono-Label (eyebrow/Tag/Schicht/Merk-Label/Prompt-Label) */
+    .st, .danger .tag, .merk .ml, .prompt .pl, .sys-label .sl, .layer .sl, .mem .tag, .step .tag {
+      font-family: var(--mono); font-size: var(--fs-label); letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--heidelbeer); display: block; margin-bottom: 0.28rem; }
 
     /* ════ 01 · MECHANISMUS-FLUSS (mit Pfeilen) ════ */
     .flow { display: grid; grid-template-columns: 1fr 1.4rem 1fr 1.4rem 1fr; align-items: stretch; gap: 0; }
     .flow-step { border: 1px solid var(--border); border-radius: 9px; padding: 0.8rem 0.9rem;
-      background: linear-gradient(180deg,#fff, #FCFBFD); display: flex; flex-direction: column; }
-    .flow-step .st { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--heidelbeer); margin-bottom: 0.25rem; }
-    .flow-step h3 { font-size: 0.9rem; margin-bottom: 0.3rem; }
-    .flow-step p { font-size: 0.78rem; line-height: 1.45; }
+      background: #fff; display: flex; flex-direction: column; }
+    .flow-step .st { margin-bottom: 0.25rem; }
+    .flow-step h3 { font-size: var(--fs-title); margin-bottom: 0.3rem; }
+    .flow-step p { font-size: var(--fs-sm); line-height: 1.45; }
     .flow-arrow { display: flex; align-items: center; justify-content: center; color: var(--heidelbeer);
-      font-family: var(--mono); font-size: 1.25rem; }
+      font-family: var(--mono); font-size: 1.2rem; }
 
     /* ── Gefahr-Karten (rot) ── */
     .danger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 0.85rem; }
     .danger { border: 1px solid var(--red-br); border-left: 4px solid var(--red);
       background: var(--red-bg); border-radius: 0 9px 9px 0; padding: 0.75rem 0.95rem; }
-    .danger .tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.07em;
-      text-transform: uppercase; color: var(--red); display: block; margin-bottom: 0.3rem; font-weight: 700; }
-    .danger p { font-size: 0.8rem; line-height: 1.45; }
+    .danger .tag { color: var(--red); font-weight: 700; margin-bottom: 0.3rem; }
+    .danger p { font-size: var(--fs-sm); line-height: 1.45; }
 
     /* ── Plus-Hinweis ── */
     .plus { display: flex; align-items: flex-start; gap: 0.55rem; margin-top: 0.8rem;
-      font-size: 0.81rem; line-height: 1.45; color: var(--body); }
+      font-size: var(--fs-body); line-height: 1.45; color: var(--body); }
     .plus .ic { flex-shrink: 0; width: 1.2rem; height: 1.2rem; border-radius: 50%;
-      background: var(--heidelbeer); color: #fff; font-weight: 600; font-size: 0.8rem;
+      background: var(--heidelbeer); color: #fff; font-weight: 600; font-size: var(--fs-badge);
       display: flex; align-items: center; justify-content: center; margin-top: 0.06rem; }
 
     /* ── Merksatz ── */
     .merk { border-left: 4px solid var(--midnight); background: var(--lilac-tint);
       padding: 0.8rem 1rem; border-radius: 0 8px 8px 0; margin-top: 0.95rem; }
-    .merk p { font-size: 0.88rem; color: var(--midnight); }
-    .merk .ml { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--heidelbeer); display: block; margin-bottom: 0.2rem; }
+    .merk p { font-size: var(--fs-body); color: var(--midnight); }
+    .merk .ml { margin-bottom: 0.2rem; }
 
     /* ── Prompt-Box (Copy-Vorlage) ── */
-    .prompt { font-family: var(--mono); font-size: 0.73rem; line-height: 1.5; color: var(--ink);
+    .prompt { font-family: var(--mono); font-size: var(--fs-sm); line-height: 1.5; color: var(--body);
       background: #F7F6F9; border: 1px solid var(--lilac-br); border-radius: 7px;
       padding: 0.55rem 0.7rem; margin-top: 0.5rem; white-space: pre-wrap; }
-    .prompt .pl { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--heidelbeer); display: block; margin-bottom: 0.28rem; }
-    /* ── Tool-Mapping-Tabelle (neutral, ohne Ampel) ── */
-    .map { border-spacing: 0; border-collapse: collapse; }
-    .map th { background: var(--lilac-tint); color: var(--midnight); border: 1px solid var(--lilac-br);
-      border-radius: 0; padding: 0.4rem 0.6rem; }
-    .map th:first-child { width: 30%; }
-    .map td { font-size: 0.77rem; border: 1px solid var(--border); padding: 0.4rem 0.6rem; }
-    .map td:first-child { font-weight: 600; color: var(--midnight); }
+    .prompt .pl { margin-bottom: 0.28rem; }
 
     /* ════ 02 · VERGLEICH (rot vs grün) ════ */
     .vs { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; gap: 0.85rem; }
     .vs-card { border-radius: 10px; padding: 0.85rem 1rem; display: flex; flex-direction: column; }
     .vs-card.bad  { border: 1px solid var(--red-br);   background: var(--red-bg); }
     .vs-card.good { border: 1px solid var(--green-br); background: var(--green-bg); }
-    .vs-card h3 { font-size: 0.96rem; margin-bottom: 0.3rem; }
+    .vs-card h3 { font-size: var(--fs-title); margin-bottom: 0.3rem; }
     .vs-card.bad  h3 { color: var(--red); }
     .vs-card.good h3 { color: var(--green); }
-    .vs-card p { font-size: 0.8rem; line-height: 1.45; }
+    .vs-card p { font-size: var(--fs-sm); line-height: 1.45; }
 
     /* ── Verschachteltes Schicht-Diagramm ── */
-    .subhead { font-size: 0.92rem; font-weight: 600; color: var(--midnight); margin: 1.1rem 0 0.55rem; }
-    .sysframe { border: 2px solid var(--heidelbeer); border-radius: 12px; padding: 0.7rem 0.8rem 0.8rem; position: relative; }
+    .subhead { font-size: var(--fs-title); font-weight: 600; color: var(--midnight); margin: 1.1rem 0 0.55rem; }
+    .sysframe { border: 2px solid var(--heidelbeer); border-radius: 12px; padding: 0.7rem 0.8rem 0.8rem; }
     .sysframe > .sys-label { display: flex; align-items: baseline; gap: 0.55rem; margin-bottom: 0.55rem; }
-    .sys-label b { color: var(--midnight); font-size: 0.9rem; }
-    .sys-label .sl { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.07em;
-      text-transform: uppercase; color: var(--heidelbeer); }
-    .sys-label span.d { font-size: 0.76rem; color: var(--muted); line-height: 1.35; }
+    .sys-label b { color: var(--midnight); font-size: var(--fs-title); }
+    .sys-label .sl { display: inline; margin-bottom: 0; }
+    .sys-label span.d { font-size: var(--fs-sm); color: var(--muted); line-height: 1.35; }
     .layers { display: flex; flex-direction: column; }
     .layer { border: 1px solid var(--lilac-br); padding: 0.55rem 0.8rem; display: grid;
-      grid-template-columns: 6.5rem 4.2rem 1fr; align-items: baseline; gap: 0.5rem; }
+      grid-template-columns: 6.8rem 4.4rem 1fr; align-items: baseline; gap: 0.5rem; }
     .layer:first-child { border-radius: 8px 8px 0 0; }
     .layer:last-child  { border-radius: 0 0 8px 8px; }
     .layer + .layer { border-top: none; }
     .layer.l3 { background: #F4F1F8; }
     .layer.l2 { background: #EBE5F2; }
     .layer.l1 { background: #DFD5EC; }
-    .layer b { color: var(--midnight); font-size: 0.85rem; }
-    .layer .sl { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--heidelbeer); }
-    .layer span.t { font-size: 0.77rem; line-height: 1.35; color: var(--body); }
-    .micro { font-size: 0.74rem; color: var(--muted); margin-top: 0.45rem; line-height: 1.4; }
+    .layer b { color: var(--midnight); font-size: var(--fs-title); }
+    .layer .sl { display: inline; margin-bottom: 0; }
+    .layer span.t { font-size: var(--fs-sm); line-height: 1.35; color: var(--body); }
+    .micro { font-size: var(--fs-sm); color: var(--muted); margin-top: 0.45rem; line-height: 1.4; }
 
-    /* ── Drei Gedächtnisse (eines hervorgehoben) ── */
+    /* ── Drei Gedächtnisse (zwei hervorgehoben) ── */
     .mems { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem; margin-top: 0.5rem; }
     .mem { border: 1px solid var(--border); border-radius: 9px; padding: 0.7rem 0.85rem; background: #fff; }
     .mem.key { border: 1.5px solid var(--green-br); background: var(--green-bg); }
     .mem.mut { background: #FAFAFA; }
-    .mem .tag { font-family: var(--mono); font-size: 0.57rem; letter-spacing: 0.05em;
-      text-transform: uppercase; display: block; margin-bottom: 0.3rem; color: var(--heidelbeer); }
+    .mem .tag { margin-bottom: 0.3rem; }
     .mem.key .tag { color: var(--green); font-weight: 700; }
     .mem.mut .tag { color: var(--muted); }
-    .mem h3 { font-size: 0.84rem; margin-bottom: 0.2rem; }
-    .mem p { font-size: 0.74rem; line-height: 1.4; }
+    .mem h3 { font-size: var(--fs-title); margin-bottom: 0.2rem; }
+    .mem p { font-size: var(--fs-sm); line-height: 1.4; }
 
     /* ════ 03 · TIMELINE-SCHRITTE ════ */
     .steps { display: flex; flex-direction: column; gap: 0.85rem; position: relative; }
@@ -176,26 +169,23 @@
     .step:not(:last-child)::before { content: ''; position: absolute; left: calc(0.85rem - 1px);
       top: 1.7rem; bottom: -0.85rem; width: 2px; background: var(--lilac-br); }
     .num { width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--midnight); color: #fff;
-      font-size: 0.82rem; font-weight: 500; display: flex; align-items: center; justify-content: center;
+      font-size: var(--fs-badge); font-weight: 500; display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; margin-top: 0.02rem; position: relative; z-index: 1; }
-    .step .tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--heidelbeer); display: block; margin-bottom: 0.12rem; }
+    .step .tag { margin-bottom: 0.12rem; }
     .step h3 { margin-bottom: 0.18rem; }
-    .step p { font-size: 0.81rem; line-height: 1.45; }
+    .step p { font-size: var(--fs-body); line-height: 1.45; }
+    .step-intro { margin-bottom: 0.1rem; }
 
     /* ════ 04 · AMPEL-TABELLE ════ */
     table { width: 100%; border-collapse: separate; border-spacing: 0.4rem 0; table-layout: fixed; margin-top: 0.2rem; }
     th, td { width: 33.33%; text-align: left; vertical-align: top; }
-    th { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.05em;
+    th { font-family: var(--mono); font-size: var(--fs-label); text-transform: uppercase; letter-spacing: 0.06em;
       font-weight: 700; padding: 0.45rem 0.7rem; border-radius: 7px 7px 0 0; }
     th.good { color: var(--green); background: var(--green-bg); border: 1px solid var(--green-br); border-bottom: none; }
     th.warn { color: var(--amber); background: var(--amber-bg); border: 1px solid var(--amber-br); border-bottom: none; }
     th.bad  { color: var(--red);   background: var(--red-bg);   border: 1px solid var(--red-br);   border-bottom: none; }
-    td { padding: 0.4rem 0.7rem; font-size: 0.79rem; line-height: 1.4; color: var(--body);
+    td { padding: 0.4rem 0.7rem; font-size: var(--fs-sm); line-height: 1.4; color: var(--body);
       border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
-    .tcol-good td { border-color: var(--green-br); }
-    .tcol-warn td { border-color: var(--amber-br); }
-    .tcol-bad  td { border-color: var(--red-br); }
     tbody tr:last-child td { border-bottom: 1px solid var(--border); border-radius: 0 0 7px 7px; }
     td.good { border-left-color: var(--green-br); border-right-color: var(--green-br); }
     td.warn { border-left-color: var(--amber-br); border-right-color: var(--amber-br); }
@@ -204,22 +194,9 @@
     tbody tr:last-child td.warn { border-bottom-color: var(--amber-br); }
     tbody tr:last-child td.bad  { border-bottom-color: var(--red-br); }
 
-    /* ════ 05 · TAKE-AWAYS ════ */
-    .takes { display: flex; flex-direction: column; gap: 0.7rem; }
-    .take { display: grid; grid-template-columns: 1.9rem 1fr; gap: 0.85rem; align-items: start;
-      background: var(--lilac-tint); border-radius: 9px; padding: 0.7rem 0.95rem; }
-    .take .bignum { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: var(--heidelbeer); line-height: 1; }
-    .take h3 { margin-bottom: 0.15rem; }
-    .take p { font-size: 0.8rem; line-height: 1.42; }
-
-    /* ── Footer ── */
-    .foot { margin-top: 1.7rem; border-top: 1px solid var(--border); padding-top: 0.85rem;
-      font-size: 0.74rem; line-height: 1.45; color: var(--muted); }
-    .foot strong { color: var(--midnight); }
-
     /* ── Druck-Leiste ── */
     .bar { max-width: 880px; margin: 1.4rem auto -0.6rem; display: flex; justify-content: flex-end; padding: 0 3rem; }
-    .bar button { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+    .bar button { font-family: var(--mono); font-size: var(--fs-label); letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--midnight); background: #fff; border: 1px solid var(--lilac-br); border-radius: 6px;
       padding: 0.45rem 0.9rem; cursor: pointer; }
     .bar button:hover { background: var(--lilac-tint); }
@@ -253,8 +230,7 @@
       h1,h2,h3 { color: #241F29; }
       .sec-no, .num { background: #241F29 !important; }
       .layer.l3,.layer.l2,.layer.l1 { background: #F4F3F6; }
-      .flow-step { background: #fff; }
-      .mem.key, .vs-card.good, .vs-card.bad, .danger, .take { background: #F6F5F7; }
+      .mem.key, .vs-card.good, .vs-card.bad, .danger { background: #F6F5F7; }
       .merk { background: #F2F1F4; border-left-color: #241F29; }
       .plus .ic { background: #555; }
       .pagebreak { break-before: page; }
@@ -273,18 +249,14 @@
 
     <!-- ── KOPF ── -->
     <header class="head">
-      <div class="eyebrow">Handout · Vortrag KI im Studium</div>
+      <div class="eyebrow">Handout · KI im Studium · Linja Scharffetter · 27.06.2026</div>
       <h1>KI als Assistenz bewusst steuern</h1>
       <p class="lead">Zusammenfassung zum Mitnehmen: wie KI wirklich arbeitet, was Context Engineering ist und wie Du Dein eigenes Setup aufsetzt.</p>
-      <div class="meta">
-        <span>Linja Scharffetter · 27. Juni 2026</span>
-        <span><a href="/lehre/ki-studium.html">Foliendeck → linja.me/lehre/ki-studium</a></span>
-      </div>
     </header>
 
     <!-- ── 01 ── -->
     <section>
-      <div class="sec-head"><span class="sec-no n-red">01</span><h2>Bewusstsein: KI generiert Plausibles, kein Wissen</h2></div>
+      <div class="sec-head"><span class="sec-no">01</span><h2>Bewusstsein: KI generiert Plausibles, kein Wissen</h2></div>
       <p class="kicker">Warum selbst die beste KI Quellen erfindet, ohne es zu merken.</p>
 
       <div class="flow">
@@ -307,7 +279,7 @@
 
     <!-- ── 02 ── -->
     <section>
-      <div class="sec-head"><span class="sec-no n-heid">02</span><h2>Context Engineering: Sinnhaftigkeit &amp; Systemaufbau</h2></div>
+      <div class="sec-head"><span class="sec-no">02</span><h2>Context Engineering: Sinnhaftigkeit &amp; Systemaufbau</h2></div>
       <p class="kicker">Die Output-Qualität hängt an der Qualität des Kontexts, den Du gibst.</p>
 
       <div class="vs">
@@ -340,7 +312,7 @@
 
     <!-- ── 03 ── -->
     <section>
-      <div class="sec-head"><span class="sec-no n-mid">03</span><h2>Praxis: Setup aufsetzen und mit Kontext arbeiten</h2></div>
+      <div class="sec-head"><span class="sec-no">03</span><h2>Praxis: Setup aufsetzen und mit Kontext arbeiten</h2></div>
       <p class="kicker">Einmal ~1–2 Stunden investiert, danach trägst Du pro Arbeit nur die Quellen nach. Alles in der Gratis-Version von ChatGPT oder Claude, im Browser.</p>
 
       <div class="subhead">In drei Schritten aufsetzen</div>
@@ -364,7 +336,7 @@
       <div class="plus"><span class="ic">+</span><span>Die fertigen Vorlagen für <strong>Profil-Interview</strong> (Schritt 1) und <strong>Arbeitsvertrag</strong> (Schritt 2) bekommst Du im Vortrag.</span></div>
 
       <div class="subhead">So arbeitest Du weiter — zeig auf Deinen Kontext</div>
-      <p style="font-size:0.81rem; line-height:1.5;">Im Projekt verweist Du auf Profil, Quellen und These, statt alles neu zu erklären. Zwei Muster zum Kopieren:</p>
+      <p class="step-intro">Im Projekt verweist Du auf Profil, Quellen und These, statt alles neu zu erklären. Zwei Muster zum Kopieren:</p>
       <div class="prompt"><span class="pl">These angreifen</span>Du kennst aus meinem Profil mein Thema. Hier ist meine These: [...]. Greif sie auf Basis der Quellen in diesem Projekt an: Wo ist sie zu breit, wo nicht gedeckt? Nenne nur Quellen, die du sicher belegen kannst.</div>
       <div class="prompt"><span class="pl">Quelle prüfen</span>Nutze die Dateien in diesem Projekt. Ich habe [Quelle] so verstanden: [...]. Wo widerspreche ich der Quelle oder überdehne ich sie?</div>
       <div class="merk"><span class="ml">Prinzip</span><p>Ein guter Prompt erklärt nicht alles neu, er <strong>zeigt auf Deinen Kontext</strong>: „Greif <strong>meine</strong> These an" schlägt „Erkläre mir das Thema". Auch mit Kontext bleibt jede Quelle prüfpflichtig — Link ≠ gelesen ≠ sagt das ≠ passende Quelle.</p></div>
@@ -373,13 +345,13 @@
 
     <!-- ── 04 ── -->
     <section>
-      <div class="sec-head"><span class="sec-no n-heid">04</span><h2>Nutzungslandkarte &amp; Faustregel</h2></div>
+      <div class="sec-head"><span class="sec-no">04</span><h2>Nutzungslandkarte &amp; Faustregel</h2></div>
       <table>
         <thead>
           <tr><th class="good">✓ Gut — delegieren</th><th class="warn">~ Mit Vorsicht</th><th class="bad">✗ Nicht geeignet</th></tr>
         </thead>
         <tbody>
-          <tr class="tcol"><td class="good">Schreibplan aus eigener Gliederung</td><td class="warn">Konzepterklärungen (Lektüre nicht ersetzen)</td><td class="bad">Einstieg in ein unbekanntes Thema</td></tr>
+          <tr><td class="good">Schreibplan aus eigener Gliederung</td><td class="warn">Konzepterklärungen (Lektüre nicht ersetzen)</td><td class="bad">Einstieg in ein unbekanntes Thema</td></tr>
           <tr><td class="good">Zeitplan für die Prüfungsphase</td><td class="warn">Literaturhinweise (immer selbst prüfen)</td><td class="bad">Forschungslücken erfinden lassen</td></tr>
           <tr><td class="good">Eigene Notizen strukturieren</td><td class="warn">Feedback auf Gliederung (eigene zuerst)</td><td class="bad">Als zitierfähige Quelle</td></tr>
           <tr><td class="good">Offene Fragen klären lassen</td><td class="warn"></td><td class="bad">Wenn Denken die Lernleistung ist</td></tr>
@@ -387,11 +359,6 @@
       </table>
       <div class="merk"><span class="ml">Faustregel</span><p><strong>Struktur kannst Du delegieren, Urteil und Denken nicht.</strong> Erst selbst lesen und denken, dann KI als Kritiker. Wo das Denken getan ist, darf KI die Struktur übernehmen.</p></div>
     </section>
-
-    <!-- ── Abschluss: wissenschaftliche Integrität ── -->
-    <div class="foot">
-      <p><strong>KI ist kein Autor</strong> und keine zitierfähige Quelle („ChatGPT hat gesagt" ist kein Beleg). Ob und wie KI-Einsatz kenntlich gemacht werden muss, regeln Prüfungsordnung und Lehrstuhl — am besten vorab klären. Handout zum Vortrag „KI als Assistenz bewusst steuern" · Linja Scharffetter · linja.me/lehre/ki-studium</p>
-    </div>
 
   </div>
 </body>
