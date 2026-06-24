@@ -18,12 +18,16 @@
       --midnight:   #472E56;
       --heidelbeer: #7b6ba5;
       --lilac-br:   #D4C4EC;
-      --lilac-tint: rgba(212,196,236,0.30);
+      --lilac-tint: rgba(212,196,236,0.32);
       --bg:         #FAFAF8;
       --ink:        #1A1A1A;
       --body:       #3A3540;
       --muted:      #6F6877;
       --border:     #E2DEE8;
+      /* Semantik — nur am Bildschirm, im Druck neutralisiert */
+      --red:   #B0341F; --red-bg:  #FBF1EE; --red-br:  #E7C7BD;
+      --green: #1D6B45; --green-bg:#EDF5F0; --green-br:#BFD9CC;
+      --amber: #8A6312; --amber-bg:#F8F2E6; --amber-br:#E3D3B0;
       --serif:      'Fraunces', Georgia, serif;
       --mono:       ui-monospace, 'Courier New', monospace;
     }
@@ -31,194 +35,220 @@
     html { font-size: 16px; }
     body {
       font-family: var(--serif); color: var(--body);
-      background: var(--bg); line-height: 1.5;
+      background: var(--bg); line-height: 1.55;
       -webkit-print-color-adjust: exact; print-color-adjust: exact;
     }
 
-    /* ── Sheet ── */
     .sheet {
-      max-width: 860px; margin: 2.2rem auto; background: #fff;
-      border: 1px solid var(--border); border-radius: 12px;
-      padding: 2.6rem 2.8rem 2.2rem;
-      box-shadow: 0 1px 30px rgba(71,46,86,0.06);
+      max-width: 880px; margin: 2.2rem auto; background: #fff;
+      border: 1px solid var(--border); border-radius: 14px;
+      padding: 2.8rem 3rem 2.4rem;
+      box-shadow: 0 1px 36px rgba(71,46,86,0.07);
     }
 
     /* ── Typo ── */
-    .eyebrow {
-      font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.13em;
-      text-transform: uppercase; color: var(--heidelbeer);
-    }
-    h1 { font-size: 2.1rem; font-weight: 300; line-height: 1.12; color: var(--midnight); text-wrap: balance; }
-    h2 { font-size: 1.18rem; font-weight: 500; line-height: 1.2; color: var(--midnight); }
-    h3 { font-size: 0.92rem; font-weight: 600; line-height: 1.3; color: var(--midnight); }
-    p  { font-size: 0.86rem; line-height: 1.5; color: var(--body); }
+    .eyebrow { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--heidelbeer); }
+    h1 { font-size: 2.25rem; font-weight: 300; line-height: 1.1; color: var(--midnight); text-wrap: balance; }
+    h2 { font-size: 1.24rem; font-weight: 500; line-height: 1.2; color: var(--midnight); }
+    h3 { font-size: 0.94rem; font-weight: 600; line-height: 1.3; color: var(--midnight); }
+    p  { font-size: 0.875rem; line-height: 1.55; color: var(--body); }
     strong { color: var(--ink); font-weight: 600; }
-    .lead { font-size: 0.92rem; color: var(--muted); }
+    .lead { font-size: 0.95rem; color: var(--muted); line-height: 1.5; }
 
     /* ── Kopf ── */
-    .head { border-bottom: 2px solid var(--midnight); padding-bottom: 1.2rem; margin-bottom: 1.6rem; }
-    .head .meta {
-      display: flex; justify-content: space-between; align-items: baseline;
-      flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem;
-      font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--muted);
-    }
+    .head { border-bottom: 3px solid var(--midnight); padding-bottom: 1.3rem; margin-bottom: 0.6rem; }
+    .head h1 { margin: 0.5rem 0 0.55rem; }
+    .head .meta { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;
+      gap: 0.4rem; margin-top: 0.85rem; font-family: var(--mono); font-size: 0.66rem;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
     .head .meta a { color: var(--heidelbeer); text-decoration: none; }
-    .head h1 { margin: 0.4rem 0 0.5rem; }
 
-    /* ── Sektion ── */
-    section { margin-top: 1.5rem; break-inside: avoid; }
-    .sec-head { display: flex; align-items: baseline; gap: 0.7rem; margin-bottom: 0.7rem; }
-    .sec-no {
-      font-family: var(--mono); font-size: 0.7rem; font-weight: 600;
-      color: #fff; background: var(--midnight); border-radius: 4px;
-      padding: 0.12rem 0.42rem; letter-spacing: 0.04em; flex-shrink: 0;
-    }
+    /* ── Sektion: klare Trennung ── */
+    section { margin-top: 1.7rem; padding-top: 1.5rem; border-top: 1px solid var(--border); break-inside: avoid; }
+    section:first-of-type { border-top: none; }
+    .sec-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.95rem; }
+    .sec-no { font-family: var(--mono); font-size: 0.82rem; font-weight: 700; color: #fff;
+      width: 1.85rem; height: 1.85rem; border-radius: 7px; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; }
     .sec-head h2 { flex: 1; }
+    .n-red   { background: var(--red); }
+    .n-heid  { background: var(--heidelbeer); }
+    .n-mid   { background: var(--midnight); }
+    .n-green { background: var(--green); }
+    .kicker { font-size: 0.82rem; color: var(--muted); font-style: italic; margin: -0.5rem 0 0.85rem 2.55rem; }
 
-    /* ── Grid ── */
-    .grid { display: grid; gap: 0.8rem; }
-    .g2 { grid-template-columns: 1fr 1fr; }
-    .g3 { grid-template-columns: 1fr 1fr 1fr; }
+    /* ════ 01 · MECHANISMUS-FLUSS (mit Pfeilen) ════ */
+    .flow { display: grid; grid-template-columns: 1fr 1.4rem 1fr 1.4rem 1fr; align-items: stretch; gap: 0; }
+    .flow-step { border: 1px solid var(--border); border-radius: 9px; padding: 0.8rem 0.9rem;
+      background: linear-gradient(180deg,#fff, #FCFBFD); display: flex; flex-direction: column; }
+    .flow-step .st { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--heidelbeer); margin-bottom: 0.25rem; }
+    .flow-step h3 { font-size: 0.9rem; margin-bottom: 0.3rem; }
+    .flow-step p { font-size: 0.78rem; line-height: 1.45; }
+    .flow-arrow { display: flex; align-items: center; justify-content: center; color: var(--heidelbeer);
+      font-family: var(--mono); font-size: 1.25rem; }
 
-    /* ── Karte ── */
-    .card {
-      border: 1px solid var(--border); border-radius: 8px;
-      padding: 0.8rem 0.95rem; background: #fff;
-    }
-    .card h3 { margin-bottom: 0.25rem; }
-    .card p { font-size: 0.8rem; line-height: 1.45; }
-    .tag {
-      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.07em;
-      text-transform: uppercase; color: var(--heidelbeer); display: block; margin-bottom: 0.35rem;
-    }
+    /* ── Gefahr-Karten (rot) ── */
+    .danger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 0.85rem; }
+    .danger { border: 1px solid var(--red-br); border-left: 4px solid var(--red);
+      background: var(--red-bg); border-radius: 0 9px 9px 0; padding: 0.75rem 0.95rem; }
+    .danger .tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--red); display: block; margin-bottom: 0.3rem; font-weight: 700; }
+    .danger p { font-size: 0.8rem; line-height: 1.45; }
 
-    /* ── Fluss (3 Schritte) ── */
-    .flow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.55rem; align-items: stretch; }
-    .flow .card { padding: 0.7rem 0.8rem; }
-    .flow .card h3 { font-size: 0.86rem; }
-    .flow .card p { font-size: 0.76rem; line-height: 1.4; }
-    .flow-arrow { display:none; }
+    /* ── Plus-Hinweis ── */
+    .plus { display: flex; align-items: flex-start; gap: 0.55rem; margin-top: 0.8rem;
+      font-size: 0.81rem; line-height: 1.45; color: var(--body); }
+    .plus .ic { flex-shrink: 0; width: 1.2rem; height: 1.2rem; border-radius: 50%;
+      background: var(--heidelbeer); color: #fff; font-weight: 600; font-size: 0.8rem;
+      display: flex; align-items: center; justify-content: center; margin-top: 0.06rem; }
 
-    /* ── Plus-Zeile ── */
-    .plus {
-      display: flex; align-items: flex-start; gap: 0.55rem;
-      margin-top: 0.7rem; font-size: 0.8rem; line-height: 1.45; color: var(--body);
-    }
-    .plus .ic {
-      flex-shrink: 0; width: 1.15rem; height: 1.15rem; border-radius: 50%;
-      background: var(--heidelbeer); color: #fff; font-weight: 600;
-      font-size: 0.78rem; display: flex; align-items: center; justify-content: center;
-      margin-top: 0.05rem;
-    }
+    /* ── Merksatz ── */
+    .merk { border-left: 4px solid var(--midnight); background: var(--lilac-tint);
+      padding: 0.8rem 1rem; border-radius: 0 8px 8px 0; margin-top: 0.95rem; }
+    .merk p { font-size: 0.88rem; color: var(--midnight); }
+    .merk .ml { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--heidelbeer); display: block; margin-bottom: 0.2rem; }
 
-    /* ── Merksatz / Highlight ── */
-    .merk {
-      border-left: 3px solid var(--midnight); background: var(--lilac-tint);
-      padding: 0.7rem 0.95rem; border-radius: 0 6px 6px 0; margin-top: 0.8rem;
-    }
-    .merk p { font-size: 0.86rem; color: var(--midnight); }
+    /* ════ 02 · VERGLEICH (rot vs grün) ════ */
+    .vs { display: grid; grid-template-columns: 1fr 1.4rem 1fr; align-items: stretch; gap: 0; }
+    .vs-card { border-radius: 10px; padding: 0.85rem 1rem; display: flex; flex-direction: column; }
+    .vs-card.bad  { border: 1px solid var(--red-br);   background: var(--red-bg); }
+    .vs-card.good { border: 1px solid var(--green-br); background: var(--green-bg); }
+    .vs-card h3 { font-size: 0.96rem; margin-bottom: 0.3rem; }
+    .vs-card.bad  h3 { color: var(--red); }
+    .vs-card.good h3 { color: var(--green); }
+    .vs-card p { font-size: 0.8rem; line-height: 1.45; }
+    .vs-mid { display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
 
-    /* ── Schichten-Stack ── */
+    /* ── Verschachteltes Schicht-Diagramm ── */
+    .subhead { font-size: 0.92rem; font-weight: 600; color: var(--midnight); margin: 1.1rem 0 0.55rem; }
+    .sysframe { border: 2px solid var(--heidelbeer); border-radius: 12px; padding: 0.7rem 0.8rem 0.8rem; position: relative; }
+    .sysframe > .sys-label { display: flex; align-items: baseline; gap: 0.55rem; margin-bottom: 0.55rem; }
+    .sys-label b { color: var(--midnight); font-size: 0.9rem; }
+    .sys-label .sl { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--heidelbeer); }
+    .sys-label span.d { font-size: 0.76rem; color: var(--muted); line-height: 1.35; }
     .layers { display: flex; flex-direction: column; }
-    .sysrow {
-      border: 1.5px solid var(--heidelbeer); border-radius: 8px;
-      padding: 0.5rem 0.8rem; margin-bottom: 0.45rem;
-      display: flex; align-items: baseline; gap: 0.6rem;
-    }
-    .layer {
-      border: 1px solid var(--border); padding: 0.5rem 0.8rem;
-      display: flex; align-items: baseline; gap: 0.6rem;
-    }
-    .layer:first-child { border-radius: 7px 7px 0 0; }
-    .layer:last-child  { border-radius: 0 0 7px 7px; }
+    .layer { border: 1px solid var(--lilac-br); padding: 0.55rem 0.8rem; display: grid;
+      grid-template-columns: 6.5rem 4.2rem 1fr; align-items: baseline; gap: 0.5rem; }
+    .layer:first-child { border-radius: 8px 8px 0 0; }
+    .layer:last-child  { border-radius: 0 0 8px 8px; }
     .layer + .layer { border-top: none; }
-    .layer.l3 { background: #F6F4F9; }
-    .layer.l2 { background: #EFEBF5; }
-    .layer.l1 { background: #E6DEF1; }
-    .sysrow b, .layer b { color: var(--midnight); font-size: 0.85rem; min-width: 6.8rem; flex-shrink: 0; }
-    .sysrow .sl, .layer .sl {
-      font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--heidelbeer); min-width: 4.4rem; flex-shrink: 0;
-    }
-    .sysrow span.t, .layer span.t { font-size: 0.78rem; line-height: 1.35; color: var(--body); }
+    .layer.l3 { background: #F4F1F8; }
+    .layer.l2 { background: #EBE5F2; }
+    .layer.l1 { background: #DFD5EC; }
+    .layer b { color: var(--midnight); font-size: 0.85rem; }
+    .layer .sl { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--heidelbeer); }
+    .layer span.t { font-size: 0.77rem; line-height: 1.35; color: var(--body); }
+    .micro { font-size: 0.74rem; color: var(--muted); margin-top: 0.45rem; line-height: 1.4; }
 
-    /* ── Synthese ── */
-    .synth { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.55rem; margin-top: 0.5rem; }
-    .synth .card { padding: 0.65rem 0.8rem; }
-    .synth .card h3 { font-size: 0.82rem; }
-    .synth .card p { font-size: 0.74rem; line-height: 1.38; }
+    /* ── Drei Gedächtnisse (eines hervorgehoben) ── */
+    .mems { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem; margin-top: 0.5rem; }
+    .mem { border: 1px solid var(--border); border-radius: 9px; padding: 0.7rem 0.85rem; background: #fff; }
+    .mem.key { border: 1.5px solid var(--green-br); background: var(--green-bg); }
+    .mem.mut { background: #FAFAFA; }
+    .mem .tag { font-family: var(--mono); font-size: 0.57rem; letter-spacing: 0.05em;
+      text-transform: uppercase; display: block; margin-bottom: 0.3rem; color: var(--heidelbeer); }
+    .mem.key .tag { color: var(--green); font-weight: 700; }
+    .mem h3 { font-size: 0.84rem; margin-bottom: 0.2rem; }
+    .mem p { font-size: 0.74rem; line-height: 1.4; }
 
-    /* ── Steps ── */
-    .steps { display: flex; flex-direction: column; gap: 0.6rem; }
-    .step { display: grid; grid-template-columns: 1.6rem 1fr; gap: 0.8rem; align-items: start; }
-    .num {
-      width: 1.6rem; height: 1.6rem; border-radius: 50%;
-      background: var(--midnight); color: #fff; font-size: 0.78rem; font-weight: 500;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.05rem;
-    }
-    .step h3 { margin-bottom: 0.15rem; }
-    .step p { font-size: 0.8rem; line-height: 1.42; }
-    .step .tag { margin-bottom: 0.18rem; }
+    /* ════ 03 · TIMELINE-SCHRITTE ════ */
+    .steps { display: flex; flex-direction: column; gap: 0.85rem; position: relative; }
+    .step { display: grid; grid-template-columns: 1.7rem 1fr; gap: 0.85rem; align-items: start; position: relative; }
+    .step:not(:last-child)::before { content: ''; position: absolute; left: calc(0.85rem - 1px);
+      top: 1.7rem; bottom: -0.85rem; width: 2px; background: var(--lilac-br); }
+    .num { width: 1.7rem; height: 1.7rem; border-radius: 50%; background: var(--midnight); color: #fff;
+      font-size: 0.82rem; font-weight: 500; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 0.02rem; position: relative; z-index: 1; }
+    .step .tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--heidelbeer); display: block; margin-bottom: 0.12rem; }
+    .step h3 { margin-bottom: 0.18rem; }
+    .step p { font-size: 0.81rem; line-height: 1.45; }
 
-    /* ── Tabelle ── */
-    table { width: 100%; border-collapse: collapse; table-layout: fixed; margin-top: 0.2rem; }
+    /* ════ 04 · AMPEL-TABELLE ════ */
+    table { width: 100%; border-collapse: separate; border-spacing: 0.4rem 0; table-layout: fixed; margin-top: 0.2rem; }
     th, td { width: 33.33%; text-align: left; vertical-align: top; }
-    th {
-      font-family: var(--mono); font-size: 0.62rem; text-transform: uppercase;
-      letter-spacing: 0.06em; color: var(--midnight); font-weight: 600;
-      padding: 0.4rem 0.6rem; border-bottom: 1.5px solid var(--midnight);
-    }
-    td {
-      padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border);
-      font-size: 0.78rem; line-height: 1.4; color: var(--body);
-    }
-    .colmark { font-weight: 600; }
+    th { font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.05em;
+      font-weight: 700; padding: 0.45rem 0.7rem; border-radius: 7px 7px 0 0; }
+    th.good { color: var(--green); background: var(--green-bg); border: 1px solid var(--green-br); border-bottom: none; }
+    th.warn { color: var(--amber); background: var(--amber-bg); border: 1px solid var(--amber-br); border-bottom: none; }
+    th.bad  { color: var(--red);   background: var(--red-bg);   border: 1px solid var(--red-br);   border-bottom: none; }
+    td { padding: 0.4rem 0.7rem; font-size: 0.79rem; line-height: 1.4; color: var(--body);
+      border-left: 1px solid var(--border); border-right: 1px solid var(--border); }
+    .tcol-good td { border-color: var(--green-br); }
+    .tcol-warn td { border-color: var(--amber-br); }
+    .tcol-bad  td { border-color: var(--red-br); }
+    tbody tr:last-child td { border-bottom: 1px solid var(--border); border-radius: 0 0 7px 7px; }
+    td.good { border-left-color: var(--green-br); border-right-color: var(--green-br); }
+    td.warn { border-left-color: var(--amber-br); border-right-color: var(--amber-br); }
+    td.bad  { border-left-color: var(--red-br);   border-right-color: var(--red-br); }
+    tbody tr:last-child td.good { border-bottom-color: var(--green-br); }
+    tbody tr:last-child td.warn { border-bottom-color: var(--amber-br); }
+    tbody tr:last-child td.bad  { border-bottom-color: var(--red-br); }
+
+    /* ════ 05 · TAKE-AWAYS ════ */
+    .takes { display: flex; flex-direction: column; gap: 0.7rem; }
+    .take { display: grid; grid-template-columns: 1.9rem 1fr; gap: 0.85rem; align-items: start;
+      background: var(--lilac-tint); border-radius: 9px; padding: 0.7rem 0.95rem; }
+    .take .bignum { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: var(--heidelbeer); line-height: 1; }
+    .take h3 { margin-bottom: 0.15rem; }
+    .take p { font-size: 0.8rem; line-height: 1.42; }
 
     /* ── Footer ── */
-    .foot {
-      margin-top: 1.6rem; border-top: 1px solid var(--border);
-      padding-top: 0.8rem; font-size: 0.74rem; line-height: 1.45; color: var(--muted);
-    }
+    .foot { margin-top: 1.7rem; border-top: 1px solid var(--border); padding-top: 0.85rem;
+      font-size: 0.74rem; line-height: 1.45; color: var(--muted); }
     .foot strong { color: var(--midnight); }
 
-    /* ── Print-Leiste ── */
-    .bar {
-      max-width: 860px; margin: 1.4rem auto -0.6rem; display: flex; justify-content: flex-end;
-      padding: 0 2.8rem;
-    }
-    .bar button {
-      font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--midnight); background: #fff; border: 1px solid var(--lilac-br);
-      border-radius: 6px; padding: 0.45rem 0.9rem; cursor: pointer;
-    }
+    /* ── Druck-Leiste ── */
+    .bar { max-width: 880px; margin: 1.4rem auto -0.6rem; display: flex; justify-content: flex-end; padding: 0 3rem; }
+    .bar button { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--midnight); background: #fff; border: 1px solid var(--lilac-br); border-radius: 6px;
+      padding: 0.45rem 0.9rem; cursor: pointer; }
     .bar button:hover { background: var(--lilac-tint); }
 
-    /* ════════════ PRINT — wenig Farbe, 2× A4 ════════════ */
+    /* ── Responsive ── */
+    @media (max-width: 680px) {
+      .sheet { padding: 1.8rem 1.4rem; }
+      .flow, .vs { grid-template-columns: 1fr; }
+      .flow-arrow, .vs-mid { transform: rotate(90deg); padding: 0.2rem 0; }
+      .danger-grid, .mems { grid-template-columns: 1fr; }
+      .layer { grid-template-columns: 5.5rem 1fr; }
+      .layer .sl { display: none; }
+      table, thead, tbody, th, td, tr { display: block; width: 100%; }
+      th { margin-top: 0.6rem; }
+    }
+
+    /* ════════ DRUCK — wenig Farbe, 2× A4 ════════ */
     @media print {
-      @page { size: A4 portrait; margin: 13mm 14mm; }
-      html { font-size: 9.1pt; }
+      @page { size: A4 portrait; margin: 11mm 13mm; }
+      html { font-size: 8.8pt; }
       body { background: #fff; }
       .bar { display: none; }
-      .sheet {
-        max-width: none; margin: 0; border: none; border-radius: 0;
-        padding: 0; box-shadow: none;
-      }
-      /* Farbreduktion: nur Schwarz/Anthrazit + ein gedämpftes Lila für Marker */
+      .sheet { max-width: none; margin: 0; border: none; border-radius: 0; padding: 0; box-shadow: none; }
       :root {
-        --midnight: #2E2533; --heidelbeer: #5b5266; --body: #202022;
-        --border: #C9C9C9; --lilac-tint: #F3F1F6; --muted: #555;
+        --midnight: #2B2430; --heidelbeer: #5a5165; --body: #1f1f22; --muted: #555; --border: #C7C7C7;
+        --lilac-tint: #F4F2F6; --lilac-br: #BDBDBD;
+        --red: #2B2430; --red-bg: #F6F5F7; --red-br: #BDBDBD;
+        --green: #2B2430; --green-bg: #F6F5F7; --green-br: #BDBDBD;
+        --amber: #2B2430; --amber-bg: #F6F5F7; --amber-br: #BDBDBD;
       }
-      h1, h2, h3 { color: #241F29; }
-      .sec-no { background: #241F29; }
-      .num { background: #241F29; }
-      .merk { background: #F4F3F6; border-left-color: #241F29; }
-      .merk p { color: #241F29; }
-      .layer.l3, .layer.l2, .layer.l1 { background: #F5F4F7; }
-      .sysrow { border-color: #555; }
+      h1,h2,h3 { color: #241F29; }
+      .sec-no, .num { background: #241F29 !important; }
+      .layer.l3,.layer.l2,.layer.l1 { background: #F4F3F6; }
+      .flow-step { background: #fff; }
+      .mem.key, .vs-card.good, .vs-card.bad, .danger, .take { background: #F6F5F7; }
+      .merk { background: #F2F1F4; border-left-color: #241F29; }
       .plus .ic { background: #555; }
       .pagebreak { break-before: page; }
-      section { break-inside: avoid; }
+      section { break-inside: avoid; padding-top: 0.5rem; margin-top: 0.65rem; }
+      .merk, .danger-grid, .mems, .plus { margin-top: 0.6rem; }
+      .subhead { margin: 0.7rem 0 0.4rem; }
+      .kicker { margin-bottom: 0.55rem; }
     }
   </style>
 </head>
@@ -235,177 +265,120 @@
       <p class="lead">Zusammenfassung zum Mitnehmen: wie KI wirklich arbeitet, was Context Engineering ist und wie Du Dein eigenes Setup aufsetzt.</p>
       <div class="meta">
         <span>Linja Scharffetter · 27. Juni 2026</span>
-        <span><a href="/lehre/ki-assistenz.html">Zum Foliendeck → linja.me/lehre/ki-assistenz</a></span>
+        <span><a href="/lehre/ki-assistenz.html">Foliendeck → linja.me/lehre/ki-assistenz</a></span>
       </div>
     </header>
 
-    <!-- ── 01 BEWUSSTSEIN ── -->
+    <!-- ── 01 ── -->
     <section>
-      <div class="sec-head"><span class="sec-no">01</span><h2>Bewusstsein: KI generiert Plausibles, kein Wissen</h2></div>
+      <div class="sec-head"><span class="sec-no n-red">01</span><h2>Bewusstsein: KI generiert Plausibles, kein Wissen</h2></div>
+      <p class="kicker">Warum selbst die beste KI Quellen erfindet, ohne es zu merken.</p>
+
       <div class="flow">
-        <div class="card">
-          <h3>Training</h3>
-          <p>Milliarden Texte werden verlustbehaftet in Modellgewichte komprimiert. Seltenes und Spezifisches geht verloren.</p>
-        </div>
-        <div class="card">
-          <h3>Generieren</h3>
-          <p>Kein Datenbankzugriff. Das Modell berechnet das wahrscheinlichste nächste Wort, optimiert auf Plausibilität, nicht Wahrheit.</p>
-        </div>
-        <div class="card">
-          <h3>Output</h3>
-          <p>Kein eingebautes „Ich weiß es nicht". Falsches klingt so souverän wie Richtiges.</p>
-        </div>
+        <div class="flow-step"><span class="st">Schritt 1</span><h3>Training</h3><p>Texte werden <strong>verlustbehaftet</strong> in Modellgewichte komprimiert. Spezifisches geht verloren.</p></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span class="st">Schritt 2</span><h3>Generieren</h3><p>Kein Datenbankzugriff. Das Modell wählt das <strong>wahrscheinlichste</strong> nächste Wort, nicht das wahre.</p></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span class="st">Schritt 3</span><h3>Output</h3><p>Kein eingebautes „weiß ich nicht". <strong>Falsches klingt so souverän wie Richtiges.</strong></p></div>
       </div>
-      <div class="plus"><span class="ic">+</span><span><strong>Knowledge Cutoff:</strong> Die KI kennt die Welt nur bis zum Trainingszeitpunkt und prüft beim Generieren nichts gegen die Wahrheit. Mehr Daten machen Antworten plausibler, nicht wahrer. Auch eine web-suchende KI ändert den Mechanismus nicht: Sie kann echte Quellen falsch wiedergeben oder Lücken plausibel füllen.</span></div>
-      <div class="grid g2" style="margin-top:0.8rem;">
-        <div class="card">
-          <span class="tag">Das Novizen-Problem</span>
-          <p>KI ist am gefährlichsten genau dort, wo Du am wenigsten weißt. Einen Fehler zu erkennen setzt Vorwissen voraus, nicht nur Sorgfalt. Beim Einstieg in ein Thema fehlt genau dieses Vorwissen.</p>
-        </div>
-        <div class="card">
-          <span class="tag">Bibliografische Halluzination</span>
-          <p>Das Modell imitiert das Muster von Zitationen ohne Beweis: plausible Kombination aus Autor, Jahr, Titel, Verlag. Die Einzelteile sind oft real, die Kombination ist erfunden. Jede Quelle in Katalog / Google Scholar / DOI prüfen.</p>
-        </div>
+
+      <div class="plus"><span class="ic">+</span><span><strong>Knowledge Cutoff:</strong> Die KI kennt die Welt nur bis zum Trainingszeitpunkt und prüft nichts gegen die Wahrheit. Mehr Daten machen Antworten plausibler, nicht wahrer. Auch eine web-suchende KI ändert den Mechanismus nicht.</span></div>
+
+      <div class="danger-grid">
+        <div class="danger"><span class="tag">⚠ Das Novizen-Problem</span><p>KI ist am gefährlichsten genau dort, <strong>wo Du am wenigsten weißt</strong>. Einen Fehler zu erkennen setzt Vorwissen voraus, nicht nur Sorgfalt.</p></div>
+        <div class="danger"><span class="tag">⚠ Erfundene Quellen</span><p>Plausible Kombination aus Autor, Jahr, Titel, Verlag. Die Teile sind oft real, die Kombination ist erfunden. <strong>Jede Quelle in Katalog / Scholar / DOI prüfen.</strong></p></div>
       </div>
-      <div class="merk"><p><strong>Merksatz:</strong> KI-Output ist eine unbelegte Behauptung. Die Beweislast liegt bei Dir, bis zum Beweis des Gegenteils.</p></div>
+
+      <div class="merk"><span class="ml">Merksatz</span><p>KI-Output ist eine <strong>unbelegte Behauptung</strong>. Die Beweislast liegt bei Dir, bis zum Beweis des Gegenteils.</p></div>
     </section>
 
-    <!-- ── 02 CONTEXT ENGINEERING ── -->
+    <!-- ── 02 ── -->
     <section>
-      <div class="sec-head"><span class="sec-no">02</span><h2>Context Engineering: Sinnhaftigkeit &amp; Systemaufbau</h2></div>
-      <div class="grid g2">
-        <div class="card">
-          <h3>Prompting</h3>
-          <p>Die Art, Befehle zu schreiben: Formulierungen, Vorlagen, Tricks. Modellabhängig, kann von Version zu Version an Wirkung verlieren. Hilft nicht dauerhaft.</p>
-        </div>
-        <div class="card">
-          <h3>Context Engineering</h3>
-          <p>Arbeitsgrundlage und Vertrag mit der KI: bestimmt Ergebnisart und Prüfweg. Weiß die KI das Richtige über Dich, Dein Können und Dein Thema, wird der Output belastbarer. <strong>Die Output-Qualität hängt an der Qualität des Kontexts.</strong></p>
-        </div>
+      <div class="sec-head"><span class="sec-no n-heid">02</span><h2>Context Engineering: Sinnhaftigkeit &amp; Systemaufbau</h2></div>
+      <p class="kicker">Die Output-Qualität hängt an der Qualität des Kontexts, den Du gibst.</p>
+
+      <div class="vs">
+        <div class="vs-card bad"><h3>Prompting</h3><p>Die Art, Befehle zu schreiben: Formulierungen, Vorlagen, Tricks. <strong>Modellabhängig</strong>, verliert von Version zu Version an Wirkung.</p></div>
+        <div class="vs-mid">statt</div>
+        <div class="vs-card good"><h3>Context Engineering</h3><p>Arbeitsvertrag mit der KI: bestimmt Ergebnisart und Prüfweg. Weiß die KI das Richtige über Dich und Dein Thema, wird der Output <strong>belastbarer</strong>.</p></div>
       </div>
 
-      <h3 style="margin:0.95rem 0 0.4rem;">Systemaufbau — Wissen trennscharf in drei Schichten, eingebettet in ein System</h3>
-      <div class="layers">
-        <div class="sysrow"><b>System</b><span class="sl">Rahmen</span><span class="t">Regelwerk / Arbeitsvertrag mit dem KI-Tool (CLAUDE.md, rules, Memory): wer Du bist, wie gearbeitet wird, was die KI darf. Umschließt die Schichten und lädt jede Session automatisch.</span></div>
-        <div class="layer l3"><b>Sensemaking</b><span class="sl">Schicht 3</span><span class="t">Muster erkennen, einordnen, reflektieren, eigene Schlüsse und Argumente entwickeln.</span></div>
-        <div class="layer l2"><b>Identity</b><span class="sl">Schicht 2</span><span class="t">Deine Fähigkeiten, Notizen, Thesen, bisherige Arbeiten. Alles, was Dich ausmacht.</span></div>
-        <div class="layer l1"><b>Knowledge</b><span class="sl">Schicht 1</span><span class="t">Fachwissen, das unabhängig von Dir existiert: Theorien, Methoden, Quellen, Pflichtlektüre.</span></div>
+      <div class="subhead">Systemaufbau — Wissen in drei Schichten, eingebettet in ein System</div>
+      <div class="sysframe">
+        <div class="sys-label"><b>System</b><span class="sl">Rahmen</span><span class="d">Regelwerk / Arbeitsvertrag (CLAUDE.md, rules, Memory) — umschließt die Schichten, lädt jede Session automatisch.</span></div>
+        <div class="layers">
+          <div class="layer l3"><b>Sensemaking</b><span class="sl">Schicht 3</span><span class="t">Einordnen, reflektieren, eigene Schlüsse und Argumente entwickeln.</span></div>
+          <div class="layer l2"><b>Identity</b><span class="sl">Schicht 2</span><span class="t">Deine Fähigkeiten, Notizen, Thesen, bisherige Arbeiten.</span></div>
+          <div class="layer l1"><b>Knowledge</b><span class="sl">Schicht 1</span><span class="t">Fachwissen unabhängig von Dir: Theorien, Methoden, Quellen, Pflichtlektüre.</span></div>
+        </div>
       </div>
-      <p style="font-size:0.76rem; color:var(--muted); margin-top:0.4rem;">Innerhalb der Schichten existiert jede Information nur einmal. Beispiel Seminararbeit: Schicht 1 = Pflichtlektüre, Schicht 2 = Notizen + These, Schicht 3 = Argumentation.</p>
+      <p class="micro">Jede Information existiert nur einmal. Beispiel Seminararbeit: Schicht 1 = Pflichtlektüre, Schicht 2 = Notizen + These, Schicht 3 = Argumentation.</p>
 
-      <h3 style="margin:0.95rem 0 0.4rem;">Warum es wirkt — KI hat drei Gedächtnisse</h3>
-      <div class="synth">
-        <div class="card"><span class="tag">Arbeitsgedächtnis · steuerbar</span><p>Das laufende Gespräch / Kontextfenster. Pro Aufgabe gezielt befüllt, wird zuverlässig genutzt. Die einzige Stelle, an der KI verlässlich liest: leg Dein geprüftes Material hierher.</p></div>
-        <div class="card"><span class="tag">Langzeitgedächtnis</span><p>Über Sessions hinweg. System-Rahmen (CLAUDE.md, Rules, Memory) lädt automatisch, ohne dass Du Dich wiederholst.</p></div>
-        <div class="card"><span class="tag">Semantisches Gedächtnis</span><p>Antrainiertes Weltwissen aus den Gewichten. Verlustbehaftet, nicht änderbar, nur als Fallback. Erfindet genau da, wo es unscharf wird.</p></div>
+      <div class="subhead">Warum es wirkt — KI hat drei Gedächtnisse</div>
+      <div class="mems">
+        <div class="mem key"><span class="tag">★ steuerbar</span><h3>Arbeitsgedächtnis</h3><p>Das laufende Gespräch. Pro Aufgabe gezielt befüllt. Die <strong>einzige Stelle, an der KI zuverlässig liest</strong> — leg geprüftes Material hierher.</p></div>
+        <div class="mem"><span class="tag">automatisch</span><h3>Langzeitgedächtnis</h3><p>Über Sessions hinweg. System-Rahmen lädt automatisch, ohne dass Du Dich wiederholst.</p></div>
+        <div class="mem mut"><span class="tag">nur Fallback</span><h3>Semantisches</h3><p>Antrainiertes Weltwissen. Verlustbehaftet, nicht änderbar. Erfindet, wo es unscharf wird.</p></div>
       </div>
-      <div class="merk"><p><strong>Sinnhaftigkeit:</strong> Context Engineering setzt Denken voraus, es ersetzt es nicht. Guten Kontext bauen heißt, das Thema durchdrungen zu haben. So wird KI aus dem Lieferanten für Unbekanntes zum Kritiker für das, was Du erarbeitet hast.</p></div>
+
+      <div class="merk"><span class="ml">Sinnhaftigkeit</span><p>Context Engineering <strong>setzt Denken voraus, es ersetzt es nicht</strong>. Guten Kontext bauen heißt, das Thema durchdrungen zu haben. So wird KI vom Lieferanten für Unbekanntes zum Kritiker für das, was Du erarbeitet hast.</p></div>
     </section>
 
     <div class="pagebreak"></div>
 
-    <!-- ── 03 SETUP ── -->
+    <!-- ── 03 ── -->
     <section>
-      <div class="sec-head"><span class="sec-no">03</span><h2>Setup-Anleitung: Dein eigenes Setup in drei Schritten</h2></div>
+      <div class="sec-head"><span class="sec-no n-mid">03</span><h2>Setup-Anleitung: Dein eigenes Setup in drei Schritten</h2></div>
       <div class="steps">
-        <div class="step">
-          <div class="num">1</div>
-          <div>
-            <span class="tag">Einmalig, ~30 Min · System + Identity</span>
-            <h3>Kontext-Doku schreiben</h3>
-            <p>Ein Dokument: Wer bin ich, was studiere ich, Thema und These der Arbeit, Lehrstuhl-Vorgaben (Zitierstil, Umfang) und wie die KI helfen soll.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="num">2</div>
-          <div>
-            <span class="tag">Persistenz · Knowledge</span>
-            <h3>Dauerhaft ablegen</h3>
-            <p>In Custom Instructions oder Memory packen, oder ein Project anlegen und Deine gelesenen Quellen und Notizen hochladen.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="num">3</div>
-          <div>
-            <span class="tag">Arbeitsgedächtnis · Sensemaking</span>
-            <h3>Pro Aufgabe gezielt füttern</h3>
-            <p>Vor jeder Frage die passende Lektüre und Deine These reingeben. Die KI soll Deine Arbeit kritisieren, nicht liefern.</p>
-          </div>
-        </div>
+        <div class="step"><div class="num">1</div><div>
+          <span class="tag">Einmalig, ~30 Min · System + Identity</span>
+          <h3>Kontext-Doku schreiben</h3>
+          <p>Ein Dokument: Wer bin ich, was studiere ich, Thema und These, Lehrstuhl-Vorgaben (Zitierstil, Umfang) und wie die KI helfen soll.</p>
+        </div></div>
+        <div class="step"><div class="num">2</div><div>
+          <span class="tag">Persistenz · Knowledge</span>
+          <h3>Dauerhaft ablegen</h3>
+          <p>In Custom Instructions oder Memory packen, oder ein Project anlegen und gelesene Quellen und Notizen hochladen.</p>
+        </div></div>
+        <div class="step"><div class="num">3</div><div>
+          <span class="tag">Arbeitsgedächtnis · Sensemaking</span>
+          <h3>Pro Aufgabe gezielt füttern</h3>
+          <p>Vor jeder Frage die passende Lektüre und Deine These reingeben. Die KI soll <strong>kritisieren, nicht liefern</strong>.</p>
+        </div></div>
       </div>
-      <div class="merk"><p><strong>Wenn das zu viel ist — Mini-Einstieg (2 Min, ohne Setup):</strong> Bevor Du fragst, schreib drei Sätze auf: Deine These, was Du schon weißt, was Du genau brauchst. Gib das mit und lass die KI Deinen Gedanken angreifen, nicht liefern.</p></div>
-      <div class="plus"><span class="ic">+</span><span>Das Prinzip läuft in der Gratis-Version. Bezahlung bringt größeres Kontextfenster, Datei-Upload und Projektordner, spart also Reibung, ist aber kein Muss. Tool-agnostisch: heißt bei Claude CLAUDE.md, in ChatGPT erfüllen Custom Instructions denselben Zweck.</span></div>
+      <div class="merk"><span class="ml">Mini-Einstieg · 2 Min, ohne Setup</span><p>Bevor Du fragst, schreib drei Sätze: Deine These, was Du schon weißt, was Du genau brauchst. Gib das mit und lass die KI Deinen Gedanken angreifen.</p></div>
+      <div class="plus"><span class="ic">+</span><span>Läuft in der Gratis-Version. Bezahlung spart nur Reibung (größeres Kontextfenster, Upload, Projekte). Tool-agnostisch: bei Claude CLAUDE.md, in ChatGPT Custom Instructions.</span></div>
     </section>
 
-    <!-- ── 04 NUTZUNGSLANDKARTE ── -->
+    <!-- ── 04 ── -->
     <section>
-      <div class="sec-head"><span class="sec-no">04</span><h2>Nutzungslandkarte &amp; Faustregel</h2></div>
+      <div class="sec-head"><span class="sec-no n-heid">04</span><h2>Nutzungslandkarte &amp; Faustregel</h2></div>
       <table>
         <thead>
-          <tr>
-            <th>Gut — delegieren ✓</th>
-            <th>Mit Vorsicht ~</th>
-            <th>Nicht geeignet ✗</th>
-          </tr>
+          <tr><th class="good">✓ Gut — delegieren</th><th class="warn">~ Mit Vorsicht</th><th class="bad">✗ Nicht geeignet</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Schreibplan aus eigener Gliederung</td>
-            <td>Konzepterklärungen (Lektüre nicht ersetzen)</td>
-            <td>Einstieg in ein unbekanntes Thema</td>
-          </tr>
-          <tr>
-            <td>Zeitplan für die Prüfungsphase</td>
-            <td>Literaturhinweise (immer selbst prüfen)</td>
-            <td>Forschungslücken erfinden lassen</td>
-          </tr>
-          <tr>
-            <td>Eigene Notizen strukturieren</td>
-            <td>Feedback auf Gliederung (eigene zuerst)</td>
-            <td>Als zitierfähige Quelle</td>
-          </tr>
-          <tr>
-            <td>Offene Fragen klären lassen</td>
-            <td></td>
-            <td>Wenn Denken die Lernleistung ist</td>
-          </tr>
+          <tr class="tcol"><td class="good">Schreibplan aus eigener Gliederung</td><td class="warn">Konzepterklärungen (Lektüre nicht ersetzen)</td><td class="bad">Einstieg in ein unbekanntes Thema</td></tr>
+          <tr><td class="good">Zeitplan für die Prüfungsphase</td><td class="warn">Literaturhinweise (immer selbst prüfen)</td><td class="bad">Forschungslücken erfinden lassen</td></tr>
+          <tr><td class="good">Eigene Notizen strukturieren</td><td class="warn">Feedback auf Gliederung (eigene zuerst)</td><td class="bad">Als zitierfähige Quelle</td></tr>
+          <tr><td class="good">Offene Fragen klären lassen</td><td class="warn"></td><td class="bad">Wenn Denken die Lernleistung ist</td></tr>
         </tbody>
       </table>
-      <div class="merk"><p><strong>Faustregel:</strong> Struktur kannst Du delegieren. Eigenes Urteilen und Denken im komplexen, wissenschaftlichen Rahmen lässt sich nicht umgehen.</p></div>
+      <div class="merk"><span class="ml">Faustregel</span><p><strong>Struktur kannst Du delegieren.</strong> Eigenes Urteilen und Denken im wissenschaftlichen Rahmen lässt sich nicht umgehen.</p></div>
     </section>
 
-    <!-- ── 05 TAKE-AWAYS ── -->
+    <!-- ── 05 ── -->
     <section>
-      <div class="sec-head"><span class="sec-no">05</span><h2>Drei Take-aways</h2></div>
-      <div class="steps">
-        <div class="step">
-          <div class="num">1</div>
-          <div>
-            <h3>KI generiert Plausibles, kein Wissen.</h3>
-            <p>Die Beweislast liegt bei Dir. Jede Aussage ist eine unbelegte Behauptung bis zum Beweis des Gegenteils.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="num">2</div>
-          <div>
-            <h3>KI ist am gefährlichsten, wo Du am wenigsten weißt.</h3>
-            <p>Erst selbst lesen, dann KI als Kritiker. Guter Kontext ist Deine eigene Vorarbeit.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="num">3</div>
-          <div>
-            <h3>KI ist kein Autor. Struktur delegieren, Urteil behalten.</h3>
-            <p>Eigenleistung und Transparenz bleiben bei Dir. Und: Wo das Denken getan ist, darf KI Struktur übernehmen.</p>
-          </div>
-        </div>
+      <div class="sec-head"><span class="sec-no n-green">05</span><h2>Drei Take-aways</h2></div>
+      <div class="takes">
+        <div class="take"><div class="bignum">1</div><div><h3>KI generiert Plausibles, kein Wissen.</h3><p>Die Beweislast liegt bei Dir. Jede Aussage ist eine unbelegte Behauptung bis zum Beweis des Gegenteils.</p></div></div>
+        <div class="take"><div class="bignum">2</div><div><h3>KI ist am gefährlichsten, wo Du am wenigsten weißt.</h3><p>Erst selbst lesen, dann KI als Kritiker. Guter Kontext ist Deine eigene Vorarbeit.</p></div></div>
+        <div class="take"><div class="bignum">3</div><div><h3>KI ist kein Autor. Struktur delegieren, Urteil behalten.</h3><p>Eigenleistung und Transparenz bleiben bei Dir. Wo das Denken getan ist, darf KI Struktur übernehmen.</p></div></div>
+      </div>
+      <div class="foot">
+        <p><strong>Wissenschaftliche Integrität:</strong> KI ist kein Autor und keine zitierfähige Quelle („ChatGPT hat gesagt" ist kein Beleg). Ob und wie KI-Einsatz kenntlich gemacht werden muss, regeln Prüfungsordnung und Lehrstuhl — am besten vorab klären. Handout zum Vortrag „KI als Assistenz bewusst steuern" · Linja Scharffetter · linja.me/lehre/ki-assistenz</p>
       </div>
     </section>
-
-    <!-- ── FOOTER ── -->
-    <div class="foot">
-      <p><strong>Wissenschaftliche Integrität:</strong> KI ist kein Autor und keine zitierfähige Quelle („ChatGPT hat gesagt" ist kein Beleg). Ob und wie KI-Einsatz kenntlich gemacht werden muss, regeln Prüfungsordnung und Lehrstuhl, am besten vorab klären. Handout zum Vortrag „KI als Assistenz bewusst steuern" · Linja Scharffetter · linja.me/lehre/ki-assistenz</p>
-    </div>
 
   </div>
 </body>
