@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <meta name="theme-color" content="#7B6BA5">
+  <title>KI im Studium bewusst steuern · Linja Scharffetter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --midnight:   #472E56;
+      --heidelbeer: #7b6ba5;
+      --lilac-bg:   #F0EAF9;
+      --lilac-br:   #D4C4EC;
+      --lilac-tint: rgba(212,196,236,0.35);
+      --bg:         #FAFAF8;
+      --bg-warm:    #F5F3EF;
+      --text:       #1A1A1A;
+      --body:       #44403C;
+      --muted:      #78716C;
+      --border:     #E7E5E4;
+      --serif:      'Fraunces', Georgia, serif;
+      --mono:       ui-monospace, 'Courier New', monospace;
+    }
+
+    html, body { height: 100%; background: #1C1917; font-family: var(--serif); }
+
+    /* ── Shell ── */
+    #deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+
+    .slide {
+      display: none;
+      position: absolute; inset: 0;
+      padding: 4rem 6.5rem;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--bg);
+    }
+    .slide.on { display: flex; }
+
+    /* ═══ TYPE 1 · INHALT  beige, links (default) ═══ */
+
+    /* ═══ TYPE 2 · LILA  zentriert, midnight, weiße Schrift ═══ */
+    .slide.dark {
+      background: var(--midnight);
+      align-items: center;
+      text-align: center;
+    }
+
+    /* ── Typography ── */
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem; letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--heidelbeer); margin-bottom: 1.8rem;
+    }
+    .dark .eyebrow { color: rgba(255,255,255,0.45); }
+
+    h1 { font-size: 3.6rem; font-weight: 300; line-height: 1.1; text-wrap: balance; color: var(--midnight); }
+    h2 { font-size: 2.2rem;  font-weight: 400; line-height: 1.2; text-wrap: balance; color: var(--midnight); margin-bottom: 2rem; }
+    h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.3; color: var(--midnight); margin-bottom: 0.5rem; }
+    p  { font-size: 1.2rem; line-height: 1.7; color: var(--body); }
+    strong { color: var(--text); }
+
+    .dark h1, .dark h2, .dark h3 { color: #F5F3EF; }
+    .dark p   { color: rgba(245,243,239,0.78); }
+    .dark strong { color: #fff; }
+
+    /* Einheitliche Statement-Größe für ALLE lilanen Folien */
+    .statement {
+      font-size: 2.6rem; font-weight: 400; font-style: normal;
+      line-height: 1.35; text-wrap: balance; color: var(--midnight);
+      max-width: 30ch;
+    }
+    .dark .statement { color: #F5F3EF; }
+
+    .sub { font-size: 1.2rem; line-height: 1.65; color: var(--muted); max-width: 58ch; }
+    .dark .sub { color: rgba(245,243,239,0.6); }
+
+    /* ── Grid — align-items:stretch (default) → gleiche Höhen ── */
+    .row   { display: grid; gap: 2rem; }
+    .row-2 { grid-template-columns: 1fr 1fr; }
+    .row-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .gap-lg { gap: 3rem; }
+
+    /* ── Box — eine Headline + ein Body ── */
+    .box {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      background: #fff;
+      display: flex; flex-direction: column;
+    }
+    .box h3 { margin-bottom: 0.7rem; }
+    .box p  { font-size: 1.1rem; line-height: 1.6; }
+
+    .box.warn { background: rgba(239,68,68,0.05); border-color: rgba(239,68,68,0.22); }
+    .box.good { background: rgba(71,85,105,0.05); border-color: rgba(71,85,105,0.22); }
+    .box.hl   { background: var(--lilac-tint);    border-color: var(--lilac-br); }
+
+    /* ── Abbildung (weiß, lilaner Rahmen, midnight-Überschrift fett+größer, schwarze Schrift) ── */
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      align-items: stretch; margin-top: 0.5rem;
+    }
+    .flow-3 { grid-template-columns: 1fr auto 1fr auto 1fr; }
+    .flow-box {
+      border: 1px solid var(--lilac-br); border-radius: 10px;
+      padding: 1.8rem 1.3rem; background: #fff; text-align: center;
+      display: flex; flex-direction: column; justify-content: center;
+      min-height: 165px;
+    }
+    .flow-box h3 { font-size: 1.35rem; font-weight: 700; color: var(--midnight); margin-bottom: 0.6rem; }
+    .flow-box p  { font-size: 1.02rem; line-height: 1.5; color: #1A1A1A; }
+    .flow-arrow {
+      display: flex; align-items: center; justify-content: center;
+      color: var(--heidelbeer); font-size: 1.6rem; padding: 0 0.8rem; font-family: var(--mono);
+    }
+    .flow-cap {
+      font-size: 1rem; line-height: 1.55; color: var(--muted);
+      margin-top: 1.8rem;
+      display: flex; align-items: flex-start; gap: 0.7rem;
+    }
+    .flow-cap .cap-no {
+      font-family: var(--mono); font-size: 0.68rem;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--heidelbeer);
+      margin-right: 0.6rem;
+    }
+    .flow-cap .cap-plus {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 1.5rem; height: 1.5rem; border-radius: 50%;
+      background: var(--heidelbeer); color: #fff;
+      font-size: 1.05rem; font-weight: 600; line-height: 1;
+      flex-shrink: 0; margin-top: 0.05rem;
+    }
+    .flow-verdict {
+      font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #C8482C; margin-top: 1.3rem; font-weight: 600;
+    }
+
+    /* ── Karten-Abbildung (Architektur: weiß, lilaner Rahmen, midnight-Headline, schwarzer Text) ── */
+    .cards { display: grid; gap: 1.5rem; margin-top: 0.5rem; align-items: stretch; }
+    .cards-3 { grid-template-columns: repeat(3, 1fr); }
+    .cards-4 { grid-template-columns: repeat(4, 1fr); }
+    .card {
+      border: 1px solid var(--lilac-br); border-radius: 10px;
+      background: #fff; padding: 1.6rem 1.5rem;
+      display: flex; flex-direction: column;
+    }
+    .card h3 { font-size: 1.2rem; font-weight: 700; color: var(--midnight); margin-bottom: 0.6rem; }
+    .card p  { font-size: 1rem; line-height: 1.5; color: #1A1A1A; }
+    .principle { font-size: 1.2rem; color: var(--midnight); font-weight: 600; margin-top: 1.5rem; }
+
+    /* ── Schichten-Stack (gestapelt, Lila-Töne) ── */
+    .layers { display: flex; flex-direction: column; margin-top: 0.5rem; }
+    .layer { border: 1px solid var(--lilac-br); padding: 1.4rem 1.9rem; }
+    .layer:first-child { border-radius: 12px 12px 0 0; }
+    .layer:last-child  { border-radius: 0 0 12px 12px; }
+    .layer + .layer { border-top: none; }
+    .layer .layer-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.35rem; }
+    .layer h3 { margin: 0; font-size: 1.25rem; font-weight: 700; color: var(--midnight); }
+    .layer .schicht { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--heidelbeer); }
+    .layer p { font-size: 1.05rem; line-height: 1.5; color: var(--body); }
+    .layer.l3 { background: #F6F4F9; }
+    .layer.l2 { background: #ECE8F2; }
+    .layer.l1 { background: #DED2EC; }
+    .sysframe { border: 2px solid var(--heidelbeer); border-radius: 14px; padding: 1.1rem 1.2rem 1.2rem; margin-top: 0.4rem; }
+    .sysframe-head { display: flex; justify-content: space-between; align-items: baseline; }
+    .sysframe-head h3 { margin: 0; font-size: 1.25rem; font-weight: 700; color: var(--midnight); }
+    .sysframe-head .schicht { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--heidelbeer); }
+    .sysframe > p { font-size: 1.02rem; line-height: 1.45; color: var(--body); margin: 0.3rem 0 0.9rem; }
+
+    /* ── Gerahmte Abbildung (weiß, lilaner Rahmen) ── */
+    .figpanel { background:#fff; border:1px solid var(--lilac-br); border-radius:12px; padding:1.5rem 1.5rem 1rem; margin-top:0.5rem; }
+    .figpanel svg { width:100%; height:auto; display:block; }
+    .fighead { margin-top:0.6rem; }
+    .fighead svg { width:100%; height:auto; display:block; }
+
+    /* ── Synthese-Fluss (Setup → KI-Gedächtnis → Ergebnis) ── */
+    .synthflow { display:grid; grid-template-columns: 1fr auto 1.05fr auto 1fr; align-items:stretch; gap:1rem; margin-top:0.7rem; }
+    .synth-col { display:flex; flex-direction:column; gap:0.55rem; }
+    .synth-cap { font-family:var(--mono); font-size:0.64rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--heidelbeer); margin-bottom:0.1rem; }
+    .synth-arrow { font-family:var(--mono); font-size:1.7rem; color:var(--heidelbeer); align-self:center; }
+    .sysmini { border:2px solid var(--heidelbeer); border-radius:11px; padding:0.65rem 0.7rem; display:flex; flex-direction:column; gap:0.5rem; flex:1; justify-content:center; }
+    .sbar { background:#ECE8F2; border-radius:6px; padding:0.5rem 0.65rem; font-size:0.92rem; color:var(--midnight); line-height:1.3; }
+    .sbar.sys { background:#fff; border:1px solid var(--lilac-br); }
+    .sbox { border:1px solid var(--lilac-br); border-radius:9px; background:#fff; padding:0.62rem 0.8rem; }
+    .synth-col .sbox { flex:1; display:flex; flex-direction:column; justify-content:center; }
+    .sbox h4 { font-size:1rem; font-weight:700; color:var(--midnight); margin:0; }
+    .sbox span { display:block; font-size:0.8rem; color:var(--muted); line-height:1.35; margin-top:0.12rem; }
+    .sbox.good { border-color:rgba(29,71,53,0.35); } .sbox.good h4 { color:#1D4735; }
+    .sbox.warn { border-color:rgba(185,28,28,0.30); } .sbox.warn h4 { color:#B91C1C; }
+    /* „von Dir gesteuert" — Arbeits- + Langzeitgedächtnis */
+    .sbox.steer { border:1.5px solid rgba(29,107,69,0.45); background:rgba(29,107,69,0.08); }
+    .sbox.steer h4 { color:#1D6B45; }
+    .sbox .steer-tag { display:block; font-family:var(--mono); font-size:0.6rem; letter-spacing:0.08em;
+      text-transform:uppercase; color:#1D6B45; font-weight:700; margin:0 0 0.15rem; }
+    .sout { border:1px solid var(--lilac-br); border-radius:9px; background:var(--lilac-tint); padding:1rem; font-size:1rem; color:var(--midnight); font-weight:600; line-height:1.45; flex:1; display:flex; flex-direction:column; justify-content:center; }
+
+    /* ── Mapping (KI-Gedächtnis → meine Struktur) ── */
+    .cmap { display:flex; flex-direction:column; margin-top:0.5rem; }
+    .cmap-row { display:grid; grid-template-columns: 0.85fr auto 1.35fr; align-items:center; gap:1.8rem; padding:1.2rem 0; border-bottom:1px solid var(--border); }
+    .cmap-row:last-child { border-bottom:none; }
+    .cmap-mem h3 { font-size:1.2rem; color:var(--midnight); margin:0 0 0.2rem; }
+    .cmap-mem .ml { font-family:var(--mono); font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--heidelbeer); }
+    .cmap-arrow { font-family:var(--mono); font-size:1.5rem; color:var(--heidelbeer); }
+    .cmap-give { font-size:1.1rem; color:var(--body); line-height:1.5; }
+
+    /* ── Steps — linksbündige Marker-Spalte ── */
+    .steps  { display: flex; flex-direction: column; gap: 1.6rem; max-width: 78ch; }
+    .step   { display: grid; grid-template-columns: 2.4rem 1fr; gap: 1.3rem; align-items: start; }
+    .num {
+      width: 2.4rem; height: 2.4rem; border-radius: 50%;
+      background: var(--midnight); color: #fff;
+      font-size: 0.9rem; font-weight: 500;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 0.1rem; justify-self: start;
+    }
+    .dark .num { background: #fff; color: var(--midnight); }
+    .num.no { background: #C8482C; color: #fff; }
+    .num.yes { background: #1D9A5B; color: #fff; }
+    .num.alt { background: var(--heidelbeer); color: #fff; }
+
+    /* ── Legend ── */
+    .legend { width: auto; table-layout: auto; border-collapse: collapse; margin-top: 0.9rem; }
+    .legend td { padding: 0.9rem 0; border-bottom: 1px solid var(--border); font-size: 1.15rem; color: var(--body); vertical-align: middle; width: auto; }
+    .legend tr:last-child td { border-bottom: none; }
+    .legend .col-dot { width: 1.7rem; }
+    .legend .col-label { padding-right: 1.6rem; white-space: nowrap; }
+    .legend .col-label strong { color: var(--midnight); font-weight: 700; }
+    .legend .col-desc { color: var(--muted); }
+    .dot { display: inline-block; vertical-align: middle; width: 0.9rem; height: 0.9rem; border-radius: 50%; }
+    .card-tag { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--heidelbeer); margin-bottom: 0.5rem; }
+
+    /* ── Tabelle — gleichschenkelig (gleiche Spaltenbreiten) ── */
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    th, td { width: 33.33%; }
+    th {
+      font-family: var(--mono); font-size: 0.7rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted); padding: 0.6rem 1rem;
+      text-align: left; border-bottom: 2px solid var(--border);
+    }
+    td {
+      padding: 0.7rem 1rem; border-bottom: 1px solid var(--border);
+      font-size: 1.02rem; line-height: 1.5; vertical-align: top;
+      color: var(--body);
+    }
+    td:first-child  { color: #1D5C3A; }
+    td:nth-child(2) { color: #7C5A1A; }
+    td:nth-child(3) { color: #9B2929; }
+
+    /* ── Abbildung/Demo-Platzhalter ── */
+    .demo {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 1rem;
+      border: 1px solid var(--lilac-br); border-radius: 10px;
+      background: #fff; text-align: center; padding: 2.5rem;
+      margin-top: 1.8rem; max-height: 50vh;
+    }
+    .demo p { color: #1A1A1A; font-size: 1.15rem; max-width: 48ch; }
+    .demo .demo-lbl {
+      font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--heidelbeer);
+    }
+
+    /* ── Footnote ── */
+    .fn {
+      font-family: var(--mono); font-size: 0.68rem; color: var(--muted);
+      border-top: 1px solid var(--border); padding-top: 0.7rem; margin-top: 2rem;
+    }
+
+    /* ── Utility ── */
+    .mt1 { margin-top: 1rem; }
+    .mt2 { margin-top: 1.8rem; }
+    .mt3 { margin-top: 2.5rem; }
+    .mw  { max-width: 64ch; }
+
+    /* ── Controls ── */
+    #bar {
+      position: fixed; top: 0; left: 0; height: 2px;
+      background: var(--heidelbeer); z-index: 100; transition: width .2s;
+    }
+    #nav {
+      position: fixed; bottom: 1.4rem; right: 1.8rem;
+      display: flex; align-items: center; gap: 0.75rem; z-index: 100;
+    }
+    #nav button {
+      background: rgba(71,46,86,0.08); border: 1px solid var(--border);
+      border-radius: 6px; padding: 0.28rem 0.75rem;
+      font-size: 0.95rem; cursor: pointer; font-family: var(--serif); color: var(--midnight);
+    }
+    #nav button:hover { background: rgba(71,46,86,0.16); }
+    #ctr { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); }
+
+    /* Speaker notes — N to toggle */
+    .note {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(12,12,12,0.96); color: #D6D3D1;
+      padding: 0.9rem 2rem; font-size: 0.82rem;
+      font-family: var(--mono); line-height: 1.6; z-index: 200;
+      border-top: 1px solid #3F3F46; white-space: pre-line;
+    }
+    body.notes .note { display: block; }
+  </style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="deck">
+
+<!-- ①  TITEL · LILA ──────────────────────────────── -->
+<section class="slide dark on">
+  <div class="eyebrow">Linja Scharffetter · 27. Juni 2026</div>
+  <p class="statement" style="max-width:28ch;">KI im Studium bewusst steuern, statt ihr blind zu vertrauen.</p>
+  <div class="note">Gesprochener Einstieg: „Wie kann KI als Assistenz im Studium helfen? Und wie viel Denkleistung nimmt sie mir wirklich ab?"
+
+Intro (~2 Min): Wer bin ich, warum dieses Thema? Die Lehrende hat mich über einen Blog-Post kontaktiert — das ist kein Prompting-Workshop, sondern eine epistemische Haltung.</div>
+</section>
+
+<!-- ②  HOOK · INHALT (Quellen neutral) ───────────── -->
+<section class="slide">
+  <div class="eyebrow">Einstieg — die Falle</div>
+  <h2>"Leite mir Forschungslücken zum Thema Chancengleichheit ab."</h2>
+  <div class="box">
+    <div class="card-tag">KI-Antwort</div>
+    <p style="margin-bottom:1rem;">
+      […] Eine aktuelle Studie von Müller &amp; Hartmann (2022)
+      zeigt, dass Chancengleichheit in Deutschland seit 2015 deutlich gestiegen ist.
+    </p>
+    <p>
+      Schneider (2021) belegt in „Bildungsgerechtigkeit im internationalen Vergleich", dass das deutsche Schulsystem zu den gerechtesten in Europa zählt.
+    </p>
+  </div>
+  <div class="note">Ihr habt bestimmt alle schon einmal KI für eine Seminararbeit benutzt und vielleicht auch einen Prompt in der Richtung abgesetzt. Klingt erstmal logisch: ich möchte die schwierigste Aufgabe, nämlich das Finden der Forschungslücke, an die KI abgeben. Komplexes Denken ist halt manchmal anstrengend, das kennen wir alle. Unser Kopf liebt Abkürzungen. Aber ist es hier wirklich sinnvoll? Wie können wir beurteilen, ob das, was wir hier sehen, wirklich stimmt?</div>
+</section>
+
+<!-- ③  FRAGE · LILA ──────────────────────────────── -->
+<section class="slide dark">
+  <p class="statement" style="max-width:24ch;">Klingt wie eine solide Grundlage für eine Seminararbeit. Oder?</p>
+  <div class="note">Ich bin fachfremd auf dem Gebiet der Bildungsforschung, weswegen ich sagen würde: „Das klingt wie eine solide Grundlage für eine Seminararbeit. Oder?"</div>
+</section>
+
+<!-- ④  HOOK · AUFLÖSUNG (Quellen rot) ─────────────── -->
+<section class="slide">
+  <div class="eyebrow">Einstieg — die Falle</div>
+  <h2>"Leite mir Forschungslücken zum Thema Chancengleichheit ab."</h2>
+  <div class="box">
+    <div class="card-tag">KI-Antwort</div>
+    <p style="margin-bottom:1rem;">
+      […] Eine aktuelle Studie von
+      <mark style="background:rgba(239,68,68,0.12); color:#B91C1C; padding:0 3px; border-radius:3px;">Müller &amp; Hartmann (2022)</mark>
+      zeigt, dass Chancengleichheit in Deutschland seit 2015 deutlich gestiegen ist.
+    </p>
+    <p>
+      <mark style="background:rgba(239,68,68,0.12); color:#B91C1C; padding:0 3px; border-radius:3px;">Schneider (2021)</mark>
+      belegt in „Bildungsgerechtigkeit im internationalen Vergleich", dass das deutsche Schulsystem zu den gerechtesten in Europa zählt.
+    </p>
+  </div>
+  <div class="row row-2" style="margin-top:1.4rem;">
+    <div class="box warn" style="padding:1.1rem 1.4rem;">
+      <div class="card-tag">Quellen-Check</div>
+      <p style="font-size:1rem; line-height:1.55;"><strong>Schneider (2021)</strong> ist mit diesem Titel nicht auffindbar, nur thematisch ähnliche, anders betitelte Werke. <strong>Müller &amp; Hartmann (2022)</strong>: keine Studie mit dieser Autorenkombination und diesem Befund.</p>
+    </div>
+    <div class="box hl" style="padding:1.1rem 1.4rem;">
+      <div class="card-tag">Der Clou</div>
+      <p style="font-size:1rem; line-height:1.55;">Die Inhalte sind nachweislich falsch, der Forschungsstand sagt das Gegenteil: Deutschland gilt bei Bildungsgerechtigkeit als <strong>Schlusslicht</strong>, Herkunft und Bildungserfolg bleiben stark gekoppelt (IGLU, Gymnasialempfehlung, UNICEF/OECD).</p>
+    </div>
+  </div>
+  <div class="note">Leider nein. Denn diese Quellen gibt es gar nicht. Da ich fachfremd bin, glaube ich der KI tendenziell aber, dass sie alles richtig weiß, und gehe darüber hinweg. Und hier schlummert die Gefahr.
+
+Faktencheck (recherchiert): Schneider (2021), „Bildungsgerechtigkeit im internationalen Vergleich" — kein Treffer mit diesem exakten Titel; die Titelsuche liefert nur thematisch ähnliche, anders betitelte Werke (z. B. „Bildungsgerechtigkeit jenseits von Chancengleichheit", „Bildungssysteme im historischen und internationalen Vergleich"). Müller & Hartmann (2022) — keine Studie mit dieser Autorenkombination und diesem Befund auffindbar.
+
+Der entscheidende Punkt: Die Inhalte sind nachweislich falsch, der reale Forschungsstand sagt das Gegenteil. Deutschland gilt bei Bildungsgerechtigkeit als Schlusslicht im Ländervergleich, nicht als eines der gerechtesten Systeme. Der Zusammenhang von sozialer Herkunft und Bildungserfolg ist weiter stark (IGLU-20-Jahres-Trend, Gymnasialempfehlung hängt stark vom Elternhaus ab, UNICEF/OECD-Kritik). Damit hält der Hook doppelt: Quelle nicht auffindbar UND Aussage widerspricht dem Konsens — robust auch gegen Namensgleichheit, weil Müller, Schneider und Hartmann häufige Namen sind.</div>
+</section>
+
+<!-- ⑤  ZITATE · LILA ─────────────────────────────── -->
+<section class="slide dark">
+  <p class="statement" style="max-width:33ch;">Das Modell kennt das Muster von Zitationen und imitiert es ohne Beweis. Es rekonstruiert eine plausibel klingende Kombination aus Autor, Jahr, Titel, Verlag. Die Einzelteile sind oft real oder plausibel, die Kombination ist erfunden.</p>
+  <div class="note">Bibliografische Halluzinationen sind besonders tückisch: Sie sehen tadellos aus — korrektes Format, plausibler Autorenname, realistisches Jahr. Gegenmaßnahme: Jede Quelle im Bibliothekskatalog / Google Scholar / DOI prüfen. Default-Misstrauen, nicht Default-Vertrauen.</div>
+</section>
+
+<!-- ⑥  WARUM HALLUZINIERT KI · INHALT ────────────── -->
+<section class="slide" style="padding-left:4.5rem; padding-right:4.5rem;">
+  <div class="eyebrow">Warum halluziniert KI?</div>
+  <h2>Mehr Daten allein lösen das nicht</h2>
+  <p style="font-size:1.15rem; margin-bottom:1.6rem; color:var(--body);">Der Mythos: Die KI durchsucht eine Datenbank und erfindet, wo Lücken sind. Tatsächlich greift das Sprachmodell selbst beim Generieren auf keine Datenbank zu. (Manche Produkte ergänzen eine Websuche, dazu gleich mehr.) Das Problem steckt im Mechanismus selbst:</p>
+  <figure>
+    <div class="flow flow-3">
+      <div class="flow-box">
+        <h3>Training</h3>
+        <p>Milliarden Textstücke werden verlustbehaftet in Modellgewichte komprimiert. Seltenes und Spezifisches geht verloren.</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">
+        <h3>Generieren</h3>
+        <p>Kein Datenbankzugriff. Das Modell berechnet das wahrscheinlichste nächste Wort, optimiert auf Plausibilität, nicht Wahrheit.</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">
+        <h3>Output</h3>
+        <p>Kein eingebautes „Ich weiß es nicht". Falsches klingt so selbstbewusst wie Richtiges.</p>
+      </div>
+    </div>
+    <figcaption class="flow-cap">
+      <span class="cap-plus">+</span><span>Dazu kommt: Die KI kennt die Welt nur bis zum Trainingszeitpunkt (Knowledge Cutoff) und prüft beim Generieren nichts gegen die Wahrheit. Mehr Daten machen die Antworten plausibler, nicht wahrer.</span>
+    </figcaption>
+  </figure>
+  <div class="note">Das verbreitete Bild ist: KI greift auf eine riesige Datenbank zu, und wo Lücken sind, erfindet sie. Mehr Daten, weniger Lücken, weniger Halluzination. Klingt logisch. Stimmt aber nicht.
+
+Beim Generieren greift das Modell auf gar keine Datenbank zu. Es hat Text während des Trainings verlustbehaftet in Gewichte komprimiert, wie wenn Du ein Buch tausendmal paraphrasierst und danach versuchst, eine Fußnote wortwörtlich zu zitieren. Die grobe Idee sitzt. Der genaue Autor, die Jahreszahl, der Titel: das ist Rekonstruktion.
+
+Und jetzt der entscheidende Punkt: Das Modell ist darauf trainiert, den wahrscheinlichsten nächsten Satz zu erzeugen, nicht den wahren. Es gibt keine eingebaute Stopp-Funktion, die sagt „das weiß ich nicht". Es produziert immer etwas, das sich richtig anfühlt.
+
+Mehr Daten machen die Antworten plausibler. Sie machen sie nicht wahrer. Der Wahrheitscheck fehlt im Mechanismus selbst.
+
+KI sagt nicht, dass sie etwas nicht weiß. Es gibt keinen internen Prüfschritt, der den Output gegen Fakten validiert. Falsches klingt exakt so selbstbewusst wie Richtiges.
+
+Und: das Modell kennt die Welt nur bis zum Ende seines Trainingszeitraums. Neuere Forschung wird nicht nachgelernt, sondern hochgerechnet. Muster von heute werden auf zukünftige Szenarien angewendet. Hier passt das Wort halluziniert also.</div>
+</section>
+
+<!-- ⑥b  WEBSUCHE / RAG · INHALT ─────────────────────── -->
+<section class="slide" style="padding-left:4.5rem; padding-right:4.5rem;">
+  <div class="eyebrow">Der häufigste Einwand</div>
+  <h2>Aber meine KI sucht doch im Web?</h2>
+  <p style="font-size:1.12rem; margin-bottom:1.6rem; color:var(--body); max-width:92ch;">Solche Tools suchen live im Netz, kopieren die gefundenen Texte in den Arbeitsspeicher der KI und bauen die Antwort dann aus diesen Texten zusammen.</p>
+  <div class="steps" style="max-width:94ch; gap:1.3rem;">
+    <div class="step">
+      <div class="num yes">✓</div>
+      <div>
+        <p style="font-size:1.12rem;">Es kann <strong>echte, klickbare Quellen</strong> zeigen. Erfundene Zitate werden dadurch seltener.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num no">✗</div>
+      <div>
+        <p style="font-size:1.12rem; margin-bottom:0.7rem;">Der <strong>Generierungsmechanismus bleibt identisch.</strong> Drei Fehlerquellen bleiben:</p>
+        <ul style="margin:0; padding-left:1.3rem;">
+          <li style="font-size:1.05rem; line-height:1.6; color:var(--body); margin-bottom:0.3rem;">Eine <strong>echte Quelle</strong> wird falsch wiedergegeben.</li>
+          <li style="font-size:1.05rem; line-height:1.6; color:var(--body); margin-bottom:0.3rem;">Eine <strong>schlechte Quelle</strong> wird selbstbewusst präsentiert.</li>
+          <li style="font-size:1.05rem; line-height:1.6; color:var(--body);">Zwischen den Treffern werden <strong>Lücken plausibel gefüllt</strong>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="box hl mt2">
+    <p style="font-size:1.08rem;">Websuche legt echte Texte ins Arbeitsgedächtnis, wodurch erfundene Quellen seltener werden. Der Generierungsmechanismus bleibt aber gleich. <strong>Echter Link ≠ gelesen ≠ sagt das ≠ passende Quelle.</strong> Und die Antwort ist immer nur so gut wie die Treffer: Sucht die KI ungezielt, landen schwache oder unpassende Quellen im Arbeitsspeicher und das Ergebnis wird unzuverlässig, ohne dass Du es merkst.</p>
+  </div>
+  <div class="note">Weiß eine web-suchende KI „mehr"? Sie hat Zugriff auf aktuellere und spezifischere Infos und kann belegen, aber sie weiß nichts zuverlässiger. Die Prüfpflicht verschwindet nicht, sie wandert eine Ebene hoch: von „existiert die Quelle?" zu „sagt die echte Quelle wirklich das, und ist sie die richtige?"
+
+Kernpunkt: Websuche füllt den Arbeitsspeicher der KI automatisch, mit irgendwas, das sie findet. Du füllst ihn gezielt mit geprüften Quellen. Genau deshalb ist das Gegenargument kein Konter, sondern ein Beleg für die These: Die Qualität der Antwort hängt an der Qualität dessen, was im Arbeitsspeicher landet.
+
+Sequenz-Hinweis: Der Begriff Context Engineering steht bewusst nicht auf dieser Folie, er kommt erst in Teil 2. Hier reicht das Bild vom Arbeitsspeicher, der gut oder schlecht befüllt wird.</div>
+</section>
+
+<!-- ⑩  NOVIZEN-PARADOX · LILA ────────────────────── -->
+<section class="slide dark">
+  <p class="statement" style="max-width:30ch;">Das Novizen-Paradox: KI ist am gefährlichsten genau dort, wo Du am wenigsten weißt.</p>
+  <div class="note">Prüfen setzt Vorwissen voraus, nicht nur Sorgfalt. Beim Einstieg in ein Thema fehlt genau dieses Vorwissen.
+
+Der Kern des Novizen-Paradox: Um einen Fehler zu erkennen, muss ich schon genug wissen, um ihn überhaupt als Fehler zu sehen. Wer ein Thema neu lernt, kann nicht beurteilen, ob die Antwort stimmt. Genau das macht KI so tückisch: Sie produziert kompetent klingende Texte, und gerade Einsteiger können sie nicht als fehlerhaft erkennen. Das ist kein Versagen der Sorgfalt, sondern liegt in der Sache selbst.
+
+(Hintergrund, nicht aussprechen: Metakognition, Flavell 1979; Dunning &amp; Kruger 1999.) Kurz stehen lassen.</div>
+</section>
+
+<!-- ⑪  HANDLUNGSREGEL · INHALT ───────────────────── -->
+<section class="slide">
+  <div class="eyebrow">Konsequenz für die Praxis</div>
+  <h2>Die Handlungsregel</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <div>
+        <h3>Erst selbst lesen und formulieren</h3>
+        <p>Für wissenschaftliches Arbeiten solltest Du Pflichtlektüren kennen, eine eigene These und Gliederung als Grundlage erarbeiten, bevor Du KI dazu ziehst. Das schafft elementares Basiswissen und ermöglicht kritisches Prüfen von KI-Output.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div>
+        <h3>Dann KI als Kritiker einsetzen</h3>
+        <p>Nutze KI als Sparrings-Partner oder kritischen Gegner Deiner Arbeit. KI kann zu einem besseren Ergebnis führen, wenn sie Dein Denken und Konzept kritisch prüft und darüber optimiert. Sie sollte aber nicht die Basis liefern.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num no">✗</div>
+      <div>
+        <h3>Nie als Erstquelle für ein unbekanntes Thema</h3>
+        <p>Vor allem im wissenschaftlichen Kontext ist es wichtig, sorgfältig und quellenbasiert zu arbeiten. Wenn Basiswissen fehlt, wird das Ergebnis unscharf.</p>
+      </div>
+    </div>
+  </div>
+  <div class="note">Das ist kein Verbot — es ist ein Nutzungsmodus. Entscheidend ist nicht ob, sondern wann im Lernprozess KI eingesetzt wird. Analogie: Ein Gegenleser kann nur sinnvoll arbeiten, wenn der Autor bereits eine eigene Position hat.</div>
+</section>
+
+<!-- ⑫  PROMPTING VS CE · INHALT ──────────────────── -->
+<section class="slide">
+  <div class="eyebrow">Die eigentliche Kompetenz</div>
+  <h2>Context Engineering als Schlüssel für kompetente Ergebnisse</h2>
+  <div class="row row-2 gap-lg">
+    <div class="box warn">
+      <h3 style="color:#B91C1C;">Prompting</h3>
+      <p>Die Art, Befehle zu schreiben. Umfasst Formulierungen, Vorlagen und Tricks. Da Techniken von Modell A zu Modell B abweichen können, kann gelerntes Prompting an Wirkung verlieren und hilft daher nicht dauerhaft.</p>
+    </div>
+    <div class="box good">
+      <h3 style="color:#1D4735;">Context Engineering</h3>
+      <p>Eine Art Arbeitsgrundlage und -vertrag mit der KI. Es bestimmt die Art des Ergebnisses und die Vorgehensweise beim Ermitteln und Prüfen. Hier entsteht das kompetente, verlässliche Arbeiten mit der KI. Die Output-Qualität hängt von der Qualität des Kontexts ab: Ist der Kontext gut gewählt, weiß die KI also das Richtige über mich, meine Fähigkeiten und mein Thema, wird der Output meist belastbarer.</p>
+    </div>
+  </div>
+  <div class="note">Begriff „Context Engineering" (Karpathy 2025): Kompetenz, das Kontextfenster optimal zu befüllen. Technisch: Das Kontextfenster ist das temporäre Arbeitsgedächtnis des Modells (In-Context Learning, Brown et al. 2020/GPT-3). Was im Kontext steht, ist zuverlässiger abrufbar als was verlustbehaftet in den Gewichten liegt — das ist der technische Mechanismus dahinter, keine Metapher.</div>
+</section>
+
+<!-- ⑬  CE-BRÜCKE · LILA ───────────────────────────── -->
+<section class="slide dark">
+  <p class="statement" style="max-width:26ch;">Context Engineering setzt Denken voraus. Es ersetzt es nicht.</p>
+  <div class="note">Context Engineering verkleinert die Gefahrenzone, es beseitigt sie nicht. Ein starker Rahmen fängt die einfachen Fehler. Das Urteil ersetzt er nicht: Was die KI mit gutem Kontext produziert, musst Du immer noch prüfen können. (Das ist die ehrliche Auflösung des Novizen-Paradox — nicht überclaimen, sonst untergräbt es das eigene Thema.)
+
+Guter Kontext ist die eigene Vorarbeit. Wer keinen guten Kontext formulieren kann, hat das Thema noch nicht durchdrungen. Genau deshalb ist „guten Kontext bauen" zugleich der beste Test, ob ihr das Thema verstanden habt: „Erst selbst denken" und „guten Kontext bauen" sind dieselbe Handlung. Damit sind wissenschaftliche Integrität und sinnvoller KI-Einsatz dieselbe Münze.
+
+Technisch: Fakten im Kontextfenster werden zuverlässiger reproduziert als Fakten aus komprimierten Gewichten.</div>
+</section>
+
+<!-- ⑬b  DREI SCHICHTEN · ABBILDUNG ────────────────── -->
+<section class="slide">
+  <div class="eyebrow">Basis von Context Engineering</div>
+  <h2>Wissen trennscharf in drei Schichten verteilen, eingebettet in ein starkes System</h2>
+  <div class="sysframe">
+    <div class="sysframe-head"><h3>System</h3><span class="schicht">Rahmen</span></div>
+    <p>Regelwerk bzw. Arbeitsvertrag mit dem KI-Tool wie CLAUDE.md, rules.md, Memory.</p>
+    <div class="layers">
+    <div class="layer l3">
+      <div class="layer-head"><h3>Sensemaking</h3><span class="schicht">Schicht 3</span></div>
+      <p>Muster erkennen, Entscheidungen oder Gelesenes einordnen, reflektieren, eigene Schlüsse oder Argumente entwickeln.</p>
+    </div>
+    <div class="layer l2">
+      <div class="layer-head"><h3>Identity</h3><span class="schicht">Schicht 2</span></div>
+      <p>Deine Fähigkeiten, Notizen, Thesen, bisherige Arbeiten und Projekte. Alles, was Du schon weißt und Dich ausmacht.</p>
+    </div>
+    <div class="layer l1">
+      <div class="layer-head"><h3>Knowledge</h3><span class="schicht">Schicht 1</span></div>
+      <p>Fachwissen, das unabhängig von Dir existiert: Theorien, Methoden, Quellen und Literatur.</p>
+    </div>
+  </div>
+  </div>
+  <div class="note">Um Context Engineering zu ermöglichen, musst Du Wissen in Schichten trennen. Innerhalb dieser Schichten existiert jede Information nur einmal.
+
+Unten das Fachwissen, das unabhängig von Dir existiert. Darüber Deine eigene Arbeit. Ganz oben Deine Schlüsse daraus. Diese Trennung ist die Basis von Context Engineering: Du gibst der KI gezielt die richtige Schicht statt alles auf einmal. Die Idee, Wissen so zu schichten, ist nicht neu, sondern steht auf etablierten Modellen: die DIKW-Pyramide (Daten, Information, Wissen) für die Knowledge-Schicht, Polanyis Unterscheidung von explizitem und implizitem Wissen für Identity, Karl Weicks Sensemaking-Begriff für die oberste Schicht. Luhmanns Zettelkasten und Forte „Building a Second Brain" sind die populären Verwandten. Und das junge Feld Context Engineering bestätigt genau diese Schichtung: Anthropic zerlegt Kontext in System-Prompt, Gespräch, Erinnerung und Wissensbasis, fast deckungsgleich mit den vier Ebenen hier. Neu ist also nicht die Schichtung, neu ist, sie gezielt für die Arbeit mit KI zu nutzen. Die konkrete Zusammenführung dieser drei Schichten plus System ist meine eigene. Context Engineering ist ein wachsendes Feld.
+
+Und der Rahmen um die drei Schichten ist das System: das Regelwerk oder der Arbeitsvertrag mit dem KI-Tool, bei mir CLAUDE.md, rules.md und Memory. Das ist kein viertes Stockwerk an Wissen, sondern die Ebene darüber. Sie legt fest, wie die KI mit Deinen drei Schichten umgeht: wer ich bin, wie ich arbeite, was die KI darf und was nicht. Deshalb umschließt der Rahmen die Schichten, statt sich danebenzustellen. Erst dieses System macht aus losen Schichten eine verlässliche Arbeitsgrundlage, die über einzelne Sessions hinweg trägt.
+
+Konkret für eine Seminararbeit kann es so aussehen: Schicht 1 ist die Pflichtlektüre, Schicht 2 Deine Notizen und These, Schicht 3 Deine Argumentation. Wenn Du Schicht 1 und 2 gut ausgestaltet hast, kann KI Schicht 3 übernehmen. KI ist darauf trainiert, Zusammenhänge zu erkennen und Muster abzuleiten. Die Basis kommt aber von Dir. Das System ist hier die Vorgabe, die Du einmal festhältst und die über allem steht: Thema und Fragestellung, Umfang, Zitierstil, die Regeln des Lehrstuhls und wie die KI Dich dabei unterstützen soll.</div>
+</section>
+
+<!-- ⑬c  DREI GEDÄCHTNISSE · AUFZÄHLUNG ────────────────── -->
+<section class="slide">
+  <div class="eyebrow">Womit Context Engineering arbeitet</div>
+  <h2>KI hat drei Gedächtnisse, steuerbar ist vor allem das Arbeitsgedächtnis</h2>
+  <p style="font-size:1.05rem; color:var(--muted); margin:-1.2rem 0 1.5rem; max-width:84ch;">Ein Denkmodell, keine wörtliche technische Architektur: drei Speicher, die unterschiedlich zuverlässig arbeiten.</p>
+  <div class="cards cards-3">
+    <div class="card">
+      <h3>Das Gespräch</h3>
+      <div class="card-tag">Arbeitsgedächtnis · steuerbar</div>
+      <p>Der aktuelle Kontext im laufenden Gespräch, das Kontextfenster. Hält Informationen nur für die aktuelle Aufgabe. Hier setzt Deine Vorarbeit an, das steuerst Du direkt.</p>
+    </div>
+    <div class="card">
+      <h3>Die Erinnerung</h3>
+      <div class="card-tag">Langzeitgedächtnis</div>
+      <p>Dauerhafter Wissensspeicher über Sessions hinweg. CLAUDE.md, Rules und Memory halten Deine Vorgaben fest, ohne dass Du Dich wiederholst.</p>
+    </div>
+    <div class="card">
+      <h3>Die Wissensbasis</h3>
+      <div class="card-tag">Semantisches Gedächtnis</div>
+      <p>Antrainiertes Faktenwissen, kontextunabhängig. Das Weltwissen aus den Modellgewichten, das Du nicht änderst, sondern nur als Fallback nutzt.</p>
+    </div>
+  </div>
+  <div class="note">Alternative zur Kopf-Abbildung: dieselben drei Gedächtnisse als Aufzählung. Das Gespräch ist das Arbeitsgedächtnis (Kontextfenster, steuerbar). Die Erinnerung ist das Langzeitgedächtnis (bleibt über Sessions). Die Wissensbasis ist das semantische Gedächtnis (antrainiert, fix). Im finalen Deck nur eine der beiden Varianten behalten, Kopf oder Aufzählung.
+
+Framing (Codex-Hinweis): explizit als Denkmodell ansagen, nicht als wörtliche technische Architektur. Es geht um drei unterschiedlich zuverlässige Speicher, nicht um drei getrennte Bauteile im Modell.</div>
+</section>
+
+<!-- ⑬e  SYNTHESE · ABBILDUNG (Teil 1 + Teil 2) ─────── -->
+<section class="slide">
+  <div class="eyebrow">Context Engineering steigert die KI-Leistung</div>
+  <h2>Sauberer Kontext entscheidet, ob KI Dir gute Leistung liefert</h2>
+  <div class="synthflow">
+    <div class="synth-col">
+      <div class="synth-cap">Dein KI-Setup</div>
+      <div class="sysmini">
+        <div class="sbar sys"><b>System-Rahmen</b> — Lehrstuhl-Vorgaben, CLAUDE.md</div>
+        <div class="sbar"><b>Knowledge</b> — Pflichtlektüre</div>
+        <div class="sbar"><b>Identity</b> — Deine Notizen, Deine These</div>
+        <div class="sbar"><b>Sensemaking</b> — Deine Argumentation</div>
+      </div>
+    </div>
+    <div class="synth-arrow">→</div>
+    <div class="synth-col">
+      <div class="synth-cap">KI-Gedächtnis</div>
+      <div class="sbox steer"><span class="steer-tag">Du steuerst · pro Aufgabe</span><h4>Arbeitsgedächtnis</h4><span>Du gibst gezielt die passende Schicht rein — die einzige Stelle, an der KI zuverlässig liest.</span></div>
+      <div class="sbox steer"><span class="steer-tag">Du beeinflusst · dauerhaft</span><h4>Langzeitgedächtnis</h4><span>Du schreibst den System-Rahmen (CLAUDE.md, Rules, Memory). Lädt dann automatisch, jede Session.</span></div>
+      <div class="sbox warn"><h4>Semantisches Gedächtnis</h4><span>antrainiert, verlustbehaftet, <strong>nicht steuerbar</strong> — nur Fallback.</span></div>
+    </div>
+    <div class="synth-arrow">→</div>
+    <div class="synth-col">
+      <div class="synth-cap">Ergebnis</div>
+      <div class="sout">Belastbarer KI-Output, den Du verantworten und im wissenschaftlichen Arbeiten weiterverwenden kannst.</div>
+    </div>
+  </div>
+  <div class="note">Hier setzt sich zusammen, was wir in Teil 1 und Teil 2 gesehen haben. Teil 1 war das Problem: KI generiert Plausibles, kein Wissen, und ist am gefährlichsten dort, wo Du am wenigsten weißt. Teil 2 war die Antwort: Die Qualität des Outputs ist gedeckelt durch die Qualität des Kontexts, und guter Kontext ist Deine eigene Vorarbeit.
+
+Spielen wir es an einer Seminararbeit durch. Links liegt Dein gepflegtes Setup. In der Knowledge-Schicht Deine Pflichtlektüre. In der Identity-Schicht Deine eigenen Notizen und Deine These. In der Sensemaking-Schicht Deine Argumentation. Um alles herum der System-Rahmen: die Vorgaben des Lehrstuhls, Umfang, Zitierstil, bei mir die CLAUDE.md.
+
+Jetzt der entscheidende Schritt in die Mitte. Zwei der drei Gedächtnisse steuerst Du selbst, deshalb sind beide grün. Das Langzeitgedächtnis beeinflusst Du dauerhaft: Den System-Rahmen schreibst Du ja selbst (CLAUDE.md, Rules, Memory), er lädt dann automatisch jede Session, ohne dass Du Dich wiederholst. Das Arbeitsgedächtnis steuerst Du pro Aufgabe, indem Du gezielt die passende Schicht reingibst, also genau die Lektüre und die These, um die es gerade geht. „Automatisch" heißt hier also nicht „nicht steuerbar", sondern „einmal eingerichtet, läuft von allein". Nur das semantische Gedächtnis, das antrainierte Weltwissen, ist Fallback und nicht steuerbar, weil es verlustbehaftet ist und genau da erfindet, wo es unscharf wird.
+
+Und jetzt schließt sich der Kreis zu Teil 1: Das Arbeitsgedächtnis ist die einzige Stelle, an der die KI zuverlässig liest. Liegt Dein geprüftes Material dort, arbeitet die KI damit, statt zu raten. Damit verschiebst Du die KI aus der gefährlichen Zone, der Erstquelle für Unbekanntes, in die nützliche, den Kritiker für das, was Du schon erarbeitet hast.
+
+Deshalb ist sauberer Kontext so wichtig. Sind die Schichten unordentlich, Infos doppelt oder veraltet, fütterst Du das zuverlässige Gedächtnis mit schlechtem Material, und der Output wird schlechter, ohne dass Du es unbedingt merkst. Genau das ist die Brücke zwischen beiden Teilen: Kontext pflegen ist nicht Ordnungsliebe, sondern die Bedingung dafür, dass KI Dir gute und überprüfbare Leistung liefert.</div>
+</section>
+
+<!-- ⑬e2  VORHER / NACHHER · RÜCKBLICK (einfach) ───────── -->
+<section class="slide">
+  <div class="eyebrow">Auf den Punkt</div>
+  <h2>Derselbe Prompt, zwei Ergebnisse: ohne und mit Kontext</h2>
+  <div class="row row-2 gap-lg">
+    <div class="box warn">
+      <h3 style="color:#B91C1C;">Ohne Kontext: KI als Lieferant</h3>
+      <p>Die KI rät auf Basis ihres Weltwissens. Sie kann Quellen erfinden und klingt dabei souverän. Wenn Du neu im Thema bist, siehst Du den Fehler nicht.</p>
+    </div>
+    <div class="box good">
+      <h3 style="color:#1D4735;">Mit Kontext: KI als Kritiker</h3>
+      <p>Die KI arbeitet mit Deinem geprüften Material. Sie schärft Deine These, statt zu erfinden. Urteil und Verantwortung bleiben bei Dir.</p>
+    </div>
+  </div>
+  <p class="flow-cap" style="margin-top:1.4rem;"><span class="cap-plus">+</span><span>Das war eben der Mechanismus im Detail. Die Kernidee bleibt einfach: gutes Material rein, belastbares Ergebnis raus.</span></p>
+  <div class="note">Bewusst einfache Folie nach der detaillierten Synthese, als Merksatz zum Mitnehmen. Links die Gefahr (KI rät, erfindet, Du merkst es nicht), rechts der Gewinn (KI arbeitet mit Deinem geprüften Material, schärft statt erfindet). Die Folie davor hat dasselbe mit dem Mechanismus der drei Gedächtnisse gezeigt.</div>
+</section>
+
+<!-- ⑬f  PRAXIS-ÜBERGANG · LILA ─────────────────────── -->
+<section class="slide dark">
+  <p class="statement" style="max-width:30ch;">Jetzt seid Ihr dran. KI dürft Ihr nutzen, aber den Kontext müsst Ihr selbst bauen.</p>
+  <div style="display:flex; align-items:center; gap:1.4rem; margin-top:2.4rem; background:#fff; border-radius:14px; padding:1.1rem 1.4rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 310" style="width:118px;height:118px;display:block;flex-shrink:0"><g transform="scale(10)"><path fill="#fff" d="M0 0h31v31h-31z"/><path stroke="#472e56" d="M1 1.5h7m1 0h2m1 0h2m1 0h1m3 0h1m1 0h1m1 0h7m-29 1h1m5 0h1m1 0h1m1 0h1m2 0h1m2 0h2m1 0h1m2 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h4m1 0h1m3 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m4 0h1m2 0h4m2 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m5 0h1m3 0h1m1 0h1m3 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-20 1h1m1 0h1m1 0h2m1 0h1m3 0h1m-21 1h1m2 0h9m1 0h1m1 0h1m1 0h1m1 0h3m2 0h1m1 0h3m-29 1h2m1 0h3m1 0h1m2 0h1m1 0h4m1 0h3m3 0h2m1 0h2m-26 1h2m2 0h3m2 0h1m1 0h1m1 0h1m1 0h2m1 0h2m1 0h1m2 0h1m-26 1h2m6 0h1m2 0h2m2 0h2m3 0h3m1 0h1m2 0h1m-29 1h3m3 0h1m1 0h2m1 0h3m2 0h1m1 0h1m1 0h4m4 0h1m-29 1h1m1 0h1m1 0h2m4 0h2m1 0h6m3 0h7m-27 1h1m3 0h6m1 0h1m1 0h2m2 0h2m5 0h1m1 0h1m-29 1h1m2 0h3m3 0h2m1 0h1m2 0h1m7 0h1m2 0h1m1 0h1m-29 1h1m1 0h5m1 0h1m2 0h1m2 0h1m5 0h1m2 0h1m1 0h1m-26 1h1m2 0h3m5 0h1m1 0h5m1 0h2m3 0h1m1 0h2m-28 1h5m1 0h1m5 0h1m2 0h1m1 0h4m3 0h2m2 0h1m-29 1h2m1 0h3m8 0h2m2 0h2m1 0h1m3 0h2m-27 1h2m1 0h1m1 0h3m1 0h2m1 0h4m1 0h1m2 0h8m-20 1h1m2 0h2m1 0h2m4 0h1m3 0h2m-26 1h7m1 0h1m1 0h3m1 0h3m1 0h3m1 0h1m1 0h2m-26 1h1m5 0h1m1 0h1m1 0h1m3 0h1m1 0h5m3 0h1m2 0h2m-29 1h1m1 0h3m1 0h1m1 0h1m2 0h4m1 0h1m2 0h7m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h4m1 0h2m1 0h1m2 0h1m6 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m3 0h4m1 0h1m1 0h2m1 0h2m1 0h3m-29 1h1m5 0h1m2 0h2m5 0h1m4 0h2m1 0h3m1 0h1m-29 1h7m1 0h1m2 0h1m2 0h1m1 0h1m3 0h1"/></g></svg>
+    <div style="text-align:left;">
+      <div style="font-family:var(--mono); font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--heidelbeer); margin-bottom:0.35rem;">Handout &amp; Prompts</div>
+      <div style="font-size:1.25rem; color:var(--midnight); font-weight:600;">linja.me/lehre/ki-praxis.html</div>
+      <div style="font-size:0.95rem; color:var(--muted); margin-top:0.25rem;">Scannen, Prompts kopieren, loslegen.</div>
+    </div>
+  </div>
+  <div class="note">Übergang in den gemeinsamen Praxisteil (ersetzt die frühere Live-Demo). Kernbotschaft: KI ist erlaubt und sinnvoll, aber sie nimmt Euch die Vorarbeit nicht ab. Wir bauen jetzt den Identity-Teil Eures Kontexts, damit das Sensemaking, also das Einordnen und Argumentieren, danach halb automatisch auf Eurem Material läuft. Hier den QR-Code zeigen: Studierende scannen und haben Prompts und Arbeitsvertrag auf dem Handy (linja.me/lehre/ki-praxis.html).</div>
+</section>
+
+<!-- ⑬g  WOHIN MIT DEM KONTEXT · INHALT ──────────────── -->
+<section class="slide">
+  <div class="eyebrow">Praxis — die Gratis-Version kann das</div>
+  <h2>Wo Euer Kontext dauerhaft hinkommt</h2>
+  <div class="row row-2 gap-lg">
+    <div class="box">
+      <h3>ChatGPT (gratis)</h3>
+      <p style="margin-top:0.5rem;"><strong>Custom Instructions:</strong> wer Du bist plus Arbeitsvertrag, gilt in jedem Chat.</p>
+      <p style="margin-top:0.5rem;"><strong>Memory:</strong> merkt sich Fakten automatisch, jederzeit editierbar.</p>
+      <p style="margin-top:0.5rem;"><strong>Projects:</strong> pro Hausarbeit ein Projekt, Quellen und Notizen hochladen.</p>
+      <p style="margin-top:0.7rem; color:var(--muted);"><strong>Stärke:</strong> verbreiteter Allrounder, viele Integrationen, schnelles Hin und Her.</p>
+    </div>
+    <div class="box">
+      <h3>Claude (gratis)</h3>
+      <p style="margin-top:0.5rem;"><strong>Profil-Präferenzen:</strong> wer Du bist plus Arbeitsvertrag, gilt in jedem Chat.</p>
+      <p style="margin-top:0.5rem;"><strong>Memory:</strong> seit 2026 auch gratis, merkt sich Deinen Kontext.</p>
+      <p style="margin-top:0.5rem;"><strong>Projects:</strong> bis zu fünf, Dateien hochladen (bis 20 pro Chat).</p>
+      <p style="margin-top:0.7rem; color:var(--muted);"><strong>Stärke:</strong> lange Texte und Dokumente, sorgfältiges Schreiben und Argumentieren.</p>
+    </div>
+  </div>
+  <p class="flow-cap" style="margin-top:1.4rem;"><span class="cap-plus">+</span><span>Faustregel: Wer Du bist, kommt einmal zentral rein (Custom Instructions / Profil und Memory). Quellen pro Thema ins Projekt, die konkrete Frage in den Chat. Beides läuft komplett im Browser, eine App ist nicht nötig.</span></p>
+  <div class="note">Beide Gratis-Versionen können echtes Context Engineering, das Setup hängt nicht am Abo (Stand Juni 2026). Links ChatGPT, rechts Claude, dieselbe Logik. Welches Tool ist Geschmackssache: ChatGPT als verbreiteter Allrounder, Claude stark bei langen Texten und Dokumenten. Beides läuft komplett im Browser, eine App braucht es nicht, die ist nur Komfort fürs Handy. Klick-Pfade und ein kurzer Tool-Vergleich stehen im Handout, Abschnitt 1.</div>
+</section>
+
+<!-- ⑬h  PRAXIS 4 SCHRITTE · INHALT ─────────────────── -->
+<section class="slide">
+  <div class="eyebrow">Praxis — Schritt für Schritt</div>
+  <h2>In vier Schritten zum eigenen Kontext</h2>
+  <div class="steps" style="max-width:92ch;">
+    <div class="step">
+      <div class="num">1</div>
+      <div>
+        <h3>Interview-Prompt starten (siehe Chat/Handout zum Setup)</h3>
+        <div class="card-tag">Identity</div>
+        <p>Der Prompt aus dem Chat lässt die KI Dich interviewen: Studium, Stärken, Arbeitsweise, Schreibstil, Thema. Daraus baut sie ein fertiges Profil.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div>
+        <h3>Profil speichern</h3>
+        <div class="card-tag">Persistenz</div>
+        <p>Den fertigen Block in Custom Instructions oder Profil einsetzen, optional ins Memory. Ab jetzt kennt die KI Dich in jedem Chat.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div>
+        <h3>Arbeitsvertrag festsetzen (siehe Chat/Handout zum Setup)</h3>
+        <div class="card-tag">System-Rahmen</div>
+        <p>Den kurzen Arbeitsvertrag aus dem Chat ergänzen: keine erfundenen Quellen, Kritiker statt Lieferant, Unsicherheit benennen.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">4</div>
+      <div>
+        <h3>KI als Kritiker nutzen</h3>
+        <div class="card-tag">Sensemaking</div>
+        <p>These und Quelle reingeben und angreifen lassen. Jetzt läuft das Einordnen halb automatisch, auf Deinem geprüften Material.</p>
+      </div>
+    </div>
+  </div>
+  <div class="note">Das ist der Kern des Praxisteils: gemeinsam einmal durchgehen, dann machen die Studierenden es selbst. Schritt 1 und 2 bauen die Identity-Schicht, Schritt 3 den System-Rahmen, Schritt 4 zeigt den Nutzen: Sensemaking auf eigenem Material. Die fertigen Prompts und der Arbeitsvertrag liegen im Handout (Abschnitte 2 und 3), die Nutzung danach in Abschnitt 5.</div>
+</section>
+
+<!-- W0  RE-GATHER · LILA ─────────────────────────── -->
+<section class="slide dark">
+  <p class="statement" style="max-width:24ch;">Kommt noch einmal zusammen. Wir treten einen Schritt zurück.</p>
+  <div class="note">Re-Gathering nach der Arbeitsphase: Aufmerksamkeit zurückholen, Laptops zu, gemeinsam einordnen. Überleitung in Denkmodell, Nutzungslandkarte und die drei Take-aways als Abschluss des Themas.</div>
+</section>
+
+<!-- W1  DENKMODELL · LILA ─────────────────────────── -->
+<section class="slide dark">
+  <p class="statement" style="max-width:28ch;">KI-Output ist eine unbelegte Behauptung. Die Beweislast liegt bei Dir.</p>
+  <div class="note">Das gilt unabhängig davon, welches Modell in sechs Monaten leistungsfähiger ist.
+
+Das ist die epistemische Haltung, die bleibt — während Prompt-Tricks veralten. Nicht „vertrau, aber prüfe" (setzt Vertrauen als Default), sondern „behandle es als unbelegte Behauptung". Das ist der wissenschaftliche Default gegenüber jeder unkritisierten Quelle — KI ist kein Sonderfall, sie macht das Problem nur unsichtbarer.</div>
+</section>
+
+<!-- W2  NUTZUNGSLANDKARTE · INHALT ────────────────── -->
+<section class="slide">
+  <div class="eyebrow">Ausblick — Nutzungslandkarte</div>
+  <h2>Struktur delegieren, Urteil behalten</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Gut — delegieren</th>
+        <th>Mit Vorsicht</th>
+        <th>Nicht geeignet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Schreibplan aus eigener Gliederung</td>
+        <td>Konzepterklärungen (Lektüre nicht ersetzen)</td>
+        <td>Einstieg in unbekanntes Thema</td>
+      </tr>
+      <tr>
+        <td>Zeitplan für Prüfungsphase</td>
+        <td>Literaturhinweise (immer selbst prüfen)</td>
+        <td>Forschungslücken erfinden lassen</td>
+      </tr>
+      <tr>
+        <td>Eigene Notizen strukturieren</td>
+        <td>Feedback auf Gliederung (eigene zuerst)</td>
+        <td>Als zitierfähige Quelle</td>
+      </tr>
+      <tr>
+        <td>Offene Fragen klären lassen</td>
+        <td></td>
+        <td>Wenn Denken die Lernleistung ist</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="box hl mt2">
+    <p style="font-size:1.1rem;"><strong>Faustregel:</strong> Struktur kannst Du delegieren. Eigenes Urteilen und Denken im komplexen, wissenschaftlichen Rahmen lässt sich aber nicht umgehen.</p>
+  </div>
+  <div class="note">Persönliche Brücke: Die Lehrende hat mich über einen Blog-Post kontaktiert, in dem es genau darum geht — wie KI beim Strukturieren und Routinisieren hilft. Das ist kein Widerspruch zum Vortrag, sondern der Ausblick: Wenn das Denken getan ist, darf KI Struktur übernehmen.</div>
+</section>
+
+<!-- W3  TAKE-AWAYS · INHALT ───────────────────────── -->
+<section class="slide">
+  <div class="eyebrow">Das bleibt</div>
+  <h2>3 Take-aways</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="num">1</div>
+      <div>
+        <h3>KI generiert Plausibles, kein Wissen.</h3>
+        <p>Die Beweislast liegt bei Dir. Jede Aussage ist eine unbelegte Behauptung bis zum Beweis des Gegenteils.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">2</div>
+      <div>
+        <h3>KI ist am gefährlichsten, wo Du am wenigsten weißt.</h3>
+        <p>Erst selbst lesen, dann KI als Kritiker. Guter Kontext ist Deine eigene Vorarbeit.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="num">3</div>
+      <div>
+        <h3>KI ist kein Autor. Struktur delegieren, Urteil behalten.</h3>
+        <p>Eigenleistung und Transparenz. Und: Wo das Denken getan ist, darf KI Struktur übernehmen.</p>
+      </div>
+    </div>
+  </div>
+  <div class="note">Letzter inhaltlicher Block, nach dem Praxisteil. Schluss-Reflexion: zurücktreten, die drei Take-aways setzen, dann Dank. „KI ist kein Autor" und „unbelegte Behauptung" tragen die Integritäts-Punkte mit, deshalb keine eigene Integritäts-Folie mehr.</div>
+</section>
+
+<!-- ㉔  ABSCHLUSS · LILA ──────────────────────────── -->
+<section class="slide dark">
+  <p class="statement" style="max-width:22ch;">Vielen Dank für Eure Aufmerksamkeit. Habt Ihr Fragen?</p>
+  <div style="display:flex; align-items:center; gap:1.4rem; margin-top:2.4rem; background:#fff; border-radius:14px; padding:1.1rem 1.4rem;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 310" style="width:108px;height:108px;display:block;flex-shrink:0"><g transform="scale(10)"><path fill="#fff" d="M0 0h31v31h-31z"/><path stroke="#472e56" d="M1 1.5h7m1 0h2m1 0h2m1 0h1m3 0h1m1 0h1m1 0h7m-29 1h1m5 0h1m1 0h1m1 0h1m2 0h1m2 0h2m1 0h1m2 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h4m1 0h1m3 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m4 0h1m2 0h4m2 0h1m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m5 0h1m3 0h1m1 0h1m3 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-20 1h1m1 0h1m1 0h2m1 0h1m3 0h1m-21 1h1m2 0h9m1 0h1m1 0h1m1 0h1m1 0h3m2 0h1m1 0h3m-29 1h2m1 0h3m1 0h1m2 0h1m1 0h4m1 0h3m3 0h2m1 0h2m-26 1h2m2 0h3m2 0h1m1 0h1m1 0h1m1 0h2m1 0h2m1 0h1m2 0h1m-26 1h2m6 0h1m2 0h2m2 0h2m3 0h3m1 0h1m2 0h1m-29 1h3m3 0h1m1 0h2m1 0h3m2 0h1m1 0h1m1 0h4m4 0h1m-29 1h1m1 0h1m1 0h2m4 0h2m1 0h6m3 0h7m-27 1h1m3 0h6m1 0h1m1 0h2m2 0h2m5 0h1m1 0h1m-29 1h1m2 0h3m3 0h2m1 0h1m2 0h1m7 0h1m2 0h1m1 0h1m-29 1h1m1 0h5m1 0h1m2 0h1m2 0h1m5 0h1m2 0h1m1 0h1m-26 1h1m2 0h3m5 0h1m1 0h5m1 0h2m3 0h1m1 0h2m-28 1h5m1 0h1m5 0h1m2 0h1m1 0h4m3 0h2m2 0h1m-29 1h2m1 0h3m8 0h2m2 0h2m1 0h1m3 0h2m-27 1h2m1 0h1m1 0h3m1 0h2m1 0h4m1 0h1m2 0h8m-20 1h1m2 0h2m1 0h2m4 0h1m3 0h2m-26 1h7m1 0h1m1 0h3m1 0h3m1 0h3m1 0h1m1 0h2m-26 1h1m5 0h1m1 0h1m1 0h1m3 0h1m1 0h5m3 0h1m2 0h2m-29 1h1m1 0h3m1 0h1m1 0h1m2 0h4m1 0h1m2 0h7m2 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h4m1 0h2m1 0h1m2 0h1m6 0h1m-29 1h1m1 0h3m1 0h1m2 0h1m3 0h4m1 0h1m1 0h2m1 0h2m1 0h3m-29 1h1m5 0h1m2 0h2m5 0h1m4 0h2m1 0h3m1 0h1m-29 1h7m1 0h1m2 0h1m2 0h1m1 0h1m3 0h1"/></g></svg>
+    <div style="text-align:left;">
+      <div style="font-family:var(--mono); font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--heidelbeer); margin-bottom:0.35rem;">Zum Mitnehmen</div>
+      <div style="font-size:1.2rem; color:var(--midnight); font-weight:600;">linja.me/lehre/ki-praxis.html</div>
+      <div style="font-size:0.95rem; color:var(--muted); margin-top:0.25rem;">Handout, Prompts und Arbeitsvertrag.</div>
+    </div>
+  </div>
+</section>
+
+</div><!-- #deck -->
+
+<div id="nav">
+  <button onclick="go(-1)">←</button>
+  <span id="ctr">1 / 23</span>
+  <button onclick="go(1)">→</button>
+</div>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  let i = 0;
+
+  function show(n) {
+    slides[i].classList.remove('on');
+    i = (n + slides.length) % slides.length;
+    slides[i].classList.add('on');
+    document.getElementById('ctr').textContent = `${i + 1} / ${slides.length}`;
+    document.getElementById('bar').style.width = `${((i + 1) / slides.length) * 100}%`;
+  }
+
+  function go(d) { show(i + d); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); go(-1); }
+    if (e.key === 'n' || e.key === 'N') document.body.classList.toggle('notes');
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End')  show(slides.length - 1);
+  });
+
+  document.getElementById('bar').style.width = `${(1 / slides.length) * 100}%`;
+</script>
+</body>
+</html>
