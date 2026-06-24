@@ -1,7 +1,7 @@
 <!--
-  linja.me/blog/context-engineering-geschichtetes-wissen – Context Engineering ist kein Trick.
-  Schema: artikel_baukasten.md (5 fixe Blöcke + Quellen + Glossar)
-  Optionale Komponenten: Datentabelle (1)
+  linja.me/blog/context-engineering-geschichtetes-wissen – Drei Schichten, ein System (Synthese-Logbuch)
+  Format: Bau-Logbuch / Journal (gelöst vom starren 5-Block-Schema)
+  Visualisierungen: System-Rahmen-Stack, Genealogie-Tabelle, Drei-Gedächtnisse-Cards, Synthese-Flow (aus dem Vortrag, business-angewendet)
   Entwurf: 2026-06-24
   Bilingual: DE + EN
 -->
@@ -16,11 +16,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
     <meta name="theme-color" content="#7B6BA5">
     <meta name="robots" content="noindex, nofollow">
-    <title>Context Engineering ist kein Trick. Es ist gut geschichtetes Wissen. – Linja Scharffetter</title>
+    <title>Drei Schichten, ein System: die Synthese hinter meinem KI-Kontext-Modell – Linja Scharffetter</title>
     <meta name="description"
-        content="Die Qualität von KI-Output hängt an der Qualität des Kontexts. Warum gutes Wissen kein Prompt-Trick ist, sondern Ordnung in Schichten: Knowledge, Identity, Sensemaking, eingefasst in ein System.">
-    <meta property="og:title" content="Context Engineering ist kein Trick. Es ist gut geschichtetes Wissen.">
-    <meta property="og:description" content="Warum guter KI-Kontext kein Prompt-Trick ist, sondern Wissen in Schichten. Und warum diese Idee alt ist, aber erst mit KI ihren Zweck findet.">
+        content="Ein Bau-Logbuch: Wie ich aus DIKW, Polanyi, Weick, Luhmann und Forte ein eigenes Drei-Schichten-Modell zusammengesetzt habe, mit dem ich Arbeits- und Langzeitgedächtnis der KI gezielt steuere.">
+    <meta property="og:title" content="Drei Schichten, ein System: die Synthese hinter meinem KI-Kontext-Modell">
+    <meta property="og:description" content="Kein Ratgeber, ein Bau-Logbuch. Woraus mein KI-Kontext-Modell entstanden ist und warum die Kombination die Erinnerung der KI steuerbar macht.">
     <meta property="og:type" content="article">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
@@ -105,7 +105,7 @@
             width: 100%;
             border-collapse: collapse;
             margin: 1.5rem 0;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
         .prose th {
             text-align: left;
@@ -116,7 +116,7 @@
         }
         .prose td {
             border-bottom: 1px solid #E5E2DB;
-            padding: 0.5rem 0.75rem;
+            padding: 0.6rem 0.75rem;
             vertical-align: top;
         }
         .prose ol {
@@ -160,10 +160,10 @@
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Wissensarbeit</span>
                 <span class="text-[0.72rem] text-stone-400">24. Juni 2026</span>
-                <span class="text-[0.72rem] text-stone-400">&middot; 6 Min Lesezeit</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
             </div>
             <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
-                Context Engineering ist kein Trick. Es ist gut geschichtetes Wissen.
+                Drei Schichten, ein System: die Synthese hinter meinem KI-Kontext-Modell
             </h1>
         </header>
 
@@ -174,155 +174,199 @@
         <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
             <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
-                Die Qualität von KI-Output hängt an der Qualität des Kontexts, den du gibst. Guter Kontext ist kein Prompt-Trick, sondern dein eigenes Wissen, sauber in Schichten getrennt: Fachwissen, deine Vorarbeit, deine Schlüsse, eingefasst in ein Regelwerk. Diese Schichtung ist nicht neu. Neu ist nur, sie gezielt für die Arbeit mit KI zu nutzen.
+                Mein KI-Kontext-Modell ist eine Synthese aus alten Konstrukten: DIKW, Polanyis implizitem Wissen, Weicks Sensemaking, Luhmanns und Fortes Externalisierung. Neu ist die Zusammenführung zu drei Schichten plus System und ihr Zweck. Damit steuere ich gezielt, was die KI in Arbeits- und Langzeitgedächtnis zuverlässig nutzt. Das hier ist das Bau-Logbuch dahinter.
             </p>
         </div>
 
         <!-- ======== ARTIKEL-CONTENT ======== -->
         <article class="prose pb-12">
 
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 1: KERNBOTSCHAFT + PROBLEM
-                 ══════════════════════════════════════════════ -->
+            <p>Ich habe ein Modell gebaut, mit dem ich der KI Kontext gebe, und ich arbeite täglich damit. Drei Wissensschichten, eingefasst in ein System. Es ist nicht aus dem Nichts erfunden, sondern eine Synthese: Ich habe mehrere etablierte Konstrukte genommen, sie kombiniert und die eine Ebene ergänzt, die wirklich neu ist, das gezielte Steuern der KI-Erinnerung.</p>
 
-            <p>Die meisten suchen den besseren Prompt. Den einen Satz, das clevere Format, die Vorlage, die endlich gute Antworten liefert. Das Problem dabei: Prompt-Tricks veralten mit jeder Modellversion. Was heute funktioniert, ist beim nächsten Update wieder Glückssache.</p>
-
-            <p>Was bleibt, ist etwas anderes. Nicht wie du fragst, sondern was die KI über dich, deine Arbeit und dein Thema weiß. Genau das ist Context Engineering: nicht die Kunst, Befehle zu formulieren, sondern die Kompetenz, der KI gezielt das richtige Wissen zu geben. Und gutes Wissen kommt nicht aus einem Trick. Es kommt aus Ordnung.</p>
+            <p>Dieser Text ist kein Ratgeber. Er ist das Bau-Logbuch: woher jedes Teil stammt, wie ich es zusammengesetzt habe und warum die Kombination trägt.</p>
 
             <!-- ══════════════════════════════════════════════
-                 BLOCK 2: FUNDIERUNG
+                 DAS KONSTRUKT
                  ══════════════════════════════════════════════ -->
 
-            <h2>Drei Schichten plus ein System</h2>
+            <h2>Das Konstrukt</h2>
 
-            <p>Damit die KI mit deinem Wissen arbeiten kann, musst du es trennen. Nicht alles auf einmal in den Chat kippen, sondern in Schichten, in denen jede Information nur einmal existiert.</p>
+            <p>Das Modell besteht aus drei Schichten, die in einem System sitzen. Jede Information existiert genau einmal, jede Schicht hat eine klare Aufgabe.</p>
 
-            <!-- ══ OPTIONAL 1/2: SCHICHTEN-STACK ══ -->
+            <!-- ══ VISUAL: SYSTEM-RAHMEN UM DREI SCHICHTEN (aus dem Vortrag) ══ -->
             <div class="my-10" style="max-width: 100%;">
-                <!-- Layer 3 -->
-                <div class="rounded-t-lg px-6 py-5 relative" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="source-serif text-[1.05rem] text-stone-900">Sensemaking</span>
-                        <span class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #472E56;">Schicht 3</span>
+                <div class="rounded-2xl p-4 sm:p-5" style="border: 1.5px solid #b9a8d4; background: #fcfbfe;">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="source-serif text-[1.05rem] font-semibold" style="color: #472E56;">System</span>
+                        <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #9a82b5;">Rahmen</span>
                     </div>
-                    <p class="text-[0.8rem] text-stone-500 mb-0">Muster erkennen, Gelesenes einordnen, eigene Schlüsse ziehen.</p>
-                    <div class="absolute -bottom-px left-6 right-6 h-px" style="background: #d9d1e5;"></div>
-                </div>
-                <!-- Layer 2 -->
-                <div class="px-6 py-5 relative" style="background: #f2f7f4; border-left: 1px solid #96bfaa; border-right: 1px solid #96bfaa;">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="source-serif text-[1.05rem] text-stone-900">Identity</span>
-                        <span class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #5b8a72;">Schicht 2</span>
+                    <p class="text-[0.8rem] text-stone-500 mb-4">Regelwerk und Arbeitsvertrag mit dem KI-Tool: CLAUDE.md, Rules, Memory.</p>
+                    <!-- Schicht 3 -->
+                    <div class="rounded-t-lg px-5 py-4" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Sensemaking</span>
+                            <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #472E56;">Schicht 3</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-500 mb-0">Muster erkennen, einordnen, eigene Schlüsse und Strategie entwickeln.</p>
                     </div>
-                    <p class="text-[0.8rem] text-stone-500 mb-0">Deine Fähigkeiten, Notizen, Thesen, bisherige Arbeiten. Was so nur du weißt.</p>
-                    <div class="absolute -bottom-px left-6 right-6 h-px" style="background: #96bfaa;"></div>
-                </div>
-                <!-- Layer 1 -->
-                <div class="rounded-b-lg px-6 py-5" style="background: #fdf5f0; border: 1px solid #ecb08e; border-top: none;">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="source-serif text-[1.05rem] text-stone-900">Knowledge</span>
-                        <span class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #D4714E;">Schicht 1</span>
+                    <!-- Schicht 2 -->
+                    <div class="px-5 py-4" style="background: #ece8f2; border-left: 1px solid #d9d1e5; border-right: 1px solid #d9d1e5;">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Identity</span>
+                            <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #5b4a7d;">Schicht 2</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-500 mb-0">Meine Rolle, Projekte, Analysen, bisherige Arbeiten. Was so nur ich weiß.</p>
                     </div>
-                    <p class="text-[0.8rem] text-stone-500 mb-0">Fachwissen, das unabhängig von dir existiert: Theorien, Methoden, Quellen.</p>
+                    <!-- Schicht 1 -->
+                    <div class="rounded-b-lg px-5 py-4" style="background: #d9d1e5; border: 1px solid #c9bcdf; border-top: none;">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Knowledge</span>
+                            <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #5b4a7d;">Schicht 1</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-600 mb-0">Fachwissen, das unabhängig von mir existiert: Methoden, Frameworks, Marktdaten, Quellen.</p>
+                    </div>
                 </div>
             </div>
 
-            <p>Um diese drei Schichten herum liegt ein <strong>System</strong>: das Regelwerk, der Arbeitsvertrag mit dem KI-Tool. Es ist kein viertes Stockwerk an Wissen, sondern die Ebene darüber. Sie legt fest, wie die KI mit den Schichten umgeht, wer du bist, wie du arbeitest, was sie darf und was nicht. Das Prinzip, das alles zusammenhält: jede Information existiert genau einmal.</p>
+            <p>Das System ist kein viertes Stockwerk an Wissen, sondern der Rahmen darüber. Es legt fest, wie die KI mit den Schichten umgeht: wer ich bin, wie ich arbeite, was sie darf und was nicht. Genau deshalb umschließt es die Schichten, statt sich danebenzustellen.</p>
 
-            <h2>Warum das kein neuer Gedanke ist</h2>
+            <!-- ══════════════════════════════════════════════
+                 WORAUS ICH ES ZUSAMMENGESETZT HABE
+                 ══════════════════════════════════════════════ -->
 
-            <p>Diese Schichtung wirkt neu, ist es aber nicht. Sie steht auf Modellen, die seit Jahrzehnten etabliert sind.</p>
+            <h2>Woraus ich es zusammengesetzt habe</h2>
 
-            <p>Die unterste Schicht entspricht der <strong>DIKW-Pyramide</strong>¹, die Daten über Information zu Wissen verdichtet. Die Identity-Schicht trifft Michael Polanyis Unterscheidung von explizitem und implizitem Wissen², also dem, was du kodifizieren kannst, und dem, das du verkörperst, ohne es ganz aussprechen zu können. Und die oberste Schicht ist genau das, was Karl Weick in der Organisationstheorie <strong>Sensemaking</strong>³ nennt: das aktive Konstruieren von Bedeutung aus dem, was vor dir liegt.</p>
+            <p>Keine der drei Schichten habe ich erfunden. Jede steht auf einem Konstrukt, das es seit Jahrzehnten gibt. Meine Arbeit lag nicht in den Bauteilen, sondern darin, die richtigen auszuwählen und zu einem funktionierenden Ganzen zu fügen.</p>
 
-            <p>Die populären Verwandten sind Luhmanns Zettelkasten⁵ und Tiago Fortes <em>Building a Second Brain</em>⁶. Beide stehen für denselben Grundgedanken: Wissen extern strukturiert ablegen, damit der Kopf frei wird zum Denken.</p>
-
-            <p class="key-quote">Guter Kontext ist nicht das, was du der KI sagst. Es ist das Wissen, das du vorher selbst geordnet hast.</p>
-
-            <h2>Und die KI-Seite bestätigt es</h2>
-
-            <p>Das eigentlich Spannende: Das junge Feld Context Engineering landet bei fast derselben Schichtung. Anthropic, das Unternehmen hinter dem Modell Claude, zerlegt den Kontext einer KI in mehrere Speicher, die meinen Ebenen erstaunlich genau entsprechen⁴.</p>
-
-            <!-- ══ OPTIONAL 1/2: DATENTABELLE ══ -->
+            <!-- ══ GENEALOGIE-TABELLE ══ -->
             <table>
                 <thead>
                     <tr>
-                        <th>Meine Schicht</th>
-                        <th>Klassisches Modell</th>
-                        <th>KI-Gedächtnis (Anthropic)</th>
+                        <th>Bauteil</th>
+                        <th>Steht auf</th>
+                        <th>Was ich übernommen habe</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>System</strong></td>
-                        <td>Regelwerk, Governance</td>
-                        <td>System-Prompt (prozedural)</td>
-                    </tr>
-                    <tr>
                         <td><strong>Knowledge</strong></td>
-                        <td>DIKW-Pyramide</td>
-                        <td>Semantisches Gedächtnis (Modellgewichte, Websuche)</td>
+                        <td>DIKW-Hierarchie (Ackoff, 1989)¹</td>
+                        <td>Die Idee einer von mir unabhängigen Faktenbasis, die sich von Daten zu Wissen verdichtet.</td>
                     </tr>
                     <tr>
                         <td><strong>Identity</strong></td>
-                        <td>Polanyi: explizit / implizit</td>
-                        <td>Episodisches Gedächtnis (Memory, Präferenzen)</td>
+                        <td>Implizites Wissen (Polanyi, 1966)²</td>
+                        <td>Dass mein verkörpertes Können eine eigene Schicht verdient, nicht nur das, was ich kodifizieren kann.</td>
                     </tr>
                     <tr>
                         <td><strong>Sensemaking</strong></td>
-                        <td>Weick: Sensemaking</td>
-                        <td>entsteht im Arbeitsgedächtnis (Kontextfenster)</td>
+                        <td>Sensemaking (Weick, 1995)³</td>
+                        <td>Dass Deutung eine aktive Leistung ist, kein Abruf aus einem Speicher.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prinzip „eine Quelle"</strong></td>
+                        <td>Zettelkasten (Luhmann)⁵, Building a Second Brain (Forte)⁶</td>
+                        <td>Atomarität, also jede Information genau einmal, und der Impuls, Wissen extern abzulegen, um den Kopf zum Denken frei zu haben.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>System-Rahmen, KI-Bezug</strong></td>
+                        <td>Context Engineering (Anthropic, 2025)⁴</td>
+                        <td>Dass Kontext die Speicher der KI gezielt steuert. Die Zusammenführung zu genau diesen vier Ebenen ist meine eigene.</td>
                     </tr>
                 </tbody>
             </table>
 
-            <p>Niemand hat hier voneinander abgeschrieben. Verschiedene Disziplinen kommen unabhängig zur gleichen Ordnung, weil sie funktioniert. Wer Wissen schichtet, kann gezielt die richtige Ebene geben, statt alles auf einmal.</p>
+            <p>Das Bemerkenswerte: Die Wissensmanagement-Klassiker und das junge KI-Feld kommen unabhängig zur fast gleichen Ordnung. Luhmann hatte keine drei Schichten, sein Zettelkasten lebt von Vernetzung. Forte ordnet nach Handlungsnähe, nicht nach Wissenstyp. Beide sind Verwandte des Grundgedankens, keine Blaupause. Die Zusammenführung zu genau diesen vier Ebenen, plus die Anwendung auf die Arbeit mit KI, ist meine eigene.</p>
+
+            <p class="key-quote">Meine Leistung liegt nicht in den Bauteilen, sondern darin, sie zu einem Steuerungsmodell zusammenzusetzen.</p>
 
             <!-- ══════════════════════════════════════════════
-                 BLOCK 3: WAS ICH VERÄNDERT HABE
+                 DER EIGENTLICHE HEBEL
                  ══════════════════════════════════════════════ -->
 
-            <h2>Was ich verändert habe</h2>
+            <h2>Der eigentliche Hebel: die Erinnerung der KI steuern</h2>
 
-            <p>Früher fing jede KI-Session bei null an. Ich erklärte jedes Mal neu, wer ich bin und woran ich arbeite, oder ich ließ es und nahm schwammige Antworten in Kauf.</p>
+            <p>Eine Taxonomie allein wäre nett, aber wirkungslos. Der Sinn des System-Rahmens ist Kontrolle. Denn eine KI hat nicht ein Gedächtnis, sondern drei, die unterschiedlich zuverlässig arbeiten und von denen ich nur eines direkt steuere.</p>
 
-            <p>Heute ist mein Wissen geschichtet abgelegt. Das System steht in einer festen Datei, die die KI bei jeder Session automatisch liest: wer ich bin, wie ich arbeite, was sie darf. Meine Identity-Schicht liegt in einem Memory, das über Sessions hinweg hält. Fachwissen hole ich pro Aufgabe gezielt dazu, statt es im Modell zu vermuten.</p>
+            <!-- ══ VISUAL: DREI GEDÄCHTNISSE (aus dem Vortrag) ══ -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-5" style="border-color: #e5e2db;">
+                    <p class="source-serif text-[1rem] text-stone-900 mb-1">Das Gespräch</p>
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2" style="color: #5b8a72;">Arbeitsgedächtnis · steuerbar</p>
+                    <p class="text-[0.8rem] text-stone-500 mb-0">Der Kontext im laufenden Chat. Hält Infos nur für die aktuelle Aufgabe. Hier setzt meine Vorarbeit an, das steuere ich direkt.</p>
+                </div>
+                <div class="border rounded-lg p-5" style="border-color: #e5e2db;">
+                    <p class="source-serif text-[1rem] text-stone-900 mb-1">Die Erinnerung</p>
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2" style="color: #9a82b5;">Langzeitgedächtnis</p>
+                    <p class="text-[0.8rem] text-stone-500 mb-0">Dauerhafter Speicher über Sessions. CLAUDE.md, Rules und Memory halten meine Vorgaben fest, ohne Wiederholung.</p>
+                </div>
+                <div class="border rounded-lg p-5" style="border-color: #e5e2db;">
+                    <p class="source-serif text-[1rem] text-stone-900 mb-1">Die Wissensbasis</p>
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2" style="color: #a86340;">Semantisches Gedächtnis</p>
+                    <p class="text-[0.8rem] text-stone-500 mb-0">Antrainiertes Faktenwissen aus den Modellgewichten. Nicht steuerbar, nur Fallback. Genau hier erfindet sie.</p>
+                </div>
+            </div>
 
-            <p>Der eigentliche Unterschied liegt im letzten Schritt: Pro Aufgabe fülle ich gezielt die passende Schicht in das Arbeitsgedächtnis, statt alles gleichzeitig hineinzukippen. Damit verschiebt sich die KI aus der Rolle der Erstquelle, in der sie gerne erfindet, in die Rolle der Kritikerin für das, was ich schon erarbeitet habe.</p>
+            <p>Mein Modell ist die Brücke zwischen meinen Schichten und diesen Speichern. Pro Aufgabe fülle ich gezielt die passende Schicht ins Arbeitsgedächtnis, statt alles auf einmal hineinzukippen. Den System-Rahmen schreibe ich einmal, er lädt sich ins Langzeitgedächtnis und gilt über alle Sessions.</p>
 
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 4: KRITISCHE EINORDNUNG
-                 ══════════════════════════════════════════════ -->
-
-            <h2>Kritische Einordnung</h2>
-
-            <p>Schichten sind keine Wunderwaffe. Guter Kontext macht den Output besser, nicht wahrer, und schon gar nicht zu deiner eigenen Leistung. Selbst eine perfekt geerdete KI kann Kontext falsch deuten oder bei langem Input Teile davon verlieren, ein Effekt, der Context Rot heißt. Prüfen bleibt Pflicht.</p>
-
-            <p>Auch die historische Linie ist lockerer, als sie klingt. Luhmann hatte keine drei Wissensschichten, sein Zettelkasten lebt von Vernetzung. Forte ordnet nach Handlungsnähe, nicht nach Wissenstyp. Beide sind Verwandte des Grundgedankens, keine Blaupause für genau dieses Modell. Die konkrete Zusammenführung ist meine eigene.</p>
-
-            <p>Der größte Haken steckt aber woanders: Die Schichtung funktioniert nur, wenn die Schichten gefüllt sind. Wer Knowledge und Identity nicht selbst erarbeitet hat, hat der KI nichts Gutes zu geben. Guten Kontext bauen und selbst denken sind dieselbe Handlung.</p>
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 5: TAKEAWAYS
-                 ══════════════════════════════════════════════ -->
-
-            <div class="my-10">
-                <h2>Was bleibt für jeden Tag</h2>
-                <div class="space-y-5">
-                    <div class="pl-5">
-                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Kontext schlägt Prompt.</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wie du fragst, veraltet mit jeder Modellversion. Was die KI über dich und dein Thema weiß, bleibt.</p>
+            <!-- ══ VISUAL: SYNTHESE-FLOW (aus dem Vortrag, business) ══ -->
+            <div class="my-8 flex flex-col md:flex-row md:items-stretch gap-3 md:gap-2" style="max-width: 100%;">
+                <!-- Setup -->
+                <div class="flex-1">
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2 text-stone-400">Mein KI-Setup</p>
+                    <div class="rounded-xl p-3 space-y-2 h-full" style="border: 1.5px solid #b9a8d4;">
+                        <div class="rounded-md px-3 py-2 bg-white border" style="border-color: #e5e2db;"><span class="text-[0.78rem]"><strong>System-Rahmen:</strong> Arbeitsregeln, CLAUDE.md</span></div>
+                        <div class="rounded-md px-3 py-2" style="background: #ece8f2;"><span class="text-[0.78rem]"><strong>Knowledge:</strong> Markt- und Fachwissen</span></div>
+                        <div class="rounded-md px-3 py-2" style="background: #ece8f2;"><span class="text-[0.78rem]"><strong>Identity:</strong> meine Projekte, meine Analysen</span></div>
+                        <div class="rounded-md px-3 py-2" style="background: #ece8f2;"><span class="text-[0.78rem]"><strong>Sensemaking:</strong> meine Strategie</span></div>
                     </div>
-                    <div class="pl-5">
-                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Trenne dein Wissen in Schichten.</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Fachwissen, eigene Arbeit, eigene Schlüsse, eingefasst in ein Regelwerk. Jede Information nur einmal.</p>
+                </div>
+                <!-- Pfeil -->
+                <div class="flex items-center justify-center text-stone-300 text-xl"><span class="inline-block rotate-90 md:rotate-0">&rarr;</span></div>
+                <!-- Gedächtnis -->
+                <div class="flex-1">
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2 text-stone-400">KI-Gedächtnis</p>
+                    <div class="space-y-2">
+                        <div class="rounded-lg px-3 py-2.5" style="background: #f2f7f4; border: 1px solid #cfe3d8;">
+                            <p class="font-mono text-[0.5rem] tracking-wider uppercase mb-0.5" style="color: #5b8a72;">Ich steuere · pro Aufgabe</p>
+                            <p class="text-[0.83rem] font-semibold text-stone-900 mb-0.5">Arbeitsgedächtnis</p>
+                            <p class="text-[0.76rem] text-stone-500 mb-0">Ich gebe gezielt die passende Schicht rein. Die einzige Stelle, an der die KI zuverlässig liest.</p>
+                        </div>
+                        <div class="rounded-lg px-3 py-2.5" style="background: #f2f7f4; border: 1px solid #cfe3d8;">
+                            <p class="font-mono text-[0.5rem] tracking-wider uppercase mb-0.5" style="color: #5b8a72;">Ich beeinflusse · dauerhaft</p>
+                            <p class="text-[0.83rem] font-semibold text-stone-900 mb-0.5">Langzeitgedächtnis</p>
+                            <p class="text-[0.76rem] text-stone-500 mb-0">Ich schreibe den System-Rahmen. Lädt automatisch, jede Session.</p>
+                        </div>
+                        <div class="rounded-lg px-3 py-2.5" style="background: #fff; border: 1px solid #e7c3b6;">
+                            <p class="text-[0.83rem] font-semibold mb-0.5" style="color: #a86340;">Semantisches Gedächtnis</p>
+                            <p class="text-[0.76rem] text-stone-500 mb-0">Antrainiert, verlustbehaftet, <strong>nicht steuerbar.</strong> Nur Fallback.</p>
+                        </div>
                     </div>
-                    <div class="pl-5">
-                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Die Basis kommt von dir.</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">KI kann die oberste Schicht unterstützen. Aber nur, wenn du die unteren selbst gefüllt hast.</p>
+                </div>
+                <!-- Pfeil -->
+                <div class="flex items-center justify-center text-stone-300 text-xl"><span class="inline-block rotate-90 md:rotate-0">&rarr;</span></div>
+                <!-- Ergebnis -->
+                <div class="flex-1">
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2 text-stone-400">Ergebnis</p>
+                    <div class="rounded-xl px-4 py-4 h-full flex items-center" style="background: #ece8f2;">
+                        <p class="text-[0.84rem] text-stone-800 font-medium mb-0">Belastbarer KI-Output, den ich verantworten und in meiner Arbeit weiterverwenden kann.</p>
                     </div>
                 </div>
             </div>
+
+            <p>Damit verschiebt sich die KI aus der Rolle der Erstquelle, in der sie erfindet, in die Rolle der Kritikerin für das, was ich schon erarbeitet habe. Das ist der eigentliche Zweck des Konstrukts: nicht Wissen ordnen um der Ordnung willen, sondern die Erinnerung der KI steuern.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 WO DAS KONSTRUKT ENDET
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Wo das Konstrukt ehrlich endet</h2>
+
+            <p>Drei Grenzen, die ich offen halte. Erstens macht das Modell den Output besser, nicht wahrer und nicht zu meiner eigenen Leistung. Auch perfekt geerdete KI kann Kontext falsch deuten oder bei langem Input Teile davon verlieren, ein Effekt namens Context Rot. Prüfen bleibt Pflicht.</p>
+
+            <p>Zweitens wirken die Schichten nur, wenn sie gefüllt sind. Wer Knowledge und Identity nicht selbst erarbeitet hat, hat der KI nichts Gutes zu geben. Guten Kontext bauen und selbst denken sind dieselbe Handlung.</p>
+
+            <p>Drittens ist es eine Synthese, kein Beweis. Dass verschiedene Disziplinen bei derselben Ordnung landen, ist ein starkes Indiz dafür, dass die Ordnung trägt, aber kein Gesetz. Ich verfeinere das Modell weiter, während ich damit arbeite. Der Kern aber steht: drei Schichten, ein System, ein Zweck.</p>
 
             <!-- ══════════════════════════════════════════════
                  QUELLEN
@@ -348,8 +392,9 @@
                     <p class="mb-0"><span class="text-stone-700 font-medium">DIKW</span> <span class="text-stone-400">— Hierarchie von Daten über Information und Wissen zu Weisheit (Ackoff).</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Implizites Wissen</span> <span class="text-stone-400">— Können, das man verkörpert, aber nicht vollständig in Worte fassen kann (Polanyi).</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Sensemaking</span> <span class="text-stone-400">— Das aktive Konstruieren von Bedeutung aus Beobachtungen (Weick).</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Halluzination</span> <span class="text-stone-400">— Wenn eine KI plausibel klingende, aber erfundene Inhalte ausgibt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Atomarität</span> <span class="text-stone-400">— Jede Information existiert genau einmal an einer Stelle und wird von dort referenziert.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Context Rot</span> <span class="text-stone-400">— Qualitätsverlust, wenn ein Modell bei sehr langem Input Teile des Kontexts übersieht.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Halluzination</span> <span class="text-stone-400">— Wenn eine KI plausibel klingende, aber erfundene Inhalte ausgibt.</span></p>
                 </div>
             </div>
 
@@ -372,10 +417,10 @@
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Knowledge Work</span>
                 <span class="text-[0.72rem] text-stone-400">June 24, 2026</span>
-                <span class="text-[0.72rem] text-stone-400">&middot; 6 min read</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
             </div>
             <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
-                Context Engineering Is Not a Trick. It Is Well Layered Knowledge.
+                Three Layers, One System: the synthesis behind my AI context model
             </h1>
         </header>
 
@@ -383,155 +428,191 @@
         <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
             <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
-                The quality of AI output depends on the quality of the context you give it. Good context is not a prompt trick. It is your own knowledge, cleanly separated into layers: domain knowledge, your own work, your conclusions, wrapped in a set of rules. This layering is not new. What is new is using it deliberately to work with AI.
+                My AI context model is a synthesis of older constructs: DIKW, Polanyi's tacit knowledge, Weick's sensemaking, Luhmann's and Forte's externalization. What is new is the combination into three layers plus a system, and its purpose. With it I deliberately steer what the AI reliably uses in working memory and long term memory. This is the build log behind it.
             </p>
         </div>
 
         <!-- ======== ARTICLE CONTENT ======== -->
         <article class="prose pb-12">
 
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 1: CORE MESSAGE + PROBLEM
-                 ══════════════════════════════════════════════ -->
+            <p>I built a model for giving AI context, and I use it every day. Three knowledge layers, wrapped in a system. It is not invented from nothing, it is a synthesis: I took several established constructs, combined them, and added the one layer that is genuinely new, the deliberate steering of an AI's memory.</p>
 
-            <p>Most people hunt for the better prompt. The one sentence, the clever format, the template that finally produces good answers. The catch: prompt tricks age with every model version. What works today is a gamble again after the next update.</p>
-
-            <p>What lasts is something else. Not how you ask, but what the AI knows about you, your work, and your topic. That is exactly what context engineering is: not the art of phrasing commands, but the skill of giving the AI the right knowledge on purpose. And good knowledge does not come from a trick. It comes from order.</p>
+            <p>This text is not a how to. It is the build log: where each piece comes from, how I put it together, and why the combination holds.</p>
 
             <!-- ══════════════════════════════════════════════
-                 BLOCK 2: FOUNDATION
+                 THE CONSTRUCT
                  ══════════════════════════════════════════════ -->
 
-            <h2>Three layers plus a system</h2>
+            <h2>The construct</h2>
 
-            <p>For the AI to work with your knowledge, you have to separate it. Not dump everything into the chat at once, but split it into layers where each piece of information exists only once.</p>
+            <p>The model is made of three layers that sit inside a system. Each piece of information exists exactly once, each layer has a clear job.</p>
 
-            <!-- ══ COMPARISON 1/2: LAYER STACK ══ -->
+            <!-- ══ VISUAL: SYSTEM FRAME AROUND THREE LAYERS ══ -->
             <div class="my-10" style="max-width: 100%;">
-                <!-- Layer 3 -->
-                <div class="rounded-t-lg px-6 py-5 relative" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="source-serif text-[1.05rem] text-stone-900">Sensemaking</span>
-                        <span class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #472E56;">Layer 3</span>
+                <div class="rounded-2xl p-4 sm:p-5" style="border: 1.5px solid #b9a8d4; background: #fcfbfe;">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="source-serif text-[1.05rem] font-semibold" style="color: #472E56;">System</span>
+                        <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #9a82b5;">Frame</span>
                     </div>
-                    <p class="text-[0.8rem] text-stone-500 mb-0">Recognize patterns, place what you read in context, draw your own conclusions.</p>
-                    <div class="absolute -bottom-px left-6 right-6 h-px" style="background: #d9d1e5;"></div>
-                </div>
-                <!-- Layer 2 -->
-                <div class="px-6 py-5 relative" style="background: #f2f7f4; border-left: 1px solid #96bfaa; border-right: 1px solid #96bfaa;">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="source-serif text-[1.05rem] text-stone-900">Identity</span>
-                        <span class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #5b8a72;">Layer 2</span>
+                    <p class="text-[0.8rem] text-stone-500 mb-4">Rule set and working contract with the AI tool: CLAUDE.md, rules, memory.</p>
+                    <div class="rounded-t-lg px-5 py-4" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Sensemaking</span>
+                            <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #472E56;">Layer 3</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-500 mb-0">Recognize patterns, place things in context, develop your own conclusions and strategy.</p>
                     </div>
-                    <p class="text-[0.8rem] text-stone-500 mb-0">Your skills, notes, theses, prior work. What only you know in this form.</p>
-                    <div class="absolute -bottom-px left-6 right-6 h-px" style="background: #96bfaa;"></div>
-                </div>
-                <!-- Layer 1 -->
-                <div class="rounded-b-lg px-6 py-5" style="background: #fdf5f0; border: 1px solid #ecb08e; border-top: none;">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="source-serif text-[1.05rem] text-stone-900">Knowledge</span>
-                        <span class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #D4714E;">Layer 1</span>
+                    <div class="px-5 py-4" style="background: #ece8f2; border-left: 1px solid #d9d1e5; border-right: 1px solid #d9d1e5;">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Identity</span>
+                            <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #5b4a7d;">Layer 2</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-500 mb-0">My role, projects, analyses, prior work. What only I know in this form.</p>
                     </div>
-                    <p class="text-[0.8rem] text-stone-500 mb-0">Domain knowledge that exists independently of you: theories, methods, sources.</p>
+                    <div class="rounded-b-lg px-5 py-4" style="background: #d9d1e5; border: 1px solid #c9bcdf; border-top: none;">
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Knowledge</span>
+                            <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #5b4a7d;">Layer 1</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-600 mb-0">Domain knowledge that exists independently of me: methods, frameworks, market data, sources.</p>
+                    </div>
                 </div>
             </div>
 
-            <p>Around these three layers sits a <strong>System</strong>: the rule set, the working contract with the AI tool. It is not a fourth floor of knowledge but the level above. It defines how the AI handles the layers, who you are, how you work, what it may do and what it may not. The principle that holds it all together: each piece of information exists exactly once.</p>
+            <p>The system is not a fourth floor of knowledge but the frame above. It defines how the AI handles the layers: who I am, how I work, what it may do and what it may not. That is why it wraps the layers instead of standing next to them.</p>
 
-            <h2>Why this is not a new idea</h2>
+            <!-- ══════════════════════════════════════════════
+                 WHAT I ASSEMBLED IT FROM
+                 ══════════════════════════════════════════════ -->
 
-            <p>This layering looks new, but it is not. It stands on models that have been established for decades.</p>
+            <h2>What I assembled it from</h2>
 
-            <p>The bottom layer maps to the <strong>DIKW pyramid</strong>¹, which condenses data through information into knowledge. The Identity layer matches Michael Polanyi's distinction between explicit and tacit knowledge², between what you can codify and what you embody without being able to fully state it. And the top layer is precisely what Karl Weick calls <strong>sensemaking</strong>³ in organizational theory: the active construction of meaning from what lies in front of you.</p>
+            <p>I invented none of the three layers. Each stands on a construct that has existed for decades. My work was not in the parts but in choosing the right ones and joining them into a working whole.</p>
 
-            <p>The popular relatives are Luhmann's Zettelkasten⁵ and Tiago Forte's <em>Building a Second Brain</em>⁶. Both stand for the same core idea: store knowledge in a structured external place so the mind is free to think.</p>
-
-            <p class="key-quote">Good context is not what you tell the AI. It is the knowledge you ordered yourself beforehand.</p>
-
-            <h2>And the AI side confirms it</h2>
-
-            <p>The genuinely interesting part: the young field of context engineering lands on almost the same layering. Anthropic, the company behind the model Claude, breaks an AI's context into several stores that map remarkably closely to my layers⁴.</p>
-
-            <!-- ══ COMPARISON TABLE ══ -->
+            <!-- ══ GENEALOGY TABLE ══ -->
             <table>
                 <thead>
                     <tr>
-                        <th>My layer</th>
-                        <th>Classic model</th>
-                        <th>AI memory (Anthropic)</th>
+                        <th>Part</th>
+                        <th>Stands on</th>
+                        <th>What I took from it</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>System</strong></td>
-                        <td>Rule set, governance</td>
-                        <td>System prompt (procedural)</td>
-                    </tr>
-                    <tr>
                         <td><strong>Knowledge</strong></td>
-                        <td>DIKW pyramid</td>
-                        <td>Semantic memory (model weights, web search)</td>
+                        <td>DIKW hierarchy (Ackoff, 1989)¹</td>
+                        <td>The idea of a fact base independent of me that condenses from data into knowledge.</td>
                     </tr>
                     <tr>
                         <td><strong>Identity</strong></td>
-                        <td>Polanyi: explicit / tacit</td>
-                        <td>Episodic memory (memory, preferences)</td>
+                        <td>Tacit knowledge (Polanyi, 1966)²</td>
+                        <td>That my embodied skill deserves its own layer, not just what I can codify.</td>
                     </tr>
                     <tr>
                         <td><strong>Sensemaking</strong></td>
-                        <td>Weick: sensemaking</td>
-                        <td>emerges in working memory (context window)</td>
+                        <td>Sensemaking (Weick, 1995)³</td>
+                        <td>That interpretation is an active act, not a retrieval from a store.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>"One source" principle</strong></td>
+                        <td>Zettelkasten (Luhmann)⁵, Building a Second Brain (Forte)⁶</td>
+                        <td>Atomicity, each piece of information exactly once, and the impulse to store knowledge externally to free the mind for thinking.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>System frame, AI link</strong></td>
+                        <td>Context engineering (Anthropic, 2025)⁴</td>
+                        <td>That context steers the AI's memory stores on purpose. The combination into exactly these four levels is my own.</td>
                     </tr>
                 </tbody>
             </table>
 
-            <p>Nobody copied from anyone here. Different disciplines arrive at the same order independently because it works. Whoever layers their knowledge can hand over the right level on purpose, instead of everything at once.</p>
+            <p>The remarkable part: the knowledge management classics and the young AI field arrive at almost the same order independently. Luhmann had no three layers, his Zettelkasten lives on connections. Forte organizes by actionability, not by knowledge type. Both are relatives of the core idea, not a blueprint. The combination into exactly these four levels, plus the application to working with AI, is my own.</p>
+
+            <p class="key-quote">My contribution is not in the parts. It is in assembling them into a control model.</p>
 
             <!-- ══════════════════════════════════════════════
-                 BLOCK 3: WHAT I CHANGED
+                 THE REAL LEVER
                  ══════════════════════════════════════════════ -->
 
-            <h2>What I changed</h2>
+            <h2>The real lever: steering the AI's memory</h2>
 
-            <p>Every AI session used to start from zero. I explained again each time who I am and what I work on, or I skipped it and accepted vague answers.</p>
+            <p>A taxonomy alone would be nice but inert. The point of the system frame is control. Because an AI does not have one memory but three, which work with different reliability and only one of which I steer directly.</p>
 
-            <p>Today my knowledge is stored in layers. The system lives in a fixed file that the AI reads automatically at the start of every session: who I am, how I work, what it may do. My Identity layer lives in a memory that persists across sessions. Domain knowledge I pull in deliberately per task, rather than assuming it sits in the model.</p>
+            <!-- ══ VISUAL: THREE MEMORIES ══ -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8" style="max-width: 100%;">
+                <div class="border rounded-lg p-5" style="border-color: #e5e2db;">
+                    <p class="source-serif text-[1rem] text-stone-900 mb-1">The conversation</p>
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2" style="color: #5b8a72;">Working memory · steerable</p>
+                    <p class="text-[0.8rem] text-stone-500 mb-0">The context in the running chat. Holds information only for the current task. This is where my prep work lands, and I steer it directly.</p>
+                </div>
+                <div class="border rounded-lg p-5" style="border-color: #e5e2db;">
+                    <p class="source-serif text-[1rem] text-stone-900 mb-1">The recollection</p>
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2" style="color: #9a82b5;">Long term memory</p>
+                    <p class="text-[0.8rem] text-stone-500 mb-0">Persistent store across sessions. CLAUDE.md, rules and memory hold my instructions without repetition.</p>
+                </div>
+                <div class="border rounded-lg p-5" style="border-color: #e5e2db;">
+                    <p class="source-serif text-[1rem] text-stone-900 mb-1">The knowledge base</p>
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2" style="color: #a86340;">Semantic memory</p>
+                    <p class="text-[0.8rem] text-stone-500 mb-0">Trained factual knowledge in the model weights. Not steerable, only a fallback. This is exactly where it invents.</p>
+                </div>
+            </div>
 
-            <p>The real difference is in the last step: per task, I fill the right layer into working memory instead of dumping everything in at once. That moves the AI out of the role of first source, where it likes to invent, and into the role of critic for what I have already worked out.</p>
+            <p>My model is the bridge between my layers and these stores. Per task, I fill the right layer into working memory instead of dumping everything in at once. The system frame I write once, it loads into long term memory and applies across all sessions.</p>
 
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 4: CRITICAL ASSESSMENT
-                 ══════════════════════════════════════════════ -->
-
-            <h2>A critical look</h2>
-
-            <p>Layers are not a magic bullet. Good context makes the output better, not truer, and certainly not your own achievement. Even a perfectly grounded AI can misread context or lose parts of it on long inputs, an effect called context rot. Checking remains mandatory.</p>
-
-            <p>The historical line is looser than it sounds, too. Luhmann had no three knowledge layers, his Zettelkasten lives on connections. Forte organizes by actionability, not by knowledge type. Both are relatives of the core idea, not a blueprint for this exact model. The specific synthesis is my own.</p>
-
-            <p>The biggest catch sits elsewhere: the layering only works if the layers are filled. Whoever has not built Knowledge and Identity themselves has nothing good to give the AI. Building good context and thinking for yourself are the same act.</p>
-
-            <!-- ══════════════════════════════════════════════
-                 BLOCK 5: TAKEAWAYS
-                 ══════════════════════════════════════════════ -->
-
-            <div class="my-10">
-                <h2>What stays with you every day</h2>
-                <div class="space-y-5">
-                    <div class="pl-5">
-                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Context beats prompt.</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">How you ask ages with every model version. What the AI knows about you and your topic stays.</p>
+            <!-- ══ VISUAL: SYNTHESIS FLOW ══ -->
+            <div class="my-8 flex flex-col md:flex-row md:items-stretch gap-3 md:gap-2" style="max-width: 100%;">
+                <div class="flex-1">
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2 text-stone-400">My AI setup</p>
+                    <div class="rounded-xl p-3 space-y-2 h-full" style="border: 1.5px solid #b9a8d4;">
+                        <div class="rounded-md px-3 py-2 bg-white border" style="border-color: #e5e2db;"><span class="text-[0.78rem]"><strong>System frame:</strong> working rules, CLAUDE.md</span></div>
+                        <div class="rounded-md px-3 py-2" style="background: #ece8f2;"><span class="text-[0.78rem]"><strong>Knowledge:</strong> market and domain knowledge</span></div>
+                        <div class="rounded-md px-3 py-2" style="background: #ece8f2;"><span class="text-[0.78rem]"><strong>Identity:</strong> my projects, my analyses</span></div>
+                        <div class="rounded-md px-3 py-2" style="background: #ece8f2;"><span class="text-[0.78rem]"><strong>Sensemaking:</strong> my strategy</span></div>
                     </div>
-                    <div class="pl-5">
-                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Separate your knowledge into layers.</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Domain knowledge, your own work, your own conclusions, wrapped in a rule set. Each piece of information only once.</p>
+                </div>
+                <div class="flex items-center justify-center text-stone-300 text-xl"><span class="inline-block rotate-90 md:rotate-0">&rarr;</span></div>
+                <div class="flex-1">
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2 text-stone-400">AI memory</p>
+                    <div class="space-y-2">
+                        <div class="rounded-lg px-3 py-2.5" style="background: #f2f7f4; border: 1px solid #cfe3d8;">
+                            <p class="font-mono text-[0.5rem] tracking-wider uppercase mb-0.5" style="color: #5b8a72;">I steer · per task</p>
+                            <p class="text-[0.83rem] font-semibold text-stone-900 mb-0.5">Working memory</p>
+                            <p class="text-[0.76rem] text-stone-500 mb-0">I feed in the right layer on purpose. The only place where the AI reads reliably.</p>
+                        </div>
+                        <div class="rounded-lg px-3 py-2.5" style="background: #f2f7f4; border: 1px solid #cfe3d8;">
+                            <p class="font-mono text-[0.5rem] tracking-wider uppercase mb-0.5" style="color: #5b8a72;">I influence · lasting</p>
+                            <p class="text-[0.83rem] font-semibold text-stone-900 mb-0.5">Long term memory</p>
+                            <p class="text-[0.76rem] text-stone-500 mb-0">I write the system frame. Loads automatically, every session.</p>
+                        </div>
+                        <div class="rounded-lg px-3 py-2.5" style="background: #fff; border: 1px solid #e7c3b6;">
+                            <p class="text-[0.83rem] font-semibold mb-0.5" style="color: #a86340;">Semantic memory</p>
+                            <p class="text-[0.76rem] text-stone-500 mb-0">Trained, lossy, <strong>not steerable.</strong> Fallback only.</p>
+                        </div>
                     </div>
-                    <div class="pl-5">
-                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The basis comes from you.</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">AI can support the top layer. But only if you have filled the lower ones yourself.</p>
+                </div>
+                <div class="flex items-center justify-center text-stone-300 text-xl"><span class="inline-block rotate-90 md:rotate-0">&rarr;</span></div>
+                <div class="flex-1">
+                    <p class="font-mono text-[0.55rem] tracking-wider uppercase mb-2 text-stone-400">Result</p>
+                    <div class="rounded-xl px-4 py-4 h-full flex items-center" style="background: #ece8f2;">
+                        <p class="text-[0.84rem] text-stone-800 font-medium mb-0">Reliable AI output that I can stand behind and reuse in my work.</p>
                     </div>
                 </div>
             </div>
+
+            <p>This moves the AI out of the role of first source, where it invents, and into the role of critic for what I have already worked out. That is the real purpose of the construct: not ordering knowledge for the sake of order, but steering the AI's memory.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 WHERE THE CONSTRUCT ENDS
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Where the construct honestly ends</h2>
+
+            <p>Three limits I keep open. First, the model makes the output better, not truer, and not my own achievement. Even perfectly grounded AI can misread context or lose parts of it on long inputs, an effect called context rot. Checking remains mandatory.</p>
+
+            <p>Second, the layers only work if they are filled. Whoever has not built Knowledge and Identity themselves has nothing good to give the AI. Building good context and thinking for yourself are the same act.</p>
+
+            <p>Third, it is a synthesis, not a proof. That different disciplines arrive at the same order is strong evidence that the order holds, but not a law. I keep refining the model while I work with it. The core, though, stands: three layers, one system, one purpose.</p>
 
             <!-- ══════════════════════════════════════════════
                  SOURCES
@@ -557,8 +638,9 @@
                     <p class="mb-0"><span class="text-stone-700 font-medium">DIKW</span> <span class="text-stone-400">— Hierarchy from data through information and knowledge to wisdom (Ackoff).</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Tacit knowledge</span> <span class="text-stone-400">— Skill you embody but cannot fully put into words (Polanyi).</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Sensemaking</span> <span class="text-stone-400">— The active construction of meaning from observations (Weick).</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Hallucination</span> <span class="text-stone-400">— When an AI outputs plausible sounding but invented content.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Atomicity</span> <span class="text-stone-400">— Each piece of information exists exactly once in one place and is referenced from there.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Context rot</span> <span class="text-stone-400">— Quality loss when a model overlooks parts of the context on very long inputs.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Hallucination</span> <span class="text-stone-400">— When an AI outputs plausible sounding but invented content.</span></p>
                 </div>
             </div>
 
