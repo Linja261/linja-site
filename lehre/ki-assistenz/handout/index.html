@@ -126,7 +126,7 @@
     .map td:first-child { font-weight: 600; color: var(--midnight); }
 
     /* ════ 02 · VERGLEICH (rot vs grün) ════ */
-    .vs { display: grid; grid-template-columns: 1fr 1.4rem 1fr; align-items: stretch; gap: 0; }
+    .vs { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; gap: 0.85rem; }
     .vs-card { border-radius: 10px; padding: 0.85rem 1rem; display: flex; flex-direction: column; }
     .vs-card.bad  { border: 1px solid var(--red-br);   background: var(--red-bg); }
     .vs-card.good { border: 1px solid var(--green-br); background: var(--green-bg); }
@@ -134,8 +134,6 @@
     .vs-card.bad  h3 { color: var(--red); }
     .vs-card.good h3 { color: var(--green); }
     .vs-card p { font-size: 0.8rem; line-height: 1.45; }
-    .vs-mid { display: flex; align-items: center; justify-content: center;
-      font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
 
     /* ── Verschachteltes Schicht-Diagramm ── */
     .subhead { font-size: 0.92rem; font-weight: 600; color: var(--midnight); margin: 1.1rem 0 0.55rem; }
@@ -230,7 +228,7 @@
     @media (max-width: 680px) {
       .sheet { padding: 1.8rem 1.4rem; }
       .flow, .vs { grid-template-columns: 1fr; }
-      .flow-arrow, .vs-mid { transform: rotate(90deg); padding: 0.2rem 0; }
+      .flow-arrow { transform: rotate(90deg); padding: 0.2rem 0; }
       .danger-grid, .mems { grid-template-columns: 1fr; }
       .layer { grid-template-columns: 5.5rem 1fr; }
       .layer .sl { display: none; }
@@ -314,7 +312,6 @@
 
       <div class="vs">
         <div class="vs-card bad"><h3>Prompting</h3><p>Die Art, Befehle zu schreiben: Formulierungen, Vorlagen, Tricks. <strong>Modellabhängig</strong>, verliert von Version zu Version an Wirkung.</p></div>
-        <div class="vs-mid">statt</div>
         <div class="vs-card good"><h3>Context Engineering</h3><p>Arbeitsvertrag mit der KI: bestimmt Ergebnisart und Prüfweg. Weiß die KI das Richtige über Dich und Dein Thema, wird der Output <strong>belastbarer</strong>.</p></div>
       </div>
 
