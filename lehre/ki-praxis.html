@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <meta name="theme-color" content="#7B6BA5">
+  <title>Praxisteil: Dein eigener KI-Kontext fürs Studium — Linja Scharffetter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --midnight:#472E56; --heidelbeer:#7b6ba5; --lilac-bg:#F0EAF9; --lilac-br:#D4C4EC;
+      --lilac-tint:rgba(212,196,236,0.35); --bg:#FAFAF8; --text:#1A1A1A; --body:#44403C;
+      --muted:#78716C; --border:#E7E5E4;
+      --serif:'Fraunces',Georgia,serif; --mono:ui-monospace,'Courier New',monospace;
+    }
+    html,body{background:var(--bg);font-family:var(--serif);color:var(--body);}
+    body{line-height:1.65;}
+    .wrap{max-width:740px;margin:0 auto;padding:2.5rem 1.3rem 5rem;}
+
+    header{border-bottom:1px solid var(--border);padding-bottom:1.6rem;margin-bottom:2rem;}
+    .eyebrow{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--heidelbeer);margin-bottom:0.8rem;}
+    h1{font-size:2.1rem;font-weight:300;line-height:1.15;color:var(--midnight);text-wrap:balance;margin-bottom:0.9rem;}
+    .lead{font-size:1.08rem;color:var(--body);}
+    .lead strong{color:var(--text);}
+    .stand{font-family:var(--mono);font-size:0.72rem;color:var(--muted);margin-top:0.9rem;}
+
+    h2{font-size:1.5rem;font-weight:400;color:var(--midnight);margin:2.6rem 0 0.4rem;line-height:1.2;}
+    h2 .no{font-family:var(--mono);font-size:0.9rem;color:var(--heidelbeer);margin-right:0.5rem;}
+    h3{font-size:1.15rem;font-weight:600;color:var(--midnight);margin:1.8rem 0 0.5rem;}
+    p{margin:0.7rem 0;}
+    strong{color:var(--text);}
+    a{color:var(--heidelbeer);}
+    ul,ol{margin:0.7rem 0 0.7rem 1.3rem;}
+    li{margin:0.35rem 0;}
+    section{margin-top:0.5rem;}
+    .rule{border:none;border-top:1px solid var(--border);margin:2.4rem 0 0;}
+
+    .tablescroll{overflow-x:auto;margin:1rem 0;border:1px solid var(--border);border-radius:10px;}
+    table{width:100%;border-collapse:collapse;min-width:560px;}
+    th,td{text-align:left;padding:0.7rem 0.9rem;border-bottom:1px solid var(--border);font-size:0.95rem;vertical-align:top;}
+    th{font-family:var(--mono);font-size:0.66rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);background:var(--bg);}
+    tr:last-child td{border-bottom:none;}
+    td strong{color:var(--midnight);}
+
+    .codewrap{position:relative;margin:1rem 0;}
+    .codewrap pre{background:#2A2330;color:#F1ECF6;border-radius:12px;padding:1.2rem 1.1rem 1.1rem;overflow-x:auto;font-family:var(--mono);font-size:0.86rem;line-height:1.5;white-space:pre-wrap;word-break:break-word;}
+    .copy{position:absolute;top:0.7rem;right:0.7rem;background:var(--heidelbeer);color:#fff;border:none;border-radius:7px;padding:0.4rem 0.8rem;font-family:var(--mono);font-size:0.72rem;letter-spacing:0.04em;cursor:pointer;}
+    .copy:hover{background:var(--midnight);}
+    .copy.done{background:#1D9A5B;}
+
+    .callout{background:var(--lilac-tint);border:1px solid var(--lilac-br);border-radius:11px;padding:1rem 1.2rem;margin:1.3rem 0;font-size:1rem;color:var(--midnight);}
+    .callout strong{color:var(--midnight);}
+
+    .faq{margin-top:1rem;}
+    .faq .q{font-weight:600;color:var(--midnight);margin-top:1.2rem;}
+    .faq .a{margin-top:0.2rem;color:var(--body);}
+
+    footer{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:0.72rem;color:var(--muted);}
+
+    @media(max-width:540px){
+      h1{font-size:1.75rem;} h2{font-size:1.3rem;} .wrap{padding:2rem 1.05rem 4rem;}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Vortrag · KI im Studium bewusst steuern</div>
+    <h1>Praxisteil: Dein eigener KI-Kontext fürs Studium</h1>
+    <p class="lead"><strong>Kernbotschaft:</strong> KI darfst Du nutzen. Aber sie nimmt Dir die Vorarbeit nicht ab. Du baust den Kontext (vor allem <strong>wer Du bist</strong> und <strong>wie Du arbeitest</strong>), damit das Einordnen und Argumentieren danach halb automatisch auf <em>Deinem</em> Material läuft. Einmal ~1–2 Stunden investiert, dann trägst Du pro Arbeit nur noch die Quellen nach.</p>
+    <p class="stand">Stand: Juni 2026 · Alles funktioniert in der Gratis-Version von ChatGPT und Claude.</p>
+  </header>
+
+  <section>
+    <h2><span class="no">1</span>Wohin kommt der Kontext?</h2>
+    <p>Beide Tools haben drei dauerhafte Speicher plus den Chat selbst. Ordne Dein Wissen wie im Vortrag in Schichten:</p>
+    <div class="tablescroll">
+      <table>
+        <thead><tr><th>Schicht aus dem Vortrag</th><th>ChatGPT (gratis)</th><th>Claude (gratis)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>System-Rahmen</strong> (Arbeitsvertrag, gilt immer)</td><td>Einstellungen → Personalisierung → <strong>Custom Instructions</strong> (2 Felder)</td><td>Einstellungen → <strong>Profil</strong> → „Welche persönlichen Präferenzen soll Claude berücksichtigen?"</td></tr>
+          <tr><td><strong>Identity</strong> (wer Du bist, Stärken, Stil)</td><td><strong>Memory</strong> (standardmäßig an) + Custom Instructions</td><td><strong>Memory</strong> (seit März 2026 auch gratis) + Profil</td></tr>
+          <tr><td><strong>Knowledge</strong> (Lektüre, Quellen, Notizen)</td><td><strong>Projects</strong> → Projekt anlegen, Dateien hochladen, Projekt-Instruktion</td><td><strong>Projects</strong> (bis zu 5) → Dateien hochladen (bis 20/Chat, 500 MB)</td></tr>
+          <tr><td><strong>Arbeitsgedächtnis</strong> (die konkrete Aufgabe)</td><td>der Chat im Projekt</td><td>der Chat im Projekt</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="callout"><strong>Faustregel:</strong> Wer Du bist → einmal zentral (Custom Instructions / Profil + Memory). Die Quellen pro Thema → ins Projekt. Die konkrete Frage → in den Chat.</p>
+
+    <h3>So richtest Du es ein</h3>
+    <p><strong>ChatGPT (gratis)</strong></p>
+    <ol>
+      <li><strong>Custom Instructions</strong> öffnen (Einstellungen → Personalisierung). Feld 1 „Was soll ChatGPT über Dich wissen?" = Dein Profil (Abschnitt 2a). Feld 2 „Wie soll ChatGPT antworten?" = der Arbeitsvertrag (Abschnitt 2b). Lädt in jeden Chat.</li>
+      <li><strong>Memory</strong> ist standardmäßig an. „Merk dir: …" speichert Fakten dauerhaft. Bearbeiten/Löschen unter Einstellungen → Personalisierung → Memory.</li>
+      <li><strong>Projects</strong> anlegen (eins pro Hausarbeit). Projekt-Instruktion = Arbeitsvertrag. Dateien hochladen: Pflichtlektüre, eigene Notizen, Deine These. Im Projekt chatten.</li>
+    </ol>
+    <p><strong>Claude (gratis)</strong></p>
+    <ol>
+      <li><strong>Profil-Präferenzen</strong> öffnen (Einstellungen → Profil). Hier kommt Dein Profil + der Arbeitsvertrag rein. Lädt in jeden Chat.</li>
+      <li><strong>Memory</strong> (seit März 2026 auch gratis) merkt sich Deinen Kontext über Chats hinweg.</li>
+      <li><strong>Projects</strong> anlegen (bis zu 5). Custom Instructions = Arbeitsvertrag. Dateien hochladen (bis 20/Chat). Web-Suche ist verfügbar.</li>
+    </ol>
+
+    <h3>Welches Tool für mich?</h3>
+    <p>Beide können dasselbe. Nimm das, mit dem Du Dich wohler fühlst:</p>
+    <ul>
+      <li><strong>ChatGPT:</strong> sehr verbreitet, starker Allrounder, viele Integrationen, schnelles Hin und Her. Gut, wenn Du ein Tool für vieles willst.</li>
+      <li><strong>Claude:</strong> stark bei langen Texten und Dokumenten, gilt als sorgfältig beim Schreiben, Argumentieren und beim Befolgen genauer Vorgaben. Gut für Hausarbeiten mit viel Lektüre.</li>
+    </ul>
+    <p><strong>App oder Browser?</strong> Beides läuft komplett in der <strong>Webversion im Browser</strong> (chatgpt.com bzw. claude.ai), inklusive Custom Instructions, Memory und Projects. Eine App brauchst Du nicht, sie ist nur Komfort fürs Handy.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2><span class="no">2</span>Setup bauen: Dein Profil + Dein Arbeitsvertrag</h2>
+    <p>Zwei Dinge legst Du <strong>einmal zentral</strong> ab, beide an dieselbe Stelle (Custom Instructions / Profil): <strong>wer Du bist</strong> (Identity) und <strong>wie die KI arbeiten soll</strong> (der Arbeitsvertrag, Dein System-Rahmen). Das lädt danach in jeden Chat.</p>
+
+    <h3>2a. Identity-Profil per Interview-Prompt</h3>
+    <p>In einem <strong>neuen Chat</strong> einfügen. Die KI interviewt Dich und baut am Ende einen sauberen Block, den Du in die Einstellungen kopierst.</p>
+    <div class="codewrap"><button class="copy" onclick="copyCode(this)">Kopieren</button><pre>Du bist mein Onboarding-Assistent für wissenschaftliches Arbeiten mit KI.
+Ziel: Hilf mir, ein kompaktes „Über mich"-Profil zu erstellen, das ich dauerhaft in
+Deinen Einstellungen speichere, damit Du mich in jeder zukünftigen Unterhaltung kennst.
+
+Gehe so vor:
+1. Stelle mir die folgenden Fragen EINZELN, eine nach der anderen, und warte jeweils
+   auf meine Antwort. Frag nach, wenn etwas unklar oder zu knapp ist.
+2. Themenblöcke:
+   - Studium: Studiengang, Fachsemester, Hochschule, Schwerpunkt.
+   - Stärken und Schwächen beim wissenschaftlichen Arbeiten (Strukturieren,
+     Argumentieren, Literatur, Schreiben, Zeitmanagement).
+   - Arbeitsweise: Wie arbeitest Du am liebsten? Was hilft Dir, was blockiert Dich?
+   - Schreibstil: Wie klingen Deine Texte? (Gib mir gern ein, zwei Beispielsätze von Dir.)
+   - Aktuelles Projekt: Um welche Arbeit/welches Thema geht es gerade? Gibt es schon
+     eine These oder Fragestellung?
+   - Vorgaben: Welche Regeln gibt der Lehrstuhl vor (Zitierstil, Umfang, Sprache)?
+   - Was die KI für Dich tun und NICHT tun soll.
+3. Wenn Du genug weißt, fasse alles in einem strukturierten Markdown-Block unter der
+   Überschrift „## Mein Kontext" zusammen: kurze Stichpunkte, keine Romane.
+4. Sag mir am Ende in einem Satz, wo ich diesen Block speichere und was besser in ein
+   Projekt gehört.
+
+Starte jetzt mit der ersten Frage.</pre></div>
+    <p><strong>Speichern:</strong></p>
+    <ul>
+      <li><strong>ChatGPT:</strong> Den „## Mein Kontext"-Block in Custom Instructions (Feld 1) einfügen. Optional: „Speichere das in deine Erinnerungen."</li>
+      <li><strong>Claude:</strong> Den Block in die Profil-Präferenzen einfügen. Optional ins Memory übernehmen.</li>
+    </ul>
+
+    <h3>2b. Arbeitsvertrag mit der KI (für wissenschaftliches Arbeiten)</h3>
+    <p>Copy-paste in <strong>Custom Instructions Feld 2 / Profil / Projekt-Instruktion</strong>.</p>
+    <div class="codewrap"><button class="copy" onclick="copyCode(this)">Kopieren</button><pre>## Arbeitsvertrag für wissenschaftliches Arbeiten
+
+Rolle: Sei mein kritischer Sparringspartner, nicht mein Ghostwriter. Du hilfst mir
+zu denken, Du denkst nicht für mich.
+
+Ehrlichkeit:
+- Erfinde niemals Quellen, Autoren, Titel, Jahreszahlen oder Zitate. Wenn Du eine
+  Quelle nicht sicher kennst, sag das ausdrücklich.
+- Markiere klar, was gesichertes Wissen ist und was Vermutung oder Plausibilität.
+- Sag „das weiß ich nicht" oder „das kann ich nicht prüfen", statt etwas zu erfinden.
+- Weise mich darauf hin, wenn Dein Wissen veraltet sein könnte (Knowledge Cutoff).
+
+Vorgehen:
+- Frag nach, bevor Du Annahmen triffst.
+- Fordere meine These heraus, statt mir zuzustimmen. Zeig mir Gegenargumente und
+  Schwachstellen.
+- Liefere nicht das fertige Ergebnis, sondern Fragen, Strukturen und Kritik, mit
+  denen ich selbst weiterkomme.
+
+Grenzen:
+- Schreib keine fertigen Textpassagen für meine Abgabe.
+- Ersetze nicht den Forschungsstand; verweise mich auf das Prüfen echter Quellen.
+- Erinnere mich daran, KI-Nutzung gemäß Prüfungsordnung kenntlich zu machen.
+- Schlag Änderungen vor, statt meinen Text oder meine Argumentation eigenmächtig
+  umzuschreiben. Mitdenken ja, eigenmächtig ändern nein.
+
+Gegenprüfung:
+- Dein Output wird am Ende von einem zweiten KI-System kritisch gegengelesen
+  (zum Beispiel Codex oder dem jeweils anderen Modell). Rechne damit, dass jeder
+  Fehler, jede erfundene Quelle und jede unsaubere Argumentation dort auffällt.
+  Arbeite so sorgfältig, dass diese Prüfung nichts findet.
+
+Stil: Antworte auf Deutsch, knapp und strukturiert. Lieber eine klare Rückfrage als
+zehn Optionen.</pre></div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2><span class="no">3</span>Mit Deinem Kontext weiterarbeiten</h2>
+    <p>Jetzt steht Dein Kontext. Ab hier arbeitest Du <strong>im Projekt</strong>, damit Profil, Arbeitsvertrag und Deine hochgeladenen Quellen automatisch dabei sind. Die KI kennt Dich, Dein Thema und Deine Regeln jetzt, also nutzt Du Prompts, die <strong>gezielt darauf zugreifen</strong>, statt alles neu zu erklären.</p>
+
+    <h3>So arbeitest Du (Routine)</h3>
+    <ol>
+      <li><strong>Im Projekt arbeiten</strong>, nicht im leeren Chat. Dann sind Deine Dateien und der Arbeitsvertrag automatisch dabei.</li>
+      <li><strong>Pro Aufgabe nur die relevante Schicht geben:</strong> die konkrete These + die 1–2 Quellen, um die es geht. Nicht „alles" auf einmal.</li>
+      <li><strong>Rolle setzen:</strong> „Sei mein Kritiker. Greif diese These an: …" statt „Schreib mir …".</li>
+      <li><strong>Quellen-Disziplin:</strong> Jede genannte Quelle selbst prüfen (Katalog / Scholar / DOI). Auch wenn die KI Deinen Kontext nutzt, gilt: Link ≠ gelesen ≠ sagt das ≠ passende Quelle.</li>
+      <li><strong>Iterieren:</strong> Antwort zerlegen, nachschärfen, Gegenfragen stellen. Das beste Ergebnis entsteht im Dialog, nicht im ersten Output.</li>
+      <li><strong>Kontext pflegen:</strong> Was Du Neues über Dich oder das Thema lernst, ins Memory/Projekt nachtragen. Veraltetes löschen.</li>
+    </ol>
+
+    <h3>Prompts, die auf Deinen hinterlegten Kontext zugreifen</h3>
+    <p>Diese Prompts funktionieren gut, <strong>weil</strong> Du vorher Profil, Arbeitsvertrag und Quellen abgelegt hast. Sie verweisen bewusst auf „mein Profil", „dieses Projekt", „meine hochgeladenen Quellen", statt das Thema neu zu erklären.</p>
+    <div class="codewrap"><button class="copy" onclick="copyCode(this)">Kopieren</button><pre>Du kennst aus meinem Profil mein Thema und meine Schwächen beim wissenschaftlichen
+Arbeiten. Hier ist meine These: [...]. Greif sie auf Basis der Quellen in diesem
+Projekt an: Wo ist sie zu breit, wo ist sie nicht gedeckt? Nenne nur Quellen, die
+du sicher belegen kannst.</pre></div>
+    <div class="codewrap"><button class="copy" onclick="copyCode(this)">Kopieren</button><pre>Nutze die Dateien in diesem Projekt. Ich habe [Quelle] gelesen und so verstanden:
+[...]. Wo widerspreche ich der Quelle oder überdehne ich sie? Frag nach, wenn Dir
+mein Verständnis unklar ist.</pre></div>
+    <div class="codewrap"><button class="copy" onclick="copyCode(this)">Kopieren</button><pre>Auf Basis meiner hochgeladenen Gliederung und meiner These: Wo springt meine
+Argumentation? Stell mir vor Deiner Antwort die drei Fragen, die ein Gutachter
+stellen würde.</pre></div>
+    <div class="codewrap"><button class="copy" onclick="copyCode(this)">Kopieren</button><pre>Vergleiche meine Notizen im Projekt mit meiner aktuellen These. Welche unausgesprochene
+Annahme steckt drin, die ich aus meiner Lektüre noch nicht belegt habe?</pre></div>
+    <p class="callout"><strong>Merksatz:</strong> Ein guter Prompt erklärt nicht alles neu, er zeigt auf Deinen Kontext. „Greif <strong>meine</strong> These an" schlägt „Erkläre mir das Thema".</p>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <h2><span class="no">4</span>Häufige Fragen</h2>
+    <div class="faq">
+      <p class="q">Darf ich KI überhaupt für Hausarbeiten nutzen?</p>
+      <p class="a">Ja, sofern Lehrstuhl/Prüfungsordnung es erlauben und Du es kenntlich machst. Vorab klären. Es geht um das Wie, nicht das Ob.</p>
+      <p class="q">Ist das nicht Schummeln?</p>
+      <p class="a">Schummeln heißt, fremde Leistung als eigene auszugeben. Hier baust Du den Kontext selbst und triffst die Urteile. Die KI ist Werkzeug, nicht Autor.</p>
+      <p class="q">Brauche ich die Bezahlversion?</p>
+      <p class="a">Nein. Custom Instructions, Memory und Projects gibt es in beiden Gratis-Versionen. Bezahlung bringt nur höhere Limits und Komfort.</p>
+      <p class="q">Wie viel Zeit kostet das Setup?</p>
+      <p class="a">Einmalig 1–2 Stunden für Profil + Arbeitsvertrag. Danach pro Arbeit nur noch ein Projekt mit den jeweiligen Quellen.</p>
+      <p class="q">Halluziniert die KI dann nicht mehr?</p>
+      <p class="a">Doch, sie kann weiter halluzinieren. Guter Kontext senkt das Risiko, ersetzt aber nicht das Prüfen. Quellen immer selbst checken.</p>
+      <p class="q">Was ist mit Datenschutz/Urheberrecht beim Hochladen?</p>
+      <p class="a">Eigene Notizen: unkritisch. Fremde Volltexte: sparsam, Lizenz/AGB beachten. Keine sensiblen personenbezogenen Daten hochladen. Im Zweifel Lehrstuhl fragen.</p>
+      <p class="q">Nutzt die KI meine Texte zum Training?</p>
+      <p class="a">Bei kostenlosen Accounts je nach Anbieter möglich. In den Datenschutz-Einstellungen lässt sich das meist deaktivieren. Keine Geheimnisse/sensiblen Daten reingeben.</p>
+      <p class="q">Muss ich das für jede Hausarbeit neu machen?</p>
+      <p class="a">Nein. Profil + Arbeitsvertrag gelten dauerhaft. Pro Arbeit nur ein neues Projekt mit den passenden Quellen.</p>
+      <p class="q">Was, wenn der Lehrstuhl KI verbietet?</p>
+      <p class="a">Respektieren. Das Profil hilft trotzdem beim Lernen und Verstehen, nur nicht an der Abgabe selbst.</p>
+      <p class="q">Welches Tool soll ich nehmen?</p>
+      <p class="a">Egal, beide können es. Nimm das, mit dem Du Dich wohler fühlst. Das Prinzip ist dasselbe.</p>
+    </div>
+  </section>
+
+  <footer>Linja Scharffetter · linja.me/lehre · Handout zum Vortrag „KI im Studium bewusst steuern"</footer>
+
+</div>
+
+<script>
+  function copyCode(btn){
+    var pre = btn.parentElement.querySelector('pre');
+    var text = pre.innerText;
+    function done(){ btn.textContent='Kopiert ✓'; btn.classList.add('done'); setTimeout(function(){btn.textContent='Kopieren';btn.classList.remove('done');},1600); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text);done();});
+    } else { fallback(text); done(); }
+  }
+  function fallback(text){
+    var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{document.execCommand('copy');}catch(e){}
+    document.body.removeChild(ta);
+  }
+</script>
+</body>
+</html>
