@@ -168,6 +168,7 @@
     .mem .tag { font-family: var(--mono); font-size: 0.57rem; letter-spacing: 0.05em;
       text-transform: uppercase; display: block; margin-bottom: 0.3rem; color: var(--heidelbeer); }
     .mem.key .tag { color: var(--green); font-weight: 700; }
+    .mem.mut .tag { color: var(--muted); }
     .mem h3 { font-size: 0.84rem; margin-bottom: 0.2rem; }
     .mem p { font-size: 0.74rem; line-height: 1.4; }
 
@@ -343,49 +344,34 @@
     <!-- ── 03 ── -->
     <section>
       <div class="sec-head"><span class="sec-no n-mid">03</span><h2>Praxis: Setup aufsetzen und mit Kontext arbeiten</h2></div>
-      <p class="kicker">Einmal ~1–2 Stunden investiert, danach trägst Du pro Arbeit nur die Quellen nach. Alles in der Gratis-Version von ChatGPT und Claude.</p>
-
-      <div class="subhead">Wohin kommt welcher Kontext?</div>
-      <table class="map">
-        <thead>
-          <tr><th>Ebene</th><th>ChatGPT (gratis)</th><th>Claude (gratis)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>System-Rahmen (Arbeitsvertrag)</td><td>Custom Instructions, Feld 2</td><td>Profil-Präferenzen</td></tr>
-          <tr><td>Identity (wer Du bist)</td><td>Custom Instructions Feld 1 + Memory</td><td>Profil + Memory</td></tr>
-          <tr><td>Knowledge (Lektüre, Quellen)</td><td>Projects → Dateien hochladen</td><td>Projects (bis 5) → Dateien hochladen</td></tr>
-          <tr><td>Arbeitsgedächtnis (die Aufgabe)</td><td>der Chat im Projekt</td><td>der Chat im Projekt</td></tr>
-        </tbody>
-      </table>
-      <p class="micro">Faustregel: Wer Du bist → einmal zentral. Quellen pro Thema → ins Projekt. Die konkrete Frage → in den Chat. Beides läuft komplett im Browser, eine App ist nur Komfort.</p>
+      <p class="kicker">Einmal ~1–2 Stunden investiert, danach trägst Du pro Arbeit nur die Quellen nach. Alles in der Gratis-Version von ChatGPT oder Claude, im Browser.</p>
 
       <div class="subhead">In drei Schritten aufsetzen</div>
       <div class="steps">
         <div class="step"><div class="num">1</div><div>
           <span class="tag">Identity · einmalig</span>
           <h3>Profil bauen</h3>
-          <p>Den <strong>Interview-Prompt</strong> in einen neuen Chat posten. Die KI fragt Dich zu Studium, Stärken, Arbeitsweise und Thema ab und baut einen „Über mich"-Block. Den speicherst Du in Custom Instructions (Feld 1) bzw. den Profil-Präferenzen.</p>
+          <p>Den <strong>Interview-Prompt</strong> in einen neuen Chat posten: Die KI fragt Studium, Stärken, Arbeitsweise und Thema ab und baut einen „Über mich"-Block. Speichern in <strong>ChatGPT Custom Instructions (Feld 1)</strong> oder <strong>Claude Profil-Präferenzen</strong>.</p>
         </div></div>
         <div class="step"><div class="num">2</div><div>
           <span class="tag">System-Rahmen · einmalig</span>
           <h3>Arbeitsvertrag setzen</h3>
-          <p>Den <strong>Arbeitsvertrag-Prompt</strong> in Custom Instructions (Feld 2) / Profil / Projekt-Instruktion einsetzen. Er legt fest: kritischer Sparringspartner statt Ghostwriter, niemals Quellen erfinden, kein fertiger Abgabetext.</p>
+          <p>Den <strong>Arbeitsvertrag-Prompt</strong> hinterlegen (<strong>ChatGPT Feld 2</strong> / <strong>Claude Profil</strong>): kritischer Sparringspartner statt Ghostwriter, niemals Quellen erfinden, kein fertiger Abgabetext.</p>
         </div></div>
         <div class="step"><div class="num">3</div><div>
           <span class="tag">Knowledge + Arbeitsgedächtnis · pro Arbeit</span>
           <h3>Projekt anlegen und gezielt füttern</h3>
-          <p>Pro Hausarbeit ein Project: Pflichtlektüre, Notizen und Deine These hochladen. Vor jeder Frage nur die passende Lektüre und These reingeben. Die KI soll <strong>kritisieren, nicht liefern</strong>.</p>
+          <p>Pro Hausarbeit ein <strong>Project</strong>: Pflichtlektüre, Notizen und These hochladen. Vor jeder Frage nur die passende Lektüre und These reingeben. Die KI soll <strong>kritisieren, nicht liefern</strong>.</p>
         </div></div>
       </div>
-      <div class="plus"><span class="ic">+</span><span>Die fertigen Prompt-Vorlagen für <strong>Profil-Interview (Schritt 1)</strong> und <strong>Arbeitsvertrag (Schritt 2)</strong> bekommst Du im Vortrag und postest sie direkt in den Chat.</span></div>
+      <div class="plus"><span class="ic">+</span><span>Die fertigen Vorlagen für <strong>Profil-Interview</strong> (Schritt 1) und <strong>Arbeitsvertrag</strong> (Schritt 2) bekommst Du im Vortrag.</span></div>
 
-      <div class="subhead">Mit Deinem Kontext weiterarbeiten</div>
-      <p style="font-size:0.81rem; line-height:1.5;">Jetzt steht Dein Kontext. Arbeite <strong>im Projekt</strong> und nutze Prompts, die gezielt auf Dein hinterlegtes Profil, Deine Quellen und Deine These zugreifen, statt alles neu zu erklären:</p>
-      <div class="prompt"><span class="pl">These angreifen</span>Du kennst aus meinem Profil mein Thema und meine Schwächen. Hier ist meine These: [...]. Greif sie auf Basis der Quellen in diesem Projekt an: Wo ist sie zu breit, wo nicht gedeckt? Nenne nur Quellen, die du sicher belegen kannst.</div>
-      <div class="prompt"><span class="pl">Quelle prüfen</span>Nutze die Dateien in diesem Projekt. Ich habe [Quelle] so verstanden: [...]. Wo widerspreche ich der Quelle oder überdehne ich sie? Frag nach, wenn Dir mein Verständnis unklar ist.</div>
-      <div class="prompt"><span class="pl">Argumentation testen</span>Auf Basis meiner hochgeladenen Gliederung und These: Wo springt meine Argumentation? Stell mir vor Deiner Antwort die drei Fragen, die ein Gutachter stellen würde.</div>
-      <div class="merk"><span class="ml">Merksatz</span><p>Ein guter Prompt erklärt nicht alles neu, er <strong>zeigt auf Deinen Kontext</strong>. „Greif <strong>meine</strong> These an" schlägt „Erkläre mir das Thema". Und: Auch mit Kontext bleibt jede Quelle prüfpflichtig — Link ≠ gelesen ≠ sagt das ≠ passende Quelle.</p></div>
-      <div class="merk"><span class="ml">Mini-Einstieg · 2 Min, ohne Setup</span><p>Bevor Du fragst, schreib drei Sätze: Deine These, was Du schon weißt, was Du genau brauchst. Gib das mit und lass die KI Deinen Gedanken angreifen. Läuft in der Gratis-Version, Bezahlung spart nur Reibung.</p></div>
+      <div class="subhead">So arbeitest Du weiter — zeig auf Deinen Kontext</div>
+      <p style="font-size:0.81rem; line-height:1.5;">Im Projekt verweist Du auf Profil, Quellen und These, statt alles neu zu erklären. Zwei Muster zum Kopieren:</p>
+      <div class="prompt"><span class="pl">These angreifen</span>Du kennst aus meinem Profil mein Thema. Hier ist meine These: [...]. Greif sie auf Basis der Quellen in diesem Projekt an: Wo ist sie zu breit, wo nicht gedeckt? Nenne nur Quellen, die du sicher belegen kannst.</div>
+      <div class="prompt"><span class="pl">Quelle prüfen</span>Nutze die Dateien in diesem Projekt. Ich habe [Quelle] so verstanden: [...]. Wo widerspreche ich der Quelle oder überdehne ich sie?</div>
+      <div class="merk"><span class="ml">Prinzip</span><p>Ein guter Prompt erklärt nicht alles neu, er <strong>zeigt auf Deinen Kontext</strong>: „Greif <strong>meine</strong> These an" schlägt „Erkläre mir das Thema". Auch mit Kontext bleibt jede Quelle prüfpflichtig — Link ≠ gelesen ≠ sagt das ≠ passende Quelle.</p></div>
+      <div class="merk"><span class="ml">Kein Setup? Mini-Einstieg · 2 Min</span><p>Bevor Du fragst, schreib drei Sätze: Deine These, was Du schon weißt, was Du genau brauchst. Gib das mit und lass die KI Deinen Gedanken angreifen.</p></div>
     </section>
 
     <!-- ── 04 ── -->
@@ -402,21 +388,13 @@
           <tr><td class="good">Offene Fragen klären lassen</td><td class="warn"></td><td class="bad">Wenn Denken die Lernleistung ist</td></tr>
         </tbody>
       </table>
-      <div class="merk"><span class="ml">Faustregel</span><p><strong>Struktur kannst Du delegieren.</strong> Eigenes Urteilen und Denken im wissenschaftlichen Rahmen lässt sich nicht umgehen.</p></div>
+      <div class="merk"><span class="ml">Faustregel</span><p><strong>Struktur kannst Du delegieren, Urteil und Denken nicht.</strong> Erst selbst lesen und denken, dann KI als Kritiker. Wo das Denken getan ist, darf KI die Struktur übernehmen.</p></div>
     </section>
 
-    <!-- ── 05 ── -->
-    <section>
-      <div class="sec-head"><span class="sec-no n-green">05</span><h2>Drei Take-aways</h2></div>
-      <div class="takes">
-        <div class="take"><div class="bignum">1</div><div><h3>KI generiert Plausibles, kein Wissen.</h3><p>Die Beweislast liegt bei Dir. Jede Aussage ist eine unbelegte Behauptung bis zum Beweis des Gegenteils.</p></div></div>
-        <div class="take"><div class="bignum">2</div><div><h3>KI ist am gefährlichsten, wo Du am wenigsten weißt.</h3><p>Erst selbst lesen, dann KI als Kritiker. Guter Kontext ist Deine eigene Vorarbeit.</p></div></div>
-        <div class="take"><div class="bignum">3</div><div><h3>KI ist kein Autor. Struktur delegieren, Urteil behalten.</h3><p>Eigenleistung und Transparenz bleiben bei Dir. Wo das Denken getan ist, darf KI Struktur übernehmen.</p></div></div>
-      </div>
-      <div class="foot">
-        <p><strong>Wissenschaftliche Integrität:</strong> KI ist kein Autor und keine zitierfähige Quelle („ChatGPT hat gesagt" ist kein Beleg). Ob und wie KI-Einsatz kenntlich gemacht werden muss, regeln Prüfungsordnung und Lehrstuhl — am besten vorab klären. Handout zum Vortrag „KI als Assistenz bewusst steuern" · Linja Scharffetter · linja.me/lehre/ki-assistenz</p>
-      </div>
-    </section>
+    <!-- ── Abschluss: wissenschaftliche Integrität ── -->
+    <div class="foot">
+      <p><strong>KI ist kein Autor</strong> und keine zitierfähige Quelle („ChatGPT hat gesagt" ist kein Beleg). Ob und wie KI-Einsatz kenntlich gemacht werden muss, regeln Prüfungsordnung und Lehrstuhl — am besten vorab klären. Handout zum Vortrag „KI als Assistenz bewusst steuern" · Linja Scharffetter · linja.me/lehre/ki-assistenz</p>
+    </div>
 
   </div>
 </body>
