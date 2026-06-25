@@ -53,7 +53,7 @@
     var navHTML = ''
         + '<nav class="fixed top-0 left-0 right-0 z-50">'
         + '<div style="background: rgba(245, 243, 239, 0.72); -webkit-backdrop-filter: saturate(150%) blur(14px); backdrop-filter: saturate(150%) blur(14px); border-bottom: 1px solid rgba(71, 46, 86, 0.10);">'
-        + '<div class="max-w-[860px] mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">'
+        + '<div class="max-w-[1120px] mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">'
         + '<a href="' + homeLinkHref + '" class="source-serif text-lg" style="color: #472E56;">Linja Scharffetter</a>'
         + '<div class="flex items-center gap-6 text-[0.8rem] text-stone-500">'
         + '<a href="' + base + 'blog.html" class="' + blogClass + '">Blog</a>'
@@ -87,7 +87,7 @@
         + '<svg viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true" style="display:block;width:100%;height:40px;margin-bottom:-1px;">'
         + '<path d="M0,24 Q100,6 200,20 T400,20 T600,20 T800,20 T1000,20 T1200,20 V40 H0 Z" fill="#F5F3EF"/></svg>'
         + '<div style="background: #F5F3EF;" class="pt-2 pb-8">'
-        + '<div class="max-w-[860px] mx-auto px-5 sm:px-8 flex items-center justify-center gap-x-4 gap-y-2 flex-wrap text-[0.74rem] text-stone-500">'
+        + '<div class="max-w-[1120px] mx-auto px-5 sm:px-8 flex items-center justify-center gap-x-4 gap-y-2 flex-wrap text-[0.74rem] text-stone-500">'
         + footerLinksHTML
         + '</div></div></footer>';
 
