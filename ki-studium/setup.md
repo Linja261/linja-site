@@ -4,7 +4,7 @@
 > Online: **linja.me/ki-studium/setup**
 > Stand: Juni 2026 · Alles funktioniert in der Gratis-Version von ChatGPT und Claude, komplett im Browser.
 
-**Kernbotschaft:** KI darfst Du nutzen. Aber sie nimmt Dir die Vorarbeit nicht ab. Du baust den Kontext (vor allem *wer Du bist* und *wie Du arbeitest*), damit das Einordnen und Argumentieren danach halb automatisch auf *Deinem* Material läuft. Einmal ~1–2 Stunden investiert, dann trägst Du pro Arbeit nur noch die Quellen nach.
+**Kernbotschaft:** KI darfst Du nutzen. Aber sie nimmt Dir die Vorarbeit nicht ab. Du baust den Kontext (vor allem *wer Du bist* und *wie Du arbeitest*), damit das Einordnen und Argumentieren danach halb automatisch auf *Deinem* Material läuft. Einmal Zeit investieren, dann trägst Du pro Arbeit nur noch die Quellen nach.
 
 ---
 
@@ -185,7 +185,7 @@ Schummeln heißt, fremde Leistung als eigene auszugeben. Hier baust Du den Konte
 Nein. Custom Instructions, Memory und Projects gibt es in beiden Gratis-Versionen. Bezahlung bringt nur höhere Limits und Komfort.
 
 **Wie viel Zeit kostet das Setup?**
-Einmalig 1–2 Stunden für Profil + Arbeitsvertrag. Danach pro Arbeit nur noch ein Projekt mit den jeweiligen Quellen.
+Einmal Zeit investieren für Profil + Arbeitsvertrag. Danach pro Arbeit nur noch ein Projekt mit den jeweiligen Quellen.
 
 **Halluziniert die KI dann nicht mehr?**
 Doch, sie kann weiter halluzinieren. Guter Kontext senkt das Risiko, ersetzt aber nicht das Prüfen. Quellen immer selbst checken.
