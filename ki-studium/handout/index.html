@@ -331,90 +331,9 @@
       <div class="sec-head"><span class="sec-no">03</span><h2>Praxis: Setup aufsetzen und mit Kontext arbeiten</h2></div>
       <p class="kicker">Einmal ~1–2 Stunden investiert, danach trägst Du pro Arbeit nur die Quellen nach. Alles in der Gratis-Version von ChatGPT oder Claude, im Browser.</p>
 
-      <div class="subhead">In drei Schritten aufsetzen</div>
-      <div class="steps">
-        <div class="step"><div class="num">1</div><div>
-          <span class="tag">Identity · einmalig</span>
-          <h3>Profil bauen</h3>
-          <p>Den <strong>Interview-Prompt</strong> in einen neuen Chat posten: Die KI fragt Studium, Stärken, Arbeitsweise und Thema ab und baut einen „Über mich"-Block. Speichern in <strong>ChatGPT Custom Instructions (Feld 1)</strong> oder <strong>Claude Profil-Präferenzen</strong>.</p>
-        </div></div>
-        <div class="step"><div class="num">2</div><div>
-          <span class="tag">System-Rahmen · einmalig</span>
-          <h3>Arbeitsvertrag setzen</h3>
-          <p>Den <strong>Arbeitsvertrag-Prompt</strong> hinterlegen (<strong>ChatGPT Feld 2</strong> / <strong>Claude Profil</strong>): kritischer Sparringspartner statt Ghostwriter, niemals Quellen erfinden, kein fertiger Abgabetext.</p>
-        </div></div>
-        <div class="step"><div class="num">3</div><div>
-          <span class="tag">Knowledge + Arbeitsgedächtnis · pro Arbeit</span>
-          <h3>Projekt anlegen und gezielt füttern</h3>
-          <p>Pro Hausarbeit ein <strong>Project</strong>: Pflichtlektüre, Notizen und These hochladen. Vor jeder Frage nur die passende Lektüre und These reingeben. Die KI soll <strong>kritisieren, nicht liefern</strong>.</p>
-        </div></div>
-      </div>
-      <div class="subhead">Die zwei Vorlagen zum Kopieren</div>
-      <p class="step-intro">Vorlage 1 in einen neuen Chat einfügen (Schritt 1). Vorlage 2 in die Einstellungen (Schritt 2): ChatGPT Custom Instructions Feld 2 oder Claude Profil-Präferenzen.</p>
-      <div class="vorlage"><div class="vl"><b>Vorlage 1 · Profil-Interview</b><button class="copy" onclick="copyVorlage(this)">Kopieren</button></div><pre>Du bist mein Onboarding-Assistent für wissenschaftliches Arbeiten mit KI.
-Ziel: Hilf mir, ein kompaktes „Über mich"-Profil zu erstellen, das ich dauerhaft in
-Deinen Einstellungen speichere, damit Du mich in jeder zukünftigen Unterhaltung kennst.
+      <p>Die vollständige Schritt-für-Schritt-Anleitung mit beiden Kopier-Vorlagen (Profil-Interview und Arbeitsvertrag) und den Arbeits-Prompts liegt in einem eigenen Handout. So bleibt diese Zusammenfassung schlank.</p>
 
-Gehe so vor:
-1. Stelle mir die folgenden Fragen EINZELN, eine nach der anderen, und warte jeweils
-   auf meine Antwort. Frag nach, wenn etwas unklar oder zu knapp ist.
-2. Themenblöcke:
-   - Studium: Studiengang, Fachsemester, Hochschule, Schwerpunkt.
-   - Stärken und Schwächen beim wissenschaftlichen Arbeiten (Strukturieren,
-     Argumentieren, Literatur, Schreiben, Zeitmanagement).
-   - Arbeitsweise: Wie arbeitest Du am liebsten? Was hilft Dir, was blockiert Dich?
-   - Schreibstil: Wie klingen Deine Texte? (Gib mir gern ein, zwei Beispielsätze von Dir.)
-   - Aktuelles Projekt: Um welche Arbeit/welches Thema geht es gerade? Gibt es schon
-     eine These oder Fragestellung?
-   - Vorgaben: Welche Regeln gibt der Lehrstuhl vor (Zitierstil, Umfang, Sprache)?
-   - Was die KI für Dich tun und NICHT tun soll.
-3. Wenn Du genug weißt, fasse alles in einem strukturierten Markdown-Block unter der
-   Überschrift „## Mein Kontext" zusammen: kurze Stichpunkte, keine Romane.
-4. Sag mir am Ende in einem Satz, wo ich diesen Block speichere und was besser in ein
-   Projekt gehört.
-
-Starte jetzt mit der ersten Frage.</pre></div>
-      <div class="vorlage"><div class="vl"><b>Vorlage 2 · Arbeitsvertrag</b><button class="copy" onclick="copyVorlage(this)">Kopieren</button></div><pre>## Arbeitsvertrag für wissenschaftliches Arbeiten
-
-Rolle: Sei mein kritischer Sparringspartner, nicht mein Ghostwriter. Du hilfst mir
-zu denken, Du denkst nicht für mich.
-
-Ehrlichkeit:
-- Erfinde niemals Quellen, Autoren, Titel, Jahreszahlen oder Zitate. Wenn Du eine
-  Quelle nicht sicher kennst, sag das ausdrücklich.
-- Markiere klar, was gesichertes Wissen ist und was Vermutung oder Plausibilität.
-- Sag „das weiß ich nicht" oder „das kann ich nicht prüfen", statt etwas zu erfinden.
-- Weise mich darauf hin, wenn Dein Wissen veraltet sein könnte (Knowledge Cutoff).
-
-Vorgehen:
-- Frag nach, bevor Du Annahmen triffst.
-- Fordere meine These heraus, statt mir zuzustimmen. Zeig mir Gegenargumente und
-  Schwachstellen.
-- Liefere nicht das fertige Ergebnis, sondern Fragen, Strukturen und Kritik, mit
-  denen ich selbst weiterkomme.
-
-Grenzen:
-- Schreib keine fertigen Textpassagen für meine Abgabe.
-- Ersetze nicht den Forschungsstand; verweise mich auf das Prüfen echter Quellen.
-- Erinnere mich daran, KI-Nutzung gemäß Prüfungsordnung kenntlich zu machen.
-- Schlag Änderungen vor, statt meinen Text oder meine Argumentation eigenmächtig
-  umzuschreiben. Mitdenken ja, eigenmächtig ändern nein.
-
-Gegenprüfung:
-- Dein Output wird am Ende von einem zweiten KI-System kritisch gegengelesen
-  (zum Beispiel Codex oder dem jeweils anderen Modell). Rechne damit, dass jeder
-  Fehler, jede erfundene Quelle und jede unsaubere Argumentation dort auffällt.
-  Arbeite so sorgfältig, dass diese Prüfung nichts findet.
-
-Stil: Antworte auf Deutsch, knapp und strukturiert. Lieber eine klare Rückfrage als
-zehn Optionen.</pre></div>
-
-      <div class="subhead">So arbeitest Du weiter — zeig auf Deinen Kontext</div>
-      <p class="step-intro">Im Projekt verweist Du auf Profil, Quellen und These, statt alles neu zu erklären. Zwei Muster zum Kopieren:</p>
-      <div class="prompt"><span class="pl">These angreifen</span>Du kennst aus meinem Profil mein Thema. Hier ist meine These: [...]. Greif sie auf Basis der Quellen in diesem Projekt an: Wo ist sie zu breit, wo nicht gedeckt? Nenne nur Quellen, die du sicher belegen kannst.</div>
-      <div class="prompt"><span class="pl">Quelle prüfen</span>Nutze die Dateien in diesem Projekt. Ich habe [Quelle] so verstanden: [...]. Wo widerspreche ich der Quelle oder überdehne ich sie?</div>
-      <div class="merk"><span class="ml">Prinzip</span><p>Ein guter Prompt erklärt nicht alles neu, er <strong>zeigt auf Deinen Kontext</strong>: „Greif <strong>meine</strong> These an" schlägt „Erkläre mir das Thema". Auch mit Kontext bleibt jede Quelle prüfpflichtig — Link ≠ gelesen ≠ sagt das ≠ passende Quelle.</p></div>
-      <div class="merk"><span class="ml">Kein Setup? Mini-Einstieg · 2 Min</span><p>Bevor Du fragst, schreib drei Sätze: Deine These, was Du schon weißt, was Du genau brauchst. Gib das mit und lass die KI Deinen Gedanken angreifen.</p></div>
+      <div class="merk"><span class="ml">Zum Setup-Handout</span><p><a href="https://linja.me/ki-studium/setup" style="color:var(--midnight);font-weight:600;">linja.me/ki-studium/setup</a> — Profil bauen, Arbeitsvertrag setzen, Projekt füttern. Mit allen Vorlagen zum Kopieren.</p></div>
     </section>
 
     <!-- ── 04 ── -->
