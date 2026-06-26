@@ -10,7 +10,7 @@
 
 ## 1 · Wohin kommt der Kontext?
 
-Beide Tools haben drei dauerhafte Speicher plus den Chat selbst. Ordne Dein Wissen in Schichten:
+Beide Tools haben dauerhafte Speicher plus den Chat selbst. Ordne Dein Wissen in Schichten:
 
 | Schicht aus dem Vortrag | ChatGPT (gratis) | Claude (gratis) |
 |---|---|---|
