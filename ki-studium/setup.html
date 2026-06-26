@@ -224,36 +224,22 @@
       <div class="sec-head"><span class="sec-no">01</span><h2>Wohin kommt der Kontext?</h2></div>
       <p class="kicker">Beide Tools haben drei dauerhafte Speicher plus den Chat. Ordne Dein Wissen wie im Vortrag in Schichten.</p>
 
-      <table>
-        <thead>
-          <tr><th>Schicht aus dem Vortrag</th><th>ChatGPT (gratis)</th><th>Claude (gratis)</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="row-h"><strong>System-Rahmen</strong><br>Arbeitsvertrag, gilt immer</td><td>Einstellungen → <strong>Personalisierung</strong>: Felder „Beruf", „Mehr über dich", „Individuelle Hinweise" (oder klassische Custom Instructions)</td><td>Einstellungen → <strong>Profil</strong> → „persönliche Präferenzen"</td></tr>
-          <tr><td class="row-h"><strong>Identity</strong><br>wer Du bist, Stärken, Stil</td><td><strong>Memory</strong> (standardmäßig an) + Personalisierung</td><td><strong>Memory</strong> (seit März 2026 gratis) + Profil</td></tr>
-          <tr><td class="row-h"><strong>Knowledge</strong><br>Lektüre, Quellen, Notizen</td><td><strong>Projects</strong> → Dateien hochladen, Projekt-Instruktion</td><td><strong>Projects</strong> (bis 5) → Dateien hochladen (bis 20/Chat)</td></tr>
-          <tr><td class="row-h"><strong>Arbeitsgedächtnis</strong><br>die konkrete Aufgabe</td><td>der Chat im Projekt</td><td>der Chat im Projekt</td></tr>
-        </tbody>
-      </table>
-
-      <div class="merk"><span class="ml">Faustregel</span><p>Wer Du bist → einmal zentral (Custom Instructions / Profil + Memory). Die Quellen pro Thema → ins Projekt. Die konkrete Frage → in den Chat.</p></div>
-
       <div class="subhead">So richtest Du es ein</div>
       <div class="cards2">
         <div class="card">
           <h3>ChatGPT (gratis)</h3>
           <ol>
-            <li><strong>Personalisierung</strong> öffnen: Felder „Beruf", „Mehr über dich", „Individuelle Hinweise" (oder klassische Custom Instructions). Profil (2a) + Arbeitsvertrag (2b) hier rein. Lädt in jeden Chat.</li>
+            <li><strong>Personalisierung</strong> öffnen. Profil (2a) in die Felder „Beruf" + „Mehr über dich", Arbeitsvertrag (2b) in „Individuelle Hinweise". Lädt in jeden Chat.</li>
             <li><strong>Memory</strong> ist an. „Merk dir: …" speichert Fakten dauerhaft, jederzeit editierbar.</li>
-            <li><strong>Projects</strong> anlegen (eins pro Hausarbeit). Pflichtlektüre, Notizen und These hochladen.</li>
+            <li><strong>Projects</strong> anlegen (eins pro Hausarbeit). Dateien hochladen, Projektkontext ins Feld „Hinweise".</li>
           </ol>
         </div>
         <div class="card">
           <h3>Claude (gratis)</h3>
           <ol>
-            <li><strong>Profil-Präferenzen</strong> öffnen. Hier kommt Profil + Arbeitsvertrag rein. Lädt in jeden Chat.</li>
+            <li><strong>„Anweisungen für Claude"</strong> öffnen (ein Feld). Profil (2a) + Arbeitsvertrag (2b) kommen zusammen hier rein. Lädt in jeden Chat.</li>
             <li><strong>Memory</strong> (seit März 2026 gratis) merkt sich Deinen Kontext über Chats hinweg.</li>
-            <li><strong>Projects</strong> anlegen (bis 5). Custom Instructions = Arbeitsvertrag. Dateien hochladen, Web-Suche verfügbar.</li>
+            <li><strong>Projects</strong> anlegen (bis 5). Projektkontext ins Feld „Beschreibung", Quellen als „Anweisungen" / Dateien hochladen.</li>
           </ol>
         </div>
       </div>
@@ -263,7 +249,13 @@
         <li><strong>ChatGPT:</strong> sehr verbreitet, starker Allrounder, viele Integrationen, schnelles Hin und Her. Gut, wenn Du ein Tool für vieles willst.</li>
         <li><strong>Claude:</strong> stark bei langen Texten und Dokumenten, sorgfältig beim Schreiben, Argumentieren und beim Befolgen genauer Vorgaben. Gut für Hausarbeiten mit viel Lektüre.</li>
       </ul>
-      <div class="plus"><span class="ic">+</span><span><strong>App oder Browser?</strong> Beides läuft komplett in der Webversion (chatgpt.com bzw. claude.ai), inklusive Custom Instructions, Memory und Projects. Eine App brauchst Du nicht, sie ist nur Komfort fürs Handy.</span></div>
+      <div class="plus"><span class="ic">+</span><span><strong>App oder Browser?</strong> Beides läuft komplett in der Webversion (chatgpt.com bzw. claude.ai), inklusive Personalisierung, Memory und Projects. Eine App brauchst Du nicht, sie ist nur Komfort fürs Handy.</span></div>
+
+      <div class="merk"><span class="ml">Faustregel · Drei Schichten</span>
+        <p><strong>Wer Du bist</strong> → einmal zentral: Personalisierung (ChatGPT) bzw. „Anweisungen für Claude", plus Memory.</p>
+        <p style="margin-top:0.4rem"><strong>Quellen pro Thema</strong> → ins Projekt: Dateien hochladen, Kontext ins Feld „Hinweise" (ChatGPT) / „Beschreibung" (Claude).</p>
+        <p style="margin-top:0.4rem"><strong>Die konkrete Frage</strong> → in den Chat im Projekt.</p>
+      </div>
     </section>
 
     <!-- ── 02 ── -->
@@ -323,7 +315,7 @@ Starte jetzt mit der ersten Frage.</pre></div>
 
       <div class="vorlage"><div class="vl"><b>Vorlage · Profil-Interview · Claude</b><button class="copy" onclick="copyVorlage(this)">Kopieren</button></div><pre>Du bist mein Onboarding-Assistent für wissenschaftliches Arbeiten mit KI.
 Ziel: Hilf mir, ein kompaktes „Über mich"-Profil zu erstellen, das ich dauerhaft in
-Deinen Profil-Präferenzen speichere, damit Du mich in jeder zukünftigen Unterhaltung kennst.
+Deinem Feld „Anweisungen für Claude" speichere, damit Du mich in jeder zukünftigen Unterhaltung kennst.
 
 Gehe so vor:
 1. Stelle mir die folgenden Fragen EINZELN, eine nach der anderen, und warte jeweils
@@ -344,7 +336,7 @@ Am Ende des Interviews:
 
    ## Mein Kontext (dauerhaft)
    (Studium, Arbeitsweise, Schreibstil, Stärken/Schwächen, bevorzugte Rolle der KI.
-   Kommt in die Profil-Präferenzen, gilt immer.)
+   Kommt in „Anweisungen für Claude", gilt immer.)
 
    ## Projektkontext (pro Arbeit)
    (Thema, Forschungsfrage, Exposé, Gliederung, Quellen, Bewertungsbogen, Zitierstil
@@ -352,18 +344,18 @@ Am Ende des Interviews:
 
 4. Halte beide Texte möglichst kompakt und auf den Punkt, direkt einfügbar, ohne
    Füllwörter, Einleitung oder Erklärung. Kurze Stichpunkte statt Romane.
-5. Erkläre mir anschließend in einem Satz, was dauerhaft in die Profil-Präferenzen
+5. Erkläre mir anschließend in einem Satz, was dauerhaft in „Anweisungen für Claude"
    gehört und was besser in ein Projekt kommt.
 6. Zeige mir außerdem, wo ich die beiden Blöcke in Claude konkret abspeichere, mit
-   klickbaren Schritten für Profil-Präferenzen und Projekte.
+   klickbaren Schritten für „Anweisungen für Claude" und Projekte.
 
 Starte jetzt mit der ersten Frage.</pre></div>
 
-      <div class="plus"><span class="ic">+</span><span><strong>Speichern:</strong> ChatGPT → die vier Abschnitte in die passenden Personalisierungs-Felder (Projektkontext ins jeweilige Projekt), oder bei klassischen Custom Instructions den „## Mein Kontext"-Block. Claude → „## Mein Kontext" in die Profil-Präferenzen, „## Projektkontext" ins jeweilige Projekt. Optional zusätzlich ins Memory.</span></div>
+      <div class="plus"><span class="ic">+</span><span><strong>Speichern:</strong> ChatGPT → „Beruf" und „Mehr über dich" in die gleichnamigen Personalisierungs-Felder, „Individuelle Hinweise" ebenso; den Projektkontext ins Projekt-Feld „Hinweise". (Bei klassischen Custom Instructions stattdessen der „## Mein Kontext"-Block.) Claude → „## Mein Kontext" in „Anweisungen für Claude", „## Projektkontext" ins Projekt-Feld „Beschreibung". Optional zusätzlich ins Memory.</span></div>
       <div class="merk"><span class="ml">Faustregel · Trennung</span><p>Trenne dauerhaften Kontext und Projektkontext von Anfang an. <strong>Dauerhaft</strong> (Personalisierung/Profil): Studium, Arbeitsweise, Schreibstil, Stärken/Schwächen, Rolle der KI. <strong>Projekt</strong>: Thema, Forschungsfrage, Exposé, Quellen, Bewertungsbogen, Zitierstil, Gliederung, Deadlines. So machst Du das Interview nur einmal und ergänzt pro Arbeit nur den Projektteil.</p></div>
 
       <div class="sub-head"><span class="sub-no">2b</span><h3>Arbeitsvertrag mit der KI</h3></div>
-      <p>Für wissenschaftliches Arbeiten. Je eine knappe Fassung pro Tool: kopiere sie in ChatGPTs Feld „Individuelle Hinweise" (max. 1500 Zeichen) bzw. in Claudes Profil-Präferenzen.</p>
+      <p>Für wissenschaftliches Arbeiten. Je eine knappe Fassung pro Tool: kopiere sie in ChatGPTs Feld „Individuelle Hinweise" (max. 1500 Zeichen) bzw. in Claudes Feld „Anweisungen für Claude".</p>
 
       <div class="vorlage"><div class="vl"><b>Vorlage · Arbeitsvertrag · ChatGPT (kurz, &lt;1500 Zeichen)</b><button class="copy" onclick="copyVorlage(this)">Kopieren</button></div><pre>Arbeite als mein wissenschaftlicher Sparringspartner, nicht als Ghostwriter. Hilf mir zu denken, statt für mich zu denken.
 
