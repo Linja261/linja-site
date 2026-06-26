@@ -229,8 +229,8 @@
           <tr><th>Schicht aus dem Vortrag</th><th>ChatGPT (gratis)</th><th>Claude (gratis)</th></tr>
         </thead>
         <tbody>
-          <tr><td class="row-h"><strong>System-Rahmen</strong><br>Arbeitsvertrag, gilt immer</td><td>Einstellungen → Personalisierung → <strong>Custom Instructions</strong> (2 Felder)</td><td>Einstellungen → <strong>Profil</strong> → „persönliche Präferenzen"</td></tr>
-          <tr><td class="row-h"><strong>Identity</strong><br>wer Du bist, Stärken, Stil</td><td><strong>Memory</strong> (standardmäßig an) + Custom Instructions</td><td><strong>Memory</strong> (seit März 2026 gratis) + Profil</td></tr>
+          <tr><td class="row-h"><strong>System-Rahmen</strong><br>Arbeitsvertrag, gilt immer</td><td>Einstellungen → <strong>Personalisierung</strong>: Felder „Beruf", „Mehr über dich", „Individuelle Hinweise" (oder klassische Custom Instructions)</td><td>Einstellungen → <strong>Profil</strong> → „persönliche Präferenzen"</td></tr>
+          <tr><td class="row-h"><strong>Identity</strong><br>wer Du bist, Stärken, Stil</td><td><strong>Memory</strong> (standardmäßig an) + Personalisierung</td><td><strong>Memory</strong> (seit März 2026 gratis) + Profil</td></tr>
           <tr><td class="row-h"><strong>Knowledge</strong><br>Lektüre, Quellen, Notizen</td><td><strong>Projects</strong> → Dateien hochladen, Projekt-Instruktion</td><td><strong>Projects</strong> (bis 5) → Dateien hochladen (bis 20/Chat)</td></tr>
           <tr><td class="row-h"><strong>Arbeitsgedächtnis</strong><br>die konkrete Aufgabe</td><td>der Chat im Projekt</td><td>der Chat im Projekt</td></tr>
         </tbody>
@@ -243,7 +243,7 @@
         <div class="card">
           <h3>ChatGPT (gratis)</h3>
           <ol>
-            <li><strong>Custom Instructions</strong> öffnen. Feld 1 = Dein Profil (2a), Feld 2 = Arbeitsvertrag (2b). Lädt in jeden Chat.</li>
+            <li><strong>Personalisierung</strong> öffnen: Felder „Beruf", „Mehr über dich", „Individuelle Hinweise" (oder klassische Custom Instructions). Profil (2a) + Arbeitsvertrag (2b) hier rein. Lädt in jeden Chat.</li>
             <li><strong>Memory</strong> ist an. „Merk dir: …" speichert Fakten dauerhaft, jederzeit editierbar.</li>
             <li><strong>Projects</strong> anlegen (eins pro Hausarbeit). Pflichtlektüre, Notizen und These hochladen.</li>
           </ol>
@@ -272,10 +272,11 @@
       <p class="kicker">Zwei Dinge einmal zentral ablegen, beide an dieselbe Stelle: wer Du bist (Identity) und wie die KI arbeiten soll (Arbeitsvertrag). Lädt danach in jeden Chat.</p>
 
       <div class="sub-head"><span class="sub-no">2a</span><h3>Identity-Profil per Interview-Prompt</h3></div>
-      <p>In einen <strong>neuen Chat</strong> einfügen. Die KI interviewt Dich und baut am Ende einen sauberen Block, den Du in die Einstellungen kopierst.</p>
-      <div class="vorlage"><div class="vl"><b>Vorlage · Profil-Interview</b><button class="copy" onclick="copyVorlage(this)">Kopieren</button></div><pre>Du bist mein Onboarding-Assistent für wissenschaftliches Arbeiten mit KI.
-Ziel: Hilf mir, ein kompaktes „Über mich"-Profil zu erstellen, das ich dauerhaft in
-Deinen Einstellungen speichere, damit Du mich in jeder zukünftigen Unterhaltung kennst.
+      <p>In einen <strong>neuen Chat</strong> einfügen. Die KI interviewt Dich und baut am Ende einen sauberen Block, den Du in die Einstellungen kopierst. Zwei Versionen, weil ChatGPT und Claude die Felder unterschiedlich aufteilen: <strong>nimm die Vorlage zu Deinem Tool</strong>.</p>
+
+      <div class="vorlage"><div class="vl"><b>Vorlage · Profil-Interview · ChatGPT</b><button class="copy" onclick="copyVorlage(this)">Kopieren</button></div><pre>Du bist mein Onboarding-Assistent für wissenschaftliches Arbeiten mit KI.
+Ziel: Hilf mir, ein kompaktes Profil zu erstellen, das ich dauerhaft in Deiner
+Personalisierung speichere, damit Du mich in jeder zukünftigen Unterhaltung kennst.
 
 Gehe so vor:
 1. Stelle mir die folgenden Fragen EINZELN, eine nach der anderen, und warte jeweils
@@ -290,13 +291,72 @@ Gehe so vor:
      eine These oder Fragestellung?
    - Vorgaben: Welche Regeln gibt der Lehrstuhl vor (Zitierstil, Umfang, Sprache)?
    - Was die KI für Dich tun und NICHT tun soll.
-3. Wenn Du genug weißt, fasse alles in einem strukturierten Markdown-Block unter der
-   Überschrift „## Mein Kontext" zusammen: kurze Stichpunkte, keine Romane.
-4. Sag mir am Ende in einem Satz, wo ich diesen Block speichere und was besser in ein
-   Projekt gehört.
+
+Am Ende des Interviews:
+3. Prüfe, ob ich die neue Personalisierung oder die klassischen Benutzerdefinierten
+   Anweisungen nutze. Frag mich, falls unklar.
+4. Falls ich die neue Personalisierung nutze, gib das Ergebnis in vier getrennten
+   Abschnitten aus:
+
+   ### Beruf
+   (Kurzer Text für das Feld „Beruf".)
+
+   ### Mehr über dich
+   (Kompakter Fließtext für das Feld „Mehr über dich".)
+
+   ### Individuelle Hinweise
+   (Konkrete Anweisungen an ChatGPT für Verhalten, Stil und Zusammenarbeit.)
+
+   ### Projektkontext
+   (Alles, was NICHT dauerhaft gespeichert werden sollte, sondern nur für die aktuelle
+   wissenschaftliche Arbeit gilt: Forschungsfrage, Gliederung, Quellen, Betreuerhinweise,
+   Bewertungsbogen.)
+
+5. Falls ich noch die klassischen Benutzerdefinierten Anweisungen nutze, gib stattdessen
+   einen einzigen Markdown-Block unter der Überschrift „## Mein Kontext" aus.
+6. Halte alle Texte kompakt, direkt einfügbar, ohne Einleitung oder Erklärung.
+7. Erkläre mir anschließend in einem Satz, welche Informationen dauerhaft in die
+   Personalisierung gehören und welche besser in einem Projekt gespeichert werden.
 
 Starte jetzt mit der ersten Frage.</pre></div>
-      <div class="plus"><span class="ic">+</span><span><strong>Speichern:</strong> ChatGPT → „## Mein Kontext"-Block in Custom Instructions (Feld 1). Claude → in die Profil-Präferenzen. Optional zusätzlich ins Memory übernehmen.</span></div>
+
+      <div class="vorlage"><div class="vl"><b>Vorlage · Profil-Interview · Claude</b><button class="copy" onclick="copyVorlage(this)">Kopieren</button></div><pre>Du bist mein Onboarding-Assistent für wissenschaftliches Arbeiten mit KI.
+Ziel: Hilf mir, ein kompaktes „Über mich"-Profil zu erstellen, das ich dauerhaft in
+Deinen Profil-Präferenzen speichere, damit Du mich in jeder zukünftigen Unterhaltung kennst.
+
+Gehe so vor:
+1. Stelle mir die folgenden Fragen EINZELN, eine nach der anderen, und warte jeweils
+   auf meine Antwort. Frag nach, wenn etwas unklar oder zu knapp ist.
+2. Themenblöcke:
+   - Studium: Studiengang, Fachsemester, Hochschule, Schwerpunkt.
+   - Stärken und Schwächen beim wissenschaftlichen Arbeiten (Strukturieren,
+     Argumentieren, Literatur, Schreiben, Zeitmanagement).
+   - Arbeitsweise: Wie arbeitest Du am liebsten? Was hilft Dir, was blockiert Dich?
+   - Schreibstil: Wie klingen Deine Texte? (Gib mir gern ein, zwei Beispielsätze von Dir.)
+   - Aktuelles Projekt: Um welche Arbeit/welches Thema geht es gerade? Gibt es schon
+     eine These oder Fragestellung?
+   - Vorgaben: Welche Regeln gibt der Lehrstuhl vor (Zitierstil, Umfang, Sprache)?
+   - Was die KI für Dich tun und NICHT tun soll.
+
+Am Ende des Interviews:
+3. Trenne dauerhaften Kontext und Projektkontext strikt und gib mir zwei Blöcke aus:
+
+   ## Mein Kontext (dauerhaft)
+   (Studium, Arbeitsweise, Schreibstil, Stärken/Schwächen, bevorzugte Rolle der KI.
+   Kommt in die Profil-Präferenzen, gilt immer.)
+
+   ## Projektkontext (pro Arbeit)
+   (Thema, Forschungsfrage, Exposé, Gliederung, Quellen, Bewertungsbogen, Zitierstil
+   dieses Lehrstuhls, Deadlines. Kommt ins jeweilige Projekt, nicht in die Präferenzen.)
+
+4. Halte beide Texte kompakt, direkt einfügbar, ohne Einleitung oder Erklärung.
+5. Erkläre mir anschließend in einem Satz, was dauerhaft in die Profil-Präferenzen
+   gehört und was besser in ein Projekt kommt.
+
+Starte jetzt mit der ersten Frage.</pre></div>
+
+      <div class="plus"><span class="ic">+</span><span><strong>Speichern:</strong> ChatGPT → die vier Abschnitte in die passenden Personalisierungs-Felder (Projektkontext ins jeweilige Projekt), oder bei klassischen Custom Instructions den „## Mein Kontext"-Block. Claude → „## Mein Kontext" in die Profil-Präferenzen, „## Projektkontext" ins jeweilige Projekt. Optional zusätzlich ins Memory.</span></div>
+      <div class="merk"><span class="ml">Faustregel · Trennung</span><p>Trenne dauerhaften Kontext und Projektkontext von Anfang an. <strong>Dauerhaft</strong> (Personalisierung/Profil): Studium, Arbeitsweise, Schreibstil, Stärken/Schwächen, Rolle der KI. <strong>Projekt</strong>: Thema, Forschungsfrage, Exposé, Quellen, Bewertungsbogen, Zitierstil, Gliederung, Deadlines. So machst Du das Interview nur einmal und ergänzt pro Arbeit nur den Projektteil.</p></div>
 
       <div class="sub-head"><span class="sub-no">2b</span><h3>Arbeitsvertrag mit der KI</h3></div>
       <p>Für wissenschaftliches Arbeiten. Copy-paste in <strong>Custom Instructions Feld 2 / Profil / Projekt-Instruktion</strong>.</p>
