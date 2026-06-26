@@ -452,11 +452,17 @@ Und: das Modell kennt die Welt nur bis zum Ende seines Trainingszeitraums. Neuer
   <div class="box hl mt2">
     <p style="font-size:1.08rem;">Websuche legt echte Texte ins Arbeitsgedächtnis, wodurch erfundene Quellen seltener werden. Der Generierungsmechanismus bleibt aber gleich. <strong>Echter Link ≠ gelesen ≠ sagt das ≠ passende Quelle.</strong> Und die Antwort ist immer nur so gut wie die Treffer: Sucht die KI ungezielt, landen schwache oder unpassende Quellen im Arbeitsspeicher und das Ergebnis wird unzuverlässig, ohne dass Du es merkst.</p>
   </div>
-  <div class="note">Weiß eine web-suchende KI „mehr"? Sie hat Zugriff auf aktuellere und spezifischere Infos und kann belegen, aber sie weiß nichts zuverlässiger. Die Prüfpflicht verschwindet nicht, sie wandert eine Ebene hoch: von „existiert die Quelle?" zu „sagt die echte Quelle wirklich das, und ist sie die richtige?"
+  <div class="note">Jetzt kommt fast immer derselbe Einwand, und den nehme ich bewusst vorweg: „Aber meine KI sucht doch im Web, die erfindet doch nichts mehr." Genau das schauen wir uns auf dieser Folie an.
 
-Kernpunkt: Websuche füllt den Arbeitsspeicher der KI automatisch, mit irgendwas, das sie findet. Du füllst ihn gezielt mit geprüften Quellen. Genau deshalb ist das Gegenargument kein Konter, sondern ein Beleg für die These: Die Qualität der Antwort hängt an der Qualität dessen, was im Arbeitsspeicher landet.
+Erst, wie so eine Websuche überhaupt funktioniert (oben auf der Folie): Das Tool sucht live im Netz, kopiert die gefundenen Texte in den Arbeitsspeicher der KI und baut die Antwort dann aus diesen Texten zusammen. Das ist wichtig, weil es zeigt, dass die Quelle nicht plötzlich „ins Modell" wandert, sondern nur kurz in den Arbeitsspeicher gelegt wird.
 
-Sequenz-Hinweis: Der Begriff Context Engineering steht bewusst nicht auf dieser Folie, er kommt erst in Teil 2. Hier reicht das Bild vom Arbeitsspeicher, der gut oder schlecht befüllt wird.</div>
+Was dabei besser wird (das grüne Häkchen): Die KI kann jetzt echte, klickbare Quellen zeigen. Komplett erfundene Zitate werden dadurch seltener. So weit stimmt der Einwand.
+
+Was sich nicht ändert (das rote Kreuz): Der Generierungsmechanismus bleibt identisch. Die KI baut die Antwort immer noch aus Wahrscheinlichkeiten zusammen. Drei Fehlerquellen bleiben deshalb bestehen: Erstens kann sie eine echte Quelle falsch wiedergeben. Zweitens kann sie eine schlechte Quelle völlig selbstbewusst präsentieren, ein echter Link sagt ja nichts über die Qualität. Drittens füllt sie die Lücken zwischen den Treffern wieder plausibel auf.
+
+Der Merksatz unten bringt es auf den Punkt: Echter Link ist nicht gleich gelesen, ist nicht gleich sagt das wirklich, ist nicht gleich passende Quelle. Die Prüfpflicht verschwindet also nicht, sie wandert nur eine Ebene hoch: von „existiert die Quelle überhaupt?" zu „sagt die echte Quelle wirklich das, und ist sie die richtige?"
+
+Und das ist der eigentliche Grund, warum ich diesen Einwand bringe: Er ist kein Konter, er ist ein Beleg für meine These. Websuche füllt den Arbeitsspeicher automatisch, mit irgendwas, das die KI gerade findet. Du füllst ihn gezielt mit geprüftem Material. Die Qualität der Antwort hängt also immer daran, was im Arbeitsspeicher landet, und genau da setzen wir gleich an.</div>
 </section>
 
 <!-- ⑩  NOVIZEN-PARADOX · LILA ────────────────────── -->
@@ -496,7 +502,13 @@ Der Kern des Novizen-Paradox: Um einen Fehler zu erkennen, muss ich schon genug 
       </div>
     </div>
   </div>
-  <div class="note">Das ist kein Verbot — es ist ein Nutzungsmodus. Entscheidend ist nicht ob, sondern wann im Lernprozess KI eingesetzt wird. Analogie: Ein Gegenleser kann nur sinnvoll arbeiten, wenn der Autor bereits eine eigene Position hat.</div>
+  <div class="note">Das ist kein Verbot — es ist ein Nutzungsmodus. Entscheidend ist nicht ob, sondern wann im Lernprozess KI eingesetzt wird.</div>
+</section>
+
+<!-- ⑪b  ZWISCHENFRAGE · LILA ───────────────────────── -->
+<section class="slide dark">
+  <p class="statement" style="max-width:24ch;">Habt Ihr bis hierher Fragen?</p>
+  <div class="note">Bewusster Halt am Ende von Teil 1, bevor es mit Context Engineering weitergeht. Kurz Luft holen, Blickkontakt, Fragen einsammeln. Wenn keine kommen, selbst eine Brücke bauen: „Dann die naheliegende Frage, wenn KI an unbekannten Themen so gefährlich ist, wie nutze ich sie dann sinnvoll? Genau da geht es jetzt weiter."</div>
 </section>
 
 <!-- ⑫  PROMPTING VS CE · INHALT ──────────────────── -->
@@ -513,13 +525,21 @@ Der Kern des Novizen-Paradox: Um einen Fehler zu erkennen, muss ich schon genug 
       <p>Eine Art Arbeitsgrundlage und -vertrag mit der KI. Es bestimmt die Art des Ergebnisses und die Vorgehensweise beim Ermitteln und Prüfen. Hier entsteht das kompetente, verlässliche Arbeiten mit der KI. Die Output-Qualität hängt von der Qualität des Kontexts ab: Ist der Kontext gut gewählt, weiß die KI also das Richtige über mich, meine Fähigkeiten und mein Thema, wird der Output meist belastbarer.</p>
     </div>
   </div>
-  <div class="note">Begriff „Context Engineering" (Karpathy 2025): Kompetenz, das Kontextfenster optimal zu befüllen. Technisch: Das Kontextfenster ist das temporäre Arbeitsgedächtnis des Modells (In-Context Learning, Brown et al. 2020/GPT-3). Was im Kontext steht, ist zuverlässiger abrufbar als was verlustbehaftet in den Gewichten liegt — das ist der technische Mechanismus dahinter, keine Metapher.</div>
+  <div class="note">Damit kommen wir zur eigentlichen Kompetenz. Viele denken bei „gut mit KI arbeiten" an Prompting. Ich stelle hier bewusst zwei Dinge nebeneinander, weil sie oft verwechselt werden.
+
+Links Prompting (der rote Kasten): Das ist die Art, wie Du Befehle schreibst. Formulierungen, Vorlagen, kleine Tricks. Das Problem dabei: Diese Techniken sind modellabhängig. Was bei einem Modell funktioniert, kann beim nächsten schon nicht mehr greifen. Gelerntes Prompting verliert also mit der nächsten Modellgeneration an Wirkung. Es hilft kurzfristig, aber nicht dauerhaft.
+
+Rechts Context Engineering (der grüne Kasten): Das ist keine Formulierungstechnik, sondern eine Arbeitsgrundlage, fast ein Arbeitsvertrag mit der KI. Es legt fest, womit die KI arbeitet und wie sie vorgeht, also was sie über mich, meine Fähigkeiten und mein Thema weiß. Hier entsteht das verlässliche Arbeiten. Der Kernsatz, den ich betonen will: Die Output-Qualität hängt an der Qualität des Kontexts. Weiß die KI das Richtige über mich und mein Thema, wird das Ergebnis belastbarer.
+
+Die Botschaft der Folie in einem Satz: Hör auf, an der Formulierung zu feilen, und fang an, den Kontext aufzubauen. Das eine veraltet, das andere trägt.
+
+(Hintergrund, nicht aussprechen: Begriff „Context Engineering" von Karpathy 2025, die Kompetenz, das Kontextfenster optimal zu befüllen. Das Kontextfenster ist das temporäre Arbeitsgedächtnis des Modells, In-Context Learning, Brown et al. 2020. Was im Kontext steht, ist zuverlässiger abrufbar als das verlustbehaftet in den Gewichten Gespeicherte.)</div>
 </section>
 
 <!-- ⑬  CE-BRÜCKE · LILA ───────────────────────────── -->
 <section class="slide dark">
   <p class="statement" style="max-width:26ch;">Context Engineering setzt Denken voraus. Es ersetzt es nicht.</p>
-  <div class="note">Context Engineering verkleinert die Gefahrenzone, es beseitigt sie nicht. Ein starker Rahmen fängt die einfachen Fehler. Das Urteil ersetzt er nicht: Was die KI mit gutem Kontext produziert, musst Du immer noch prüfen können. (Das ist die ehrliche Auflösung des Novizen-Paradox — nicht überclaimen, sonst untergräbt es das eigene Thema.)
+  <div class="note">Context Engineering verkleinert die Gefahrenzone, es beseitigt sie nicht. Ein starker Rahmen fängt die einfachen Fehler. Das Urteil ersetzt er nicht: Was die KI mit gutem Kontext produziert, musst Du immer noch prüfen können.
 
 Guter Kontext ist die eigene Vorarbeit. Wer keinen guten Kontext formulieren kann, hat das Thema noch nicht durchdrungen. Genau deshalb ist „guten Kontext bauen" zugleich der beste Test, ob ihr das Thema verstanden habt: „Erst selbst denken" und „guten Kontext bauen" sind dieselbe Handlung. Damit sind wissenschaftliche Integrität und sinnvoller KI-Einsatz dieselbe Münze.
 
@@ -550,11 +570,15 @@ Technisch: Fakten im Kontextfenster werden zuverlässiger reproduziert als Fakte
   </div>
   <div class="note">Um Context Engineering zu ermöglichen, musst Du Wissen in Schichten trennen. Innerhalb dieser Schichten existiert jede Information nur einmal.
 
-Unten das Fachwissen, das unabhängig von Dir existiert. Darüber Deine eigene Arbeit. Ganz oben Deine Schlüsse daraus. Diese Trennung ist die Basis von Context Engineering: Du gibst der KI gezielt die richtige Schicht statt alles auf einmal. Die Idee, Wissen so zu schichten, ist nicht neu, sondern steht auf etablierten Modellen: die DIKW-Pyramide (Daten, Information, Wissen) für die Knowledge-Schicht, Polanyis Unterscheidung von explizitem und implizitem Wissen für Identity, Karl Weicks Sensemaking-Begriff für die oberste Schicht. Luhmanns Zettelkasten und Forte „Building a Second Brain" sind die populären Verwandten. Und das junge Feld Context Engineering bestätigt genau diese Schichtung: Anthropic zerlegt Kontext in System-Prompt, Gespräch, Erinnerung und Wissensbasis, fast deckungsgleich mit den vier Ebenen hier. Neu ist also nicht die Schichtung, neu ist, sie gezielt für die Arbeit mit KI zu nutzen. Die konkrete Zusammenführung dieser drei Schichten plus System ist meine eigene. Context Engineering ist ein wachsendes Feld.
+Die Idee, Wissen so zu schichten, ist nicht neu, sondern steht auf etablierten Modellen. Neu ist also nicht die Schichtung, neu ist, sie gezielt für die Arbeit mit KI zu nutzen. Anthropic zerlegt Kontext in System-Prompt, Gespräch, Erinnerung und Wissensbasis, fast deckungsgleich mit den vier Ebenen hier. Context Engineering ist ein wachsendes Feld. Die drei Schichten mit dem System so zu koppeln ist meine eigene Synthese aus den Modellen und Anthropics Ansatz.
+
+Schauen wir uns die Schichten einmal genauer an. Unten das Fachwissen, das unabhängig von Dir existiert. Darüber Deine eigene Arbeit. Ganz oben Deine Schlüsse daraus. Diese Trennung ist die Basis von Context Engineering: Du gibst der KI gezielt die richtige Schicht statt alles auf einmal.
 
 Und der Rahmen um die drei Schichten ist das System: das Regelwerk oder der Arbeitsvertrag mit dem KI-Tool, bei mir CLAUDE.md, rules.md und Memory. Das ist kein viertes Stockwerk an Wissen, sondern die Ebene darüber. Sie legt fest, wie die KI mit Deinen drei Schichten umgeht: wer ich bin, wie ich arbeite, was die KI darf und was nicht. Deshalb umschließt der Rahmen die Schichten, statt sich danebenzustellen. Erst dieses System macht aus losen Schichten eine verlässliche Arbeitsgrundlage, die über einzelne Sessions hinweg trägt.
 
-Konkret für eine Seminararbeit kann es so aussehen: Schicht 1 ist die Pflichtlektüre, Schicht 2 Deine Notizen und These, Schicht 3 Deine Argumentation. Wenn Du Schicht 1 und 2 gut ausgestaltet hast, kann KI Schicht 3 übernehmen. KI ist darauf trainiert, Zusammenhänge zu erkennen und Muster abzuleiten. Die Basis kommt aber von Dir. Das System ist hier die Vorgabe, die Du einmal festhältst und die über allem steht: Thema und Fragestellung, Umfang, Zitierstil, die Regeln des Lehrstuhls und wie die KI Dich dabei unterstützen soll.</div>
+Konkret für eine Seminararbeit kann es so aussehen: Schicht 1 ist die Pflichtlektüre, Schicht 2 Deine Notizen und These, Schicht 3 Deine Argumentation. Wenn Du Schicht 1 und 2 gut ausgestaltet hast, kann KI Schicht 3 übernehmen. KI ist darauf trainiert, Zusammenhänge zu erkennen und Muster abzuleiten. Die Basis kommt aber von Dir. Das System ist hier die Vorgabe, die Du einmal festhältst und die über allem steht: Thema und Fragestellung, Umfang, Zitierstil, die Regeln des Lehrstuhls und wie die KI Dich dabei unterstützen soll.
+
+(Etablierten Modellen: die DIKW-Pyramide (Daten, Information, Wissen) für die Knowledge-Schicht, Polanyis Unterscheidung von explizitem und implizitem Wissen für Identity, Karl Weicks Sensemaking-Begriff für die oberste Schicht. Luhmanns Zettelkasten und Forte „Building a Second Brain" sind die populären Verwandten.)</div>
 </section>
 
 <!-- ⑬c  DREI GEDÄCHTNISSE · AUFZÄHLUNG ────────────────── -->
@@ -579,9 +603,15 @@ Konkret für eine Seminararbeit kann es so aussehen: Schicht 1 ist die Pflichtle
       <p>Antrainiertes Faktenwissen, kontextunabhängig. Das Weltwissen aus den Modellgewichten, das Du nicht änderst, sondern nur als Fallback nutzt.</p>
     </div>
   </div>
-  <div class="note">Alternative zur Kopf-Abbildung: dieselben drei Gedächtnisse als Aufzählung. Das Gespräch ist das Arbeitsgedächtnis (Kontextfenster, steuerbar). Die Erinnerung ist das Langzeitgedächtnis (bleibt über Sessions). Die Wissensbasis ist das semantische Gedächtnis (antrainiert, fix). Im finalen Deck nur eine der beiden Varianten behalten, Kopf oder Aufzählung.
+  <div class="note">Wir haben gerade gesehen, womit Context Engineering arbeitet, dem Kontext. Jetzt schauen wir, wohin dieser Kontext in der KI eigentlich fließt. Dafür ein einfaches Denkmodell: Stell Dir vor, die KI hat drei Gedächtnisse. Wichtig vorweg, und das sage ich bewusst dazu: Das ist ein Denkmodell, keine wörtliche technische Architektur. Es geht um drei Speicher, die unterschiedlich zuverlässig arbeiten, nicht um drei getrennte Bauteile im Modell.
 
-Framing (Codex-Hinweis): explizit als Denkmodell ansagen, nicht als wörtliche technische Architektur. Es geht um drei unterschiedlich zuverlässige Speicher, nicht um drei getrennte Bauteile im Modell.</div>
+Das erste, die linke Karte, ist das Gespräch, das Arbeitsgedächtnis. Das ist der aktuelle Kontext im laufenden Chat, das Kontextfenster. Es hält Informationen nur für die aktuelle Aufgabe. Das Entscheidende: Genau hier setzt Deine Vorarbeit an, das steuerst Du direkt. Deshalb steht da „steuerbar".
+
+Das zweite, die mittlere Karte, ist die Erinnerung, das Langzeitgedächtnis. Ein dauerhafter Speicher über einzelne Sessions hinweg. Das sind CLAUDE.md, Rules und Memory. Da hältst Du Deine Vorgaben einmal fest, und die KI weiß sie beim nächsten Mal wieder, ohne dass Du Dich wiederholst.
+
+Das dritte, die rechte Karte, ist die Wissensbasis, das semantische Gedächtnis. Das ist das antrainierte Weltwissen aus den Modellgewichten, kontextunabhängig. Das änderst Du nicht, Du nutzt es nur als Fallback. Und genau das ist der unzuverlässige Speicher, der verlustbehaftet ist und dort erfindet, wo es unscharf wird, also genau das Problem aus Teil 1.
+
+Die Pointe der Folie steht schon in der Überschrift: Steuerbar ist vor allem das Arbeitsgedächtnis. Da liegt Dein Hebel. Wenn Du gutes, geprüftes Material dort hineinlegst, arbeitet die KI damit, statt aus dem unzuverlässigen Weltwissen zu raten.</div>
 </section>
 
 <!-- ⑬e  SYNTHESE · ABBILDUNG (Teil 1 + Teil 2) ─────── -->
