@@ -883,12 +883,17 @@ Das ist die epistemische Haltung, die bleibt — während Prompt-Tricks veralten
   const slides = [...document.querySelectorAll('.slide')];
   let i = 0;
 
+  // Notizen + Titel je Folie aus dem DOM ziehen (für die Presenter-Ansicht)
+  const notes  = slides.map(s => { const n = s.querySelector('.note'); return n ? n.innerText.trim() : ''; });
+  const titles = slides.map(s => { const h = s.querySelector('.statement, h1, h2, h3'); return h ? h.textContent.trim() : ''; });
+
   function show(n) {
     slides[i].classList.remove('on');
     i = (n + slides.length) % slides.length;
     slides[i].classList.add('on');
     document.getElementById('ctr').textContent = `${i + 1} / ${slides.length}`;
     document.getElementById('bar').style.width = `${((i + 1) / slides.length) * 100}%`;
+    renderPresenter();
   }
 
   function go(d) { show(i + d); }
@@ -897,11 +902,94 @@ Das ist die epistemische Haltung, die bleibt — während Prompt-Tricks veralten
     if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
     if (e.key === 'ArrowLeft')  { e.preventDefault(); go(-1); }
     if (e.key === 'n' || e.key === 'N') document.body.classList.toggle('notes');
+    if (e.key === 'p' || e.key === 'P') openPresenter();
     if (e.key === 'Home') show(0);
     if (e.key === 'End')  show(slides.length - 1);
   });
 
   document.getElementById('bar').style.width = `${(1 / slides.length) * 100}%`;
+  document.getElementById('ctr').textContent = `1 / ${slides.length}`;
+
+  /* ───────── Presenter-Ansicht (P) ─────────
+     Zweites Fenster auf Deinem Laptop, das Deinen Klicks automatisch folgt.
+     Es zeigt: aktuelle Folie + Notiz, die nächste Folie als Vorschau und eine
+     mitlaufende Uhr. Das Hauptfenster (Beamer) bleibt sauber ohne Notizen.
+     Navigieren geht aus beiden Fenstern. Voraussetzung: erweiterter Bildschirm
+     (Notizen auf dem Laptop, Folien auf dem Beamer). */
+  let presenterWin = null, startTime = null, clockTimer = null;
+
+  function openPresenter() {
+    if (presenterWin && !presenterWin.closed) { presenterWin.focus(); return; }
+    presenterWin = window.open('', 'presenter', 'width=760,height=620');
+    if (!presenterWin) { alert('Bitte Pop-ups für diese Seite erlauben, dann nochmal P drücken.'); return; }
+    startTime = Date.now();
+    presenterWin.document.write(`<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><title>Sprechernotizen</title>
+<style>
+  :root{--mid:#472E56;--heid:#7b6ba5;--muted:#6F6877;--line:#3a3340;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:Georgia,serif;background:#1b1620;color:#ECE9F0;height:100vh;display:flex;flex-direction:column;padding:1.4rem 1.6rem;}
+  .top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;border-bottom:1px solid #3a3340;padding-bottom:0.7rem;}
+  .ctr{font-family:ui-monospace,monospace;font-size:0.8rem;letter-spacing:0.1em;color:var(--heid);text-transform:uppercase;}
+  .clock{font-family:ui-monospace,monospace;font-size:1.4rem;color:#fff;font-variant-numeric:tabular-nums;}
+  .title{font-size:1.15rem;color:#fff;margin:0.9rem 0 0.4rem;font-weight:600;line-height:1.25;}
+  .note{flex:1;overflow-y:auto;font-size:1.18rem;line-height:1.6;color:#ECE9F0;white-space:pre-line;padding-right:0.4rem;}
+  .note.empty{color:var(--muted);font-style:italic;}
+  .next{border-top:1px solid #3a3340;padding-top:0.7rem;margin-top:0.7rem;font-size:0.92rem;color:var(--muted);line-height:1.4;}
+  .next b{color:var(--heid);font-family:ui-monospace,monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;display:block;margin-bottom:0.2rem;}
+  .nav{display:flex;gap:0.6rem;margin-top:0.8rem;}
+  .nav button{flex:1;background:#2c2433;border:1px solid #4a4156;color:#ECE9F0;border-radius:8px;padding:0.6rem;font-size:1rem;cursor:pointer;font-family:inherit;}
+  .nav button:hover{background:#3a3142;}
+  .hint{font-family:ui-monospace,monospace;font-size:0.62rem;color:#5a5165;margin-top:0.6rem;text-align:center;letter-spacing:0.04em;}
+</style></head><body>
+  <div class="top"><span class="ctr" id="pctr"></span><span class="clock" id="pclock">00:00</span></div>
+  <div class="title" id="ptitle"></div>
+  <div class="note" id="pnote"></div>
+  <div class="next" id="pnext"></div>
+  <div class="nav"><button id="pprev">← Zurück</button><button id="preset">Uhr 0</button><button id="pnext-btn">Weiter →</button></div>
+  <div class="hint">Pfeiltasten oder Buttons · Fenster auf den Laptop ziehen, Folien auf den Beamer</div>
+<script>
+  document.getElementById('pprev').onclick = () => window.opener && window.opener.go(-1);
+  document.getElementById('pnext-btn').onclick = () => window.opener && window.opener.go(1);
+  document.getElementById('preset').onclick = () => window.opener && window.opener.resetClock();
+  document.addEventListener('keydown', e => {
+    if(!window.opener) return;
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();window.opener.go(1);}
+    if(e.key==='ArrowLeft'){e.preventDefault();window.opener.go(-1);}
+  });
+<\/script></body></html>`);
+    presenterWin.document.close();
+    clearInterval(clockTimer);
+    clockTimer = setInterval(updateClock, 1000);
+    renderPresenter();
+  }
+
+  function resetClock() { startTime = Date.now(); updateClock(); }
+
+  function updateClock() {
+    if (!presenterWin || presenterWin.closed) { clearInterval(clockTimer); return; }
+    const el = presenterWin.document.getElementById('pclock');
+    if (!el || !startTime) return;
+    const s = Math.floor((Date.now() - startTime) / 1000);
+    const m = String(Math.floor(s / 60)).padStart(2, '0');
+    el.textContent = `${m}:${String(s % 60).padStart(2, '0')}`;
+  }
+
+  function renderPresenter() {
+    if (!presenterWin || presenterWin.closed) return;
+    const d = presenterWin.document;
+    d.getElementById('pctr').textContent = `Folie ${i + 1} / ${slides.length}`;
+    d.getElementById('ptitle').textContent = titles[i] || '';
+    const noteEl = d.getElementById('pnote');
+    noteEl.textContent = notes[i] || 'Keine Sprechernotiz für diese Folie.';
+    noteEl.className = notes[i] ? 'note' : 'note empty';
+    noteEl.scrollTop = 0;
+    const nx = d.getElementById('pnext');
+    if (i + 1 < slides.length) {
+      nx.innerHTML = '<b>Als Nächstes · Folie ' + (i + 2) + '</b>' + (titles[i + 1] || '—');
+    } else {
+      nx.innerHTML = '<b>Ende</b>Letzte Folie';
+    }
+  }
 </script>
 </body>
 </html>
