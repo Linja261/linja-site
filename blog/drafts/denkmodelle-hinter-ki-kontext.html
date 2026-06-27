@@ -1,0 +1,658 @@
+<!--
+  linja.me/blog/denkmodelle-hinter-ki-kontext – Sechs Modelle hinter dem KI-Kontext, in der Tiefe
+  Format: Erklärender Deep-Dive (Lehrtour durch die Konstrukte), gelöst vom starren 5-Block-Schema
+  Schwerpunkt: jedes Modell wirklich verstehen — Konzept, Ansatz, Anwendbarkeit auf KI
+  Abgrenzung zu context-engineering-geschichtetes-wissen.html: dort Genealogie + Steuerungs-Mechanismus,
+  hier die einzelnen Denkmodelle ausführlich erklärt.
+  Entwurf: 2026-06-27
+  Bilingual: DE + EN
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Was DIKW, Polanyi und Weick über die Arbeit mit KI wissen – Linja Scharffetter</title>
+    <meta name="description"
+        content="Eine Lehrtour durch die sechs Denkmodelle hinter meinem KI-Kontext: DIKW-Pyramide, Polanyis implizites Wissen, Weicks Sensemaking, Luhmanns Zettelkasten, Fortes Second Brain und Anthropics Context Engineering. Was jedes wirklich sagt und was es über die Arbeit mit KI lehrt.">
+    <meta property="og:title" content="Was DIKW, Polanyi und Weick über die Arbeit mit KI wissen">
+    <meta property="og:description" content="Sechs etablierte Wissensmodelle, in der Tiefe erklärt und auf die Arbeit mit KI angewendet. Die Theorie hinter einer geschichteten Wissensbasis.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Fraunces', 'Georgia', 'serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .lang-hidden { display: none !important; }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles */
+        .prose h2 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p {
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.88rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.6rem 0.75rem;
+            vertical-align: top;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+        /* Modell-Lead-in */
+        .lead-in {
+            font-family: "Geist Mono", monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #6b5691;
+        }
+        /* Kernerkenntnis-Quote */
+        .key-quote {
+            font-family: "Fraunces", Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: #1A1A1A;
+            border-left: 3px solid #7b6ba5;
+            padding-left: 1.25rem;
+            margin: 2.5rem 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../../components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Wissensarbeit</span>
+                <span class="text-[0.72rem] text-stone-400">27. Juni 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 9 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Was DIKW, Polanyi und Weick über die Arbeit mit KI wissen
+            </h1>
+        </header>
+
+        <!-- ======== TL;DR ======== -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Meine geschichtete Wissensbasis für die Arbeit mit KI steht auf sechs etablierten Modellen. Die DIKW-Pyramide erklärt die Knowledge-Schicht, Polanyis implizites Wissen die Identity-Schicht, Weicks Sensemaking die oberste Schicht. Luhmanns Zettelkasten und Fortes Second Brain liefern das Ordnungsprinzip, Anthropics Context Engineering den Rahmen. Dieser Text erklärt jedes Modell in der Tiefe und zeigt, was es konkret über die Arbeit mit KI lehrt.
+            </p>
+        </div>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <p>Über KI wird meist geredet, als entscheide die Formulierung der Frage. Der eigentliche Hebel liegt woanders: nicht <em>wie</em> ich frage, sondern <em>was</em> ich der KI als Arbeitsgrundlage gebe. Guter Kontext schlägt jeden Prompt-Trick.</p>
+
+            <p>Guter Kontext aber ist strukturiertes Wissen. Und diese Struktur habe ich nicht erfunden. Sie steht auf Modellen, die das Wissensmanagement seit Jahrzehnten kennt, und auf einem jungen Feld aus der KI-Forschung. Das Bemerkenswerte: Beide kommen unabhängig zur fast gleichen Ordnung.</p>
+
+            <p>Diesen Text habe ich anders angelegt als die Beschreibung meines Systems. Wie ich es als Vault in Obsidian gebaut habe, steht <a href="../knowledgeos.html" class="underline hover:text-stone-900" style="color: #6b5691;">an anderer Stelle</a>. Hier geht es um die Theorie dahinter: sechs Modelle, jedes einzeln erklärt, jedes mit der Frage, was es für die Arbeit mit KI bedeutet.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 DIE LANDKARTE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Die Landkarte</h2>
+
+            <p>Drei Wissensschichten, eingefasst in einen System-Rahmen. Jede Schicht steht auf einem Denkmodell, der Rahmen auf einem weiteren. So ordnet sich das Ganze:</p>
+
+            <!-- ══ VISUAL: ANNOTIERTER SCHICHT-STACK ══ -->
+            <div class="my-10" style="max-width: 100%;">
+                <div class="rounded-2xl p-4 sm:p-5" style="border: 1.5px solid #b9a8d4; background: #fcfbfe;">
+                    <div class="flex items-baseline justify-between mb-1">
+                        <span class="source-serif text-[1.05rem] font-semibold" style="color: #472E56;">System-Rahmen</span>
+                        <span class="font-mono text-[0.55rem] tracking-wider uppercase" style="color: #9a82b5;">Anthropic &middot; Context Engineering</span>
+                    </div>
+                    <p class="text-[0.8rem] text-stone-500 mb-4">Steuert, wie die KI mit den Schichten umgeht und in welchen Speicher sie wandern.</p>
+                    <!-- Schicht 3 -->
+                    <div class="rounded-t-lg px-5 py-4" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                        <div class="flex items-baseline justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Sensemaking</span>
+                            <span class="font-mono text-[0.55rem] tracking-wider uppercase" style="color: #472E56;">Weick</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-500 mb-0">Muster deuten, einordnen, eigene Schlüsse und Strategie bilden.</p>
+                    </div>
+                    <!-- Schicht 2 -->
+                    <div class="px-5 py-4" style="background: #ece8f2; border-left: 1px solid #d9d1e5; border-right: 1px solid #d9d1e5;">
+                        <div class="flex items-baseline justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Identity</span>
+                            <span class="font-mono text-[0.55rem] tracking-wider uppercase" style="color: #5b4a7d;">Polanyi</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-500 mb-0">Meine Rolle, Projekte, Analysen. Der kodifizierbare Teil dessen, was nur ich weiß.</p>
+                    </div>
+                    <!-- Schicht 1 -->
+                    <div class="rounded-b-lg px-5 py-4" style="background: #d9d1e5; border: 1px solid #c9bcdf; border-top: none;">
+                        <div class="flex items-baseline justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Knowledge</span>
+                            <span class="font-mono text-[0.55rem] tracking-wider uppercase" style="color: #5b4a7d;">DIKW</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-600 mb-0">Fachwissen, das unabhängig von mir existiert: Methoden, Frameworks, Marktdaten.</p>
+                    </div>
+                    <div class="mt-3 pt-3 flex items-baseline justify-between" style="border-top: 1px dashed #d9d1e5;">
+                        <span class="text-[0.78rem] text-stone-500">Ordnungsprinzip über alle Schichten</span>
+                        <span class="font-mono text-[0.55rem] tracking-wider uppercase" style="color: #9a82b5;">Luhmann &middot; Forte</span>
+                    </div>
+                </div>
+            </div>
+
+            <p>Jetzt der Reihe nach, von unten nach oben, dann der Rahmen.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 SCHICHT 1 — DIKW
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Schicht 1, Knowledge: die DIKW-Pyramide</h2>
+
+            <p><span class="lead-in">Das Konzept</span><br>
+            Die DIKW-Pyramide ordnet Wissen in vier Stufen: Daten, Information, Wissen, Weisheit (populär gemacht von Russell Ackoff, 1989).¹ Daten sind rohe Symbole ohne Bedeutung. Information ist Daten in Beziehung gesetzt, sie beantwortet wer, was, wann und wo. Wissen ist die Anwendung, das Wie. Weisheit ist das Warum, das bewertete Urteil über das, was zählt.</p>
+
+            <p><span class="lead-in">Der Ansatz</span><br>
+            Jede Stufe entsteht erst durch Verdichtung. Der Aufstieg ist Arbeit, kein Automatismus. Aus mehr Daten wird nicht von allein Wissen, jemand muss sie in Beziehung setzen, anwenden und bewerten.</p>
+
+            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
+            Das antrainierte Wissen einer KI sitzt grob auf der Informations- und Wissensstufe, aber komprimiert, verlustbehaftet und ohne deine Daten und deine Weisheit. Genau deshalb gibt es die Knowledge-Schicht: die schon verdichtete, kuratierte Faktenbasis, die ich der KI gezielt gebe, damit sie nicht aus dem Gedächtnis raten muss. Die oberen Stufen liefere ich.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 SCHICHT 2 — POLANYI
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Schicht 2, Identity: Polanyis implizites Wissen</h2>
+
+            <p><span class="lead-in">Das Konzept</span><br>
+            Michael Polanyi prägte den Satz: „Wir wissen mehr, als wir sagen können."² Er trennt explizites Wissen, das sich in Worte fassen und weitergeben lässt, von implizitem Wissen, das wir verkörpern, aber nicht vollständig formulieren können. Fahrradfahren, ein Gesicht erkennen, das Gespür für eine Verhandlung: alles gewusst, nichts davon vollständig sagbar.</p>
+
+            <p><span class="lead-in">Der Ansatz</span><br>
+            Können ist personal und kontextgebunden. Ein Teil davon ist kodifizierbar, ein Teil bleibt verkörpert. Genau diese Grenze ist entscheidend, denn sie verläuft mitten durch jedes Profil aus Erfahrung.</p>
+
+            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
+            Eine KI kann nur explizites Wissen aufnehmen. Die Identity-Schicht ist deshalb der kodifizierte Teil meines beruflichen Selbst: Rolle, Projekte, Analysen, Arbeitsweise. Sie zu pflegen heißt, so viel wie möglich vom Impliziten ins Explizite zu heben, ohne dem Irrtum zu verfallen, dass alles gehe. Der implizite Rest bleibt mein Vorsprung und meine Urteilskraft beim Steuern.</p>
+
+            <p class="key-quote">Diese Modelle sind keine Dekoration für ein KI-Setup. Sie erklären, warum es funktioniert, und genau das macht es steuerbar.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 SCHICHT 3 — WEICK
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Schicht 3, Sensemaking: Karl Weick</h2>
+
+            <p><span class="lead-in">Das Konzept</span><br>
+            Karl Weick beschreibt Sensemaking als das aktive Konstruieren von Bedeutung aus Beobachtungen.³ Sein bekanntester Satz: „Wie kann ich wissen, was ich denke, bevor ich sehe, was ich sage?" Bedeutung wird nicht aus einem Speicher abgerufen, sie wird gemacht, oft rückblickend und im Handeln. Eine seiner sieben Eigenschaften ist zentral: Sensemaking folgt der Plausibilität, nicht der reinen Genauigkeit.</p>
+
+            <p><span class="lead-in">Der Ansatz</span><br>
+            Wir handeln, dann deuten wir. Aus mehrdeutigen Hinweisreizen formen wir eine Geschichte, die stimmig genug ist, um weiterzumachen. Das ist kein Mangel, sondern wie Urteil unter Unsicherheit überhaupt entsteht.</p>
+
+            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
+            Das ist die oberste Schicht: aus Information wird Bedeutung, Schluss, Strategie. Hier liegt eine Pointe. Eine KI ist eine Plausibilitätsmaschine, sie erzeugt Plausibles, nicht zwingend Wahres, das ist ihr Fehlermodus. Weicks Sensemaking nutzt Plausibilität dagegen verantwortlich, weil es an Identität und eigenes Handeln rückgebunden ist. Genau diese Rückbindung kann die KI nicht leisten. Sie kann Muster anbieten. Das Deuten und Festlegen bleibt meins.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 DIE VERWANDTEN — LUHMANN + FORTE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Die populären Verwandten: Luhmann und Forte</h2>
+
+            <p>DIKW, Polanyi und Weick erklären, <em>was</em> in den Schichten liegt. Luhmann und Forte erklären, <em>wie</em> man es ablegt, damit es brauchbar bleibt.</p>
+
+            <h3>Luhmanns Zettelkasten</h3>
+
+            <p>Niklas Luhmann arbeitete mit rund 90.000 Zetteln und schrieb damit dutzende Bücher.⁵ Die Prinzipien: ein Gedanke pro Zettel, eindeutige Kennung, Verlinkung statt starrer Hierarchie, ein Register als Einstieg. Luhmann nannte den Kasten einen Kommunikationspartner, eine zweite Instanz, die ihn beim Schreiben überraschte.</p>
+
+            <p>Für die Arbeit mit KI zählt zweierlei. Erstens die Atomarität: jede Information genau einmal an einer Stelle ergibt saubere Kontext-Einheiten, die ich gezielt laden kann, mein „eine Quelle"-Prinzip. Zweitens die Pointe des Kommunikationspartners. Der Zettelkasten war Luhmanns Denkpartner. Eine KI, die auf meinem Vault sitzt, ist der neue. Gleiche Idee, anderes Medium.</p>
+
+            <h3>Fortes Building a Second Brain</h3>
+
+            <p>Tiago Forte bringt zwei Werkzeuge: CODE als Prozess (Capture, Organize, Distill, Express) und PARA als Ablage (Projects, Areas, Resources, Archives), geordnet nach Handlungsnähe.⁶ Die Kernidee ist älter als jedes Tool: Gedächtnis auslagern, um den Kopf fürs Denken frei zu haben.</p>
+
+            <p>Mein Vault ist genau dieses zweite Gehirn. Neu ist nur, dass es nicht mehr allein ich bin, der es liest, sondern eine KI. Ein Unterschied bleibt: Forte ordnet nach Handlungsnähe, ich ordne nach Wissenstyp, weil die KI die Schichten dann gezielter laden kann. Verwandt, nicht deckungsgleich.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 DER RAHMEN — ANTHROPIC
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Der Rahmen: Anthropics Context Engineering</h2>
+
+            <p><span class="lead-in">Das Konzept</span><br>
+            Anthropic beschreibt Context Engineering als Nachfolger des Prompt Engineering.⁴ Nicht die Formulierung entscheidet, sondern was im Kontextfenster steht, dem Arbeitsgedächtnis des Modells. Dieses Fenster ist endlich und hat abnehmenden Grenznutzen: je voller, desto eher übersieht das Modell Teile davon, ein Effekt namens Context Rot.</p>
+
+            <p><span class="lead-in">Der Ansatz</span><br>
+            Das Ziel ist das kleinste Set hochwertiger Token. Statt alles vorab hineinzukippen, lädt man gezielt das, was die Aufgabe braucht, und hält dauerhafte Vorgaben in einer Memory außerhalb des Fensters.</p>
+
+            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
+            Das ist der System-Rahmen, und er macht aus der Taxonomie ein Steuerungswerkzeug. Eine KI hat nämlich nicht ein Gedächtnis, sondern drei: das Kontextfenster als Arbeitsgedächtnis (pro Aufgabe, direkt steuerbar), die Memory-Dateien als Langzeitgedächtnis (dauerhaft, über Sessions), die Modellgewichte als semantisches Gedächtnis (antrainiert, nicht steuerbar, nur Fallback). Pro Aufgabe wandert gezielt die passende Schicht ins Arbeitsgedächtnis. Der Rahmen wird einmal geschrieben und lädt ins Langzeitgedächtnis. So verschiebt sich die KI von der erfindenden Erstquelle zur Kritikerin meiner Vorarbeit.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 WAS ICH VERÄNDERT HABE
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was ich verändert habe</h2>
+
+            <p>Die Modelle zu verstehen hat verändert, wie ich jede Schicht behandle. Ich kippe nicht mehr alles in eine große Datei, sondern lege atomar ab, eine Information an einer Stelle (Luhmann, Forte). Ich hebe gezielt den explizierbaren Teil meiner Arbeit in die Identity-Schicht und höre dort auf, wo es implizit bleibt, statt der KI ein Urteil vorzutäuschen, das sie nicht hat (Polanyi).</p>
+
+            <p>Und ich behandle Sensemaking als meinen eigenen Schritt: Erst deute ich, dann lasse ich die KI das Ergebnis schärfen. Nicht umgekehrt (Weick). Das klingt nach Theorie, ist aber der Unterschied zwischen einer KI, die meine Arbeit ersetzt, und einer, die sie besser macht.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 KRITISCHE EINORDNUNG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Drei ehrliche Grenzen. Erstens sind das Analogien, keine Gleichungen. Das „Gedächtnis" einer KI ist nicht das menschliche Gedächtnis, die Dreiteilung ist ein nützliches Bild, keine Neurologie. Sie trägt, solange ich sie nicht für mehr halte, als sie ist.</p>
+
+            <p>Zweitens lässt sich eine einfache Praxis übertheoretisieren. Die Modelle erklären, warum mein Setup funktioniert, sie ersetzen es nicht. Wer nur die Theorie liest und nichts ablegt, hat der KI weiterhin nichts Gutes zu geben.</p>
+
+            <p>Drittens ist das Mapping eine Deutung. Dass mehrere Disziplinen bei derselben Ordnung landen, ist ein starkes Indiz dafür, dass die Ordnung trägt, aber kein Beweis. Die Modelle stammen aus einer Zeit vor der KI. Sie auf sie anzuwenden ist plausibel und belastbar, aber bleibt Interpretation.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 WAS BLEIBT FÜR JEDEN TAG
+                 ══════════════════════════════════════════════ -->
+
+            <h2>Was bleibt für jeden Tag</h2>
+
+            <div class="my-8 space-y-4">
+                <div class="pl-5">
+                    <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Kontext schlägt Prompt.</p>
+                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Was die KI an Grundlage bekommt, entscheidet mehr über das Ergebnis als die Formulierung der Frage (DIKW, Anthropic).</p>
+                </div>
+                <div class="pl-5">
+                    <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Die KI bekommt nur dein Explizites.</p>
+                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Hebe so viel wie möglich ins Kodifizierte. Das Deuten und Urteilen bleibt deins (Polanyi, Weick).</p>
+                </div>
+                <div class="pl-5">
+                    <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Eine Information, eine Stelle.</p>
+                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Atomar ablegen macht Wissen ladbar und pflegbar, für dich und für die KI (Luhmann, Forte).</p>
+                </div>
+            </div>
+
+            <!-- ══════════════════════════════════════════════
+                 QUELLEN
+                 ══════════════════════════════════════════════ -->
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://doi.org/10.1177/016555158901500108" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ackoff (1989). From Data to Wisdom (DIKW-Hierarchie).</a></li>
+                    <li><a href="https://press.uchicago.edu/ucp/books/book/chicago/T/bo6035368.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Polanyi (1966). The Tacit Dimension.</a></li>
+                    <li><a href="https://us.sagepub.com/en-us/nam/sensemaking-in-organizations/book4988" class="hover:text-stone-600 transition-colors" style="color: inherit;">Weick (1995). Sensemaking in Organizations.</a></li>
+                    <li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">Anthropic (2025). Effective Context Engineering for AI Agents.</a></li>
+                    <li><a href="https://www.soenkeahrens.de/en/takesmartnotes" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ahrens (2017). How to Take Smart Notes (zu Luhmanns Zettelkasten).</a></li>
+                    <li><a href="https://www.buildingasecondbrain.com/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Forte (2022). Building a Second Brain.</a></li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">DIKW</span> <span class="text-stone-400">— Hierarchie von Daten über Information und Wissen zu Weisheit (Ackoff).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Implizites Wissen</span> <span class="text-stone-400">— Können, das man verkörpert, aber nicht vollständig in Worte fassen kann (Polanyi).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Explizites Wissen</span> <span class="text-stone-400">— Wissen, das sich formulieren und weitergeben lässt. Nur das kann eine KI aufnehmen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Sensemaking</span> <span class="text-stone-400">— Das aktive Konstruieren von Bedeutung aus Beobachtungen (Weick).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Zettelkasten</span> <span class="text-stone-400">— Luhmanns vernetztes Notizsystem, ein Gedanke pro Zettel, als Denkpartner gedacht.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Second Brain</span> <span class="text-stone-400">— Externer Wissensspeicher nach Forte (CODE, PARA), um den Kopf fürs Denken frei zu halten.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context Engineering</span> <span class="text-stone-400">— Einer KI gezielt das richtige Wissen für eine Aufgabe geben, statt nur Befehle zu formulieren.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Kontextfenster</span> <span class="text-stone-400">— Das temporäre Arbeitsgedächtnis eines Modells. Was hier steht, wird zuverlässiger genutzt als trainiertes Wissen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Atomarität</span> <span class="text-stone-400">— Jede Information existiert genau einmal an einer Stelle und wird von dort referenziert.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context Rot</span> <span class="text-stone-400">— Qualitätsverlust, wenn ein Modell bei sehr langem Input Teile des Kontexts übersieht.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Knowledge Work</span>
+                <span class="text-[0.72rem] text-stone-400">June 27, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 9 min read</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                What DIKW, Polanyi and Weick know about working with AI
+            </h1>
+        </header>
+
+        <!-- ======== TL;DR ======== -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                My layered knowledge base for working with AI stands on six established models. The DIKW pyramid explains the Knowledge layer, Polanyi's tacit knowledge the Identity layer, Weick's sensemaking the top layer. Luhmann's Zettelkasten and Forte's second brain supply the ordering principle, Anthropic's context engineering the frame. This text explains each model in depth and shows what it teaches, concretely, about working with AI.
+            </p>
+        </div>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <p>People talk about AI as if the phrasing of the question decided the outcome. The real lever sits elsewhere: not <em>how</em> I ask but <em>what</em> I give the AI to work from. Good context beats any prompt trick.</p>
+
+            <p>But good context is structured knowledge. And I did not invent that structure. It stands on models that knowledge management has known for decades, and on a young field from AI research. The remarkable part: both arrive at almost the same order independently.</p>
+
+            <p>I set this text up differently from the description of my system. How I built it as a vault in Obsidian sits <a href="../knowledgeos.html" class="underline hover:text-stone-900" style="color: #6b5691;">elsewhere</a>. Here it is about the theory behind it: six models, each explained on its own, each with the question of what it means for working with AI.</p>
+
+            <!-- ══════════════════════════════════════════════
+                 THE MAP
+                 ══════════════════════════════════════════════ -->
+
+            <h2>The map</h2>
+
+            <p>Three knowledge layers, wrapped in a system frame. Each layer stands on a model, the frame on one more. The whole thing orders itself like this:</p>
+
+            <!-- ══ VISUAL: ANNOTATED LAYER STACK ══ -->
+            <div class="my-10" style="max-width: 100%;">
+                <div class="rounded-2xl p-4 sm:p-5" style="border: 1.5px solid #b9a8d4; background: #fcfbfe;">
+                    <div class="flex items-baseline justify-between mb-1">
+                        <span class="source-serif text-[1.05rem] font-semibold" style="color: #472E56;">System frame</span>
+                        <span class="font-mono text-[0.55rem] tracking-wider uppercase" style="color: #9a82b5;">Anthropic &middot; Context Engineering</span>
+                    </div>
+                    <p class="text-[0.8rem] text-stone-500 mb-4">Steers how the AI handles the layers and which memory they move into.</p>
+                    <div class="rounded-t-lg px-5 py-4" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                        <div class="flex items-baseline justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Sensemaking</span>
+                            <span class="font-mono text-[0.55rem] tracking-wider uppercase" style="color: #472E56;">Weick</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-500 mb-0">Interpret patterns, place them in context, form your own conclusions and strategy.</p>
+                    </div>
+                    <div class="px-5 py-4" style="background: #ece8f2; border-left: 1px solid #d9d1e5; border-right: 1px solid #d9d1e5;">
+                        <div class="flex items-baseline justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Identity</span>
+                            <span class="font-mono text-[0.55rem] tracking-wider uppercase" style="color: #5b4a7d;">Polanyi</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-500 mb-0">My role, projects, analyses. The codifiable part of what only I know.</p>
+                    </div>
+                    <div class="rounded-b-lg px-5 py-4" style="background: #d9d1e5; border: 1px solid #c9bcdf; border-top: none;">
+                        <div class="flex items-baseline justify-between mb-1.5">
+                            <span class="source-serif text-[1rem] text-stone-900">Knowledge</span>
+                            <span class="font-mono text-[0.55rem] tracking-wider uppercase" style="color: #5b4a7d;">DIKW</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-600 mb-0">Domain knowledge that exists independently of me: methods, frameworks, market data.</p>
+                    </div>
+                    <div class="mt-3 pt-3 flex items-baseline justify-between" style="border-top: 1px dashed #d9d1e5;">
+                        <span class="text-[0.78rem] text-stone-500">Ordering principle across all layers</span>
+                        <span class="font-mono text-[0.55rem] tracking-wider uppercase" style="color: #9a82b5;">Luhmann &middot; Forte</span>
+                    </div>
+                </div>
+            </div>
+
+            <p>Now one at a time, bottom to top, then the frame.</p>
+
+            <!-- ══ DIKW ══ -->
+            <h2>Layer 1, Knowledge: the DIKW pyramid</h2>
+
+            <p><span class="lead-in">The concept</span><br>
+            The DIKW pyramid orders knowledge in four levels: data, information, knowledge, wisdom (popularized by Russell Ackoff, 1989).¹ Data are raw symbols without meaning. Information is data put into relation, it answers who, what, when and where. Knowledge is the application, the how. Wisdom is the why, the evaluated judgment about what matters.</p>
+
+            <p><span class="lead-in">The approach</span><br>
+            Each level only emerges through condensation. The climb is work, not an automatism. More data does not turn into knowledge on its own, someone has to relate it, apply it and judge it.</p>
+
+            <p><span class="lead-in">For working with AI</span><br>
+            An AI's trained knowledge sits roughly at the information and knowledge levels, but compressed, lossy and without your data and your wisdom. That is exactly why the Knowledge layer exists: the already condensed, curated fact base I feed the AI on purpose, so it does not have to guess from memory. The upper levels are on me.</p>
+
+            <!-- ══ POLANYI ══ -->
+            <h2>Layer 2, Identity: Polanyi's tacit knowledge</h2>
+
+            <p><span class="lead-in">The concept</span><br>
+            Michael Polanyi coined the line: "We know more than we can tell."² He separates explicit knowledge, which can be put into words and passed on, from tacit knowledge, which we embody but cannot fully articulate. Riding a bike, recognizing a face, the feel for a negotiation: all known, none of it fully sayable.</p>
+
+            <p><span class="lead-in">The approach</span><br>
+            Skill is personal and bound to context. Part of it is codifiable, part stays embodied. That very line matters, because it runs straight through every profile built on experience.</p>
+
+            <p><span class="lead-in">For working with AI</span><br>
+            An AI can only take in explicit knowledge. The Identity layer is therefore the codified part of my professional self: role, projects, analyses, way of working. Maintaining it means lifting as much of the tacit into the explicit as possible, without falling for the illusion that everything can be lifted. The tacit remainder stays my edge and my judgment when I steer.</p>
+
+            <p class="key-quote">These models are not decoration for an AI setup. They explain why it works, and that is exactly what makes it steerable.</p>
+
+            <!-- ══ WEICK ══ -->
+            <h2>Layer 3, Sensemaking: Karl Weick</h2>
+
+            <p><span class="lead-in">The concept</span><br>
+            Karl Weick describes sensemaking as the active construction of meaning from observations.³ His best known line: "How can I know what I think until I see what I say?" Meaning is not retrieved from a store, it is made, often in hindsight and in the act of doing. One of his seven properties is central: sensemaking follows plausibility, not pure accuracy.</p>
+
+            <p><span class="lead-in">The approach</span><br>
+            We act, then we interpret. From ambiguous cues we form a story coherent enough to keep going. That is not a flaw, it is how judgment under uncertainty comes about at all.</p>
+
+            <p><span class="lead-in">For working with AI</span><br>
+            This is the top layer: information becomes meaning, conclusion, strategy. Here is the twist. An AI is a plausibility machine, it produces the plausible, not necessarily the true, that is its failure mode. Weick's sensemaking, by contrast, uses plausibility responsibly because it is anchored to identity and to one's own action. That anchoring is what the AI cannot provide. It can offer patterns. The interpreting and the commitment stay mine.</p>
+
+            <!-- ══ LUHMANN + FORTE ══ -->
+            <h2>The popular relatives: Luhmann and Forte</h2>
+
+            <p>DIKW, Polanyi and Weick explain <em>what</em> sits in the layers. Luhmann and Forte explain <em>how</em> to store it so it stays usable.</p>
+
+            <h3>Luhmann's Zettelkasten</h3>
+
+            <p>Niklas Luhmann worked with around 90,000 index cards and wrote dozens of books from them.⁵ The principles: one thought per card, a unique identifier, linking instead of rigid hierarchy, an index as the entry point. Luhmann called the box a communication partner, a second instance that surprised him as he wrote.</p>
+
+            <p>For working with AI, two things count. First, atomicity: each piece of information exactly once in one place yields clean context units I can load on purpose, my "one source" principle. Second, the point about the communication partner. The Zettelkasten was Luhmann's thinking partner. An AI sitting on my vault is the new one. Same idea, different medium.</p>
+
+            <h3>Forte's Building a Second Brain</h3>
+
+            <p>Tiago Forte brings two tools: CODE as a process (Capture, Organize, Distill, Express) and PARA as storage (Projects, Areas, Resources, Archives), ordered by actionability.⁶ The core idea is older than any tool: offload memory to free the mind for thinking.</p>
+
+            <p>My vault is exactly that second brain. The only new thing is that it is no longer just me reading it, but an AI. One difference remains: Forte orders by actionability, I order by knowledge type, because the AI can then load the layers more precisely. Related, not identical.</p>
+
+            <!-- ══ ANTHROPIC ══ -->
+            <h2>The frame: Anthropic's context engineering</h2>
+
+            <p><span class="lead-in">The concept</span><br>
+            Anthropic describes context engineering as the successor to prompt engineering.⁴ What decides the result is not the phrasing but what sits in the context window, the model's working memory. That window is finite and has diminishing returns: the fuller it gets, the more likely the model overlooks parts of it, an effect called context rot.</p>
+
+            <p><span class="lead-in">The approach</span><br>
+            The goal is the smallest set of high signal tokens. Instead of dumping everything in up front, you load on purpose what the task needs and keep lasting instructions in a memory outside the window.</p>
+
+            <p><span class="lead-in">For working with AI</span><br>
+            This is the system frame, and it turns the taxonomy into a control tool. An AI does not have one memory but three: the context window as working memory (per task, directly steerable), the memory files as long term memory (lasting, across sessions), the model weights as semantic memory (trained, not steerable, fallback only). Per task, the right layer moves into working memory. The frame is written once and loads into long term memory. That shifts the AI from inventing first source to critic of my prep work.</p>
+
+            <!-- ══ WHAT I CHANGED ══ -->
+            <h2>What I changed</h2>
+
+            <p>Understanding the models changed how I treat each layer. I no longer dump everything into one big file, I store atomically, one piece of information in one place (Luhmann, Forte). I deliberately lift the explicable part of my work into the Identity layer and stop where it stays tacit, instead of faking a judgment for the AI that it does not have (Polanyi).</p>
+
+            <p>And I treat sensemaking as my own step: first I interpret, then I let the AI sharpen the result. Not the other way around (Weick). That sounds like theory, but it is the difference between an AI that replaces my work and one that makes it better.</p>
+
+            <!-- ══ CRITICAL ASSESSMENT ══ -->
+            <h2>Critical assessment</h2>
+
+            <p>Three honest limits. First, these are analogies, not equations. An AI's "memory" is not human memory, the three way split is a useful image, not neuroscience. It holds as long as I do not take it for more than it is.</p>
+
+            <p>Second, a simple practice can be over theorized. The models explain why my setup works, they do not replace it. Whoever only reads the theory and stores nothing still has nothing good to give the AI.</p>
+
+            <p>Third, the mapping is an interpretation. That several disciplines land on the same order is strong evidence that the order holds, but not a proof. The models predate AI. Applying them to it is plausible and defensible, but it stays interpretation.</p>
+
+            <!-- ══ WHAT STAYS ══ -->
+            <h2>What stays with you every day</h2>
+
+            <div class="my-8 space-y-4">
+                <div class="pl-5">
+                    <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Context beats prompt.</p>
+                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">What the AI gets to work from decides more than the phrasing of the question (DIKW, Anthropic).</p>
+                </div>
+                <div class="pl-5">
+                    <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The AI only gets your explicit knowledge.</p>
+                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Lift as much as you can into the codifiable. The interpreting and the judgment stay yours (Polanyi, Weick).</p>
+                </div>
+                <div class="pl-5">
+                    <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">One piece of information, one place.</p>
+                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Storing atomically makes knowledge loadable and maintainable, for you and for the AI (Luhmann, Forte).</p>
+                </div>
+            </div>
+
+            <!-- ══ SOURCES ══ -->
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://doi.org/10.1177/016555158901500108" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ackoff (1989). From Data to Wisdom (DIKW hierarchy).</a></li>
+                    <li><a href="https://press.uchicago.edu/ucp/books/book/chicago/T/bo6035368.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Polanyi (1966). The Tacit Dimension.</a></li>
+                    <li><a href="https://us.sagepub.com/en-us/nam/sensemaking-in-organizations/book4988" class="hover:text-stone-600 transition-colors" style="color: inherit;">Weick (1995). Sensemaking in Organizations.</a></li>
+                    <li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">Anthropic (2025). Effective Context Engineering for AI Agents.</a></li>
+                    <li><a href="https://www.soenkeahrens.de/en/takesmartnotes" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ahrens (2017). How to Take Smart Notes (on Luhmann's Zettelkasten).</a></li>
+                    <li><a href="https://www.buildingasecondbrain.com/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Forte (2022). Building a Second Brain.</a></li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">DIKW</span> <span class="text-stone-400">— Hierarchy from data through information and knowledge to wisdom (Ackoff).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Tacit knowledge</span> <span class="text-stone-400">— Skill you embody but cannot fully put into words (Polanyi).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Explicit knowledge</span> <span class="text-stone-400">— Knowledge that can be stated and passed on. Only this can an AI take in.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Sensemaking</span> <span class="text-stone-400">— The active construction of meaning from observations (Weick).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Zettelkasten</span> <span class="text-stone-400">— Luhmann's networked note system, one thought per card, meant as a thinking partner.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Second brain</span> <span class="text-stone-400">— External knowledge store after Forte (CODE, PARA) to keep the mind free for thinking.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context engineering</span> <span class="text-stone-400">— Giving an AI the right knowledge for a task on purpose, instead of just phrasing commands.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context window</span> <span class="text-stone-400">— The temporary working memory of a model. What sits here is used more reliably than trained knowledge.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Atomicity</span> <span class="text-stone-400">— Each piece of information exists exactly once in one place and is referenced from there.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context rot</span> <span class="text-stone-400">— Quality loss when a model overlooks parts of the context on very long inputs.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="../../blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+<script>
+function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+function setLang(lang) { localStorage.setItem('site-lang', lang); }
+function applyLanguage(lang) {
+    var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+    var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+    var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+    if (lang === 'en') {
+        de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+        if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+        navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+    } else {
+        de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+        if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+        navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+    }
+    document.documentElement.lang = lang;
+}
+function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+applyLanguage(getLang());
+</script>
+
+</body>
+
+</html>
