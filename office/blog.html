@@ -32,18 +32,18 @@
             <header class="mb-10">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Blog</p>
                 <h1 class="source-serif text-3xl text-stone-900 mb-2">Editorial Cockpit</h1>
-                <p class="text-sm text-stone-500">Alle Artikel an einem Ort: Ideen, Draft, Live. Klick öffnet das Original.</p>
+                <p class="text-sm text-stone-500">Alle Artikel an einem Ort: Draft, Ready to Publish, Live. Klick öffnet das Original.</p>
             </header>
 
             <!-- Counter -->
             <div class="grid grid-cols-4 gap-4 mb-8">
                 <div class="bg-white border rounded-xl p-5 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-3xl text-stone-900">6</div>
-                    <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide mt-1">Ideen</div>
-                </div>
-                <div class="bg-white border rounded-xl p-5 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-3xl text-stone-900">5</div>
+                    <div class="font-mono text-3xl text-stone-900">2</div>
                     <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide mt-1">Draft</div>
+                </div>
+                <div class="bg-white border rounded-xl p-5 text-center" style="border-color: #d9d1e5; background: #f6f4f9;">
+                    <div class="font-mono text-3xl" style="color: #6b5691;">3</div>
+                    <div class="text-[0.68rem] uppercase tracking-wide mt-1" style="color: #6b5691;">Ready</div>
                 </div>
                 <div class="bg-white border rounded-xl p-5 text-center" style="border-color: #E5E2DB;">
                     <div class="font-mono text-3xl text-stone-900">19</div>
@@ -55,38 +55,26 @@
                 </div>
             </div>
 
-            <!-- Ideen -->
+            <!-- Ready to Publish -->
             <section class="mb-10">
                 <div class="flex items-center gap-3 mb-4">
-                    <h2 class="source-serif text-xl text-stone-900">Ideen</h2>
-                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #F5F3EF; color: #78716c;">6 Plan-Notizen</span>
+                    <h2 class="source-serif text-xl text-stone-900">Ready to Publish</h2>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #f6f4f9; color: #6b5691;">3 geplant</span>
                 </div>
-                <p class="text-sm text-stone-500 mb-4">Themen & Entwürfe aus <code class="font-mono text-xs">blog/plan-*.md</code>. Noch nicht ausgearbeitet.</p>
+                <p class="text-sm text-stone-500 mb-4">Fertige Entwürfe mit Auto-Publish-Datum. Gehen automatisch live, kein manueller Schritt mehr nötig.</p>
 
                 <div class="space-y-2">
-                    <a href="../blog/plan-beim-ergebnis-anfangen.md" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <span class="text-sm text-stone-800">Beim Ergebnis anfangen — Working Backwards + IKEA-Analogie</span>
-                        <span class="font-mono text-[0.65rem] text-stone-400">plan-beim-ergebnis</span>
+                    <a href="../blog/drafts/context-engineering-geschichtetes-wissen.html" class="flex items-center justify-between gap-4 bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #d9d1e5;">
+                        <span class="text-sm text-stone-800">Drei Schichten, drei Gedächtnisse: wie ich die KI gezielt steuere. <span class="text-violet-400 text-xs ml-1">Modell × KI-Gedächtnis · DE+EN</span></span>
+                        <span class="font-mono text-[0.65rem] whitespace-nowrap" style="color: #6b5691;">↑ 30.06. 09:30</span>
                     </a>
-                    <a href="../blog/plan-dt-sprint-ki.md" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <span class="text-sm text-stone-800">Design Thinking Sprint mit KI</span>
-                        <span class="font-mono text-[0.65rem] text-stone-400">plan-dt-sprint-ki</span>
+                    <a href="../blog/drafts/ki-aufdecker-statt-ersatz.html" class="flex items-center justify-between gap-4 bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #d9d1e5;">
+                        <span class="text-sm text-stone-800">KI als Aufdecker, nicht als Ersatz. <span class="text-violet-400 text-xs ml-1">IKEA / Billie · DE+EN</span></span>
+                        <span class="font-mono text-[0.65rem] whitespace-nowrap" style="color: #6b5691;">↑ 06.07. 09:00</span>
                     </a>
-                    <a href="../blog/plan-intuition-pm.md" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <span class="text-sm text-stone-800">Intuition als PM — Gary Klein RPD + Kahneman</span>
-                        <span class="font-mono text-[0.65rem] text-stone-400">plan-intuition-pm</span>
-                    </a>
-                    <a href="../blog/plan-knowledgeos-session-retro.md" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <span class="text-sm text-stone-800">KnowledgeOS Session-Retro — zwei Lernschleifen (explizit + implizit)</span>
-                        <span class="font-mono text-[0.65rem] text-stone-400">plan-knowledgeos-session-retro</span>
-                    </a>
-                    <a href="../blog/plan-ki-zeitmanagement.md" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <span class="text-sm text-stone-800">KI-Zeitmanagement — Smartphone-Paradox</span>
-                        <span class="font-mono text-[0.65rem] text-stone-400">plan-ki-zeitmanagement</span>
-                    </a>
-                    <a href="../blog/plan-prototyping-pm-vs-designer.md" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <span class="text-sm text-stone-800">Prototyping PM vs. Designer — Framing als Superkraft</span>
-                        <span class="font-mono text-[0.65rem] text-stone-400">plan-prototyping-pm-vs-designer</span>
+                    <a href="../blog/drafts/prototyping-pm.html" class="flex items-center justify-between gap-4 bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #d9d1e5;">
+                        <span class="text-sm text-stone-800">Wie prototype ich als PM? Was den PM-Prototyp ausmacht. <span class="text-violet-400 text-xs ml-1">Rework</span></span>
+                        <span class="font-mono text-[0.65rem] whitespace-nowrap" style="color: #6b5691;">↑ 09.07. 09:00</span>
                     </a>
                 </div>
             </section>
@@ -95,26 +83,14 @@
             <section class="mb-10">
                 <div class="flex items-center gap-3 mb-4">
                     <h2 class="source-serif text-xl text-stone-900">Drafts</h2>
-                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #fae8de; color: #a86340;">5 Entwürfe</span>
+                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #fae8de; color: #a86340;">2 Entwürfe</span>
                 </div>
-                <p class="text-sm text-stone-500 mb-4">Passwort-geschützt unter <code class="font-mono text-xs">linja.me/blog/drafts/</code>. Jeder Klick öffnet den Entwurf direkt.</p>
+                <p class="text-sm text-stone-500 mb-4">Passwort-geschützt unter <code class="font-mono text-xs">linja.me/blog/drafts/</code>. In Arbeit, noch ohne Auto-Publish-Datum. Jeder Klick öffnet den Entwurf direkt.</p>
 
                 <div class="space-y-2">
                     <a href="../blog/drafts/kos-zwei-schleifen.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
                         <span class="text-sm text-stone-800">Memory allein reicht nicht. Mein Wissenssystem braucht zwei Lernschleifen. <span class="text-violet-400 text-xs ml-1">Session-Retro · DE+EN</span></span>
                         <span class="font-mono text-[0.65rem] text-stone-400">28.06.</span>
-                    </a>
-                    <a href="../blog/drafts/context-engineering-geschichtetes-wissen.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <span class="text-sm text-stone-800">Drei Schichten, drei Gedächtnisse: wie ich die KI gezielt steuere. <span class="text-violet-400 text-xs ml-1">Modell × KI-Gedächtnis · DE+EN</span></span>
-                        <span class="font-mono text-[0.65rem] text-stone-400">24.06.</span>
-                    </a>
-                    <a href="../blog/drafts/ki-aufdecker-statt-ersatz.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <span class="text-sm text-stone-800">KI als Aufdecker, nicht als Ersatz. <span class="text-violet-400 text-xs ml-1">IKEA / Billie · DE+EN</span></span>
-                        <span class="font-mono text-[0.65rem] text-stone-400">08.06.</span>
-                    </a>
-                    <a href="../blog/drafts/prototyping-pm.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <span class="text-sm text-stone-800">Wie prototype ich als PM? Was den PM-Prototyp ausmacht. <span class="text-violet-400 text-xs ml-1">Rework</span></span>
-                        <span class="font-mono text-[0.65rem] text-stone-400">26.04.</span>
                     </a>
                     <a href="../blog/drafts/backlog-war-gestern.html" class="flex items-center justify-between bg-white border rounded-lg px-5 py-3 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
                         <span class="text-sm text-stone-800">Backlog war gestern. <span class="text-violet-400 text-xs ml-1">Kollaboration mit David Latz</span></span>
