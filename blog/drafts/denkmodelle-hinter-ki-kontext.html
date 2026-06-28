@@ -422,26 +422,23 @@
         <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
             <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
-                My layered knowledge base for working with AI stands on six established models. The DIKW pyramid explains the Knowledge layer, Polanyi's tacit knowledge the Identity layer, Weick's sensemaking the top layer. Luhmann's Zettelkasten and Forte's second brain supply the ordering principle, Anthropic's context engineering the frame. This text explains each model in depth and shows what it teaches, concretely, about working with AI.
+                If you want reliable results from AI, you have to give it good context, because good context is structured knowledge. How you order that knowledge is not an invention of the AI era, it follows established models from knowledge theory and knowledge management. DIKW, Polanyi, Weick, Luhmann, Forte and Anthropic's context engineering together show why a layered knowledge base works and where the AI takes work off your hands, while judgment and responsibility stay with you.
             </p>
         </div>
 
         <!-- ======== ARTICLE CONTENT ======== -->
         <article class="prose pb-12">
 
-            <p>People talk about AI as if the phrasing of the question decided the outcome. The real lever sits elsewhere: not <em>how</em> I ask but <em>what</em> I give the AI to work from. Good context beats any prompt trick.</p>
+            <p>People often talk about AI as if the quality of the answer depended mostly on phrasing the question right. In my experience the decisive lever sits elsewhere. It is not about <em>how</em> I ask, but about <em>what</em> I give the AI to work from in the first place, in terms of material and background. Well prepared context gets me better results than any polished prompt.</p>
 
-            <p>But good context is structured knowledge. And I did not invent that structure. It stands on models that knowledge management has known for decades, and on a young field from AI research. The remarkable part: both arrive at almost the same order independently.</p>
+            <p>But this context is nothing other than structured knowledge. And I did not invent the structure behind it myself. It rests on models that knowledge management has been working with for decades, and on a still young field from AI research. What I find striking is that both sides, the old theories and the new technology, arrive at almost the same order independently of each other.</p>
 
-            <p>I set this text up differently from the description of my system. How I built it as a vault in Obsidian sits <a href="../knowledgeos.html" class="underline hover:text-stone-900" style="color: #6b5691;">elsewhere</a>. Here it is about the theory behind it: six models, each explained on its own, each with the question of what it means for working with AI.</p>
+            <p>So I set this text up differently from the description of my system. How I actually built the whole thing as a knowledge store in Obsidian sits <a href="../knowledgeos.html" class="underline hover:text-stone-900" style="color: #6b5691;">elsewhere</a>. Here I am interested in the theory behind it. I go through the six models one by one and ask the same question of each: what does it actually say, and what does that mean for the daily work with AI?</p>
 
-            <!-- ══════════════════════════════════════════════
-                 THE MAP
-                 ══════════════════════════════════════════════ -->
-
+            <!-- ══ THE MAP ══ -->
             <h2>The map</h2>
 
-            <p>Three knowledge layers, wrapped in a system frame. Each layer stands on a model, the frame on one more. The whole thing orders itself like this:</p>
+            <p>My model consists of three knowledge layers, wrapped in a system frame. Each layer rests on its own model, the frame on one more. The diagram shows the overview. Below it I explain each layer and the frame one after another.</p>
 
             <!-- ══ VISUAL: ANNOTATED LAYER STACK ══ -->
             <div class="my-10" style="max-width: 100%;">
@@ -463,7 +460,7 @@
                             <span class="source-serif text-[1rem] text-stone-900">Identity</span>
                             <span class="font-mono text-[0.55rem] tracking-wider uppercase" style="color: #5b4a7d;">Polanyi</span>
                         </div>
-                        <p class="text-[0.8rem] text-stone-500 mb-0">My role, projects, analyses. The codifiable part of what only I know.</p>
+                        <p class="text-[0.8rem] text-stone-500 mb-0">My role, projects, analyses. The part of what only I know that I can put into words.</p>
                     </div>
                     <div class="rounded-b-lg px-5 py-4" style="background: #d9d1e5; border: 1px solid #c9bcdf; border-top: none;">
                         <div class="flex items-baseline justify-between mb-1.5">
@@ -479,92 +476,82 @@
                 </div>
             </div>
 
-            <p>Now one at a time, bottom to top, then the frame.</p>
+            <!-- ══ THE THREE LAYERS ══ -->
+            <h2>The three knowledge layers</h2>
 
-            <!-- ══ DIKW ══ -->
-            <h2>Layer 1, Knowledge: the DIKW pyramid</h2>
+            <h3>Layer 1, Knowledge <span class="model-label">DIKW pyramid</span></h3>
 
-            <p><span class="lead-in">The concept</span><br>
-            The DIKW pyramid orders knowledge in four levels: data, information, knowledge, wisdom (popularized by Russell Ackoff, 1989).¹ Data are raw symbols without meaning. Information is data put into relation, it answers who, what, when and where. Knowledge is the application, the how. Wisdom is the why, the evaluated judgment about what matters.</p>
+            <p><span class="lead-in">The concept</span><br> The DIKW pyramid describes how raw material gradually becomes usable knowledge, in four levels that build on each other: data, information, knowledge and wisdom. Russell Ackoff made the model widely known in 1989.¹ It is easiest to show with an example. The number 38 is at first only a datum, a symbol without any meaning. If I say instead that a patient has a temperature of 38 degrees, it turns into information, because the number now sits in a context and answers a concrete question. If I know from experience that a slight fever is usually no cause for concern, I have knowledge, a sense of how to deal with that information. And the decision whether this particular patient should be looked at more closely anyway is wisdom: the considered judgment about what really counts in the specific case.</p>
 
-            <p><span class="lead-in">The approach</span><br>
-            Each level only emerges through condensation. The climb is work, not an automatism. More data does not turn into knowledge on its own, someone has to relate it, apply it and judge it.</p>
+            <p><span class="lead-in">The approach</span><br> The actual core of the model is that each of these levels only comes about through human work. More data does not turn into knowledge on its own, only once someone relates it, applies it and finally judges it. The path from the bottom to the top is therefore not an automatism but an effort that has to be made anew at every level.</p>
 
-            <p><span class="lead-in">For working with AI</span><br>
-            An AI's trained knowledge sits roughly at the information and knowledge levels, but compressed, lossy and without your data and your wisdom. That is exactly why the Knowledge layer exists: the already condensed, curated fact base I feed the AI on purpose, so it does not have to guess from memory. The upper levels are on me.</p>
+            <p><span class="lead-in">For working with AI</span><br> This is exactly where the model becomes interesting for working with AI. An AI's trained knowledge is huge, but it is kept general, heavily compressed and frozen at the state of its training. For many standard topics that is perfectly enough. As soon as I move into my own specialist areas, though, this world knowledge gets thin, imprecise or simply outdated. The Knowledge layer fills exactly these gaps by giving the AI a curated and already condensed fact base for the areas I actually work in. That way the AI does not have to guess from its blurry memory but works with the sharp, current version. It supplies the breadth, I supply the depth and the final judgment.</p>
 
-            <!-- ══ POLANYI ══ -->
-            <h2>Layer 2, Identity: Polanyi's tacit knowledge</h2>
+            <h3>Layer 2, Identity <span class="model-label">Polanyi, tacit knowledge</span></h3>
 
-            <p><span class="lead-in">The concept</span><br>
-            Michael Polanyi coined the line: "We know more than we can tell."² He separates explicit knowledge, which can be put into words and passed on, from tacit knowledge, which we embody but cannot fully articulate. Riding a bike, recognizing a face, the feel for a negotiation: all known, none of it fully sayable.</p>
+            <p><span class="lead-in">The concept</span><br> Michael Polanyi coined the line: "We know more than we can tell."² He separates explicit knowledge, which can be put into words and passed on, from tacit knowledge, which we embody but cannot fully articulate. Riding a bike, recognizing a face, the feel for a negotiation: all of it known, none of it fully sayable.</p>
 
-            <p><span class="lead-in">The approach</span><br>
-            Skill is personal and bound to context. Part of it is codifiable, part stays embodied. That very line matters, because it runs straight through every profile built on experience.</p>
+            <p><span class="lead-in">The approach</span><br> What is really interesting about Polanyi's idea is that this line is not fixed. A lot of what feels at first like pure gut instinct can be put into words after all, if you take the trouble to look closely. An experienced negotiator can often explain surprisingly clearly how she notices that the other side is about to give in, even if in the moment she only senses it. A remainder always stays mute, though. No matter how much she explains, she never gets the last bit of intuition fully into sentences. For me that means: a good part of my experience is sayable, I just have to draw it out of myself deliberately instead of dismissing it too quickly as unsayable.</p>
 
-            <p><span class="lead-in">For working with AI</span><br>
-            An AI can only take in explicit knowledge. The Identity layer is therefore the codified part of my professional self: role, projects, analyses, way of working. Maintaining it means lifting as much of the tacit into the explicit as possible, without falling for the illusion that everything can be lifted. The tacit remainder stays my edge and my judgment when I steer.</p>
+            <p><span class="lead-in">For working with AI</span><br> An AI can only work with what can be put into words. It does not get my gut feeling, only what I have actually written down. That is exactly what the Identity layer collects: my role, my projects, my analyses, my way of working, the part of me I can name. Maintaining it means bringing my mute experiential knowledge into clear words again and again, as far as that goes. And whatever cannot be captured stays my edge in the end: the judgment with which I decide whether what the AI delivers is actually any good.</p>
 
-            <p class="key-quote">These models are not decoration for an AI setup. They explain why it works, and that is exactly what makes it steerable.</p>
+            <h3>Layer 3, Sensemaking <span class="model-label">Weick</span></h3>
 
-            <!-- ══ WEICK ══ -->
-            <h2>Layer 3, Sensemaking: Karl Weick</h2>
+            <p><span class="lead-in">The concept</span><br> Karl Weick coined the term sensemaking and means by it the active production of meaning out of what we observe.³ His best known line gets to the point: "How can I know what I think until I see what I say?" Meaning therefore does not lie ready in a store that we only have to retrieve from. We produce it ourselves, often only in hindsight and while we are already acting. One observation matters here: sensemaking follows plausibility, not pure accuracy. We build ourselves the story that seems most coherent, not necessarily the one that is demonstrably correct.</p>
 
-            <p><span class="lead-in">The concept</span><br>
-            Karl Weick describes sensemaking as the active construction of meaning from observations.³ His best known line: "How can I know what I think until I see what I say?" Meaning is not retrieved from a store, it is made, often in hindsight and in the act of doing. One of his seven properties is central: sensemaking follows plausibility, not pure accuracy.</p>
+            <p><span class="lead-in">The approach</span><br> The core of this idea is that we act first and interpret only afterwards. Out of all sorts of ambiguous signals we form a story coherent enough to keep going. For me, sensemaking is therefore the moment when many individual pieces of information turn into a connection I can base a decision on.</p>
 
-            <p><span class="lead-in">The approach</span><br>
-            We act, then we interpret. From ambiguous cues we form a story coherent enough to keep going. That is not a flaw, it is how judgment under uncertainty comes about at all.</p>
+            <p><span class="lead-in">For working with AI</span><br> This is the top layer, because here information becomes meaning, conclusion and strategy. And it is exactly here that it shows why I find the term sensemaking so fitting. Connecting individual pieces into one larger whole is precisely what an AI is really strong at. It recognizes patterns, combines arguments and lays insights side by side that I might never have brought together myself. When my Knowledge and Identity layers are well filled, the AI can take over a large part of this sensemaking, because in real, cleanly prepared data it actually recognizes meaning and connection instead of making something up.</p>
 
-            <p><span class="lead-in">For working with AI</span><br>
-            This is the top layer: information becomes meaning, conclusion, strategy. Here is the twist. An AI is a plausibility machine, it produces the plausible, not necessarily the true, that is its failure mode. Weick's sensemaking, by contrast, uses plausibility responsibly because it is anchored to identity and to one's own action. That anchoring is what the AI cannot provide. It can offer patterns. The interpreting and the commitment stay mine.</p>
+            <p>A limit remains all the same. At its core an AI is a plausibility machine. It produces what sounds coherent, not necessarily what is true. Weick's sensemaking, by contrast, is tied back to my own role and my own action. That is exactly where it draws its responsibility from. For me that means: the AI may propose the connection and take half the work off my hands, but the final committing and answering for it stays with me.</p>
 
-            <!-- ══ LUHMANN + FORTE ══ -->
-            <h2>The popular relatives: Luhmann and Forte</h2>
-
-            <p>DIKW, Polanyi and Weick explain <em>what</em> sits in the layers. Luhmann and Forte explain <em>how</em> to store it so it stays usable.</p>
-
-            <h3>Luhmann's Zettelkasten</h3>
-
-            <p>Niklas Luhmann worked with around 90,000 index cards and wrote dozens of books from them.⁵ The principles: one thought per card, a unique identifier, linking instead of rigid hierarchy, an index as the entry point. Luhmann called the box a communication partner, a second instance that surprised him as he wrote.</p>
-
-            <p>For working with AI, two things count. First, atomicity: each piece of information exactly once in one place yields clean context units I can load on purpose, my "one source" principle. Second, the point about the communication partner. The Zettelkasten was Luhmann's thinking partner. An AI sitting on my vault is the new one. Same idea, different medium.</p>
-
-            <h3>Forte's Building a Second Brain</h3>
-
-            <p>Tiago Forte brings two tools: CODE as a process (Capture, Organize, Distill, Express) and PARA as storage (Projects, Areas, Resources, Archives), ordered by actionability.⁶ The core idea is older than any tool: offload memory to free the mind for thinking.</p>
-
-            <p>My vault is exactly that second brain. The only new thing is that it is no longer just me reading it, but an AI. One difference remains: Forte orders by actionability, I order by knowledge type, because the AI can then load the layers more precisely. Related, not identical.</p>
-
-            <!-- ══ ANTHROPIC ══ -->
+            <!-- ══ THE FRAME — ANTHROPIC ══ -->
             <h2>The frame: Anthropic's context engineering</h2>
 
-            <p><span class="lead-in">The concept</span><br>
-            Anthropic describes context engineering as the successor to prompt engineering.⁴ What decides the result is not the phrasing but what sits in the context window, the model's working memory. That window is finite and has diminishing returns: the fuller it gets, the more likely the model overlooks parts of it, an effect called context rot.</p>
+            <p>The frame is not a fourth floor of knowledge. In the diagram it sits on top, wrapped around all three layers. It steers how the AI handles them.</p>
 
-            <p><span class="lead-in">The approach</span><br>
-            The goal is the smallest set of high signal tokens. Instead of dumping everything in up front, you load on purpose what the task needs and keep lasting instructions in a memory outside the window.</p>
+            <p><span class="lead-in">The concept</span><br> Anthropic describes context engineering as the successor to prompt engineering.⁴ What decides is not the phrasing but what sits in the context window, the model's working memory. This window is finite and has diminishing returns: the fuller it gets, the more likely the model overlooks parts of it, an effect called context rot.</p>
 
-            <p><span class="lead-in">For working with AI</span><br>
-            This is the system frame, and it turns the taxonomy into a control tool. An AI does not have one memory but three: the context window as working memory (per task, directly steerable), the memory files as long term memory (lasting, across sessions), the model weights as semantic memory (trained, not steerable, fallback only). Per task, the right layer moves into working memory. The frame is written once and loads into long term memory. That shifts the AI from inventing first source to critic of my prep work.</p>
+            <p><span class="lead-in">The approach</span><br> The goal is therefore to give the model not as much as possible, but as much of the right thing as possible. Instead of tipping everything into the chat up front, you load exactly what the current task needs, and keep the lasting instructions in a fixed place outside the running conversation.</p>
 
-            <!-- ══ WHAT I CHANGED ══ -->
-            <h2>What I changed</h2>
+            <p><span class="lead-in">For working with AI</span><br> This is the level that turns the three layers into a real control tool in the first place. Because an AI does not have one memory but three at once, which work very differently. First there is the context window, its working memory. It holds only what is currently in the conversation, and this is exactly where I can decide directly, per task, what goes in. Then there are the memory files as a kind of long term memory that keeps my fixed instructions across all sessions. And finally the knowledge trained into the model itself, a kind of general education I have no direct access to and that serves only as a fallback.</p>
 
-            <p>Understanding the models changed how I treat each layer. I no longer dump everything into one big file, I store atomically, one piece of information in one place (Luhmann, Forte). I deliberately lift the explicable part of my work into the Identity layer and stop where it stays tacit, instead of faking a judgment for the AI that it does not have (Polanyi).</p>
+            <p>My model is the bridge between these three stores. Per task I deliberately push the right layer into the working memory. The frame, by contrast, I write only once, so that afterwards it loads into the long term memory by itself. In this way the AI moves out of the role of the inventing first source and into that of an attentive critic who sharpens my prep work instead of replacing it.</p>
 
-            <p>And I treat sensemaking as my own step: first I interpret, then I let the AI sharpen the result. Not the other way around (Weick). That sounds like theory, but it is the difference between an AI that replaces my work and one that makes it better.</p>
+            <!-- ══ THE ORDERING PRINCIPLE — LUHMANN + FORTE ══ -->
+            <h2>The ordering principle: Luhmann and Forte</h2>
 
-            <p>How these models turn into a concrete steering tool, one I use to serve the AI's three memories on purpose, I have described here: <a href="context-engineering-geschichtetes-wissen.html" class="underline hover:text-stone-900" style="color: #6b5691;">Three Layers, Three Memories: how I steer the AI on purpose</a>.</p>
+            <p>DIKW, Polanyi and Weick explain <em>what</em> sits in the layers. Luhmann and Forte explain <em>how</em> you store it so it stays usable. This ordering principle runs across all three layers at the bottom of the diagram.</p>
+
+            <h3>Luhmann's Zettelkasten <span class="model-label">one source</span></h3>
+
+            <p>The sociologist Niklas Luhmann worked all his life with a slip box of around 90,000 handwritten notes and produced dozens of books from it.⁵ His system followed a few simple rules: each slip held only a single thought with a unique identifier. Instead of a rigid order, Luhmann linked the slips to each other through cross references, so that an index gave him an entry point at any time. What is really remarkable, though, is how he described this box: as a communication partner, a kind of second counterpart that surprised him again and again as he wrote.</p>
+
+            <p>For working with AI, two things about this are valuable. The first is the strict principle of storing each piece of information only a single time. Because it then sits in exactly one place, clean and clearly bounded knowledge blocks emerge that I can later load into the AI's context on purpose. That is exactly my "one source" principle. The second is Luhmann's image of the communication partner. His slip box was essentially a thinking partner that held something new up to him as he wrote. An AI sitting on my vault takes over exactly that role today. The idea has stayed the same, only the medium is a different one.</p>
+
+            <h3>Forte's Second Brain <span class="model-label">offload knowledge</span></h3>
+
+            <p>Tiago Forte translated the same basic idea into two handy tools. One is CODE, a process in four steps: capture, organize, distill and express (Capture, Organize, Distill, Express in the original). The other is PARA, a storage system that sorts everything by how close it is to a concrete action (Projects, Areas, Resources, Archives).⁶ Behind both stands a thought older than any tool: whoever reliably offloads their knowledge to the outside keeps their own head free for the actual thinking.</p>
+
+            <p>My vault is essentially exactly such a second brain. The real difference is only that it is no longer just me reading it, but an AI as well. From this follows a small deviation from Forte: he orders his knowledge by closeness to action, I by type of knowledge, because the AI can then load the individual layers more precisely. The two approaches are closely related, but not quite the same.</p>
+
+            <!-- ══ WHAT IT GIVES ME ══ -->
+            <h2>What it gives me day to day</h2>
+
+            <p>Ever since I have been working with AI, I have been optimizing my context. Because I noticed early that good context makes the collaboration with the AI more reliable and higher in quality. I feel the positive effect of my setup every day. I deliberately picked out the models in this text once more in order to understand why the whole thing works at all.</p>
+
+            <p>What I really do notice every day is the effect. The AI never starts from zero, it already knows my role, my projects and my way of working before I even ask the first question. For a concrete task I give it exactly the domain knowledge it needs, and in return I get results I can actually reuse, instead of having to laboriously straighten them out first. That is what context engineering is for me: not a trick, but the daily experience that well prepared knowledge turns the AI from a nice gimmick into a reliable tool.</p>
+
+            <p>How these models turn into a concrete control tool that I use to address the AI's three memories on purpose, I have described here: <a href="context-engineering-geschichtetes-wissen.html" class="underline hover:text-stone-900" style="color: #6b5691;">Three layers, three memories: how I steer the AI on purpose</a>.</p>
 
             <!-- ══ CRITICAL ASSESSMENT ══ -->
             <h2>Critical assessment</h2>
 
-            <p>Three honest limits. First, these are analogies, not equations. An AI's "memory" is not human memory, the three way split is a useful image, not neuroscience. It holds as long as I do not take it for more than it is.</p>
+            <p>This comes with a few honest limitations. The first concerns the pace. Models and AI tools change rapidly. What is the most sensible way to give the AI context today can already be outdated half a year from now. My approach is therefore nothing you set up once and then leave lying around. I have to check regularly whether it still fits what the tools can now do, and keep it actively up to date.</p>
 
-            <p>Second, a simple practice can be over theorized. The models explain why my setup works, they do not replace it. Whoever only reads the theory and stores nothing still has nothing good to give the AI.</p>
+            <p>The second concerns the clean separation of the three memories. It is above all a view that makes explaining easier. In the actual work everything meshes together, the stores constantly play into each other. I never experience them as cleanly separated in everyday work as they look in the diagram.</p>
 
-            <p>Third, the mapping is an interpretation. That several disciplines land on the same order is strong evidence that the order holds, but not a proof. The models predate AI. Applying them to it is plausible and defensible, but it stays interpretation.</p>
+            <p>The third concerns the models themselves. My starting point was not the theory but a setup that simply worked. Only the attempt to explain that working led me to DIKW, Polanyi, Weick, Luhmann and Forte. These approaches are all considerably older than the AI age. Originally they revolve around something far more general: how knowledge or identity comes about in the first place. Applying them to working with AI is not a proof, but my attempt to understand the whole thing better for myself.</p>
 
             <!-- ══ WHAT STAYS ══ -->
             <h2>What stays with you every day</h2>
@@ -572,15 +559,15 @@
             <div class="my-8 space-y-4">
                 <div class="pl-5">
                     <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Context beats prompt.</p>
-                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">What the AI gets to work from decides more than the phrasing of the question (DIKW, Anthropic).</p>
+                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">What the AI gets to work from decides more than how I phrase the question (DIKW, Anthropic).</p>
                 </div>
                 <div class="pl-5">
-                    <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The AI only gets your explicit knowledge.</p>
-                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Lift as much as you can into the codifiable. The interpreting and the judgment stay yours (Polanyi, Weick).</p>
+                    <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The AI only knows what you write down.</p>
+                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Whatever you do not put into words, it cannot use. The judging and deciding stay with you in the end (Polanyi, Weick).</p>
                 </div>
                 <div class="pl-5">
                     <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">One piece of information, one place.</p>
-                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Storing atomically makes knowledge loadable and maintainable, for you and for the AI (Luhmann, Forte).</p>
+                    <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">When each thing sits in only one spot, you both find it again quickly, you and the AI (Luhmann, Forte).</p>
                 </div>
             </div>
 
@@ -608,7 +595,7 @@
                     <p class="mb-0"><span class="text-stone-700 font-medium">Second brain</span> <span class="text-stone-400">— External knowledge store after Forte (CODE, PARA) to keep the mind free for thinking.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Context engineering</span> <span class="text-stone-400">— Giving an AI the right knowledge for a task on purpose, instead of just phrasing commands.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Context window</span> <span class="text-stone-400">— The temporary working memory of a model. What sits here is used more reliably than trained knowledge.</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Atomicity</span> <span class="text-stone-400">— Each piece of information exists exactly once in one place and is referenced from there.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">One-source principle</span> <span class="text-stone-400">— Each piece of information exists only once in one place and is used everywhere from there.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Context rot</span> <span class="text-stone-400">— Quality loss when a model overlooks parts of the context on very long inputs.</span></p>
                 </div>
             </div>
