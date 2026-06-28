@@ -18,11 +18,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
     <meta name="theme-color" content="#7B6BA5">
     <meta name="robots" content="noindex, nofollow">
-    <title>Was DIKW, Polanyi und Weick über die Arbeit mit KI wissen – Linja Scharffetter</title>
+    <title>Meine KI-Wissensbasis fußt auf etablierten Modellen der Wissenstheorie – Linja Scharffetter</title>
     <meta name="description"
-        content="Eine Lehrtour durch die sechs Denkmodelle hinter meinem KI-Kontext: DIKW-Pyramide, Polanyis implizites Wissen, Weicks Sensemaking, Luhmanns Zettelkasten, Fortes Second Brain und Anthropics Context Engineering. Was jedes wirklich sagt und was es über die Arbeit mit KI lehrt.">
-    <meta property="og:title" content="Was DIKW, Polanyi und Weick über die Arbeit mit KI wissen">
-    <meta property="og:description" content="Sechs etablierte Wissensmodelle, in der Tiefe erklärt und auf die Arbeit mit KI angewendet. Die Theorie hinter einer geschichteten Wissensbasis.">
+        content="Warum eine geschichtete Wissensbasis die Arbeit mit KI verlässlicher macht. DIKW, Polanyi, Weick, Luhmann, Forte und Anthropics Context Engineering erklären, wie man der KI guten Kontext gibt und warum das funktioniert.">
+    <meta property="og:title" content="Meine KI-Wissensbasis fußt auf etablierten Modellen der Wissenstheorie">
+    <meta property="og:description" content="Guter Kontext macht KI verlässlich. Sechs etablierte Modelle aus Wissenstheorie und Wissensmanagement zeigen, warum eine geschichtete Wissensbasis funktioniert.">
     <meta property="og:type" content="article">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
@@ -153,6 +153,40 @@
             margin: 2.5rem 0;
             font-style: italic;
         }
+        /* Modell-Accordion (analog Startseite) */
+        .acc-group {
+            border-top: 1px solid #e5e2db;
+            margin: 1.5rem 0 0;
+        }
+        .acc-item {
+            border-bottom: 1px solid #e5e2db;
+        }
+        .acc-head {
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 1.05rem 0;
+        }
+        .acc-panel {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height .38s ease;
+        }
+        .acc-chevron {
+            transition: transform .3s ease;
+        }
+        .acc-item.open .acc-chevron {
+            transform: rotate(90deg);
+        }
+        .acc-panel .prose-inner > p {
+            margin-bottom: 1.4rem;
+            line-height: 1.75;
+        }
+        .acc-panel .prose-inner > p:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 
@@ -173,7 +207,7 @@
                 <span class="text-[0.72rem] text-stone-400">&middot; 9 Min Lesezeit</span>
             </div>
             <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
-                Was DIKW, Polanyi und Weick über die Arbeit mit KI wissen
+                Meine KI-Wissensbasis fußt auf etablierten Modellen der Wissenstheorie
             </h1>
         </header>
 
@@ -181,7 +215,7 @@
         <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
             <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
-                Meine geschichtete Wissensbasis für die Arbeit mit KI steht auf sechs etablierten Modellen. Die DIKW-Pyramide erklärt die Knowledge-Schicht, Polanyis implizites Wissen die Identity-Schicht, Weicks Sensemaking die oberste Schicht. Luhmanns Zettelkasten und Fortes Second Brain liefern das Ordnungsprinzip, Anthropics Context Engineering den Rahmen. Dieser Text erklärt jedes Modell in der Tiefe und zeigt, was es konkret über die Arbeit mit KI lehrt.
+                Wer mit KI verlässliche Ergebnisse will, muss ihr guten Kontext geben, denn guter Kontext ist strukturiertes Wissen. Wie man dieses Wissen ordnet, ist keine Erfindung der KI-Ära, sondern folgt etablierten Modellen aus Wissenstheorie und Wissensmanagement. DIKW, Polanyi, Weick, Luhmann, Forte und Anthropics Context Engineering zeigen zusammen, warum eine geschichtete Wissensbasis funktioniert und wo die KI dir Arbeit abnimmt, während Urteil und Verantwortung bei dir bleiben.
             </p>
         </div>
 
@@ -200,7 +234,7 @@
 
             <h2>Die Landkarte</h2>
 
-            <p>Drei Wissensschichten, eingefasst in einen System-Rahmen. Jede Schicht steht auf einem Denkmodell, der Rahmen auf einem weiteren. So ordnet sich das Ganze:</p>
+            <p>Mein Modell besteht aus drei Wissensschichten, eingefasst in einen System-Rahmen. Jede Schicht steht auf einem eigenen Denkmodell, der Rahmen auf einem weiteren. Das Schaubild zeigt den Überblick. Darunter erkläre ich jede einzelne Schicht und den Rahmen genauer. Klapp dafür einfach die Elemente auf, die dich interessieren.</p>
 
             <!-- ══ VISUAL: ANNOTIERTER SCHICHT-STACK ══ -->
             <div class="my-10" style="max-width: 100%;">
@@ -241,74 +275,130 @@
                 </div>
             </div>
 
-            <p>Jetzt der Reihe nach, von unten nach oben, dann der Rahmen.</p>
+            <h2>Die drei Wissensschichten</h2>
 
-            <!-- ══════════════════════════════════════════════
-                 SCHICHT 1 — DIKW
-                 ══════════════════════════════════════════════ -->
+            <div class="acc-group">
 
-            <h2>Schicht 1, Knowledge: die DIKW-Pyramide</h2>
+                <!-- ══ Schicht 1 — DIKW ══ -->
+                <div class="acc-item">
+                    <button class="acc-head flex items-baseline justify-between gap-4" aria-expanded="false">
+                        <span class="flex items-baseline gap-3 flex-wrap">
+                            <span class="source-serif text-[1.1rem] text-stone-900">Schicht 1, Knowledge</span>
+                            <span class="font-mono text-[0.56rem] tracking-wider uppercase" style="color: #9a82b5;">DIKW-Pyramide</span>
+                        </span>
+                        <svg class="acc-chevron flex-shrink-0 self-center" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a82b5" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                    <div class="acc-panel">
+                        <div class="prose-inner pb-5">
+                            <p><span class="lead-in">Das Konzept</span><br>
+                            Die DIKW-Pyramide beschreibt, wie aus rohem Material nach und nach nutzbares Wissen wird, und zwar in vier Stufen, die aufeinander aufbauen: Daten, Information, Wissen und Weisheit. Bekannt gemacht hat das Modell Russell Ackoff im Jahr 1989.¹ Am einfachsten lässt es sich an einem Beispiel zeigen. Die Zahl 38 ist zunächst nur ein Datum, ein Symbol ohne jede Bedeutung. Sage ich dagegen, dass ein Patient 38 Grad Fieber hat, wird daraus Information, weil die Zahl nun in einem Zusammenhang steht und eine konkrete Frage beantwortet. Weiß ich aus Erfahrung, dass leichtes Fieber meist kein Grund zur Sorge ist, habe ich Wissen, also eine Vorstellung davon, wie ich mit dieser Information umgehe. Und die Entscheidung, ob dieser eine Patient trotzdem genauer angeschaut werden sollte, ist Weisheit: das abwägende Urteil darüber, was im konkreten Fall wirklich zählt.</p>
 
-            <p><span class="lead-in">Das Konzept</span><br>
-            Die DIKW-Pyramide beschreibt, wie aus rohem Material nach und nach nutzbares Wissen wird, und zwar in vier Stufen, die aufeinander aufbauen: Daten, Information, Wissen und Weisheit. Bekannt gemacht hat das Modell Russell Ackoff im Jahr 1989.¹ Am einfachsten lässt es sich an einem Beispiel zeigen. Die Zahl 38 ist zunächst nur ein Datum, ein Symbol ohne jede Bedeutung. Sage ich dagegen, dass ein Patient 38 Grad Fieber hat, wird daraus Information, weil die Zahl nun in einem Zusammenhang steht und eine konkrete Frage beantwortet. Weiß ich aus Erfahrung, dass leichtes Fieber meist kein Grund zur Sorge ist, habe ich Wissen, also eine Vorstellung davon, wie ich mit dieser Information umgehe. Und die Entscheidung, ob dieser eine Patient trotzdem genauer angeschaut werden sollte, ist Weisheit: das abwägende Urteil darüber, was im konkreten Fall wirklich zählt.</p>
+                            <p><span class="lead-in">Der Ansatz</span><br>
+                            Der eigentliche Kern des Modells liegt darin, dass jede dieser Stufen erst durch menschliche Arbeit entsteht. Aus mehr Daten wird eben nicht von allein Wissen, sondern erst dann, wenn jemand sie in Beziehung setzt, anwendet und am Ende bewertet. Der Weg von unten nach oben ist also kein Automatismus, sondern eine Leistung, die an jeder Stufe neu erbracht werden muss.</p>
 
-            <p><span class="lead-in">Der Ansatz</span><br>
-            Der eigentliche Kern des Modells liegt darin, dass jede dieser Stufen erst durch menschliche Arbeit entsteht. Aus mehr Daten wird eben nicht von allein Wissen, sondern erst dann, wenn jemand sie in Beziehung setzt, anwendet und am Ende bewertet. Der Weg von unten nach oben ist also kein Automatismus, sondern eine Leistung, die an jeder Stufe neu erbracht werden muss.</p>
+                            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
+                            Genau an diesem Punkt wird das Modell für die Arbeit mit KI interessant. Das antrainierte Wissen einer KI ist zwar riesig, aber es ist allgemein gehalten, stark komprimiert und auf dem Stand ihres Trainings stehengeblieben. Für viele Standardthemen reicht das vollkommen aus. Sobald ich mich jedoch in meinen eigenen Spezialgebieten bewege, wird dieses Weltwissen dünn, ungenau oder schlicht veraltet. Genau diese Lücken füllt die Knowledge-Schicht, indem sie der KI eine kuratierte und schon verdichtete Faktenbasis für die Bereiche mitgibt, in denen ich tatsächlich arbeite. So muss die KI nicht aus ihrem verschwommenen Gedächtnis raten, sondern arbeitet mit der scharfen, aktuellen Version. Die Breite liefert sie, die Tiefe und das abschließende Urteil liefere ich.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
-            Genau an diesem Punkt wird das Modell für die Arbeit mit KI interessant. Das antrainierte Wissen einer KI ist zwar riesig, aber es ist allgemein gehalten, stark komprimiert und auf dem Stand ihres Trainings stehengeblieben. Für viele Standardthemen reicht das vollkommen aus. Sobald ich mich jedoch in meinen eigenen Spezialgebieten bewege, wird dieses Weltwissen dünn, ungenau oder schlicht veraltet. Genau diese Lücken füllt die Knowledge-Schicht, indem sie der KI eine kuratierte und schon verdichtete Faktenbasis für die Bereiche mitgibt, in denen ich tatsächlich arbeite. So muss die KI nicht aus ihrem verschwommenen Gedächtnis raten, sondern arbeitet mit der scharfen, aktuellen Version. Die Breite liefert sie, die Tiefe und das abschließende Urteil liefere ich.</p>
+                <!-- ══ Schicht 2 — Polanyi ══ -->
+                <div class="acc-item">
+                    <button class="acc-head flex items-baseline justify-between gap-4" aria-expanded="false">
+                        <span class="flex items-baseline gap-3 flex-wrap">
+                            <span class="source-serif text-[1.1rem] text-stone-900">Schicht 2, Identity</span>
+                            <span class="font-mono text-[0.56rem] tracking-wider uppercase" style="color: #9a82b5;">Polanyi, implizites Wissen</span>
+                        </span>
+                        <svg class="acc-chevron flex-shrink-0 self-center" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a82b5" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                    <div class="acc-panel">
+                        <div class="prose-inner pb-5">
+                            <p><span class="lead-in">Das Konzept</span><br>
+                            Michael Polanyi prägte den Satz: „Wir wissen mehr, als wir sagen können."² Er trennt explizites Wissen, das sich in Worte fassen und weitergeben lässt, von implizitem Wissen, das wir verkörpern, aber nicht vollständig formulieren können. Fahrradfahren, ein Gesicht erkennen, das Gespür für eine Verhandlung: alles gewusst, nichts davon vollständig sagbar.</p>
 
-            <!-- ══════════════════════════════════════════════
-                 SCHICHT 2 — POLANYI
-                 ══════════════════════════════════════════════ -->
+                            <p><span class="lead-in">Der Ansatz</span><br>
+                            Das eigentlich Spannende an Polanyis Gedanken ist, dass diese Grenze nicht fest liegt. Vieles, was sich zuerst nach reinem Bauchgefühl anfühlt, lässt sich doch in Worte fassen, wenn man sich die Mühe macht, genau hinzuschauen. Eine erfahrene Verhandlerin kann oft erstaunlich klar erklären, woran sie merkt, dass ihr Gegenüber gleich nachgibt, auch wenn sie es im Moment selbst nur spürt. Ein Rest bleibt allerdings immer stumm. Egal wie viel sie erklärt, das letzte Quäntchen Gespür bekommt sie nie ganz in Sätze. Für mich heißt das: Ein guter Teil meiner Erfahrung ist sagbar, ich muss ihn nur bewusst aus mir herausholen, statt ihn vorschnell als unsagbar abzutun.</p>
 
-            <h2>Schicht 2, Identity: Polanyis implizites Wissen</h2>
+                            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
+                            Eine KI kann nur mit dem arbeiten, was sich in Worte fassen lässt. Mein Bauchgefühl bekommt sie nicht, sondern allein das, was ich tatsächlich aufgeschrieben habe. Genau das sammelt die Identity-Schicht: meine Rolle, meine Projekte, meine Analysen, meine Arbeitsweise, also den Teil von mir, den ich benennen kann. Sie zu pflegen bedeutet für mich, mein stummes Erfahrungswissen immer wieder in klare Worte zu bringen, so weit es eben geht. Und was sich partout nicht festhalten lässt, bleibt am Ende mein Vorsprung: das Urteil, mit dem ich entscheide, ob das, was die KI liefert, wirklich taugt.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <p><span class="lead-in">Das Konzept</span><br>
-            Michael Polanyi prägte den Satz: „Wir wissen mehr, als wir sagen können."² Er trennt explizites Wissen, das sich in Worte fassen und weitergeben lässt, von implizitem Wissen, das wir verkörpern, aber nicht vollständig formulieren können. Fahrradfahren, ein Gesicht erkennen, das Gespür für eine Verhandlung: alles gewusst, nichts davon vollständig sagbar.</p>
+                <!-- ══ Schicht 3 — Weick ══ -->
+                <div class="acc-item">
+                    <button class="acc-head flex items-baseline justify-between gap-4" aria-expanded="false">
+                        <span class="flex items-baseline gap-3 flex-wrap">
+                            <span class="source-serif text-[1.1rem] text-stone-900">Schicht 3, Sensemaking</span>
+                            <span class="font-mono text-[0.56rem] tracking-wider uppercase" style="color: #9a82b5;">Weick</span>
+                        </span>
+                        <svg class="acc-chevron flex-shrink-0 self-center" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a82b5" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                    <div class="acc-panel">
+                        <div class="prose-inner pb-5">
+                            <p><span class="lead-in">Das Konzept</span><br>
+                            Karl Weick prägte den Begriff Sensemaking, zu Deutsch etwa Sinnstiftung, und meint damit das aktive Herstellen von Bedeutung aus dem, was wir beobachten.³ Sein bekanntester Satz bringt es auf den Punkt: „Wie kann ich wissen, was ich denke, bevor ich sehe, was ich sage?" Bedeutung liegt also nicht fertig in einem Speicher, aus dem wir sie nur abrufen müssten. Wir stellen sie selbst her, oft erst rückblickend und während wir schon handeln. Wichtig ist dabei eine Beobachtung: Sensemaking folgt der Plausibilität und nicht der reinen Genauigkeit. Wir bauen uns die Geschichte, die am stimmigsten wirkt, nicht zwangsläufig die nachweislich richtige.</p>
 
-            <p><span class="lead-in">Der Ansatz</span><br>
-            Das eigentlich Spannende an Polanyis Gedanken ist, dass diese Grenze nicht fest liegt. Vieles, was sich zuerst nach reinem Bauchgefühl anfühlt, lässt sich doch in Worte fassen, wenn man sich die Mühe macht, genau hinzuschauen. Eine erfahrene Verhandlerin kann oft erstaunlich klar erklären, woran sie merkt, dass ihr Gegenüber gleich nachgibt, auch wenn sie es im Moment selbst nur spürt. Ein Rest bleibt allerdings immer stumm. Egal wie viel sie erklärt, das letzte Quäntchen Gespür bekommt sie nie ganz in Sätze. Für mich heißt das: Ein guter Teil meiner Erfahrung ist sagbar, ich muss ihn nur bewusst aus mir herausholen, statt ihn vorschnell als unsagbar abzutun.</p>
+                            <p><span class="lead-in">Der Ansatz</span><br>
+                            Der Kern dieses Gedankens ist, dass wir zuerst handeln und erst danach deuten. Aus lauter mehrdeutigen Signalen formen wir eine Geschichte, die stimmig genug ist, um weiterzumachen. Das ist kein Denkfehler, sondern genau die Art, wie unter Unsicherheit überhaupt ein Urteil entsteht. Für mich ist Sensemaking damit der Moment, in dem aus vielen Einzelinformationen ein Zusammenhang wird, auf den ich eine Entscheidung stützen kann.</p>
 
-            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
-            Eine KI kann nur mit dem arbeiten, was sich in Worte fassen lässt. Mein Bauchgefühl bekommt sie nicht, sondern allein das, was ich tatsächlich aufgeschrieben habe. Genau das sammelt die Identity-Schicht: meine Rolle, meine Projekte, meine Analysen, meine Arbeitsweise, also den Teil von mir, den ich benennen kann. Sie zu pflegen bedeutet für mich, mein stummes Erfahrungswissen immer wieder in klare Worte zu bringen, so weit es eben geht. Und was sich partout nicht festhalten lässt, bleibt am Ende mein Vorsprung: das Urteil, mit dem ich entscheide, ob das, was die KI liefert, wirklich taugt.</p>
+                            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
+                            Das ist die oberste Schicht, denn hier wird aus Information Bedeutung, Schluss und Strategie. Und gerade hier zeigt sich, warum ich den Begriff Sensemaking so treffend finde. Das Verbinden von Einzelteilen zu einem großen Zusammenhang ist nämlich genau das, worin eine KI richtig stark ist. Sie erkennt Muster, kombiniert Argumente und legt Erkenntnisse nebeneinander, die ich selbst vielleicht nie zusammengebracht hätte. Wenn meine Knowledge- und Identity-Schicht gut gefüllt sind, kann die KI einen großen Teil dieser Sinnstiftung übernehmen, weil sie in echten, sauber aufbereiteten Daten tatsächlich Sinn und Zusammenhang erkennt, statt sich etwas auszudenken.</p>
 
-            <!-- ══════════════════════════════════════════════
-                 SCHICHT 3 — WEICK
-                 ══════════════════════════════════════════════ -->
+                            <p>Eine Grenze bleibt trotzdem. Eine KI ist im Kern eine Plausibilitätsmaschine. Sie erzeugt das, was stimmig klingt, nicht zwangsläufig das, was stimmt. Weicks Sensemaking ist dagegen an meine eigene Rolle und mein Handeln rückgebunden. Genau daraus zieht es seine Verantwortung. Für mich heißt das: Die KI darf den Zusammenhang vorschlagen und mir die halbe Arbeit abnehmen, das letzte Festlegen und Verantworten aber bleibt bei mir.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <h2>Schicht 3, Sensemaking: Karl Weick</h2>
-
-            <p><span class="lead-in">Das Konzept</span><br>
-            Karl Weick prägte den Begriff Sensemaking, zu Deutsch etwa Sinnstiftung, und meint damit das aktive Herstellen von Bedeutung aus dem, was wir beobachten.³ Sein bekanntester Satz bringt es auf den Punkt: „Wie kann ich wissen, was ich denke, bevor ich sehe, was ich sage?" Bedeutung liegt also nicht fertig in einem Speicher, aus dem wir sie nur abrufen müssten. Wir stellen sie selbst her, oft erst rückblickend und während wir schon handeln. Wichtig ist dabei eine Beobachtung: Sensemaking folgt der Plausibilität und nicht der reinen Genauigkeit. Wir bauen uns die Geschichte, die am stimmigsten wirkt, nicht zwangsläufig die nachweislich richtige.</p>
-
-            <p><span class="lead-in">Der Ansatz</span><br>
-            Der Kern dieses Gedankens ist, dass wir zuerst handeln und erst danach deuten. Aus lauter mehrdeutigen Signalen formen wir eine Geschichte, die stimmig genug ist, um weiterzumachen. Das ist kein Denkfehler, sondern genau die Art, wie unter Unsicherheit überhaupt ein Urteil entsteht. Für mich ist Sensemaking damit der Moment, in dem aus vielen Einzelinformationen ein Zusammenhang wird, auf den ich eine Entscheidung stützen kann.</p>
-
-            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
-            Das ist die oberste Schicht, denn hier wird aus Information Bedeutung, Schluss und Strategie. Und gerade hier zeigt sich, warum ich den Begriff Sensemaking so treffend finde. Das Verbinden von Einzelteilen zu einem großen Zusammenhang ist nämlich genau das, worin eine KI richtig stark ist. Sie erkennt Muster, kombiniert Argumente und legt Erkenntnisse nebeneinander, die ich selbst vielleicht nie zusammengebracht hätte. Wenn meine Knowledge- und Identity-Schicht gut gefüllt sind, kann die KI einen großen Teil dieser Sinnstiftung übernehmen, weil sie in echten, sauber aufbereiteten Daten tatsächlich Sinn und Zusammenhang erkennt, statt sich etwas auszudenken.</p>
-
-            <p>Eine Grenze bleibt trotzdem. Eine KI ist im Kern eine Plausibilitätsmaschine. Sie erzeugt das, was stimmig klingt, nicht zwangsläufig das, was stimmt. Weicks Sensemaking ist dagegen an meine eigene Rolle und mein Handeln rückgebunden. Genau daraus zieht es seine Verantwortung. Für mich heißt das: Die KI darf den Zusammenhang vorschlagen und mir die halbe Arbeit abnehmen, das letzte Festlegen und Verantworten aber bleibt bei mir.</p>
+            </div>
 
             <!-- ══════════════════════════════════════════════
                  DIE VERWANDTEN — LUHMANN + FORTE
                  ══════════════════════════════════════════════ -->
 
-            <h2>Die populären Verwandten: Luhmann und Forte</h2>
+            <h2>Das Ordnungsprinzip: Luhmann und Forte</h2>
 
-            <p>DIKW, Polanyi und Weick erklären, <em>was</em> in den Schichten liegt. Luhmann und Forte erklären, <em>wie</em> man es ablegt, damit es brauchbar bleibt.</p>
+            <p>DIKW, Polanyi und Weick erklären, <em>was</em> in den Schichten liegt. Luhmann und Forte erklären, <em>wie</em> man es ablegt, damit es brauchbar bleibt. Dieses Ordnungsprinzip liegt im Schaubild quer unter allen drei Schichten.</p>
 
-            <h3>Luhmanns Zettelkasten</h3>
+            <div class="acc-group">
 
-            <p>Der Soziologe Niklas Luhmann arbeitete sein Leben lang mit einem Zettelkasten von rund 90.000 handschriftlichen Notizen und brachte daraus dutzende Bücher hervor.⁵ Sein System folgte dabei ein paar einfachen Regeln: Auf jedem Zettel stand immer nur ein einziger Gedanke mit einer eindeutigen Kennung. Statt einer starren Ordnung verband Luhmann die Zettel über Querverweise miteinander, sodass ihm ein Register jederzeit einen Einstieg bot. Das eigentlich Bemerkenswerte ist aber, wie er diesen Kasten beschrieb: als Kommunikationspartner, als eine Art zweites Gegenüber, das ihn beim Schreiben immer wieder überraschte.</p>
+                <!-- ══ Luhmann ══ -->
+                <div class="acc-item">
+                    <button class="acc-head flex items-baseline justify-between gap-4" aria-expanded="false">
+                        <span class="flex items-baseline gap-3 flex-wrap">
+                            <span class="source-serif text-[1.1rem] text-stone-900">Luhmanns Zettelkasten</span>
+                            <span class="font-mono text-[0.56rem] tracking-wider uppercase" style="color: #9a82b5;">eine Quelle</span>
+                        </span>
+                        <svg class="acc-chevron flex-shrink-0 self-center" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a82b5" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                    <div class="acc-panel">
+                        <div class="prose-inner pb-5">
+                            <p>Der Soziologe Niklas Luhmann arbeitete sein Leben lang mit einem Zettelkasten von rund 90.000 handschriftlichen Notizen und brachte daraus dutzende Bücher hervor.⁵ Sein System folgte dabei ein paar einfachen Regeln: Auf jedem Zettel stand immer nur ein einziger Gedanke mit einer eindeutigen Kennung. Statt einer starren Ordnung verband Luhmann die Zettel über Querverweise miteinander, sodass ihm ein Register jederzeit einen Einstieg bot. Das eigentlich Bemerkenswerte ist aber, wie er diesen Kasten beschrieb: als Kommunikationspartner, als eine Art zweites Gegenüber, das ihn beim Schreiben immer wieder überraschte.</p>
 
-            <p>Für die Arbeit mit KI sind daran zwei Dinge wertvoll. Das erste ist das strenge Prinzip, jede Information nur ein einziges Mal abzulegen. Weil sie dann an genau einer Stelle steht, entstehen saubere und klar abgegrenzte Wissensbausteine, die ich später gezielt in den Kontext der KI laden kann. Genau das ist mein „eine Quelle"-Prinzip. Das zweite ist Luhmanns Bild vom Kommunikationspartner. Sein Zettelkasten war im Grunde ein Denkpartner, der ihm beim Schreiben Neues entgegenhielt. Genau diese Rolle übernimmt heute eine KI, die auf meinem Vault sitzt. Die Idee ist dieselbe geblieben, nur das Medium ist ein anderes.</p>
+                            <p>Für die Arbeit mit KI sind daran zwei Dinge wertvoll. Das erste ist das strenge Prinzip, jede Information nur ein einziges Mal abzulegen. Weil sie dann an genau einer Stelle steht, entstehen saubere und klar abgegrenzte Wissensbausteine, die ich später gezielt in den Kontext der KI laden kann. Genau das ist mein „eine Quelle"-Prinzip. Das zweite ist Luhmanns Bild vom Kommunikationspartner. Sein Zettelkasten war im Grunde ein Denkpartner, der ihm beim Schreiben Neues entgegenhielt. Genau diese Rolle übernimmt heute eine KI, die auf meinem Vault sitzt. Die Idee ist dieselbe geblieben, nur das Medium ist ein anderes.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <h3>Fortes Building a Second Brain</h3>
+                <!-- ══ Forte ══ -->
+                <div class="acc-item">
+                    <button class="acc-head flex items-baseline justify-between gap-4" aria-expanded="false">
+                        <span class="flex items-baseline gap-3 flex-wrap">
+                            <span class="source-serif text-[1.1rem] text-stone-900">Fortes Second Brain</span>
+                            <span class="font-mono text-[0.56rem] tracking-wider uppercase" style="color: #9a82b5;">Wissen auslagern</span>
+                        </span>
+                        <svg class="acc-chevron flex-shrink-0 self-center" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a82b5" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                    <div class="acc-panel">
+                        <div class="prose-inner pb-5">
+                            <p>Tiago Forte hat dieselbe Grundidee in zwei handliche Werkzeuge übersetzt. Das eine ist CODE, ein Prozess in vier Schritten: sammeln, ordnen, verdichten und ausdrücken (im Original Capture, Organize, Distill, Express). Das andere ist PARA, eine Ablage, die alles danach sortiert, wie nah es an einer konkreten Handlung ist (Projects, Areas, Resources, Archives).⁶ Hinter beidem steht ein Gedanke, der älter ist als jedes Tool: Wer sein Wissen verlässlich nach außen auslagert, hält den eigenen Kopf frei für das eigentliche Denken.</p>
 
-            <p>Tiago Forte hat dieselbe Grundidee in zwei handliche Werkzeuge übersetzt. Das eine ist CODE, ein Prozess in vier Schritten: sammeln, ordnen, verdichten und ausdrücken (im Original Capture, Organize, Distill, Express). Das andere ist PARA, eine Ablage, die alles danach sortiert, wie nah es an einer konkreten Handlung ist (Projects, Areas, Resources, Archives).⁶ Hinter beidem steht ein Gedanke, der älter ist als jedes Tool: Wer sein Wissen verlässlich nach außen auslagert, hält den eigenen Kopf frei für das eigentliche Denken.</p>
+                            <p>Mein Vault ist im Grunde genau so ein zweites Gehirn. Der eigentliche Unterschied ist nur, dass nicht mehr allein ich darin lese, sondern auch eine KI. Daraus ergibt sich eine kleine Abweichung von Forte: Er ordnet sein Wissen nach Handlungsnähe, ich dagegen nach Wissenstyp, weil die KI die einzelnen Schichten dann gezielter laden kann. Die beiden Ansätze sind eng verwandt, aber eben nicht deckungsgleich.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <p>Mein Vault ist im Grunde genau so ein zweites Gehirn. Der eigentliche Unterschied ist nur, dass nicht mehr allein ich darin lese, sondern auch eine KI. Daraus ergibt sich eine kleine Abweichung von Forte: Er ordnet sein Wissen nach Handlungsnähe, ich dagegen nach Wissenstyp, weil die KI die einzelnen Schichten dann gezielter laden kann. Die beiden Ansätze sind eng verwandt, aber eben nicht deckungsgleich.</p>
+            </div>
 
             <!-- ══════════════════════════════════════════════
                  DER RAHMEN — ANTHROPIC
@@ -316,16 +406,36 @@
 
             <h2>Der Rahmen: Anthropics Context Engineering</h2>
 
-            <p><span class="lead-in">Das Konzept</span><br>
-            Anthropic beschreibt Context Engineering als Nachfolger des Prompt Engineering.⁴ Nicht die Formulierung entscheidet, sondern was im Kontextfenster steht, dem Arbeitsgedächtnis des Modells. Dieses Fenster ist endlich und hat abnehmenden Grenznutzen: je voller, desto eher übersieht das Modell Teile davon, ein Effekt namens Context Rot.</p>
+            <p>Der Rahmen ist kein viertes Stockwerk an Wissen, sondern liegt im Schaubild oben um alle drei Schichten herum. Er steuert, wie die KI mit ihnen umgeht.</p>
 
-            <p><span class="lead-in">Der Ansatz</span><br>
-            Das Ziel ist deshalb, dem Modell nicht möglichst viel mitzugeben, sondern möglichst das Richtige. Statt alles vorab in den Chat zu kippen, lädt man gezielt genau das, was die aktuelle Aufgabe gerade braucht, und bewahrt die dauerhaften Vorgaben an einem festen Ort außerhalb des laufenden Gesprächs auf.</p>
+            <div class="acc-group">
 
-            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
-            Das ist die Ebene, die aus den drei Schichten erst ein echtes Steuerungswerkzeug macht. Denn eine KI hat nicht ein Gedächtnis, sondern gleich drei, die sehr unterschiedlich funktionieren. Da ist zuerst das Kontextfenster, ihr Arbeitsgedächtnis. Es hält nur das, was gerade im Gespräch steht, und genau hier kann ich pro Aufgabe direkt bestimmen, was hineinkommt. Dann gibt es die Memory-Dateien als eine Art Langzeitgedächtnis, das meine festen Vorgaben über alle Sitzungen hinweg behält. Und schließlich das antrainierte Wissen im Modell selbst, eine Art Allgemeinbildung, auf die ich keinen direkten Zugriff habe und die nur als Rückfallebene dient.</p>
+                <!-- ══ Anthropic ══ -->
+                <div class="acc-item">
+                    <button class="acc-head flex items-baseline justify-between gap-4" aria-expanded="false">
+                        <span class="flex items-baseline gap-3 flex-wrap">
+                            <span class="source-serif text-[1.1rem] text-stone-900">System-Rahmen</span>
+                            <span class="font-mono text-[0.56rem] tracking-wider uppercase" style="color: #9a82b5;">Anthropic, Context Engineering</span>
+                        </span>
+                        <svg class="acc-chevron flex-shrink-0 self-center" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a82b5" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </button>
+                    <div class="acc-panel">
+                        <div class="prose-inner pb-5">
+                            <p><span class="lead-in">Das Konzept</span><br>
+                            Anthropic beschreibt Context Engineering als Nachfolger des Prompt Engineering.⁴ Nicht die Formulierung entscheidet, sondern was im Kontextfenster steht, dem Arbeitsgedächtnis des Modells. Dieses Fenster ist endlich und hat abnehmenden Grenznutzen: je voller, desto eher übersieht das Modell Teile davon, ein Effekt namens Context Rot.</p>
 
-            <p>Mein Modell ist die Brücke zwischen diesen drei Speichern. Pro Aufgabe schiebe ich gezielt die passende Schicht in das Arbeitsgedächtnis. Den Rahmen dagegen schreibe ich nur ein einziges Mal, damit er sich danach von selbst in das Langzeitgedächtnis lädt. Auf diese Weise rückt die KI aus der Rolle der erfindenden Erstquelle in die einer aufmerksamen Kritikerin, die meine Vorarbeit schärft, statt sie zu ersetzen.</p>
+                            <p><span class="lead-in">Der Ansatz</span><br>
+                            Das Ziel ist deshalb, dem Modell nicht möglichst viel mitzugeben, sondern möglichst das Richtige. Statt alles vorab in den Chat zu kippen, lädt man gezielt genau das, was die aktuelle Aufgabe gerade braucht, und bewahrt die dauerhaften Vorgaben an einem festen Ort außerhalb des laufenden Gesprächs auf.</p>
+
+                            <p><span class="lead-in">Für die Arbeit mit KI</span><br>
+                            Das ist die Ebene, die aus den drei Schichten erst ein echtes Steuerungswerkzeug macht. Denn eine KI hat nicht ein Gedächtnis, sondern gleich drei, die sehr unterschiedlich funktionieren. Da ist zuerst das Kontextfenster, ihr Arbeitsgedächtnis. Es hält nur das, was gerade im Gespräch steht, und genau hier kann ich pro Aufgabe direkt bestimmen, was hineinkommt. Dann gibt es die Memory-Dateien als eine Art Langzeitgedächtnis, das meine festen Vorgaben über alle Sitzungen hinweg behält. Und schließlich das antrainierte Wissen im Modell selbst, eine Art Allgemeinbildung, auf die ich keinen direkten Zugriff habe und die nur als Rückfallebene dient.</p>
+
+                            <p>Mein Modell ist die Brücke zwischen diesen drei Speichern. Pro Aufgabe schiebe ich gezielt die passende Schicht in das Arbeitsgedächtnis. Den Rahmen dagegen schreibe ich nur ein einziges Mal, damit er sich danach von selbst in das Langzeitgedächtnis lädt. Auf diese Weise rückt die KI aus der Rolle der erfindenden Erstquelle in die einer aufmerksamen Kritikerin, die meine Vorarbeit schärft, statt sie zu ersetzen.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
             <!-- ══════════════════════════════════════════════
                  WAS ICH VERÄNDERT HABE
@@ -424,7 +534,7 @@
                 <span class="text-[0.72rem] text-stone-400">&middot; 9 min read</span>
             </div>
             <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
-                What DIKW, Polanyi and Weick know about working with AI
+                My AI knowledge base rests on established models of knowledge theory
             </h1>
         </header>
 
@@ -653,6 +763,31 @@ function applyLanguage(lang) {
 }
 function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
 applyLanguage(getLang());
+
+// Modell-Accordion: single-open je Gruppe, alle Panels initial zu, Höhe beim Klick gemessen
+(function initAccordions() {
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.acc-group'));
+    groups.forEach(function (root) {
+        var items = Array.prototype.slice.call(root.querySelectorAll('.acc-item'));
+        function panelOf(it) { return it.querySelector('.acc-panel'); }
+        function toggle(it) {
+            var willOpen = !it.classList.contains('open');
+            items.forEach(function (other) {
+                other.classList.remove('open');
+                panelOf(other).style.maxHeight = null;
+                other.querySelector('.acc-head').setAttribute('aria-expanded', 'false');
+            });
+            if (willOpen) {
+                it.classList.add('open');
+                panelOf(it).style.maxHeight = panelOf(it).scrollHeight + 'px';
+                it.querySelector('.acc-head').setAttribute('aria-expanded', 'true');
+            }
+        }
+        items.forEach(function (it) {
+            it.querySelector('.acc-head').addEventListener('click', function () { toggle(it); });
+        });
+    });
+})();
 </script>
 
 </body>
