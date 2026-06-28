@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=1280, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -309,6 +309,64 @@
       border-top: 1px solid #3F3F46; white-space: pre-line;
     }
     body.notes .note { display: block; }
+
+    /* ════════════════════════════════════════════════════════════
+       MOBIL — greift nur < 760px. Desktop bleibt unverändert.
+       Slides werden vom fixen 100vh-Canvas auf normalen Fluss
+       umgestellt, damit man scrollen und weiterklicken kann.
+       ════════════════════════════════════════════════════════════ */
+    @media (max-width: 760px) {
+      html, body { height: auto; }
+
+      #deck { position: static; width: 100%; height: auto; min-height: 100dvh; overflow: visible; }
+
+      /* aktive Folie in den Fluss holen → scrollbar statt abgeschnitten */
+      .slide {
+        position: static; inset: auto;
+        min-height: 100dvh;
+        padding: 4.4rem 1.25rem 5.5rem !important;
+        justify-content: flex-start;
+      }
+      .slide.dark { justify-content: center; }
+
+      /* Typo etwas kompakter */
+      h1 { font-size: 2.05rem; }
+      h2 { font-size: 1.55rem; margin-bottom: 1.3rem; }
+      h3 { font-size: 1.1rem; }
+      p  { font-size: 1.05rem; }
+      .statement { font-size: 1.7rem; line-height: 1.3; max-width: 100% !important; }
+      .sub { font-size: 1.02rem; }
+      .eyebrow { margin-bottom: 1.2rem; }
+
+      /* alle mehrspaltigen Layouts → eine Spalte, Pfeile drehen */
+      .row-2, .row-3 { grid-template-columns: 1fr; }
+      .cards-3, .cards-4 { grid-template-columns: 1fr; }
+      .flow, .flow-3 { grid-template-columns: 1fr; }
+      .flow-arrow { transform: rotate(90deg); padding: 0.4rem 0; }
+      .synthflow { grid-template-columns: 1fr; gap: 0.6rem; }
+      .synth-arrow { transform: rotate(90deg); align-self: start; }
+      .cmap-row { grid-template-columns: 1fr; gap: 0.6rem; }
+      .cmap-arrow { transform: rotate(90deg); justify-self: start; }
+      .flow-box { min-height: auto; }
+
+      /* Ampel-Tabelle: 3 Spalten behalten (Bedeutung), aber kompakter */
+      th { font-size: 0.56rem; padding: 0.4rem 0.35rem; }
+      td { font-size: 0.72rem; padding: 0.45rem 0.35rem; line-height: 1.35; overflow-wrap: anywhere; }
+
+      .legend .col-label { white-space: normal; }
+
+      /* Demo-Block darf höher werden */
+      .demo { max-height: none; padding: 1.6rem; }
+
+      /* Navigation: größere Touch-Ziele, besser sichtbar */
+      #nav { bottom: 0.7rem; right: 0.7rem; gap: 0.5rem; }
+      #nav button {
+        padding: 0.5rem 1.05rem; font-size: 1.3rem; line-height: 1;
+        background: rgba(255,255,255,0.92); border-color: var(--lilac-br);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+      }
+      #ctr { font-size: 0.62rem; }
+    }
   </style>
 </head>
 <body>
@@ -903,10 +961,22 @@ Zum Schluss eine kurze persönliche Brücke: Eure Lehrende ist über einen Blog-
     slides[i].classList.add('on');
     document.getElementById('ctr').textContent = `${i + 1} / ${slides.length}`;
     document.getElementById('bar').style.width = `${((i + 1) / slides.length) * 100}%`;
+    window.scrollTo(0, 0); // mobil: neue Folie oben starten
     renderPresenter();
   }
 
   function go(d) { show(i + d); }
+
+  // Mobil: horizontale Wischgeste blättert; vertikales Scrollen bleibt frei
+  let tsx = 0, tsy = 0;
+  document.addEventListener('touchstart', e => {
+    const t = e.changedTouches[0]; tsx = t.clientX; tsy = t.clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const t = e.changedTouches[0];
+    const dx = t.clientX - tsx, dy = t.clientY - tsy;
+    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.8) go(dx < 0 ? 1 : -1);
+  }, { passive: true });
 
   document.addEventListener('keydown', e => {
     if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }

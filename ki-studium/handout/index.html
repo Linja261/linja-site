@@ -223,10 +223,13 @@
       .flow, .vs { grid-template-columns: 1fr; }
       .flow-arrow { transform: rotate(90deg); padding: 0.2rem 0; }
       .danger-grid, .mems { grid-template-columns: 1fr; }
-      .layer { grid-template-columns: 5.5rem 1fr; }
+      .layer { grid-template-columns: 6.7rem 1fr; }
       .layer .sl { display: none; }
-      table, thead, tbody, th, td, tr { display: block; width: 100%; }
-      th { margin-top: 0.6rem; }
+      /* Ampel-Tabelle: 3 Spalten behalten (Kategorie-Zuordnung), kompakter.
+         Kein display:block-Stack — der koppelt die Überschriften ab und
+         vermischt die Zellen unleserlich. */
+      th { font-size: 0.52rem; padding: 0.4rem 0.35rem; }
+      td { font-size: 0.68rem; padding: 0.4rem 0.35rem; overflow-wrap: anywhere; }
     }
 
     /* ════════ DRUCK — wenig Farbe, 2× A4 ════════ */
