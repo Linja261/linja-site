@@ -358,9 +358,15 @@
         background: var(--midnight); color: #fff;
         font-family: var(--serif); font-size: 0.85rem; font-weight: 500;
       }
+      /* Pfeil NICHT rotieren: das spaltenbreite Element kippt sonst hochkant
+         und das Zeichen „hängt in der Luft". Stattdessen Original-→ ausblenden
+         und ein sauberes ↓ mittig setzen. */
       .synth-arrow {
-        transform: rotate(90deg); align-self: center;
-        font-size: 1.9rem; padding: 0.1rem 0;
+        transform: none; align-self: stretch;
+        font-size: 0; text-align: center; padding: 0.15rem 0;
+      }
+      .synth-arrow::after {
+        content: "↓"; font-size: 1.9rem; color: var(--heidelbeer);
       }
       .cmap-row { grid-template-columns: 1fr; gap: 0.6rem; }
       .cmap-arrow { transform: rotate(90deg); justify-self: start; }
