@@ -343,8 +343,25 @@
       .cards-3, .cards-4 { grid-template-columns: 1fr; }
       .flow, .flow-3 { grid-template-columns: 1fr; }
       .flow-arrow { transform: rotate(90deg); padding: 0.4rem 0; }
-      .synthflow { grid-template-columns: 1fr; gap: 0.6rem; }
-      .synth-arrow { transform: rotate(90deg); align-self: start; }
+      /* Synthflow: gerichtete Pipeline bewahren — die 3 Stufen als
+         nummerierte Köpfe (Setup → Gedächtnis → Ergebnis) statt loser Liste */
+      .synthflow { grid-template-columns: 1fr; gap: 0.4rem; counter-reset: stage; }
+      .synth-cap {
+        display: flex; align-items: center; gap: 0.55rem;
+        font-size: 0.72rem; font-weight: 700; color: var(--midnight);
+        margin-bottom: 0.7rem;
+      }
+      .synth-cap::before {
+        counter-increment: stage; content: counter(stage);
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 1.5rem; height: 1.5rem; border-radius: 50%; flex-shrink: 0;
+        background: var(--midnight); color: #fff;
+        font-family: var(--serif); font-size: 0.85rem; font-weight: 500;
+      }
+      .synth-arrow {
+        transform: rotate(90deg); align-self: center;
+        font-size: 1.9rem; padding: 0.1rem 0;
+      }
       .cmap-row { grid-template-columns: 1fr; gap: 0.6rem; }
       .cmap-arrow { transform: rotate(90deg); justify-self: start; }
       .flow-box { min-height: auto; }
