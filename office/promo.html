@@ -56,7 +56,7 @@
             <!-- Counter -->
             <div class="grid grid-cols-4 gap-2 mb-6">
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-xl text-stone-900" id="count-substack-open">8</div>
+                    <div class="font-mono text-xl text-stone-900" id="count-substack-open">10</div>
                     <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Substack offen</div>
                 </div>
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
@@ -64,7 +64,7 @@
                     <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Substack geteilt</div>
                 </div>
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-xl text-stone-900" id="count-linkedin-open">8</div>
+                    <div class="font-mono text-xl text-stone-900" id="count-linkedin-open">10</div>
                     <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">LinkedIn offen</div>
                 </div>
                 <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
@@ -80,12 +80,156 @@
             <!-- Queue -->
             <div id="queue-list" class="space-y-6">
 
+                <!-- ========= ENTRY: context-engineering-geschichtetes-wissen (Hero, Vorlesungs-Woche: Schichten x KI-Gedaechtnisse) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="context-engineering-geschichtetes-wissen">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Wissensarbeit</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">30.06.2026</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Drei Schichten, drei Gedächtnisse: wie ich die KI gezielt steuere</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/context-engineering-geschichtetes-wissen.html" target="_blank" class="hover:text-violet-400">linja.me/blog/context-engineering-geschichtetes-wissen &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Über KI wird oft geredet, als entscheide die Formulierung der Frage über die Qualität der Antwort. Mein Hebel liegt woanders: in dem, was die KI als Arbeitsgrundlage bekommt. Diesen Kontext ordne ich in drei Schichten. Knowledge ist Fachwissen, das unabhängig von mir existiert. Identity ist meine Rolle, meine Projekte und meine Analysen. Sensemaking ist das Deuten und Schlussfolgern.
+
+Der eigentliche Punkt ist aber, wozu diese Ordnung dient. Eine KI hat nicht ein Gedächtnis, sondern drei. Das Kontextfenster ist das Arbeitsgedächtnis der laufenden Aufgabe und lässt sich direkt füllen. Die Memory-Dateien sind ein Langzeitgedächtnis über alle Sessions und lassen sich dauerhaft formen. Das antrainierte Wissen ist nur Rückfallebene und entzieht sich der Steuerung. Zwei dieser Speicher steuere ich aktiv, den dritten nicht.
+
+Das Modell ist die Brücke zwischen den Schichten und diesen Speichern. Pro Aufgabe gebe ich gezielt die passende Schicht ins Arbeitsgedächtnis, statt alles auf einmal. So verschiebt sich die KI von der Erstquelle, die erfindet, zur Kritikerin, die meine Vorarbeit schärft. Genau diese Kombination aus Wissensschichten und KI-Gedächtnissen mache ich im Artikel sichtbar: linja.me/blog/context-engineering-geschichtetes-wissen</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="26" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Am Samstag habe ich an der Hochschule einen Vortrag über den bewussten Umgang mit KI im Studium gehalten. Der Kern war eine unbequeme Einsicht.
+
+Nicht wie man die KI fragt entscheidet über die Qualität des Ergebnisses, sondern was man ihr als Arbeitsgrundlage gibt. Und guten Kontext kann nur geben, wer das Thema selbst durchdrungen hat.
+
+Dahinter steht ein Modell, das ich täglich nutze. Drei Wissensschichten in einem System-Rahmen: Knowledge (Fachwissen, das unabhängig von mir existiert), Identity (meine Rolle, Projekte, Analysen) und Sensemaking (das Deuten und Schlussfolgern).
+
+Der eigentliche Hebel ist die Verbindung zu den Gedächtnissen der KI. Eine KI hat nämlich nicht eines, sondern drei. Das Kontextfenster als Arbeitsgedächtnis der Aufgabe, das ich direkt fülle. Die Memory-Dateien als Langzeitgedächtnis über alle Sessions, das ich dauerhaft forme. Das antrainierte Wissen als Rückfallebene, die ich nicht steuere. Zwei davon bediene ich aktiv, das dritte nicht.
+
+Pro Aufgabe schiebe ich gezielt die passende Schicht ins Arbeitsgedächtnis, statt alles auf einmal hineinzukippen. So wird die KI von der Erstquelle, die erfindet, zur Kritikerin, die meine Vorarbeit schärft. Das Ergebnis ist ein Output, den ich verantworten und weiterverwenden kann.
+
+Wie die drei Schichten und die drei Gedächtnisse genau zusammenspielen, habe ich hier aufgeschrieben:
+linja.me/blog/context-engineering-geschichtetes-wissen
+
+#KI #Wissensarbeit #ProductManagement</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: denkmodelle-hinter-ki-kontext (Deep-Dive: sechs Modelle erklaert) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="denkmodelle-hinter-ki-kontext">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Wissensarbeit</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">30.06.2026</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Meine KI-Wissensbasis fußt auf etablierten Modellen der Wissenstheorie</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/denkmodelle-hinter-ki-kontext.html" target="_blank" class="hover:text-violet-400">linja.me/blog/denkmodelle-hinter-ki-kontext &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="14" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Guter Kontext macht die Arbeit mit KI verlässlicher. Aber was heißt guter Kontext eigentlich, und warum funktioniert eine geschichtete Wissensbasis? Die Antwort steht nicht in der KI-Literatur, sondern in sechs etablierten Modellen aus Wissenstheorie und Wissensmanagement.
+
+Die DIKW-Pyramide zeigt, wie aus Daten über Information und Wissen am Ende Urteil wird, und dass jede Stufe menschliche Arbeit verlangt. Polanyis implizites Wissen erklärt, warum die KI nur das nutzen kann, was ich tatsächlich in Worte fasse. Weicks Sensemaking beschreibt das Deuten als aktive Leistung, die der Plausibilität folgt, nicht automatisch der Wahrheit. Luhmanns Zettelkasten und Fortes Second Brain liefern das Ordnungsprinzip, jede Information genau einmal an einer Stelle. Anthropics Context Engineering bildet den Rahmen.
+
+Das Bemerkenswerte: Die alten Theorien und das junge KI-Feld landen unabhängig voneinander bei fast derselben Ordnung. Jedes Modell einzeln erklärt, was es für die tägliche Arbeit mit KI bedeutet, im Artikel: linja.me/blog/denkmodelle-hinter-ki-kontext</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="24" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Mein Setup für die Arbeit mit KI hat lange einfach funktioniert. Erst als ich erklären wollte, warum, bin ich auf sechs Modelle gestoßen, die alle älter sind als das KI-Zeitalter.
+
+Guter Kontext ist strukturiertes Wissen. Und wie man Wissen ordnet, beschäftigt das Wissensmanagement seit Jahrzehnten:
+
+Die DIKW-Pyramide trennt Daten, Information, Wissen und Urteil. Jede Stufe entsteht erst durch menschliche Arbeit, nicht von allein.
+
+Polanyis implizites Wissen erinnert daran, dass die KI nur nutzen kann, was ich aufschreibe. Mein Bauchgefühl bekommt sie nicht.
+
+Weicks Sensemaking beschreibt Deutung als aktive Leistung, die der Plausibilität folgt. Genau das ist auch die Schwäche der KI, sie erzeugt das Plausible, nicht zwingend das Wahre.
+
+Luhmanns Zettelkasten und Fortes Second Brain liefern das Prinzip, jede Information genau einmal abzulegen.
+
+Anthropics Context Engineering bildet den Rahmen darüber.
+
+Das Spannende: Die alten Wissenstheorien und das junge KI-Feld landen unabhängig voneinander bei fast derselben Ordnung. Ein starkes Indiz, dass die Ordnung trägt.
+
+Jedes Modell einzeln erklärt, mit der Frage, was es konkret für die Arbeit mit KI bedeutet, steht hier:
+linja.me/blog/denkmodelle-hinter-ki-kontext
+
+#KI #Wissensmanagement #ProductManagement</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
                 <!-- ========= ENTRY: ki-aufdecker-statt-ersatz (Fokus: Muster statt viraler Zahl - Subtraktion vs Addition, 3 Schritte) ========= -->
                 <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="ki-aufdecker-statt-ersatz">
                     <div class="mb-4">
                         <div class="flex items-center gap-2 mb-1.5 flex-wrap">
                             <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Einordnung</span>
-                            <span class="font-mono text-[0.6rem] text-stone-400">02.07.2026</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">06.07.2026</span>
                         </div>
                         <h2 class="source-serif text-base text-stone-900 leading-snug">KI als Aufdecker, nicht als Ersatz</h2>
                         <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/ki-aufdecker-statt-ersatz.html" target="_blank" class="hover:text-violet-400">linja.me/blog/ki-aufdecker-statt-ersatz &rarr;</a></p>
@@ -97,7 +241,13 @@
                             <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
                             <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
                         </div>
-                        <textarea readonly rows="5" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Die IKEA-Story ist als Milliarden-Zahl durch die Feeds gelaufen, fast immer als Applaus. Der eigentliche Hebel ist die Umkehrung dahinter: Automatisierung deckt nicht auf, wen man ersetzen kann, sondern wo menschlicher Wert wirklich liegt. Wie sich diese Logik in drei nachbaubaren Schritten heben lässt, steht im Artikel: linja.me/blog/ki-aufdecker-statt-ersatz</textarea>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Die IKEA-Zahl ist durch die Feeds gelaufen: 8.500 Servicekräfte umgeschult, 1,3 Milliarden Euro Umsatz. Meist als Applaus. Interessanter als die Zahl ist die Logik dahinter.
+
+IKEA führte den Chatbot Billie ein, der rund 47 Prozent der Serviceanfragen löste. Der naheliegende Reflex wäre gewesen, die Abteilung zu verkleinern und die Einsparung zu melden. Stattdessen stellte das Unternehmen eine andere Frage: nicht wen die KI ersetzt, sondern welcher Wert brachliegt, wenn die Routine wegfällt. Die umgeschulten Kräfte wurden zu Beraterinnen für Wohnraumgestaltung, ein Kanal, der über Jahre trägt.
+
+Das ist der Unterschied zwischen zwei Logiken. Subtraktion entfernt Kosten und liefert eine Zeile im Quartalsbericht. Addition nutzt dieselbe Automatisierung, um Kapazität für etwas Neues freizusetzen. Der Unterschied liegt nicht in der Technik, sondern in der Frage, die man vor der Technik stellt. Wer Tätigkeiten zuerst sortiert in automatisierbar, menschlich-nicht-skalierbar und freiwerdende Kompetenz, entscheidet über Stellen zuletzt statt zuerst.
+
+Die ganze Einordnung, inklusive kritischem Blick auf die viel zitierte Milliarden-Zahl, steht im Artikel: linja.me/blog/ki-aufdecker-statt-ersatz</textarea>
                         <div class="channel-actions flex gap-2 mt-2">
                             <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
                                 <span class="copy-label">Copy</span>
