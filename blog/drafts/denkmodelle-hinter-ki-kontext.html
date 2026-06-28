@@ -320,10 +320,12 @@
             Anthropic beschreibt Context Engineering als Nachfolger des Prompt Engineering.⁴ Nicht die Formulierung entscheidet, sondern was im Kontextfenster steht, dem Arbeitsgedächtnis des Modells. Dieses Fenster ist endlich und hat abnehmenden Grenznutzen: je voller, desto eher übersieht das Modell Teile davon, ein Effekt namens Context Rot.</p>
 
             <p><span class="lead-in">Der Ansatz</span><br>
-            Das Ziel ist das kleinste Set hochwertiger Token. Statt alles vorab hineinzukippen, lädt man gezielt das, was die Aufgabe braucht, und hält dauerhafte Vorgaben in einer Memory außerhalb des Fensters.</p>
+            Das Ziel ist deshalb, dem Modell nicht möglichst viel mitzugeben, sondern möglichst das Richtige. Statt alles vorab in den Chat zu kippen, lädt man gezielt genau das, was die aktuelle Aufgabe gerade braucht, und bewahrt die dauerhaften Vorgaben an einem festen Ort außerhalb des laufenden Gesprächs auf.</p>
 
             <p><span class="lead-in">Für die Arbeit mit KI</span><br>
-            Das ist der System-Rahmen und er macht aus der Taxonomie ein Steuerungswerkzeug. Eine KI hat nämlich nicht ein Gedächtnis, sondern drei: das Kontextfenster als Arbeitsgedächtnis (pro Aufgabe, direkt steuerbar), die Memory-Dateien als Langzeitgedächtnis (dauerhaft, über Sessions), die Modellgewichte als semantisches Gedächtnis (antrainiert, nicht steuerbar, nur Fallback). Pro Aufgabe wandert gezielt die passende Schicht ins Arbeitsgedächtnis. Der Rahmen wird einmal geschrieben und lädt ins Langzeitgedächtnis. So verschiebt sich die KI von der erfindenden Erstquelle zur Kritikerin meiner Vorarbeit.</p>
+            Das ist die Ebene, die aus den drei Schichten erst ein echtes Steuerungswerkzeug macht. Denn eine KI hat nicht ein Gedächtnis, sondern gleich drei, die sehr unterschiedlich funktionieren. Da ist zuerst das Kontextfenster, ihr Arbeitsgedächtnis. Es hält nur das, was gerade im Gespräch steht, und genau hier kann ich pro Aufgabe direkt bestimmen, was hineinkommt. Dann gibt es die Memory-Dateien als eine Art Langzeitgedächtnis, das meine festen Vorgaben über alle Sitzungen hinweg behält. Und schließlich das antrainierte Wissen im Modell selbst, eine Art Allgemeinbildung, auf die ich keinen direkten Zugriff habe und die nur als Rückfallebene dient.</p>
+
+            <p>Mein Modell ist die Brücke zwischen diesen drei Speichern. Pro Aufgabe schiebe ich gezielt die passende Schicht in das Arbeitsgedächtnis. Den Rahmen dagegen schreibe ich nur ein einziges Mal, damit er sich danach von selbst in das Langzeitgedächtnis lädt. Auf diese Weise rückt die KI aus der Rolle der erfindenden Erstquelle in die einer aufmerksamen Kritikerin, die meine Vorarbeit schärft, statt sie zu ersetzen.</p>
 
             <!-- ══════════════════════════════════════════════
                  WAS ICH VERÄNDERT HABE
