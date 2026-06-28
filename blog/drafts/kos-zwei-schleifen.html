@@ -1,0 +1,329 @@
+<!--
+  linja.me/blog/drafts/kos-zwei-schleifen – Memory allein reicht nicht (zwei Lernschleifen)
+  Schema: artikel_baukasten.md v2 (5 fixe Blöcke + Quellen + Glossar)
+  Bilingual: DE + EN
+  Status: ENTWURF (aus blog/plan-knowledgeos-session-retro.md, 2026-06-28)
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Memory allein reicht nicht. Zwei Lernschleifen. – Linja Scharffetter</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Ein persönliches Wissenssystem speichert, was ich weiß und wie ich arbeite. Das Zweite landet selten im Speicher. Warum meine KI zwei Lernschleifen braucht: eine wöchentliche für Bewusstes, eine monatliche für das Unausgesprochene.">
+    <meta property="og:title" content="Memory allein reicht nicht. Zwei Lernschleifen.">
+    <meta property="og:description" content="Deklaratives und prozedurales Wissen, explizite und implizite Signale. Wie ich mein Wissenssystem so baue, dass es lernt, wie ich arbeite, nicht nur was ich weiß.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter','system-ui','-apple-system','sans-serif'], serif: ['Source Serif 4','Georgia','serif'], mono: ['Geist Mono','ui-monospace','SFMono-Regular','monospace'] }, colors: { violet: { 50:'#f6f4f9',100:'#ece8f2',200:'#d9d1e5',300:'#9a82b5',400:'#7b6ba5',500:'#6b5691',700:'#463863' }, amber: { 50:'#fdf5f0',100:'#fae8de',200:'#ecb08e',400:'#c27a52',500:'#D4714E',600:'#a86340',700:'#73402e' }, emerald: { 50:'#f2f7f4',100:'#e0ede6',300:'#96bfaa',500:'#5b8a72',600:'#476f5b',700:'#31493d' } } } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+        .prose h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.4rem; color: #1A1A1A; margin-top: 4rem; margin-bottom: 1rem; }
+        .prose h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: 1.15rem; color: #1A1A1A; margin-top: 2.75rem; margin-bottom: 0.75rem; }
+        .prose p { margin-bottom: 2rem; line-height: 1.75; }
+        .prose strong { color: #1A1A1A; font-weight: 600; }
+        .prose em { font-style: italic; }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="../../components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- Draft-Banner -->
+        <div class="mt-24 mb-4 py-3 px-4 rounded-lg flex items-center gap-3" style="background: #fae8de; border-left: 3px solid #D4714E;">
+            <span class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #73402e;">Entwurf</span>
+            <span class="text-[0.82rem]" style="color: #73402e;">Noch nicht veröffentlicht. Wartet auf den ersten echten Retro-Lauf mit Beispielen.</span>
+        </div>
+
+        <!-- ARTIKEL-HEADER -->
+        <header class="pt-4 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Wissensarbeit</span>
+                <span class="text-[0.72rem] text-stone-400">28. Juni 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Memory allein reicht nicht. Mein Wissenssystem braucht zwei Lernschleifen.
+            </h1>
+        </header>
+
+        <!-- 90-SEK-AUDIO-PILL -->
+        <div class="reader-audio-slot my-4" data-audio-src="../audio/kos-zwei-schleifen.mp3"></div>
+
+        <!-- TL;DR -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Ein persönliches Wissenssystem speichert zwei Dinge: was ich weiß und wie ich arbeite. Das Erste landet leicht im Speicher, über Notizen und Regeln. Das Zweite zeigt sich nur im Tun und bleibt deshalb meist unsichtbar. Wer es nicht regelmäßig zurückliest, trainiert seine KI auf der halben Datenmenge. Die Lösung sind zwei Lernschleifen: eine wöchentliche für das bewusst Gelernte, eine monatliche, in der die KI alte Sessions nach Mustern durchsucht, die ich nie ausgesprochen habe.
+            </p>
+        </div>
+
+        <!-- ARTIKEL-CONTENT -->
+        <article class="prose pb-12">
+
+            <!-- BLOCK 1: KERNBOTSCHAFT + PROBLEM -->
+            <p>Vor drei Monaten habe ich angefangen, meine Zusammenarbeit mit einer KI systematisch zu trainieren, über gespeicherte Fakten, Regeln und kleine Workflows. Es funktioniert gut. Aber es hat eine blinde Stelle. Alles, was im Speicher steht, musste ich vorher aussprechen. Die Dinge, die ich nie ausspreche, wie ich Sätze anfange, welche Formate ich kommentarlos wegklicke, wann ich knapp werde, tauchen dort nie auf. Also trainiert sich die Assistenz auf der halben Datenmenge. Ein persönliches Wissenssystem speichert nämlich zwei verschiedene Dinge: was ich weiß und wie ich arbeite. Das Erste ist einfach. Das Zweite ist die eigentliche Arbeit.</p>
+
+            <!-- BLOCK 2: FUNDIERUNG -->
+            <h2>Zwei Sorten Wissen, nur eine landet im Speicher</h2>
+
+            <h3>Deklaratives und prozedurales Wissen</h3>
+
+            <p>Die Kognitionswissenschaft trennt zwei Arten von Wissen. Deklaratives Wissen sind Fakten und Regeln, das "Ich weiß, dass". Prozedurales Wissen sind Fertigkeiten und Gewohnheiten, das "Ich weiß, wie". Cohen und Squire zeigten das 1980 an Patienten, die eine neue Fertigkeit behielten, sich aber nicht erinnern konnten, sie je gelernt zu haben. Knowledge-Management-Systeme adressieren fast nur das Deklarative: Notizen, Karteikarten, Zweitgehirne. Das Prozedurale wird ausgelassen, weil es sich schlecht formalisieren lässt. Für die Zusammenarbeit mit einer KI ist es aber die wichtigere Hälfte. Die KI muss nicht nur wissen, was ich weiß. Sie muss wissen, wie ich arbeite.</p>
+
+            <h3>Explizite und implizite Signale</h3>
+
+            <p>Explizite Signale sind leicht. "Keine Emojis", "Deutsch im Chat", "kurze Anweisungen sind normal". Das landet im Speicher und funktioniert. Implizite Signale sind schwerer zu fassen: wiederkehrende Formulierungen, Abbruchsignale, akzeptierte aber nie gelobte Formate, Muster in der Tageszeit. Dazwischen liegt die Bestätigung ohne Worte. Wenn ich drei Sessions lang keinen Einspruch gegen einen Ansatz erhebe, ist das ein Signal. Aber es entsteht kein Eintrag daraus. Michael Polanyi nannte das die stille Dimension des Wissens: Wir wissen mehr, als wir sagen können. Genau dieser Teil bleibt im Speicher leer.</p>
+
+            <h3>Die zwei Schleifen, die ein lebendes System braucht</h3>
+
+            <p>Ein Wissenssystem, das beide Hälften abdeckt, braucht zwei Lernschleifen. Die <strong>explizite Schleife</strong> läuft wöchentlich. Im Freitags-Review schaue ich auf beobachtbare Fähigkeiten und Methoden: Was habe ich diese Woche gelernt, was gehört ins Profil. Das ist der bewusste Akt des Weiterlernens. Die <strong>implizite Schleife</strong> läuft monatlich. Die KI liest alte Sessions zurück und extrahiert Muster, die ich selbst nicht gesehen habe: Frust-Signale, Übergänge im Arbeitsfluss, wiederkehrende Reibungspunkte. Das ist der Blick von außen auf mich. Donald Schön nannte diesen rückblickenden Modus die Reflexion über das eigene Handeln. Beide Schleifen zusammen decken beide Wissensarten ab, deklarativ und prozedural. Das System lernt, wie ich denke und wie ich arbeite.</p>
+
+            <!-- KERNERKENNTNIS-QUOTE -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Eine KI, die nur weiß, was ich ihr gesagt habe, kennt mich nur halb. Die andere Hälfte steht in dem, was ich nie aussprach.
+                </p>
+            </div>
+
+            <!-- BLOCK 3: WAS ICH AUSPROBIERE -->
+            <h2>Was ich ausprobiere</h2>
+
+            <p><strong>Reifegrad: Experiment.</strong> Gestartet, Wirkung offen. Ich teste einen monatlichen Session-Retro. Er läuft bewusst im Morgen-Check-in, weil ich da Zeit habe und nicht unter Druck stehe. Drei Schritte:</p>
+
+            <ol>
+                <li><strong>Muster extrahieren.</strong> Ein Sub-Agent liest alte Sessions und sucht nach impliziten Signalen, die nicht im Speicher stehen.</li>
+                <li><strong>Kandidaten zeigen.</strong> Höchstens sieben Muster pro Lauf, jedes mit Beleg. Ich entscheide pro Kandidat: speichern, ergänzen oder verwerfen.</li>
+                <li><strong>Aufräumen.</strong> Sessions, die älter als 30 Tage sind, wandern ins Archiv. Die Liste bleibt übersichtlich.</li>
+            </ol>
+
+            <p>Ob der Workflow echte Muster findet oder nur Rauschen produziert, muss sich erst zeigen. Genau das ist der Punkt eines Experiments: Ich behaupte nicht, dass es funktioniert. Ich baue es so, dass ich es sehe, wenn es nicht funktioniert.</p>
+
+            <!-- BLOCK 4: KRITISCHE EINORDNUNG -->
+            <h2>Kritische Einordnung</h2>
+
+            <p>Vier Vorbehalte gehören dazu. Erstens der Beobachter-Bias: Ein Agent, der nach Mustern sucht, findet welche. Ob sie echt sind, zeigt erst die Bestätigung. Deshalb die harte Regel, nur zu übernehmen, was ich selbst bestätige, niemals automatisch zu speichern. Zweitens der Survivor-Bias: Nicht jede Session ist gleich aussagekräftig. Ob das Mining sinnvoll gewichtet, bleibt offen. Drittens der Meta-Overhead: Jede Review-Schleife kostet Zeit. Wenn der Retro monatlich länger als dreißig Minuten dauert, zahlt er sich vermutlich nicht aus. Viertens die Übertragbarkeit: Das hier ist Solo-Arbeit. Im Team verschwimmen implizite Muster, weil mehrere Menschen dieselbe KI unterschiedlich prägen.</p>
+
+            <!-- BLOCK 5: WAS BLEIBT FÜR JEDEN TAG -->
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Explizit plus implizit ergibt echtes Gedächtnis.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Gespeicherte Fakten sind die halbe Miete. Die andere Hälfte steht in dem, was nie ausgesprochen wird.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Bestätigung ist auch Feedback.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Was du dreimal ohne Einwand akzeptiert hast, ist Teil deines Stils.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Archivieren ist Hygiene, kein Verwaltungsakt.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Eine volle Liste macht blind für das, was gerade zählt.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUELLEN -->
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Cohen, N. J. &amp; Squire, L. R. (1980). Preserved learning and retention of pattern-analyzing skill in amnesia: Dissociation of knowing how and knowing that. Science, 210(4466).</li>
+                    <li>Michael Polanyi (1966). The Tacit Dimension. University of Chicago Press.</li>
+                    <li>Donald A. Schön (1983). The Reflective Practitioner: How Professionals Think in Action. Basic Books.</li>
+                </ol>
+            </div>
+
+            <!-- GLOSSAR -->
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Deklaratives Wissen</span> <span class="text-stone-400">— In Worte fassbares Wissen (Fakten, Regeln).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Prozedurales Wissen</span> <span class="text-stone-400">— Wissen, das sich im Tun zeigt (Fertigkeiten, Gewohnheiten).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Stilles Wissen</span> <span class="text-stone-400">— Wissen, das wir besitzen, aber nicht vollständig artikulieren können (Polanyi).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Memory</span> <span class="text-stone-400">— Persistenter Speicher der KI für Fakten, Präferenzen und Projekte über Sessions hinweg.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Session</span> <span class="text-stone-400">— Einzelne Unterhaltung mit der KI, als Datei gespeichert.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Session-Retro</span> <span class="text-stone-400">— Monatlicher Lauf, der alte Sessions nach impliziten Mustern durchsucht.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Explizite Schleife</span> <span class="text-stone-400">— Wöchentlicher, bewusster Review der gelernten Fähigkeiten.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Implizite Schleife</span> <span class="text-stone-400">— Monatliche Mustersuche in alten Sessions durch die KI.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="index.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Entwürfe</a>
+        </div>
+
+    </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- Draft Banner -->
+        <div class="mt-24 mb-4 py-3 px-4 rounded-lg flex items-center gap-3" style="background: #fae8de; border-left: 3px solid #D4714E;">
+            <span class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #73402e;">Draft</span>
+            <span class="text-[0.82rem]" style="color: #73402e;">Not published yet. Waiting for the first real retro run with examples.</span>
+        </div>
+
+        <!-- ARTICLE HEADER -->
+        <header class="pt-4 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Knowledge Work</span>
+                <span class="text-[0.72rem] text-stone-400">June 28, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 6 min read</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Memory is not enough. My knowledge system needs two learning loops.
+            </h1>
+        </header>
+
+        <!-- TL;DR -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                A personal knowledge system stores two things: what I know and how I work. The first lands in memory easily, through notes and rules. The second only shows up in action, so it usually stays invisible. If you never read it back, you train your AI on half the data. The fix is two learning loops: a weekly one for what I consciously learned, and a monthly one where the AI mines old sessions for patterns I never put into words.
+            </p>
+        </div>
+
+        <article class="prose pb-12">
+
+            <p>Three months ago I started training my collaboration with an AI in a systematic way, through stored facts, rules, and small workflows. It works well. But it has a blind spot. Everything in memory is something I had to say out loud first. The things I never say, how I start sentences, which formats I dismiss without a word, when I get terse, never show up there. So the assistant trains on half the data. A personal knowledge system stores two different things: what I know and how I work. The first is easy. The second is the actual work.</p>
+
+            <h2>Two kinds of knowledge, only one lands in memory</h2>
+
+            <h3>Declarative and procedural knowledge</h3>
+
+            <p>Cognitive science separates two kinds of knowledge. Declarative knowledge is facts and rules, the "I know that". Procedural knowledge is skills and habits, the "I know how". Cohen and Squire showed this in 1980 with patients who retained a new skill but could not remember ever having learned it. Knowledge management systems address almost only the declarative kind: notes, flashcards, second brains. The procedural kind gets left out, because it resists formalization. For working with an AI, though, it is the more important half. The AI does not only need to know what I know. It needs to know how I work.</p>
+
+            <h3>Explicit and implicit signals</h3>
+
+            <p>Explicit signals are easy. "No emojis", "German in chat", "short instructions are normal". That lands in memory and works. Implicit signals are harder to pin down: recurring phrasings, signs that I am cutting something off, formats I accept but never praise, patterns in the time of day. Between them sits the confirmation without words. If I raise no objection to an approach across three sessions, that is a signal. But no entry comes out of it. Michael Polanyi called this the tacit dimension of knowledge: we know more than we can tell. That is exactly the part that stays empty in memory.</p>
+
+            <h3>The two loops a living system needs</h3>
+
+            <p>A knowledge system that covers both halves needs two learning loops. The <strong>explicit loop</strong> runs weekly. In the Friday review I look at observable skills and methods: what did I learn this week, what belongs in the profile. That is the conscious act of learning. The <strong>implicit loop</strong> runs monthly. The AI reads back old sessions and extracts patterns I did not see myself: signs of friction, transitions in how I work, recurring sticking points. That is the outside view of me. Donald Schön called this backward-looking mode reflection on action. Together both loops cover both kinds of knowledge, declarative and procedural. The system learns how I think and how I work.</p>
+
+            <!-- QUOTE -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    An AI that only knows what I told it knows me only halfway. The other half is in what I never said.
+                </p>
+            </div>
+
+            <h2>What I am trying out</h2>
+
+            <p><strong>Maturity: experiment.</strong> Started, effect open. I am testing a monthly session retro. It runs deliberately in the morning check-in, because that is when I have time and no pressure. Three steps:</p>
+
+            <ol>
+                <li><strong>Extract patterns.</strong> A sub-agent reads old sessions and looks for implicit signals that are not in memory.</li>
+                <li><strong>Present candidates.</strong> At most seven patterns per run, each with evidence. I decide per candidate: save, refine, or discard.</li>
+                <li><strong>Clean up.</strong> Sessions older than 30 days move to the archive. The list stays readable.</li>
+            </ol>
+
+            <p>Whether the workflow finds real patterns or just produces noise has to prove itself. That is the whole point of an experiment: I am not claiming it works. I am building it so I notice when it does not.</p>
+
+            <h2>A critical look</h2>
+
+            <p>Four caveats belong here. First, observer bias: an agent looking for patterns will find some. Whether they are real only shows in the confirmation. That is why the hard rule is to keep only what I confirm myself, never to save automatically. Second, survivor bias: not every session is equally telling. Whether the mining weights this sensibly stays open. Third, meta overhead: every review loop costs time. If the retro takes more than thirty minutes a month, it probably does not pay off. Fourth, transferability: this is solo work. In a team, implicit patterns blur, because several people shape the same AI in different ways.</p>
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Explicit plus implicit makes real memory.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Stored facts are half the picture. The other half is in what never gets said.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Confirmation is feedback too.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">What you accepted three times without objection is part of your style.</p>
+                    </div>
+                    <div class="pl-5" style="border-left: 2px solid #d9d1e5;">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Archiving is hygiene, not admin.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">A full list blinds you to what matters right now.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li>Cohen, N. J. &amp; Squire, L. R. (1980). Preserved learning and retention of pattern-analyzing skill in amnesia: Dissociation of knowing how and knowing that. Science, 210(4466).</li>
+                    <li>Michael Polanyi (1966). The Tacit Dimension. University of Chicago Press.</li>
+                    <li>Donald A. Schön (1983). The Reflective Practitioner: How Professionals Think in Action. Basic Books.</li>
+                </ol>
+            </div>
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Declarative knowledge</span> <span class="text-stone-400">— Knowledge that can be put into words (facts, rules).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Procedural knowledge</span> <span class="text-stone-400">— Knowledge that shows up in action (skills, habits).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Tacit knowledge</span> <span class="text-stone-400">— Knowledge we hold but cannot fully articulate (Polanyi).</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Memory</span> <span class="text-stone-400">— The AI's persistent store for facts, preferences, and projects across sessions.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Session</span> <span class="text-stone-400">— A single conversation with the AI, saved as a file.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Session retro</span> <span class="text-stone-400">— A monthly run that mines old sessions for implicit patterns.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Explicit loop</span> <span class="text-stone-400">— A weekly, conscious review of learned skills.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Implicit loop</span> <span class="text-stone-400">— A monthly pattern search through old sessions by the AI.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="index.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; All drafts</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+</html>
