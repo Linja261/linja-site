@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empathy Maps — 4 Zielgruppen · Prävention Wohngebäude</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF8;
+    --warm:#F5F3EF;
+    --card:#FFFFFF;
+    --border:#E5E2DB;
+    --midnight:#472E56;
+    --heidelbeer:#7b6ba5;
+    --lilac:#E3CCFF;
+    --grapefruit:#FF6634;
+    --sand:#F6EDDE;
+    --body:#44403c;
+    --muted:#8a8478;
+    --pain:#A84318;
+    --gain:#6b5691;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    font-family:'Fraunces',Georgia,serif;
+    color:var(--body);
+    background:#E9E6DF;
+    padding:24px 12px 48px;
+  }
+  .hint{
+    max-width:297mm;margin:0 auto 16px;
+    font:500 11px/1.5 'Geist Mono',monospace;color:var(--midnight);
+    background:var(--card);border:1px solid var(--border);padding:10px 14px;border-radius:6px;
+  }
+  .page{
+    width:297mm;height:210mm;
+    margin:0 auto 20px;
+    background:var(--paper);
+    padding:8mm 10mm 6mm;
+    display:flex;flex-direction:column;
+    box-shadow:0 2px 14px rgba(0,0,0,.12);
+    overflow:hidden;
+    position:relative;
+  }
+  @media print{
+    @page{size:A4 landscape;margin:0;}
+    body{background:none;padding:0;}
+    .hint{display:none;}
+    .page{margin:0;box-shadow:none;page-break-after:always;}
+    .page:last-child{page-break-after:auto;}
+  }
+
+  /* ---------- Header ---------- */
+  .phead{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1.5px solid var(--midnight);padding-bottom:2.4mm;margin-bottom:3mm;}
+  .eyebrow{font:600 6pt 'Geist Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--heidelbeer);margin-bottom:1.2mm;}
+  h1{font:600 15pt/1.1 'Fraunces',serif;color:var(--midnight);text-wrap:balance;}
+  .h1sub{font:400 8pt/1.3 'Fraunces',serif;color:var(--muted);margin-top:.8mm;}
+  .segchip{
+    font:600 6.5pt 'Geist Mono',monospace;color:var(--midnight);
+    background:rgba(227,204,255,.4);border:1px solid var(--lilac);
+    padding:1.4mm 2.6mm;border-radius:10mm;white-space:nowrap;margin-top:1mm;
+  }
+
+  /* ---------- Layout ---------- */
+  .cols{flex:1;min-height:0;display:grid;grid-template-columns:1fr 72mm;gap:5mm;}
+
+  /* ---------- Canvas ---------- */
+  .canvas{position:relative;background:var(--card);border:1.2pt solid var(--midnight);}
+  .canvas svg.bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+  .ear{
+    position:absolute;left:21.5%;top:54%;width:6.5%;height:11%;
+    transform:translateY(-50%);
+    border-radius:50%;background:var(--card);border:1.6px solid var(--midnight);z-index:1;
+  }
+  .headc{
+    position:absolute;left:26%;top:29%;width:48%;height:50%;
+    border-radius:50%;background:var(--card);border:2px solid var(--midnight);
+    z-index:2;display:flex;flex-direction:column;align-items:center;
+    padding:4.5% 10% 6%;
+  }
+  .zone{position:absolute;z-index:3;}
+  .zlabel{font:600 6pt 'Geist Mono',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--midnight);margin-bottom:1mm;display:flex;align-items:center;gap:1.2mm;}
+  .zlabel .de{font-weight:400;color:var(--muted);letter-spacing:.02em;text-transform:none;}
+  .n{
+    display:inline-flex;flex:none;width:3.4mm;height:3.4mm;border-radius:50%;
+    background:var(--midnight);color:#fff;
+    font:600 5.4pt 'Geist Mono',monospace;align-items:center;justify-content:center;
+  }
+  .zone ul, .headc ul{list-style:none;}
+  .zone li, .headc li{
+    font:400 6.3pt/1.32 'Fraunces',serif;color:var(--body);
+    padding-left:2.4mm;position:relative;margin-bottom:1mm;
+  }
+  .zone li::before, .headc li::before{content:"·";position:absolute;left:.4mm;color:var(--heidelbeer);font-weight:700;}
+  sup.t{font:500 4.6pt 'Geist Mono',monospace;color:var(--muted);margin-left:.5mm;white-space:nowrap;}
+
+  .z-who{left:2%;top:2%;width:29%;}
+  .z-goal{left:0;right:0;top:1.6%;text-align:center;font:600 7.5pt 'Geist Mono',monospace;letter-spacing:.2em;color:var(--midnight);}
+  .z-ndo{left:66.5%;top:2%;width:31.5%;}
+  .z-see{left:76.5%;top:26.5%;width:22%;}
+  .z-say{left:75%;top:60%;width:23.5%;}
+  .z-hear{left:1.6%;top:31%;width:21.5%;}
+  .z-do{left:26%;top:82%;width:60%;}
+  .z-do ul{columns:2;column-gap:4mm;}
+
+  .headc .zlabel{justify-content:center;margin-bottom:.6mm;}
+  .pgwrap{display:grid;grid-template-columns:1fr 1fr;gap:0 3mm;flex:1;width:100%;min-height:0;}
+  .pgcol:first-child{border-right:1px solid var(--border);padding-right:2.6mm;}
+  .pgcol:last-child{padding-left:.4mm;}
+  .pgtitle{font:600 5.6pt 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.8mm;}
+  .pgtitle.pains{color:var(--pain);}
+  .pgtitle.gains{color:var(--gain);}
+  .headc li{font-size:6.1pt;}
+
+  /* ---------- Rechte Spalte ---------- */
+  aside{display:flex;flex-direction:column;gap:3mm;min-height:0;}
+  .panel{background:var(--card);border:1px solid var(--border);border-radius:2mm;padding:2.8mm 3.2mm;}
+  .panel h3{font:600 9.5pt/1.1 'Fraunces',serif;color:var(--midnight);margin-bottom:1.6mm;}
+  .job{font:400 6.3pt/1.33 'Fraunces',serif;margin-bottom:1.2mm;padding-left:5mm;position:relative;}
+  .job:last-child{margin-bottom:0;}
+  .job b{font:600 6pt 'Geist Mono',monospace;color:var(--heidelbeer);position:absolute;left:0;top:.2mm;}
+  .job em{font-style:normal;font-weight:600;color:var(--midnight);}
+  .ucitem{margin-bottom:1.4mm;}
+  .ucitem:last-child{margin-bottom:0;}
+  .uchead{display:flex;align-items:baseline;gap:1.6mm;flex-wrap:wrap;}
+  .ucname{font:600 6.6pt/1.3 'Fraunces',serif;color:var(--midnight);}
+  .ucjobs{font:500 4.8pt 'Geist Mono',monospace;color:var(--heidelbeer);}
+  .ucfit{font:500 4.8pt 'Geist Mono',monospace;color:var(--muted);margin-left:auto;white-space:nowrap;}
+  .ucdesc{font:400 6.1pt/1.34 'Fraunces',serif;color:#555;}
+  .takeaway{
+    background:rgba(227,204,255,.32);border:1px solid var(--lilac);border-radius:2mm;
+    padding:2.6mm 3.2mm;margin-top:auto;
+  }
+  .takeaway .tt{font:600 5.6pt 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--midnight);margin-bottom:1mm;}
+  .takeaway p{font:400 6.3pt/1.4 'Fraunces',serif;color:var(--body);}
+
+  /* ---------- Footer ---------- */
+  .pfoot{
+    display:flex;justify-content:space-between;gap:6mm;
+    font:400 5pt/1.4 'Geist Mono',monospace;color:var(--muted);
+    border-top:1px solid var(--border);padding-top:1.6mm;margin-top:2.4mm;
+  }
+
+  /* ---------- Übersichtsseite ---------- */
+  .ov-intro{font:400 8.5pt/1.55 'Fraunces',serif;max-width:230mm;margin-bottom:4mm;}
+  .segrow{display:grid;grid-template-columns:repeat(4,1fr);gap:3.5mm;margin-bottom:4mm;}
+  .segcard{background:var(--card);border:1px solid var(--border);border-radius:2mm;padding:2.8mm 3mm;display:flex;flex-direction:column;}
+  .segcard .scnum{font:600 5.2pt 'Geist Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--heidelbeer);}
+  .segcard .scname{font:600 8.6pt/1.12 'Fraunces',serif;color:var(--midnight);margin:.5mm 0 .6mm;}
+  .segcard .scsize{font:400 5.8pt/1.25 'Fraunces',serif;color:var(--muted);margin-bottom:1.4mm;}
+  .segcard .sctake{font:400 6.4pt/1.36 'Fraunces',serif;color:var(--body);margin-bottom:1.8mm;}
+  .segcard .sctake b{color:var(--midnight);}
+  .scfacts{margin-top:auto;border-top:1px solid var(--border);padding-top:1.4mm;}
+  .scfact{display:flex;justify-content:space-between;gap:2mm;font:400 5.6pt/1.5 'Fraunces',serif;color:var(--muted);}
+  .scfact span:last-child{color:var(--body);text-align:right;}
+  .scfact span:last-child b{color:var(--midnight);}
+  table.ov{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);margin-bottom:4mm;}
+  table.ov th{
+    font:600 6.5pt 'Geist Mono',monospace;letter-spacing:.04em;text-align:left;
+    color:var(--midnight);background:rgba(71,46,86,.08);
+    padding:2mm 2.6mm;border-bottom:1px solid var(--border);
+  }
+  table.ov td{font:400 7pt/1.4 'Fraunces',serif;padding:1.8mm 2.6mm;border-top:1px solid var(--border);vertical-align:top;}
+  table.ov td:first-child{font-weight:600;color:var(--midnight);white-space:nowrap;}
+  table.ov td b{color:var(--midnight);}
+  .ovgrid{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-bottom:4mm;}
+  .ovbox{background:var(--card);border:1px solid var(--border);border-radius:2mm;padding:3.2mm 3.6mm;}
+  .ovbox.tint{background:rgba(227,204,255,.32);border-color:var(--lilac);}
+  .ovbox.sand{background:rgba(246,237,222,.6);border-color:#EADFC8;}
+  .ovbox h3{font:600 9.5pt 'Fraunces',serif;color:var(--midnight);margin-bottom:1.6mm;}
+  .ovbox p, .ovbox li{font:400 7pt/1.5 'Fraunces',serif;}
+  .ovbox ul{list-style:none;}
+  .ovbox li{padding-left:3mm;position:relative;margin-bottom:1mm;}
+  .ovbox li::before{content:"·";position:absolute;left:.6mm;color:var(--heidelbeer);font-weight:700;}
+  .chain{display:flex;align-items:center;gap:2.4mm;margin:2mm 0 2.4mm;}
+  .chainstep{font:600 6.5pt 'Geist Mono',monospace;color:var(--midnight);background:rgba(123,107,165,.12);border:1px solid rgba(123,107,165,.35);padding:1.6mm 2.8mm;border-radius:10mm;white-space:nowrap;}
+  .chainarrow{font:600 8pt 'Geist Mono',monospace;color:var(--heidelbeer);}
+
+  /* ---------- Auf-einen-Blick-Seite ---------- */
+  .page.dense{padding:6.5mm 7mm 4.5mm;}
+  .dense .phead{margin-bottom:2mm;padding-bottom:1.8mm;}
+  .dense .pfoot{margin-top:1.8mm;padding-top:1.2mm;}
+  .quick{flex:1;min-height:0;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto auto minmax(0,1fr) auto;column-gap:3mm;row-gap:0;}
+  .qcol{display:grid;grid-template-rows:subgrid;grid-row:1/-1;background:var(--card);border:1px solid var(--border);border-radius:2mm;padding:2.4mm 2.6mm;min-height:0;}
+  .qhead{border-bottom:1px solid var(--border);padding-bottom:1.2mm;}
+  .qnum{font:600 5.2pt 'Geist Mono',monospace;color:var(--heidelbeer);letter-spacing:.12em;text-transform:uppercase;}
+  .qtitle{font:600 8.5pt/1.12 'Fraunces',serif;color:var(--midnight);margin:.5mm 0 .7mm;}
+  .qdesc{font:400 5.6pt/1.22 'Fraunces',serif;color:var(--muted);margin-bottom:1mm;}
+  .qsize{display:inline-block;font:500 4.9pt/1.45 'Geist Mono',monospace;color:var(--midnight);background:rgba(227,204,255,.4);border:1px solid var(--lilac);border-radius:8mm;padding:.6mm 1.8mm;}
+  .qb{padding-top:1.3mm;min-height:0;}
+  .qsec{font:600 5.1pt 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--midnight);margin-bottom:.7mm;}
+  .qcol ul{list-style:none;}
+  .qcol li{font:400 5.4pt/1.2 'Fraunces',serif;padding-left:2mm;position:relative;margin-bottom:.5mm;}
+  .qcol li::before{content:"·";position:absolute;left:.2mm;color:var(--heidelbeer);font-weight:700;}
+  .qjob{display:flex;gap:1.2mm;font:400 5.4pt/1.2 'Fraunces',serif;margin-bottom:.6mm;}
+  .qjob b{font:600 5pt 'Geist Mono',monospace;color:var(--heidelbeer);flex:none;padding-top:.2mm;}
+  .qjob em{font-style:normal;font-weight:600;color:var(--midnight);}
+  .quc{margin-bottom:.9mm;}
+  .quchead{display:flex;align-items:baseline;gap:1.6mm;}
+  .qucname{font:600 5.8pt/1.18 'Fraunces',serif;color:var(--midnight);}
+  .euro{font:600 5.4pt 'Geist Mono',monospace;color:var(--pain);margin-left:auto;white-space:nowrap;}
+  .euro.na{color:var(--muted);}
+  .qucdesc{font:400 5.3pt/1.18 'Fraunces',serif;color:#555;}
+  .qucmarket{font:italic 400 5pt/1.18 'Fraunces',serif;color:var(--muted);}
+  .qwhy{background:rgba(227,204,255,.32);border:1px solid var(--lilac);border-radius:1.6mm;padding:1.6mm 1.8mm;margin-top:1.5mm;height:calc(100% - 1.5mm);}
+  .qwhy .tt{font:600 4.9pt 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--midnight);margin-bottom:.6mm;}
+  .qwhy p{font:400 5.4pt/1.22 'Fraunces',serif;color:var(--body);}
+
+  /* ---------- Ideengenerierung ---------- */
+  .igrid{flex:1;min-height:0;display:grid;grid-template-columns:1.32fr 1fr;grid-template-rows:minmax(0,1fr) auto;gap:4mm;}
+  .ibox{background:var(--card);border:1px solid var(--border);border-radius:2mm;padding:3mm 3.4mm;min-height:0;}
+  .ibox h3{font:600 9.5pt/1.1 'Fraunces',serif;color:var(--midnight);margin-bottom:1.6mm;}
+  .icluster{font:600 5.4pt 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--heidelbeer);margin:2.2mm 0 1mm;}
+  .icluster:first-of-type{margin-top:0;}
+  .iidea{margin-bottom:1.5mm;}
+  .iihead{display:flex;align-items:baseline;gap:1.8mm;}
+  .iiname{font:600 6.8pt/1.25 'Fraunces',serif;color:var(--midnight);}
+  .iiseg{font:500 5pt 'Geist Mono',monospace;color:var(--muted);white-space:nowrap;}
+  .iihead .euro{font-size:6pt;}
+  .iinote{font:400 6.2pt/1.32 'Fraunces',serif;color:#555;}
+  .iinsight{background:rgba(246,237,222,.6);border:1px solid #EADFC8;border-radius:1.6mm;padding:2mm 2.4mm;margin-top:1.8mm;font:400 6.2pt/1.35 'Fraunces',serif;}
+  .iinsight b{color:var(--midnight);}
+  .ibox ul.plain{list-style:none;}
+  .ibox ul.plain li{font:400 6.3pt/1.35 'Fraunces',serif;padding-left:2.4mm;position:relative;margin-bottom:1.1mm;}
+  .ibox ul.plain li::before{content:"·";position:absolute;left:.3mm;color:var(--heidelbeer);font-weight:700;}
+  .ibox ul.plain li b{color:var(--midnight);}
+  .wizard{grid-column:1/-1;background:rgba(227,204,255,.30);border:1px solid var(--lilac);border-radius:2mm;padding:3mm 3.4mm;}
+  .wizard .whead{display:flex;align-items:baseline;gap:2.4mm;margin-bottom:1mm;}
+  .wizard h3{font:600 9.5pt/1.1 'Fraunces',serif;color:var(--midnight);}
+  .wizard .wtag{font:600 5.2pt 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--heidelbeer);}
+  .wizard .wtag.euro-tag{margin-left:auto;color:var(--pain);font-size:6pt;}
+  .wizard .wlede{font:400 6.6pt/1.4 'Fraunces',serif;margin-bottom:2mm;}
+  .wcols{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm;}
+  .wcol .wt{font:600 5.4pt 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--midnight);margin-bottom:.8mm;}
+  .wcol p{font:400 6.1pt/1.34 'Fraunces',serif;color:var(--body);}
+
+  /* ---------- Vorgehen ---------- */
+  .phases{display:grid;grid-template-columns:repeat(5,1fr);gap:3mm;margin-bottom:3mm;}
+  .phase{background:var(--card);border:1px solid var(--border);border-radius:2mm;padding:2.8mm 3mm;display:flex;flex-direction:column;min-height:0;}
+  .phase.hot{border:1.4px solid var(--midnight);background:#fff;}
+  .phase .pnum{display:inline-flex;width:5.6mm;height:5.6mm;border-radius:50%;border:1.6px solid var(--heidelbeer);color:var(--heidelbeer);font:600 6.5pt 'Geist Mono',monospace;align-items:center;justify-content:center;margin-bottom:1.2mm;}
+  .phase h4{font:600 8.2pt/1.1 'Fraunces',serif;color:var(--midnight);margin-bottom:.8mm;}
+  .phase .pstar{font:600 5pt 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--pain);margin-bottom:1mm;}
+  .phase .pclaim{font:italic 400 5.9pt/1.3 'Fraunces',serif;color:var(--muted);margin-bottom:1.4mm;}
+  .phase .papply{font:400 6.1pt/1.36 'Fraunces',serif;color:var(--body);margin-bottom:1.6mm;}
+  .phase .pmeta{margin-top:auto;display:flex;flex-direction:column;gap:.8mm;}
+  .phase .pchip{font:500 5.2pt/1.4 'Geist Mono',monospace;color:var(--midnight);background:rgba(227,204,255,.4);border:1px solid var(--lilac);border-radius:8mm;padding:.6mm 1.8mm;align-self:flex-start;}
+  .phase .pchip.role{background:rgba(123,107,165,.10);border-color:rgba(123,107,165,.3);}
+  .totalbar{font:600 6.5pt 'Geist Mono',monospace;color:var(--midnight);background:rgba(71,46,86,.07);border:1px solid rgba(71,46,86,.15);border-radius:1.6mm;padding:1.8mm 3mm;margin-bottom:3mm;text-align:center;}
+  .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;}
+  .vbox{background:var(--card);border:1px solid var(--border);border-radius:2mm;padding:3mm 3.4mm;min-height:0;}
+  .offer{background:var(--card);border:1.4px solid var(--midnight);border-radius:2mm;padding:3mm 3.4mm;margin-top:4mm;}
+  .offer .ohead{display:flex;align-items:baseline;gap:3mm;flex-wrap:wrap;margin-bottom:2mm;}
+  .offer h3{font:600 9.5pt/1.1 'Fraunces',serif;color:var(--midnight);}
+  .ochip{font:500 5.4pt/1.5 'Geist Mono',monospace;color:var(--midnight);background:rgba(227,204,255,.4);border:1px solid var(--lilac);border-radius:8mm;padding:.7mm 2.2mm;white-space:nowrap;}
+  .ocols{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;}
+  .ocol .ot{font:600 5.4pt 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--heidelbeer);margin-bottom:.9mm;}
+  .ocol p{font:400 6.4pt/1.4 'Fraunces',serif;color:var(--body);}
+  .ocol p b{color:var(--midnight);}
+  .offer table.ov th{font-size:6pt;padding:1.4mm 2.2mm;}
+  .offer table.ov td{font-size:6.4pt;padding:1.4mm 2.2mm;line-height:1.35;}
+  .offer .ohead{margin-bottom:1.6mm;}
+  .vbox p{margin-bottom:1mm;}
+  .vbox.tint{background:rgba(227,204,255,.32);border-color:var(--lilac);}
+  .vbox h3{font:600 9pt/1.1 'Fraunces',serif;color:var(--midnight);margin-bottom:1.6mm;}
+  .vbox p{font:400 6.6pt/1.42 'Fraunces',serif;color:var(--body);margin-bottom:1.2mm;}
+  .vbox ul{list-style:none;}
+  .vbox li{font:400 6.6pt/1.4 'Fraunces',serif;padding-left:2.6mm;position:relative;margin-bottom:1.1mm;}
+  .vbox li::before{content:"·";position:absolute;left:.4mm;color:var(--heidelbeer);font-weight:700;}
+  .vbox li b, .vbox p b{color:var(--midnight);}
+</style>
+</head>
+<body>
+
+<div class="hint">PDF erzeugen: Cmd+P → Ziel „Als PDF sichern" → Querformat A4 → Ränder: Keine → Hintergrundgrafiken aktivieren. Ergibt 8 Seiten: Übersicht · Auf einen Blick · Ideengenerierung · Vorgehen · 4 Zielgruppen-Detailseiten.</div>
+
+<!-- ==================== SEITE 1: ÜBERSICHT ==================== -->
+<section class="page">
+  <header class="phead">
+    <div>
+      <div class="eyebrow">Produktbereich Prävention Wohngebäude · Zielgruppenanalyse</div>
+      <h1>Vier Zielgruppen, vier Empathy Maps</h1>
+      <div class="h1sub">Basis: 37 Experteninterviews der Masterthesis (2017, Wohnungswirtschaft 1.000–130.000 WE) + strukturierte Ableitung 2026</div>
+    </div>
+    <div class="segchip">Übersicht · Linja Scharffetter · Juli 2026</div>
+  </header>
+
+  <p class="ov-intro">Seite 2 verdichtet alle vier Zielgruppen auf einen Blick, Seite 3 bündelt die priorisierten Ideen inkl. Markt-Check, Seite 4 zeigt das empfohlene Vorgehen; danach folgt je Zielgruppe eine Detailseite mit Empathy Map im Canvas-Format, den daraus abgeleiteten Jobs to Be Done und passenden Use Cases für ein Präventionsangebot. Jede Aussage ist nach Evidenzstärke gekennzeichnet: Das Thesis-Sample deckt die professionellen Hausverwaltungen und Wohnungsunternehmen inklusive WEG-Verwaltungen ab; für Selbstnutzer und Kleinvermieter sind Thesis-Muster übertragen und als Hypothesen markiert.</p>
+
+  <div class="segrow">
+    <div class="segcard">
+      <div class="scnum">Segment 1</div>
+      <div class="scname">Selbstnutzer</div>
+      <div class="scsize">Eigenheimbesitzer · 1 Gebäude · 1 Entscheider</div>
+      <div class="sctake"><b>Schnellste Entscheidung, idealer Einstieg für Lernschleifen</b> — aber kleinster Hebel pro Abschluss. Hürde: „Versicherung zahlt eh nicht."</div>
+      <div class="scfacts">
+        <div class="scfact"><span>Schutzlücke</span><span>mittel</span></div>
+        <div class="scfact"><span>Schadenhebel</span><span>mittel</span></div>
+        <div class="scfact"><span>Entscheidungstempo</span><span><b>schnell</b></span></div>
+        <div class="scfact"><span>Skalierung/Abschluss</span><span>niedrig</span></div>
+        <div class="scfact"><span>Assessment-Fit</span><span>gut</span></div>
+        <div class="scfact"><span>Datenhürde</span><span>mittel</span></div>
+      </div>
+    </div>
+    <div class="segcard">
+      <div class="scnum">Segment 2</div>
+      <div class="scname">Kleinvermieter</div>
+      <div class="scsize">Privat · 1–20 WE · nebenberuflich · 1 Entscheider</div>
+      <div class="sctake"><b>Höchste Schutzlücke bei geringster Eigenkompetenz</b> — direkt über den Versicherungsvertrag erreichbar. Risiko: Zahlungsbereitschaft.</div>
+      <div class="scfacts">
+        <div class="scfact"><span>Schutzlücke</span><span><b>hoch</b></span></div>
+        <div class="scfact"><span>Schadenhebel</span><span>mittel</span></div>
+        <div class="scfact"><span>Entscheidungstempo</span><span><b>schnell</b></span></div>
+        <div class="scfact"><span>Skalierung/Abschluss</span><span>niedrig</span></div>
+        <div class="scfact"><span>Assessment-Fit</span><span>gut</span></div>
+        <div class="scfact"><span>Datenhürde</span><span>mittel</span></div>
+      </div>
+    </div>
+    <div class="segcard">
+      <div class="scnum">Segment 3</div>
+      <div class="scname">WEG &amp; WEG-Verwalter</div>
+      <div class="scsize">MFH · Verwalter betreut Dutzende Objekte</div>
+      <div class="sctake"><b>Löst ein Entscheidungs-, kein Informationsproblem</b> — Verwalter als Multiplikator, bester Fit zum Assessment. Risiko: träge Versammlungszyklen.</div>
+      <div class="scfacts">
+        <div class="scfact"><span>Schutzlücke</span><span><b>hoch</b></span></div>
+        <div class="scfact"><span>Schadenhebel</span><span><b>hoch</b></span></div>
+        <div class="scfact"><span>Entscheidungstempo</span><span>langsam</span></div>
+        <div class="scfact"><span>Skalierung/Abschluss</span><span>mittel–hoch</span></div>
+        <div class="scfact"><span>Assessment-Fit</span><span><b>sehr gut</b></span></div>
+        <div class="scfact"><span>Datenhürde</span><span>mittel</span></div>
+      </div>
+    </div>
+    <div class="segcard">
+      <div class="scnum">Segment 4</div>
+      <div class="scname">Profi-Hausverwaltungen</div>
+      <div class="scsize">Wohnungsunternehmen · 1.000–130.000 WE · B2B</div>
+      <div class="sctake"><b>Skalierung und Wirkungsbeweis</b> — ein Vertrag, tausende Gebäude. Will Monitoring statt Begehung; Datenhoheit als schärfste Hürde.</div>
+      <div class="scfacts">
+        <div class="scfact"><span>Schutzlücke</span><span>niedrig</span></div>
+        <div class="scfact"><span>Schadenhebel</span><span><b>hoch</b></span></div>
+        <div class="scfact"><span>Entscheidungstempo</span><span>langsam</span></div>
+        <div class="scfact"><span>Skalierung/Abschluss</span><span><b>hoch</b></span></div>
+        <div class="scfact"><span>Assessment-Fit</span><span>schwach</span></div>
+        <div class="scfact"><span>Datenhürde</span><span><b>hoch</b></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ovgrid">
+    <div class="ovbox">
+      <h3>Roter Faden über alle Segmente</h3>
+      <div class="chain">
+        <span class="chainstep">Assessment</span><span class="chainarrow">→</span>
+        <span class="chainstep">Maßnahme</span><span class="chainarrow">→</span>
+        <span class="chainstep">Monitoring</span>
+      </div>
+      <p>Jeweils in segmentgerechter Tiefe: Selbstnutzer und Kleinvermieter brauchen es <b>einfach und geführt</b>, die WEG <b>beschlussfähig</b>, die professionellen Hausverwaltungen <b>integriert und messbar</b>. Die Vertrauensfrage („Nutzt der Versicherer meine Daten gegen mich?") muss in jedem Segment explizit beantwortet werden: bei den kleinen Segmenten als einfaches Kundenversprechen, beim Profi-Segment vertraglich.</p>
+    </div>
+    <div class="ovbox tint">
+      <h3>Einschätzung zur Segmentwahl</h3>
+      <ul>
+        <li>Bleibt das Konzept „Assessment mit konkreten Hinweisen" gesetzt, ist die <b>WEG</b> das spannendste Segment: höchster Schadenhebel trifft auf ein echtes Entscheidungsproblem, der Verwalter skaliert als Kanal.</li>
+        <li>Wird Prävention als <b>datengetriebenes Monitoring</b> gedacht, führt der Weg über die professionellen Hausverwaltungen.</li>
+        <li><b>Selbstnutzer und Kleinvermieter</b> sind der einfachste Einstieg für schnelle Lernschleifen, pro Abschluss aber der kleinste Hebel.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ovbox sand">
+    <h3>Vorrangig zu validieren</h3>
+    <ul>
+      <li><b>Zahlungsbereitschaft je Segment</b>: besonders bei Kleinvermietern muss der Nutzen in Euro übersetzt werden.</li>
+      <li><b>Datenhoheits-Akzeptanz</b>: die Sorge „das wird gegen mich verwendet" ist die zentrale Adoptionshürde jedes Präventionsprodukts.</li>
+      <li><b>Tatsächliche Schadenverteilung im Bestand</b>: die kennt nur der Anbieter selbst; daran sollte die Segmentwahl kalibriert werden.</li>
+    </ul>
+  </div>
+
+  <footer class="pfoot">
+    <span>Evidenz-Legende: [T] Thesis-Interviews 2017 (n=37, qualitativ n. Mayring) · [T→] Thesis-Muster auf Segment übertragen · [M] eigene Empathy Map · [H] Hypothese, zu validieren</span>
+    <span>Erhebung 2017 · EED, GEG und Digitalisierungsgrad seither verändert · Stand: Juli 2026</span>
+  </footer>
+</section>
+
+<!-- ==================== SEITE 2: AUF EINEN BLICK ==================== -->
+<section class="page dense">
+  <header class="phead">
+    <div>
+      <div class="eyebrow">Produktbereich Prävention Wohngebäude</div>
+      <h1>Vier Kern-Zielgruppen in der Wohnungswirtschaft</h1>
+      <div class="h1sub">Kernbedürfnisse, Jobs to be done und mögliche Use Cases pro Zielgruppe</div>
+    </div>
+    <div class="segchip">Auf einen Blick</div>
+  </header>
+
+  <div class="quick">
+
+    <div class="qcol">
+      <div class="qhead">
+        <div class="qnum">Segment 1</div>
+        <div class="qtitle">Selbstnutzender Eigenheimbesitzer</div>
+        <div class="qdesc">Bewohnt sein Gebäude selbst, investiert eigenes Vermögen, kein Bau- oder Energie-Fachwissen</div>
+        <span class="qsize">1 Gebäude · 1 Entscheider</span>
+      </div>
+      <div class="qb">
+        <div class="qsec">Kernbedürfnisse</div>
+        <ul>
+          <li>Haus = größter Vermögenswert, kein Bau-/Energie-Fachwissen</li>
+          <li>Ratlos zwischen Regulatorik, Förder-Dschungel und widersprüchlichen Handwerkern</li>
+          <li>Angst vor Fehlinvestition; Misstrauen: „Versicherung zahlt eh nicht"</li>
+          <li>Wünscht priorisierte To-do-Liste mit Kosten/Nutzen und einen neutralen Ansprechpartner</li>
+        </ul>
+      </div>
+      <div class="qb">
+        <div class="qsec">Jobs to Be Done</div>
+        <div class="qjob"><b>J1</b><span>Wenn ich in mein Haus investieren muss, will ich <em>vorab sicher sein, dass der Nutzen die Kosten übersteigt</em>, damit ich keine Fehlentscheidung mit meinem Vermögen treffe.</span></div>
+        <div class="qjob"><b>J2</b><span>Wenn jeder Handwerker etwas anderes empfiehlt, will ich <em>eine neutrale, vertrauenswürdige Einschätzung</em>, damit ich weiß, welcher Weg der richtige ist.</span></div>
+        <div class="qjob"><b>J3</b><span>Wenn Pflichten und Förderprogramme (GEG, KfW) sich ändern, will ich <em>verständlich wissen, was für mein Gebäude gilt</em>, damit ich handlungsfähig bin, ohne Experte zu werden.</span></div>
+        <div class="qjob"><b>J4</b><span>Wenn Extremwetter zunimmt, will ich <em>wissen, wie verwundbar mein Gebäude ist und welche günstigen Maßnahmen am meisten bringen</em>, damit ich Schäden zuvorkomme.</span></div>
+        <div class="qjob"><b>J5</b><span>Wenn trotz allem ein Schaden eintritt, will ich <em>schnellen, papierarmen Ersatz</em>, damit ich zügig zur Normalität zurückkehre.</span></div>
+      </div>
+      <div class="qb">
+        <div class="qsec">Use Cases</div>
+        <div class="quc"><div class="quchead"><span class="qucname">Gebäude-Assessment</span><span class="euro">€€</span></div><div class="qucdesc">Zustands- und Risikoprüfung mit priorisierter Maßnahmenliste inkl. Kosten, Nutzen und Förderfähigkeit.</div><div class="qucmarket">(Markt: energetisch besetzt — Energieberater/iSFP, z. B. 42watt; risikoorientiert kaum besetzt)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Zweitmeinungs-Service</span><span class="euro">€</span></div><div class="qucdesc">Neutrale Prüfung von Handwerker- und Sanierungsangeboten: Ist das nötig? Ist der Preis fair?</div><div class="qucmarket">(Markt: kaum besetzt — nur einzelne Bausachverständige)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Regulatorik- &amp; Förder-Navigator</span><span class="euro">€</span></div><div class="qucdesc">Personalisierter GEG-Check und geführter Förderantrag für das konkrete Gebäude.</div><div class="qucmarket">(Markt: kostenlos besetzt — co2online, Verbraucherzentrale; kommerziell 42watt)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Extremwetter-Risikoprofil</span><span class="euro">€€</span></div><div class="qucdesc">Gefährdungsanalyse je Adresse plus niedriginvestive Schutzmaßnahmen, gekoppelt an Prämienvorteil.</div><div class="qucmarket">(Markt: GDV-Naturgefahren-Check, ZÜRS Geo; Prämien-Kopplung kaum besetzt)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Frühwarn-Monitoring</span><span class="euro">€€€</span></div><div class="qucdesc">Leckage- und Feuchtesensorik mit Alarmierung und organisierter Soforthilfe.</div><div class="qucmarket">(Markt: Grohe Sense — Kooperationen mit HDI, Zurich, Gothaer, Bayerische; LeakBot/Ondo)</div></div>
+      </div>
+      <div class="qwhy">
+        <div class="tt">Warum dieses Segment?</div>
+        <p>Schnellste Entscheidung, idealer Einstieg für schnelle Lernschleifen — aber kleinster Hebel pro Abschluss. Hürde: Misstrauen gegenüber dem Versicherer.</p>
+      </div>
+    </div>
+
+    <div class="qcol">
+      <div class="qhead">
+        <div class="qnum">Segment 2</div>
+        <div class="qtitle">Privater Kleinvermieter</div>
+        <div class="qdesc">1 bis 20 Wohneinheiten, verwaltet nebenberuflich, Immobilie als Altersvorsorge</div>
+        <span class="qsize">1–20 WE · 1 Entscheider</span>
+      </div>
+      <div class="qb">
+        <div class="qsec">Kernbedürfnisse</div>
+        <ul>
+          <li>Immobilie = Altersvorsorge, verwaltet ohne Prozesse und Fachpersonal</li>
+          <li>Mieter als Risikofaktor, kein Überblick über den Gebäudezustand</li>
+          <li>„Das rechnet sich nicht": investiert nur niedriginvestiv und nachvollziehbar</li>
+          <li>Angst vor dem einen Großschaden; jede Maßnahme kostet persönliche Zeit</li>
+        </ul>
+      </div>
+      <div class="qb">
+        <div class="qsec">Jobs to Be Done</div>
+        <div class="qjob"><b>J1</b><span>Wenn ich Instandhaltung entscheiden muss, will ich <em>ohne eigenes Fachwissen wissen, was wirklich nötig ist und was es bringt</em>, damit ich meine Altersvorsorge nicht durch Fehlinvestitionen gefährde.</span></div>
+        <div class="qjob"><b>J2</b><span>Wenn meine Mieter das Gebäude belasten, will ich <em>Risiken früh erkennen, ohne ständig vor Ort zu sein</em>, damit aus Kleinigkeiten keine Großschäden werden.</span></div>
+        <div class="qjob"><b>J3</b><span>Wenn Pflichten und Förderungen sich ändern, will ich <em>nur das wissen, was mein Gebäude betrifft</em>, damit ich compliant bleibe, ohne Zeit zu verbrennen.</span></div>
+        <div class="qjob"><b>J4</b><span>Wenn etwas gemacht werden muss, will ich <em>verlässliche Handwerker ohne eigene Suche</em>, damit das Objekt mich neben Beruf und Alltag nicht überfordert.</span></div>
+        <div class="qjob"><b>J5</b><span>Wenn ein Schaden passiert, will ich <em>minimale Bürokratie</em>, damit Mietausfall und Ärger kurz bleiben.</span></div>
+      </div>
+      <div class="qb">
+        <div class="qsec">Use Cases</div>
+        <div class="quc"><div class="quchead"><span class="qucname">Mini-Assessment „Gebäude-Check"</span><span class="euro">€€</span></div><div class="qucdesc">Priorisierte 3-Punkte-Maßnahmenliste mit groben Kosten und Amortisation.</div><div class="qucmarket">(Markt: energetisch besetzt; risikoorientiert kaum)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Leckage- &amp; Feuchte-Sensorik</span><span class="euro">€€€</span></div><div class="qucdesc">Alarm aufs Handy plus organisierte Soforthilfe, bevor aus dem Tropfen ein Wasserschaden wird.</div><div class="qucmarket">(Markt: Grohe Sense, LeakBot; R+V mit Prämiennachlass für Sensorik)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Pflichten- &amp; Förder-Radar</span><span class="euro">€</span></div><div class="qucdesc">Jährliche personalisierte Übersicht: Was gilt für genau dieses Objekt?</div><div class="qucmarket">(Markt: kostenlos besetzt — co2online, Verbraucherzentrale)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Geprüfte Handwerker-Vermittlung</span><span class="euro">€</span></div><div class="qucdesc">Verlässliche Betriebe mit Terminzusage, ohne eigene Suche.</div><div class="qucmarket">(Markt: Portale wie MyHammer; Versicherer-Netzwerke, z. B. PX Connect)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Express-Schadenabwicklung</span><span class="euro">€€</span></div><div class="qucdesc">Foto-Meldung, Auszahlung in X Tagen: als sichtbares Versprechen, das Vertrauen aufbaut.</div><div class="qucmarket">(Markt: etabliert — u. a. PropertyExpert für Versicherer)</div></div>
+      </div>
+      <div class="qwhy">
+        <div class="tt">Warum dieses Segment?</div>
+        <p>Höchste Schutzlücke bei geringster Eigenkompetenz — das Assessment ersetzt eine fehlende Fähigkeit. Direkt über den Vertrag erreichbar. Risiko: Zahlungsbereitschaft, Nutzen muss in Euro übersetzt werden.</p>
+      </div>
+    </div>
+
+    <div class="qcol">
+      <div class="qhead">
+        <div class="qnum">Segment 3</div>
+        <div class="qtitle">WEG &amp; WEG-Verwalter</div>
+        <div class="qdesc">Eigentümergemeinschaft, vertreten durch den Verwalter als Gatekeeper und Multiplikator</div>
+        <span class="qsize">MFH · Verwalter betreut Dutzende Objekte · Beschluss in der Versammlung</span>
+      </div>
+      <div class="qb">
+        <div class="qsec">Kernbedürfnisse</div>
+        <ul>
+          <li>Verwalter überlastet, zwischen Eigentümererwartungen und Haftungsrisiko</li>
+          <li>Instandhaltung wird zerredet und vertagt, Beschluss erst bei akutem Schaden</li>
+          <li>Braucht Argumentationshilfen und Standardisierung</li>
+          <li>Wünscht neutrale Beschlussgrundlage, Haftungsentlastung, Partner auf Augenhöhe</li>
+        </ul>
+      </div>
+      <div class="qb">
+        <div class="qsec">Jobs to Be Done</div>
+        <div class="qjob"><b>J1</b><span>Wenn ich Instandhaltung durch die Eigentümerversammlung bringen muss, will ich <em>eine neutrale, belastbare Entscheidungsgrundlage</em>, damit Beschlüsse gefasst statt vertagt werden.</span></div>
+        <div class="qjob"><b>J2</b><span>Wenn die Gemeinschaft Rücklagen plant, will ich <em>den Bedarf über Jahre priorisiert sehen</em>, damit die Rücklage zum tatsächlichen Risiko passt.</span></div>
+        <div class="qjob"><b>J3</b><span>Wenn ein Schaden Gemeinschafts- und Sondereigentum betrifft, will ich <em>Zuständigkeit und Regulierung schnell geklärt haben</em>, damit kein Streit in der Gemeinschaft entsteht.</span></div>
+        <div class="qjob"><b>J4</b><span>Wenn ich für Versäumnisse hafte, will ich <em>dokumentiert nachweisen können, dass Prävention ordnungsgemäß lief</em>, damit mein Haftungsrisiko sinkt.</span></div>
+        <div class="qjob"><b>J5</b><span>Wenn Eigentümer an Ausgaben zweifeln, will ich <em>Argumentationshilfen in Laiensprache</em>, damit ich nicht als Kostentreiber dastehe.</span></div>
+      </div>
+      <div class="qb">
+        <div class="qsec">Use Cases</div>
+        <div class="quc"><div class="quchead"><span class="qucname">Assessment als Beschlussvorlage</span><span class="euro">€€€</span></div><div class="qucdesc">Bericht in versammlungstauglicher Form mit Risiko-Ranking und Kostenrahmen.</div><div class="qucmarket">(Markt: kaum besetzt — White Space)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Mehrjahres-Präventionsfahrplan</span><span class="euro">€€</span></div><div class="qucdesc">Priorisierter Instandhaltungsplan, gekoppelt an eine Rücklagenempfehlung.</div><div class="qucmarket">(Markt: energetisch als iSFP besetzt; risikoorientiert kaum)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Präventionshistorie je Objekt</span><span class="euro">€</span></div><div class="qucdesc">Dokumentierter Nachweis ordnungsgemäßer Prävention als Haftungsentlastung des Verwalters.</div><div class="qucmarket">(Markt: kaum besetzt)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Klärungs-Service Eigentumsarten</span><span class="euro">€</span></div><div class="qucdesc">Erstbewertung Gemeinschafts- vs. Sondereigentum plus Kommunikationsvorlagen im Schadenfall.</div><div class="qucmarket">(Markt: kaum besetzt)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Verwalter-Portal</span><span class="euro">€€</span></div><div class="qucdesc">Alle betreuten Objekte mit Risikostatus auf einen Blick: der Verwalter als Multiplikator-Kanal.</div><div class="qucmarket">(Markt: stark besetzt — casavi, etg24, Matera; ohne Risiko-Sicht)</div></div>
+      </div>
+      <div class="qwhy">
+        <div class="tt">Warum dieses Segment?</div>
+        <p>Löst ein Entscheidungs-, kein Informationsproblem. Verwalter = Multiplikator, Leitungswasser = Schadentreiber im MFH. Risiko: träge Versammlungszyklen.</p>
+      </div>
+    </div>
+
+    <div class="qcol">
+      <div class="qhead">
+        <div class="qnum">Segment 4</div>
+        <div class="qtitle">Professionelle Hausverwaltungen</div>
+        <div class="qdesc">Wohnungsunternehmen und Verwaltungen ab 1.000 WE: kommunal, genossenschaftlich, börsennotiert</div>
+        <span class="qsize">1.000–130.000 WE · B2B · Gremienentscheidung</span>
+      </div>
+      <div class="qb">
+        <div class="qsec">Kernbedürfnisse</div>
+        <ul>
+          <li>Portfolio-Werterhalt = Kerngeschäft, eigenes Zielbild und Lösungsweg</li>
+          <li>Fordert offene Schnittstellen, Datenhoheit, „Dienstleister nicht bemerken"</li>
+          <li>Nutzerverhalten skaliert als Risiko über tausende Einheiten</li>
+          <li>Jede weitere Insellösung ist selbst ein Pain</li>
+        </ul>
+      </div>
+      <div class="qb">
+        <div class="qsec">Jobs to Be Done</div>
+        <div class="qjob"><b>J1</b><span>Wenn ich ein Portfolio steuere, will ich <em>Schadenrisiken je Objekt datenbasiert vergleichen</em>, damit Budgets dorthin fließen, wo sie am meisten wirken.</span></div>
+        <div class="qjob"><b>J2</b><span>Wenn Nutzerverhalten über tausende Einheiten skaliert, will ich <em>Abweichungen (Feuchte, Fehlverbrauch, Leckagen) automatisch erkennen</em>, damit ich eingreife, bevor Schäden entstehen.</span></div>
+        <div class="qjob"><b>J3</b><span>Wenn ich externe Systeme einführe, will ich <em>offene Schnittstellen zu meinen Bestandssystemen</em>, damit kein weiteres Insel-Portal meine Prozesse belastet.</span></div>
+        <div class="qjob"><b>J4</b><span>Wenn ich in Prävention investiere, will ich <em>die Wirkung messen (Schadenquote, Prämie, Betriebskosten)</em>, damit ich den Business Case intern verteidigen kann.</span></div>
+        <div class="qjob"><b>J5</b><span>Wenn Dienstleister in meinen Beständen arbeiten, will ich <em>sie so wenig wie möglich bemerken</em>, damit meine Organisation entlastet statt beschäftigt wird.</span></div>
+      </div>
+      <div class="qb">
+        <div class="qsec">Use Cases</div>
+        <div class="quc"><div class="quchead"><span class="qucname">Portfolio-Risiko-Dashboard</span><span class="euro">€€</span></div><div class="qucdesc">Scoring aller Objekte aus Versicherer-Schadendaten plus Gebäudedaten.</div><div class="qucmarket">(Markt: Naturgefahren — Munich Re Location Risk Intelligence; Schadendaten-Kopplung kaum besetzt)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">IoT-Monitoring-Programm</span><span class="euro">€€€</span></div><div class="qucdesc">Leckage, Feuchte, Elementar-Frühwarnung, per API in ERP- und CAFM-Systeme integriert.</div><div class="qucmarket">(Markt: metr, Techem — ohne Versicherer-Kopplung)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Prämienmodell mit Präventions-Kopplung</span><span class="euro">€€€</span></div><div class="qucdesc">Messbare Maßnahmen senken nachweislich die Prämie auf Portfolioebene.</div><div class="qucmarket">(Markt: Portfolioebene kaum besetzt; Einzelrisiko R+V-Nachlass)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Jährlicher Wirkungsbericht</span><span class="euro">€</span></div><div class="qucdesc">Schadenquote vor und nach Maßnahmen als Steuerungsinstrument.</div><div class="qucmarket">(Markt: kaum besetzt)</div></div>
+        <div class="quc"><div class="quchead"><span class="qucname">Datenhoheits-Vereinbarung</span><span class="euro na">Enabler</span></div><div class="qucdesc">Daten gehören dem Kunden, der Versicherer erhält definierte Auswertungsrechte: Antwort auf die zentrale Vertrauenshürde.</div><div class="qucmarket">(Markt: differenzierend, kein Produkt)</div></div>
+      </div>
+      <div class="qwhy">
+        <div class="tt">Warum dieses Segment?</div>
+        <p>Skalierung: ein Vertrag, tausende Gebäude — und das beste Segment, um den Business Case zu beweisen. Will Monitoring statt Begehung. Risiken: lange Zyklen, Integration, Datenhoheit.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="pfoot">
+    <span>€–€€€ = grobe Einschätzung des Ertragspotenzials je Use Case · Markt-Nennungen: Web-Recherche, Stand Juli 2026</span>
+    <span>Linja Scharffetter · Juli 2026</span>
+  </footer>
+</section>
+
+<!-- ==================== SEITE 3: IDEENGENERIERUNG ==================== -->
+<section class="page">
+  <header class="phead">
+    <div>
+      <div class="eyebrow">Produktbereich Prävention Wohngebäude</div>
+      <h1>Ideengenerierung</h1>
+      <div class="h1sub">Priorisierte Ideen aus der Zielgruppenanalyse, Erkenntnisse aus dem Markt-Check und ein Blick über das Versicherungsgeschäft hinaus</div>
+    </div>
+    <div class="segchip">Ideen</div>
+  </header>
+
+  <div class="igrid">
+
+    <div class="ibox">
+      <h3>Priorisierte Ideen aus der Zielgruppenanalyse</h3>
+
+      <div class="icluster">Die Assessment-Familie — ein Kern, vier Ausleitungen</div>
+      <div class="iidea"><div class="iihead"><span class="iiname">Assessment als Beschlussvorlage</span><span class="iiseg">WEG</span><span class="euro">€€€</span></div><div class="iinote">White Space: löst die Entscheidungsblockade der Versammlung, Verwalter skaliert als Kanal, jeder Beschluss erzeugt steuerbares Folgegeschäft. Stärkster Neuprodukt-Case.</div></div>
+      <div class="iidea"><div class="iihead"><span class="iiname">Mehrjahres-Präventionsfahrplan</span><span class="iiseg">WEG</span><span class="euro">€€</span></div><div class="iinote">Natürliches Upsell zur Beschlussvorlage: koppelt Prävention an die Rücklagenplanung und macht aus einem Einmal-Bericht eine Dauerbeziehung.</div></div>
+      <div class="iidea"><div class="iihead"><span class="iiname">Gebäude-Assessment</span><span class="iiseg">Selbstnutzer</span><span class="euro">€€</span></div><div class="iinote">Einstiegs- und Funnel-Produkt: Die risikoorientierte Sicht ist frei — die energetische ist durch geförderte Energieberatung preislich geankert.</div></div>
+      <div class="iidea"><div class="iihead"><span class="iiname">Mini-Assessment „Gebäude-Check"</span><span class="iiseg">Kleinvermieter</span><span class="euro">€€</span></div><div class="iinote">Standardisiert und günstig für das Segment mit der höchsten Schutzlücke; der Nutzen muss in Euro übersetzt werden, sonst kippt die Zahlungsbereitschaft.</div></div>
+      <div class="iinsight"><b>Erkenntnis:</b> Alle vier laufen auf derselben Engine — Gebäudedatenmodell + Risikologik + Berichtsgenerator. Einmal bauen, vier segmentspezifische Ausleitungen verkaufen. Das ist ein Baukasten, keine vier Produkte.</div>
+
+      <div class="icluster">Der Steuerungs-Layer (B2B)</div>
+      <div class="iidea"><div class="iihead"><span class="iiname">Portfolio-Risiko-Dashboard</span><span class="iiseg">Profi-Hausverwaltungen</span><span class="euro">€€</span></div><div class="iinote">Gegen Munich Re &amp; Co. nur mit dem exklusiven Asset gewinnbar: der Kopplung von Gebäudedaten mit echten Schadendaten.</div></div>
+      <div class="iidea"><div class="iihead"><span class="iiname">Jährlicher Wirkungsbericht</span><span class="iiseg">Profi-Hausverwaltungen</span><span class="euro">€</span></div><div class="iinote">Allein kein Produkt — aber der Beweis-Baustein, der Prämienmodelle mit Präventions-Kopplung (€€€) erst möglich macht.</div></div>
+
+      <div class="icluster">Bindungs-Feature statt Produkt</div>
+      <div class="iidea"><div class="iihead"><span class="iiname">Pflichten- &amp; Förder-Radar</span><span class="iiseg">Selbstnutzer + Kleinvermieter</span><span class="euro">€</span></div><div class="iinote">Kostenlose Konkurrenz (co2online, Verbraucherzentrale) drückt die Zahlungsbereitschaft — als jährliches Abo-Feature in die Assessment-Familie integrieren, nicht einzeln verkaufen.</div></div>
+    </div>
+
+    <div class="ibox">
+      <h3>Erkenntnisse aus dem Markt-Check</h3>
+      <ul class="plain">
+        <li><b>Leitungswasser ist der Hebel:</b> ~4,9 Mrd. € Schadenaufwand (2024), rund die Hälfte des gesamten Aufwands der Wohngebäudeversicherung (GDV). Jede wirksame Prävention zahlt hier ein.</li>
+        <li><b>Die Sensorik-Schicht ist besetzt</b> (Grohe Sense mit HDI, Zurich, Gothaer, Bayerische; LeakBot/Ondo). Frei ist die <b>Orchestrierung</b>: Alarm → organisierte Soforthilfe → Schadensteuerung aus einer Hand.</li>
+        <li><b>White Space WEG:</b> Risikoorientierte, versammlungstaugliche Beschlussgrundlagen liefert heute niemand.</li>
+        <li><b>Reine Info-Produkte haben Preisdruck:</b> GDV-Naturgefahren-Check, co2online und Verbraucherzentrale setzen den Preis auf null.</li>
+        <li><b>Geld wird an zwei Stellen verdient:</b> an der Schadenquote (Monitoring, Prämien-Kopplung) und an der Entscheidungsblockade (WEG). Alles andere ist Funnel oder Kundenbindung.</li>
+      </ul>
+
+      <div class="icluster" style="margin-top:3mm;">Top 3 nach Ertragspotenzial</div>
+      <div class="iidea"><div class="iihead"><span class="iiname">1 · Leckage-Orchestrierung</span><span class="iiseg">Selbstnutzer + Kleinvermieter + Profi</span><span class="euro">€€€</span></div><div class="iinote">Alarm → Soforthilfe → Schadensteuerung aus einer Hand. Größter Schadenblock, wiederkehrende Erlöse, Modell durch Sensorik-Kooperationen validiert — der freie Platz ist die Orchestrierung, nicht der Sensor.</div></div>
+      <div class="iidea"><div class="iihead"><span class="iiname">2 · Assessment als Beschlussvorlage</span><span class="iiseg">WEG</span><span class="euro">€€€</span></div><div class="iinote">White Space mit hoher Zahlungsbereitschaft (Haftung + Beschlussblockade), Verwalter als skalierender Kanal, Folgegeschäft je Beschluss.</div></div>
+      <div class="iidea"><div class="iihead"><span class="iiname">3 · Prämienmodell mit Präventions-Kopplung</span><span class="iiseg">Profi-Hausverwaltungen</span><span class="euro">€€€</span></div><div class="iinote">Kein Umsatzprodukt, sondern der Combined-Ratio-Hebel auf Portfolioebene — bindet Großkunden über Jahre. Braucht Wirkungsbericht + Datenhoheits-Vereinbarung als Bausteine.</div></div>
+      <div class="iinsight"><b>Hinweis:</b> Nr. 1 und Nr. 3 sind Ergänzungen zu deiner Shortlist links — sie verdienen an der Schadenquote, die Shortlist überwiegend am Assessment.</div>
+    </div>
+
+    <div class="wizard">
+      <div class="whead">
+        <h3>Über das Versicherungsgeschäft hinaus: Der Hauskauf-Begehungs-Wizard</h3>
+        <span class="wtag">Neue Idee · Linja</span>
+        <span class="wtag euro-tag">€€ solo · €€€ mit B2B2C-Kanal</span>
+      </div>
+      <p class="wlede">Ein Wizard führt Kaufinteressenten durch die Besichtigung: weist auf essenzielle Prüfpunkte hin, stellt die passenden Fragen, sammelt Fotos — und liefert direkt eine Zustands- und Risikoeinschätzung mit Folgekosten-Indikation für das Gebäude.</p>
+      <div class="wcols">
+        <div class="wcol"><div class="wt">Warum die Idee stark ist</div><p>Der Hauskauf ist der Moment maximaler Informationsasymmetrie: Laien entscheiden unter Zeitdruck über Hunderttausende, Gutachter sind knapp und teuer. Trifft exakt J1/J2 der Eigenheim-Map: „Nutzen &gt; Kosten" und „Wem soll ich vertrauen?"</p></div>
+        <div class="wcol"><div class="wt">Warum PropertyExpert</div><p>Nutzt die Kern-Assets: Schadendaten seit 2012, KI-Foto- und Dokumentenbewertung, Handwerksexpertise als Human-in-the-loop. Technisch dieselbe Engine wie die Assessment-Familie — nur als Self-Service in einem neuen Markt, gelöst vom Versicherungsgeschäft.</p></div>
+        <div class="wcol"><div class="wt">Monetarisierung</div><p>Pay-per-Report plus Experten-Review als Upsell. Skalierung über B2B2C: Makler und Baufinanzierer als Kanal. Folgegeschäft ab Kauf: Sanierungsfahrplan, Förder-Radar, Versicherung.</p></div>
+        <div class="wcol"><div class="wt">Risiken</div><p>Haftung bei Fehleinschätzung (klare Grenzen + Experten-Stufe nötig), Einmalnutzung pro Käufer (LTV über Folgeprodukte lösen), Fotoqualität von Laien als Datenrisiko.</p></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="pfoot">
+    <span>€–€€€ = grobe Einschätzung des Ertragspotenzials · Markt-Nennungen: Web-Recherche, Stand Juli 2026</span>
+    <span>Linja Scharffetter · Juli 2026</span>
+  </footer>
+</section>
+
+<!-- ==================== SEITE 4: VORGEHEN ==================== -->
+<section class="page">
+  <header class="phead">
+    <div>
+      <div class="eyebrow">Produktbereich Prävention Wohngebäude</div>
+      <h1>Vorgehen: In fünf Phasen zum validierten Produkt</h1>
+      <div class="h1sub">Der linja.me-Ansatz, angewendet auf PropertyExpert — mit Aufwandsempfehlung und Rollenprofil je Phase</div>
+    </div>
+    <div class="segchip">Vorgehen</div>
+  </header>
+
+  <div class="phases">
+    <div class="phase">
+      <span class="pnum">01</span>
+      <h4>Standortbestimmung</h4>
+      <div class="pclaim">„Wir wissen, dass wir etwas ändern müssen, aber nicht, wo wir anfangen sollen."</div>
+      <div class="papply">Suchfeld schärfen: versicherungsnah (WEG-Vorlage, Leckage-Orchestrierung) oder frei (Hauskauf-Wizard)? Erfolgskriterien und die Fokus-Entscheidung auf eine Zielgruppe in einer kompakten Abstimmung festzurren. Nicht überspringen — nur eindampfen.</div>
+      <div class="pmeta"><span class="pchip">Aufwand: 1–2 Tage</span><span class="pchip role">Rolle: Lead</span></div>
+    </div>
+    <div class="phase hot">
+      <span class="pnum">02</span>
+      <h4>Kundenwahrheit</h4>
+      <div class="pstar">★ Mein Einstieg</div>
+      <div class="pclaim">„Wir sind überzeugt von unserer Idee, aber ob der Markt das auch so sieht, wissen wir nicht."</div>
+      <div class="papply">Strukturierte, qualitative Interviews mit einer relevanten Anzahl an Kunden aus maximal zwei Zielgruppen: Problembewusstsein, Bedürfnistiefe, Zahlungsbereitschaft. Diese Unterlage (Empathy Maps, JTBD, Use Cases) ist der fertige Startpunkt. Ergebnis: Entscheidung für eine Idee — ggf. in angepasster Form.</div>
+      <div class="pmeta"><span class="pchip">Aufwand: 2–3 Wochen</span><span class="pchip role">Rolle: Lead</span></div>
+    </div>
+    <div class="phase hot">
+      <span class="pnum">03</span>
+      <h4>Produkt-Markt-Fit</h4>
+      <div class="pstar">★ Schwerpunkt</div>
+      <div class="pclaim">„Wir wollen wissen, ob aus der Idee ein Produkt wird, das der Markt wirklich annimmt."</div>
+      <div class="papply">KI-gestütztes Rapid Prototyping: klickbarer Wizard bzw. Muster-Beschlussvorlage in Tagen statt Wochen. Dann Preis- und Nutzungstests in konkreten Gesprächen mit der Zielgruppe — echte Reaktionen statt Meinungen. Endet am definierten Übergabepunkt.</div>
+      <div class="pmeta"><span class="pchip">Aufwand: 3–4 Wochen</span><span class="pchip role">Rolle: Lead</span></div>
+    </div>
+    <div class="phase">
+      <span class="pnum">04</span>
+      <h4>Strategie</h4>
+      <div class="pclaim">„Wir haben eine Strategie, aber im Alltag versteht jeder etwas anderes darunter."</div>
+      <div class="papply">Beweise in Business Case, Roadmap und Segmentstrategie überführen. Das PropertyExpert-Team übernimmt zunehmend die Führung, ich halte Methodik und Priorisierung sauber.</div>
+      <div class="pmeta"><span class="pchip">Aufwand: 1–2 Tage/Woche, begleitend</span><span class="pchip role">Rolle: Sparring</span></div>
+    </div>
+    <div class="phase">
+      <span class="pnum">05</span>
+      <h4>Befähigung</h4>
+      <div class="pclaim">„Die Entscheidung steht längst, nur in der Umsetzung passiert nichts."</div>
+      <div class="papply">Validierungs-Playbook, Interview-Leitfäden und Test-Setups gehen ins Team über — es führt eigenständig weiter. Bewusst klein gehalten: Exit by design statt Dauermandat.</div>
+      <div class="pmeta"><span class="pchip">Aufwand: punktuell, 2–3 Tage</span><span class="pchip role">Rolle: Coaching</span></div>
+    </div>
+  </div>
+
+  <div class="totalbar">Gesamt: ≈ 8–10 Wochen vom Alignment bis zur belastbaren Produktentscheidung — danach trägt das Team selbst.</div>
+
+  <div class="vgrid">
+    <div class="vbox">
+      <h3>Wo ich einsteige</h3>
+      <p><b>Phase 2 und 3, mit der kompakten Fokus-Abstimmung (Phase 1) als Rampe.</b> Voraussetzung für den Start ist die Entscheidung auf eine Zielgruppe — dafür reichen 1–2 Abstimmungstage. Welche Idee prototypisiert wird, entscheidet dann die Kundenwahrheit, nicht die Meinung. Sonst wird nur sehr schnell das falsche Produkt gebaut.</p>
+    </div>
+    <div class="vbox">
+      <h3>Was ich mitbringe</h3>
+      <ul>
+        <li><b>Fachwissen Immobilienwirtschaft:</b> u. a. 37 Experteninterviews mit Hausverwaltungen und Wohnungsunternehmen.</li>
+        <li><b>Kompetenz, Geschäftsideen schnell mit Kunden zu testen:</b> strukturierte Interviews, JTBD, Zahlungsbereitschafts-Tests — mein Kernhandwerk (Phase 2 + 3).</li>
+        <li><b>KI-gestütztes Prototyping:</b> von der Idee zum testbaren Prototyp in Tagen.</li>
+        <li><b>Diese Unterlage als Arbeitsprobe:</b> Zielgruppen, Bedürfnisse und Ideen liegen strukturiert vor, bevor der erste Tag beauftragt ist.</li>
+      </ul>
+    </div>
+    <div class="vbox tint">
+      <h3>Warum fractional statt Festanstellung</h3>
+      <p>Prävention und freie Ideen sind bislang ein fragiler Teil eurer Strategie, der Risiko in sich trägt. Eine freie Mitarbeit validiert genau diesen Teil, ohne das Commitment einer Festanstellung — entschieden wird auf Beweisen, bevor Entwicklungsbudget und Headcount fließen.</p>
+      <p>Dazu maximal effizient: Ich brauche kein großes Firmen-Onboarding, nur das Nötigste. Und ich habe nichts davon, mich zu positionieren oder unersetzlich zu machen — der Übergabepunkt ist von Anfang an definiert.</p>
+    </div>
+  </div>
+
+  <div class="offer">
+    <div class="ohead">
+      <h3>Das Fractional-Angebot</h3>
+      <span class="ochip">Ab sofort verfügbar</span>
+      <span class="ochip">3 Tage / Woche</span>
+      <span class="ochip">Festpreis je Paket</span>
+      <span class="ochip">Längere Zusammenarbeit je nach Ausgestaltung möglich</span>
+    </div>
+    <table class="ov" style="margin-bottom:2mm;">
+      <tr><th style="width:20%;">Paket</th><th style="width:17%;">Umfang</th><th>Ergebnis</th><th style="width:13%;">Investition</th></tr>
+      <tr>
+        <td>Paket 1 · Kundenwahrheit</td>
+        <td>Monat 1<br>3 Tage/Woche (~13 Tage)</td>
+        <td>Strukturierte, qualitative Interviews mit einer relevanten Anzahl an Kunden aus <b>maximal zwei Zielgruppen</b> zur Evaluierung von Problem und Bedürfnis. <b>Entscheidung für eine der Ideen</b> — ggf. in angepasster Form auf Basis der Interviewergebnisse.</td>
+        <td><b>12.000 €</b> fix</td>
+      </tr>
+      <tr>
+        <td>Paket 2 · Produkt-Markt-Fit</td>
+        <td>Monat 2–3<br>3 Tage/Woche (~25 Tage)</td>
+        <td>Bedürfnisse anhand eines <b>Prototyps evaluiert</b>: konkrete Erkenntnisse zum Potenzial der Geschäftsidee plus <b>Ableitung der Kernfeatures</b> — getestet in echten Kundengesprächen, nicht im Workshop-Raum.</td>
+        <td><b>22.000 €</b> fix</td>
+      </tr>
+    </table>
+    <div class="ocols" style="grid-template-columns:1fr;">
+      <div class="ocol"><p><b>Übergabepunkt:</b> eine fertig evaluierte Geschäftsidee mit abgeleiteten Kernhypothesen und Featureanforderungen — das Team übernimmt die Umsetzung, ich begleite auf Wunsch in Phase 4/5 punktuell weiter. Paket 1 funktioniert als bezahlter Pilot: Danach entscheiden beide Seiten über Paket 2.</p></div>
+    </div>
+  </div>
+
+  <footer class="pfoot">
+    <span>Prozess: linja.me/#zusammenarbeit · Aufwände = Empfehlung, Kalibrierung im Gespräch</span>
+    <span>Linja Scharffetter · Juli 2026</span>
+  </footer>
+</section>
+
+<!-- ==================== SEITE 5: SELBSTNUTZER ==================== -->
+<section class="page">
+  <header class="phead">
+    <div>
+      <div class="eyebrow">Produktbereich Prävention Wohngebäude · Empathy Map · Jobs to Be Done · Use Cases</div>
+      <h1>Selbstnutzender Eigenheimbesitzer</h1>
+      <div class="h1sub">Bewohnt sein Gebäude selbst, investiert eigenes Vermögen, kein Bau- oder Energie-Fachwissen</div>
+    </div>
+    <div class="segchip">Segment 1 / 4</div>
+  </header>
+
+  <div class="cols">
+    <div class="canvas">
+      <svg class="bg" viewBox="0 0 1000 890" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="0,0 1000,0 650,300 350,300" fill="rgba(227,204,255,0.30)"/>
+        <line x1="0" y1="0" x2="350" y2="300" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="1000" y1="0" x2="650" y2="300" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="0" y1="890" x2="350" y2="680" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="1000" y1="890" x2="650" y2="680" stroke="#D9D2C6" stroke-width="2"/>
+      </svg>
+      <div class="ear" aria-hidden="true"></div>
+      <div class="z-goal zone">GOAL</div>
+
+      <div class="zone z-who">
+        <div class="zlabel"><span class="n">1</span>WHO <span class="de">Mit wem empathisieren wir?</span></div>
+        <ul>
+          <li>Privater Eigenheimbesitzer, bewohnt selbst<sup class="t">[M]</sup></li>
+          <li>Das Haus ist sein größter Vermögenswert<sup class="t">[M]</sup></li>
+          <li>Kein Bau-/Energie-Fachwissen, auf Experten angewiesen<sup class="t">[H]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-ndo">
+        <div class="zlabel"><span class="n">2</span>NEED TO DO <span class="de">Was muss er schaffen?</span></div>
+        <ul>
+          <li>Werterhalt durch Prävention statt Schadensreaktion<sup class="t">[M]</sup></li>
+          <li>Investitionen sicher priorisieren: Nutzen &gt; Kosten<sup class="t">[M]</sup></li>
+          <li>GEG-Pflichten erfüllen, Förderung nutzen<sup class="t">[M]</sup></li>
+          <li>Erfolg = keine Großschäden, planbare Kosten<sup class="t">[H]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-see">
+        <div class="zlabel"><span class="n">3</span>SEE <span class="de">sieht</span></div>
+        <ul>
+          <li>Zunehmendes Extremwetter: Starkregen, Hochwasser<sup class="t">[M]</sup></li>
+          <li>GEG-Debatte, komplexe Förderanträge<sup class="t">[M]</sup></li>
+          <li>Sanierungsdruck im Umfeld, steigende Preise<sup class="t">[H]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-say">
+        <div class="zlabel"><span class="n">4</span>SAY <span class="de">sagt</span></div>
+        <ul>
+          <li>„Der Nutzen muss die Kosten übersteigen."<sup class="t">[M]</sup></li>
+          <li>„Wann rechnet sich die Sanierung?"<sup class="t">[M]</sup></li>
+          <li>„Jeder Handwerker erzählt etwas anderes."<sup class="t">[M]</sup></li>
+          <li>„Versicherung zahlt eh nicht."<sup class="t">[M]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-hear">
+        <div class="zlabel"><span class="n">6</span>HEAR <span class="de">hört</span></div>
+        <ul>
+          <li>Unqualifizierte Ratschläge aus dem Umfeld<sup class="t">[M]</sup></li>
+          <li>Widersprüchliche Experten und Handwerker<sup class="t">[M]</sup></li>
+          <li>Lange Wartezeiten auf Energieberater<sup class="t">[M]</sup></li>
+          <li>„Hoher Investitionsstau in Gebäuden"<sup class="t">[M]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-do">
+        <div class="zlabel"><span class="n">5</span>DO <span class="de">tut</span></div>
+        <ul>
+          <li>Wartet reaktiv statt präventiv<sup class="t">[H]</sup></li>
+          <li>Bevorzugt niedriginvestive Maßnahmen<sup class="t">[M]</sup></li>
+          <li>Optimiert Betriebskosten<sup class="t">[M]</sup></li>
+          <li>Holt Angebote ein, entscheidet dann nicht<sup class="t">[H]</sup></li>
+        </ul>
+      </div>
+
+      <div class="headc">
+        <div class="zlabel"><span class="n">7</span>THINK &amp; FEEL <span class="de">denkt &amp; fühlt</span></div>
+        <div class="pgwrap">
+          <div class="pgcol">
+            <div class="pgtitle pains">Pains</div>
+            <ul>
+              <li>Ratlos: Regulatorik und Förderlandschaft überfordern<sup class="t">[M]</sup></li>
+              <li>Angst vor Fehlinvestition ins eigene Vermögen<sup class="t">[M]</sup></li>
+              <li>Weiß nicht, wem er vertrauen kann<sup class="t">[M]</sup></li>
+              <li>Papierkram, Dokumentationsaufwand<sup class="t">[M]</sup></li>
+            </ul>
+          </div>
+          <div class="pgcol">
+            <div class="pgtitle gains">Gains</div>
+            <ul>
+              <li>Priorisierte To-do-Liste mit Kosten/Nutzen<sup class="t">[M]</sup></li>
+              <li>Ein kompetenter, neutraler Ansprechpartner<sup class="t">[M]</sup></li>
+              <li>Fördermittel einfach nutzen können<sup class="t">[M]</sup></li>
+              <li>Werterhalt langfristig gesichert<sup class="t">[M]</sup></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h3>Jobs to Be Done</h3>
+        <div class="job"><b>J1</b>Wenn ich in mein Haus investieren muss, will ich <em>vorab sicher sein, dass der Nutzen die Kosten übersteigt</em>, damit ich keine Fehlentscheidung mit meinem Vermögen treffe.</div>
+        <div class="job"><b>J2</b>Wenn jeder Handwerker etwas anderes empfiehlt, will ich <em>eine neutrale, vertrauenswürdige Einschätzung</em>, damit ich weiß, welcher Weg der richtige ist.</div>
+        <div class="job"><b>J3</b>Wenn Pflichten und Förderprogramme (GEG, KfW) sich ändern, will ich <em>verständlich wissen, was für mein Gebäude gilt</em>, damit ich handlungsfähig bin, ohne Experte zu werden.</div>
+        <div class="job"><b>J4</b>Wenn Extremwetter zunimmt, will ich <em>wissen, wie verwundbar mein Gebäude ist und welche günstigen Maßnahmen am meisten bringen</em>, damit ich Schäden zuvorkomme.</div>
+        <div class="job"><b>J5</b>Wenn trotz allem ein Schaden eintritt, will ich <em>schnellen, papierarmen Ersatz</em>, damit ich zügig zur Normalität zurückkehre.</div>
+      </div>
+      <div class="panel">
+        <h3>Use Cases Prävention</h3>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Gebäude-Assessment</span><span class="ucjobs">J1 J2</span><span class="ucfit">Fit: hoch</span></div><div class="ucdesc">Zustands- und Risikoprüfung mit priorisierter Maßnahmenliste inkl. Kosten, Nutzen und Förderfähigkeit.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Zweitmeinungs-Service</span><span class="ucjobs">J1 J2</span><span class="ucfit">Fit: hoch</span></div><div class="ucdesc">Neutrale Prüfung von Handwerker- und Sanierungsangeboten: Ist das nötig? Ist der Preis fair?</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Regulatorik- &amp; Förder-Navigator</span><span class="ucjobs">J3</span><span class="ucfit">Fit: mittel</span></div><div class="ucdesc">Personalisierter GEG-Check und geführter Förderantrag für das konkrete Gebäude.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Extremwetter-Risikoprofil</span><span class="ucjobs">J4</span><span class="ucfit">Fit: sehr hoch</span></div><div class="ucdesc">Gefährdungsanalyse je Adresse plus niedriginvestive Schutzmaßnahmen, gekoppelt an Prämienvorteil.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Frühwarn-Monitoring</span><span class="ucjobs">J4 J5</span><span class="ucfit">Fit: sehr hoch</span></div><div class="ucdesc">Leckage- und Feuchtesensorik mit Alarmierung und organisierter Soforthilfe.</div></div>
+      </div>
+      <div class="takeaway">
+        <div class="tt">Warum dieses Segment?</div>
+        <p>Schnellste Entscheidung (eine Person), idealer Einstieg für schnelle Lernschleifen, aber kleinster Hebel pro Abschluss. Zentrale Hürde ist das Misstrauen „Versicherung zahlt eh nicht": Jeder Use Case muss glaubhaft machen, dass Erkenntnisse für den Kunden genutzt werden, nie gegen ihn.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="pfoot">
+    <span>Evidenz: [T] Thesis 2017 (n=37) · [T→] Thesis-Muster übertragen · [M] eigene Empathy Map · [H] Hypothese — Segment nicht im Thesis-Sample, Aussagen zu validieren</span>
+    <span>Linja Scharffetter · Juli 2026</span>
+  </footer>
+</section>
+
+<!-- ==================== SEITE 3: KLEINVERMIETER ==================== -->
+<section class="page">
+  <header class="phead">
+    <div>
+      <div class="eyebrow">Produktbereich Prävention Wohngebäude · Empathy Map · Jobs to Be Done · Use Cases</div>
+      <h1>Privater Kleinvermieter</h1>
+      <div class="h1sub">1 bis 20 Wohneinheiten, verwaltet nebenberuflich, Immobilie als Altersvorsorge</div>
+    </div>
+    <div class="segchip">Segment 2 / 4</div>
+  </header>
+
+  <div class="cols">
+    <div class="canvas">
+      <svg class="bg" viewBox="0 0 1000 890" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="0,0 1000,0 650,300 350,300" fill="rgba(227,204,255,0.30)"/>
+        <line x1="0" y1="0" x2="350" y2="300" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="1000" y1="0" x2="650" y2="300" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="0" y1="890" x2="350" y2="680" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="1000" y1="890" x2="650" y2="680" stroke="#D9D2C6" stroke-width="2"/>
+      </svg>
+      <div class="ear" aria-hidden="true"></div>
+      <div class="z-goal zone">GOAL</div>
+
+      <div class="zone z-who">
+        <div class="zlabel"><span class="n">1</span>WHO <span class="de">Mit wem empathisieren wir?</span></div>
+        <ul>
+          <li>Privater Vermieter mit 1–20 Wohneinheiten<sup class="t">[H]</sup></li>
+          <li>Verwaltet nebenberuflich, ohne Prozesse und Fachpersonal<sup class="t">[H]</sup></li>
+          <li>Immobilie = Altersvorsorge<sup class="t">[T→]</sup></li>
+          <li>Ein Entscheider, kurzer Entscheidungsweg<sup class="t">[H]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-ndo">
+        <div class="zlabel"><span class="n">2</span>NEED TO DO <span class="de">Was muss er schaffen?</span></div>
+        <ul>
+          <li>Altersvorsorge absichern, Werterhalt sichern<sup class="t">[T→]</sup></li>
+          <li>Risiken früh erkennen, ohne ständig vor Ort zu sein<sup class="t">[H]</sup></li>
+          <li>Compliant bleiben, ohne Zeit zu verbrennen<sup class="t">[T→]</sup></li>
+          <li>Erfolg = kein Großschaden, kein Leerstand<sup class="t">[H]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-see">
+        <div class="zlabel"><span class="n">3</span>SEE <span class="de">sieht</span></div>
+        <ul>
+          <li>Alternder Bestand, offene Baustellen<sup class="t">[T→]</sup></li>
+          <li>„Verwohnung" durch Mieter, ohne eigenen Einfluss<sup class="t">[T→]</sup></li>
+          <li>Steigende Betriebskosten und Handwerkerpreise<sup class="t">[H]</sup></li>
+          <li>GEG-Pflichten, Förder-Dschungel<sup class="t">[T→]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-say">
+        <div class="zlabel"><span class="n">4</span>SAY <span class="de">sagt</span></div>
+        <ul>
+          <li>„Das rechnet sich nicht."<sup class="t">[T→]</sup></li>
+          <li>„Dienstleister sollen entlasten, nicht belasten."<sup class="t">[T→]</sup></li>
+          <li>„KfW-Anträge sind zu komplex."<sup class="t">[T→]</sup></li>
+          <li>„Umlegen, was geht, ohne Rechtsrisiko."<sup class="t">[M]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-hear">
+        <div class="zlabel"><span class="n">6</span>HEAR <span class="de">hört</span></div>
+        <ul>
+          <li>Steuerberater, Vermieter-Foren, Stammtisch<sup class="t">[H]</sup></li>
+          <li>Medien: Mietrecht, Regulierungsdebatten<sup class="t">[H]</sup></li>
+          <li>Widersprüchliche Handwerkerempfehlungen<sup class="t">[T→]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-do">
+        <div class="zlabel"><span class="n">5</span>DO <span class="de">tut</span></div>
+        <ul>
+          <li>Wartet reaktiv statt präventiv<sup class="t">[H]</sup></li>
+          <li>Investiert nur niedriginvestiv und nachvollziehbar<sup class="t">[T→]</sup></li>
+          <li>Erledigt Verwaltung neben Beruf und Alltag<sup class="t">[H]</sup></li>
+          <li>Beauftragt ggf. eine Verwaltung zur Entlastung<sup class="t">[M]</sup></li>
+        </ul>
+      </div>
+
+      <div class="headc">
+        <div class="zlabel"><span class="n">7</span>THINK &amp; FEEL <span class="de">denkt &amp; fühlt</span></div>
+        <div class="pgwrap">
+          <div class="pgcol">
+            <div class="pgtitle pains">Pains</div>
+            <ul>
+              <li>Kein Überblick über den Gebäudezustand<sup class="t">[H]</sup></li>
+              <li>Kein Einfluss auf Mieterverhalten (Schimmel, Feuchte)<sup class="t">[T→]</sup></li>
+              <li>Präventionswissen fehlt komplett<sup class="t">[H]</sup></li>
+              <li>Jede Maßnahme kostet persönliche Zeit<sup class="t">[H]</sup></li>
+              <li>Angst vor dem einen Großschaden, der die Kalkulation kippt<sup class="t">[H]</sup></li>
+            </ul>
+          </div>
+          <div class="pgcol">
+            <div class="pgtitle gains">Gains</div>
+            <ul>
+              <li>Priorisierte Maßnahmenliste mit Kosten/Nutzen<sup class="t">[T→]</sup></li>
+              <li>Frühwarnung bei Leckage und Fehlverbrauch<sup class="t">[T→]</sup></li>
+              <li>Echte Entlastung statt Zusatzaufwand<sup class="t">[T→]</sup></li>
+              <li>Prämien- oder Steuervorteil<sup class="t">[H]</sup></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h3>Jobs to Be Done</h3>
+        <div class="job"><b>J1</b>Wenn ich Instandhaltung entscheiden muss, will ich <em>ohne eigenes Fachwissen wissen, was wirklich nötig ist und was es bringt</em>, damit ich meine Altersvorsorge nicht durch Fehlinvestitionen gefährde.</div>
+        <div class="job"><b>J2</b>Wenn meine Mieter das Gebäude belasten, will ich <em>Risiken früh erkennen, ohne ständig vor Ort zu sein</em>, damit aus Kleinigkeiten keine Großschäden werden.</div>
+        <div class="job"><b>J3</b>Wenn Pflichten und Förderungen sich ändern, will ich <em>nur das wissen, was mein Gebäude betrifft</em>, damit ich compliant bleibe, ohne Zeit zu verbrennen.</div>
+        <div class="job"><b>J4</b>Wenn etwas gemacht werden muss, will ich <em>verlässliche Handwerker ohne eigene Suche</em>, damit das Objekt mich neben Beruf und Alltag nicht überfordert.</div>
+        <div class="job"><b>J5</b>Wenn ein Schaden passiert, will ich <em>minimale Bürokratie</em>, damit Mietausfall und Ärger kurz bleiben.</div>
+      </div>
+      <div class="panel">
+        <h3>Use Cases Prävention</h3>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Mini-Assessment „Gebäude-Check"</span><span class="ucjobs">J1</span><span class="ucfit">Fit: hoch</span></div><div class="ucdesc">Priorisierte 3-Punkte-Maßnahmenliste mit groben Kosten und Amortisation.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Leckage- &amp; Feuchte-Sensorik</span><span class="ucjobs">J2 J5</span><span class="ucfit">Fit: sehr hoch</span></div><div class="ucdesc">Alarm aufs Handy plus organisierte Soforthilfe, bevor aus dem Tropfen ein Wasserschaden wird.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Pflichten- &amp; Förder-Radar</span><span class="ucjobs">J3</span><span class="ucfit">Fit: mittel</span></div><div class="ucdesc">Jährliche personalisierte Übersicht: Was gilt für genau dieses Objekt?</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Geprüfte Handwerker-Vermittlung</span><span class="ucjobs">J4</span><span class="ucfit">Fit: mittel</span></div><div class="ucdesc">Verlässliche Betriebe mit Terminzusage, ohne eigene Suche.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Express-Schadenabwicklung</span><span class="ucjobs">J5</span><span class="ucfit">Fit: hoch</span></div><div class="ucdesc">Foto-Meldung, Auszahlung in X Tagen: als sichtbares Versprechen, das Vertrauen aufbaut.</div></div>
+      </div>
+      <div class="takeaway">
+        <div class="tt">Warum dieses Segment?</div>
+        <p>Höchste Schutzlücke bei geringster Eigenkompetenz: Das Assessment ersetzt eine Fähigkeit, die das Segment schlicht nicht hat. Direkt über den bestehenden Versicherungsvertrag erreichbar, eine Person entscheidet. Risiko: geringe Zahlungsbereitschaft, der Nutzen muss in Euro übersetzt werden.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="pfoot">
+    <span>Evidenz: [T] Thesis 2017 (n=37) · [T→] Thesis-Muster übertragen · [M] eigene Empathy Map · [H] Hypothese — Segment nicht im Thesis-Sample (&lt;1.000 WE), Aussagen zu validieren</span>
+    <span>Linja Scharffetter · Juli 2026</span>
+  </footer>
+</section>
+
+<!-- ==================== SEITE 4: WEG ==================== -->
+<section class="page">
+  <header class="phead">
+    <div>
+      <div class="eyebrow">Produktbereich Prävention Wohngebäude · Empathy Map · Jobs to Be Done · Use Cases</div>
+      <h1>WEG &amp; WEG-Verwalter</h1>
+      <div class="h1sub">Eigentümergemeinschaft, vertreten durch den Verwalter als Gatekeeper und Multiplikator</div>
+    </div>
+    <div class="segchip">Segment 3 / 4</div>
+  </header>
+
+  <div class="cols">
+    <div class="canvas">
+      <svg class="bg" viewBox="0 0 1000 890" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="0,0 1000,0 650,300 350,300" fill="rgba(227,204,255,0.30)"/>
+        <line x1="0" y1="0" x2="350" y2="300" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="1000" y1="0" x2="650" y2="300" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="0" y1="890" x2="350" y2="680" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="1000" y1="890" x2="650" y2="680" stroke="#D9D2C6" stroke-width="2"/>
+      </svg>
+      <div class="ear" aria-hidden="true"></div>
+      <div class="z-goal zone">GOAL</div>
+
+      <div class="zone z-who">
+        <div class="zlabel"><span class="n">1</span>WHO <span class="de">Mit wem empathisieren wir?</span></div>
+        <ul>
+          <li>Eigentümergemeinschaft, vertreten durch den WEG-Verwalter<sup class="t">[T]</sup></li>
+          <li>Verwalter = Gatekeeper und Multiplikator<sup class="t">[H]</sup></li>
+          <li>Geringste Professionalisierung aller Kundenarten<sup class="t">[T]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-ndo">
+        <div class="zlabel"><span class="n">2</span>NEED TO DO <span class="de">Was muss er schaffen?</span></div>
+        <ul>
+          <li>Instandhaltung beschlussfähig machen<sup class="t">[T]</sup></li>
+          <li>Rücklagen am realen Risiko ausrichten<sup class="t">[H]</sup></li>
+          <li>Haftungsrisiko des Verwalters senken<sup class="t">[H]</sup></li>
+          <li>Erfolg = Beschlüsse werden gefasst statt vertagt<sup class="t">[H]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-see">
+        <div class="zlabel"><span class="n">3</span>SEE <span class="de">sieht</span></div>
+        <ul>
+          <li>Alternde Gebäude, wachsender Sanierungsstau<sup class="t">[T]</sup></li>
+          <li>Knappe Rücklagen<sup class="t">[H]</sup></li>
+          <li>Leitungswasserschäden als Dauerthema im MFH<sup class="t">[H]</sup></li>
+          <li>Uneinige, kostenkritische Eigentümer<sup class="t">[H]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-say">
+        <div class="zlabel"><span class="n">4</span>SAY <span class="de">sagt</span></div>
+        <ul>
+          <li>„Ich brauche Argumentationshilfen für meine Eigentümer."<sup class="t">[T]</sup></li>
+          <li>„Es fehlt Standardisierung."<sup class="t">[T]</sup></li>
+          <li>„Aufwand und Vergütung passen nicht zusammen."<sup class="t">[T]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-hear">
+        <div class="zlabel"><span class="n">6</span>HEAR <span class="de">hört</span></div>
+        <ul>
+          <li>Misstrauen der Eigentümer bei jeder Ausgabe<sup class="t">[H]</sup></li>
+          <li>Beirat und Versammlung fordern Begründungen<sup class="t">[H]</sup></li>
+          <li>Haftungs-Rechtsprechung, Verbandsinfos<sup class="t">[H]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-do">
+        <div class="zlabel"><span class="n">5</span>DO <span class="de">tut</span></div>
+        <ul>
+          <li>Priorisiert das Akute, vertagt Prävention<sup class="t">[H]</sup></li>
+          <li>Beschlüsse erst bei akutem Schaden<sup class="t">[H]</sup></li>
+          <li>Sucht partnerschaftliche Dienstleister<sup class="t">[T]</sup></li>
+          <li>Instandhaltung wird in der Versammlung zerredet<sup class="t">[H]</sup></li>
+        </ul>
+      </div>
+
+      <div class="headc">
+        <div class="zlabel"><span class="n">7</span>THINK &amp; FEEL <span class="de">denkt &amp; fühlt</span></div>
+        <div class="pgwrap">
+          <div class="pgcol">
+            <div class="pgtitle pains">Pains</div>
+            <ul>
+              <li>Komplexe Abrechnungs- und Entscheidungsstrukturen<sup class="t">[T]</sup></li>
+              <li>Unrealistische Eigentümererwartungen<sup class="t">[T]</sup></li>
+              <li>Gemeinschafts- vs. Sondereigentum = Konfliktherd<sup class="t">[H]</sup></li>
+              <li>Verwalter haftet für Versäumnisse<sup class="t">[H]</sup></li>
+              <li>Überlastet und unterbezahlt<sup class="t">[T]</sup></li>
+            </ul>
+          </div>
+          <div class="pgcol">
+            <div class="pgtitle gains">Gains</div>
+            <ul>
+              <li>Neutrale, objektive Beschlussgrundlage<sup class="t">[H]</sup></li>
+              <li>Priorisierung für die Rücklagenplanung<sup class="t">[H]</sup></li>
+              <li>Haftungsentlastung durch Dokumentation<sup class="t">[H]</sup></li>
+              <li>Partner auf Augenhöhe<sup class="t">[T]</sup></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h3>Jobs to Be Done</h3>
+        <div class="job"><b>J1</b>Wenn ich Instandhaltung durch die Eigentümerversammlung bringen muss, will ich <em>eine neutrale, belastbare Entscheidungsgrundlage</em>, damit Beschlüsse gefasst statt vertagt werden.</div>
+        <div class="job"><b>J2</b>Wenn die Gemeinschaft Rücklagen plant, will ich <em>den Bedarf über Jahre priorisiert sehen</em>, damit die Rücklage zum tatsächlichen Risiko passt.</div>
+        <div class="job"><b>J3</b>Wenn ein Schaden Gemeinschafts- und Sondereigentum betrifft, will ich <em>Zuständigkeit und Regulierung schnell geklärt haben</em>, damit kein Streit in der Gemeinschaft entsteht.</div>
+        <div class="job"><b>J4</b>Wenn ich für Versäumnisse hafte, will ich <em>dokumentiert nachweisen können, dass Prävention ordnungsgemäß lief</em>, damit mein Haftungsrisiko sinkt.</div>
+        <div class="job"><b>J5</b>Wenn Eigentümer an Ausgaben zweifeln, will ich <em>Argumentationshilfen in Laiensprache</em>, damit ich nicht als Kostentreiber dastehe.</div>
+      </div>
+      <div class="panel">
+        <h3>Use Cases Prävention</h3>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Assessment als Beschlussvorlage</span><span class="ucjobs">J1 J5</span><span class="ucfit">Fit: sehr hoch</span></div><div class="ucdesc">Bericht in versammlungstauglicher Form mit Risiko-Ranking und Kostenrahmen.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Mehrjahres-Präventionsfahrplan</span><span class="ucjobs">J2</span><span class="ucfit">Fit: hoch</span></div><div class="ucdesc">Priorisierter Instandhaltungsplan, gekoppelt an eine Rücklagenempfehlung.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Präventionshistorie je Objekt</span><span class="ucjobs">J4</span><span class="ucfit">Fit: hoch</span></div><div class="ucdesc">Dokumentierter Nachweis ordnungsgemäßer Prävention als Haftungsentlastung des Verwalters.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Klärungs-Service Eigentumsarten</span><span class="ucjobs">J3</span><span class="ucfit">Fit: hoch</span></div><div class="ucdesc">Erstbewertung Gemeinschafts- vs. Sondereigentum plus Kommunikationsvorlagen im Schadenfall.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Verwalter-Portal</span><span class="ucjobs">J1–J5</span><span class="ucfit">Fit: mittel</span></div><div class="ucdesc">Alle betreuten Objekte mit Risikostatus auf einen Blick: der Verwalter als Multiplikator-Kanal.</div></div>
+      </div>
+      <div class="takeaway">
+        <div class="tt">Warum dieses Segment?</div>
+        <p>Das Assessment löst hier kein Informations-, sondern ein Entscheidungsproblem: Es bringt Präventionsbeschlüsse durch die Versammlung. Der Verwalter ist Multiplikator (ein überzeugter Verwalter = Dutzende Gebäude), Leitungswasser ist der Schadentreiber im Mehrfamilienhaus. Risiko: träge Beschlusszyklen im Takt der Eigentümerversammlungen.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="pfoot">
+    <span>Evidenz: [T] Thesis 2017 (n=37, WEG-Verwaltungen im Sample) · [T→] übertragen · [M] eigene Empathy Map · [H] Hypothese, zu validieren</span>
+    <span>Linja Scharffetter · Juli 2026</span>
+  </footer>
+</section>
+
+<!-- ==================== SEITE 5: PROFI ==================== -->
+<section class="page">
+  <header class="phead">
+    <div>
+      <div class="eyebrow">Produktbereich Prävention Wohngebäude · Empathy Map · Jobs to Be Done · Use Cases</div>
+      <h1>Professionelle Hausverwaltungen</h1>
+      <div class="h1sub">Wohnungsunternehmen und Verwaltungen ab 1.000 WE: kommunal, genossenschaftlich, börsennotiert</div>
+    </div>
+    <div class="segchip">Segment 4 / 4</div>
+  </header>
+
+  <div class="cols">
+    <div class="canvas">
+      <svg class="bg" viewBox="0 0 1000 890" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="0,0 1000,0 650,300 350,300" fill="rgba(227,204,255,0.30)"/>
+        <line x1="0" y1="0" x2="350" y2="300" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="1000" y1="0" x2="650" y2="300" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="0" y1="890" x2="350" y2="680" stroke="#D9D2C6" stroke-width="2"/>
+        <line x1="1000" y1="890" x2="650" y2="680" stroke="#D9D2C6" stroke-width="2"/>
+      </svg>
+      <div class="ear" aria-hidden="true"></div>
+      <div class="z-goal zone">GOAL</div>
+
+      <div class="zone z-who">
+        <div class="zlabel"><span class="n">1</span>WHO <span class="de">Mit wem empathisieren wir?</span></div>
+        <ul>
+          <li>Wohnungsunternehmen und Verwaltungen, 1.000–130.000 WE<sup class="t">[T]</sup></li>
+          <li>Professionelle Strukturen, eigenes Zielbild und Lösungsweg<sup class="t">[T]</sup></li>
+          <li>Kern des Thesis-Samples: belastbarste Evidenz<sup class="t">[T]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-ndo">
+        <div class="zlabel"><span class="n">2</span>NEED TO DO <span class="de">Was muss es schaffen?</span></div>
+        <ul>
+          <li>Portfolio-Werterhalt als Kerngeschäft<sup class="t">[T]</sup></li>
+          <li>Schadenquote und Betriebskosten messbar senken<sup class="t">[H]</sup></li>
+          <li>Integration statt weiterer Insellösung<sup class="t">[T]</sup></li>
+          <li>Erfolg = Wirkung messbar, Prozesse unbelastet<sup class="t">[H]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-see">
+        <div class="zlabel"><span class="n">3</span>SEE <span class="de">sieht</span></div>
+        <ul>
+          <li>Portfolio-Kennzahlen und Schadenquoten<sup class="t">[H]</sup></li>
+          <li>Flut an PropTech-Insellösungen<sup class="t">[T]</sup></li>
+          <li>Energetische Anforderungen bei knapper Wirtschaftlichkeit<sup class="t">[T]</sup></li>
+          <li>Fachkräfte- und Handwerkermangel<sup class="t">[T]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-say">
+        <div class="zlabel"><span class="n">4</span>SAY <span class="de">sagt</span></div>
+        <ul>
+          <li>„Offene Schnittstellen sind Bedingung."<sup class="t">[T]</sup></li>
+          <li>„Die Datenhoheit bleibt bei uns."<sup class="t">[T]</sup></li>
+          <li>„Den Dienstleister wollen wir nicht bemerken."<sup class="t">[T]</sup></li>
+          <li>„Wir erwarten Optimierung, nicht Basisleistung."<sup class="t">[T]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-hear">
+        <div class="zlabel"><span class="n">6</span>HEAR <span class="de">hört</span></div>
+        <ul>
+          <li>Gremien fordern Wirtschaftlichkeitsnachweise<sup class="t">[H]</sup></li>
+          <li>Peers und Verbands-Benchmarks<sup class="t">[H]</sup></li>
+          <li>Dienstleister-Versprechen vs. erlebte Qualität<sup class="t">[T]</sup></li>
+        </ul>
+      </div>
+
+      <div class="zone z-do">
+        <div class="zlabel"><span class="n">5</span>DO <span class="de">tut</span></div>
+        <ul>
+          <li>Verteilt Aufträge bewusst auf mehrere Anbieter<sup class="t">[T]</sup></li>
+          <li>Prüft Insourcing<sup class="t">[T]</sup></li>
+          <li>Wechselt nur bei Schlechtleistung, nie preisgetrieben<sup class="t">[T]</sup></li>
+          <li>Fordert Warnsysteme bei Fehlverbrauch<sup class="t">[T]</sup></li>
+        </ul>
+      </div>
+
+      <div class="headc">
+        <div class="zlabel"><span class="n">7</span>THINK &amp; FEEL <span class="de">denkt &amp; fühlt</span></div>
+        <div class="pgwrap">
+          <div class="pgcol">
+            <div class="pgtitle pains">Pains</div>
+            <ul>
+              <li>Nutzerverhalten skaliert als Risiko über tausende WE<sup class="t">[T]</sup></li>
+              <li>Medienbrüche, Papier, Prozessineffizienz<sup class="t">[T]</sup></li>
+              <li>Misstrauen, wenn Dritte Gebäudedaten sammeln<sup class="t">[T]</sup></li>
+              <li>Jede weitere Insellösung ist selbst ein Pain<sup class="t">[T]</sup></li>
+            </ul>
+          </div>
+          <div class="pgcol">
+            <div class="pgtitle gains">Gains</div>
+            <ul>
+              <li>Portfolio-weites Risiko-Monitoring<sup class="t">[H]</sup></li>
+              <li>Datenintegration in eigene Systeme<sup class="t">[T]</sup></li>
+              <li>Warnsysteme bei Fehlverbrauch<sup class="t">[T]</sup></li>
+              <li>Messbar sinkende Schadenquote, Prämienmodelle<sup class="t">[H]</sup></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <aside>
+      <div class="panel">
+        <h3>Jobs to Be Done</h3>
+        <div class="job"><b>J1</b>Wenn ich ein Portfolio steuere, will ich <em>Schadenrisiken je Objekt datenbasiert vergleichen</em>, damit Budgets dorthin fließen, wo sie am meisten wirken.</div>
+        <div class="job"><b>J2</b>Wenn Nutzerverhalten über tausende Einheiten skaliert, will ich <em>Abweichungen (Feuchte, Fehlverbrauch, Leckagen) automatisch erkennen</em>, damit ich eingreife, bevor Schäden entstehen.</div>
+        <div class="job"><b>J3</b>Wenn ich externe Systeme einführe, will ich <em>offene Schnittstellen zu meinen Bestandssystemen</em>, damit kein weiteres Insel-Portal meine Prozesse belastet.</div>
+        <div class="job"><b>J4</b>Wenn ich in Prävention investiere, will ich <em>die Wirkung messen (Schadenquote, Prämie, Betriebskosten)</em>, damit ich den Business Case intern verteidigen kann.</div>
+        <div class="job"><b>J5</b>Wenn Dienstleister in meinen Beständen arbeiten, will ich <em>sie so wenig wie möglich bemerken</em>, damit meine Organisation entlastet statt beschäftigt wird.</div>
+      </div>
+      <div class="panel">
+        <h3>Use Cases Prävention</h3>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Portfolio-Risiko-Dashboard</span><span class="ucjobs">J1</span><span class="ucfit">Fit: sehr hoch</span></div><div class="ucdesc">Scoring aller Objekte aus Versicherer-Schadendaten plus Gebäudedaten.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">IoT-Monitoring-Programm</span><span class="ucjobs">J2 J3 J5</span><span class="ucfit">Fit: hoch</span></div><div class="ucdesc">Leckage, Feuchte, Elementar-Frühwarnung, per API in ERP- und CAFM-Systeme integriert.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Prämienmodell mit Präventions-Kopplung</span><span class="ucjobs">J4</span><span class="ucfit">Fit: sehr hoch</span></div><div class="ucdesc">Messbare Maßnahmen senken nachweislich die Prämie auf Portfolioebene.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Jährlicher Wirkungsbericht</span><span class="ucjobs">J4</span><span class="ucfit">Fit: hoch</span></div><div class="ucdesc">Schadenquote vor und nach Maßnahmen als Steuerungsinstrument.</div></div>
+        <div class="ucitem"><div class="uchead"><span class="ucname">Datenhoheits-Vereinbarung</span><span class="ucjobs">Basis</span><span class="ucfit">Voraussetzung</span></div><div class="ucdesc">Daten gehören dem Kunden, der Versicherer erhält definierte Auswertungsrechte: Antwort auf die zentrale Vertrauenshürde.</div></div>
+      </div>
+      <div class="takeaway">
+        <div class="tt">Warum dieses Segment?</div>
+        <p>Skalierung: ein Vertrag, tausende Gebäude. Das explizit geäußerte Bedürfnis nach Frühwarnsystemen und Schnittstellen passt auf Monitoring, weniger auf Begehungs-Assessments. Das beste Segment, um den Präventions-Business-Case zu beweisen (Schadenquote vorher/nachher). Risiken: lange B2B-Zyklen, harte Integrationsanforderungen, Datenhoheits-Konflikt am schärfsten.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="pfoot">
+    <span>Evidenz: [T] Thesis 2017 (n=37, Kernsegment des Samples) · [T→] übertragen · [M] eigene Empathy Map · [H] Hypothese, zu validieren</span>
+    <span>Linja Scharffetter · Juli 2026</span>
+  </footer>
+</section>
+
+</body>
+</html>
