@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<meta name="theme-color" content="#7B6BA5">
+<meta name="robots" content="noindex, nofollow">
+<title>PropertyExpert · Vorgehen &amp; Angebot – Linja Scharffetter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF8; --card:#FFFFFF; --border:#E5E2DB;
+    --midnight:#472E56; --heidelbeer:#7b6ba5; --lilac:#E3CCFF;
+    --grapefruit:#FF6634; --sand:#F6EDDE;
+    --body:#44403c; --muted:#8a8478; --pain:#A84318;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;scroll-padding-top:70px;}
+  body{font-family:'Fraunces',Georgia,serif;background:var(--paper);color:var(--body);font-size:15px;line-height:1.55;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
+  h1,h2,h3,h4{color:var(--midnight);text-wrap:balance;font-weight:600;}
+  b{color:var(--midnight);}
+  .mono{font-family:'Geist Mono',ui-monospace,monospace;}
+
+  /* Top-Bar */
+  .top{position:sticky;top:0;z-index:50;background:rgba(250,250,248,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+  .topin{display:flex;align-items:center;gap:14px;padding:12px 0;flex-wrap:wrap;}
+  .brand{font:600 11px 'Geist Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--heidelbeer);}
+  .top nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto;}
+  .top nav a{font:500 11.5px 'Geist Mono',monospace;color:var(--midnight);text-decoration:none;padding:6px 10px;border-radius:99px;}
+  .top nav a:hover{background:rgba(227,204,255,.45);}
+  .top nav a.ext{color:var(--muted);}
+
+  /* Hero */
+  .hero{padding:44px 0 8px;}
+  .eyebrow{font:600 11px 'Geist Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--heidelbeer);margin-bottom:10px;}
+  .hero h1{font-size:clamp(26px,4vw,38px);line-height:1.12;margin-bottom:10px;}
+  .hero .sub{color:var(--muted);max-width:760px;}
+
+  section{padding:38px 0 6px;}
+  section > h2{font-size:clamp(20px,2.6vw,26px);margin-bottom:6px;}
+  section > .lede{color:var(--muted);margin-bottom:20px;max-width:820px;}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
+  .grid{display:grid;gap:14px;}
+  .g4{grid-template-columns:repeat(auto-fit,minmax(235px,1fr));}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr));}
+
+  .chip{display:inline-block;font:500 10.5px/1.6 'Geist Mono',monospace;color:var(--midnight);background:rgba(227,204,255,.4);border:1px solid var(--lilac);border-radius:99px;padding:2px 10px;white-space:nowrap;}
+  .mlabel{font:600 10px 'Geist Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--heidelbeer);margin-bottom:6px;}
+  .mlabel.mid{color:var(--midnight);}
+  ul.dot{list-style:none;}
+  ul.dot li{padding-left:14px;position:relative;margin-bottom:6px;}
+  ul.dot li::before{content:"·";position:absolute;left:2px;color:var(--heidelbeer);font-weight:700;}
+  .tint-lilac{background:rgba(227,204,255,.32);border-color:var(--lilac);}
+  .tint-sand{background:rgba(246,237,222,.6);border-color:#EADFC8;}
+  .note-sand{background:rgba(246,237,222,.6);border:1px solid #EADFC8;border-radius:10px;padding:12px 16px;margin-top:14px;font-size:14px;}
+  sup.t{font:500 9px 'Geist Mono',monospace;color:var(--muted);margin-left:2px;white-space:nowrap;}
+
+  /* Summary Segment-Karten */
+  .segcard{display:flex;flex-direction:column;}
+  .segcard .scname{font-size:17px;margin:2px 0 2px;}
+  .segcard .scsize{font-size:12.5px;color:var(--muted);margin-bottom:8px;}
+  .segcard .sctake{font-size:13.5px;margin-bottom:12px;}
+  .scfacts{margin-top:auto;border-top:1px solid var(--border);padding-top:8px;}
+  .scfact{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted);line-height:1.8;}
+  .scfact span:last-child{color:var(--body);text-align:right;}
+  .chain{display:flex;align-items:center;gap:8px;margin:10px 0 12px;flex-wrap:wrap;}
+  .chainstep{font:600 11px 'Geist Mono',monospace;color:var(--midnight);background:rgba(123,107,165,.12);border:1px solid rgba(123,107,165,.35);padding:5px 12px;border-radius:99px;}
+  .chainarrow{color:var(--heidelbeer);font-weight:700;}
+
+  /* Zielgruppen */
+  .zg{margin-bottom:20px;}
+  .zghead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:2px;}
+  .zghead h3{font-size:21px;}
+  .zgdesc{color:var(--muted);font-size:13.5px;margin-bottom:14px;}
+  .zgcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:14px;}
+  .zgcols > div{min-width:0;}
+  .job{font-size:13px;margin-bottom:8px;padding-left:26px;position:relative;line-height:1.5;}
+  .job b.jn{font:600 11px 'Geist Mono',monospace;color:var(--heidelbeer);position:absolute;left:0;top:2px;}
+  .job em{font-style:normal;font-weight:600;color:var(--midnight);}
+  .quc{margin-bottom:9px;}
+  .quchead{display:flex;align-items:baseline;gap:8px;}
+  .qucname{font-weight:600;color:var(--midnight);font-size:13.5px;}
+  .euro{font:600 11px 'Geist Mono',monospace;color:var(--pain);margin-left:auto;white-space:nowrap;}
+  .euro.na{color:var(--muted);}
+  .qucdesc{font-size:12.5px;color:#555;}
+  .qucmarket{font-size:11.5px;color:var(--muted);font-style:italic;}
+  .why{background:rgba(227,204,255,.32);border:1px solid var(--lilac);border-radius:10px;padding:12px 16px;font-size:13.5px;margin-bottom:14px;}
+
+  /* Empathy-Map-Details (aufklappbar) */
+  details.emap{border:1px solid var(--lilac);border-radius:10px;background:rgba(227,204,255,.16);}
+  details.emap summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;padding:12px 16px;font:600 12px 'Geist Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--midnight);}
+  details.emap summary::-webkit-details-marker{display:none;}
+  details.emap summary::before{content:"+";display:inline-flex;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--heidelbeer);color:var(--heidelbeer);align-items:center;justify-content:center;font-weight:600;flex:none;}
+  details.emap[open] summary::before{content:"–";}
+  details.emap summary:hover{color:var(--heidelbeer);}
+  .emap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;padding:4px 16px 16px;}
+  .efield{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 14px;}
+  .efield .fl{font:600 10px 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--midnight);margin-bottom:6px;display:flex;gap:6px;align-items:center;}
+  .efield .fl .de{font-weight:400;color:var(--muted);text-transform:none;letter-spacing:.02em;}
+  .efield ul.dot li{font-size:12.5px;margin-bottom:5px;}
+  .efield.pains .fl{color:var(--pain);}
+  .efield.gains .fl{color:var(--heidelbeer);}
+  .emap-legend{padding:0 16px 14px;font:400 10.5px 'Geist Mono',monospace;color:var(--muted);}
+
+  /* Ideen */
+  .icluster{font:600 11px 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--heidelbeer);margin:16px 0 8px;}
+  .icluster:first-of-type{margin-top:0;}
+  .iidea{margin-bottom:10px;}
+  .iihead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .iiname{font-weight:600;color:var(--midnight);font-size:14.5px;}
+  .iiseg{font:500 10.5px 'Geist Mono',monospace;color:var(--muted);}
+  .iinote{font-size:13px;color:#555;}
+  .iinsight{background:rgba(246,237,222,.6);border:1px solid #EADFC8;border-radius:8px;padding:10px 14px;margin-top:10px;font-size:13px;}
+
+  /* Vorgehen */
+  .phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px;margin-bottom:14px;}
+  .phase{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;}
+  .phase.hot{border:1.5px solid var(--midnight);}
+  .pnum{display:inline-flex;width:26px;height:26px;border-radius:50%;border:2px solid var(--heidelbeer);color:var(--heidelbeer);font:600 11px 'Geist Mono',monospace;align-items:center;justify-content:center;margin-bottom:8px;}
+  .phase h4{font-size:15.5px;margin-bottom:4px;}
+  .pstar{font:600 10px 'Geist Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--pain);margin-bottom:5px;}
+  .pclaim{font-style:italic;font-size:12px;color:var(--muted);margin-bottom:8px;}
+  .papply{font-size:12.5px;margin-bottom:12px;}
+  .pmeta{margin-top:auto;display:flex;flex-direction:column;gap:5px;align-items:flex-start;}
+  .totalbar{font:600 12px 'Geist Mono',monospace;color:var(--midnight);background:rgba(71,46,86,.07);border:1px solid rgba(71,46,86,.15);border-radius:8px;padding:10px 16px;margin-bottom:14px;text-align:center;}
+
+  .offer{border:1.5px solid var(--midnight);border-radius:12px;background:var(--card);padding:18px 20px;margin-top:14px;}
+  .ohead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+  .ohead h3{font-size:19px;margin-right:4px;}
+  .tblwrap{overflow-x:auto;margin-bottom:10px;}
+  table.offer-t{width:100%;border-collapse:collapse;min-width:640px;}
+  table.offer-t th{font:600 10.5px 'Geist Mono',monospace;letter-spacing:.06em;text-align:left;color:var(--midnight);background:rgba(71,46,86,.08);padding:9px 12px;border-bottom:1px solid var(--border);}
+  table.offer-t td{font-size:13px;padding:10px 12px;border-top:1px solid var(--border);vertical-align:top;}
+  table.offer-t td:first-child{font-weight:600;color:var(--midnight);white-space:nowrap;}
+  .onote{font-size:12.5px;}
+
+  footer{margin-top:40px;border-top:1px solid var(--border);padding:16px 0 40px;}
+  footer .f{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font:400 10.5px 'Geist Mono',monospace;color:var(--muted);}
+</style>
+<style>.pmeta .chip{white-space:normal;line-height:1.4;}</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap topin">
+    <span class="brand">Linja Scharffetter · PropertyExpert · Intern</span>
+    <nav>
+      <a class="ext" href="../interaktiv/">← Zum Dossier</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Produktbereich Prävention Wohngebäude · Nur für mich — nicht Teil des Kunden-Dossiers</div>
+    <h1>Vorgehen &amp; Fractional-Angebot</h1>
+    <p class="sub">Der linja.me-Ansatz, angewendet auf PropertyExpert — mit Aufwandsempfehlung, Rollenprofil und Paketen.</p>
+  </div>
+
+  <!-- ============ VORGEHEN ============ -->
+  <section id="vorgehen">
+    <h2>Vorgehen: In fünf Phasen zum validierten Produkt</h2>
+    <p class="lede">Der linja.me-Ansatz, angewendet auf PropertyExpert — mit Aufwandsempfehlung und Rollenprofil je Phase.</p>
+
+    <div class="phases">
+      <div class="phase">
+        <span class="pnum">01</span>
+        <h4>Standortbestimmung</h4>
+        <div class="pclaim">„Wir wissen, dass wir etwas ändern müssen, aber nicht, wo wir anfangen sollen."</div>
+        <div class="papply">Suchfeld schärfen: versicherungsnah (WEG-Vorlage, Leckage-Orchestrierung) oder frei (Hauskauf-Wizard)? Erfolgskriterien und die Fokus-Entscheidung auf eine Zielgruppe in einer kompakten Abstimmung festzurren. Nicht überspringen — nur eindampfen.</div>
+        <div class="pmeta"><span class="chip">Aufwand: 1–2 Tage</span><span class="chip">Rolle: Lead</span></div>
+      </div>
+      <div class="phase hot">
+        <span class="pnum">02</span>
+        <h4>Kundenwahrheit</h4>
+        <div class="pstar">★ Mein Einstieg</div>
+        <div class="pclaim">„Wir sind überzeugt von unserer Idee, aber ob der Markt das auch so sieht, wissen wir nicht."</div>
+        <div class="papply">Strukturierte, qualitative Interviews mit einer relevanten Anzahl an Kunden aus maximal zwei Zielgruppen: Problembewusstsein, Bedürfnistiefe, Zahlungsbereitschaft. Diese Unterlage (Empathy Maps, JTBD, Use Cases) ist der fertige Startpunkt. Ergebnis: Entscheidung für eine Idee — ggf. in angepasster Form.</div>
+        <div class="pmeta"><span class="chip">Aufwand: 2–3 Wochen</span><span class="chip">Rolle: Lead</span></div>
+      </div>
+      <div class="phase hot">
+        <span class="pnum">03</span>
+        <h4>Produkt-Markt-Fit</h4>
+        <div class="pstar">★ Schwerpunkt</div>
+        <div class="pclaim">„Wir wollen wissen, ob aus der Idee ein Produkt wird, das der Markt wirklich annimmt."</div>
+        <div class="papply">KI-gestütztes Rapid Prototyping: klickbarer Wizard bzw. Muster-Beschlussvorlage in Tagen statt Wochen. Dann Preis- und Nutzungstests in konkreten Gesprächen mit der Zielgruppe — echte Reaktionen statt Meinungen. Endet am definierten Übergabepunkt.</div>
+        <div class="pmeta"><span class="chip">Aufwand: 3–4 Wochen</span><span class="chip">Rolle: Lead</span></div>
+      </div>
+      <div class="phase">
+        <span class="pnum">04</span>
+        <h4>Strategie</h4>
+        <div class="pclaim">„Wir haben eine Strategie, aber im Alltag versteht jeder etwas anderes darunter."</div>
+        <div class="papply">Beweise in Business Case, Roadmap und Segmentstrategie überführen. Das PropertyExpert-Team übernimmt zunehmend die Führung, ich halte Methodik und Priorisierung sauber.</div>
+        <div class="pmeta"><span class="chip">Aufwand: 1–2 Tage/Woche, begleitend</span><span class="chip">Rolle: Sparring</span></div>
+      </div>
+      <div class="phase">
+        <span class="pnum">05</span>
+        <h4>Befähigung</h4>
+        <div class="pclaim">„Die Entscheidung steht längst, nur in der Umsetzung passiert nichts."</div>
+        <div class="papply">Validierungs-Playbook, Interview-Leitfäden und Test-Setups gehen ins Team über — es führt eigenständig weiter. Bewusst klein gehalten: Exit by design statt Dauermandat.</div>
+        <div class="pmeta"><span class="chip">Aufwand: punktuell, 2–3 Tage</span><span class="chip">Rolle: Coaching</span></div>
+      </div>
+    </div>
+
+    <div class="totalbar">Gesamt: ≈ 8–10 Wochen vom Alignment bis zur belastbaren Produktentscheidung — danach trägt das Team selbst.</div>
+
+    <div class="grid g3">
+      <div class="card">
+        <h3>Wo ich einsteige</h3>
+        <p style="font-size:13.5px;margin-top:8px;"><b>Phase 2 und 3, mit der kompakten Fokus-Abstimmung (Phase 1) als Rampe.</b> Voraussetzung für den Start ist die Entscheidung auf eine Zielgruppe — dafür reichen 1–2 Abstimmungstage. Welche Idee prototypisiert wird, entscheidet dann die Kundenwahrheit, nicht die Meinung. Sonst wird nur sehr schnell das falsche Produkt gebaut.</p>
+      </div>
+      <div class="card">
+        <h3>Was ich mitbringe</h3>
+        <ul class="dot" style="margin-top:8px;font-size:13.5px;">
+          <li><b>Fachwissen Immobilienwirtschaft:</b> u. a. 37 Experteninterviews mit Hausverwaltungen und Wohnungsunternehmen.</li>
+          <li><b>Kompetenz, Geschäftsideen schnell mit Kunden zu testen:</b> strukturierte Interviews, JTBD, Zahlungsbereitschafts-Tests — mein Kernhandwerk (Phase 2 + 3).</li>
+          <li><b>KI-gestütztes Prototyping:</b> von der Idee zum testbaren Prototyp in Tagen.</li>
+          <li><b>Diese Unterlage als Arbeitsprobe:</b> Zielgruppen, Bedürfnisse und Ideen liegen strukturiert vor, bevor der erste Tag beauftragt ist.</li>
+        </ul>
+      </div>
+      <div class="card tint-lilac">
+        <h3>Warum fractional statt Festanstellung</h3>
+        <p style="font-size:13.5px;margin-top:8px;">Prävention und freie Ideen sind bislang ein fragiler Teil eurer Strategie, der Risiko in sich trägt. Eine freie Mitarbeit validiert genau diesen Teil, ohne das Commitment einer Festanstellung — entschieden wird auf Beweisen, bevor Entwicklungsbudget und Headcount fließen.</p>
+        <p style="font-size:13.5px;margin-top:8px;">Dazu maximal effizient: Ich brauche kein großes Firmen-Onboarding, nur das Nötigste. Und ich habe nichts davon, mich zu positionieren oder unersetzlich zu machen — der Übergabepunkt ist von Anfang an definiert.</p>
+      </div>
+    </div>
+
+    <div class="offer">
+      <div class="ohead">
+        <h3>Das Fractional-Angebot</h3>
+        <span class="chip">Ab sofort verfügbar</span>
+        <span class="chip">3 Tage / Woche</span>
+        <span class="chip">Festpreis je Paket</span>
+        <span class="chip">Längere Zusammenarbeit je nach Ausgestaltung möglich</span>
+      </div>
+      <div class="tblwrap">
+        <table class="offer-t">
+          <tr><th style="width:20%;">Paket</th><th style="width:17%;">Umfang</th><th>Ergebnis</th><th style="width:13%;">Investition</th></tr>
+          <tr>
+            <td>Paket 1 · Kundenwahrheit</td>
+            <td>Monat 1<br>3 Tage/Woche (~13 Tage)</td>
+            <td>Strukturierte, qualitative Interviews mit einer relevanten Anzahl an Kunden aus <b>maximal zwei Zielgruppen</b> zur Evaluierung von Problem und Bedürfnis. <b>Entscheidung für eine der Ideen</b> — ggf. in angepasster Form auf Basis der Interviewergebnisse.</td>
+            <td><b>12.000 €</b> fix</td>
+          </tr>
+          <tr>
+            <td>Paket 2 · Produkt-Markt-Fit</td>
+            <td>Monat 2–3<br>3 Tage/Woche (~25 Tage)</td>
+            <td>Bedürfnisse anhand eines <b>Prototyps evaluiert</b>: konkrete Erkenntnisse zum Potenzial der Geschäftsidee plus <b>Ableitung der Kernfeatures</b> — getestet in echten Kundengesprächen, nicht im Workshop-Raum.</td>
+            <td><b>22.000 €</b> fix</td>
+          </tr>
+        </table>
+      </div>
+      <p class="onote"><b>Übergabepunkt:</b> eine fertig evaluierte Geschäftsidee mit abgeleiteten Kernhypothesen und Featureanforderungen — das Team übernimmt die Umsetzung, ich begleite auf Wunsch in Phase 4/5 punktuell weiter. Paket 1 funktioniert als bezahlter Pilot: Danach entscheiden beide Seiten über Paket 2.</p>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="f">
+      <span>Prozess: linja.me/#zusammenarbeit · Aufwände = Empfehlung, Kalibrierung im Gespräch</span>
+      <span>Linja Scharffetter · Juli 2026 · <a href="../interaktiv/" style="color:inherit;">Dossier</a></span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
