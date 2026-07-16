@@ -201,7 +201,8 @@
     .lp-trust li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ep-ink-soft); }
 
     /* Beispiel: echte Prototyp-Screens */
-    .lp-example-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .lp-example-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+    .lp-ex-item { min-width: 0; }
     .lp-shot {
       display: block;
       position: relative;
@@ -211,6 +212,9 @@
       margin-bottom: 20px;
     }
     .lp-shot iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 410px;
       height: 800px;
       border: 0;
@@ -291,7 +295,7 @@
       .lp-usp-grid { grid-template-columns: 1fr; gap: 28px; }
       .lp-flow { flex-direction: column; gap: 14px; }
       .lp-flow-link { margin: -25px auto; transform: rotate(90deg); }
-      .lp-example-grid { grid-template-columns: 1fr; gap: 40px; }
+      .lp-example-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
       .lp-ex-item { max-width: 420px; margin: 0 auto; }
     }
     @media (max-width: 560px) {
@@ -370,7 +374,7 @@
       </div>
       <div class="lp-grid-4">
         <div class="ep-card lp-card lp-reveal">
-          <h3>Überraschung: Nachzahlung</h3>
+          <h3>Plötzlich Nachzahlung</h3>
           <p>Die Jahresabrechnung ist für viele Haushalte der einzige Moment, in dem die Stromkosten sichtbar werden. Dann ist es zu spät, um noch etwas zu ändern.</p>
         </div>
         <div class="ep-card lp-card lp-reveal">
@@ -510,12 +514,12 @@
       <div class="lp-section-head lp-reveal">
         <span class="ep-eyebrow">Ein Beispiel</span>
         <h2>So sieht ein Monat mit dem Kompass aus</h2>
-        <p>Familie Weber aus Dortmund, drei Personen, 78 m² Mietwohnung, Abschlag 105 Euro im Monat. Alle Screens stammen direkt aus dem klickbaren Prototyp.</p>
+        <p>Familie Weber aus Dortmund, drei Personen, 78 m² Mietwohnung, Abschlag 105 Euro im Monat.</p>
       </div>
       <div class="lp-example-grid">
         <div class="lp-ex-item lp-reveal">
           <a class="lp-shot" href="../app/02-zaehlerstand.html" aria-label="Screen im Prototyp ansehen: Zählerstand per WhatsApp">
-            <iframe src="../app/02-zaehlerstand.html" loading="lazy" title="Prototyp-Screen: Zählerstand per WhatsApp" tabindex="-1"></iframe>
+            <iframe src="../app/02-zaehlerstand.html?embed=1" loading="lazy" title="Prototyp-Screen: Zählerstand per WhatsApp" tabindex="-1"></iframe>
             <span class="lp-shot-cta">Im Prototyp ansehen</span>
           </a>
           <div class="lp-ex-day">Tag 1</div>
@@ -524,7 +528,7 @@
         </div>
         <div class="lp-ex-item lp-reveal">
           <a class="lp-shot" href="../app/03-prognose.html" aria-label="Screen im Prototyp ansehen: Aktualisierte Prognose">
-            <iframe src="../app/03-prognose.html" loading="lazy" title="Prototyp-Screen: Aktualisierte Prognose" tabindex="-1"></iframe>
+            <iframe src="../app/03-prognose.html?embed=1" loading="lazy" title="Prototyp-Screen: Aktualisierte Prognose" tabindex="-1"></iframe>
             <span class="lp-shot-cta">Im Prototyp ansehen</span>
           </a>
           <div class="lp-ex-day">Direkt danach</div>
@@ -533,7 +537,7 @@
         </div>
         <div class="lp-ex-item lp-reveal">
           <a class="lp-shot" href="../app/04-report.html" aria-label="Screen im Prototyp ansehen: Monatsreport mit Maßnahmen">
-            <iframe src="../app/04-report.html" loading="lazy" title="Prototyp-Screen: Monatsreport mit Maßnahmen" tabindex="-1"></iframe>
+            <iframe src="../app/04-report.html?embed=1" loading="lazy" title="Prototyp-Screen: Monatsreport mit Maßnahmen" tabindex="-1"></iframe>
             <span class="lp-shot-cta">Im Prototyp ansehen</span>
           </a>
           <div class="lp-ex-day">Der Monatsreport</div>
@@ -586,12 +590,8 @@
       els.forEach(function (el) { observer.observe(el); });
     })();
 
-    /* Prototyp-Screens: Demo-Leiste ausblenden, Phone auf den Frame skalieren */
+    /* Prototyp-Screens: auf Spaltenbreite skalieren (Embed-Modus liegt in app.css, ?embed=1) */
     (function () {
-      var embedCss = '.demo-bar{display:none!important}' +
-        '.ep-phone-stage{min-height:0;padding:0;gap:0}' +
-        '.ep-phone{max-height:none;box-shadow:none}' +
-        'body{background:transparent}';
       var shots = document.querySelectorAll('.lp-shot');
 
       function scaleShots() {
@@ -604,20 +604,12 @@
       shots.forEach(function (shot) {
         var frame = shot.querySelector('iframe');
         if (!frame) return;
-        function prepare() {
-          try {
-            var doc = frame.contentDocument;
-            var style = doc.createElement('style');
-            style.textContent = embedCss;
-            doc.head.appendChild(style);
-          } catch (e) { /* Fallback: Screen erscheint unbeschnitten */ }
-          frame.classList.add('is-loaded');
-        }
-        if (frame.contentDocument && frame.contentDocument.readyState === 'complete' && frame.contentDocument.body) {
-          prepare();
-        } else {
-          frame.addEventListener('load', prepare);
-        }
+        frame.addEventListener('load', function () { frame.classList.add('is-loaded'); });
+        try {
+          if (frame.contentDocument && frame.contentDocument.readyState === 'complete') {
+            frame.classList.add('is-loaded');
+          }
+        } catch (e) { /* cross-origin: load-Event übernimmt */ }
       });
 
       scaleShots();
