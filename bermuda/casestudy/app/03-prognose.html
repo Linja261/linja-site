@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <meta name="theme-color" content="#7B6BA5">
+  <title>Energiekompass | Schritt 3: Aktualisierte Prognose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../eprimo.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<div class="ep-phone-stage">
+
+  <!-- Demo-Leiste (Pitch-Navigation) -->
+  <nav class="demo-bar" aria-label="Demo-Navigation">
+    <a href="02-zaehlerstand.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Zurück
+    </a>
+    <span class="demo-sep"></span>
+    <span class="demo-step">Schritt 3 von 5: Aktualisierte Prognose</span>
+    <span class="demo-sep"></span>
+    <a href="04-report.html">
+      Weiter
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+    </a>
+    <span class="demo-sep"></span>
+    <a class="demo-pager" href="../index.html">Zum 1-Pager</a>
+  </nav>
+
+  <!-- Phone -->
+  <div class="ep-phone">
+    <div class="ep-phone-screen">
+
+      <header class="app-header">
+        <div class="brand">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          Energiekompass
+        </div>
+      </header>
+
+      <main class="screen-pad">
+
+        <!-- Erfolg -->
+        <div class="success-line">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Zählerstand übernommen: 34.512 kWh am 16.07.
+        </div>
+
+        <!-- Dein Juli -->
+        <section class="ep-card app-card">
+          <div class="card-label">Dein Juli</div>
+          <div class="month-figures">
+            <span class="big">311 kWh</span>
+            <span class="approx">rund 114 Euro</span>
+          </div>
+          <div class="month-ref">Vormonat 16.06.: 34.201 kWh</div>
+        </section>
+
+        <!-- Jahresprognose aktualisiert -->
+        <section class="ep-card app-card">
+          <div class="card-label">Jahresprognose aktualisiert</div>
+          <div class="forecast-figure">
+            <span class="big">1.356 €</span>
+            <span class="unit">hochgerechnet</span>
+          </div>
+          <div class="forecast-covered">
+            <span>Durch Abschlag gedeckt</span>
+            <strong>1.260 €</strong>
+          </div>
+          <div style="margin-top: 12px;">
+            <span class="ep-badge ep-badge--warn"><span class="ep-dot ep-dot--warn"></span> Ampel: Gelb</span>
+          </div>
+          <p class="plain-statement">Ohne Änderung erwartet dich eine Nachzahlung von rund 96 Euro.</p>
+        </section>
+
+        <!-- Abschlags-Check -->
+        <div class="options-head">Abschlags-Check: deine zwei Wege</div>
+
+        <section class="ep-card option-card">
+          <div class="opt-tag">Option A</div>
+          <h3>Abschlag um 8 Euro anpassen</h3>
+          <p>Keine Nachzahlung, planbare Kosten.</p>
+          <button class="ep-btn ep-btn--ghost" type="button" title="Im MVP: Ein-Klick-Anpassung">Abschlag anpassen</button>
+        </section>
+
+        <section class="ep-card option-card">
+          <div class="opt-tag">Option B</div>
+          <h3>Verbrauch senken</h3>
+          <p>Dein Maßnahmenplan schließt die Lücke.</p>
+          <a class="ep-btn ep-btn--primary" href="04-report.html">Zum Monatsreport</a>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
