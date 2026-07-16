@@ -455,7 +455,16 @@
 .tip-toggle input:checked + .switch::after { transform: translateX(16px); }
 .tip-toggle .toggle-text { font-size: 13px; font-weight: 600; color: var(--ep-ink-soft); }
 
-.plan-summary { padding: 16px; }
+.tip-card { transition: border-color .15s ease, background-color .15s ease; }
+.tip-card--on { border-color: var(--ep-green); background: var(--ep-green-tint); }
+.tip-card--on .tip-toggle { border-top-color: rgba(110, 147, 18, .25); }
+.tip-card--on .toggle-text { color: var(--ep-green-dark); }
+.tip-card--on .tip-save { background: #fff; }
+
+.plan-summary { padding: 16px; transition: border-color .15s ease, background-color .15s ease; }
+.plan-summary--ok { border-color: var(--ep-green); background: var(--ep-green-tint); }
+.plan-activate { width: 100%; justify-content: center; margin-top: 12px; }
+.plan-activate[disabled] { opacity: .75; cursor: default; pointer-events: none; }
 .plan-summary .plan-row { display: flex; align-items: center; gap: 10px; }
 .plan-summary .plan-text { font-size: 14px; font-weight: 600; }
 .plan-summary .plan-goal { font-size: 13px; color: var(--ep-ink-soft); margin-top: 4px; }

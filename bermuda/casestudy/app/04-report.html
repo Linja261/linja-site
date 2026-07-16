@@ -121,12 +121,13 @@
         </section>
 
         <!-- Plan-Summe -->
-        <section class="ep-card plan-summary">
+        <section class="ep-card plan-summary" id="plan-summary">
           <div class="plan-row">
             <span class="ep-dot ep-dot--warn" id="plan-dot"></span>
-            <span class="plan-text" id="plan-text">Dein Plan: 0 Euro im Monat.</span>
+            <span class="plan-text" id="plan-text">Dein Plan: 0 von 26 Euro im Monat.</span>
           </div>
           <p class="plan-goal" id="plan-goal">Wähle deine Maßnahmen aus und schließe die Lücke von 96 Euro.</p>
+          <button class="ep-btn ep-btn--green plan-activate" id="plan-activate" type="button" hidden title="Im MVP: Plan wird gespeichert und im August-Report nachgehalten">Plan für August aktivieren</button>
         </section>
 
         <!-- Footer-CTA -->
@@ -149,24 +150,50 @@
     var dot = document.getElementById('plan-dot');
     var text = document.getElementById('plan-text');
     var goal = document.getElementById('plan-goal');
+    var summary = document.getElementById('plan-summary');
+    var activate = document.getElementById('plan-activate');
+    var total = checks.reduce(function (acc, c) { return acc + parseInt(c.getAttribute('data-save'), 10); }, 0);
+    var wasComplete = false;
+    var activated = false;
 
     function update() {
       var sum = 0;
       checks.forEach(function (c) {
+        var card = c.closest('.tip-card');
+        if (card) card.classList.toggle('tip-card--on', c.checked);
+        var label = c.parentNode.querySelector('.toggle-text');
+        if (label) label.textContent = c.checked ? 'Eingeplant' : 'Nehme ich mir vor';
         if (c.checked) sum += parseInt(c.getAttribute('data-save'), 10);
       });
-      text.textContent = 'Dein Plan: ' + sum + ' Euro im Monat.';
-      if (sum === 26) {
-        goal.textContent = 'Damit landest du bei 0 Euro Nachzahlung.';
-        dot.className = 'ep-dot ep-dot--ok';
-      } else if (sum > 0) {
-        goal.textContent = 'Aktiviere alle drei Maßnahmen und die Lücke von 96 Euro schließt sich auf 0.';
-        dot.className = 'ep-dot ep-dot--warn';
-      } else {
-        goal.textContent = 'Wähle deine Maßnahmen aus und schließe die Lücke von 96 Euro.';
-        dot.className = 'ep-dot ep-dot--warn';
+      var complete = sum >= total;
+      if (!complete && activated) {
+        activated = false;
+        activate.disabled = false;
+        activate.textContent = 'Plan für August aktivieren';
       }
+      text.textContent = 'Dein Plan: ' + sum + ' von ' + total + ' Euro im Monat.';
+      summary.classList.toggle('plan-summary--ok', complete);
+      activate.hidden = !complete;
+      if (complete) {
+        dot.className = 'ep-dot ep-dot--ok';
+        if (!activated) goal.textContent = 'Lücke geschlossen: Damit landest du bei 0 Euro Nachzahlung.';
+        if (!wasComplete) summary.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else if (sum > 0) {
+        dot.className = 'ep-dot ep-dot--warn';
+        goal.textContent = 'Noch ' + (total - sum) + ' Euro bis zur geschlossenen Lücke. Aktiviere alle drei Maßnahmen.';
+      } else {
+        dot.className = 'ep-dot ep-dot--warn';
+        goal.textContent = 'Wähle deine Maßnahmen aus und schließe die Lücke von 96 Euro.';
+      }
+      wasComplete = complete;
     }
+
+    activate.addEventListener('click', function () {
+      activated = true;
+      activate.textContent = 'Plan für August aktiviert';
+      activate.disabled = true;
+      goal.textContent = 'Wir erinnern dich im August-Report an deine drei Maßnahmen. Fragen dazu beantwortet dir der Kompass.';
+    });
 
     checks.forEach(function (c) { c.addEventListener('change', update); });
     update();
