@@ -34,13 +34,6 @@
       margin: 0 auto;
     }
     .lp-nav-right { display: flex; align-items: center; gap: 20px; }
-    .lp-nav-concept {
-      font-size: 13px;
-      color: var(--ep-muted);
-      text-decoration: none;
-      transition: color .12s ease;
-    }
-    .lp-nav-concept:hover { color: var(--ep-ink); }
     .lp-nav .ep-btn { padding: 9px 18px; font-size: 14px; }
 
     /* ---------- Hero ---------- */
@@ -60,7 +53,6 @@
     .lp-hero-sub {
       font-size: 17px;
       color: var(--ep-ink-soft);
-      max-width: 480px;
       margin-bottom: 28px;
     }
     .lp-hero-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -118,7 +110,7 @@
     /* ---------- Sektionen ---------- */
     .lp-section { padding: 72px 0; }
     .lp-section--tint { background: var(--ep-card); border-top: 1px solid var(--ep-line); border-bottom: 1px solid var(--ep-line); }
-    .lp-section-head { max-width: 560px; margin-bottom: 40px; }
+    .lp-section-head { max-width: 860px; margin-bottom: 40px; }
     .lp-section-head h2 { font-size: clamp(24px, 3.2vw, 32px); margin: 12px 0 14px; }
     .lp-section-head p { color: var(--ep-ink-soft); font-size: 16px; }
 
@@ -143,8 +135,9 @@
     }
     .lp-icon svg { width: 22px; height: 22px; }
 
-    /* Schritte */
-    .lp-step { position: relative; padding: 26px; }
+    /* Schritte: verzahnter Flow */
+    .lp-flow { display: flex; align-items: stretch; gap: 16px; }
+    .lp-flow-step { flex: 1; padding: 26px; }
     .lp-step-num {
       display: inline-flex;
       align-items: center;
@@ -158,7 +151,24 @@
       font-weight: 700;
       margin-bottom: 16px;
     }
-    .lp-step .lp-icon { position: absolute; top: 22px; right: 22px; margin: 0; }
+    .lp-flow-link {
+      flex: none;
+      align-self: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--ep-card);
+      border: 1px solid var(--ep-line);
+      box-shadow: var(--ep-shadow-soft);
+      color: var(--ep-ink);
+      margin: 0 -26px;
+      position: relative;
+      z-index: 2;
+    }
+    .lp-flow-link svg { width: 16px; height: 16px; }
 
     /* USP */
     .lp-usp-grid {
@@ -190,24 +200,58 @@
     .lp-trust ul { list-style: none; display: grid; gap: 12px; }
     .lp-trust li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ep-ink-soft); }
 
-    /* Timeline */
-    .lp-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
-    .lp-tl-item { position: relative; padding: 0 20px 0 0; }
-    .lp-tl-track { display: flex; align-items: center; margin-bottom: 16px; }
-    .lp-tl-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--ep-green);
-      border: 3px solid var(--ep-green-tint);
-      box-sizing: content-box;
-      flex-shrink: 0;
+    /* Beispiel: echte Prototyp-Screens */
+    .lp-example-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .lp-shot {
+      display: block;
+      position: relative;
+      container-type: inline-size;
+      aspect-ratio: 410 / 640;
+      overflow: hidden;
+      border-radius: 20px;
+      margin-bottom: 20px;
     }
-    .lp-tl-line { flex: 1; height: 2px; background: var(--ep-line); margin-left: 8px; }
-    .lp-tl-item:last-child .lp-tl-line { display: none; }
-    .lp-tl-day { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ep-green-dark); margin-bottom: 6px; }
-    .lp-tl-item h3 { font-size: 15.5px; margin-bottom: 6px; }
-    .lp-tl-item p { font-size: 13.5px; color: var(--ep-ink-soft); }
+    .lp-shot iframe {
+      width: 410px;
+      height: 800px;
+      border: 0;
+      display: block;
+      transform-origin: top left;
+      transform: scale(calc(100cqw / 410));
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .4s ease;
+      background: transparent;
+    }
+    .lp-shot iframe.is-loaded { opacity: 1; }
+    .lp-shot::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 90px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0), var(--ep-card));
+      pointer-events: none;
+    }
+    .lp-shot-cta {
+      position: absolute;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      z-index: 2;
+      background: var(--ep-ink);
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 999px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity .18s ease;
+    }
+    .lp-shot:hover .lp-shot-cta, .lp-shot:focus-visible .lp-shot-cta { opacity: 1; }
+    .lp-ex-day { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ep-green-dark); margin-bottom: 6px; }
+    .lp-ex-item h3 { font-size: 16px; margin-bottom: 6px; }
+    .lp-ex-item p { font-size: 14px; color: var(--ep-ink-soft); }
 
     /* Abschluss-CTA */
     .lp-final {
@@ -218,7 +262,7 @@
       color: #fff;
     }
     .lp-final h2 { font-size: clamp(24px, 3.2vw, 32px); margin-bottom: 14px; }
-    .lp-final p { color: rgba(255, 255, 255, .75); max-width: 480px; margin: 0 auto 28px; font-size: 16px; }
+    .lp-final p { color: rgba(255, 255, 255, .75); max-width: 640px; margin: 0 auto 28px; font-size: 16px; }
 
     /* Footer */
     .lp-footer { padding: 32px 0 40px; }
@@ -247,13 +291,13 @@
       .lp-hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .lp-grid-3, .lp-grid-4 { grid-template-columns: 1fr 1fr; }
       .lp-usp-grid { grid-template-columns: 1fr; gap: 28px; }
-      .lp-timeline { grid-template-columns: 1fr; gap: 24px; }
-      .lp-tl-item { padding: 0; }
-      .lp-tl-line { display: none; }
+      .lp-flow { flex-direction: column; gap: 14px; }
+      .lp-flow-link { margin: -25px auto; transform: rotate(90deg); }
+      .lp-example-grid { grid-template-columns: 1fr; gap: 40px; }
+      .lp-ex-item { max-width: 420px; margin: 0 auto; }
     }
     @media (max-width: 560px) {
       .lp-grid-2, .lp-grid-3, .lp-grid-4 { grid-template-columns: 1fr; }
-      .lp-nav-concept { display: none; }
       .lp-section { padding: 56px 0; }
       .lp-final { padding: 48px 24px; }
       .lp-preview-figures { flex-direction: column; gap: 12px; }
