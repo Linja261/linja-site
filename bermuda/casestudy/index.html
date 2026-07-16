@@ -95,13 +95,29 @@
     .goals-band { margin-top: 1.4rem; background: var(--ep-green-tint); border: 1px solid #DCE8BF; border-radius: var(--ep-radius-sm); padding: .8rem 1.1rem; font-size: .92rem; color: var(--ep-ink-soft); max-width: 980px; }
     .goals-band b { color: var(--ep-ink); }
 
-    /* Business Value */
-    .stat .v { font-size: clamp(1.3rem, 2.4vw, 1.9rem); font-weight: 800; color: var(--ep-ink); letter-spacing: -0.02em; }
-    .stat .l { font-size: .82rem; color: var(--ep-muted); margin-top: .2rem; line-height: 1.4; }
-    .bv-result { margin-top: 1.2rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 880px; }
-    @media (max-width: 860px) { .bv-result { grid-template-columns: 1fr; } }
-    .bv-result .card { border-color: var(--ep-green); }
-    .bv-note { margin-top: 1.2rem; font-size: .88rem; color: var(--ep-muted); max-width: 76ch; }
+    /* Business Value: Modellrechnung als weißer Kasten (aus 1. Entwurf) */
+    .op-model { padding: 32px 36px; max-width: 1020px; }
+    .op-model-label { margin-bottom: 18px; }
+    .op-model-assumptions {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      padding-bottom: 22px; border-bottom: 1px solid var(--ep-line);
+    }
+    @media (max-width: 860px) { .op-model-assumptions { grid-template-columns: 1fr 1fr; } }
+    .op-model-assumptions div span { display: block; }
+    .op-model-assumptions .val { font-size: 19px; font-weight: 700; }
+    .op-model-assumptions .lab { font-size: 12.5px; color: var(--ep-muted); margin-top: 2px; }
+    .op-model-result { margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 860px) { .op-model-result { grid-template-columns: 1fr; } }
+    .op-model-result .res { padding: 18px 20px; border-radius: var(--ep-radius-sm); background: var(--ep-green-tint); }
+    .op-model-result .res .val { font-size: 22px; font-weight: 800; color: var(--ep-ink); display: block; }
+    .op-model-result .res .lab { font-size: 13px; color: var(--ep-ink-soft); margin-top: 4px; display: block; }
+    .op-model-note {
+      margin-top: 20px; font-size: 14px; color: var(--ep-ink-soft);
+      padding: 14px 18px; border-radius: var(--ep-radius-sm);
+      background: var(--ep-warn-tint); border: 1px solid #EFD9A4;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .op-model-note svg { flex-shrink: 0; margin-top: 2px; }
 
     /* North Star: Treiber links, Pfeile, Kernmetrik rechts */
     .ns-flow { display: grid; grid-template-columns: 1fr 56px 1.05fr; gap: .8rem 0; align-items: center; max-width: 1040px; margin-top: 1.6rem; }
@@ -304,18 +320,32 @@
   <!-- 8 · Business Value -->
   <section class="slide" data-notes="Modellrechnung, bewusst konservativ und als Annahme gekennzeichnet. Kernlogik: Bindung ist bares Geld, weil Wiederbeschaffung 150 bis 300 Euro kostet. Ehrlich sagen: Diese Zahlen validieren wir im Concierge-Test, bevor groß investiert wird. Das zeigt Seniorität statt Verkaufsshow.">
     <span class="ep-eyebrow">Business Value</span>
-    <h2>Modellrechnung: Was 3 Prozentpunkte weniger Churn wert sind</h2>
-    <div class="grid grid-4">
-      <div class="card stat"><div class="v">100.000</div><div class="l">aktive Kompass-Haushalte (Annahme)</div></div>
-      <div class="card stat"><div class="v">~15 %</div><div class="l">branchentypischer Churn pro Jahr (Annahme)</div></div>
-      <div class="card stat"><div class="v">150 bis 300 €</div><div class="l">Akquisekosten pro Neukunde (Annahme)</div></div>
-      <div class="card stat"><div class="v">~80 €</div><div class="l">Deckungsbeitrag pro Kunde und Jahr (Annahme)</div></div>
+    <h2 style="max-width:30ch;">Modellrechnung: Was 3 Prozentpunkte weniger Churn wert sind</h2>
+    <div class="ep-card op-model">
+      <div class="op-model-label"><span class="ep-badge ep-badge--warn">Klar gekennzeichnete Annahmen, keine eprimo-Interna</span></div>
+      <div class="op-model-assumptions">
+        <div><span class="val">100.000</span><span class="lab">aktive Kompass-Haushalte</span></div>
+        <div><span class="val">~15 %</span><span class="lab">branchentypischer Churn p. a.</span></div>
+        <div><span class="val">150 bis 300 Euro</span><span class="lab">Akquisekosten pro Neukunde</span></div>
+        <div><span class="val">~80 Euro</span><span class="lab">Deckungsbeitrag pro Kunde p. a.</span></div>
+      </div>
+      <p style="margin-top: 22px; font-size: 15px; color: var(--ep-ink-soft);">Senkt der Kompass den Churn seiner Nutzer um 3 Prozentpunkte, bleiben 3.000 Kunden pro Jahr, die sonst gegangen wären:</p>
+      <div class="op-model-result">
+        <div class="res">
+          <span class="val">≈ 240.000 Euro</span>
+          <span class="lab">gesicherter Deckungsbeitrag pro Jahr</span>
+        </div>
+        <div class="res">
+          <span class="val">450.000 bis 900.000 Euro</span>
+          <span class="lab">vermiedene Wiederbeschaffungskosten</span>
+        </div>
+      </div>
+      <p style="margin-top: 18px; font-size: 14px; color: var(--ep-ink-soft);">Dazu kommen weniger Forderungsausfälle durch proaktive Abschlagsanpassung und weniger Service-Kontakte zur Jahresabrechnung.</p>
+      <div class="op-model-note">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A7314" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5h.01"/></svg>
+        <span>Das ist eine Modellrechnung. Der Concierge-Test im Vorgehen validiert die Annahmen, bevor groß investiert wird.</span>
+      </div>
     </div>
-    <div class="bv-result">
-      <div class="card"><h3>≈ 240.000 € pro Jahr</h3><p>gesicherter Deckungsbeitrag durch 3.000 gehaltene Kunden, wenn der Kompass den Churn seiner Nutzer um 3 Prozentpunkte senkt.</p></div>
-      <div class="card"><h3>450.000 bis 900.000 €</h3><p>vermiedene Wiederbeschaffungskosten für dieselben 3.000 Kunden. Dazu weniger Forderungsausfälle und weniger Service-Kontakte zur Jahresabrechnung.</p></div>
-    </div>
-    <p class="bv-note">Das ist eine Modellrechnung ohne eprimo-Interna. Der Concierge-Test im Vorgehen validiert die Annahmen, bevor groß investiert wird.</p>
   </section>
 
   <!-- 9 · North Star -->
