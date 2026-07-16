@@ -566,3 +566,10 @@
   align-items: center;
   justify-content: center;
 }
+
+/* ---------- Embed-Modus (?embed=1): Landing Page bettet Screens als iframe ein ---------- */
+
+.is-embed .demo-bar { display: none !important; }
+.is-embed .ep-phone-stage { min-height: 0; padding: 0; gap: 0; }
+.is-embed .ep-phone { max-height: none; box-shadow: none; }
+.is-embed body { background: transparent; }
