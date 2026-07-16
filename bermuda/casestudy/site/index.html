@@ -205,7 +205,6 @@
     .lp-shot {
       display: block;
       position: relative;
-      container-type: inline-size;
       aspect-ratio: 410 / 640;
       overflow: hidden;
       border-radius: 20px;
@@ -217,7 +216,6 @@
       border: 0;
       display: block;
       transform-origin: top left;
-      transform: scale(calc(100cqw / 410));
       pointer-events: none;
       opacity: 0;
       transition: opacity .4s ease;
@@ -314,7 +312,6 @@
         <span class="ep-logo-product">Energiekompass</span>
       </a>
       <div class="lp-nav-right">
-        <a class="lp-nav-concept" href="../index.html">Zum Konzept-1-Pager</a>
         <a class="ep-btn ep-btn--primary" href="../app/index.html">Kompass starten</a>
       </div>
     </div>
@@ -327,7 +324,7 @@
         <div>
           <span class="ep-eyebrow">Dein Verbrauch. Dein Kompass.</span>
           <h1>Keine Lust auf Nachzahlungs-Überraschungen? Hol dir deinen <span class="lp-hl">persönlichen Energiekompass.</span></h1>
-          <p class="lp-hero-sub">Der Energiekompass kennt deinen Tarif, deinen Abschlag und deinen Verbrauch. Ein Zählerfoto im Monat reicht und du weißt jederzeit, wo du stehst.</p>
+          <p class="lp-hero-sub">Der Energiekompass kennt deinen Tarif, deinen Abschlag und deinen Verbrauch. Ein Zählerfoto im Monat reicht und du weißt jederzeit, welche Kosten dich am Ende des Jahres erwarten.</p>
           <div class="lp-hero-cta">
             <a class="ep-btn ep-btn--green" href="../app/index.html">
               Kompass kostenlos starten
@@ -367,36 +364,24 @@
   <section class="lp-section lp-section--tint">
     <div class="ep-container">
       <div class="lp-section-head lp-reveal">
-        <span class="ep-eyebrow">Das Problem</span>
+        <span class="ep-eyebrow">Dein Problem</span>
         <h2>Die Abrechnung kommt einmal im Jahr. Die Überraschung auch.</h2>
         <p>Du achtest auf deinen Verbrauch und trotzdem steht am Ende eine Nachzahlung im Brief. Das liegt nicht an dir, sondern daran, dass dir unterjährig niemand sagt, wo du stehst.</p>
       </div>
       <div class="lp-grid-4">
         <div class="ep-card lp-card lp-reveal">
-          <span class="lp-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          </span>
-          <h3>Ein Brief, ein Schreck</h3>
+          <h3>Überraschung: Nachzahlung</h3>
           <p>Die Jahresabrechnung ist für viele Haushalte der einzige Moment, in dem die Stromkosten sichtbar werden. Dann ist es zu spät, um noch etwas zu ändern.</p>
         </div>
         <div class="ep-card lp-card lp-reveal">
-          <span class="lp-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-          </span>
           <h3>Zwölf Monate Blindflug</h3>
           <p>Der Zähler hängt im Keller und wird einmal im Jahr abgelesen. Dazwischen gibt es keine Rückmeldung, ob dein Abschlag reicht.</p>
         </div>
         <div class="ep-card lp-card lp-reveal">
-          <span class="lp-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.5 1 2.5h6c0-1 .4-1.9 1-2.5A6 6 0 0 0 12 3z"/></svg>
-          </span>
           <h3>Tipps von der Stange</h3>
           <p>Spartipps aus dem Internet kennen weder deine Wohnung noch deine Geräte noch deinen Tarif. Sie klingen gut und bringen dir konkret wenig.</p>
         </div>
         <div class="ep-card lp-card lp-reveal">
-          <span class="lp-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg>
-          </span>
           <h3>Als Mieter gebunden</h3>
           <p>Heizung, Fenster und Leitungen gehören dem Vermieter. Dein einziger Hebel ist dein eigenes Verhalten und genau dafür gab es bisher kein Werkzeug.</p>
         </div>
@@ -412,28 +397,25 @@
         <h2>Der Energiekompass in drei Schritten</h2>
         <p>Kein neues Gerät, keine Installation, kein Elektriker. Du brauchst nur dein Handy und zwei Minuten im Monat.</p>
       </div>
-      <div class="lp-grid-3">
-        <div class="ep-card lp-step lp-reveal">
+      <div class="lp-flow">
+        <div class="ep-card lp-flow-step lp-reveal">
           <span class="lp-step-num">1</span>
-          <span class="lp-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-          </span>
           <h3>Einmal kurz einrichten</h3>
           <p>eprimo kennt deinen Tarif, deinen Abschlag und deinen Jahresverbrauch schon. Du beantwortest nur ein paar Fragen zu Haushalt und Geräten, fertig.</p>
         </div>
-        <div class="ep-card lp-step lp-reveal">
+        <span class="lp-flow-link" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+        <div class="ep-card lp-flow-step lp-reveal">
           <span class="lp-step-num">2</span>
-          <span class="lp-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
-          </span>
           <h3>Ein Zählerfoto im Monat</h3>
           <p>WhatsApp erinnert dich, du fotografierst den Zähler und schickst das Foto direkt im Chat. Die KI liest den Stand ab, du bestätigst nur noch.</p>
         </div>
-        <div class="ep-card lp-step lp-reveal">
+        <span class="lp-flow-link" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+        <div class="ep-card lp-flow-step lp-reveal">
           <span class="lp-step-num">3</span>
-          <span class="lp-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>
-          </span>
           <h3>Du siehst jederzeit, wo du stehst</h3>
           <p>Der Kompass zeigt dir Prognose, Ampel und Tipps, die zu deiner Wohnung passen. Läuft etwas aus dem Ruder, erfährst du es Monate vor der Abrechnung.</p>
         </div>
@@ -528,30 +510,33 @@
       <div class="lp-section-head lp-reveal">
         <span class="ep-eyebrow">Ein Beispiel</span>
         <h2>So sieht ein Monat mit dem Kompass aus</h2>
-        <p>Familie Weber aus Dortmund, drei Personen, 78 m² Mietwohnung, Abschlag 105 Euro im Monat.</p>
+        <p>Familie Weber aus Dortmund, drei Personen, 78 m² Mietwohnung, Abschlag 105 Euro im Monat. Alle Screens stammen direkt aus dem klickbaren Prototyp.</p>
       </div>
-      <div class="lp-timeline">
-        <div class="lp-tl-item lp-reveal">
-          <div class="lp-tl-track"><span class="lp-tl-dot"></span><span class="lp-tl-line"></span></div>
-          <div class="lp-tl-day">Tag 1</div>
-          <h3>Die Erinnerung</h3>
-          <p>Per WhatsApp kommt die Nachricht: Zeit für deinen Zähler-Check. Kein Termin, kein Aufwand, nur ein kurzer Anstoß.</p>
+      <div class="lp-example-grid">
+        <div class="lp-ex-item lp-reveal">
+          <a class="lp-shot" href="../app/02-zaehlerstand.html" aria-label="Screen im Prototyp ansehen: Zählerstand per WhatsApp">
+            <iframe src="../app/02-zaehlerstand.html" loading="lazy" title="Prototyp-Screen: Zählerstand per WhatsApp" tabindex="-1"></iframe>
+            <span class="lp-shot-cta">Im Prototyp ansehen</span>
+          </a>
+          <div class="lp-ex-day">Tag 1</div>
+          <h3>Die Erinnerung und das Foto</h3>
+          <p>Per WhatsApp kommt die Nachricht: Zeit für deinen Zähler-Check. Sandra fotografiert den Zähler im Keller und schickt das Bild im Chat. Die KI liest den Stand: 34.512 kWh, das sind 311 kWh in diesem Monat.</p>
         </div>
-        <div class="lp-tl-item lp-reveal">
-          <div class="lp-tl-track"><span class="lp-tl-dot"></span><span class="lp-tl-line"></span></div>
-          <div class="lp-tl-day">Tag 1, zwei Minuten später</div>
-          <h3>Das Foto</h3>
-          <p>Sandra fotografiert den Zähler im Keller und schickt das Bild im Chat. Die KI liest den Stand: 34.512 kWh, das sind 311 kWh in diesem Monat.</p>
-        </div>
-        <div class="lp-tl-item lp-reveal">
-          <div class="lp-tl-track"><span class="lp-tl-dot"></span><span class="lp-tl-line"></span></div>
-          <div class="lp-tl-day">Direkt danach</div>
+        <div class="lp-ex-item lp-reveal">
+          <a class="lp-shot" href="../app/03-prognose.html" aria-label="Screen im Prototyp ansehen: Aktualisierte Prognose">
+            <iframe src="../app/03-prognose.html" loading="lazy" title="Prototyp-Screen: Aktualisierte Prognose" tabindex="-1"></iframe>
+            <span class="lp-shot-cta">Im Prototyp ansehen</span>
+          </a>
+          <div class="lp-ex-day">Direkt danach</div>
           <h3>Die Prognose</h3>
           <p>Der Kompass rechnet hoch: 1.356 Euro Jahreskosten, der Abschlag deckt 1.260 Euro. Die Ampel springt auf Gelb, prognostizierte Nachzahlung 96 Euro.</p>
         </div>
-        <div class="lp-tl-item lp-reveal">
-          <div class="lp-tl-track"><span class="lp-tl-dot"></span><span class="lp-tl-line"></span></div>
-          <div class="lp-tl-day">Der Monatsreport</div>
+        <div class="lp-ex-item lp-reveal">
+          <a class="lp-shot" href="../app/04-report.html" aria-label="Screen im Prototyp ansehen: Monatsreport mit Maßnahmen">
+            <iframe src="../app/04-report.html" loading="lazy" title="Prototyp-Screen: Monatsreport mit Maßnahmen" tabindex="-1"></iframe>
+            <span class="lp-shot-cta">Im Prototyp ansehen</span>
+          </a>
+          <div class="lp-ex-day">Der Monatsreport</div>
           <h3>Die Maßnahmen</h3>
           <p>Drei Tipps, passend zur Wohnung: Trockner gegen Wäscheleine tauschen, den Zweitkühlschrank im Keller prüfen, Standby-Leiste für die TV-Ecke. Zusammen rund 26 Euro im Monat, die Lücke schließt sich rechnerisch auf null.</p>
         </div>
@@ -579,7 +564,6 @@
     <div class="ep-container">
       <div class="lp-footer-inner">
         <span>eprimo Energiekompass | Konzept-Demo im Rahmen einer Case Study | Demo-Daten fiktiv</span>
-        <a href="../index.html">Zurück zum Konzept-1-Pager</a>
       </div>
     </div>
   </footer>
@@ -600,6 +584,44 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
       els.forEach(function (el) { observer.observe(el); });
+    })();
+
+    /* Prototyp-Screens: Demo-Leiste ausblenden, Phone auf den Frame skalieren */
+    (function () {
+      var embedCss = '.demo-bar{display:none!important}' +
+        '.ep-phone-stage{min-height:0;padding:0;gap:0}' +
+        '.ep-phone{max-height:none;box-shadow:none}' +
+        'body{background:transparent}';
+      var shots = document.querySelectorAll('.lp-shot');
+
+      function scaleShots() {
+        shots.forEach(function (shot) {
+          var frame = shot.querySelector('iframe');
+          if (frame) frame.style.transform = 'scale(' + (shot.clientWidth / 410) + ')';
+        });
+      }
+
+      shots.forEach(function (shot) {
+        var frame = shot.querySelector('iframe');
+        if (!frame) return;
+        function prepare() {
+          try {
+            var doc = frame.contentDocument;
+            var style = doc.createElement('style');
+            style.textContent = embedCss;
+            doc.head.appendChild(style);
+          } catch (e) { /* Fallback: Screen erscheint unbeschnitten */ }
+          frame.classList.add('is-loaded');
+        }
+        if (frame.contentDocument && frame.contentDocument.readyState === 'complete' && frame.contentDocument.body) {
+          prepare();
+        } else {
+          frame.addEventListener('load', prepare);
+        }
+      });
+
+      scaleShots();
+      window.addEventListener('resize', scaleShots);
     })();
   </script>
 
