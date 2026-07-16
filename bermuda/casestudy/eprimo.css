@@ -1,0 +1,164 @@
+/* ============================================================
+   eprimo Energiekompass — gemeinsame Design-Tokens (Case Study)
+   Gilt für: 1-Pager (index.html), Landingpage (site/), Prototyp (app/)
+   Look: eprimo-inspiriert — Lime-Grün, Anthrazit, clean, wertig.
+   Keine Emojis, Icons nur als SVG-Strokes.
+   ============================================================ */
+
+:root {
+  /* Farben */
+  --ep-green: #95C11F;        /* Lime-Akzent */
+  --ep-green-dark: #6E9312;   /* Hover / Linien */
+  --ep-green-tint: #F2F7E3;   /* Flächen-Tint */
+  --ep-ink: #23282E;          /* Anthrazit: Text, Primär-Buttons */
+  --ep-ink-soft: #4A525B;     /* Sekundärtext */
+  --ep-muted: #7A828C;        /* Tertiärtext, Labels */
+  --ep-bg: #F7F8F4;           /* warmes Off-White */
+  --ep-card: #FFFFFF;
+  --ep-line: #E4E7DF;
+
+  /* Ampel */
+  --ep-ok: #4E9F3D;
+  --ep-warn: #E0A82E;
+  --ep-warn-tint: #FBF3DE;
+  --ep-risk: #C9564C;
+  --ep-risk-tint: #F9E9E7;
+
+  /* Typo */
+  --ep-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Form */
+  --ep-radius: 14px;
+  --ep-radius-sm: 10px;
+  --ep-shadow: 0 1px 2px rgba(35, 40, 46, .05), 0 8px 24px rgba(35, 40, 46, .07);
+  --ep-shadow-soft: 0 1px 3px rgba(35, 40, 46, .06);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--ep-font);
+  background: var(--ep-bg);
+  color: var(--ep-ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { line-height: 1.2; letter-spacing: -0.015em; font-weight: 700; }
+
+a { color: inherit; }
+
+/* ---------- Bausteine ---------- */
+
+.ep-container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+.ep-card {
+  background: var(--ep-card);
+  border: 1px solid var(--ep-line);
+  border-radius: var(--ep-radius);
+  box-shadow: var(--ep-shadow-soft);
+}
+
+.ep-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ep-green-dark);
+}
+
+.ep-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--ep-green-tint);
+  color: var(--ep-green-dark);
+}
+
+.ep-badge--warn { background: var(--ep-warn-tint); color: #9A7314; }
+.ep-badge--risk { background: var(--ep-risk-tint); color: var(--ep-risk); }
+.ep-badge--ok   { background: #E8F3E4; color: var(--ep-ok); }
+
+/* Buttons */
+.ep-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-family: var(--ep-font);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+
+.ep-btn--primary { background: var(--ep-ink); color: #fff; }
+.ep-btn--primary:hover { background: #171b1f; transform: translateY(-1px); box-shadow: var(--ep-shadow); }
+
+.ep-btn--green { background: var(--ep-green); color: #1E2607; }
+.ep-btn--green:hover { background: #A3D02B; transform: translateY(-1px); box-shadow: var(--ep-shadow); }
+
+.ep-btn--ghost { background: transparent; color: var(--ep-ink); border: 1.5px solid var(--ep-line); }
+.ep-btn--ghost:hover { border-color: var(--ep-ink); }
+
+/* Ampel-Punkt */
+.ep-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.ep-dot--ok { background: var(--ep-ok); }
+.ep-dot--warn { background: var(--ep-warn); }
+.ep-dot--risk { background: var(--ep-risk); }
+
+/* Logo-Wortmarke (Text, kein Bild) */
+.ep-logo {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-weight: 800; font-size: 18px; letter-spacing: -0.01em; text-decoration: none;
+}
+.ep-logo .ep-logo-name { color: var(--ep-ink); }
+.ep-logo .ep-logo-product { color: var(--ep-green-dark); font-weight: 600; }
+
+/* ---------- Prototyp: Phone-Frame ---------- */
+
+.ep-phone-stage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  gap: 16px;
+}
+
+.ep-phone {
+  width: 390px;
+  max-width: 100%;
+  height: 780px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 40px;
+  border: 10px solid var(--ep-ink);
+  box-shadow: 0 24px 60px rgba(35, 40, 46, .25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ep-phone-screen { flex: 1; overflow-y: auto; background: var(--ep-bg); }
+
+/* ---------- Print (1-Pager) ---------- */
+
+@media print {
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  .ep-card { box-shadow: none; }
+}
