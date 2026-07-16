@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <meta name="theme-color" content="#7B6BA5">
+  <title>Energiekompass | Schritt 2: Zählerstand per WhatsApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../eprimo.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<div class="ep-phone-stage">
+
+  <!-- Demo-Leiste (Pitch-Navigation) -->
+  <nav class="demo-bar" aria-label="Demo-Navigation">
+    <a href="index.html">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      Zurück
+    </a>
+    <span class="demo-sep"></span>
+    <span class="demo-step">Schritt 2 von 5: Zählerstand per WhatsApp</span>
+    <span class="demo-sep"></span>
+    <a href="03-prognose.html">
+      Weiter
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+    </a>
+    <span class="demo-sep"></span>
+    <a class="demo-pager" href="../index.html">Zum 1-Pager</a>
+  </nav>
+
+  <!-- Phone -->
+  <div class="ep-phone">
+    <div class="ep-phone-screen" style="display: flex; flex-direction: column;">
+
+      <!-- WhatsApp-Header -->
+      <header class="wa-header">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: .7;"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        <div class="avatar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </div>
+        <div class="who">
+          <div class="name">
+            eprimo Energiekompass
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 2.4 3.4-.5.9 3.3 3 1.7-1.5 3.1 1.5 3.1-3 1.7-.9 3.3-3.4-.5L12 22l-2.4-2.4-3.4.5-.9-3.3-3-1.7 1.5-3.1L2.3 8.9l3-1.7.9-3.3 3.4.5z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="sub">Verifizierter Unternehmensaccount</div>
+        </div>
+      </header>
+
+      <!-- Chat -->
+      <main class="wa-chat">
+        <span class="wa-day">Heute</span>
+
+        <div class="msg msg--in">
+          Guten Morgen Sandra, Zeit für deinen Zähler-Check. Schick mir einfach ein Foto von deinem Zähler.
+          <div class="meta">09:30</div>
+        </div>
+
+        <div class="msg msg--out">
+          <!-- Stilisiertes Zählerfoto (HTML/CSS, kein Bild) -->
+          <div class="meter-shot" role="img" aria-label="Foto eines Stromzählers mit Stand 34.512 Kilowattstunden">
+            <div class="meter-label">Stromzähler</div>
+            <div class="rollers">
+              <span class="digit">3</span><span class="digit">4</span><span class="digit">5</span><span class="digit">1</span><span class="digit">2</span>
+              <span class="kwh">kWh</span>
+            </div>
+            <div class="meter-no">Zähler-Nr. 44 2270 815</div>
+          </div>
+          <div class="meta">
+            09:41
+            <svg width="15" height="11" viewBox="0 0 20 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6.5l3.5 3.5L11 3.5"/><path d="M8 6.5l3.5 3.5L18 3.5"/></svg>
+          </div>
+        </div>
+
+        <div class="msg msg--in">
+          Danke! Ich lese: 34.512 kWh (Sicherheit 99 Prozent). Passt das?
+          <div class="meta">09:41</div>
+          <div class="chip-row">
+            <a class="chip chip--primary" href="03-prognose.html">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Ja, stimmt
+            </a>
+            <span class="chip chip--muted" title="Im MVP: manuelle Eingabe">Korrigieren</span>
+          </div>
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
