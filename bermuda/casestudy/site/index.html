@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <meta name="theme-color" content="#7B6BA5">
+  <title>eprimo Energiekompass | Dein Verbrauch. Dein Kompass.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../eprimo.css">
+  <style>
+    /* ---------- Nav ---------- */
+    .lp-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 248, 244, .92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--ep-line);
+    }
+    .lp-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 24px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .lp-nav-right { display: flex; align-items: center; gap: 20px; }
+    .lp-nav-concept {
+      font-size: 13px;
+      color: var(--ep-muted);
+      text-decoration: none;
+      transition: color .12s ease;
+    }
+    .lp-nav-concept:hover { color: var(--ep-ink); }
+    .lp-nav .ep-btn { padding: 9px 18px; font-size: 14px; }
+
+    /* ---------- Hero ---------- */
+    .lp-hero { padding: 72px 0 64px; }
+    .lp-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .lp-hero h1 {
+      font-size: clamp(30px, 4.5vw, 44px);
+      font-weight: 800;
+      margin: 16px 0 20px;
+    }
+    .lp-hero h1 .lp-hl { color: var(--ep-green-dark); }
+    .lp-hero-sub {
+      font-size: 17px;
+      color: var(--ep-ink-soft);
+      max-width: 480px;
+      margin-bottom: 28px;
+    }
+    .lp-hero-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .lp-hero-note { font-size: 13px; color: var(--ep-muted); }
+
+    /* Dashboard-Vorschau */
+    .lp-preview {
+      padding: 24px;
+      border-radius: var(--ep-radius);
+      background: var(--ep-card);
+      border: 1px solid var(--ep-line);
+      box-shadow: var(--ep-shadow);
+    }
+    .lp-preview-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .lp-preview-title { font-size: 13px; font-weight: 600; color: var(--ep-muted); letter-spacing: .04em; text-transform: uppercase; }
+    .lp-preview-figures { display: flex; gap: 24px; margin-bottom: 16px; }
+    .lp-fig { flex: 1; }
+    .lp-fig-label { font-size: 12px; color: var(--ep-muted); margin-bottom: 2px; }
+    .lp-fig-value { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+    .lp-fig-value--soft { color: var(--ep-ink-soft); font-weight: 700; }
+    .lp-preview-bar {
+      position: relative;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--ep-green-tint);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .lp-preview-bar-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 93%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--ep-green) 0 78%, var(--ep-warn) 92% 100%);
+    }
+    .lp-preview-hint {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      border-radius: var(--ep-radius-sm);
+      background: var(--ep-warn-tint);
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--ep-ink);
+    }
+    .lp-preview-hint .ep-dot { flex-shrink: 0; margin-top: 6px; }
+
+    /* ---------- Sektionen ---------- */
+    .lp-section { padding: 72px 0; }
+    .lp-section--tint { background: var(--ep-card); border-top: 1px solid var(--ep-line); border-bottom: 1px solid var(--ep-line); }
+    .lp-section-head { max-width: 560px; margin-bottom: 40px; }
+    .lp-section-head h2 { font-size: clamp(24px, 3.2vw, 32px); margin: 12px 0 14px; }
+    .lp-section-head p { color: var(--ep-ink-soft); font-size: 16px; }
+
+    .lp-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .lp-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .lp-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+    .lp-card { padding: 26px; }
+    .lp-card h3 { font-size: 17px; margin-bottom: 8px; }
+    .lp-card p { font-size: 14.5px; color: var(--ep-ink-soft); }
+
+    .lp-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--ep-green-tint);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      color: var(--ep-green-dark);
+    }
+    .lp-icon svg { width: 22px; height: 22px; }
+
+    /* Schritte */
+    .lp-step { position: relative; padding: 26px; }
+    .lp-step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--ep-ink);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .lp-step .lp-icon { position: absolute; top: 22px; right: 22px; margin: 0; }
+
+    /* USP */
+    .lp-usp-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .lp-usp-lead { font-size: 17px; color: var(--ep-ink-soft); margin: 14px 0 24px; }
+    .lp-usp-points { list-style: none; display: grid; gap: 14px; }
+    .lp-usp-points li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; }
+    .lp-usp-points li strong { display: block; font-size: 15px; }
+    .lp-usp-points li span.lp-usp-text { color: var(--ep-ink-soft); font-size: 14px; }
+    .lp-check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--ep-green-tint);
+      color: var(--ep-green-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .lp-check svg { width: 12px; height: 12px; }
+    .lp-trust { padding: 26px; }
+    .lp-trust h3 { font-size: 16px; margin-bottom: 16px; }
+    .lp-trust ul { list-style: none; display: grid; gap: 12px; }
+    .lp-trust li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--ep-ink-soft); }
+
+    /* Timeline */
+    .lp-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .lp-tl-item { position: relative; padding: 0 20px 0 0; }
+    .lp-tl-track { display: flex; align-items: center; margin-bottom: 16px; }
+    .lp-tl-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--ep-green);
+      border: 3px solid var(--ep-green-tint);
+      box-sizing: content-box;
+      flex-shrink: 0;
+    }
+    .lp-tl-line { flex: 1; height: 2px; background: var(--ep-line); margin-left: 8px; }
+    .lp-tl-item:last-child .lp-tl-line { display: none; }
+    .lp-tl-day { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ep-green-dark); margin-bottom: 6px; }
+    .lp-tl-item h3 { font-size: 15.5px; margin-bottom: 6px; }
+    .lp-tl-item p { font-size: 13.5px; color: var(--ep-ink-soft); }
+
+    /* Abschluss-CTA */
+    .lp-final {
+      padding: 64px 40px;
+      text-align: center;
+      background: var(--ep-ink);
+      border-radius: var(--ep-radius);
+      color: #fff;
+    }
+    .lp-final h2 { font-size: clamp(24px, 3.2vw, 32px); margin-bottom: 14px; }
+    .lp-final p { color: rgba(255, 255, 255, .75); max-width: 480px; margin: 0 auto 28px; font-size: 16px; }
+
+    /* Footer */
+    .lp-footer { padding: 32px 0 40px; }
+    .lp-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--ep-muted);
+    }
+    .lp-footer a { color: var(--ep-muted); transition: color .12s ease; }
+    .lp-footer a:hover { color: var(--ep-ink); }
+
+    /* Scroll-Reveal */
+    .lp-reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
+    .lp-reveal.is-visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .lp-reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .lp-hero { padding: 48px 0 48px; }
+      .lp-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .lp-grid-3, .lp-grid-4 { grid-template-columns: 1fr 1fr; }
+      .lp-usp-grid { grid-template-columns: 1fr; gap: 28px; }
+      .lp-timeline { grid-template-columns: 1fr; gap: 24px; }
+      .lp-tl-item { padding: 0; }
+      .lp-tl-line { display: none; }
+    }
+    @media (max-width: 560px) {
+      .lp-grid-2, .lp-grid-3, .lp-grid-4 { grid-template-columns: 1fr; }
+      .lp-nav-concept { display: none; }
+      .lp-section { padding: 56px 0; }
+      .lp-final { padding: 48px 24px; }
+      .lp-preview-figures { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======== Top-Nav ======== -->
+  <nav class="lp-nav">
+    <div class="lp-nav-inner">
+      <a class="ep-logo" href="#top">
+        <span class="ep-logo-name">eprimo</span>
+        <span class="ep-logo-product">Energiekompass</span>
+      </a>
+      <div class="lp-nav-right">
+        <a class="lp-nav-concept" href="../index.html">Zum Konzept-1-Pager</a>
+        <a class="ep-btn ep-btn--primary" href="../app/index.html">Kompass starten</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======== Hero ======== -->
+  <header class="lp-hero" id="top">
+    <div class="ep-container">
+      <div class="lp-hero-grid">
+        <div>
+          <span class="ep-eyebrow">Dein Verbrauch. Dein Kompass.</span>
+          <h1>Keine Lust auf Nachzahlungs-Überraschungen? Hol dir deinen <span class="lp-hl">persönlichen Energiekompass.</span></h1>
+          <p class="lp-hero-sub">Der Energiekompass kennt deinen Tarif, deinen Abschlag und deinen Verbrauch. Ein Zählerfoto im Monat reicht und du weißt jederzeit, wo du stehst.</p>
+          <div class="lp-hero-cta">
+            <a class="ep-btn ep-btn--green" href="../app/index.html">
+              Kompass kostenlos starten
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <span class="lp-hero-note">Für eprimo-Kund:innen inklusive</span>
+          </div>
+        </div>
+
+        <!-- Dashboard-Vorschau -->
+        <div class="lp-preview" aria-label="Vorschau des Energiekompass-Dashboards">
+          <div class="lp-preview-head">
+            <span class="lp-preview-title">Dein Kompass im Juli</span>
+            <span class="ep-badge ep-badge--warn"><span class="ep-dot ep-dot--warn"></span>Leicht drüber</span>
+          </div>
+          <div class="lp-preview-figures">
+            <div class="lp-fig">
+              <div class="lp-fig-label">Kostenprognose fürs Jahr</div>
+              <div class="lp-fig-value">1.356&nbsp;&euro;</div>
+            </div>
+            <div class="lp-fig">
+              <div class="lp-fig-label">Dein Abschlag deckt</div>
+              <div class="lp-fig-value lp-fig-value--soft">1.260&nbsp;&euro;</div>
+            </div>
+          </div>
+          <div class="lp-preview-bar" role="presentation"><div class="lp-preview-bar-fill"></div></div>
+          <div class="lp-preview-hint">
+            <span class="ep-dot ep-dot--warn"></span>
+            <span>Prognose: 96 Euro Nachzahlung. Zwei Maßnahmen bringen dich auf null.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======== Problem ======== -->
+  <section class="lp-section lp-section--tint">
+    <div class="ep-container">
+      <div class="lp-section-head lp-reveal">
+        <span class="ep-eyebrow">Das Problem</span>
+        <h2>Die Abrechnung kommt einmal im Jahr. Die Überraschung auch.</h2>
+        <p>Du achtest auf deinen Verbrauch und trotzdem steht am Ende eine Nachzahlung im Brief. Das liegt nicht an dir, sondern daran, dass dir unterjährig niemand sagt, wo du stehst.</p>
+      </div>
+      <div class="lp-grid-4">
+        <div class="ep-card lp-card lp-reveal">
+          <span class="lp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </span>
+          <h3>Ein Brief, ein Schreck</h3>
+          <p>Die Jahresabrechnung ist für viele Haushalte der einzige Moment, in dem die Stromkosten sichtbar werden. Dann ist es zu spät, um noch etwas zu ändern.</p>
+        </div>
+        <div class="ep-card lp-card lp-reveal">
+          <span class="lp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </span>
+          <h3>Zwölf Monate Blindflug</h3>
+          <p>Der Zähler hängt im Keller und wird einmal im Jahr abgelesen. Dazwischen gibt es keine Rückmeldung, ob dein Abschlag reicht.</p>
+        </div>
+        <div class="ep-card lp-card lp-reveal">
+          <span class="lp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.5 1 2.5h6c0-1 .4-1.9 1-2.5A6 6 0 0 0 12 3z"/></svg>
+          </span>
+          <h3>Tipps von der Stange</h3>
+          <p>Spartipps aus dem Internet kennen weder deine Wohnung noch deine Geräte noch deinen Tarif. Sie klingen gut und bringen dir konkret wenig.</p>
+        </div>
+        <div class="ep-card lp-card lp-reveal">
+          <span class="lp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg>
+          </span>
+          <h3>Als Mieter gebunden</h3>
+          <p>Heizung, Fenster und Leitungen gehören dem Vermieter. Dein einziger Hebel ist dein eigenes Verhalten und genau dafür gab es bisher kein Werkzeug.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== So funktioniert es ======== -->
+  <section class="lp-section">
+    <div class="ep-container">
+      <div class="lp-section-head lp-reveal">
+        <span class="ep-eyebrow">So funktioniert es</span>
+        <h2>Der Energiekompass in drei Schritten</h2>
+        <p>Kein neues Gerät, keine Installation, kein Elektriker. Du brauchst nur dein Handy und zwei Minuten im Monat.</p>
+      </div>
+      <div class="lp-grid-3">
+        <div class="ep-card lp-step lp-reveal">
+          <span class="lp-step-num">1</span>
+          <span class="lp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <h3>Einmal kurz einrichten</h3>
+          <p>eprimo kennt deinen Tarif, deinen Abschlag und deinen Jahresverbrauch schon. Du beantwortest nur ein paar Fragen zu Haushalt und Geräten, fertig.</p>
+        </div>
+        <div class="ep-card lp-step lp-reveal">
+          <span class="lp-step-num">2</span>
+          <span class="lp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+          </span>
+          <h3>Ein Zählerfoto im Monat</h3>
+          <p>WhatsApp erinnert dich, du fotografierst den Zähler und schickst das Foto direkt im Chat. Die KI liest den Stand ab, du bestätigst nur noch.</p>
+        </div>
+        <div class="ep-card lp-step lp-reveal">
+          <span class="lp-step-num">3</span>
+          <span class="lp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>
+          </span>
+          <h3>Du siehst jederzeit, wo du stehst</h3>
+          <p>Der Kompass zeigt dir Prognose, Ampel und Tipps, die zu deiner Wohnung passen. Läuft etwas aus dem Ruder, erfährst du es Monate vor der Abrechnung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Nutzenversprechen ======== -->
+  <section class="lp-section lp-section--tint">
+    <div class="ep-container">
+      <div class="lp-section-head lp-reveal">
+        <span class="ep-eyebrow">Dein Nutzen</span>
+        <h2>Was dir der Energiekompass bringt</h2>
+      </div>
+      <div class="lp-grid-3">
+        <div class="ep-card lp-card lp-reveal">
+          <span class="lp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+          <h3>Du siehst deine Kosten, bevor die Abrechnung kommt</h3>
+          <p>Der Kompass rechnet deinen Verbrauch laufend aufs Jahr hoch und vergleicht ihn mit dem, was dein Abschlag deckt. Eine Ampel zeigt dir auf einen Blick, ob alles im Rahmen bleibt.</p>
+        </div>
+        <div class="ep-card lp-card lp-reveal">
+          <span class="lp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.3c-1.5 0-2.9-.35-4.1-1L3 20l1.3-4.2a8 8 0 0 1-1.3-4.3A8.4 8.4 0 0 1 11.5 3 8.4 8.4 0 0 1 21 11.5z"/></svg>
+          </span>
+          <h3>Ein Foto im Monat, mehr brauchst du nicht</h3>
+          <p>Die Erinnerung kommt per WhatsApp, das Foto geht im selben Chat zurück. Kein Smart Meter, keine Hardware, kein zusätzlicher Termin.</p>
+        </div>
+        <div class="ep-card lp-card lp-reveal">
+          <span class="lp-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+          </span>
+          <h3>Tipps, die zu deiner Wohnung passen, nicht zu irgendeiner</h3>
+          <p>Die Empfehlungen berücksichtigen deinen Haushalt, deine Geräte und deinen echten Tarif. Zu jeder Maßnahme siehst du in Euro, was sie dir im Monat bringt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== USP / Vertrauen ======== -->
+  <section class="lp-section">
+    <div class="ep-container">
+      <div class="lp-usp-grid">
+        <div class="lp-reveal">
+          <span class="ep-eyebrow">Warum eprimo das kann</span>
+          <h2 style="font-size: clamp(24px, 3.2vw, 32px); margin: 12px 0 0;">Dein Energieberater hat deine Daten schon</h2>
+          <p class="lp-usp-lead">Andere Apps brauchen ein Smart Meter oder kennen deinen Vertrag nicht. eprimo hat Tarif, Abschlag und Jahresverbrauch bereits im System und rechnet die Prognose gegen deinen echten Abschlag statt gegen Schätzwerte.</p>
+          <ul class="lp-usp-points">
+            <li>
+              <span class="lp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span><strong>Kein Smart Meter nötig</strong><span class="lp-usp-text">Der Kompass funktioniert mit deinem ganz normalen Zähler im Keller.</span></span>
+            </li>
+            <li>
+              <span class="lp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span><strong>Keine Hardware, keine Installation</strong><span class="lp-usp-text">Nichts wird verbaut, nichts wird angeschlossen. Dein Handy reicht.</span></span>
+            </li>
+            <li>
+              <span class="lp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span><strong>Echte Prognose statt grober Schätzung</strong><span class="lp-usp-text">Weil eprimo deinen Vertrag kennt, warnt dich der Kompass vor einer Nachzahlung, bevor sie entsteht.</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="ep-card lp-trust lp-reveal">
+          <h3>Worauf du dich verlassen kannst</h3>
+          <ul>
+            <li>
+              <span class="lp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span>Alle Tipps kommen aus einer geprüften Bibliothek. Die KI wählt aus und erklärt, sie erfindet nichts.</span>
+            </li>
+            <li>
+              <span class="lp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span>Deine Verbrauchsdaten bleiben bei eprimo und werden nicht an Dritte verkauft.</span>
+            </li>
+            <li>
+              <span class="lp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span>WhatsApp nutzt der Kompass nur mit deinem ausdrücklichen Opt-in. Du kannst es jederzeit abschalten.</span>
+            </li>
+            <li>
+              <span class="lp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+              <span>Alles funktioniert auch komplett ohne WhatsApp direkt in deinem eprimo-Kundenportal.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Ein Monat mit dem Kompass ======== -->
+  <section class="lp-section lp-section--tint">
+    <div class="ep-container">
+      <div class="lp-section-head lp-reveal">
+        <span class="ep-eyebrow">Ein Beispiel</span>
+        <h2>So sieht ein Monat mit dem Kompass aus</h2>
+        <p>Familie Weber aus Dortmund, drei Personen, 78 m² Mietwohnung, Abschlag 105 Euro im Monat.</p>
+      </div>
+      <div class="lp-timeline">
+        <div class="lp-tl-item lp-reveal">
+          <div class="lp-tl-track"><span class="lp-tl-dot"></span><span class="lp-tl-line"></span></div>
+          <div class="lp-tl-day">Tag 1</div>
+          <h3>Die Erinnerung</h3>
+          <p>Per WhatsApp kommt die Nachricht: Zeit für deinen Zähler-Check. Kein Termin, kein Aufwand, nur ein kurzer Anstoß.</p>
+        </div>
+        <div class="lp-tl-item lp-reveal">
+          <div class="lp-tl-track"><span class="lp-tl-dot"></span><span class="lp-tl-line"></span></div>
+          <div class="lp-tl-day">Tag 1, zwei Minuten später</div>
+          <h3>Das Foto</h3>
+          <p>Sandra fotografiert den Zähler im Keller und schickt das Bild im Chat. Die KI liest den Stand: 34.512 kWh, das sind 311 kWh in diesem Monat.</p>
+        </div>
+        <div class="lp-tl-item lp-reveal">
+          <div class="lp-tl-track"><span class="lp-tl-dot"></span><span class="lp-tl-line"></span></div>
+          <div class="lp-tl-day">Direkt danach</div>
+          <h3>Die Prognose</h3>
+          <p>Der Kompass rechnet hoch: 1.356 Euro Jahreskosten, der Abschlag deckt 1.260 Euro. Die Ampel springt auf Gelb, prognostizierte Nachzahlung 96 Euro.</p>
+        </div>
+        <div class="lp-tl-item lp-reveal">
+          <div class="lp-tl-track"><span class="lp-tl-dot"></span><span class="lp-tl-line"></span></div>
+          <div class="lp-tl-day">Der Monatsreport</div>
+          <h3>Die Maßnahmen</h3>
+          <p>Drei Tipps, passend zur Wohnung: Trockner gegen Wäscheleine tauschen, den Zweitkühlschrank im Keller prüfen, Standby-Leiste für die TV-Ecke. Zusammen rund 26 Euro im Monat, die Lücke schließt sich rechnerisch auf null.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Abschluss-CTA ======== -->
+  <section class="lp-section">
+    <div class="ep-container">
+      <div class="lp-final lp-reveal">
+        <span class="ep-eyebrow" style="color: var(--ep-green);">Bereit?</span>
+        <h2>Hol dir deinen Energiekompass</h2>
+        <p>Ein Zählerfoto im Monat und du weißt jederzeit, wo du stehst. Keine Überraschung mehr, wenn die Abrechnung kommt.</p>
+        <a class="ep-btn ep-btn--green" href="../app/index.html">
+          Kompass kostenlos starten
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Footer ======== -->
+  <footer class="lp-footer">
+    <div class="ep-container">
+      <div class="lp-footer-inner">
+        <span>eprimo Energiekompass | Konzept-Demo im Rahmen einer Case Study | Demo-Daten fiktiv</span>
+        <a href="../index.html">Zurück zum Konzept-1-Pager</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.lp-reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
