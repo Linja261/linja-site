@@ -418,6 +418,7 @@
 <script>
   const slides = Array.from(document.querySelectorAll('.slide'));
   let i = 0;
+  let presenterWin = null, startTime = null, clockTimer = null;
 
   function show(n) {
     slides[i].classList.remove('on');
@@ -460,8 +461,6 @@
   if (h >= 1 && h <= slides.length) show(h - 1); else show(0);
 
   /* Presenter-Fenster (P): Sprechernotizen + Uhr, folgt den Klicks */
-  let presenterWin = null, startTime = null, clockTimer = null;
-
   function openPresenter() {
     if (presenterWin && !presenterWin.closed) { presenterWin.focus(); return; }
     presenterWin = window.open('', 'presenter', 'width=760,height=620');
