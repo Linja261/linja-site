@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Job-Entscheidung – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Fraunces','Georgia','serif'], serif: ['Fraunces','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691' } },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Fraunces", Georgia, serif; color: #472E56 !important; }
+        table.cmp { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        table.cmp th, table.cmp td { padding: 0.6rem 0.75rem; border-bottom: 1px solid #EDEAE3; vertical-align: top; text-align: left; }
+        table.cmp thead th { font-family: "Geist Mono", monospace; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: #7b6ba5; border-bottom: 2px solid #d9d1e5; }
+        table.cmp td.rowlabel { color: #78716c; font-size: 0.75rem; white-space: nowrap; }
+        table.cmp td strong { color: #292524; font-weight: 600; }
+        .best { background: #f0faf4; }
+        .num { font-family: "Geist Mono", monospace; font-size: 0.8rem; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Karriere · Entscheidung</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Job-Vergleich: 3 Angebote vs. Status quo</h1>
+                <p class="text-sm text-stone-500">Stand 19.07.2026 · Entscheidung am Wochenende</p>
+            </header>
+
+            <!-- Annahmen -->
+            <section class="mb-8 bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                <h2 class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-400 mb-3">Rechenbasis</h2>
+                <ul class="text-sm text-stone-600 space-y-1.5">
+                    <li>· Startpunkt Pendeln: <strong>Unna</strong>. Fahrtzeiten per Routing-API (OSRM) berechnet, Stoßzeiten-Werte als realistische Spanne dazu.</li>
+                    <li>· <strong>251 Arbeitstage</strong>/Jahr (NRW 2026, Mo–Fr minus Feiertage), 2 Onsite-Tage/Woche bei allen drei Angeboten.</li>
+                    <li>· Stundenlohn = Brutto-Jahresgehalt ÷ tatsächlich gearbeitete Stunden (Arbeitstage minus Urlaub × Stunden/Tag). Urlaub zählt also als bezahlt, mehr Urlaub = höherer Stundenlohn.</li>
+                    <li>· <strong>Effektiver Stundenlohn</strong> = Gehalt ÷ (gearbeitete Stunden + Pendelstunden). Pendeln ist gebundene Lebenszeit, wird aber nicht bezahlt.</li>
+                    <li>· Aktueller Job: 3.600 € netto/Monat ≈ <strong>72.000 € brutto/Jahr</strong> (Annahme). Netto-Werte der Angebote sind grobe Schätzungen auf Basis dieses Ankers, kein Steuerbescheid.</li>
+                </ul>
+            </section>
+
+            <!-- Haupttabelle -->
+            <section class="mb-8 bg-white border rounded-xl p-6 overflow-x-auto" style="border-color: #E5E2DB;">
+                <h2 class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-400 mb-4">Der Vergleich</h2>
+                <table class="cmp">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Aktuell<br><span class="normal-case font-normal text-stone-400">Full Remote</span></th>
+                            <th>ControlExpert<br><span class="normal-case font-normal text-stone-400">Team Lead Product</span></th>
+                            <th>PropertyExpert<br><span class="normal-case font-normal text-stone-400">Senior PM</span></th>
+                            <th>Bermuda<br><span class="normal-case font-normal text-stone-400">AI PM</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="rowlabel">Brutto / Jahr</td>
+                            <td class="num">~72.000 €*</td>
+                            <td class="num"><strong>90.000 €</strong> fix<br>+ 10.000 € Bonus</td>
+                            <td class="num"><strong>90.000 €</strong></td>
+                            <td class="num"><strong>75–80.000 €</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Extras</td>
+                            <td>—</td>
+                            <td>Dienstwagen on top<br><span class="text-xs text-stone-400">netto grob +300–500 €/Mon wert, je nach Privatnutzung u. Versteuerung</span></td>
+                            <td>—</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Netto / Monat (grob)</td>
+                            <td class="num">3.600 €</td>
+                            <td class="num">~4.300 € fix<br>~4.650 € inkl. Bonus</td>
+                            <td class="num">~4.300 €</td>
+                            <td class="num">~3.700–3.900 €</td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Urlaub</td>
+                            <td class="num">30 Tage</td>
+                            <td class="num">27 Tage</td>
+                            <td class="num">30 Tage</td>
+                            <td class="num">30–36 Tage</td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Wochenstunden</td>
+                            <td class="num">35 h</td>
+                            <td class="num">40 h</td>
+                            <td class="num">40 h</td>
+                            <td class="num">40 h</td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Ort · Onsite</td>
+                            <td>remote · 0 Tage</td>
+                            <td>Langenfeld · 2 Tage/Wo</td>
+                            <td>Monheim · 2 Tage/Wo</td>
+                            <td>Bochum · 2 Tage/Wo</td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Entfernung (einfach)</td>
+                            <td class="num">0 km</td>
+                            <td class="num">85 km</td>
+                            <td class="num">90 km</td>
+                            <td class="num">44 km</td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Fahrtzeit / Strecke</td>
+                            <td class="num">—</td>
+                            <td class="num">61 min frei<br>75–85 min Stoßzeit</td>
+                            <td class="num">65 min frei<br>80–90 min Stoßzeit</td>
+                            <td class="num">36 min frei<br>45–50 min Stoßzeit</td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Pendelzeit / Woche</td>
+                            <td class="num">0 h</td>
+                            <td class="num">~5,0 h</td>
+                            <td class="num">~5,4 h</td>
+                            <td class="num">~3,2 h</td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Pendelzeit / Jahr</td>
+                            <td class="num">0 h</td>
+                            <td class="num">~225 h<br><span class="text-xs text-stone-400">≈ 28 Arbeitstage</span></td>
+                            <td class="num">~238 h<br><span class="text-xs text-stone-400">≈ 30 Arbeitstage</span></td>
+                            <td class="num">~140 h<br><span class="text-xs text-stone-400">≈ 17 Arbeitstage</span></td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Gearbeitete Stunden / Jahr</td>
+                            <td class="num">1.547 h</td>
+                            <td class="num">1.792 h</td>
+                            <td class="num">1.768 h</td>
+                            <td class="num">1.720–1.768 h</td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Stundenlohn (brutto)</td>
+                            <td class="num">~46,50 €</td>
+                            <td class="num">50,20 € fix<br>55,80 € inkl. Bonus</td>
+                            <td class="num">50,90 €</td>
+                            <td class="num">42,40–46,50 €</td>
+                        </tr>
+                        <tr class="best">
+                            <td class="rowlabel"><strong>Effektiver Stundenlohn</strong><br><span class="text-xs">inkl. Pendelzeit</span></td>
+                            <td class="num"><strong>~46,50 €</strong></td>
+                            <td class="num"><strong>44,60 €</strong> fix<br><strong>49,60 €</strong> inkl. Bonus</td>
+                            <td class="num"><strong>44,90 €</strong></td>
+                            <td class="num"><strong>39,30–43,10 €</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="rowlabel">Gebundene Zeit vs. heute</td>
+                            <td class="num">—</td>
+                            <td class="num">+10,0 h/Wo</td>
+                            <td class="num">+10,4 h/Wo</td>
+                            <td class="num">+8,2 h/Wo</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-xs text-stone-400 mt-4">* Annahme: 3.600 € netto ≙ ~72k brutto. Falls dein Brutto anders liegt, verschiebt sich nur die „Aktuell“-Spalte, nicht das Verhältnis der drei Angebote zueinander.</p>
+            </section>
+
+            <!-- Lesart -->
+            <section class="mb-8 bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                <h2 class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-400 mb-3">Was die Zahlen sagen</h2>
+                <ul class="text-sm text-stone-600 space-y-2.5">
+                    <li>· <strong>Dein Status quo ist stark.</strong> Effektiv ~46,50 €/h bei null Pendeln und 35h. Rein rechnerisch schlägt ihn nur ControlExpert inkl. Bonus (49,60 €), und das erst, wenn der Bonus auch fließt.</li>
+                    <li>· <strong>ControlExpert vs. PropertyExpert ist fast ein Gleichstand beim Effektivlohn</strong> (44,60 vs. 44,90 fix). ControlExpert gewinnt über Bonus + Dienstwagen + Titel (Team Lead = Führungsschritt), PropertyExpert über 3 Urlaubstage mehr und keine Bonus-Abhängigkeit.</li>
+                    <li>· <strong>Bermuda kauft dir Zeit, kostet Geld.</strong> Kürzester Weg (~17 Pendel-Tage/Jahr weniger als Langenfeld/Monheim), bis zu 36 Tage Urlaub, dafür 10–15k brutto weniger. Bei 80k + 36 Tagen liegt der Stundenlohn (46,50 €) exakt auf deinem heutigen Niveau, nur eben mit Pendeln und 40h statt 35h.</li>
+                    <li>· <strong>Alle drei kosten dich 8–10,5 gebundene Stunden pro Woche mehr als heute.</strong> Das ist der eigentliche Preis: ein kompletter zusätzlicher Arbeitstag pro Woche an Lebenszeit, für +700 bis +1.050 € netto/Monat (Bermuda: +100 bis +300 €).</li>
+                    <li>· <strong>Nicht in der Tabelle:</strong> Führungsschritt (nur ControlExpert), AI-Profil-Schärfung (Bermuda passt auf deine „KI-basiert bis ins Produkt“-Positionierung), Jobsicherheit, Team-Eindruck aus den Interviews, Vereinbarkeit der Onsite-Tage mit Familie.</li>
+                </ul>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js?v=2" data-active="bewerbungen"></script>
+</body>
+</html>
