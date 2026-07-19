@@ -69,18 +69,13 @@
     .idea-num.pos .n { color: var(--ep-green); }
     .idea-arrow { color: var(--ep-green); }
 
-    /* Stat-Chips (Problem) */
-    .chips { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 2rem; }
-    .chip { background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: 999px; padding: .55rem 1.1rem; font-size: .92rem; font-weight: 600; color: var(--ep-ink-soft); box-shadow: var(--ep-shadow-soft); }
-    .chip b { color: var(--ep-ink); }
-
     .quote { margin-top: 2.2rem; border-left: 4px solid var(--ep-green); padding: .4rem 0 .4rem 1.2rem; max-width: 60ch; }
     .quote p { font-size: clamp(1.1rem, 2vw, 1.45rem); font-style: italic; color: var(--ep-ink); line-height: 1.45; }
     .quote cite { display: block; margin-top: .5rem; font-style: normal; font-size: .85rem; color: var(--ep-muted); }
 
     /* Marktlücke: Hero-Karte (struktureller Vorteil) */
     .hero-adv { margin-top: 2rem; max-width: 640px; background: var(--ep-green-tint); border: 1.5px solid var(--ep-green); border-radius: var(--ep-radius); padding: 1.6rem 1.8rem; box-shadow: var(--ep-shadow-soft); }
-    .hero-adv h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); margin: .7rem 0 .5rem; }
+    .hero-adv h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); margin: 0 0 .5rem; }
     .hero-adv p { font-size: clamp(.95rem, 1.5vw, 1.05rem); line-height: 1.55; color: var(--ep-ink-soft); }
     .kicker-line { margin-top: 1.6rem; font-size: .95rem; color: var(--ep-muted); max-width: 60ch; }
 
@@ -88,10 +83,8 @@
     .loop { display: flex; align-items: stretch; gap: .5rem; margin-top: 2.2rem; max-width: 1080px; }
     .loop-step { flex: 1; background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: var(--ep-radius); padding: 1.1rem .9rem; text-align: center; }
     .loop-step .num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ep-green); color: #1E2607; font-weight: 800; font-size: .95rem; margin-bottom: .6rem; }
-    .loop-step .icon { color: var(--ep-green-dark); margin-bottom: .55rem; }
-    .loop-step h3 { font-size: .95rem; }
+    .loop-step h3 { font-size: .92rem; line-height: 1.35; }
     .loop-arrow { display: flex; align-items: center; color: var(--ep-green-dark); flex-shrink: 0; }
-    .loop-repeat { display: inline-flex; align-self: flex-start; align-items: center; gap: .55rem; margin-top: 1.3rem; padding: .5rem 1.1rem; border: 1.5px dashed var(--ep-green-dark); border-radius: 999px; font-size: .92rem; font-weight: 600; color: var(--ep-green-dark); background: var(--ep-green-tint); }
     @media (max-width: 860px) {
       .loop { flex-direction: column; }
       .loop-arrow { justify-content: center; }
@@ -111,11 +104,10 @@
     .strat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2rem; max-width: 1060px; }
     @media (max-width: 860px) { .strat-grid { grid-template-columns: 1fr; } }
     .strat-card { display: flex; flex-direction: column; background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: var(--ep-radius); padding: 1.15rem; box-shadow: var(--ep-shadow-soft); }
-    .strat-q { background: var(--ep-ink); color: #fff; border-radius: var(--ep-radius-sm); padding: 1rem 1.1rem .95rem; font-weight: 600; font-size: .98rem; line-height: 1.4; }
+    .strat-q { flex: 1 1 auto; background: var(--ep-ink); color: #fff; border-radius: var(--ep-radius-sm); padding: 1rem 1.1rem .95rem; font-weight: 600; font-size: .98rem; line-height: 1.4; }
     .strat-q svg { display: block; color: var(--ep-green); margin-bottom: .5rem; }
-    .strat-q .src { display: block; margin-top: .45rem; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ep-green); }
-    .strat-arrow-d { display: flex; justify-content: center; padding: .55rem 0; color: var(--ep-green-dark); }
-    .strat-a { font-size: .95rem; font-weight: 700; color: var(--ep-ink); line-height: 1.45; text-align: center; padding: 0 .3rem .2rem; }
+    .strat-arrow-d { display: flex; justify-content: center; padding: .55rem 0; color: var(--ep-green-dark); flex-shrink: 0; }
+    .strat-a { font-size: .95rem; font-weight: 700; color: var(--ep-ink); line-height: 1.45; text-align: center; padding: 0 .3rem .2rem; min-height: 2.9em; }
 
     /* Business Value: zwei große Zahlen */
     .value-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 2.2rem; max-width: 940px; }
@@ -215,24 +207,18 @@
   <!-- 3 · Problem -->
   <section class="slide" data-notes="Kurz halten, das Zitat trägt die Folie. Kontext für Nachfragen: Mieter können nur ihr Verhalten steuern, nicht die Ausstattung, und genau dafür gibt es kein Werkzeug. Spartipps aus dem Internet sind generisch. Persona: kostenbewusste Familie, 78 qm, 3.800 kWh, kein Smart Meter, wie über 80 Prozent der Haushalte.">
     <span class="ep-eyebrow">Das Problem</span>
-    <h2 class="big">Ein Zählerstand pro Jahr. Null Transparenz dazwischen.</h2>
-    <div class="chips">
-      <span class="chip"><b>1</b> Ablesung im Jahr</span>
-      <span class="chip"><b>0</b> Rückmeldung dazwischen</span>
-      <span class="chip">Nachzahlung als <b>Überraschung</b></span>
-    </div>
+    <h2 class="big">Ein Zählerstand pro Jahr. Null Transparenz dazwischen. Nachzahlung als Überraschung.</h2>
     <blockquote class="quote">
       <p>„Wir haben wirklich auf unseren Verbrauch geachtet. Und trotzdem kam die Nachzahlung.“</p>
-      <cite>Sandra Weber, 37, eprimo-Kundin, Mietwohnung, kein Smart Meter</cite>
+      <cite>Sandra Weber, 37, eprimo-Kundin, 3 Personen, 78 m² Mietwohnung, 3.800 kWh im Jahr</cite>
     </blockquote>
   </section>
 
   <!-- 4 · Warum eprimo -->
   <section class="slide" data-notes="Der strukturelle Vorteil in einem Satz: Tibber, Rabot und Ostrom brauchen Smart Meter, über 80 Prozent der Haushalte haben keinen. Und selbst mit Smart Meter kennt ein externer Anbieter weder Tarif noch Abschlag noch Jahresverbrauch. Nur eprimo kann eine echte Kostenprognose gegen den Abschlag rechnen. Das ist nicht kopierbar.">
-    <span class="ep-eyebrow">Warum eprimo</span>
+    <span class="ep-eyebrow">eprimo hat strukturellen Vorteil</span>
     <h2 class="big">Nur eprimo kann das bauen.</h2>
     <div class="hero-adv">
-      <span class="ep-badge">Struktureller Vorteil</span>
       <h3>Datenlücke der Wettbewerber</h3>
       <p>Ein externer Anbieter kennt weder Tarif noch Abschlag noch Jahresverbrauch. eprimo kennt alle drei und kann als einziger eine echte Kostenprognose gegen den Abschlag rechnen.</p>
     </div>
@@ -245,35 +231,29 @@
     <div class="loop">
       <div class="loop-step">
         <span class="num">1</span>
-        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 01-9.1 8.4 8.6 8.6 0 01-3.9-.9L3 20l1-4.9a8.4 8.4 0 1117-3.6z"/></svg></div>
-        <h3>WhatsApp erinnert</h3>
+        <h3>WhatsApp erinnert an Nachweis vom Zählerstand</h3>
       </div>
       <div class="loop-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
       <div class="loop-step">
         <span class="num">2</span>
-        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-        <h3>Zählerfoto</h3>
+        <h3>Zählerfoto direkt im Chat</h3>
       </div>
       <div class="loop-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
       <div class="loop-step">
         <span class="num">3</span>
-        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 109 9"/><path d="M12 7v5l3 3"/><path d="M17 3h4v4"/></svg></div>
-        <h3>KI liest ab</h3>
+        <h3>KI liest ab und validiert Ergebnis</h3>
       </div>
       <div class="loop-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
       <div class="loop-step">
         <span class="num">4</span>
-        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v4h-4"/></svg></div>
-        <h3>Prognose + Ampel</h3>
+        <h3>Prognose und Ampel ggü. Jahresverbrauch</h3>
       </div>
       <div class="loop-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
       <div class="loop-step">
         <span class="num">5</span>
-        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></div>
-        <h3>Report + Tipps</h3>
+        <h3>Report und Verbrauchstipps</h3>
       </div>
     </div>
-    <div class="loop-repeat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 109-9"/><path d="M3 3v6h6"/></svg>Jeden Monat von vorn</div>
     <p class="kicker-line">Ohne Smart Meter. Ohne Hardware. 2 Minuten Aufwand.</p>
   </section>
 
@@ -300,20 +280,20 @@
   <!-- 7 · Strategie-Fit -->
   <section class="slide" data-notes="Drei Zitate aus der eprimo-Strategie, zu jedem genau eine Wirkung. Wer seinen Verbrauch bei eprimo pflegt, wechselt nicht wegen 30 Euro Neukundenbonus. Ein Fürsorge-Service wertet die Marke auf statt Discount. Und der Kompass löst den Nachzahlungs-Schock, bevor er entsteht. Falls Nachfrage Kannibalisierung: Tarif-Empfehlung ist gewollt, Retention schlägt Marge.">
     <span class="ep-eyebrow">Strategie-Fit</span>
-    <h2 class="big">Zahlt auf alle drei Strategieziele ein.</h2>
+    <h2 class="big">Zahlt auf alle drei eprimo-Strategieziele ein.</h2>
     <div class="strat-grid">
       <div class="strat-card">
-        <div class="strat-q"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5.5 15h3.2l2.1-4.2V6.5H4.5v4.3h3.1zm8.3 0h3.2l2.1-4.2V6.5h-6.3v4.3h3.1z"/></svg>Kunden dauerhaft binden mit fairen Angeboten<span class="src">eprimo-Strategie</span></div>
+        <div class="strat-q"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5.5 15h3.2l2.1-4.2V6.5H4.5v4.3h3.1zm8.3 0h3.2l2.1-4.2V6.5h-6.3v4.3h3.1z"/></svg>Kunden dauerhaft binden mit fairen Angeboten</div>
         <div class="strat-arrow-d"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
         <p class="strat-a">12 Kontakte im Jahr statt einem. Bindung durch Gewohnheit.</p>
       </div>
       <div class="strat-card">
-        <div class="strat-q"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5.5 15h3.2l2.1-4.2V6.5H4.5v4.3h3.1zm8.3 0h3.2l2.1-4.2V6.5h-6.3v4.3h3.1z"/></svg>Eher günstig, kein Discount-Image<span class="src">eprimo-Strategie</span></div>
+        <div class="strat-q"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5.5 15h3.2l2.1-4.2V6.5H4.5v4.3h3.1zm8.3 0h3.2l2.1-4.2V6.5h-6.3v4.3h3.1z"/></svg>Eher günstig, kein Discount-Image</div>
         <div class="strat-arrow-d"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
         <p class="strat-a">eprimo hilft sparen, statt billig zu wirken.</p>
       </div>
       <div class="strat-card">
-        <div class="strat-q"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5.5 15h3.2l2.1-4.2V6.5H4.5v4.3h3.1zm8.3 0h3.2l2.1-4.2V6.5h-6.3v4.3h3.1z"/></svg>Einfach funktionieren, Probleme unkompliziert lösen<span class="src">eprimo-Strategie</span></div>
+        <div class="strat-q"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5.5 15h3.2l2.1-4.2V6.5H4.5v4.3h3.1zm8.3 0h3.2l2.1-4.2V6.5h-6.3v4.3h3.1z"/></svg>Einfach funktionieren, Probleme unkompliziert lösen</div>
         <div class="strat-arrow-d"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
         <p class="strat-a">Löst den Nachzahlungs-Schock, bevor er entsteht.</p>
       </div>
