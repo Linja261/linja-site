@@ -78,10 +78,10 @@
     .quote p { font-size: clamp(1.1rem, 2vw, 1.45rem); font-style: italic; color: var(--ep-ink); line-height: 1.45; }
     .quote cite { display: block; margin-top: .5rem; font-style: normal; font-size: .85rem; color: var(--ep-muted); }
 
-    /* Marktlücke: Daten-Karten */
-    .data-row { display: flex; gap: .9rem; flex-wrap: wrap; margin-top: 2rem; }
-    .data-card { background: var(--ep-card); border: 1.5px solid var(--ep-green); border-radius: var(--ep-radius); padding: 1rem 1.5rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1.05rem; box-shadow: var(--ep-shadow-soft); }
-    .data-card svg { color: var(--ep-green-dark); flex-shrink: 0; }
+    /* Marktlücke: Hero-Karte (struktureller Vorteil) */
+    .hero-adv { margin-top: 2rem; max-width: 640px; background: var(--ep-green-tint); border: 1.5px solid var(--ep-green); border-radius: var(--ep-radius); padding: 1.6rem 1.8rem; box-shadow: var(--ep-shadow-soft); }
+    .hero-adv h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); margin: .7rem 0 .5rem; }
+    .hero-adv p { font-size: clamp(.95rem, 1.5vw, 1.05rem); line-height: 1.55; color: var(--ep-ink-soft); }
     .kicker-line { margin-top: 1.6rem; font-size: .95rem; color: var(--ep-muted); max-width: 60ch; }
 
     /* Loop kompakt */
@@ -199,12 +199,11 @@
   <section class="slide" data-notes="Der strukturelle Vorteil in einem Satz: Tibber, Rabot und Ostrom brauchen Smart Meter, über 80 Prozent der Haushalte haben keinen. Und selbst mit Smart Meter kennt ein externer Anbieter weder Tarif noch Abschlag noch Jahresverbrauch. Nur eprimo kann eine echte Kostenprognose gegen den Abschlag rechnen. Das ist nicht kopierbar.">
     <span class="ep-eyebrow">Warum eprimo</span>
     <h2 class="big">Nur eprimo kann das bauen.</h2>
-    <div class="data-row">
-      <div class="data-card"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Tarif</div>
-      <div class="data-card"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Abschlag</div>
-      <div class="data-card"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Jahresverbrauch</div>
+    <div class="hero-adv">
+      <span class="ep-badge">Struktureller Vorteil</span>
+      <h3>Datenlücke der Wettbewerber</h3>
+      <p>Ein externer Anbieter kennt weder Tarif noch Abschlag noch Jahresverbrauch. eprimo kennt alle drei und kann als einziger eine echte Kostenprognose gegen den Abschlag rechnen.</p>
     </div>
-    <p class="kicker-line">Tibber &amp; Co. brauchen Smart Meter, über 80 % der Haushalte haben keinen. Und die Vertragsdaten für eine echte Prognose gegen den Abschlag hat nur eprimo.</p>
   </section>
 
   <!-- 5 · Lösung -->
