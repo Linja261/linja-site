@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <meta name="theme-color" content="#7B6BA5">
+  <title>eprimo Energiekompass | Pitch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../casestudy/eprimo.css">
+  <style>
+    html, body { height: 100%; background: #171B1F; }
+
+    #deck { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+
+    .slide {
+      display: none;
+      position: absolute; inset: 0;
+      padding: 3.2rem clamp(1.5rem, 6vw, 6rem);
+      flex-direction: column;
+      justify-content: center;
+      background: var(--ep-bg);
+      overflow-y: auto;
+    }
+    .slide.on { display: flex; }
+
+    .slide.dark { background: var(--ep-ink); color: #fff; }
+    .slide.dark .ep-eyebrow { color: var(--ep-green); }
+    .slide.dark h1, .slide.dark h2 { color: #fff; }
+    .slide.dark p { color: rgba(255,255,255,.78); }
+
+    /* Pitch-Typo: eine große Botschaft pro Folie */
+    .big {
+      font-size: clamp(1.9rem, 4.4vw, 3.4rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      font-weight: 800;
+      max-width: 22ch;
+      margin: .6rem 0 0;
+    }
+    .slide.dark .big { color: #fff; }
+    .big .g { color: var(--ep-green-dark); }
+    .slide.dark .big .g { color: var(--ep-green); }
+
+    .sub {
+      margin-top: 1.4rem;
+      font-size: clamp(1rem, 1.7vw, 1.25rem);
+      line-height: 1.55;
+      max-width: 52ch;
+      color: var(--ep-ink-soft);
+    }
+    .slide.dark .sub { color: rgba(255,255,255,.72); }
+
+    /* Cover */
+    .cover-product { font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 800; margin: 1rem 0 1.2rem; }
+    .cover-product .g { color: var(--ep-green); }
+    .cover-meta { margin-top: 2.4rem; display: flex; gap: 1.6rem; flex-wrap: wrap; font-size: .88rem; color: rgba(255,255,255,.55); }
+
+    /* Idee: 1 → 12 */
+    .idea-vis { display: flex; align-items: center; gap: clamp(1rem, 4vw, 2.6rem); margin: 2.4rem 0 0; flex-wrap: wrap; }
+    .idea-num { text-align: center; }
+    .idea-num .n { font-size: clamp(3.4rem, 9vw, 6.5rem); font-weight: 800; line-height: 1; letter-spacing: -0.03em; }
+    .idea-num .l { margin-top: .5rem; font-size: .88rem; color: rgba(255,255,255,.6); max-width: 16ch; }
+    .idea-num.neg .n { color: #E08A82; }
+    .idea-num.pos .n { color: var(--ep-green); }
+    .idea-arrow { color: var(--ep-green); }
+
+    /* Stat-Chips (Problem) */
+    .chips { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 2rem; }
+    .chip { background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: 999px; padding: .55rem 1.1rem; font-size: .92rem; font-weight: 600; color: var(--ep-ink-soft); box-shadow: var(--ep-shadow-soft); }
+    .chip b { color: var(--ep-ink); }
+
+    .quote { margin-top: 2.2rem; border-left: 4px solid var(--ep-green); padding: .4rem 0 .4rem 1.2rem; max-width: 60ch; }
+    .quote p { font-size: clamp(1.1rem, 2vw, 1.45rem); font-style: italic; color: var(--ep-ink); line-height: 1.45; }
+    .quote cite { display: block; margin-top: .5rem; font-style: normal; font-size: .85rem; color: var(--ep-muted); }
+
+    /* Marktlücke: Daten-Karten */
+    .data-row { display: flex; gap: .9rem; flex-wrap: wrap; margin-top: 2rem; }
+    .data-card { background: var(--ep-card); border: 1.5px solid var(--ep-green); border-radius: var(--ep-radius); padding: 1rem 1.5rem; display: flex; align-items: center; gap: .7rem; font-weight: 700; font-size: 1.05rem; box-shadow: var(--ep-shadow-soft); }
+    .data-card svg { color: var(--ep-green-dark); flex-shrink: 0; }
+    .kicker-line { margin-top: 1.6rem; font-size: .95rem; color: var(--ep-muted); max-width: 60ch; }
+
+    /* Loop kompakt */
+    .loop { display: grid; grid-template-columns: repeat(5, 1fr); gap: .8rem; margin-top: 2.2rem; max-width: 1040px; }
+    @media (max-width: 860px) { .loop { grid-template-columns: 1fr; } }
+    .loop-step { background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: var(--ep-radius); padding: 1.1rem 1rem; text-align: center; }
+    .loop-step .icon { color: var(--ep-green-dark); margin-bottom: .55rem; }
+    .loop-step h3 { font-size: .95rem; }
+
+    /* Demo */
+    .demo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; max-width: 880px; margin-top: 2rem; }
+    @media (max-width: 860px) { .demo-grid { grid-template-columns: 1fr; } }
+    a.demo-card { display: block; text-decoration: none; background: var(--ep-card); border: 1.5px solid var(--ep-line); border-radius: var(--ep-radius); padding: 1.6rem; transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease; }
+    a.demo-card:hover { transform: translateY(-2px); border-color: var(--ep-green); box-shadow: var(--ep-shadow); }
+    a.demo-card h3 { font-size: 1.15rem; margin: .6rem 0 .3rem; }
+    a.demo-card p { font-size: .9rem; color: var(--ep-ink-soft); }
+    a.demo-card .go { display: inline-flex; align-items: center; gap: .4rem; margin-top: .9rem; font-weight: 600; font-size: .9rem; color: var(--ep-green-dark); }
+
+    /* Strategie kompakt */
+    .strat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; max-width: 1040px; }
+    @media (max-width: 860px) { .strat-grid { grid-template-columns: 1fr; } }
+    .strat-card { background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: var(--ep-radius); padding: 1.2rem 1.3rem; box-shadow: var(--ep-shadow-soft); }
+    .strat-card .q { font-size: .88rem; font-style: italic; color: var(--ep-green-dark); }
+    .strat-card .a { margin-top: .55rem; font-size: 1.02rem; font-weight: 700; color: var(--ep-ink); line-height: 1.35; }
+
+    /* Business Value: zwei große Zahlen */
+    .value-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 2.2rem; max-width: 940px; }
+    @media (max-width: 860px) { .value-grid { grid-template-columns: 1fr; } }
+    .value-card { background: var(--ep-green-tint); border: 1.5px solid var(--ep-green); border-radius: var(--ep-radius); padding: 1.6rem 1.7rem; }
+    .value-card .n { font-size: clamp(1.7rem, 3.4vw, 2.6rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+    .value-card .l { margin-top: .5rem; font-size: .95rem; color: var(--ep-ink-soft); }
+    .value-note { margin-top: 1.6rem; font-size: .9rem; color: var(--ep-muted); max-width: 62ch; }
+
+    /* North Star */
+    .ns-metric { margin-top: 1.8rem; font-size: clamp(1.7rem, 3.8vw, 2.9rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; color: #fff; max-width: 24ch; }
+    .ns-metric .g { color: var(--ep-green); }
+
+    /* Vorgehen: Timeline-Chips + Punch */
+    .steps { display: flex; gap: .7rem; flex-wrap: wrap; margin-top: 2rem; align-items: stretch; }
+    .step-chip { background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: var(--ep-radius-sm); padding: .8rem 1.1rem; min-width: 150px; }
+    .step-chip .w { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ep-green-dark); }
+    .step-chip .t { margin-top: .2rem; font-size: .95rem; font-weight: 700; }
+    .step-chip.hl { border-color: var(--ep-green); background: var(--ep-green-tint); }
+    .punch { margin-top: 2rem; background: var(--ep-ink); color: #fff; border-radius: var(--ep-radius-sm); padding: 1rem 1.4rem; font-size: clamp(1rem, 1.7vw, 1.2rem); max-width: 880px; }
+    .punch b { color: var(--ep-green); }
+
+    /* Shell: Progress, Counter, Nav */
+    #bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--ep-green); width: 0; z-index: 40; transition: width .25s ease; }
+    #nav {
+      position: fixed; right: 1.2rem; bottom: 1rem; z-index: 40;
+      display: flex; align-items: center; gap: .6rem;
+      background: rgba(255,255,255,.92); border: 1px solid var(--ep-line); border-radius: 999px; padding: .35rem .6rem;
+      box-shadow: var(--ep-shadow-soft);
+    }
+    #nav button { background: none; border: none; cursor: pointer; font-size: 1.05rem; color: var(--ep-ink); padding: .15rem .45rem; border-radius: 999px; }
+    #nav button:hover { background: var(--ep-green-tint); }
+    #ctr { font-size: .74rem; color: var(--ep-muted); font-variant-numeric: tabular-nums; }
+    #hint { position: fixed; left: 1.4rem; bottom: 1.15rem; z-index: 40; font-size: .68rem; color: #8A929B; }
+
+    /* Print: jede Folie = eine PDF-Seite (Querformat) */
+    @page { size: A4 landscape; margin: 0; }
+    @media print {
+      html, body { height: auto; background: #fff; }
+      #deck { width: auto; height: auto; overflow: visible; }
+      .slide { display: flex !important; position: relative; inset: auto; width: 100%; height: 100vh; page-break-after: always; overflow: hidden; }
+      #bar, #nav, #hint { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="deck">
+
+  <!-- 1 · Cover -->
+  <section class="slide dark on" data-notes="Begrüßung, ein Satz Kontext: eprimo prüft einen KI-Energieberater für Mieter. Ich zeige die Idee, das Produkt zum Anfassen und den Weg zur Entscheidung. Keine Agenda-Folie, direkt rein.">
+    <span class="ep-eyebrow">Pitch · Bermuda Digital · Linja Scharffetter</span>
+    <div class="cover-product">eprimo <span class="g">Energiekompass</span></div>
+    <h1 class="big">Vom unsichtbaren Stromlieferanten zum monatlichen Begleiter</h1>
+    <div class="cover-meta"><span>KI-Energieberater für Mieter:innen</span></div>
+  </section>
+
+  <!-- 2 · Die Idee -->
+  <section class="slide dark" data-notes="Die Idee zuerst, nicht die Frage. Heute hört die Kundin einmal im Jahr von eprimo, und zwar dann, wenn die Nachzahlung kommt. Der Kompass dreht das um: zwölf kurze, positive Kontakte. Monatlicher Verbrauchs-Check mit Kostenprognose und konkreten Tipps. Aus dem Schock-Moment wird eine Gewohnheit. Das ist die ganze Idee, alles Weitere ist Ausführung.">
+    <span class="ep-eyebrow">Die Idee</span>
+    <h2 class="big">Aus <span class="g">1</span> negativen Kontakt im Jahr werden <span class="g">12</span> positive.</h2>
+    <div class="idea-vis">
+      <div class="idea-num neg">
+        <div class="n">1×</div>
+        <div class="l">Nebenkostenabrechnung mit Nachzahlung</div>
+      </div>
+      <div class="idea-arrow"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+      <div class="idea-num pos">
+        <div class="n">12×</div>
+        <div class="l">Verbrauchs-Check mit Prognose und Tipps</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Problem -->
+  <section class="slide" data-notes="Kurz halten, das Zitat trägt die Folie. Kontext für Nachfragen: Mieter können nur ihr Verhalten steuern, nicht die Ausstattung, und genau dafür gibt es kein Werkzeug. Spartipps aus dem Internet sind generisch. Persona: kostenbewusste Familie, 78 qm, 3.800 kWh, kein Smart Meter, wie über 80 Prozent der Haushalte.">
+    <span class="ep-eyebrow">Das Problem</span>
+    <h2 class="big">Ein Zählerstand pro Jahr. Null Transparenz dazwischen.</h2>
+    <div class="chips">
+      <span class="chip"><b>1</b> Ablesung im Jahr</span>
+      <span class="chip"><b>0</b> Rückmeldung dazwischen</span>
+      <span class="chip">Nachzahlung als <b>Überraschung</b></span>
+    </div>
+    <blockquote class="quote">
+      <p>„Wir haben wirklich auf unseren Verbrauch geachtet. Und trotzdem kam die Nachzahlung.“</p>
+      <cite>Sandra Weber, 37, eprimo-Kundin, Mietwohnung, kein Smart Meter</cite>
+    </blockquote>
+  </section>
+
+  <!-- 4 · Warum eprimo -->
+  <section class="slide" data-notes="Der strukturelle Vorteil in einem Satz: Tibber, Rabot und Ostrom brauchen Smart Meter, über 80 Prozent der Haushalte haben keinen. Und selbst mit Smart Meter kennt ein externer Anbieter weder Tarif noch Abschlag noch Jahresverbrauch. Nur eprimo kann eine echte Kostenprognose gegen den Abschlag rechnen. Das ist nicht kopierbar.">
+    <span class="ep-eyebrow">Warum eprimo</span>
+    <h2 class="big">Nur eprimo kann das bauen.</h2>
+    <div class="data-row">
+      <div class="data-card"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Tarif</div>
+      <div class="data-card"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Abschlag</div>
+      <div class="data-card"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Jahresverbrauch</div>
+    </div>
+    <p class="kicker-line">Tibber &amp; Co. brauchen Smart Meter, über 80 % der Haushalte haben keinen. Und die Vertragsdaten für eine echte Prognose gegen den Abschlag hat nur eprimo.</p>
+  </section>
+
+  <!-- 5 · Lösung -->
+  <section class="slide" data-notes="Der Kern-Loop, einmal im Monat, zwei Minuten Aufwand. WhatsApp ist der Habit-Kanal: Die Erinnerung kommt dahin, wo die Nutzerin ohnehin ist, das Foto geht direkt im Chat zurück. Kein Smart Meter, keine Hardware, keine Installation. Details wie Confidence-Anzeige und Korrektur zeige ich gleich in der Demo.">
+    <span class="ep-eyebrow">Die Lösung</span>
+    <h2 class="big">Ein Foto im Monat. Eine Prognose. Drei Tipps.</h2>
+    <div class="loop">
+      <div class="loop-step">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 01-9.1 8.4 8.6 8.6 0 01-3.9-.9L3 20l1-4.9a8.4 8.4 0 1117-3.6z"/></svg></div>
+        <h3>WhatsApp erinnert</h3>
+      </div>
+      <div class="loop-step">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+        <h3>Zählerfoto</h3>
+      </div>
+      <div class="loop-step">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 109 9"/><path d="M12 7v5l3 3"/><path d="M17 3h4v4"/></svg></div>
+        <h3>KI liest ab</h3>
+      </div>
+      <div class="loop-step">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v4h-4"/></svg></div>
+        <h3>Prognose + Ampel</h3>
+      </div>
+      <div class="loop-step">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></div>
+        <h3>Report + Tipps</h3>
+      </div>
+    </div>
+    <p class="kicker-line">Ohne Smart Meter. Ohne Hardware. 2 Minuten im Monat.</p>
+  </section>
+
+  <!-- 6 · Demo -->
+  <section class="slide" data-notes="Live-Demo. Erst die Website: So verkaufen wir es der Kundin. Dann der Prototyp: einmal komplett durch den Monats-Loop, Dashboard bis Chat. Auf dem Report die Maßnahmen anklicken, die Ampel springt auf Grün. Danach hierher zurück und weiter.">
+    <span class="ep-eyebrow">Live-Demo</span>
+    <h2 class="big">Zum Anfassen, nicht nur auf Folien.</h2>
+    <div class="demo-grid">
+      <a class="demo-card" href="../casestudy/site/index.html" target="_blank" rel="noopener">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6E9312" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg>
+        <h3>Produkt-Website</h3>
+        <p>So verkaufen wir es.</p>
+        <span class="go">Website öffnen<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="demo-card" href="../casestudy/app/index.html" target="_blank" rel="noopener">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6E9312" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+        <h3>Klickbarer Prototyp</h3>
+        <p>So fühlt es sich an.</p>
+        <span class="go">Prototyp starten<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 7 · Strategie-Fit -->
+  <section class="slide" data-notes="Drei Zitate aus der eprimo-Strategie, zu jedem genau eine Wirkung. Wer seinen Verbrauch bei eprimo pflegt, wechselt nicht wegen 30 Euro Neukundenbonus. Ein Fürsorge-Service wertet die Marke auf statt Discount. Und der Kompass löst den Nachzahlungs-Schock, bevor er entsteht. Falls Nachfrage Kannibalisierung: Tarif-Empfehlung ist gewollt, Retention schlägt Marge.">
+    <span class="ep-eyebrow">Strategie-Fit</span>
+    <h2 class="big">Zahlt auf alle drei Strategieziele ein.</h2>
+    <div class="strat-grid">
+      <div class="strat-card">
+        <p class="q">„Kunden dauerhaft binden“</p>
+        <p class="a">12 Kontakte im Jahr statt einem. Bindung durch Gewohnheit.</p>
+      </div>
+      <div class="strat-card">
+        <p class="q">„Günstig, kein Discount-Image“</p>
+        <p class="a">eprimo hilft sparen, statt billig zu wirken.</p>
+      </div>
+      <div class="strat-card">
+        <p class="q">„Einfach funktionieren“</p>
+        <p class="a">Löst den Nachzahlungs-Schock, bevor er entsteht.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · Business Value -->
+  <section class="slide" data-notes="Konservative Modellrechnung, klar als Annahme gekennzeichnet, keine eprimo-Interna: 100.000 aktive Kompass-Haushalte, 15 Prozent branchentypischer Churn, 150 bis 300 Euro Akquisekosten, 80 Euro Deckungsbeitrag. Minus 3 Punkte Churn heißt 3.000 gehaltene Kunden pro Jahr. Dazu weniger Forderungsausfälle und weniger Service-Kontakte zur Jahresabrechnung. Ehrlich sagen: Diese Zahlen validiert der Concierge-Test, bevor groß investiert wird.">
+    <span class="ep-eyebrow">Business Value</span>
+    <h2 class="big">−3 Punkte Churn = <span class="g">3.000 gehaltene Kunden</span> pro Jahr.</h2>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="n">≈ 240.000 €</div>
+        <div class="l">gesicherter Deckungsbeitrag pro Jahr</div>
+      </div>
+      <div class="value-card">
+        <div class="n">450–900 T€</div>
+        <div class="l">vermiedene Wiederbeschaffungskosten</div>
+      </div>
+    </div>
+    <p class="value-note">Modellrechnung auf Basis von 100.000 aktiven Haushalten, klar gekennzeichnete Annahmen. Der Concierge-Test validiert sie, bevor investiert wird.</p>
+  </section>
+
+  <!-- 9 · North Star -->
+  <section class="slide dark" data-notes="Eine Kernmetrik statt Dashboard-Zoo: Sie misst Engagement (der Habit-Loop lebt) und Datenqualität (die Prognose bleibt scharf) in einer Zahl. Bewusst nicht Chats pro Monat, viele Chats können auch Verwirrung sein. Treiber dahinter: Aktivierung, WhatsApp-Opt-in, Foto-Quote, Wiederkehr-Rate. Die North Star treibt das Churn-Delta aus der Modellrechnung.">
+    <span class="ep-eyebrow">North Star</span>
+    <h2 class="big">Eine Zahl entscheidet.</h2>
+    <p class="ns-metric">Monatlich aktive Haushalte mit <span class="g">aktuellem Zählerstand</span></p>
+    <p class="sub">Misst Engagement und Datenqualität in einer Zahl und treibt direkt das Churn-Delta.</p>
+  </section>
+
+  <!-- 10 · Vorgehen -->
+  <section class="slide" data-notes="Fünf Schritte, aber der Punkt ist der markierte: Der Prototyp ist kein Meilenstein am Ende, sondern ab Woche 2 das Testinstrument. Die riskanteste Annahme, kommt das zweite Foto, wird als Allererstes getestet, mit Abbruchkriterien je Phase. Schluss-Statement: Dieses Konzept samt Prototyp entstand in 90 Minuten. Das ist keine Ausnahme, das ist die Arbeitsweise, die ich als AI Product Managerin bei eprimo etablieren würde: KI übernimmt die Ausführung, ich das Urteil. Erst Evidenz, dann Investment.">
+    <span class="ep-eyebrow">Vorgehen</span>
+    <h2 class="big">Test ab Woche 2. Investment nach Evidenz.</h2>
+    <div class="steps">
+      <div class="step-chip"><div class="w">Wo. 1</div><div class="t">Standort&shy;bestimmung</div></div>
+      <div class="step-chip"><div class="w">Wo. 1–2</div><div class="t">5 Interviews + Fake Door</div></div>
+      <div class="step-chip hl"><div class="w">Wo. 2–6</div><div class="t">Concierge-Test, 50 Haushalte</div></div>
+      <div class="step-chip"><div class="w">Wo. 6–8</div><div class="t">Business Case + MVP-Scope</div></div>
+      <div class="step-chip"><div class="w">Mon. 3–4</div><div class="t">MVP + KPI-Steuerung</div></div>
+    </div>
+    <div class="punch"><b>Dieser Prototyp entstand in 90 Minuten.</b> Deshalb testen wir ab Woche 2 am echten Kunden, statt Monate zu konzipieren.</div>
+  </section>
+
+</div>
+
+<div id="nav">
+  <button onclick="go(-1)" aria-label="Zurück">&#8592;</button>
+  <span id="ctr">1 / 10</span>
+  <button onclick="go(1)" aria-label="Weiter">&#8594;</button>
+</div>
+<div id="hint">Pfeiltasten, Wischen oder Klick · P für Sprechernotizen · Drucken = PDF</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let i = 0;
+  let presenterWin = null, startTime = null, clockTimer = null;
+
+  function show(n) {
+    slides[i].classList.remove('on');
+    i = (n + slides.length) % slides.length;
+    slides[i].classList.add('on');
+    document.getElementById('ctr').textContent = (i + 1) + ' / ' + slides.length;
+    document.getElementById('bar').style.width = ((i + 1) / slides.length) * 100 + '%';
+    window.scrollTo(0, 0);
+    renderPresenter();
+  }
+  function go(d) { show(i + d); }
+
+  // Klick auf die Folie blättert weiter (Links und Buttons bleiben Links)
+  document.getElementById('deck').addEventListener('click', e => {
+    if (e.target.closest('a, button')) return;
+    go(1);
+  });
+
+  // Wischgeste mobil
+  let tsx = 0, tsy = 0;
+  document.addEventListener('touchstart', e => {
+    const t = e.changedTouches[0]; tsx = t.clientX; tsy = t.clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const t = e.changedTouches[0];
+    const dx = t.clientX - tsx, dy = t.clientY - tsy;
+    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.8) go(dx < 0 ? 1 : -1);
+  }, { passive: true });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    if (e.key === 'p' || e.key === 'P') openPresenter();
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+  });
+
+  // Deep-Link: #7 springt direkt zu Folie 7
+  const h = parseInt(location.hash.slice(1), 10);
+  if (h >= 1 && h <= slides.length) show(h - 1); else show(0);
+
+  /* Presenter-Fenster (P): Sprechernotizen + Uhr, folgt den Klicks */
+  function openPresenter() {
+    if (presenterWin && !presenterWin.closed) { presenterWin.focus(); return; }
+    presenterWin = window.open('', 'presenter', 'width=760,height=620');
+    if (!presenterWin) { alert('Bitte Pop-ups erlauben, dann nochmal P drücken.'); return; }
+    startTime = Date.now();
+    presenterWin.document.write('<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><title>Sprechernotizen</title>' +
+      '<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,-apple-system,sans-serif;background:#171B1F;color:#EFF2ED;height:100vh;display:flex;flex-direction:column;padding:1.4rem 1.6rem}' +
+      '.top{display:flex;justify-content:space-between;border-bottom:1px solid #333A41;padding-bottom:.7rem}.ctr{font-size:.8rem;letter-spacing:.1em;color:#95C11F;text-transform:uppercase}' +
+      '.clock{font-size:1.4rem;font-variant-numeric:tabular-nums}.title{font-size:1.1rem;margin:.9rem 0 .4rem;font-weight:700}' +
+      '.note{flex:1;overflow-y:auto;font-size:1.14rem;line-height:1.6;white-space:pre-line}.note.empty{color:#7A828C;font-style:italic}' +
+      '.next{border-top:1px solid #333A41;padding-top:.7rem;margin-top:.7rem;font-size:.9rem;color:#9AA2AB}.next b{color:#95C11F;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:.2rem}' +
+      '.nav{display:flex;gap:.6rem;margin-top:.8rem}.nav button{flex:1;background:#242B31;border:1px solid #3A424A;color:#EFF2ED;border-radius:8px;padding:.6rem;font-size:1rem;cursor:pointer;font-family:inherit}.nav button:hover{background:#2E363E}</style></head><body>' +
+      '<div class="top"><span class="ctr" id="pctr"></span><span class="clock" id="pclock">00:00</span></div>' +
+      '<div class="title" id="ptitle"></div><div class="note" id="pnote"></div><div class="next" id="pnext"></div>' +
+      '<div class="nav"><button id="pprev">&#8592; Zur&uuml;ck</button><button id="preset">Uhr 0</button><button id="pgo">Weiter &#8594;</button></div>' +
+      '<scr' + 'ipt>document.getElementById("pprev").onclick=()=>window.opener&&window.opener.go(-1);' +
+      'document.getElementById("pgo").onclick=()=>window.opener&&window.opener.go(1);' +
+      'document.getElementById("preset").onclick=()=>window.opener&&window.opener.resetClock();' +
+      'document.addEventListener("keydown",e=>{if(!window.opener)return;if(e.key==="ArrowRight"||e.key===" "){e.preventDefault();window.opener.go(1);}if(e.key==="ArrowLeft"){e.preventDefault();window.opener.go(-1);}});' +
+      '</scr' + 'ipt></body></html>');
+    presenterWin.document.close();
+    clearInterval(clockTimer);
+    clockTimer = setInterval(updateClock, 1000);
+    renderPresenter();
+  }
+
+  function resetClock() { startTime = Date.now(); updateClock(); }
+
+  function updateClock() {
+    if (!presenterWin || presenterWin.closed) { clearInterval(clockTimer); return; }
+    const el = presenterWin.document.getElementById('pclock');
+    if (!el || !startTime) return;
+    const s = Math.floor((Date.now() - startTime) / 1000);
+    el.textContent = String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+  }
+
+  function renderPresenter() {
+    if (!presenterWin || presenterWin.closed) return;
+    const d = presenterWin.document;
+    const titleEl = slides[i].querySelector('h1, h2, .ns-metric');
+    d.getElementById('pctr').textContent = 'Folie ' + (i + 1) + ' von ' + slides.length;
+    d.getElementById('ptitle').textContent = titleEl ? titleEl.textContent.trim() : '';
+    const note = slides[i].dataset.notes || '';
+    const noteEl = d.getElementById('pnote');
+    noteEl.textContent = note || 'Keine Notiz zu dieser Folie.';
+    noteEl.classList.toggle('empty', !note);
+    const nx = slides[(i + 1) % slides.length];
+    const nxTitle = nx.querySelector('h1, h2, .ns-metric');
+    d.getElementById('pnext').innerHTML = '<b>Als N&auml;chstes</b>' + (nxTitle ? nxTitle.textContent.trim() : '');
+  }
+</script>
+</body>
+</html>
