@@ -84,12 +84,19 @@
     .hero-adv p { font-size: clamp(.95rem, 1.5vw, 1.05rem); line-height: 1.55; color: var(--ep-ink-soft); }
     .kicker-line { margin-top: 1.6rem; font-size: .95rem; color: var(--ep-muted); max-width: 60ch; }
 
-    /* Loop kompakt */
-    .loop { display: grid; grid-template-columns: repeat(5, 1fr); gap: .8rem; margin-top: 2.2rem; max-width: 1040px; }
-    @media (max-width: 860px) { .loop { grid-template-columns: 1fr; } }
-    .loop-step { background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: var(--ep-radius); padding: 1.1rem 1rem; text-align: center; }
+    /* Loop: 5 nummerierte Schritte mit Pfeilen + Rücksprung */
+    .loop { display: flex; align-items: stretch; gap: .5rem; margin-top: 2.2rem; max-width: 1080px; }
+    .loop-step { flex: 1; background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: var(--ep-radius); padding: 1.1rem .9rem; text-align: center; }
+    .loop-step .num { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ep-green); color: #1E2607; font-weight: 800; font-size: .95rem; margin-bottom: .6rem; }
     .loop-step .icon { color: var(--ep-green-dark); margin-bottom: .55rem; }
     .loop-step h3 { font-size: .95rem; }
+    .loop-arrow { display: flex; align-items: center; color: var(--ep-green-dark); flex-shrink: 0; }
+    .loop-repeat { display: inline-flex; align-self: flex-start; align-items: center; gap: .55rem; margin-top: 1.3rem; padding: .5rem 1.1rem; border: 1.5px dashed var(--ep-green-dark); border-radius: 999px; font-size: .92rem; font-weight: 600; color: var(--ep-green-dark); background: var(--ep-green-tint); }
+    @media (max-width: 860px) {
+      .loop { flex-direction: column; }
+      .loop-arrow { justify-content: center; }
+      .loop-arrow svg { transform: rotate(90deg); }
+    }
 
     /* Demo */
     .demo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; max-width: 880px; margin-top: 2rem; }
@@ -212,27 +219,37 @@
     <h2 class="big">Ein Foto im Monat. Eine Prognose. Drei Tipps.</h2>
     <div class="loop">
       <div class="loop-step">
+        <span class="num">1</span>
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 01-9.1 8.4 8.6 8.6 0 01-3.9-.9L3 20l1-4.9a8.4 8.4 0 1117-3.6z"/></svg></div>
         <h3>WhatsApp erinnert</h3>
       </div>
+      <div class="loop-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
       <div class="loop-step">
+        <span class="num">2</span>
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
         <h3>Zählerfoto</h3>
       </div>
+      <div class="loop-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
       <div class="loop-step">
+        <span class="num">3</span>
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a9 9 0 109 9"/><path d="M12 7v5l3 3"/><path d="M17 3h4v4"/></svg></div>
         <h3>KI liest ab</h3>
       </div>
+      <div class="loop-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
       <div class="loop-step">
+        <span class="num">4</span>
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v4h-4"/></svg></div>
         <h3>Prognose + Ampel</h3>
       </div>
+      <div class="loop-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
       <div class="loop-step">
+        <span class="num">5</span>
         <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg></div>
         <h3>Report + Tipps</h3>
       </div>
     </div>
-    <p class="kicker-line">Ohne Smart Meter. Ohne Hardware. 2 Minuten im Monat.</p>
+    <div class="loop-repeat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 109-9"/><path d="M3 3v6h6"/></svg>Jeden Monat von vorn</div>
+    <p class="kicker-line">Ohne Smart Meter. Ohne Hardware. 2 Minuten Aufwand.</p>
   </section>
 
   <!-- 6 · Demo -->
