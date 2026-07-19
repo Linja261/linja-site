@@ -107,12 +107,15 @@
     a.demo-card p { font-size: .9rem; color: var(--ep-ink-soft); }
     a.demo-card .go { display: inline-flex; align-items: center; gap: .4rem; margin-top: .9rem; font-weight: 600; font-size: .9rem; color: var(--ep-green-dark); }
 
-    /* Strategie kompakt */
-    .strat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; max-width: 1040px; }
+    /* Strategie: Zitat-Block (dunkel) → Wirkung */
+    .strat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2rem; max-width: 1060px; }
     @media (max-width: 860px) { .strat-grid { grid-template-columns: 1fr; } }
-    .strat-card { background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: var(--ep-radius); padding: 1.2rem 1.3rem; box-shadow: var(--ep-shadow-soft); }
-    .strat-card .q { font-size: .88rem; font-style: italic; color: var(--ep-green-dark); }
-    .strat-card .a { margin-top: .55rem; font-size: 1.02rem; font-weight: 700; color: var(--ep-ink); line-height: 1.35; }
+    .strat-card { display: flex; flex-direction: column; background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: var(--ep-radius); padding: 1.15rem; box-shadow: var(--ep-shadow-soft); }
+    .strat-q { background: var(--ep-ink); color: #fff; border-radius: var(--ep-radius-sm); padding: 1rem 1.1rem .95rem; font-weight: 600; font-size: .98rem; line-height: 1.4; }
+    .strat-q svg { display: block; color: var(--ep-green); margin-bottom: .5rem; }
+    .strat-q .src { display: block; margin-top: .45rem; font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ep-green); }
+    .strat-arrow-d { display: flex; justify-content: center; padding: .55rem 0; color: var(--ep-green-dark); }
+    .strat-a { font-size: .95rem; font-weight: 700; color: var(--ep-ink); line-height: 1.45; text-align: center; padding: 0 .3rem .2rem; }
 
     /* Business Value: zwei große Zahlen */
     .value-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; margin-top: 2.2rem; max-width: 940px; }
@@ -122,15 +125,37 @@
     .value-card .l { margin-top: .5rem; font-size: .95rem; color: var(--ep-ink-soft); }
     .value-note { margin-top: 1.6rem; font-size: .9rem; color: var(--ep-muted); max-width: 62ch; }
 
-    /* North Star */
-    .ns-metric { margin-top: 1.8rem; font-size: clamp(1.7rem, 3.8vw, 2.9rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; color: #fff; max-width: 24ch; }
-    .ns-metric .g { color: var(--ep-green); }
+    /* North Star: Treiber links, Pfeile, Kernmetrik rechts */
+    .ns-flow { display: grid; grid-template-columns: 1fr 56px 1.05fr; gap: .8rem 0; align-items: center; max-width: 1040px; margin-top: 1.6rem; }
+    .ns-driver { grid-column: 1; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); border-radius: var(--ep-radius); padding: .8rem 1rem; }
+    .ns-driver h3 { font-size: .95rem; color: #fff; margin-bottom: .2rem; }
+    .ns-driver p { font-size: .8rem; color: rgba(255,255,255,.65); line-height: 1.4; }
+    .ns-arrow { grid-column: 2; display: flex; justify-content: center; color: var(--ep-green); }
+    .ns-core { grid-column: 3; grid-row: 1 / span 4; align-self: stretch; display: flex; flex-direction: column; justify-content: center; background: rgba(149,193,31,.12); border: 1.5px solid var(--ep-green); border-radius: var(--ep-radius); padding: 1.6rem 1.7rem; }
+    .ns-core .tag { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ep-green); margin-bottom: .6rem; }
+    .ns-core .metric { font-size: clamp(1.3rem, 2.6vw, 1.9rem); font-weight: 800; line-height: 1.25; color: #fff; letter-spacing: -0.02em; }
+    .ns-core .why { margin-top: .8rem; font-size: .88rem; color: rgba(255,255,255,.7); line-height: 1.5; }
+    .ns-core .biz { margin-top: 1rem; padding-top: .9rem; border-top: 1px solid rgba(255,255,255,.18); font-size: .84rem; color: rgba(255,255,255,.75); }
+    .ns-core .biz b { color: var(--ep-green); }
+    @media (max-width: 860px) {
+      .ns-flow { grid-template-columns: 1fr; }
+      .ns-driver, .ns-arrow, .ns-core { grid-column: 1; grid-row: auto; }
+      .ns-arrow svg { transform: rotate(90deg); }
+    }
 
-    /* Vorgehen: Timeline-Chips + Punch */
-    .steps { display: flex; gap: .7rem; flex-wrap: wrap; margin-top: 2rem; align-items: stretch; }
-    .step-chip { background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: var(--ep-radius-sm); padding: .8rem 1.1rem; min-width: 150px; }
+    /* Risiken-Tabelle */
+    table.risk { width: 100%; border-collapse: collapse; max-width: 1020px; margin-top: 1.6rem; }
+    table.risk th { text-align: left; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ep-muted); padding: .4rem .8rem .4rem 0; border-bottom: 2px solid var(--ep-line); }
+    table.risk td { font-size: .9rem; color: var(--ep-ink-soft); padding: .6rem .8rem .6rem 0; border-bottom: 1px solid var(--ep-line); vertical-align: top; line-height: 1.45; }
+    table.risk td:first-child { font-weight: 600; color: var(--ep-ink); width: 34%; }
+
+    /* Vorgehen: 5 Phasen-Karten mit Kurzbeschreibung + Punch */
+    .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: .8rem; margin-top: 2rem; max-width: 1080px; }
+    @media (max-width: 860px) { .steps { grid-template-columns: 1fr; } }
+    .step-chip { background: var(--ep-card); border: 1px solid var(--ep-line); border-radius: var(--ep-radius-sm); padding: .9rem 1rem; }
     .step-chip .w { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ep-green-dark); }
-    .step-chip .t { margin-top: .2rem; font-size: .95rem; font-weight: 700; }
+    .step-chip .t { margin-top: .2rem; font-size: .95rem; font-weight: 700; line-height: 1.3; }
+    .step-chip p { margin-top: .35rem; font-size: .8rem; color: var(--ep-ink-soft); line-height: 1.45; }
     .step-chip.hl { border-color: var(--ep-green); background: var(--ep-green-tint); }
     .punch { margin-top: 2rem; background: var(--ep-ink); color: #fff; border-radius: var(--ep-radius-sm); padding: 1rem 1.4rem; font-size: clamp(1rem, 1.7vw, 1.2rem); max-width: 880px; }
     .punch b { color: var(--ep-green); }
@@ -278,16 +303,19 @@
     <h2 class="big">Zahlt auf alle drei Strategieziele ein.</h2>
     <div class="strat-grid">
       <div class="strat-card">
-        <p class="q">„Kunden dauerhaft binden“</p>
-        <p class="a">12 Kontakte im Jahr statt einem. Bindung durch Gewohnheit.</p>
+        <div class="strat-q"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5.5 15h3.2l2.1-4.2V6.5H4.5v4.3h3.1zm8.3 0h3.2l2.1-4.2V6.5h-6.3v4.3h3.1z"/></svg>Kunden dauerhaft binden mit fairen Angeboten<span class="src">eprimo-Strategie</span></div>
+        <div class="strat-arrow-d"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
+        <p class="strat-a">12 Kontakte im Jahr statt einem. Bindung durch Gewohnheit.</p>
       </div>
       <div class="strat-card">
-        <p class="q">„Günstig, kein Discount-Image“</p>
-        <p class="a">eprimo hilft sparen, statt billig zu wirken.</p>
+        <div class="strat-q"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5.5 15h3.2l2.1-4.2V6.5H4.5v4.3h3.1zm8.3 0h3.2l2.1-4.2V6.5h-6.3v4.3h3.1z"/></svg>Eher günstig, kein Discount-Image<span class="src">eprimo-Strategie</span></div>
+        <div class="strat-arrow-d"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
+        <p class="strat-a">eprimo hilft sparen, statt billig zu wirken.</p>
       </div>
       <div class="strat-card">
-        <p class="q">„Einfach funktionieren“</p>
-        <p class="a">Löst den Nachzahlungs-Schock, bevor er entsteht.</p>
+        <div class="strat-q"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5.5 15h3.2l2.1-4.2V6.5H4.5v4.3h3.1zm8.3 0h3.2l2.1-4.2V6.5h-6.3v4.3h3.1z"/></svg>Einfach funktionieren, Probleme unkompliziert lösen<span class="src">eprimo-Strategie</span></div>
+        <div class="strat-arrow-d"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
+        <p class="strat-a">Löst den Nachzahlungs-Schock, bevor er entsteht.</p>
       </div>
     </div>
   </section>
@@ -295,7 +323,7 @@
   <!-- 8 · Business Value -->
   <section class="slide" data-notes="Konservative Modellrechnung, klar als Annahme gekennzeichnet, keine eprimo-Interna: 100.000 aktive Kompass-Haushalte, 15 Prozent branchentypischer Churn, 150 bis 300 Euro Akquisekosten, 80 Euro Deckungsbeitrag. Minus 3 Punkte Churn heißt 3.000 gehaltene Kunden pro Jahr. Dazu weniger Forderungsausfälle und weniger Service-Kontakte zur Jahresabrechnung. Ehrlich sagen: Diese Zahlen validiert der Concierge-Test, bevor groß investiert wird.">
     <span class="ep-eyebrow">Business Value</span>
-    <h2 class="big">−3 Punkte Churn = <span class="g">3.000 gehaltene Kunden</span> pro Jahr.</h2>
+    <h2 class="big">−3 Prozentpunkte Churn = <span class="g">3.000 gehaltene Kunden</span> pro Jahr.</h2>
     <div class="value-grid">
       <div class="value-card">
         <div class="n">≈ 240.000 €</div>
@@ -310,23 +338,80 @@
   </section>
 
   <!-- 9 · North Star -->
-  <section class="slide dark" data-notes="Eine Kernmetrik statt Dashboard-Zoo: Sie misst Engagement (der Habit-Loop lebt) und Datenqualität (die Prognose bleibt scharf) in einer Zahl. Bewusst nicht Chats pro Monat, viele Chats können auch Verwirrung sein. Treiber dahinter: Aktivierung, WhatsApp-Opt-in, Foto-Quote, Wiederkehr-Rate. Die North Star treibt das Churn-Delta aus der Modellrechnung.">
-    <span class="ep-eyebrow">North Star</span>
-    <h2 class="big">Eine Zahl entscheidet.</h2>
-    <p class="ns-metric">Monatlich aktive Haushalte mit <span class="g">aktuellem Zählerstand</span></p>
-    <p class="sub">Misst Engagement und Datenqualität in einer Zahl und treibt direkt das Churn-Delta.</p>
+  <section class="slide dark" data-notes="Bewusst nur die fünf wertvollsten Metriken. Links die vier Treiber, die das Team direkt beeinflussen kann, rechts die North Star: monatlich aktive Haushalte mit aktuellem Zählerstand. Sie misst Engagement und Datenqualität zugleich, bewusst nicht Chats pro Monat, das wäre Vanity. Unten der Brückensatz: Die North Star treibt das Churn-Delta, die Wirtschaftlichkeits-Kennzahl aus der Modellrechnung.">
+    <span class="ep-eyebrow">North Star Metrik</span>
+    <h2 class="big">Vier Treiber, eine Kernmetrik.</h2>
+    <div class="ns-flow">
+      <div class="ns-driver" style="grid-row:1;">
+        <h3>Aktivierungsquote</h3>
+        <p>Eingeladene Bestandskunden, die das Onboarding abschließen.</p>
+      </div>
+      <div class="ns-arrow" style="grid-row:1;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+      <div class="ns-driver" style="grid-row:2;">
+        <h3>WhatsApp-Opt-in-Quote</h3>
+        <p>Zugang zum Habit-Kanal, in dem der Loop lebt.</p>
+      </div>
+      <div class="ns-arrow" style="grid-row:2;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+      <div class="ns-driver" style="grid-row:3;">
+        <h3>Foto-Einreichungsquote pro Monat</h3>
+        <p>Der Kern-Loop selbst: Kommt das Zählerfoto?</p>
+      </div>
+      <div class="ns-arrow" style="grid-row:3;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+      <div class="ns-driver" style="grid-row:4;">
+        <h3>Wiederkehr-Rate Monat 1 zu Monat 3</h3>
+        <p>Der Habit-Beweis: Aus Neugier wird Gewohnheit.</p>
+      </div>
+      <div class="ns-arrow" style="grid-row:4;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+      <div class="ns-core">
+        <span class="tag">North Star</span>
+        <p class="metric">Monatlich aktive Haushalte mit aktuellem Zählerstand</p>
+        <p class="why">Misst Engagement (der Habit-Loop lebt) und Datenqualität (die Prognose bleibt scharf) in einer Zahl. Bewusst nicht „Chats pro Monat“: viele Chats können auch Verwirrung sein.</p>
+        <p class="biz"><b>Wirkung:</b> Die North Star treibt das Churn-Delta zwischen Nutzern und Nicht-Nutzern, die Kennzahl hinter der Modellrechnung.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- 10 · Vorgehen -->
+  <!-- 10 · Annahmen & Risiken -->
+  <section class="slide" data-notes="Jede Annahme hat eine Gegenmaßnahme und die riskanteste, das zweite Foto, wird als Allererstes getestet. Falls Nachfrage zu DSGVO: Opt-in, EU-Hosting der Business API, Portal als vollwertige Alternative. Falls Nachfrage zu Halluzination: Tipps kommen aus kuratierter Bibliothek, das LLM personalisiert nur.">
+    <span class="ep-eyebrow">Annahmen &amp; Risiken</span>
+    <h2 class="big">Fünf Annahmen. Fünf Gegenmaßnahmen.</h2>
+    <table class="risk">
+      <thead><tr><th>Annahme / Risiko</th><th>Gegenmaßnahme</th></tr></thead>
+      <tbody>
+        <tr><td>Mieter fotografieren den Zähler wirklich monatlich</td><td>WhatsApp-Reminder im gewohnten Kanal, 2 Minuten Aufwand, sofort sichtbarer Gegenwert. Der Concierge-Test validiert das vor dem Build.</td></tr>
+        <tr><td>KI liest Zählerstände zuverlässig</td><td>Confidence-Anzeige, Ein-Tipp-Korrektur, Plausibilitätscheck gegen die Historie.</td></tr>
+        <tr><td>Spartipps müssen stimmen</td><td>Kuratierte, geprüfte Tipp-Bibliothek. Das LLM personalisiert nur, es erfindet nicht.</td></tr>
+        <tr><td>WhatsApp &amp; DSGVO</td><td>Explizites Opt-in, WhatsApp Business API mit EU-Hosting, Portal als vollwertige Alternative.</td></tr>
+        <tr><td>Wirtschaftlichkeit unbewiesen</td><td>Gestuftes Vorgehen mit Abbruchkriterien je Phase: erst Evidenz, dann Investment.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 11 · Vorgehen -->
   <section class="slide" data-notes="Fünf Schritte, aber der Punkt ist der markierte: Der Prototyp ist kein Meilenstein am Ende, sondern ab Woche 2 das Testinstrument. Die riskanteste Annahme, kommt das zweite Foto, wird als Allererstes getestet, mit Abbruchkriterien je Phase. Schluss-Statement: Dieses Konzept samt Prototyp entstand in 90 Minuten. Das ist keine Ausnahme, das ist die Arbeitsweise, die ich als AI Product Managerin bei eprimo etablieren würde: KI übernimmt die Ausführung, ich das Urteil. Erst Evidenz, dann Investment.">
     <span class="ep-eyebrow">Vorgehen</span>
     <h2 class="big">Test ab Woche 2. Investment nach Evidenz.</h2>
     <div class="steps">
-      <div class="step-chip"><div class="w">Wo. 1</div><div class="t">Standort&shy;bestimmung</div></div>
-      <div class="step-chip"><div class="w">Wo. 1–2</div><div class="t">5 Interviews + Fake Door</div></div>
-      <div class="step-chip hl"><div class="w">Wo. 2–6</div><div class="t">Concierge-Test, 50 Haushalte</div></div>
-      <div class="step-chip"><div class="w">Wo. 6–8</div><div class="t">Business Case + MVP-Scope</div></div>
-      <div class="step-chip"><div class="w">Mon. 3–4</div><div class="t">MVP + KPI-Steuerung</div></div>
+      <div class="step-chip">
+        <div class="w">Wo. 1</div><div class="t">Standort&shy;bestimmung</div>
+        <p>Bestandsdaten und Annahmen explizit machen: Kündigen Kunden nach Nachzahlung häufiger?</p>
+      </div>
+      <div class="step-chip">
+        <div class="w">Wo. 1–2</div><div class="t">Kundenwahrheit</div>
+        <p>5 Mieter-Interviews plus Fake-Door-Mail an 1.000 Bestandskunden.</p>
+      </div>
+      <div class="step-chip hl">
+        <div class="w">Wo. 2–6</div><div class="t">Concierge-Test</div>
+        <p>50 Haushalte am echten WhatsApp-Loop: Kommt das zweite Foto?</p>
+      </div>
+      <div class="step-chip">
+        <div class="w">Wo. 6–8</div><div class="t">Business Case + MVP-Scope</div>
+        <p>Evidenz überführen, mit klaren Skalierungs- und Abbruchkriterien.</p>
+      </div>
+      <div class="step-chip">
+        <div class="w">Mon. 3–4</div><div class="t">MVP + KPI-Steuerung</div>
+        <p>Automatisierter Kern-Loop, gesteuert über die North Star.</p>
+      </div>
     </div>
     <div class="punch"><b>Dieser Prototyp entstand in 90 Minuten.</b> Deshalb testen wir ab Woche 2 am echten Kunden, statt Monate zu konzipieren.</div>
   </section>
@@ -335,7 +420,7 @@
 
 <div id="nav">
   <button onclick="go(-1)" aria-label="Zurück">&#8592;</button>
-  <span id="ctr">1 / 10</span>
+  <span id="ctr">1 / 11</span>
   <button onclick="go(1)" aria-label="Weiter">&#8594;</button>
 </div>
 <div id="hint">Pfeiltasten, Wischen oder Klick · P für Sprechernotizen · Drucken = PDF</div>
