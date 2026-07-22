@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · CPA SoftwareConsult – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Fraunces','Georgia','serif'], serif: ['Fraunces','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Fraunces", Georgia, serif; color: #472E56 !important; }
+        .prose-box { font-size: 0.95rem; line-height: 1.7; }
+        .prose-box h2 { font-family: "Fraunces", Georgia, serif; font-size: 1.4rem; color: #1c1917; margin-top: 2.5rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #E5E2DB; }
+        .prose-box h3 { font-weight: 600; font-size: 1.02rem; color: #44403c; margin-top: 1.8rem; margin-bottom: 0.6rem; }
+        .prose-box p { margin-bottom: 1rem; line-height: 1.7; }
+        .prose-box ul { list-style: none; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ul > li { position: relative; padding-left: 1.6rem; margin-bottom: 0.9rem; line-height: 1.65; }
+        .prose-box ul > li::before {
+            content: "▸";
+            position: absolute;
+            left: 0.2rem;
+            top: 0.05rem;
+            color: #472E56;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .prose-box ol { list-style: none; counter-reset: item; padding-left: 0; margin: 0.7rem 0 1.3rem 0; }
+        .prose-box ol > li { position: relative; padding-left: 2rem; margin-bottom: 0.9rem; line-height: 1.65; counter-increment: item; }
+        .prose-box ol > li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 0.1rem;
+            width: 1.4rem;
+            height: 1.4rem;
+            font-family: "Geist Mono", ui-monospace, monospace;
+            font-size: 0.7rem;
+            color: #6b5691;
+            background: #f6f4f9;
+            border: 1px solid #d9d1e5;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        .prose-box strong { color: #1c1917; font-weight: 600; }
+        .prose-box table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.9rem; }
+        .prose-box th, .prose-box td { text-align: left; padding: 0.8rem 1rem; border-bottom: 1px solid #E5E2DB; vertical-align: top; line-height: 1.55; }
+        .prose-box th { font-weight: 600; background: #F5F3EF; color: #44403c; font-size: 0.8rem; }
+        .prose-box blockquote { border-left: 3px solid #d9d1e5; padding: 0.7rem 1rem 0.7rem 1.2rem; margin: 1.3rem 0; color: #78716c; font-style: italic; line-height: 1.65; background: #faf9f6; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[900px] mx-auto px-4 sm:px-6 pt-24 pb-20">
+
+            <header class="mb-6">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Interview-Spickzettel · 22.07.2026 · 16:00</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">CPA SoftwareConsult.</h1>
+                <p class="text-sm text-stone-500">Jörg Spiegelhoff (Geschäftsführer) · Erstgespräch · ProductOwner-Team, ERP für die Schuhindustrie.</p>
+                <p class="text-xs text-stone-400 mt-2">Andere Spickzettel: <a href="interview-hero.html" class="text-violet-500 hover:underline">HERO Software</a> · <a href="interview-douglas.html" class="text-violet-500 hover:underline">Douglas</a> · <a href="interview-ruhrdigital.html" class="text-violet-500 hover:underline">Digital Ruhr</a> · <a href="interview-bfs.html" class="text-violet-500 hover:underline">BFS health finance</a> · <a href="interview-bermuda.html" class="text-violet-500 hover:underline">Bermuda</a></p>
+            </header>
+
+            <!-- Heute-Fokus -->
+            <div class="rounded-xl p-5 mb-6" style="background:#ece8f2; border:1px solid #d9d1e5;">
+                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-1">Ziel für heute</p>
+                <p class="text-[0.88rem] text-stone-700 mb-2"><strong>Vorstellen, nicht verhandeln.</strong> Er kommt über einen Kontakt auf dich zu und hat linja.me gelesen: er kennt deine fünf Phasen und referenziert sie in seiner Mail. Das ist ein warmer Lead, kein Bewerbungsgespräch. Du bist nicht in der Bittsteller-Position.</p>
+                <p class="text-[0.88rem] text-stone-700 m-0"><strong>Drei Dinge mitnehmen:</strong> (1) Ist das eine Festanstellung oder ein Mandat? (2) Wie ist das PO-Team geschnitten und was fehlt konkret? (3) Was heißt „mit Unterstützung von KI" bei ihnen wirklich?</p>
+            </div>
+
+            <section class="prose-box text-sm text-stone-700">
+
+                <!-- Meta -->
+                <div class="bg-white border rounded-xl p-5 mb-6" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Gesprächspartner-Kontext</p>
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-[0.82rem] mt-3">
+                        <div><strong>Gesprächspartner:</strong><br>Jörg Spiegelhoff, Geschäftsführer (seit 01/2018)</div>
+                        <div><strong>Zweiter Name im Haus:</strong><br>Sven Vosen, Prokurist (seit 11/2023)</div>
+                        <div><strong>Unternehmen:</strong><br>CPA SoftwareConsult GmbH, gegr. 1971</div>
+                        <div><strong>Standort:</strong><br>Langenfeld (Rheinland), Zur Schlenkhecke 6</div>
+                        <div><strong>Größe:</strong><br>gut 60 Mitarbeitende</div>
+                        <div><strong>Eigentümer:</strong><br>Rieker (seit Juni 2023 alleiniger Gesellschafter)</div>
+                        <div><strong>Branche:</strong><br>ERP + PLM für Schuh- und Fashion-Industrie</div>
+                        <div><strong>Rolle:</strong><br>Verstärkung ProductOwner-Team (Format offen)</div>
+                    </div>
+                </div>
+
+                <!-- Quick-Nav -->
+                <div class="bg-violet-50 border border-violet-100 rounded-xl p-4 mb-6">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Quick-Nav</p>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <a href="#kompass" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Kompass</a>
+                        <a href="#produkte" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Produkte</a>
+                        <a href="#pitch" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Pitch</a>
+                        <a href="#bruecke" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Brücke zur Mail</a>
+                        <a href="#antworten" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Antworten</a>
+                        <a href="#meine" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Meine Fragen</a>
+                        <a href="#rahmen" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Rahmen</a>
+                        <a href="#nicht" class="px-2 py-1 rounded bg-white text-violet-500 hover:bg-violet-100">Nicht sagen</a>
+                    </div>
+                </div>
+
+                <h2 id="kompass">Kompass (30-Sekunden-Version)</h2>
+                <ul>
+                    <li><strong>1971 gegründet, Langenfeld, gut 60 Mitarbeitende.</strong> Kein Startup, kein Konzern. Ein gewachsener Spezialanbieter mit über 50 Jahren Branchenwissen.</li>
+                    <li><strong>Marktführer im deutschsprachigen Raum</strong> für Schuh-ERP. Kernprodukt <strong>cpa.ShoeFactory</strong>: ERP und PLM in einem, von der Kollektionsentwicklung bis Finanzbuchhaltung.</li>
+                    <li><strong>Kunden:</strong> Rieker, engelbert strauss, Gabor, ara, Paul Green. Also im Wesentlichen die deutschsprachige Schuhbranche.</li>
+                    <li><strong>Eigentümer seit Juni 2023: Rieker.</strong> Vorher hielten ara (50,1 %) und Rieker (49,9 %) je einen Teil, ara hat abgegeben. Der Eigentümer ist gleichzeitig Kunde und Wettbewerber der anderen Kunden. Das ist die interessanteste strukturelle Frage im ganzen Haus.</li>
+                    <li><strong>engelbert strauss</strong> ist der jüngste Leuchtturm: Partnerschaft ab 2022, ShoeFactory-Go-live in der CI Factory im November 2023.</li>
+                    <li><strong>Auch im Portfolio:</strong> Beratung, SAP-Integration, eigenes Rechenzentrum, EDI-Services. ISO/IEC 27001 zertifiziert.</li>
+                    <li><strong>Aktuelle Bewegung:</strong> kontinuierliche Ablösung der Legacy-Produkte durch moderne Web-Anwendungen, KI-gestützt. Genau deshalb sucht er Verstärkung.</li>
+                </ul>
+
+                <h2 id="produkte">Produktlandschaft (kurz, damit du sie benennen kannst)</h2>
+                <table>
+                    <thead><tr><th>Produkt</th><th>Was es tut</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>cpa.ShoeFactory</strong></td><td>Das Herzstück. ERP + PLM: Kollektionsentwicklung, Materialwirtschaft und Einkauf, Produktionsplanung, Vertrieb, Logistik, Lagerverwaltung, Finanzen.</td></tr>
+                        <tr><td><strong>cpa.b2bOnline</strong></td><td>B2B-Shop für den Handel.</td></tr>
+                        <tr><td><strong>cpa.OrderBar</strong></td><td>Ordererfassung (Vororder / Messe).</td></tr>
+                        <tr><td><strong>cpa.SmartOrder</strong></td><td>Schlanke Bestell-Anwendung, vermutlich Nachorder/Mobile.</td></tr>
+                        <tr><td><strong>cpa.DataHub</strong></td><td>Datenintegration und Stammdaten-Verteilung.</td></tr>
+                        <tr><td><strong>cpa.SupplierPortal</strong></td><td>Lieferantenanbindung (Produktion überwiegend Asien / Osteuropa).</td></tr>
+                        <tr><td><strong>cpa.MachinePlanning</strong></td><td>Maschinen- und Fertigungsfeinplanung.</td></tr>
+                    </tbody>
+                </table>
+                <p><strong>Fachlicher USP, den du zitieren kannst:</strong> Standard-ERP-Systeme scheitern an der Schuhbranche, weil ein Artikel dort in vielen Größen und Weiten existiert. ShoeFactory führt Größen und Varianten unter einem Artikel. Das klingt nach Detail, ist aber der Grund, warum ein SAP-Standard hier nicht greift und warum das Datenmodell bei jeder Modernisierung der eigentliche Engpass ist.</p>
+
+                <h2 id="pitch">Pitch (90 Sekunden, laut sprechbar)</h2>
+                <blockquote>Ich bin seit 13 Jahren Produktmanagerin, immer an der Schnittstelle von Produkt, Geschäft und Transformation. Sechs Jahre ista, vier Rollen, 17 Ländermärkte, zwei Ausgründungen begleitet. Danach fünf Jahre ABS Safety, dort End-to-End-Verantwortung und ein Produktteam von einer auf acht Personen aufgebaut. Seit diesem Jahr bin ich selbstständig und arbeite als Interim- und Fractional-Produktmanagerin, weil ich genau die Phase mag, in der Strategie in Umsetzung übergehen muss.<br><br>
+                Der rote Faden: komplexe, gewachsene Domänen verstehen, daraus eine tragfähige Produktstrategie machen und die dann bis ins Team durchdrücken, bis sie messbar wirkt. Ein Beispiel: bei ABS habe ich eine digitale Bestellstrecke in zwei Monaten live gebracht, das waren 3,5 Millionen Euro zusätzlicher Umsatz und rund 50 Prozent weniger Prozesszeit.<br><br>
+                Schuhindustrie kenne ich nicht. Komplexe Fertigungs- und Handelsdomänen mit hoher Variantenvielfalt und viel implizitem Wissen in den Köpfen langjähriger Mitarbeitender: die kenne ich sehr gut. Und Legacy-Ablösung ist genau die Situation, in der externes, methodisches Vorgehen am meisten wert ist.</blockquote>
+
+                <h2 id="bruecke">Die Brücke zu seiner Mail (dein stärkster Einstieg)</h2>
+                <p>Er hat deine fünf Phasen gelesen und schreibt, dass sie die kontinuierlich mit allen Teilprodukten durchlaufen. Nimm das auf, aber nicht als Kompliment-Retour, sondern als Fachbeitrag:</p>
+                <blockquote>Sie schreiben, Sie durchlaufen die fünf Phasen kontinuierlich je Teilprodukt. Das ist genau der richtige Zuschnitt, und meiner Erfahrung nach ist Phase 2 dabei die gefährlichste. Bei Legacy-Ablösungen ist die Versuchung groß, das Alte eins zu eins nachzubauen, inklusive aller Sonderlocken, die vor fünfzehn Jahren für einen einzigen Kunden gebaut wurden. Dann hat man am Ende dieselbe Komplexität in neuer Technologie. Der Wert entsteht dort, wo man vor der Ablösung noch einmal fragt, welches Kundenproblem der alte Prozess eigentlich gelöst hat.</blockquote>
+                <p class="text-[0.82rem] text-stone-500">Diese eine Passage ist dein Differenzierer. Sie zeigt, dass du Legacy-Modernisierung fachlich verstanden hast, ohne dass du die Schuhbranche kennen musst.</p>
+
+                <h2 id="antworten">Antworten auf typische Fragen</h2>
+
+                <h3>„Erzählen Sie mal von sich"</h3>
+                <p>Siehe Pitch oben. Wichtig: mit dem roten Faden enden, nicht mit der Chronologie.</p>
+
+                <h3>„Was wissen Sie über uns?"</h3>
+                <p>CPA ist seit über 50 Jahren der Spezialist für die Schuhbranche, mit ShoeFactory als integrierter ERP- und PLM-Plattform von der Kollektion bis zur Logistik, plus Order-, Portal- und Datenprodukte drumherum. Marktführer im deutschsprachigen Raum, Kunden wie Rieker, engelbert strauss, Gabor, ara, Paul Green. Und seit 2023 gehört CPA vollständig zu Rieker.</p>
+
+                <h3>„Sie kommen nicht aus der Schuhbranche."</h3>
+                <p>Stimmt, und ich würde auch nicht behaupten, dass ich das in vier Wochen aufhole. Was ich mitbringe, ist die Fähigkeit, mich in eine gewachsene Fachdomäne einzuarbeiten, in der das Wissen bei Menschen liegt und nicht in der Dokumentation. Bei ista war das Messtechnik und Abrechnungsrecht in 17 Märkten, bei ABS Absturzsicherung mit Normen und Haftungsfragen. Mein Einstieg ist immer derselbe: erst zuhören, die Konflikte zwischen den Beteiligten kartieren, dann erst entscheiden. Genau das ist bei mir Phase 1.</p>
+
+                <h3>„Wie gehen Sie an die Ablösung eines Legacy-Moduls ran?"</h3>
+                <p>Erst den Schnitt klären: entlang der Fachdomäne, nicht entlang der alten Technik. Dann für das erste Modul die Frage beantworten, wer davon in welchem Moment welchen Nutzen hat. Anschließend ein schmaler, echter Schnitt durch die ganze Kette, der produktiv läuft, statt eines vollständigen Nachbaus. Parallelbetrieb einplanen und den Rückweg offenhalten. Und ganz wichtig bei ERP: die Migration der Daten und die Migration der Kunden sind zwei verschiedene Projekte.</p>
+
+                <h3>„Wie priorisieren Sie, wenn mehrere Großkunden gleichzeitig etwas wollen?"</h3>
+                <p>Ich unterscheide Kundenwunsch und Produktbedarf. Was bei zwei oder mehr Kunden auf dasselbe Problem einzahlt, wird Produkt. Was nur bei einem auftritt, wird Projekt oder Konfiguration, aber nicht Kern. Wenn diese Linie nicht gezogen wird, wächst genau die Sonderlocken-Last, die man später bei der Ablösung teuer bezahlt.</p>
+
+                <h3>„Was halten Sie von KI in der Produktentwicklung?"</h3>
+                <p>Ich nutze sie täglich und produktiv, nicht als Demo. Ich habe zwei eigene Anwendungen komplett KI-gestützt gebaut und betreibe sie live. Deshalb kann ich auch die Grenze benennen: KI beschleunigt das Bauen und das Verstehen von Altcode enorm, sie ersetzt aber nicht die Entscheidung, was gebaut werden soll. Bei Legacy-Ablösung ist der wertvollste KI-Einsatz oft gar nicht die Codegenerierung, sondern das Rekonstruieren der fachlichen Regeln aus dem Altsystem, weil die niemand mehr vollständig kennt.</p>
+
+                <h3>„Warum selbstständig, und warum würden Sie hier einsteigen?"</h3>
+                <p>Ich habe mich selbstständig gemacht, um die Phase zu machen, die ich am besten kann: von Kundenwahrheit bis in die Steuerung hinein. Ob das bei Ihnen als Mandat oder in Festanstellung passt, würde ich gern von der Aufgabe her denken und nicht vom Vertrag. Deshalb interessiert mich zuerst, was genau im ProductOwner-Team fehlt.</p>
+
+                <h3>„Wo sehen Sie sich in der Rolle?"</h3>
+                <p>Ehrlich: das kann ich nach einem Gespräch nicht sagen. Was ich sagen kann: Verstärkung im PO-Team kann drei sehr verschiedene Dinge heißen. Mehr Durchsatz, mehr Discovery-Tiefe oder mehr Führung und Struktur im Team. Ich bin am stärksten bei den letzten beiden.</p>
+
+                <h2 id="meine">Meine Fragen an CPA</h2>
+
+                <div class="bg-violet-50 border border-violet-100 rounded-xl p-4 mb-4">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Wenn nur Zeit für drei bleibt</p>
+                    <p class="text-[0.82rem] text-stone-700 m-0">Frage <strong>1</strong> (Format der Rolle), Frage <strong>4</strong> (was fehlt im PO-Team) und Frage <strong>9</strong> (was heißt KI konkret). Der Rest ist Kür.</p>
+                </div>
+
+                <h3>Rolle und Setup</h3>
+                <ol>
+                    <li><strong>Denken Sie an eine Festanstellung oder an ein Mandat?</strong> Ich bin selbstständig und für beides offen, aber das ändert die Gespräche danach.</li>
+                    <li>Wie groß ist das ProductOwner-Team heute, und wie ist es geschnitten: nach Produkt, nach Fachdomäne oder nach Kunde?</li>
+                    <li>Ist die Rolle bei Ihnen klassischer Product Owner, also nah am Team und am Backlog, oder eher Product Manager mit Discovery- und Strategieanteil?</li>
+                    <li><strong>Was fehlt heute konkret?</strong> Durchsatz, Tiefe in der Discovery, oder Struktur und Führung im Team?</li>
+                    <li>Woran würden Sie nach sechs Monaten merken, dass die Verstärkung die richtige war?</li>
+                </ol>
+
+                <h3>Modernisierung und Produkt</h3>
+                <ol start="6">
+                    <li>Wo stehen Sie in der Ablösung: welche Module sind schon Web, welche noch Legacy, und was ist als Nächstes dran?</li>
+                    <li>Wie schneiden Sie die Module: entlang der Fachdomäne, entlang der alten Systemgrenzen, oder entlang dessen, was sich technisch zuerst herauslösen lässt?</li>
+                    <li>Wie gehen Sie mit dem Datenmodell um? Der Artikel mit Größen und Weiten ist ja Ihr eigentlicher Kern. Wird der mitmodernisiert oder bleibt er zunächst stehen?</li>
+                    <li><strong>„Mit Unterstützung von KI": meinen Sie damit KI in der Entwicklung, also schneller bauen und Altcode verstehen, oder KI im Produkt für Ihre Kunden?</strong> Oder beides?</li>
+                    <li>Wie viel Ihres Umsatzes ist Standardprodukt und wie viel kundenspezifische Anpassung? Und wollen Sie dieses Verhältnis verschieben?</li>
+                    <li>Wie viele Kunden laufen noch auf alten Ständen, und wie migrationsbereit sind die?</li>
+                </ol>
+
+                <h3>Strategie und Eigentümer</h3>
+                <ol start="12">
+                    <li>Seit 2023 gehört CPA vollständig zu Rieker. <strong>Wie stellen Sie gegenüber den anderen Kunden sicher, dass die Roadmap neutral bleibt?</strong> Das ist keine Fangfrage, sondern eine Produktfrage: sie entscheidet, wie Priorisierung im Alltag funktioniert.</li>
+                    <li>Was hat sich seit dem Eigentümerwechsel verändert: mehr Investitionsspielraum, andere Zielsetzung, anderer Zeithorizont?</li>
+                    <li>engelbert strauss ist ja kein klassischer Schuhhersteller. Ist das ein Einzelfall oder der Anfang einer Öffnung über die Schuhbranche hinaus?</li>
+                    <li>Wachsen Sie eher über neue Kunden, über mehr Module bei Bestandskunden, oder über den Sprung in andere Fashion-Segmente?</li>
+                </ol>
+
+                <h3>Arbeitsweise</h3>
+                <ol start="16">
+                    <li>Wie nah ist das PO-Team am Endanwender? Also am Menschen in Kollektionsentwicklung, Einkauf, Lager. Gibt es Hospitationen beim Kunden?</li>
+                    <li>Wer entscheidet heute, was gebaut wird: Vertrieb über Kundenzusagen, Geschäftsführung, oder das PO-Team?</li>
+                    <li>Wie arbeiten Entwicklung und PO zusammen, und wo sitzt die Entwicklung?</li>
+                    <li>Präsenz in Langenfeld oder hybrid? Wie viele Tage vor Ort wären realistisch?</li>
+                </ol>
+
+                <h2 id="rahmen">Rahmenbedingungen (heute nur, wenn er fragt)</h2>
+                <table>
+                    <thead><tr><th>Thema</th><th>Deine Linie</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Format</strong></td><td>Beides offen. Erst die Aufgabe verstehen, dann das Format wählen. Nicht heute festlegen.</td></tr>
+                        <tr><td><strong>Als Mandat</strong></td><td>Interim ab 1.000 € / Tag als Anker. Fractional (2 bis 3 Tage / Woche) ist bei „Team-Verstärkung" oft das passendere Format und lässt sich gut anbieten.</td></tr>
+                        <tr><td><strong>Als Festanstellung</strong></td><td>Ziel 100k, ankern 95 bis 100k, Untergrenze 85k. Heute keine Zahl nennen, außer er fragt direkt: dann „im Bereich um 100" und Rückfrage nach seinem Rahmen.</td></tr>
+                        <tr><td><strong>Standort</strong></td><td>Langenfeld kennst du, rund eine Stunde ab Unna. Machbar, aber nicht täglich. 1 bis 2 Präsenztage sind ein gutes Angebot.</td></tr>
+                        <tr><td><strong>Start</strong></td><td>Kurzfristig möglich. Das ist als Selbstständige dein Vorteil, ruhig sagen.</td></tr>
+                        <tr><td><strong>Parallel</strong></td><td>Weitere Mandate und Gespräche laufen. Sachlich erwähnen, wenn es um Timing geht, nicht als Druckmittel.</td></tr>
+                    </tbody>
+                </table>
+
+                <h2 id="nicht">Nicht sagen</h2>
+                <div class="p-4 rounded-lg" style="background: #fef3ec; border: 1px solid #fae8de;">
+                    <ul class="text-[0.82rem] text-stone-700 list-disc ml-5">
+                        <li>Nicht so tun, als kenntest du die Schuh- oder Fashion-Branche. Er merkt es sofort und es kostet dich die Glaubwürdigkeit für alles andere.</li>
+                        <li>Kein „ich suche gerade etwas". Du bist selbstständig und im Gespräch, weil die Aufgabe interessant ist.</li>
+                        <li>Die Rieker-Eigentümerfrage neugierig stellen, nicht anklagend. Formulierung im Fragenteil ist bewusst so gewählt.</li>
+                        <li>Keine Zahlen zuerst nennen. Heute ist Kennenlernen, nicht Verhandlung.</li>
+                        <li>KI nicht als Zauberwort verkaufen. Deine Stärke ist, dass du die Grenze konkret benennen kannst.</li>
+                        <li>Nichts Negatives über frühere Arbeitgeber.</li>
+                    </ul>
+                </div>
+
+                <blockquote class="mt-6">
+                    Mittelständischer Spezialanbieter, Geschäftsführer im Erstgespräch. Ton: sachlich, konkret, ohne Beratersprache. Er will jemanden, der zuhören kann, bevor sie Vorschläge macht.
+                </blockquote>
+
+                <div class="mt-6 p-4 rounded-lg bg-white border" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Quellen</p>
+                    <ul class="text-[0.8rem] text-stone-600 mb-0">
+                        <li><a href="https://www.cpa.de/" class="text-violet-500 hover:underline">cpa.de</a> — Produkte, Kunden, Leistungen, ISO/IEC 27001</li>
+                        <li><a href="https://www.northdata.com/CPA%20SoftwareConsult%20GmbH,%20Langenfeld%20(Rheinland)/Amtsgericht%20D%C3%BCsseldorf%20HRB%2045007" class="text-violet-500 hover:underline">North Data, HRB 45007</a> — Geschäftsführung, Prokura, Gesellschafter</li>
+                        <li><a href="https://www.schuhkurier.de/rieker-uebernimmt-cpa/" class="text-violet-500 hover:underline">schuhkurier: Rieker übernimmt CPA</a> — Anteilsübergang ara → Rieker, Juni 2023, Größenordnung Mitarbeitende</li>
+                        <li><a href="https://www.schuhkurier.de/engelbert-strauss-fuehrt-cpa-ein/" class="text-violet-500 hover:underline">schuhkurier: engelbert strauss führt CPA ein</a> — Go-live CI Factory, November 2023</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <div style="height: 80px;"></div>
+
+        </main>
+    </div>
+
+    <script src="office.js?v=2" data-active="interviews"></script>
+</body>
+</html>
