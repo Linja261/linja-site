@@ -1,0 +1,509 @@
+<!--
+  linja.me/blog/drafts/muehe-ist-kein-wertmasstab
+  Einordnung des Artikels von Richard Jung (LinkedIn, 07.08.2026) mit Bezug auf Produktentwicklung
+  Schema: artikel_baukasten.md (TL;DR + 5 fixe Blöcke + Quellen + Glossar)
+  Bilingual: DE + EN
+  Status: ENTWURF (2026-08-10)
+  Offen: Reader-Audio (MP3 unter blog/audio/muehe-ist-kein-wertmasstab.mp3) fehlt noch, Slot daher auskommentiert.
+-->
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Mühe ist kein Wertmaßstab – Linja Scharffetter</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Identische Arbeit wird unterschiedlich bewertet, je nachdem welche Entstehungsgeschichte ihr zugeschrieben wird. Was der Streit über KI und Kreativarbeit für Produktteams bedeutet.">
+    <meta property="og:title" content="Mühe ist kein Wertmaßstab">
+    <meta property="og:description" content="Gute Produkte wirken selbstverständlich. Genau das macht die Arbeit dahinter unsichtbar und schwer zu verteidigen.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Fraunces', 'Georgia', 'serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html { scroll-behavior: smooth; }
+        .lang-hidden { display: none !important; }
+        #mobile-menu { display: none; }
+        #mobile-menu.open { display: block; }
+
+        /* Article prose styles. Spacing-Werte: siehe brand-kit.md → Spacing-Tokens (Blog). */
+        .prose h2 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p { margin-bottom: 2rem; line-height: 1.75; }
+        .prose strong { color: #1A1A1A; font-weight: 600; }
+        .prose em { font-style: italic; }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
+        .prose li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="/components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- Draft-Banner -->
+        <div class="mt-24 mb-4 py-3 px-4 rounded-lg flex items-center gap-3" style="background: #fae8de; border-left: 3px solid #D4714E;">
+            <span class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #73402e;">Entwurf</span>
+            <span class="text-[0.82rem]" style="color: #73402e;">Noch nicht veröffentlicht. Reader-Audio fehlt noch.</span>
+        </div>
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Produktarbeit</span>
+                <span class="text-[0.72rem] text-stone-400">10. August 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Mühe ist kein Wertmaßstab. Was der Streit über KI und Kreativarbeit für Produktteams bedeutet.
+            </h1>
+        </header>
+
+        <!-- ══ OPTIONAL: 90-SEK-AUDIO-PILL (aktivieren, sobald MP3 existiert) ══
+        <div class="reader-audio-slot my-4" data-audio-src="/blog/audio/muehe-ist-kein-wertmasstab.mp3"></div>
+        -->
+
+        <!-- ══ PFLICHT-BLOCK: TL;DR ══ -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Dieselbe Arbeit wird unterschiedlich bewertet, je nachdem welche Entstehungsgeschichte ihr zugeschrieben wird. Für Produktteams heißt das: Der beste Zustand eines Produkts, nämlich der selbstverständliche, ist zugleich der am schlechtesten belegbare. Wer Produktarbeit über sichtbaren Output verteidigt, übernimmt genau den Maßstab, der Kreativarbeit seit Jahrzehnten unterbezahlt.
+            </p>
+        </div>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══ BLOCK 1: KERNBOTSCHAFT + PROBLEM ══ -->
+
+            <p>Richard Jung beschreibt in seinem Artikel ein Paradox der Kreativwirtschaft: Je besser kreative Arbeit ist, desto weniger sieht sie nach Arbeit aus und desto schwerer lässt sich ihr Preis begründen.<sup><a href="#q1">1</a></sup> Als Beleg zieht er ein Studienkonzept des Brand Science Institute heran, in dem identische Texte und Bilder unterschiedlich bewertet werden, je nachdem ob Mensch, KI oder beide gemeinsam als Urheber ausgewiesen sind.<sup><a href="#q2">2</a></sup></p>
+
+            <p>Das Muster hört nicht bei Agenturhonoraren auf. Es beschreibt ziemlich genau, warum gute Produktarbeit intern schwer zu verteidigen ist. Ein Produkt, das sich selbstverständlich anfühlt, hat seine eigene Entstehung unsichtbar gemacht.</p>
+
+
+            <!-- ══ BLOCK 2: FUNDIERUNG ══ -->
+
+            <h2>Bewertet wird die Entstehungsgeschichte, nicht das Ergebnis</h2>
+
+            <p>Der Studienaufbau ist bewusst schlicht. Alle Gruppen sehen dasselbe Ergebnis, unterschiedlich ist allein die angegebene Herkunft. Damit misst der Aufbau nicht, wer kreativer ist. Er misst, was Menschen überhaupt als anerkennenswerte Leistung gelten lassen.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ausgewiesene Herkunft</th>
+                        <th>Bewertung (7-stufige Skala)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mensch</td>
+                        <td>5,8</td>
+                    </tr>
+                    <tr>
+                        <td>KI</td>
+                        <td>3,9</td>
+                    </tr>
+                    <tr>
+                        <td>Mensch und KI gemeinsam</td>
+                        <td>3,4</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="text-[0.75rem] text-stone-400" style="margin-top: -0.75rem;">Werte nach der Darstellung bei Jung.<sup><a href="#q1">1</a></sup> Das Brand Science Institute beschreibt an dieser Stelle ein Studienkonzept, keine abgeschlossene Erhebung. Die Zahlen sind als erwartete Größenordnung zu lesen, nicht als belegte Messwerte. Mehr dazu in der kritischen Einordnung.</p>
+
+            <p>Der auffällige Wert ist nicht die Abwertung der reinen Maschinenarbeit, sondern die der Zusammenarbeit. Hybride Arbeit wirkt wie eine Abkürzung, bei der jemand Anerkennung beansprucht, ohne den vollen Aufwand getragen zu haben.</p>
+
+            <p>Der Mechanismus dahinter ist beschrieben. Kruger und Kollegen nannten ihn 2004 <em>Effort Heuristic</em>: Menschen bewerten Qualität und Preis eines Objekts höher, wenn dessen Herstellung nach mehr Aufwand aussieht, und der Effekt verstärkt sich, je schwerer die Qualität objektiv zu beurteilen ist.<sup><a href="#q3">3</a></sup> Genau diese Bedingung ist bei Kreativarbeit und bei Produktarbeit fast immer erfüllt.</p>
+
+            <h2>In Produktarbeit erzeugt Qualität Abwesenheit</h2>
+
+            <p>Was gute Produktarbeit hervorbringt, ist häufig etwas, das nicht da ist. Der Schritt, den niemand mehr gehen muss. Das Feature, das nie gebaut wurde. Die Rückfrage, die im Support nicht mehr auflaufen. Ein Onboarding von fünf auf zwei Schritte zu kürzen ist mehr Arbeit als eines mit fünf Schritten zu bauen, sieht aber nach weniger aus.</p>
+
+            <p>Gemessen wird derweil das Gegenteil. Velocity, gelieferte Tickets, Anzahl der Features im Release: Das sind Aufwandsindikatoren, keine Wertindikatoren. Discovery, die verhindert, dass ein Team ein halbes Jahr in das falsche Problem investiert, hinterlässt kein Artefakt, das sich im Review zeigen lässt.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Gute Produktarbeit erzeugt Abwesenheit. Und Abwesenheit lässt sich schlecht in Rechnung stellen.
+                </p>
+            </div>
+
+            <p>Eine Einschränkung gehört an dieser Stelle dazu, weil sie das Bild sonst zu glatt macht. Mühe ist nicht grundsätzlich der Feind. Norton, Mochon und Ariely haben gezeigt, dass Menschen Dinge höher bewerten, an deren Herstellung sie selbst mitgearbeitet haben, solange sie die Aufgabe erfolgreich abschließen.<sup><a href="#q4">4</a></sup> Der eigene Aufwand hebt den wahrgenommenen Wert, der fremde Aufwand ebenfalls, nur der unsichtbare nicht. Wer daraus „jede Reibung raus" ableitet, verkürzt zu stark: Konfiguratoren, Einrichtungsschritte und bewusste Entscheidungen im Produkt können Bindung erzeugen, die ein vollautomatischer Ablauf nicht erreicht.</p>
+
+            <h2>Das KI-Label ist ein Wertfaktor, kein neutraler Hinweis</h2>
+
+            <p>Hier liegt der Teil, der über Jungs Artikel hinausgeht und Produktteams unmittelbar betrifft. Wenn die zugeschriebene Herkunft die Bewertung verschiebt, dann ist „KI-gestützt" auf einer Produktseite keine sachliche Funktionsbeschreibung. Es ist ein Wertsignal und es kann in beide Richtungen wirken.</p>
+
+            <p>Besonders unbequem ist die hybride Bedingung, weil praktisch jedes Produkt heute hybrid entsteht. Sollte sich der beschriebene Effekt bestätigen, wäre die verbreitete Praxis, KI-Beteiligung prominent auszuweisen, in manchen Kategorien wertmindernd statt wertsteigernd. Das gilt vermutlich am stärksten dort, wo Vertrauen und Handwerklichkeit die Kaufentscheidung tragen.</p>
+
+            <p>Daraus folgt kein Verschweigen. Daraus folgt, das Framing wie eine Produktentscheidung zu behandeln und es zu testen, statt es aus der Pitch-Logik der Branche zu übernehmen. Die Frage ist nicht, ob KI im Produkt steckt, sondern welche Aussage über Verantwortung und Urteil daneben steht.</p>
+
+            <p>Testbar ist das mit zwei Varianten derselben Seite: eine, die das Werkzeug nach vorne stellt („KI-gestützte Kalkulation"), und eine, die das Ergebnis und die Zuständigkeit nennt („geprüfte Kalkulation, verantwortet von …"). Gemessen wird nicht die Klickrate, sondern Vertrauen und Abschluss. Sollte die zweite Variante gewinnen, wäre das kein Argument gegen KI im Produkt. Es wäre eines gegen KI als Verkaufsargument.</p>
+
+
+            <!-- ══ BLOCK 3: WAS ICH MIR VORNEHME ══ -->
+
+            <h2>Was ich mir vornehme</h2>
+
+            <p>Ich möchte meine Produkt-Reviews vom Output auf die Entscheidung umstellen. Nicht was fertig wurde, sondern welches Problem wir als das eigentliche erkannt haben, welche Optionen wir verworfen haben und was diese Entscheidung bewirkt hat.</p>
+
+            <p>Dazu nehme ich mir einen festen Punkt vor, den es so bisher nicht gab: „Was wir nicht gebaut haben und warum." Das ist der Versuch, der Abwesenheit einen Platz im Protokoll zu geben, damit sie überhaupt bewertbar wird.</p>
+
+            <p>Und ich will die Herkunftsfrage ernst nehmen, statt sie für Marketing zu halten. In einem Produkt, das sich an Handwerksbetriebe richtet, will ich die KI-Beteiligung nicht ungeprüft nach vorne stellen, sondern zwei Formulierungen gegeneinander testen: eine, die die Technik betont, und eine, die das Ergebnis und die Verantwortung dafür betont. Wie das ausgeht, weiß ich noch nicht.</p>
+
+
+            <!-- ══ BLOCK 4: KRITISCHE EINORDNUNG ══ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Die Belegkette ist schwächer, als der Artikel vermuten lässt, und das sollte man wissen, bevor man die Zahlen weiterträgt. Das Brand Science Institute beschreibt an dieser Stelle ein Studienkonzept mit Hypothesen und Versuchsaufbau. Eine abgeschlossene, begutachtete Erhebung mit diesen Werten habe ich nicht gefunden, und ich konnte die Institutsseite aus dieser Arbeitsumgebung heraus nicht direkt öffnen. Die Werte 5,8 zu 3,9 zu 3,4 sind daher als Erwartung zu lesen, nicht als Ergebnis.</p>
+
+            <p>Auch der psychologische Unterbau ist weniger fest als oft zitiert. Ziano und Kollegen haben die Effort Heuristic 2023 mit 1.405 Teilnehmenden präregistriert repliziert und gemischte Ergebnisse erhalten: Stützung für den Effekt auf Gefallen und wahrgenommene Qualität, keine Stützung für den Effekt auf den Geldwert.<sup><a href="#q5">5</a></sup> Ausgerechnet der Schritt von der Bewunderung zur Bezahlung, auf dem Jungs These ruht, ist der am wenigsten gesicherte.</p>
+
+            <p>Dazu kommt eine Grenze der Übertragung. Kreativarbeit wird von Konsumenten beurteilt, die nur das Artefakt sehen. Produktarbeit beurteilen Stakeholder, die den Prozess mitbekommen. Ob derselbe Bias dort gleich stark wirkt, ist offen. Und Preise entstehen ohnehin nicht nur aus Wahrnehmung, sondern aus Angebot, Wettbewerb und Wechselkosten.</p>
+
+
+            <!-- ══ BLOCK 5: WAS BLEIBT FÜR JEDEN TAG ══ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Abwesenheit ist ein Ergebnis.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Der Schritt, den niemand mehr gehen muss, ist geleistete Arbeit. Er gehört sichtbar ins Review.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Nicht den Aufwand erzählen, sondern die Entscheidung.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Welches Problem erkannt, welche Option verworfen, welche Wirkung entstanden. Stunden belegen nichts davon.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Herkunft ist Teil des Produkts.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wie ein Ergebnis entstanden ist, verändert seinen wahrgenommenen Wert. Das Label gehört getestet, nicht geraten.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ QUELLEN ══ -->
+
+            <div id="quellen" class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li id="q1"><a href="https://de.linkedin.com/pulse/kreativit%C3%A4t-beeindruckt-aber-m%C3%BChe-wird-bezahlt-eine-ki-studie-jung-xl4kf" class="hover:text-stone-600 transition-colors" style="color: inherit;">Jung, R. (2026). Kreativität beeindruckt, aber Mühe wird bezahlt: Eine KI-Studie deckt auf, warum kreative Arbeit zu oft schlecht bezahlt wird. LinkedIn, 7. August 2026.</a></li>
+                    <li id="q2"><a href="https://www.bsi.ag/cases/139-case-studie-warum-hybride-ki-arbeiten-radikal-abgewertet-werden.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Brand Science Institute. Case Studie: Warum hybride KI-Arbeiten radikal abgewertet werden.</a> Studienkonzept, Between-Subjects-Design mit drei Herkunftsbedingungen.</li>
+                    <li id="q3"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1532566" class="hover:text-stone-600 transition-colors" style="color: inherit;">Kruger, J., Wirtz, D., Van Boven, L., &amp; Altermatt, T. W. (2004). The Effort Heuristic. Journal of Experimental Social Psychology, 40(1), 91-98.</a></li>
+                    <li id="q4"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1057740811000829" class="hover:text-stone-600 transition-colors" style="color: inherit;">Norton, M. I., Mochon, D., &amp; Ariely, D. (2012). The IKEA Effect: When Labor Leads to Love. Journal of Consumer Psychology, 22(3), 453-460.</a></li>
+                    <li id="q5"><a href="https://doi.org/10.1525/collabra.87489" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ziano, I., Yeung, S. K., Lee, C. S., Shi, J., &amp; Feldman, G. (2023). „The Effort Heuristic" Revisited: Mixed Results for Replications of Kruger et al. (2004)'s Experiments 1 and 2. Collabra: Psychology, 9(1), 87489.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSAR ══ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Effort Heuristic</span> <span class="text-stone-400">— Neigung, Qualität und Preis höher einzuschätzen, wenn die Herstellung nach mehr Aufwand aussieht.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Herkunftsattribution</span> <span class="text-stone-400">— Zuschreibung, wer oder was ein Ergebnis erzeugt hat. Verschiebt die Bewertung bei identischem Ergebnis.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">IKEA-Effekt</span> <span class="text-stone-400">— Menschen bewerten Dinge höher, an deren Herstellung sie selbst erfolgreich mitgearbeitet haben.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Studienkonzept</span> <span class="text-stone-400">— Beschreibung eines geplanten Untersuchungsdesigns. Liefert Hypothesen, noch keine belegten Messwerte.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Between-Subjects-Design</span> <span class="text-stone-400">— Versuchsaufbau, bei dem jede Gruppe nur eine der Bedingungen zu sehen bekommt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Präregistrierte Replikation</span> <span class="text-stone-400">— Wiederholung einer Studie, deren Auswertung vorab öffentlich festgelegt wurde.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— Phase der Produktarbeit, in der geprüft wird, welches Problem echt ist, bevor gebaut wird.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Velocity</span> <span class="text-stone-400">— Kennzahl für die pro Sprint abgeschlossene Arbeitsmenge eines Teams.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="/blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- Draft banner -->
+        <div class="mt-24 mb-4 py-3 px-4 rounded-lg flex items-center gap-3" style="background: #fae8de; border-left: 3px solid #D4714E;">
+            <span class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #73402e;">Draft</span>
+            <span class="text-[0.82rem]" style="color: #73402e;">Not published yet.</span>
+        </div>
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Product Work</span>
+                <span class="text-[0.72rem] text-stone-400">August 10, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Effort is not a measure of value. What the debate about AI and creative work means for product teams.
+            </h1>
+        </header>
+
+        <!-- ══ MANDATORY: TL;DR ══ -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                The same piece of work gets rated differently depending on the origin story attached to it. For product teams that means the best state of a product, the one that feels obvious, is also the hardest one to evidence. Defending product work through visible output adopts the very standard that has underpaid creative work for decades.
+            </p>
+        </div>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
+
+            <p>Richard Jung describes a paradox of the creative industry: the better creative work is, the less it looks like work, and the harder its price becomes to justify.<sup><a href="#eq1">1</a></sup> His evidence is a study concept from the Brand Science Institute in which identical texts and images are rated differently depending on whether a human, an AI or both together are named as the author.<sup><a href="#eq2">2</a></sup></p>
+
+            <p>The pattern does not stop at agency fees. It describes fairly precisely why good product work is hard to defend internally. A product that feels obvious has made its own origin invisible.</p>
+
+
+            <!-- ══ BLOCK 2: FOUNDATION ══ -->
+
+            <h2>What gets judged is the origin story, not the result</h2>
+
+            <p>The setup is deliberately plain. Every group sees the same result, and only the stated origin differs. So the design does not measure who is more creative. It measures what people are willing to count as an achievement worth crediting.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stated origin</th>
+                        <th>Rating (7-point scale)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Human</td>
+                        <td>5.8</td>
+                    </tr>
+                    <tr>
+                        <td>AI</td>
+                        <td>3.9</td>
+                    </tr>
+                    <tr>
+                        <td>Human and AI together</td>
+                        <td>3.4</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="text-[0.75rem] text-stone-400" style="margin-top: -0.75rem;">Values as reported by Jung.<sup><a href="#eq1">1</a></sup> The Brand Science Institute presents a study concept here, not a completed survey. Read the numbers as an expected magnitude, not as established measurements. More on this in the critical section.</p>
+
+            <p>The striking value is not the markdown on pure machine work. It is the one on collaboration. Hybrid work reads as a shortcut in which someone claims credit without having carried the full load.</p>
+
+            <p>The mechanism behind this is documented. In 2004 Kruger and colleagues called it the <em>effort heuristic</em>: people rate the quality and the monetary value of an object higher when its production appears to have taken more effort, and the effect grows stronger the harder the quality is to judge objectively.<sup><a href="#eq3">3</a></sup> That condition is almost always met in creative work and in product work.</p>
+
+            <h2>In product work, quality produces absence</h2>
+
+            <p>What good product work produces is often something that is not there. The step nobody has to take anymore. The feature that never got built. The support ticket that never arrives. Cutting an onboarding flow from five steps to two is more work than building one with five steps, and it looks like less.</p>
+
+            <p>Meanwhile the opposite gets measured. Velocity, tickets delivered, features in the release: those are effort indicators, not value indicators. Discovery that stops a team from spending six months on the wrong problem leaves behind no artifact anyone can show in a review.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Good product work produces absence, and absence is hard to put on an invoice.
+                </p>
+            </div>
+
+            <p>One qualification belongs here, otherwise the picture gets too clean. Effort is not the enemy as such. Norton, Mochon and Ariely showed that people value things more highly when they helped build them, as long as they complete the task successfully.<sup><a href="#eq4">4</a></sup> Your own effort raises perceived value, someone else's effort raises it too, only invisible effort does not. Reading this as "remove all friction" cuts the corner too fast: configurators, setup steps and deliberate choices inside a product can create attachment that a fully automatic flow never reaches.</p>
+
+            <h2>The AI label is a value factor, not a neutral note</h2>
+
+            <p>This is the part that goes beyond Jung's article and hits product teams directly. If stated origin shifts valuation, then "AI-powered" on a product page is not a factual feature description. It is a value signal, and it can move in either direction.</p>
+
+            <p>The hybrid condition is the uncomfortable one, because almost every product today is built hybrid. If the described effect holds, the common practice of foregrounding AI involvement would reduce perceived value in some categories rather than raise it. That likely applies most where trust and craft carry the purchase decision.</p>
+
+            <p>None of this argues for hiding anything. It argues for treating the framing as a product decision and testing it, instead of inheriting it from the industry pitch. The question is not whether AI sits inside the product. The question is what claim about judgment and responsibility sits next to it.</p>
+
+            <p>That is testable with two versions of the same page: one that puts the tool first ("AI-assisted calculation"), and one that names the outcome and who stands behind it ("verified calculation, signed off by ..."). The metric is trust and completion, not click rate. If the second version wins, that is not an argument against AI inside the product. It is an argument against AI as the sales pitch.</p>
+
+
+            <!-- ══ BLOCK 3: WHAT I INTEND TO TRY ══ -->
+
+            <h2>What I intend to try</h2>
+
+            <p>I want to shift my product reviews from output to decisions. Not what got finished, but which problem we identified as the real one, which options we discarded and what that decision changed.</p>
+
+            <p>For that I am adding one fixed item that did not exist before: "what we did not build, and why." It is an attempt to give absence a place in the record so that it becomes assessable at all.</p>
+
+            <p>And I want to take the origin question seriously instead of filing it under marketing. In a product aimed at trade businesses, I do not want to put AI involvement up front unchecked. I want to test two framings against each other: one that emphasizes the technology, one that emphasizes the outcome and who stands behind it. How that turns out, I do not know yet.</p>
+
+
+            <!-- ══ BLOCK 4: A CRITICAL LOOK ══ -->
+
+            <h2>A critical look</h2>
+
+            <p>The chain of evidence is weaker than the article suggests, and that is worth knowing before passing the numbers along. What the Brand Science Institute presents here is a study concept with hypotheses and a design. I found no completed, peer-reviewed survey carrying these values, and I could not open the institute's page directly from this working environment. So 5.8 against 3.9 against 3.4 should be read as an expectation, not a result.</p>
+
+            <p>The psychological foundation is also less solid than its citation frequency suggests. In 2023 Ziano and colleagues ran preregistered replications of the effort heuristic with 1,405 participants and got mixed results: support for the effect on liking and perceived quality, no support for the effect on monetary value.<sup><a href="#eq5">5</a></sup> The step from admiration to payment, which is exactly where Jung's thesis rests, is the least secure one.</p>
+
+            <p>There is also a limit to the transfer. Creative work is judged by consumers who only see the artifact. Product work is judged by stakeholders who watch the process. Whether the same bias bites equally hard there is open. And prices never come from perception alone, they come from supply, competition and switching costs.</p>
+
+
+            <!-- ══ BLOCK 5: WHAT STAYS WITH YOU EVERY DAY ══ -->
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Absence is a result.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">The step nobody has to take anymore is work that was done. It belongs in the review, visibly.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Tell the decision, not the effort.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Which problem you saw, which option you dropped, what changed as a result. Hours prove none of it.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Origin is part of the product.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">How a result came about changes its perceived value. The label deserves a test, not a guess.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SOURCES ══ -->
+
+            <div id="sources" class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li id="eq1"><a href="https://de.linkedin.com/pulse/kreativit%C3%A4t-beeindruckt-aber-m%C3%BChe-wird-bezahlt-eine-ki-studie-jung-xl4kf" class="hover:text-stone-600 transition-colors" style="color: inherit;">Jung, R. (2026). Creativity impresses, but effort gets paid: an AI study reveals why creative work is too often badly paid. LinkedIn, August 7, 2026 (in German).</a></li>
+                    <li id="eq2"><a href="https://www.bsi.ag/cases/139-case-studie-warum-hybride-ki-arbeiten-radikal-abgewertet-werden.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Brand Science Institute. Case study: why hybrid AI work is radically devalued (in German).</a> Study concept, between-subjects design with three origin conditions.</li>
+                    <li id="eq3"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1532566" class="hover:text-stone-600 transition-colors" style="color: inherit;">Kruger, J., Wirtz, D., Van Boven, L., &amp; Altermatt, T. W. (2004). The Effort Heuristic. Journal of Experimental Social Psychology, 40(1), 91-98.</a></li>
+                    <li id="eq4"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1057740811000829" class="hover:text-stone-600 transition-colors" style="color: inherit;">Norton, M. I., Mochon, D., &amp; Ariely, D. (2012). The IKEA Effect: When Labor Leads to Love. Journal of Consumer Psychology, 22(3), 453-460.</a></li>
+                    <li id="eq5"><a href="https://doi.org/10.1525/collabra.87489" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ziano, I., Yeung, S. K., Lee, C. S., Shi, J., &amp; Feldman, G. (2023). "The Effort Heuristic" Revisited: Mixed Results for Replications of Kruger et al. (2004)'s Experiments 1 and 2. Collabra: Psychology, 9(1), 87489.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSARY ══ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Effort heuristic</span> <span class="text-stone-400">— The tendency to rate quality and price higher when production appears to have taken more effort.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Origin attribution</span> <span class="text-stone-400">— Who or what a result is credited to. It shifts the rating even when the result is identical.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">IKEA effect</span> <span class="text-stone-400">— People value things more highly when they successfully helped build them.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Study concept</span> <span class="text-stone-400">— A description of a planned research design. Delivers hypotheses, not yet established measurements.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Between-subjects design</span> <span class="text-stone-400">— A setup in which each group sees only one of the conditions.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Preregistered replication</span> <span class="text-stone-400">— A repeat of a study whose analysis was fixed publicly in advance.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— The phase of product work that tests which problem is real before anything gets built.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Velocity</span> <span class="text-stone-400">— A metric for the amount of work a team completes per sprint.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="/blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+    <!-- ======== LANGUAGE TOGGLE (controlled by components.js nav) ======== -->
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+
+</html>
