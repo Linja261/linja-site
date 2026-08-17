@@ -31,6 +31,7 @@
     var clusters = [
         { id: 'projekte', label: 'Projekte', items: [
             { id: 'projekte', label: 'Übersicht', href: 'projekte.html' },
+            { id: 'mamabande', label: 'mamabande', href: 'mamabande.html' },
         ]},
         { id: 'today', label: 'Heute', items: [
             { id: 'reminder', label: 'Reminder', href: 'reminder.html' },
