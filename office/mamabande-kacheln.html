@@ -124,12 +124,11 @@
     .person-text h2 { font-size: 62px; margin-bottom: 26px; }
     .person-text p { font-size: 26px; line-height: 1.5; }
     .person-text p + p { margin-top: 18px; }
-    .person-text .grussformel { margin-top: 26px; font-weight: 600; }
-    /* Der Name steht bewusst aufrecht: das Lila grenzt ihn schon genug ab,
-       kursiv würde ihn zusätzlich wie ein Zitat aussehen lassen. */
-    /* Zwei Klassen, damit die Farbe das allgemeine `.kachel p` sicher schlägt. */
+    /* Grußzeile und Name sind ein Block, wie am Ende eines Briefes: dieselbe
+       Schrift, dieselbe Größe, dieselbe Farbe. Zwei Klassen im Selektor, damit
+       die Farbe das allgemeine `.kachel p` sicher schlägt. */
     .person-text .signatur {
-      margin-top: 6px; font-size: 34px; font-weight: 900;
+      margin-top: 30px; font-size: 26px; font-weight: 800; line-height: 1.45;
       color: var(--purple);
     }
     .signatur span {
@@ -253,9 +252,8 @@
             Ich habe mamabande gebaut, weil ich genau das gebraucht hätte: ein paar echte
             Freundinnen in der Nähe, die Lust haben, spontan etwas zu unternehmen.
           </p>
-          <p class="grussformel">Ich freue mich auf Euer Feedback.</p>
           <p class="display signatur">
-            Linja
+            Ich freue mich auf Euer Feedback.<br />Linja
             <span>Mutter aus dem Kreis Unna</span>
           </p>
         </div>
