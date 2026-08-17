@@ -150,14 +150,15 @@
     .gruss-text .formel {
       font-size: 14pt; font-weight: 900; line-height: 1.2; margin-bottom: 1.6mm; letter-spacing: -.3pt;
     }
-    .gruss-text .grussformel { margin-top: 2.5mm; font-weight: 600; color: rgba(36, 27, 58, .8); }
-    /* Der Name steht bewusst aufrecht: das Lila grenzt ihn schon genug ab,
-       kursiv würde ihn zusätzlich wie ein Zitat aussehen lassen. */
+    /* Grußzeile und Name sind ein Block, wie am Ende eines Briefes: dieselbe
+       Schrift, dieselbe Größe, dieselbe Farbe. Das Lila grenzt beides
+       zusammen vom Fließtext darüber ab. */
     .gruss-text .signatur {
-      margin-top: .8mm; font-size: 12.5pt; font-weight: 700; color: var(--purple);
+      margin-top: 2.5mm; font-size: 11pt; font-weight: 700; line-height: 1.45;
+      color: var(--purple);
     }
     .gruss-text .signatur span {
-      display: inline-block; margin-left: 3mm; font-size: 8.5pt; font-style: normal;
+      display: inline-block; margin-left: 3mm; font-size: 8.5pt;
       font-weight: 500; color: rgba(36, 27, 58, .6); vertical-align: middle;
     }
 
@@ -250,8 +251,9 @@
           Ich habe die App selbst gebaut, weil ich sie nach der Geburt meines Sohnes gebraucht hätte.
           Wir starten hier als Erstes, und Ihr entscheidet mit, wie es weitergeht.
         </p>
-        <p class="grussformel">Ich freue mich auf Euer Feedback.</p>
-        <p class="display signatur">Linja <span>info@mamabande.de</span></p>
+        <p class="display signatur">
+          Ich freue mich auf Euer Feedback.<br />Linja <span>info@mamabande.de</span>
+        </p>
       </div>
     </div>
 
