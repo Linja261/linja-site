@@ -42,6 +42,7 @@
         { id: 'verdienen', label: 'Karriere & Verdienen', items: [
             { id: 'bewerbungen', label: 'Bewerbungen', href: 'bewerbungen.html' },
             { id: 'interviews', label: 'Interviews', href: 'interviews.html' },
+            { id: 'job', label: 'Job-Vergleich', href: 'job.html' },
             { id: 'nebentaetigkeit', label: 'Nebentätigkeit', href: 'nebentaetigkeit.html' },
             { id: 'angebote', label: 'Angebote', href: 'angebote.html' },
             { id: 'solo', label: 'Solo · Akquise', href: 'solo.html' },
@@ -55,6 +56,13 @@
         { id: 'wissen', label: 'Wissen', items: [
             { id: 'skills', label: 'Skills', href: 'skills.html' },
             { id: 'lernplan', label: 'Lernplan', href: 'lernplan.html' },
+            { id: 'workflows', label: 'Workflows', href: 'workflows.html' },
+        ]},
+        { id: 'arbeitsproben', label: 'Arbeitsproben', items: [
+            { id: 'eprimo', label: 'eprimo · Case Study', href: 'eprimo/pitch/index.html' },
+            { id: 'casestudy-hero', label: 'Hero · Case Study', href: 'casestudy-hero-onepager.html' },
+            { id: 'ki-studium', label: 'Uni-Vortrag · KI im Studium', href: 'ki-studium/index.html' },
+            { id: 'propertyexpert', label: 'PropertyExpert · Empathy Maps', href: 'propertyexpert/index.html' },
         ]},
     ];
 
@@ -108,8 +116,9 @@
             + '<span class="source-serif text-stone-900 text-base group-hover:text-violet-500 transition-colors">Office</span>'
             + '<span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">intern</span>'
             + '</a>'
-            + '<div class="hidden md:flex items-center gap-6 text-[0.8rem]">' + clusterButtons + '</div>'
-            + '<div class="hidden md:flex items-center gap-4 flex-shrink-0">'
+            + '<div class="hidden md:flex items-center gap-5 text-[0.8rem]">' + clusterButtons + '</div>'
+            + '<div class="hidden md:flex items-center gap-3 flex-shrink-0">'
+            + '<a href="struktur.html" class="text-[0.7rem] text-stone-400 hover:text-violet-500 font-mono tracking-wide transition-colors">STRUKTUR</a>'
             + '<a href="roadmap.html" class="text-[0.7rem] text-stone-400 hover:text-violet-500 font-mono tracking-wide transition-colors">ROADMAP</a>'
             + '<button type="button" onclick="officeLogout()" class="text-[0.7rem] text-stone-400 hover:text-stone-600 font-mono tracking-wide">LOGOUT</button>'
             + '</div>'
@@ -121,6 +130,7 @@
             + mobileSections
             + '<div class="border-b" style="border-color: #E5E2DB;">'
             + '<p class="px-4 pt-4 pb-2 font-mono text-[0.6rem] tracking-wider uppercase text-stone-400">Meta</p>'
+            + '<a href="struktur.html" class="block px-4 py-3 text-sm text-stone-700 hover:bg-stone-50">Struktur</a>'
             + '<a href="roadmap.html" class="block px-4 py-3 text-sm text-stone-700 hover:bg-stone-50">Roadmap</a>'
             + '<button type="button" onclick="officeLogout()" class="block w-full text-left px-4 py-3 text-sm text-stone-500 hover:bg-stone-50">Logout</button>'
             + '</div>'
@@ -237,11 +247,22 @@
         }
     });
 
+    // Ziel aus ?next= – nur eigene Office-Pfade, damit niemand von außen
+    // einen fremden Redirect in den Link schmuggeln kann.
+    function nextTarget() {
+        var raw = new URLSearchParams(location.search).get('next');
+        if (!raw) return null;
+        var path = decodeURIComponent(raw);
+        return path.indexOf('/office/') === 0 && path.indexOf('//') !== 0 ? path : null;
+    }
+
     window.officeCheckPass = function () {
         var input = document.getElementById('office-pass').value;
         if (input === PASS) {
             sessionStorage.setItem(AUTH_KEY, 'true');
-            location.reload();
+            var next = nextTarget();
+            if (next) location.replace(next);
+            else location.reload();
         } else {
             document.getElementById('office-error').classList.remove('hidden');
         }
