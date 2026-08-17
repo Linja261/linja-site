@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · mamabande – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Fraunces','Georgia','serif'], serif: ['Fraunces','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691' } },
+        } } }
+    </script>
+    <style>.source-serif { font-family: "Fraunces", Georgia, serif; color: #472E56 !important; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+            <header class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Projekt · Pilot Kreis Unna</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">mamabande</h1>
+                <p class="text-sm text-stone-500 max-w-2xl">
+                    Die Materialien für den Pilot, damit sie auch unterwegs greifbar sind.
+                    Aushang und Kacheln werden aus <span class="font-mono text-[0.75rem]">14_MAMAHOOD/pilot/build_*.py</span>
+                    erzeugt und landen bei jedem Build automatisch hier.
+                </p>
+            </header>
+
+            <!-- Materialien -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Materialien</h2>
+                    <span class="font-mono text-[0.65rem] tracking-wider uppercase px-2 py-0.5 rounded text-violet-500" style="background: #ece8f2;">fertig</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <a href="mamabande-aushang.html" class="block p-5 rounded-xl bg-white border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-2">DIN A4</p>
+                        <div class="font-medium text-stone-900 mb-1">Aushang</div>
+                        <div class="text-xs text-stone-500">Für schwarze Bretter und die Mappe zum Erstgespräch. Im Browser drucken, dann „Als PDF sichern", Hintergrundgrafiken an.</div>
+                    </a>
+                    <a href="mamabande-kacheln.html" class="block p-5 rounded-xl bg-white border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-2">4 × 1080 px</p>
+                        <div class="font-medium text-stone-900 mb-1">Instagram-Kacheln</div>
+                        <div class="text-xs text-stone-500">Karussell: Haken, Idee, wer dahintersteckt, Aufruf. Kachel 1 taugt auch als WhatsApp-Status.</div>
+                    </a>
+                    <a href="https://mamabande.de/fuer-einrichtungen.html" target="_blank" class="block p-5 rounded-xl bg-white border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-2">Live · noindex</p>
+                        <div class="font-medium text-stone-900 mb-1">Für Einrichtungen ↗</div>
+                        <div class="text-xs text-stone-500">Die Seite zum Verschicken an Familienzentren, Hebammen, Kitas. Liegt live auf mamabande.de, deshalb hier nur verlinkt.</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Texte -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Texte im Vault</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <a href="obsidian://open?vault=KnowledgeOS&file=14_MAMAHOOD%2Fpilot%2Fnachricht-unna" class="block p-5 rounded-xl border hover:border-violet-300 transition-all" style="background: #F5F3EF; border-color: #E5E2DB;">
+                        <div class="font-medium text-stone-800 mb-1">nachricht-unna.md</div>
+                        <div class="text-xs text-stone-500">Instagram-Caption und WhatsApp-Nachricht zum Kopieren.</div>
+                    </a>
+                    <a href="obsidian://open?vault=KnowledgeOS&file=14_MAMAHOOD%2Fpilot%2Fpitch-orte" class="block p-5 rounded-xl border hover:border-violet-300 transition-all" style="background: #F5F3EF; border-color: #E5E2DB;">
+                        <div class="font-medium text-stone-800 mb-1">pitch-orte.md</div>
+                        <div class="text-xs text-stone-500">Gesprächsleitfaden für Einrichtungen, plus Liste der Orte im Kreis Unna.</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Live -->
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-4">
+                    <h2 class="source-serif text-xl text-stone-900">Live</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-[0.8rem]">
+                    <div class="p-5 rounded-xl bg-white border" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">App</p>
+                        <a href="https://app.mamabande.de" target="_blank" class="text-violet-500 hover:text-violet-700 font-medium">app.mamabande.de ↗</a>
+                    </div>
+                    <div class="p-5 rounded-xl bg-white border" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Landing</p>
+                        <a href="https://mamabande.de" target="_blank" class="text-violet-500 hover:text-violet-700 font-medium">mamabande.de ↗</a>
+                    </div>
+                    <div class="p-5 rounded-xl bg-white border" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] uppercase text-stone-400 mb-1">Code</p>
+                        <a href="https://github.com/Linja261/mamabande-site" target="_blank" class="text-violet-500 hover:text-violet-700 font-medium">Linja261/mamabande-site ↗</a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="office.js?v=2" data-active="mamabande"></script>
+</body>
+</html>
