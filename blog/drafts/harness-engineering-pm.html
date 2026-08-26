@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Nicht das Modell entscheidet – Linja Scharffetter</title>
+    <meta name="description" content="Harness Engineering: Die Leistung eines KI-Agenten hängt an der Umgebung, in die das Modell eingebaut ist. Warum das eine Produktentscheidung ist.">
+    <meta property="og:title" content="Nicht das Modell entscheidet. Was Harness Engineering für Produktarbeit heißt.">
+    <meta property="og:description" content="Harness Engineering: Die Leistung eines KI-Agenten hängt an der Umgebung, in die das Modell eingebaut ist. Warum das eine Produktentscheidung ist.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Fraunces', 'Georgia', 'serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .lang-hidden { display: none !important; }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles.
+           Spacing-Werte: siehe ../../brand-kit.md → Spacing-Tokens (Blog). */
+        .prose h2 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p {
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="/components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+                <span class="text-[0.72rem] text-stone-400">27. August 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Nicht das Modell entscheidet. Was Harness Engineering für Produktarbeit heißt.
+            </h1>
+        </header>
+
+        <!-- ══════════════════════════════════════════════
+             OPTIONAL: 90-SEK-AUDIO-PILL
+             Aktivieren, sobald blog/audio/harness-engineering-pm.mp3 existiert.
+             ══════════════════════════════════════════════ -->
+        <!--
+        <div class="reader-audio-slot my-4" data-audio-src="/blog/audio/harness-engineering-pm.mp3"></div>
+        -->
+
+        <!-- ══ PFLICHT-BLOCK: TL;DR ══ -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Die Leistung eines KI-Agenten hängt weniger am Modell als an der Umgebung, in die es eingebaut ist: Werkzeuge, Kontext, Rechte, Prüfungen, Rückkopplung. Diese Umgebung heißt Harness. Sie zu entwerfen ist Produktarbeit, weil dabei festgelegt wird, was ein Agent wissen, tun und nicht tun darf. Für Produktmanagerinnen verschiebt sich die zentrale Frage damit von der Modellwahl zur Umgebungsgestaltung.
+            </p>
+        </div>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══ BLOCK 1: KERNBOTSCHAFT + PROBLEM ══ -->
+
+            <p>In Produktteams wird über Modelle diskutiert, obwohl das Modell selten der Engpass ist. Seit Anfang 2026 hat sich für diese Beobachtung eine Formel durchgesetzt: <strong>Agent = Modell + Harness</strong>. Das Modell liefert die Schlussfolgerung, das Harness liefert alles andere, also Werkzeuge, Gedächtnis, Ausführungsumgebung, Rechte und die Prüfungen, an denen ein Ergebnis scheitern kann. Der teure Fehler liegt darin, ein misslungenes Agentenergebnis als Prompt-Problem zu behandeln und es einfach noch einmal zu versuchen. Wer so arbeitet, baut ein System, das denselben Fehler beliebig oft wiederholen kann.</p>
+
+
+            <!-- ══ BLOCK 2: FUNDIERUNG ══ -->
+
+            <h2>Woher der Begriff kommt</h2>
+
+            <p>Mitchell Hashimoto, Mitgründer von HashiCorp, beschrieb am 5. Februar 2026 seinen Weg durch sechs Stufen der KI-Nutzung.<sup>1</sup> Auf Stufe fünf steht eine Gewohnheit, für die er den Namen prägte: „I've grown to calling this 'harness engineering'". Die Regel dahinter passt in eine Zeile: Sobald ein Agent einen Fehler macht, investiert man die Zeit, eine Lösung zu bauen, damit er genau diesen Fehler nie wieder macht. Hashimoto nennt zwei Mittel dafür, nämlich implizite Anweisungen in einer Regeldatei und programmierte Werkzeuge, die eine Prüfung selbsttätig erledigen.</p>
+
+            <p>Wenige Wochen später beschrieb Ryan Lopopolo für OpenAI ein Projekt, das nach dieser Logik gebaut wurde.<sup>2</sup> Fünf Monate, rund eine Million Zeilen Code, etwa 1.500 gemergte Pull Requests von drei Engineers, ohne von Hand getippten Code. Das sind rechnerisch etwa 3,5 Pull Requests pro Engineer und Tag. Die Menschen in diesem Projekt schrieben nicht den Code, sondern die Umgebung, in der Code entstehen konnte.</p>
+
+            <p>Vivek Trivedy hat den Begriff bei LangChain im März 2026 in seine Bestandteile zerlegt.<sup>3</sup> Ein Harness besteht demnach aus dem Systemprompt, aus Werkzeugen samt ihren Beschreibungen, aus mitgelieferter Infrastruktur wie Dateisystem, Sandbox und Browser, aus Orchestrierungslogik und aus Hooks, die einzelne Schritte deterministisch erzwingen. Das Dateisystem hält er für das grundlegendste Element von allen, weil nur dort Zustand über eine einzelne Sitzung hinaus überlebt.</p>
+
+            <h2>Warum das eine Produktfrage ist</h2>
+
+            <p>Die Bestandteile klingen technisch, die Entscheidungen darin sind es nicht. Anthropics Applied-AI-Team beschreibt Kontext als endliches Aufmerksamkeitsbudget: Jedes Token, das in das Fenster wandert, verbraucht Kapazität und die Genauigkeit sinkt messbar, je voller das Fenster wird.<sup>4</sup> Die daraus abgeleitete Regel lautet, die kleinstmögliche Menge hochwertiger Token zu finden. Das ist keine Implementierungsfrage, sondern eine Priorisierungsfrage und Priorisierung unter Knappheit ist der Kern von Produktarbeit.</p>
+
+            <p>Dasselbe gilt für Werkzeuge. Ken Aizawa argumentiert, dass gute Agentenwerkzeuge nicht die vorhandene Schnittstelle spiegeln, sondern entlang der Arbeitsabläufe geschnitten werden, die ein Agent tatsächlich braucht: klare Namensräume, sparsame Auswahl, Rückgaben, die nur hochwertige Information enthalten statt technischer Identifikatoren.<sup>5</sup> Wer festlegt, welche Arbeitsabläufe ein eigenes Werkzeug bekommen, legt den Funktionsumfang fest. Das ist dieselbe Entscheidung wie bei einer Nutzeroberfläche, nur dass der Nutzer diesmal ein Modell ist.</p>
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Ein Harness ist die Entscheidung darüber, was ein Agent wissen, tun und nicht tun darf. Wer sie dem Modell überlässt, hat sie nicht vermieden, sondern nur ungeschrieben getroffen.
+                </p>
+            </div>
+
+            <h2>Zwei Anwendungen im Produktalltag</h2>
+
+            <p>Für Produktmanagerinnen folgen daraus zwei getrennte Anwendungen, eine nach außen und eine nach innen.</p>
+
+            <p>Die erste betrifft KI-Funktionen im eigenen Produkt. Wenn Leistung an der Paarung aus Modell und Harness hängt statt am Modell allein, dann gehört die Ausführungsumgebung in die Spezifikation und in jedes Anbietergespräch. Harness-Bench hat diesen Effekt gemessen: 106 abgeschlossene Aufgaben, 5.194 Ausführungspfade und erhebliche Unterschiede in Abschlussquote, Prozessqualität, Effizienz und Fehlerverhalten je nach Paarung.<sup>6</sup> Die Empfehlung der Autoren ist deutlich: Fähigkeiten sollten nie dem Basismodell zugeschrieben werden, sondern immer der vollständigen Konfiguration. Übersetzt in die eigene Arbeit heißt das, eine Anbieterzusage über ein Modell sagt fast nichts, solange die Umgebung unbekannt bleibt.</p>
+
+            <p>Die zweite betrifft die eigene Arbeitsweise. Jede wiederkehrende Korrektur an einer KI ist ein Kandidat für eine dauerhafte Reparatur: eine Regel in der Anweisungsdatei, ein Werkzeug, das die Prüfung übernimmt, oder ein Hook, der einen Fehler blockiert, bevor er entsteht. Der Unterschied zum Prompt-Optimieren liegt darin, dass die Korrektur beim nächsten Mal schon da ist und nicht erneut erinnert werden muss. Werner Heijstek beschreibt dieselbe Struktur aus der Qualitätsperspektive und ordnet die Bausteine in drei Rollen: Regeldateien als Leitplanken, automatische Prüfungen als Sensoren, Menschen an den Stellen, an denen etwas unumkehrbar wird.<sup>7</sup></p>
+
+            <!-- ══ KENNZAHL-HIGHLIGHTS ══ -->
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">5.194</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Ausführungspfade in Harness-Bench. Befund: Leistung variiert erheblich je Modell-Harness-Paarung.</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#quellen" style="color: inherit;">Yao et al. 2026</a></p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">1,1 : 3,1</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Wartbarkeit von 5 Punkten: Code allein vom Agenten gegenüber Code mit menschlicher Kontrolle im Ablauf.</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#quellen" style="color: inherit;">SIG 2026</a></p>
+                </div>
+            </div>
+
+
+            <!-- ══ BLOCK 3: KRITISCHE EINORDNUNG ══ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Die Belege sind jung und teilweise interessengeleitet. Der OpenAI-Bericht ist die Erfahrungsbeschreibung eines Anbieters über sein eigenes Werkzeug und kein kontrollierter Vergleich. Die Seite blockiert zudem automatisierte Abrufe, sodass ich die Zahlen nur über mehrere übereinstimmende Sekundärquellen prüfen konnte. Harness-Bench zeigt, dass Harness-Effekte messbar sind, benennt aber keinen einzelnen Faktor, der sich sauber auf ein anderes Produkt übertragen ließe.</p>
+
+            <p>Der ernstere Einwand liegt in der Gegenrichtung. Ein Harness kann Prüfungen so lange stapeln, bis von der Autonomie nichts mehr übrig ist und der Agent teurer wird als die Arbeit, die er abnehmen sollte. Gartner sagt für Ende 2027 voraus, dass über 40 Prozent der agentischen KI-Projekte abgebrochen werden, unter anderem wegen steigender Kosten und unklaren Geschäftsnutzens.<sup>8</sup> Zu viel Harness ist eine der Arten, wie diese Kosten entstehen. Wie die Grenze zwischen genug und zu viel verläuft, muss sich erst zeigen.</p>
+
+
+            <!-- ══ BLOCK 4: WAS ICH VERÄNDERT HABE UND WAS NOCH FEHLT ══ -->
+
+            <h2>Was ich verändert habe und was noch fehlt</h2>
+
+            <p>Mein persönliches Wissenssystem läuft seit Monaten nach dieser Logik, ohne dass ich einen Namen dafür hatte. Eine Regeldatei im Wurzelverzeichnis, thematische Regelwerke, die nur bei Bedarf geladen werden, wiederverwendbare Kommandos für wiederkehrende Abläufe und ein Pre-Commit-Hook, der einen Commit blockiert, wenn versehentlich eine Datei mit Zugangsdaten darin liegt. Jedes dieser Teile ist als Reaktion auf einen konkreten Fehler entstanden, keines aus einem Konzept heraus. Es geht dabei ausschließlich um meine eigene Struktur wie Wochenplan, Artikelentwürfe und Lernziele, nicht um vertrauliche Firmendaten.</p>
+
+            <p>Die Bruchstelle sitzt an einer unerwarteten Stelle. Die Hooks liegen außerhalb der Versionierung. Auf einem neuen Rechner ist der Schutz weg und das Wissen darüber steht nur in einer Anleitung, die jemand lesen muss. Ein Sensor, den man von Hand wieder anschließen muss, ist kein Sensor.</p>
+
+            <p>Zwei Dinge nehme ich mir deshalb vor. Erstens die Hooks so ablegen, dass sie mitwandern statt in einer Anleitung zu überleben. Zweitens für jede KI-Funktion, die ich künftig spezifiziere, die Ausführungsumgebung genauso schriftlich zu fassen wie die Oberfläche: welche Werkzeuge, welcher Kontext, welche Prüfung vor der Freigabe und welcher Schritt bleibt bewusst beim Menschen. Ob das die Spezifikationen wirklich besser macht oder nur länger, wird sich in den nächsten Monaten zeigen.</p>
+
+
+            <!-- ══ BLOCK 5: WAS BLEIBT FÜR JEDEN TAG ══ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Derselbe Fehler zweimal ist ein Systemfehler</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Beim zweiten Mal nicht das Ergebnis korrigieren, sondern die Umgebung ändern, die den Fehler möglich macht.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Fähigkeit gehört zur Konfiguration, nicht zum Modell</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">In Spezifikationen und Anbietergesprächen nach der Ausführungsumgebung fragen, nicht nur nach dem Modellnamen.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Kontext ist ein knappes Budget</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Was in das Kontextfenster darf, ist eine Priorisierungsentscheidung und gehört deshalb auf den Tisch der Produktseite.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ QUELLEN ══ -->
+
+            <div class="mt-12 pt-6" id="quellen" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://mitchellh.com/writing/my-ai-adoption-journey" class="hover:text-stone-600 transition-colors" style="color: inherit;">Hashimoto, M. (2026). My AI Adoption Journey. 5. Februar 2026.</a></li>
+                    <li><a href="https://openai.com/index/harness-engineering/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Lopopolo, R. (2026). Harness engineering: leveraging Codex in an agent-first world. OpenAI. (Seite blockiert automatisierte Abrufe, Zahlen über Sekundärquellen geprüft.)</a></li>
+                    <li><a href="https://www.langchain.com/blog/the-anatomy-of-an-agent-harness" class="hover:text-stone-600 transition-colors" style="color: inherit;">Trivedy, V. (2026). The Anatomy of an Agent Harness. LangChain, 10. März 2026.</a></li>
+                    <li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">Rajasekaran, P., Dixon, E., Ryan, C., Hadfield, J. (2025). Effective context engineering for AI agents. Anthropic, 29. September 2025.</a></li>
+                    <li><a href="https://www.anthropic.com/engineering/writing-tools-for-agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">Aizawa, K. (2025). Writing effective tools for AI agents with AI agents. Anthropic, 11. September 2025.</a></li>
+                    <li><a href="https://arxiv.org/abs/2605.27922" class="hover:text-stone-600 transition-colors" style="color: inherit;">Yao, Y. et al. (2026). Harness-Bench: Measuring Harness Effects across Models in Realistic Agent Workflows. arXiv:2605.27922.</a></li>
+                    <li><a href="https://www.softwareimprovementgroup.com/blog/what-is-harness-engineering/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Heijstek, W. (2026). What is harness engineering? Software Improvement Group, 24. April 2026.</a></li>
+                    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gartner (2025). Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027. 25. Juni 2025.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSAR ══ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Harness</span> <span class="text-stone-400">— alles an einem KI-Agenten, was nicht das Modell ist: Werkzeuge, Kontext, Zustand, Rechte, Prüfungen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agent</span> <span class="text-stone-400">— ein Sprachmodell, das über mehrere Schritte hinweg Werkzeuge benutzt und dabei Zustand behält.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Systemprompt</span> <span class="text-stone-400">— die feste Anweisung, die vor jedem Gespräch gilt und Rolle sowie Regeln setzt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Kontextfenster</span> <span class="text-stone-400">— die begrenzte Textmenge, die ein Modell pro Anfrage gleichzeitig verarbeiten kann.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Token</span> <span class="text-stone-400">— kleinste Texteinheit der Verarbeitung, grob ein Wortteil.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Aufmerksamkeitsbudget</span> <span class="text-stone-400">— Bild für die endliche Kapazität eines Modells, Bezüge im Kontext herzustellen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Hook</span> <span class="text-stone-400">— automatischer Zwischenschritt, der bei einem Ereignis feste Regeln erzwingt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Pre-Commit-Hook</span> <span class="text-stone-400">— Hook, der vor dem Speichern in die Versionsverwaltung prüft und notfalls abbricht.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Sandbox</span> <span class="text-stone-400">— abgeschottete Umgebung, in der ein Agent handeln darf, ohne echte Systeme zu berühren.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Orchestrierung</span> <span class="text-stone-400">— Logik, die Teilaufgaben verteilt, Unteragenten startet und Ergebnisse zusammenführt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Pull Request</span> <span class="text-stone-400">— Vorschlag einer Codeänderung, der vor der Übernahme geprüft wird.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agentische KI</span> <span class="text-stone-400">— KI-Systeme, die eigenständig Handlungsschritte ausführen statt nur zu antworten.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="/blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; AI</span>
+                <span class="text-[0.72rem] text-stone-400">August 27, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                The model is not what decides. What harness engineering means for product work.
+            </h1>
+        </header>
+
+        <!-- ══ MANDATORY: TL;DR ══ -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                The performance of an AI agent depends less on the model than on the environment it runs in: tools, context, permissions, checks, feedback loops. That environment is called a harness. Designing it is product work, because it settles what an agent may know, may do and may not do. For product managers the central question shifts from picking a model to shaping an environment.
+            </p>
+        </div>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
+
+            <p>Product teams argue about models even though the model is rarely the bottleneck. Since early 2026 one formula has taken hold for this observation: <strong>Agent = Model + Harness</strong>. The model supplies the reasoning, the harness supplies everything else, meaning tools, memory, execution environment, permissions and the checks a result has to survive. The expensive mistake is to treat a failed agent run as a prompt problem and simply try again. That approach builds a system capable of repeating the same mistake indefinitely.</p>
+
+
+            <!-- ══ BLOCK 2: FOUNDATION ══ -->
+
+            <h2>Where the term came from</h2>
+
+            <p>Mitchell Hashimoto, co-founder of HashiCorp, described six stages of his own AI adoption on February 5, 2026.<sup>1</sup> Stage five holds the habit he named: "I've grown to calling this 'harness engineering'". The rule behind it fits in one line. As soon as an agent makes a mistake, you spend the time to engineer a fix so it never makes that specific mistake again. He names two instruments, implicit instructions in a guide file and programmed tools that run a check on their own.</p>
+
+            <p>Weeks later Ryan Lopopolo described a project at OpenAI built on exactly that logic.<sup>2</sup> Five months, roughly a million lines of code, about 1,500 merged pull requests from three engineers, with no code typed by hand. That works out to around 3.5 pull requests per engineer per day. The people on that project did not write the code. They wrote the environment the code could come from.</p>
+
+            <p>Vivek Trivedy took the term apart at LangChain in March 2026.<sup>3</sup> A harness consists of the system prompt, tools with their descriptions, bundled infrastructure such as filesystem, sandbox and browser, orchestration logic, and hooks that force certain steps to be deterministic. He considers the filesystem the most foundational piece of all, because state only survives beyond a single session there.</p>
+
+            <h2>Why this is a product question</h2>
+
+            <p>The components sound technical. The decisions inside them are not. Anthropic's Applied AI team frames context as a finite attention budget: every token entering the window consumes capacity, and accuracy measurably drops as the window fills.<sup>4</sup> The rule they derive is to find the smallest possible set of high signal tokens. That is not an implementation question but a prioritisation question, and prioritising under scarcity is the core of product work.</p>
+
+            <p>The same holds for tools. Ken Aizawa argues that good agent tools do not mirror an existing interface but are cut along the workflows an agent actually needs: clear namespaces, a sparse selection, returns that carry meaningful information instead of technical identifiers.<sup>5</sup> Whoever decides which workflows get their own tool decides the scope of the product. It is the same call as designing a user interface, except this user is a model.</p>
+
+            <!-- ══ KEY INSIGHT QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    A harness is the decision about what an agent may know, may do and may not do. Leaving it to the model does not avoid the decision. It only leaves it unwritten.
+                </p>
+            </div>
+
+            <h2>Two uses in everyday product work</h2>
+
+            <p>Two separate applications follow for product managers, one facing outward and one facing inward.</p>
+
+            <p>The first concerns AI features in your own product. If performance depends on the pairing of model and harness rather than the model alone, the execution environment belongs in the spec and in every vendor conversation. Harness-Bench measured that effect: 106 completed tasks, 5,194 execution trajectories, and substantial variation in completion, process quality, efficiency and failure behaviour across pairings.<sup>6</sup> The authors are explicit that capability should never be attributed to the base model but always to the full configuration. Translated into daily work, a vendor claim about a model says almost nothing while the environment stays undisclosed.</p>
+
+            <p>The second concerns how you work yourself. Every recurring correction you make to an AI is a candidate for a permanent fix: a rule in the guide file, a tool that takes over the check, or a hook that blocks a mistake before it happens. The difference from prompt tuning is that the correction is already in place next time and does not have to be remembered again. Werner Heijstek describes the same structure from a quality angle and sorts the pieces into three roles: guide files as guardrails, automated checks as sensors, humans at the points where something becomes irreversible.<sup>7</sup></p>
+
+            <!-- ══ KEY NUMBERS ══ -->
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">5,194</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Execution trajectories in Harness-Bench. Finding: performance varies substantially by model-harness pairing.</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#sources" style="color: inherit;">Yao et al. 2026</a></p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">1.1 : 3.1</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Maintainability out of 5: agent-only code against code with a human in the loop.</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#sources" style="color: inherit;">SIG 2026</a></p>
+                </div>
+            </div>
+
+
+            <!-- ══ BLOCK 3: A CRITICAL LOOK ══ -->
+
+            <h2>A critical look</h2>
+
+            <p>The evidence is young and partly self-interested. The OpenAI piece is a vendor describing its own tool, not a controlled comparison. The page also blocks automated retrieval, so I could only verify its numbers through several agreeing secondary sources. Harness-Bench shows that harness effects are measurable but names no single factor that transfers cleanly to another product.</p>
+
+            <p>The more serious objection runs the other way. A harness can stack checks until nothing autonomous is left and the agent costs more than the work it was meant to absorb. Gartner predicts that more than 40 percent of agentic AI projects will be cancelled by the end of 2027, among other reasons because of escalating costs and unclear business value.<sup>8</sup> Too much harness is one of the ways those costs appear. Where the line between enough and too much sits still has to become clear.</p>
+
+
+            <!-- ══ BLOCK 4: WHAT I CHANGED AND WHAT IS STILL MISSING ══ -->
+
+            <h2>What I changed and what is still missing</h2>
+
+            <p>My personal knowledge system has followed this logic for months without my having a name for it. A guide file at the root, topic specific rule sets loaded only when needed, reusable commands for recurring workflows, and a pre-commit hook that blocks a commit when a file with credentials slipped in. Every one of those pieces came from a concrete mistake, none from a concept. It covers my own structure such as weekly plans, article drafts and learning goals, never confidential company data.</p>
+
+            <p>The weak point sits somewhere I did not expect. The hooks live outside version control. On a new machine the protection is gone, and the knowledge about it survives only in a document someone has to read. A sensor you have to reconnect by hand is not a sensor.</p>
+
+            <p>So I am taking on two things. First, storing the hooks so they travel with the repository instead of surviving in a manual. Second, writing down the execution environment for every AI feature I specify from now on with the same care as the interface: which tools, which context, which check before release, and which step deliberately stays with a person. Whether that makes specs better or merely longer will show over the coming months.</p>
+
+
+            <!-- ══ BLOCK 5: WHAT STAYS WITH YOU EVERY DAY ══ -->
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The same mistake twice is a system fault</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">The second time round, fix the environment that makes the mistake possible instead of the output.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Capability belongs to the configuration, not the model</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">In specs and vendor conversations, ask about the execution environment and not only about the model name.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Context is a scarce budget</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">What gets into the context window is a prioritisation call and therefore belongs on the product side of the table.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SOURCES ══ -->
+
+            <div class="mt-12 pt-6" id="sources" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://mitchellh.com/writing/my-ai-adoption-journey" class="hover:text-stone-600 transition-colors" style="color: inherit;">Hashimoto, M. (2026). My AI Adoption Journey. February 5, 2026.</a></li>
+                    <li><a href="https://openai.com/index/harness-engineering/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Lopopolo, R. (2026). Harness engineering: leveraging Codex in an agent-first world. OpenAI. (Page blocks automated retrieval, figures verified via secondary sources.)</a></li>
+                    <li><a href="https://www.langchain.com/blog/the-anatomy-of-an-agent-harness" class="hover:text-stone-600 transition-colors" style="color: inherit;">Trivedy, V. (2026). The Anatomy of an Agent Harness. LangChain, March 10, 2026.</a></li>
+                    <li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">Rajasekaran, P., Dixon, E., Ryan, C., Hadfield, J. (2025). Effective context engineering for AI agents. Anthropic, September 29, 2025.</a></li>
+                    <li><a href="https://www.anthropic.com/engineering/writing-tools-for-agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">Aizawa, K. (2025). Writing effective tools for AI agents with AI agents. Anthropic, September 11, 2025.</a></li>
+                    <li><a href="https://arxiv.org/abs/2605.27922" class="hover:text-stone-600 transition-colors" style="color: inherit;">Yao, Y. et al. (2026). Harness-Bench: Measuring Harness Effects across Models in Realistic Agent Workflows. arXiv:2605.27922.</a></li>
+                    <li><a href="https://www.softwareimprovementgroup.com/blog/what-is-harness-engineering/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Heijstek, W. (2026). What is harness engineering? Software Improvement Group, April 24, 2026.</a></li>
+                    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gartner (2025). Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027. June 25, 2025.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSARY ══ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Harness</span> <span class="text-stone-400">— everything about an AI agent that is not the model: tools, context, state, permissions, checks.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agent</span> <span class="text-stone-400">— a language model that uses tools across several steps and keeps state while doing so.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">System prompt</span> <span class="text-stone-400">— the standing instruction that applies before every conversation and sets role and rules.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context window</span> <span class="text-stone-400">— the limited amount of text a model can process at once per request.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Token</span> <span class="text-stone-400">— smallest unit of text processing, roughly a fragment of a word.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Attention budget</span> <span class="text-stone-400">— image for a model's finite capacity to relate pieces of context to each other.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Hook</span> <span class="text-stone-400">— an automatic intermediate step that enforces fixed rules when an event occurs.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Pre-commit hook</span> <span class="text-stone-400">— a hook that checks before saving to version control and aborts if needed.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Sandbox</span> <span class="text-stone-400">— an isolated environment where an agent can act without touching real systems.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Orchestration</span> <span class="text-stone-400">— logic that splits work, starts sub-agents and merges their results.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Pull request</span> <span class="text-stone-400">— a proposed code change that gets reviewed before it is merged.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agentic AI</span> <span class="text-stone-400">— AI systems that carry out steps on their own instead of only answering.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="/blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+    <!-- ======== LANGUAGE TOGGLE (controlled by components.js nav) ======== -->
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+
+</html>
