@@ -9,8 +9,9 @@
     <meta name="theme-color" content="#7B6BA5">
     <title>Office · Struktur – Linja</title>
     <meta name="robots" content="noindex, nofollow">
+    <script src="/office/guard.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { theme: { extend: {
@@ -20,7 +21,7 @@
     </script>
     <style>
         .source-serif { font-family: "Fraunces", Georgia, serif; color: #472E56 !important; }
-        .row { display: grid; grid-template-columns: 15rem 1fr 5.5rem; gap: 1rem; align-items: baseline;
+        .row { display: grid; grid-template-columns: 16rem 1fr 5.5rem; gap: 1rem; align-items: baseline;
                padding: 0.7rem 0; border-bottom: 1px solid #EFEDE7; }
         .row:last-child { border-bottom: none; }
         @media (max-width: 767px) {
@@ -28,381 +29,463 @@
             .row .why { grid-column: 1 / 2; }
             .row .badge-cell { grid-row: 1; grid-column: 2; text-align: right; }
         }
-        .path { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.68rem; color: #A8A29E; }
+        .row > * { min-width: 0; }
+        .path { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.68rem; color: #A8A29E;
+                overflow-wrap: anywhere; }
         .badge { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.6rem; letter-spacing: 0.09em;
                  text-transform: uppercase; padding: 0.15rem 0.45rem; border-radius: 0.3rem; white-space: nowrap; }
         .b-gate  { background: #ece8f2; color: #6b5691; }
         .b-guard { background: #F5F3EF; color: #78716c; }
         .b-open  { background: #fae8de; color: #a86340; }
+        .sub { padding-left: 1.1rem; }
     </style>
 </head>
 <body style="background: #FAFAF8;" class="font-sans text-stone-700">
+    <main class="max-w-[1100px] mx-auto px-6 py-16">
 
-    <div id="office-gate"></div>
 
-    <div id="office-content" style="display:none">
-        <div id="office-nav"></div>
+        <header class="mb-10">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Office · Struktur · Stand 30.08.2026</p>
+            <h1 class="source-serif text-3xl text-stone-900 mb-2">Was liegt wo.</h1>
+            <p class="text-sm text-stone-500 max-w-2xl">Jede Seite unter linja.me/office: wozu sie da ist, wo sie liegt, wie sie geschützt ist. Die Gruppen entsprechen den Menü-Clustern.</p>
+            <p class="text-[0.75rem] text-stone-400 mt-3 font-mono">44 Seiten · <a href="index.html" class="text-violet-400 hover:text-violet-500">zurück zum Dashboard</a></p>
+        </header>
 
-        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+        <section class="mb-10">
+            <div class="border rounded-xl p-6" style="border-color: #f0ddd0; background: #fdf8f4;">
+                <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-2" style="color: #a86340;">Wichtig zum Schutz</p>
+                <p class="text-sm text-stone-700 leading-relaxed mb-3"><strong>Gate und Guard sind Client-Schutz auf GitHub Pages.</strong> Das Repo <span class="font-mono text-[0.8rem]">Linja261/linja-site</span> ist öffentlich, das Passwort steht im Klartext in <span class="font-mono text-[0.8rem]">office.js</span>, und das Gate versteckt den Inhalt nur per CSS — ausgeliefert wird er trotzdem. Wer die URL kennt und in den Quelltext schaut, liest alles.</p>
+                <p class="text-sm text-stone-700 leading-relaxed">Das hält Zufallsbesucher und Suchmaschinen ab. Es ersetzt keinen Login. <strong>Nichts hier ablegen, dessen Offenlegung wirklich schadet</strong> — keine Firmeninterna, keine Vertragsdetails, keine Kundendaten, keine Namen mit Bewertung.</p>
+            </div>
+        </section>
 
-            <header class="mb-10">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Struktur</p>
-                <h1 class="source-serif text-3xl text-stone-900 mb-2">Was liegt wo.</h1>
-                <p class="text-sm text-stone-500 max-w-2xl">Jede Seite unter linja.me/office: wozu sie da ist, wo sie liegt, wie sie geschützt ist. Die Gruppen entsprechen den Menü-Clustern.</p>
-            </header>
-
-            <!-- Legende -->
-            <section class="mb-12 p-5 rounded-xl bg-white border" style="border-color: #E5E2DB;">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-stone-400">Schutz-Arten</p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-stone-500">
-                    <div>
-                        <span class="badge b-gate">Gate</span>
-                        <p class="mt-2">Passwort-Wand auf der Seite selbst. Inhalt bleibt verborgen, bis du <code class="text-stone-600">office.js</code> freischaltest.</p>
-                    </div>
-                    <div>
-                        <span class="badge b-guard">Guard</span>
-                        <p class="mt-2">Leitet ohne Login sofort zur Passwortabfrage um und danach wieder zurück. Für Seiten mit eigenem Layout (<code class="text-stone-600">guard.js</code>).</p>
-                    </div>
-                    <div>
-                        <span class="badge b-open">Offen</span>
-                        <p class="mt-2">Ohne Passwort abrufbar. Trägt <code class="text-stone-600">noindex</code>, taucht also nicht bei Google auf, ist per Link aber erreichbar.</p>
-                    </div>
+        <section class="mb-10">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Schutz-Arten</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <span class="badge b-gate">Gate</span>
+                    <p class="text-[0.8rem] text-stone-600 mt-3">Passwortwand auf der Seite selbst. Der Inhalt bleibt unsichtbar, bis office.js freischaltet.</p>
                 </div>
-                <p class="text-xs text-stone-400 mt-4 pt-4 border-t" style="border-color: #EFEDE7;">Beides ist Client-Schutz auf GitHub Pages: das Passwort steht im ausgelieferten JavaScript. Es hält Zufallsbesucher und Suchmaschinen ab, ersetzt aber keinen echten Login. Nichts hier ablegen, dessen Offenlegung wirklich schadet.</p>
-            </section>
-
-            <!-- Projekte -->
-            <section class="mb-10">
-                <h2 class="source-serif text-xl text-stone-900 mb-1">Projekte</h2>
-                <p class="text-xs text-stone-400 mb-3">Was gerade läuft.</p>
-                <div class="bg-white border rounded-xl px-5 py-2" style="border-color: #E5E2DB;">
-                    <div class="row">
-                        <div><a href="projekte.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Übersicht</a><div class="path">projekte.html</div></div>
-                        <div class="why text-xs text-stone-500">Alle aktiven Projekte auf einen Blick, mit Status und nächstem Schritt.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="mamabande.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">mamabande</a><div class="path">mamabande.html</div></div>
-                        <div class="why text-xs text-stone-500">Track zum Pilot im Kreis Unna, mit den Materialien zum Ausdrucken und Posten.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="mamabande-aushang.html" class="text-stone-800 hover:text-violet-500 transition-colors">↳ Aushang A4</a><div class="path">mamabande-aushang.html</div></div>
-                        <div class="why text-xs text-stone-500">Druckvorlage für den Aushang. <strong class="text-stone-600">Ungeschützt</strong> — bewusst so, damit du sie unterwegs ohne Login öffnen und drucken kannst.</div>
-                        <div class="badge-cell"><span class="badge b-open">Offen</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="mamabande-kacheln.html" class="text-stone-800 hover:text-violet-500 transition-colors">↳ Social-Kacheln</a><div class="path">mamabande-kacheln.html</div></div>
-                        <div class="why text-xs text-stone-500">Kachel-Vorlagen für Instagram und WhatsApp. <strong class="text-stone-600">Ungeschützt</strong>, gleiche Begründung.</div>
-                        <div class="badge-cell"><span class="badge b-open">Offen</span></div>
-                    </div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <span class="badge b-guard">Guard</span>
+                    <p class="text-[0.8rem] text-stone-600 mt-3">Leitet ohne Login zur Passwortabfrage um und danach zurück. Für Seiten mit eigenem Layout.</p>
                 </div>
-                <p class="text-xs text-stone-400 mt-3">Die beiden Material-Seiten tragen <code>noindex</code>, hängen aber ohne Passwort im Netz. Für Aushang und Kacheln ist das vertretbar. Wenn du sie doch hinter den Schutz willst: <code>&lt;script src="guard.js"&gt;&lt;/script&gt;</code> als erste Zeile im <code>&lt;head&gt;</code>, mehr braucht es nicht.</p>
-            </section>
-
-            <!-- Heute -->
-            <section class="mb-10">
-                <h2 class="source-serif text-xl text-stone-900 mb-1">Heute</h2>
-                <p class="text-xs text-stone-400 mb-3">Der Tagesbetrieb, gefüttert aus /checkin und /checkout.</p>
-                <div class="bg-white border rounded-xl px-5 py-2" style="border-color: #E5E2DB;">
-                    <div class="row">
-                        <div><a href="reminder.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Reminder</a><div class="path">reminder.html</div></div>
-                        <div class="why text-xs text-stone-500">Datierte Reminder als Inbox: Heute · Diese Woche · Später · Erledigt.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="checklog.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Check-Log</a><div class="path">checklog.html</div></div>
-                        <div class="why text-xs text-stone-500">Stimmung, Fokus und offene Punkte über die Zeit.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="ziele.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Ziele</a><div class="path">ziele.html</div></div>
-                        <div class="why text-xs text-stone-500">Wochen- und Monatsziele, abhakbar.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="zeit.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Zeit</a><div class="path">zeit.html</div></div>
-                        <div class="why text-xs text-stone-500">Zeit-Log pro Projekt und Tag.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <span class="badge b-open">Offen</span>
+                    <p class="text-[0.8rem] text-stone-600 mt-3">Ohne Passwort abrufbar. Trägt noindex, ist per Link aber erreichbar. Bewusst so.</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Karriere & Verdienen -->
-            <section class="mb-10">
-                <h2 class="source-serif text-xl text-stone-900 mb-1">Karriere &amp; Verdienen</h2>
-                <p class="text-xs text-stone-400 mb-3">Anstellung, Nebentätigkeit, Selbstständigkeit.</p>
-                <div class="bg-white border rounded-xl px-5 py-2" style="border-color: #E5E2DB;">
-                    <div class="row">
-                        <div><a href="bewerbungen.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Bewerbungen</a><div class="path">bewerbungen.html</div></div>
-                        <div class="why text-xs text-stone-500">Pipeline aller laufenden Bewerbungen mit Status.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+        <section class="mb-10">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">Fokus</p>
+            <p class="text-[0.78rem] text-stone-500 mb-3">Der Tagesbetrieb. Alles hier speichert im Browser, gerätelokal.</p>
+            <div class="bg-white border rounded-xl px-6 py-2" style="border-color: #E5E2DB;">
+                <div class="row">
+                    <div class="">
+                        <a href="heute.html" class="text-sm text-stone-800 hover:text-violet-500">Heute</a>
+                        <div class="path">heute.html</div>
                     </div>
-                    <div class="row">
-                        <div><a href="interviews.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Interviews</a><div class="path">interviews.html</div></div>
-                        <div class="why text-xs text-stone-500">Spickzettel-Hub. Von hier gehen die sechs Firmen-Detailseiten ab (siehe unten).</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="job.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Job-Vergleich</a><div class="path">job.html</div></div>
-                        <div class="why text-xs text-stone-500">Drei Angebote gegen den Status quo, mit Zahlen.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="nebentaetigkeit.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Nebentätigkeit</a><div class="path">nebentaetigkeit.html</div></div>
-                        <div class="why text-xs text-stone-500">Rechtlicher Rahmen und Antragslage für Nebentätigkeiten.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="angebote.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Angebote</a><div class="path">angebote.html</div></div>
-                        <div class="why text-xs text-stone-500">Services und Formate mit Preisen. Zwei Arbeitsseiten hängen daran (siehe unten).</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="solo.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Solo · Akquise</a><div class="path">solo.html</div></div>
-                        <div class="why text-xs text-stone-500">Selbstständigkeitstrack: Business Case, Break-even, Steuerseite.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="studio.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Studio · Panoptia</a><div class="path">studio.html</div></div>
-                        <div class="why text-xs text-stone-500">Panoptia als Premium-Layer über dem Solo-Angebot. Aktuell geparkt.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Top-Aufgaben, laufender Timer, Wochen- und Monatsziele, heute gebuchte Zeit. Der tägliche Einstieg.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
                 </div>
-            </section>
-
-            <!-- Content -->
-            <section class="mb-10">
-                <h2 class="source-serif text-xl text-stone-900 mb-1">Content</h2>
-                <p class="text-xs text-stone-400 mb-3">Alles rund um linja.me/blog.</p>
-                <div class="bg-white border rounded-xl px-5 py-2" style="border-color: #E5E2DB;">
-                    <div class="row">
-                        <div><a href="blog.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Blog</a><div class="path">blog.html</div></div>
-                        <div class="why text-xs text-stone-500">Editorial Cockpit: Drafts, Live-Artikel, Publish-Termine.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                <div class="row">
+                    <div class="">
+                        <a href="ziele.html" class="text-sm text-stone-800 hover:text-violet-500">Ziele</a>
+                        <div class="path">ziele.html</div>
                     </div>
-                    <div class="row">
-                        <div><a href="promo.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Promo</a><div class="path">promo.html</div></div>
-                        <div class="why text-xs text-stone-500">Fertige LinkedIn- und Substack-Posts zu jedem Artikel, zum Kopieren.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="analytics.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Analytics</a><div class="path">analytics.html</div></div>
-                        <div class="why text-xs text-stone-500">Reichweite und Funnel aus Umami. Das Office selbst wird nicht getrackt.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Wochen- und Monatsziele setzen und abhaken. Wird von Heute gespiegelt.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
                 </div>
-            </section>
-
-            <!-- Wissen -->
-            <section class="mb-10">
-                <h2 class="source-serif text-xl text-stone-900 mb-1">Wissen</h2>
-                <p class="text-xs text-stone-400 mb-3">Methoden, Skills, Lernpfade.</p>
-                <div class="bg-white border rounded-xl px-5 py-2" style="border-color: #E5E2DB;">
-                    <div class="row">
-                        <div><a href="skills.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Skills</a><div class="path">skills.html</div></div>
-                        <div class="why text-xs text-stone-500">Alle Claude-Skills und Commands mit Zweck und Aufruf.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                <div class="row">
+                    <div class="">
+                        <a href="zeit.html" class="text-sm text-stone-800 hover:text-violet-500">Zeit-Log</a>
+                        <div class="path">zeit.html</div>
                     </div>
-                    <div class="row">
-                        <div><a href="lernplan.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Lernplan</a><div class="path">lernplan.html</div></div>
-                        <div class="why text-xs text-stone-500">Lernpfade als Now · Next · Later.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="workflows.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Workflows</a><div class="path">workflows.html</div></div>
-                        <div class="why text-xs text-stone-500">Skills und Methoden nach Quadranten sortiert: wann greift was.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Alle Zeiteinträge, 14-Tage-Diagramm, Summen. Der Timer schreibt hier hinein.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
                 </div>
-            </section>
-
-            <!-- Arbeitsproben -->
-            <section class="mb-10">
-                <h2 class="source-serif text-xl text-stone-900 mb-1">Arbeitsproben</h2>
-                <p class="text-xs text-stone-400 mb-3">Material, das für andere entstanden ist. Eigenes Layout, deshalb Guard statt Gate.</p>
-                <div class="bg-white border rounded-xl px-5 py-2" style="border-color: #E5E2DB;">
-                    <div class="row">
-                        <div><a href="eprimo/pitch/index.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">eprimo · Pitch</a><div class="path">eprimo/pitch/</div></div>
-                        <div class="why text-xs text-stone-500">Einstieg in die eprimo-Case-Study (Energiekompass), gebaut für Bermuda Digital Studio.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                <div class="row">
+                    <div class="">
+                        <a href="reminder.html" class="text-sm text-stone-800 hover:text-violet-500">Inbox</a>
+                        <div class="path">reminder.html</div>
                     </div>
-                    <div class="row">
-                        <div><a href="eprimo/casestudy/index.html" class="text-stone-800 hover:text-violet-500 transition-colors">↳ Produktkonzept</a><div class="path">eprimo/casestudy/</div></div>
-                        <div class="why text-xs text-stone-500">Die Langfassung hinter dem Pitch.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="eprimo/casestudy/site/index.html" class="text-stone-800 hover:text-violet-500 transition-colors">↳ Landing-Prototyp</a><div class="path">eprimo/casestudy/site/</div></div>
-                        <div class="why text-xs text-stone-500">Fiktive Produktseite als Anschauungsmaterial.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="eprimo/casestudy/app/index.html" class="text-stone-800 hover:text-violet-500 transition-colors">↳ App-Prototyp</a><div class="path">eprimo/casestudy/app/</div></div>
-                        <div class="why text-xs text-stone-500">Fünf Screens: Dashboard, Zählerstand, Prognose, Monatsreport, KI-Chat.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="casestudy-hero-onepager.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Hero · Case Study</a><div class="path">casestudy-hero-onepager.html</div></div>
-                        <div class="why text-xs text-stone-500">AI-Feature-Proposal „Hero Daily" als Onepager, für HERO Software.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="casestudy-hero-volltext.html" class="text-stone-800 hover:text-violet-500 transition-colors">↳ Volltext</a><div class="path">casestudy-hero-volltext.html</div></div>
-                        <div class="why text-xs text-stone-500">Ausführliche Fassung derselben Case Study.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="ki-studium/index.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Uni-Vortrag · Foliendeck</a><div class="path">ki-studium/</div></div>
-                        <div class="why text-xs text-stone-500">„KI im Studium bewusst steuern", 25 Slides mit Sprechernotizen. Gehalten am 27.06.2026.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="ki-studium/setup.html" class="text-stone-800 hover:text-violet-500 transition-colors">↳ Setup-Handout</a><div class="path">ki-studium/setup.html</div></div>
-                        <div class="why text-xs text-stone-500">Praxisteil: Profil bauen, Arbeitsvertrag setzen, Prompts zum Kopieren. War der QR-Code im Vortrag.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="ki-studium/handout/index.html" class="text-stone-800 hover:text-violet-500 transition-colors">↳ Handout</a><div class="path">ki-studium/handout/</div></div>
-                        <div class="why text-xs text-stone-500">Zusammenfassung zum Mitnehmen: KI als Assistenz bewusst steuern.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="propertyexpert/index.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">PropertyExpert</a><div class="path">propertyexpert/</div></div>
-                        <div class="why text-xs text-stone-500">Empathy Maps für vier Zielgruppen, Prävention Wohngebäude. Leitet auf die interaktive Ansicht weiter.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="propertyexpert/interaktiv/index.html" class="text-stone-800 hover:text-violet-500 transition-colors">↳ Interaktiv</a><div class="path">propertyexpert/interaktiv/</div></div>
-                        <div class="why text-xs text-stone-500">Durchklickbare Fassung der vier Empathy Maps.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="propertyexpert/overview/index.html" class="text-stone-800 hover:text-violet-500 transition-colors">↳ Overview</a><div class="path">propertyexpert/overview/</div></div>
-                        <div class="why text-xs text-stone-500">Langfassung mit Ideengenerierung je Zielgruppe.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="propertyexpert/vorgehen/index.html" class="text-stone-800 hover:text-violet-500 transition-colors">↳ Vorgehen &amp; Angebot</a><div class="path">propertyexpert/vorgehen/</div></div>
-                        <div class="why text-xs text-stone-500">Fractional-Angebot. Nur von hier aus verlinkt.</div>
-                        <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
-                    </div>
-                    <div class="row">
-                        <div><span class="text-stone-500">↳ Empathy Maps (PDF)</span><div class="path">propertyexpert/empathy-maps-4-zielgruppen.pdf</div></div>
-                        <div class="why text-xs text-stone-500"><strong class="text-stone-600">Bewusste Restlücke:</strong> eine statische PDF lässt sich per JavaScript nicht schützen. Wer die exakte URL kennt, kann sie laden. Nur der Pfad ist die Hürde.</div>
-                        <div class="badge-cell"><span class="badge b-open">Offen</span></div>
-                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Datierte Reminder: Heute · Diese Woche · Später · Erledigt.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
                 </div>
-            </section>
-
-            <!-- Unterseiten -->
-            <section class="mb-10">
-                <h2 class="source-serif text-xl text-stone-900 mb-1">Unterseiten</h2>
-                <p class="text-xs text-stone-400 mb-3">Bewusst nicht im Menü: sie hängen an einer Elternseite und würden die Cluster aufblähen. Alle per Gate geschützt.</p>
-                <div class="bg-white border rounded-xl px-5 py-4" style="border-color: #E5E2DB;">
-                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-2">unter Interviews</p>
-                    <ul class="text-xs text-stone-500 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1 mb-5">
-                        <li>· <a href="interview-bermuda.html" class="hover:text-violet-500">Bermuda Digital Studio</a> <span class="path">interview-bermuda.html</span></li>
-                        <li>· <a href="interview-bfs.html" class="hover:text-violet-500">BFS health finance</a> <span class="path">interview-bfs.html</span></li>
-                        <li>· <a href="interview-cpa.html" class="hover:text-violet-500">CPA SoftwareConsult</a> <span class="path">interview-cpa.html</span></li>
-                        <li>· <a href="interview-douglas.html" class="hover:text-violet-500">Douglas Retail Media</a> <span class="path">interview-douglas.html</span></li>
-                        <li>· <a href="interview-hero.html" class="hover:text-violet-500">HERO Software</a> <span class="path">interview-hero.html</span></li>
-                        <li>· <a href="interview-ruhrdigital.html" class="hover:text-violet-500">Digital Ruhr</a> <span class="path">interview-ruhrdigital.html</span></li>
-                    </ul>
-                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-2">unter Angebote</p>
-                    <ul class="text-xs text-stone-500 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1">
-                        <li>· <a href="angebote-schaerfung.html" class="hover:text-violet-500">Angebot schärfen (Solo)</a> <span class="path">angebote-schaerfung.html</span></li>
-                        <li>· <a href="angebote-optimierung.html" class="hover:text-violet-500">Angebots-Strategie Solo + Panoptia</a> <span class="path">angebote-optimierung.html</span></li>
-                    </ul>
+                <div class="row">
+                    <div class="">
+                        <a href="checklog.html" class="text-sm text-stone-800 hover:text-violet-500">Check-Log</a>
+                        <div class="path">checklog.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Stimmung, Fokus und offene Punkte über die Zeit, aus /checkin und /checkout.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Meta -->
-            <section class="mb-10">
-                <h2 class="source-serif text-xl text-stone-900 mb-1">Meta</h2>
-                <p class="text-xs text-stone-400 mb-3">Rechts oben in der Navigation, nicht in den Clustern.</p>
-                <div class="bg-white border rounded-xl px-5 py-2" style="border-color: #E5E2DB;">
-                    <div class="row">
-                        <div><a href="struktur.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Struktur</a><div class="path">struktur.html</div></div>
-                        <div class="why text-xs text-stone-500">Diese Seite.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+        <section class="mb-10">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">PropertyExpert</p>
+            <p class="text-[0.78rem] text-stone-500 mb-3">Der Job ab 01.09.2026. Nur konferenzfeste Inhalte — nichts Internes.</p>
+            <div class="bg-white border rounded-xl px-6 py-2" style="border-color: #E5E2DB;">
+                <div class="row">
+                    <div class="">
+                        <a href="pe.html" class="text-sm text-stone-800 hover:text-violet-500">Überblick</a>
+                        <div class="path">pe.html</div>
                     </div>
-                    <div class="row">
-                        <div><a href="roadmap.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Roadmap</a><div class="path">roadmap.html</div></div>
-                        <div class="why text-xs text-stone-500">Was am Office selbst gebaut wird: Now · Next · Later · Done.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
-                    <div class="row">
-                        <div><a href="index.html" class="text-stone-900 hover:text-violet-500 transition-colors font-medium">Dashboard</a><div class="path">index.html</div></div>
-                        <div class="why text-xs text-stone-500">Einstieg mit Kacheln. Auch die Seite, auf der der Login erscheint.</div>
-                        <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
-                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Einstieg: Rolle, Countdown, die ersten zwei Tage, Zwei-Vault-Regel, Nebentätigkeits-Pflichten.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
                 </div>
-            </section>
-
-            <!-- Alte URLs -->
-            <section class="mb-10">
-                <h2 class="source-serif text-xl text-stone-900 mb-1">Alte öffentliche URLs</h2>
-                <p class="text-xs text-stone-400 mb-3">eprimo lag früher unter /bermuda/, der Uni-Vortrag unter /ki-studium/. Beide URLs sind rausgegangen (QR-Code im Vortrag, Pitch-Link in den Interview-Notizen). Dort liegt jetzt eine leere Weiterleitung ohne Inhalt: wer den alten Link öffnet, landet auf der Passwortabfrage.</p>
-                <div class="bg-white border rounded-xl px-5 py-2" style="border-color: #E5E2DB;">
-                    <div class="row">
-                        <div><span class="text-stone-700 font-medium">/bermuda/pitch/</span></div>
-                        <div class="why text-xs text-stone-500">→ office/eprimo/pitch/</div>
-                        <div class="badge-cell"><span class="badge b-open">Offen</span></div>
+                <div class="row">
+                    <div class="">
+                        <a href="pe-unternehmen.html" class="text-sm text-stone-800 hover:text-violet-500">Unternehmen &amp; Strategie</a>
+                        <div class="path">pe-unternehmen.html</div>
                     </div>
-                    <div class="row">
-                        <div><span class="text-stone-700 font-medium">/bermuda/casestudy/</span></div>
-                        <div class="why text-xs text-stone-500">→ office/eprimo/casestudy/</div>
-                        <div class="badge-cell"><span class="badge b-open">Offen</span></div>
-                    </div>
-                    <div class="row">
-                        <div><span class="text-stone-700 font-medium">/ki-studium/</span></div>
-                        <div class="why text-xs text-stone-500">→ office/ki-studium/</div>
-                        <div class="badge-cell"><span class="badge b-open">Offen</span></div>
-                    </div>
-                    <div class="row">
-                        <div><span class="text-stone-700 font-medium">/ki-studium/setup</span></div>
-                        <div class="why text-xs text-stone-500">→ office/ki-studium/setup.html · Das ist das Ziel des QR-Codes im Foliendeck. Der QR-Code selbst zeigt weiter auf die alte URL und funktioniert dadurch.</div>
-                        <div class="badge-cell"><span class="badge b-open">Offen</span></div>
-                    </div>
-                    <div class="row">
-                        <div><span class="text-stone-700 font-medium">/ki-studium/handout/</span></div>
-                        <div class="why text-xs text-stone-500">→ office/ki-studium/handout/</div>
-                        <div class="badge-cell"><span class="badge b-open">Offen</span></div>
-                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Herkunft, Mission, drei strategische Bewegungen, Produkte, offene Fragen. Mit Quellenliste.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
                 </div>
-                <p class="text-xs text-stone-400 mt-3">Wenn du den Vortrag noch einmal hältst und Studierende die Handouts brauchen: entweder das Handout wieder öffentlich stellen oder ihnen das Passwort nennen. So wie es jetzt steht, laufen sie in die Passwortabfrage.</p>
-            </section>
-
-            <!-- Regeln -->
-            <section class="mb-10">
-                <h2 class="source-serif text-xl text-stone-900 mb-1">Wenn eine Seite dazukommt</h2>
-                <p class="text-xs text-stone-400 mb-3">Vier Schritte, damit die Struktur nicht wieder auseinanderläuft.</p>
-                <div class="bg-white border rounded-xl p-5 space-y-4" style="border-color: #E5E2DB;">
-                    <div class="flex gap-4">
-                        <span class="font-mono text-xs text-violet-400 flex-shrink-0 pt-0.5">01</span>
-                        <div class="text-sm text-stone-600"><strong class="text-stone-800">Schutz wählen.</strong> Standard-Office-Layout → Gate: <code class="text-xs">&lt;div id="office-gate"&gt;&lt;/div&gt;</code>, Inhalt in <code class="text-xs">#office-content</code>, am Ende <code class="text-xs">office.js</code> mit <code class="text-xs">data-active</code>. Eigenes Layout, Foliendeck oder iframes → Guard: <code class="text-xs">&lt;script src="/office/guard.js"&gt;&lt;/script&gt;</code> als erste Zeile im <code class="text-xs">&lt;head&gt;</code>.</div>
+                <div class="row">
+                    <div class="">
+                        <a href="pe-stakeholder.html" class="text-sm text-stone-800 hover:text-violet-500">Stakeholder-Radar</a>
+                        <div class="path">pe-stakeholder.html</div>
                     </div>
-                    <div class="flex gap-4">
-                        <span class="font-mono text-xs text-violet-400 flex-shrink-0 pt-0.5">02</span>
-                        <div class="text-sm text-stone-600"><strong class="text-stone-800">noindex setzen.</strong> <code class="text-xs">&lt;meta name="robots" content="noindex, nofollow"&gt;</code>. Es gibt keine robots.txt, jede Seite trägt das selbst.</div>
-                    </div>
-                    <div class="flex gap-4">
-                        <span class="font-mono text-xs text-violet-400 flex-shrink-0 pt-0.5">03</span>
-                        <div class="text-sm text-stone-600"><strong class="text-stone-800">Ins Menü.</strong> Eintrag im <code class="text-xs">clusters</code>-Array in <code class="text-xs">office.js</code>. Wenn die Seite klar an einer anderen hängt: nicht ins Menü, sondern von der Elternseite verlinken und hier unter „Unterseiten" eintragen.</div>
-                    </div>
-                    <div class="flex gap-4">
-                        <span class="font-mono text-xs text-violet-400 flex-shrink-0 pt-0.5">04</span>
-                        <div class="text-sm text-stone-600"><strong class="text-stone-800">Hier eine Zeile ergänzen.</strong> Sonst ist diese Übersicht in drei Monaten wieder falsch.</div>
-                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Wer wichtig ist, wann zuletzt gesprochen. Namen und Rollen, keine Bewertungen.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
                 </div>
-            </section>
+                <div class="row">
+                    <div class="">
+                        <a href="pe-fragen.html" class="text-sm text-stone-800 hover:text-violet-500">Gute Fragen</a>
+                        <div class="path">pe-fragen.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Fünf für den ersten Tag, dazu ein Vorrat für Meetings und die ersten Wochen.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="propertyexpert/index.html" class="text-sm text-stone-800 hover:text-violet-500">Empathy Maps · Prävention</a>
+                        <div class="path">propertyexpert/index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Vier Zielgruppen, eigene Vorarbeit. Eigenes Layout, deshalb Guard statt Gate.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="propertyexpert/overview/index.html" class="text-sm text-stone-800 hover:text-violet-500">↳ Überblick</a>
+                        <div class="path">propertyexpert/overview/index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Zusammenfassung der vier Maps.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="propertyexpert/interaktiv/index.html" class="text-sm text-stone-800 hover:text-violet-500">↳ Interaktiv</a>
+                        <div class="path">propertyexpert/interaktiv/index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Klickbare Fassung.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="propertyexpert/vorgehen/index.html" class="text-sm text-stone-800 hover:text-violet-500">↳ Vorgehen</a>
+                        <div class="path">propertyexpert/vorgehen/index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Wie die Maps entstanden sind.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+            </div>
+        </section>
 
-            <p class="text-xs text-stone-400 text-center pt-8" style="border-top: 1px solid #E5E2DB;">Nichts im Office ist von der öffentlichen Website aus verlinkt. Der einzige Weg hierher ist die direkte URL plus Passwort.</p>
+        <section class="mb-10">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">Projekte</p>
+            <p class="text-[0.78rem] text-stone-500 mb-3">Ein Steckbrief je Projekt: Links, Material, Zielgruppen, JTBD, Umsatzpotenzial, offene Entscheidungen.</p>
+            <div class="bg-white border rounded-xl px-6 py-2" style="border-color: #E5E2DB;">
+                <div class="row">
+                    <div class="">
+                        <a href="projekte.html" class="text-sm text-stone-800 hover:text-violet-500">Übersicht</a>
+                        <div class="path">projekte.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Alle Projekte nach Status sortiert, mit nächstem Schritt.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="projekt-matgrid.html" class="text-sm text-stone-800 hover:text-violet-500">MatGrid</a>
+                        <div class="path">projekt-matgrid.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Materialermittlung Flachdach. Team mit Jan und David. Pause seit 21.08.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="projekt-mamabande.html" class="text-sm text-stone-800 hover:text-violet-500">mamabande</a>
+                        <div class="path">projekt-mamabande.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Freundinnen-App für Mütter. Live, Pilot Kreis Unna. Enthält die Materialien.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="mamabande-aushang.html" class="text-sm text-stone-800 hover:text-violet-500">↳ Aushang A4</a>
+                        <div class="path">mamabande-aushang.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Druckvorlage. Bewusst ungeschützt, damit sie unterwegs ohne Login druckbar ist.</div>
+                    <div class="badge-cell"><span class="badge b-open">Offen</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="mamabande-kacheln.html" class="text-sm text-stone-800 hover:text-violet-500">↳ Social-Kacheln</a>
+                        <div class="path">mamabande-kacheln.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Instagram-Karussell und WhatsApp-Status. Gleiche Begründung.</div>
+                    <div class="badge-cell"><span class="badge b-open">Offen</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="projekt-ag-service.html" class="text-sm text-stone-800 hover:text-violet-500">AG Service</a>
+                        <div class="path">projekt-ag-service.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">AG-Staffeln für OGS-Träger. Konzept, Validierung offen.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="projekt-koaly.html" class="text-sm text-stone-800 hover:text-violet-500">Koaly</a>
+                        <div class="path">projekt-koaly.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Gesundheits-App zwischen Therapieterminen. Prototyp live.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="projekt-reader.html" class="text-sm text-stone-800 hover:text-violet-500">Reader</a>
+                        <div class="path">projekt-reader.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">90-Sekunden-Audio aus langen Artikeln. Prototyp, Eigenbedarf.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+            </div>
+        </section>
 
-        </main>
-    </div>
+        <section class="mb-10">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">Publikationen</p>
+            <p class="text-[0.78rem] text-stone-500 mb-3">Blog, Promo, Analytics und die Vorträge.</p>
+            <div class="bg-white border rounded-xl px-6 py-2" style="border-color: #E5E2DB;">
+                <div class="row">
+                    <div class="">
+                        <a href="blog.html" class="text-sm text-stone-800 hover:text-violet-500">Blog</a>
+                        <div class="path">blog.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Pipeline: Drafts, Live-Artikel, Zweisprachigkeit, Reader-Audio.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="promo.html" class="text-sm text-stone-800 hover:text-violet-500">Promo</a>
+                        <div class="path">promo.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">LinkedIn- und Substack-Queue. Vorproduziert bis 20.12.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="analytics.html" class="text-sm text-stone-800 hover:text-violet-500">Analytics</a>
+                        <div class="path">analytics.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Umami-Zahlen und Funnel. Setup noch unvollständig.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="netzwerkabend/index.html" class="text-sm text-stone-800 hover:text-violet-500">Vortrag · Netzwerkabend</a>
+                        <div class="path">netzwerkabend/index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Deck, Sprechertext, Handout, 1-Pager. Fünf eigene Beispiele als Rückgrat.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="netzwerkabend/deck.html" class="text-sm text-stone-800 hover:text-violet-500">↳ Deck</a>
+                        <div class="path">netzwerkabend/deck.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Die Folien.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="netzwerkabend/handout/index.html" class="text-sm text-stone-800 hover:text-violet-500">↳ Handout</a>
+                        <div class="path">netzwerkabend/handout/index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Zum Mitgeben.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="netzwerkabend/onepager/index.html" class="text-sm text-stone-800 hover:text-violet-500">↳ 1-Pager</a>
+                        <div class="path">netzwerkabend/onepager/index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Die Kurzfassung.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="ki-studium/index.html" class="text-sm text-stone-800 hover:text-violet-500">Uni-Vortrag · KI im Studium</a>
+                        <div class="path">ki-studium/index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Seit 30.08. hier statt bei den Arbeitsproben — es ist Content, keine Referenz.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="ki-studium/handout/index.html" class="text-sm text-stone-800 hover:text-violet-500">↳ Handout</a>
+                        <div class="path">ki-studium/handout/index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Begleitmaterial.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="ki-studium/setup.html" class="text-sm text-stone-800 hover:text-violet-500">↳ Setup</a>
+                        <div class="path">ki-studium/setup.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Technischer Aufbau für den Vortrag.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+            </div>
+        </section>
 
-    <script src="office.js?v=2" data-active="struktur"></script>
+        <section class="mb-10">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">Wissen</p>
+            <p class="text-[0.78rem] text-stone-500 mb-3">Was Claude kann und was ich lerne.</p>
+            <div class="bg-white border rounded-xl px-6 py-2" style="border-color: #E5E2DB;">
+                <div class="row">
+                    <div class="">
+                        <a href="skills.html" class="text-sm text-stone-800 hover:text-violet-500">Skills</a>
+                        <div class="path">skills.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Methoden-Skills, Vault-Skills, Commands. Am 30.08. gegen den Ist-Stand geprüft.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="lernplan.html" class="text-sm text-stone-800 hover:text-violet-500">Lernplan</a>
+                        <div class="path">lernplan.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Die ersten 90 Tage im Job: 16 Fragen, die sich an der Arbeit beantworten.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="workflows.html" class="text-sm text-stone-800 hover:text-violet-500">Workflows</a>
+                        <div class="path">workflows.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Welcher Befehl wofür, und was er auslöst.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">Fractional</p>
+            <p class="text-[0.78rem] text-stone-500 mb-3">Selbstständigkeit, faktisch pausiert seit dem Jobvertrag.</p>
+            <div class="bg-white border rounded-xl px-6 py-2" style="border-color: #E5E2DB;">
+                <div class="row">
+                    <div class="">
+                        <a href="fractional.html" class="text-sm text-stone-800 hover:text-violet-500">Konditionen</a>
+                        <div class="path">fractional.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Tagessatz, Staffelung, Formate, Solo-gegen-Gruppe. Der Spickzettel für die Preisfrage.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="solo.html" class="text-sm text-stone-800 hover:text-violet-500">Solo · Akquise</a>
+                        <div class="path">solo.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Business Case und Break-even-Rechnung. Stand Mai 2026, vor dem Vertrag.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="studio.html" class="text-sm text-stone-800 hover:text-violet-500">Studio · Panoptia</a>
+                        <div class="path">studio.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Gruppenmodell mit Jan und David. Geparkt seit 27.08.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="eprimo/pitch/index.html" class="text-sm text-stone-800 hover:text-violet-500">eprimo · Case Study</a>
+                        <div class="path">eprimo/pitch/index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Arbeitsprobe: Energiekompass. Pitch plus klickbarer Prototyp.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="eprimo/casestudy/index.html" class="text-sm text-stone-800 hover:text-violet-500">↳ Case Study</a>
+                        <div class="path">eprimo/casestudy/index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Die ausführliche Fassung mit App-Screens.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="casestudy-hero-onepager.html" class="text-sm text-stone-800 hover:text-violet-500">Hero · Case Study</a>
+                        <div class="path">casestudy-hero-onepager.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Arbeitsprobe: Hero Daily. 1-Pager.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="sub">
+                        <a href="casestudy-hero-volltext.html" class="text-sm text-stone-800 hover:text-violet-500">↳ Volltext</a>
+                        <div class="path">casestudy-hero-volltext.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Die lange Fassung.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">Meta</p>
+            <p class="text-[0.78rem] text-stone-500 mb-3">Über das Office selbst.</p>
+            <div class="bg-white border rounded-xl px-6 py-2" style="border-color: #E5E2DB;">
+                <div class="row">
+                    <div class="">
+                        <a href="index.html" class="text-sm text-stone-800 hover:text-violet-500">Dashboard</a>
+                        <div class="path">index.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Einstieg mit Live-Zahlen aus dem Browser-Speicher.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="struktur.html" class="text-sm text-stone-800 hover:text-violet-500">Struktur</a>
+                        <div class="path">struktur.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Diese Seite.</div>
+                    <div class="badge-cell"><span class="badge b-guard">Guard</span></div>
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a href="roadmap.html" class="text-sm text-stone-800 hover:text-violet-500">Roadmap</a>
+                        <div class="path">roadmap.html</div>
+                    </div>
+                    <div class="why text-[0.8rem] text-stone-500">Now · Next · Later für das Office selbst.</div>
+                    <div class="badge-cell"><span class="badge b-gate">Gate</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #a86340;">Am 30.08.2026 entfernt</p>
+            <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                <p class="text-sm text-stone-600 leading-relaxed mb-3">Vierzehn Seiten sind aus dem Repo geflogen: die komplette Bewerbungs- und Interview-Strecke (<span class="font-mono text-[0.78rem]">bewerbungen · interviews · sechs interview-* · job</span>), die ControlExpert-Nebentätigkeitsseite, drei Angebotsseiten und die separate mamabande-Materialseite, deren Inhalt jetzt im Projekt-Steckbrief steht.</p>
+                <p class="text-[0.78rem] text-stone-500">Die Dateien sind in der Git-Historie weiter vorhanden und dort öffentlich einsehbar. Untracken wirkt nicht rückwirkend.</p>
+            </div>
+        </section>
+
+    </main>
 </body>
 </html>

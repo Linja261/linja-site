@@ -10,22 +10,12 @@
     <title>Office · Dashboard – Linja</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Fraunces', 'Georgia', 'serif'],
-                        serif: ['Fraunces', 'Georgia', 'serif'],
-                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-                    },
-                    colors: {
-                        violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' },
-                    },
-                },
-            },
+            theme: { extend: { fontFamily: { sans: ['Fraunces', 'Georgia', 'serif'], serif: ['Fraunces', 'Georgia', 'serif'], mono: ['Geist Mono', 'monospace'] },
+                colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } } } }
         }
     </script>
     <style>.source-serif { font-family: "Fraunces", Georgia, serif; color: #472E56 !important; }</style>
@@ -42,613 +32,230 @@
             <header class="mb-10">
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Dashboard · <span id="today-date"></span></p>
                 <h1 class="source-serif text-3xl text-stone-900 mb-2">Office.</h1>
-                <p class="text-sm text-stone-500">Alles auf einen Blick: Ziele dieser Woche, Zeit dieser Woche, Blog-Pipeline, Angebote, Skills.</p>
+                <p class="text-sm text-stone-500">Der Tag, der Job, die Projekte, die Publikationen. Alles Weitere über die Navigation.</p>
             </header>
 
+            <!-- HEUTE + PE: die zwei täglichen Einstiege -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+
+                <a href="heute.html" class="border rounded-xl p-6 transition-all lg:col-span-2 hover:border-violet-300" style="border-color: #d9d1e5; background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%);">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500">Fokus</p>
+                            <h2 class="source-serif text-lg text-stone-900 mt-1">Heute</h2>
+                            <p class="text-[0.78rem] text-stone-500 mt-1">Top-Aufgaben, Timer, Wochen- und Monatsziele auf einer Seite.</p>
+                        </div>
+                        <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded bg-violet-400 text-white">Start hier</span>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Aufgaben heute</p>
+                            <p class="font-mono text-2xl text-stone-900" id="d-tasks">0/0</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Zeit heute</p>
+                            <p class="font-mono text-2xl text-stone-900" id="d-hours">0.00h</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Timer</p>
+                            <p class="font-mono text-2xl text-stone-900" id="d-timer">aus</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="pe.html" class="border rounded-xl p-6 transition-all hover:border-violet-300" style="border-color: #d9d1e5; background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%);">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500">PropertyExpert</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Der neue Job</h2>
+                    <p class="text-[0.78rem] text-stone-500 mt-1 mb-4">Unternehmen, Strategie, Stakeholder, gute Fragen.</p>
+                    <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Start</p>
+                        <p class="font-medium text-stone-900 text-sm">Di 01.09.2026</p>
+                        <p class="text-[0.72rem] text-stone-500 mt-1" id="d-countdown">—</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- PROJEKTE -->
+            <div class="border rounded-xl p-6 mb-4" style="border-color: #E5E2DB; background: #ffffff;">
+                <div class="flex items-start justify-between mb-4 flex-wrap gap-2">
+                    <div>
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Projekte</p>
+                        <h2 class="source-serif text-lg text-stone-900 mt-1">Fünf Stränge, drei tragen bis Jahresende</h2>
+                    </div>
+                    <a href="projekte.html" class="font-mono text-[0.6rem] text-stone-400 hover:text-violet-500 tracking-wide">ÜBERSICHT</a>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-5 gap-3">
+                    <a href="projekt-matgrid.html" class="bg-white rounded-lg p-4 border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #a86340;">Pause</p>
+                        <p class="font-medium text-stone-900 text-sm">MatGrid</p>
+                        <p class="text-[0.72rem] text-stone-500 mt-1">3 Entscheidungen offen</p>
+                    </a>
+                    <a href="projekt-mamabande.html" class="bg-white rounded-lg p-4 border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #5b8a72;">Live</p>
+                        <p class="font-medium text-stone-900 text-sm">mamabande</p>
+                        <p class="text-[0.72rem] text-stone-500 mt-1">Pilot Kreis Unna</p>
+                    </a>
+                    <a href="projekt-ag-service.html" class="bg-white rounded-lg p-4 border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #5b8a72;">Live · gated</p>
+                        <p class="font-medium text-stone-900 text-sm">AG Service</p>
+                        <p class="text-[0.72rem] text-stone-500 mt-1">Träger-Interviews offen</p>
+                    </a>
+                    <a href="projekt-koaly.html" class="bg-white rounded-lg p-4 border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1 text-violet-400">Prototyp</p>
+                        <p class="font-medium text-stone-900 text-sm">Koaly</p>
+                        <p class="text-[0.72rem] text-stone-500 mt-1">Osteopath-Termin offen</p>
+                    </a>
+                    <a href="projekt-reader.html" class="bg-white rounded-lg p-4 border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                        <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1 text-violet-400">Prototyp</p>
+                        <p class="font-medium text-stone-900 text-sm">Reader</p>
+                        <p class="text-[0.72rem] text-stone-500 mt-1">Widget nicht eingebaut</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- ZWEISPALTIG -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-                <!-- Tile: Nebentätigkeit ControlExpert -->
-                <a href="nebentaetigkeit.html" class="border rounded-xl p-6 transition-all lg:col-span-3" style="border-color: #d9d1e5; background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%);">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500">Selbstständigkeitstrack · 22.04.2026</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Nebentätigkeit bei ControlExpert</h2>
-                            <p class="text-[0.78rem] text-stone-500 mt-1">Vertrag analysiert. Antrag fertig. Gesprächsführung steht.</p>
-                        </div>
-                        <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded bg-violet-400 text-white">Neu</span>
-                    </div>
-                    <div class="grid grid-cols-3 gap-3 mt-4">
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Leitfaden</p>
-                            <p class="font-medium text-stone-900 text-sm">Vertragsanalyse</p>
-                            <p class="text-[0.75rem] text-stone-500 mt-1">§§ 8, 9, 10, 11 · Stufenmodell · Ausschlussliste</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Antrag</p>
-                            <p class="font-medium text-stone-900 text-sm">Fertiger Text</p>
-                            <p class="text-[0.75rem] text-stone-500 mt-1">Rahmen-Genehmigung + § 11-Zusatz, zum Kopieren</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Gespräch</p>
-                            <p class="font-medium text-stone-900 text-sm">1:1 mit Ahmed</p>
-                            <p class="text-[0.75rem] text-stone-500 mt-1">Ablauf · Einwand-Tabelle · Rote Linien</p>
-                        </div>
-                    </div>
+                <a href="reminder.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Inbox</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Was reinkam</h2>
+                    <p class="font-mono text-3xl text-stone-900 mt-3" id="d-inbox">0</p>
+                    <p class="text-[0.72rem] text-stone-500 mt-1">offene Einträge</p>
                 </a>
 
-                <!-- Tile: Interviews & Spickzettel -->
-                <div class="border rounded-xl p-6 lg:col-span-3" style="border-color: #d9d1e5; background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%);">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500">Nächste Woche · Juni 2026</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Interviews &amp; Spickzettel</h2>
-                            <p class="text-[0.78rem] text-stone-500 mt-1">6 Spickzettel. Ruhr Digital nächste Woche (vor Ort), Wilo/Bermuda/Douglas in Pipeline, Hero &amp; BFS aus April.</p>
-                        </div>
-                        <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded bg-violet-400 text-white">Nächste Woche</span>
-                    </div>
-                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
-                        <a href="interview-ruhrdigital.html" class="bg-white rounded-lg p-4 border hover:border-violet-300 transition-all" style="border-color: #d9d1e5; background: #faf7ff;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-1">Nächste Woche · vor Ort</p>
-                            <p class="font-medium text-stone-900 text-sm">Digital Ruhr</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">Digital Solution Manager · Mülheim</p>
-                        </a>
-                        <a href="interviews.html" class="bg-white rounded-lg p-4 border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Archiv · 19.05.</p>
-                            <p class="font-medium text-stone-900 text-sm">Wilo SE</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">Innovation Manager · Dortmund · DE+EN</p>
-                        </a>
-                        <a href="interview-bermuda.html" class="bg-white rounded-lg p-4 border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Pipeline</p>
-                            <p class="font-medium text-stone-900 text-sm">Bermuda Digital Studio</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">PM Digital · E.ON · Bochum</p>
-                        </a>
-                        <a href="interview-douglas.html" class="bg-white rounded-lg p-4 border hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Pipeline</p>
-                            <p class="font-medium text-stone-900 text-sm">Douglas Retail Media</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">Product &amp; Innovation Mgr · Düsseldorf · DE+EN</p>
-                        </a>
-                        <a href="interview-hero.html" class="bg-white rounded-lg p-4 border hover:border-violet-300 transition-all opacity-70" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Archiv · 20.04.</p>
-                            <p class="font-medium text-stone-900 text-sm">HERO Software</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">Senior PM · Handwerker-SaaS</p>
-                        </a>
-                        <a href="interview-bfs.html" class="bg-white rounded-lg p-4 border hover:border-violet-300 transition-all opacity-70" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-stone-400 mb-1">Archiv · 20.04.</p>
-                            <p class="font-medium text-stone-900 text-sm">BFS health finance</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">Senior PM · HealthTech/FinTech</p>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tile: Solo-Track (aktiv) -->
-                <a href="solo.html" class="border rounded-xl p-6 transition-all lg:col-span-3 hover:border-emerald-500" style="border-color: #e0ede6; background: linear-gradient(135deg, #f2f7f4 0%, #ffffff 60%);">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #476f5b;">Solo · Akquise · 22.05.2026</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Solo-Track: Akquise &amp; Business Case</h2>
-                            <p class="text-[0.78rem] text-stone-500 mt-1">Business Case neu gerechnet · 6-Monats-Plan (Geld ab Monat 3) · Blog- + LinkedIn-Pipeline · Hausaufgaben.</p>
-                        </div>
-                        <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded text-white" style="background: #5b8a72;">Aktiv</span>
-                    </div>
-                    <div class="grid grid-cols-3 gap-3 mt-4">
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #476f5b;">Break-even</p>
-                            <p class="font-medium text-stone-900 text-sm">~6.400 €/Mon.</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-0.5">inkl. KV + Rente</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #476f5b;">Ziel</p>
-                            <p class="font-medium text-stone-900 text-sm">~8.000 €/Mon.</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-0.5">mehr + sparen</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #476f5b;">Erstes Geld</p>
-                            <p class="font-medium text-stone-900 text-sm">Monat 3</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-0.5">Break-even ~Monat 5</p>
-                        </div>
-                    </div>
+                <a href="ziele.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Ziele</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Woche &amp; Monat</h2>
+                    <p class="font-mono text-3xl text-stone-900 mt-3" id="d-goals">0/0</p>
+                    <p class="text-[0.72rem] text-stone-500 mt-1">Wochenziele erledigt</p>
                 </a>
 
-                <!-- Tile: Studio Panoptia -->
-                <a href="studio.html" class="border rounded-xl p-6 transition-all lg:col-span-3 hover:border-violet-300" style="border-color: #d9d1e5; background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%);">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500">Studio · Panoptia · 18.05.2026</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">Selbstständigkeit als Studio</h2>
-                            <p class="text-[0.78rem] text-stone-500 mt-1">Modell A (Stunden-basiert) · 1.200 €/Tag · 3 Pakete · Business Case · Akquise-Plan · Blog-Pipeline.</p>
-                        </div>
-                        <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded bg-violet-400 text-white">Neu</span>
-                    </div>
-                    <div class="grid grid-cols-3 gap-3 mt-4">
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Paket 1</p>
-                            <p class="font-medium text-stone-900 text-sm">Discovery-Sprint</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-0.5">2 Wo. · 15–20k €</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Paket 2</p>
-                            <p class="font-medium text-stone-900 text-sm">PM-Org-Setup</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-0.5">6–8 Wo. · 30–50k €</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Paket 3</p>
-                            <p class="font-medium text-stone-900 text-sm">Fractional PM</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-0.5">1–2 Tg./Wo. · 5–10k €/Mon.</p>
-                        </div>
-                    </div>
+                <a href="checklog.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Check-Log</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Stimmung &amp; Fokus</h2>
+                    <p class="font-mono text-3xl text-stone-900 mt-3" id="d-checklog">—</p>
+                    <p class="text-[0.72rem] text-stone-500 mt-1">letzter Eintrag</p>
                 </a>
 
-                <!-- Tile: Projekte -->
-                <a href="projekte.html" class="border rounded-xl p-6 transition-all lg:col-span-3 hover:border-violet-300" style="border-color: #d9d1e5; background: linear-gradient(135deg, #ffffff 0%, #f6f4f9 100%);">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500">Projekte · 5 aktiv</p>
-                            <h2 class="source-serif text-lg text-stone-900 mt-1">AG Service · Koaly · Reader · MatGrid · mamabande</h2>
-                            <p class="text-[0.78rem] text-stone-500 mt-1">Vier Live-Apps, ein aktiver Pilot bei MatGrid, ein Prototyp — mit Vault-Links + Next Steps.</p>
-                        </div>
-                        <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded bg-violet-400 text-white">Neu</span>
-                    </div>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #5b8a72;">Live</p>
-                            <p class="font-mono text-2xl text-stone-900">4</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">AG Service, Koaly, MatGrid, mamabande</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Prototyp</p>
-                            <p class="font-mono text-2xl text-stone-900">1</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">Reader</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-1" style="color: #a86340;">Pilot</p>
-                            <p class="font-mono text-2xl text-stone-900">1</p>
-                            <p class="text-[0.72rem] text-stone-500 mt-1">MatGrid · LOI-Flow</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
-                            <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400 mb-1">Next Focus</p>
-                            <p class="font-medium text-stone-900 text-sm mt-1">Träger-Interviews</p>
-                            <p class="text-[0.7rem] text-stone-500 mt-0.5">AG Service · KW17–22</p>
-                        </div>
-                    </div>
+                <a href="blog.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Publikationen</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Blog-Pipeline</h2>
+                    <p class="text-[0.78rem] text-stone-500 mt-2">Drafts, Live-Artikel, Reader-Audio, Zweisprachigkeit.</p>
+                </a>
+
+                <a href="promo.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Publikationen</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Promo-Queue</h2>
+                    <p class="text-[0.78rem] text-stone-500 mt-2">LinkedIn 3×/Woche, Substack sonntags. Vorproduziert bis 20.12.</p>
+                </a>
+
+                <a href="analytics.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Publikationen</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Analytics</h2>
+                    <p class="text-[0.78rem] text-stone-500 mt-2">Umami + Funnel-Dashboard. Setup-Rest: Account, Website-ID, API-Key.</p>
+                </a>
+
+                <a href="netzwerkabend/index.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Vortrag</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Netzwerkabend</h2>
+                    <p class="text-[0.78rem] text-stone-500 mt-2">Fünf eigene Beispiele als Rückgrat. Deck, Sprechertext, Handout.</p>
+                </a>
+
+                <a href="ki-studium/index.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Vortrag</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">KI im Studium</h2>
+                    <p class="text-[0.78rem] text-stone-500 mt-2">Uni-Vortrag. Wiederverwendbar für Lehraufträge.</p>
+                </a>
+
+                <a href="lernplan.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Wissen</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Lernplan</h2>
+                    <p class="text-[0.78rem] text-stone-500 mt-2">Now · Next · Later, ausgerichtet auf die ersten 90 Tage im Job.</p>
+                </a>
+
+                <a href="skills.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Wissen</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Skills</h2>
+                    <p class="text-[0.78rem] text-stone-500 mt-2">Methoden-Skills und Vault-Commands, Stand 30.08.2026.</p>
+                </a>
+
+                <a href="fractional.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Fractional</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Konditionen</h2>
+                    <p class="text-[0.78rem] text-stone-500 mt-2">Tagessatz, Staffelung, Untergrenze. Der Spickzettel für die Preisfrage.</p>
+                </a>
+
+                <a href="workflows.html" class="bg-white border rounded-xl p-6 hover:border-violet-300 transition-all" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Wissen</p>
+                    <h2 class="source-serif text-lg text-stone-900 mt-1">Workflows</h2>
+                    <p class="text-[0.78rem] text-stone-500 mt-2">Welcher Befehl wofür, und was er auslöst.</p>
                 </a>
 
             </div>
 
-            <!-- HEUTE -->
-            <section class="mt-12">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Heute</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-
-                    <!-- Tile: Reminder -->
-                    <a href="reminder.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Reminder</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Inbox</h2>
-                            </div>
-                            <span class="font-mono text-xs text-stone-400" id="tile-reminder-summary">—</span>
-                        </div>
-                        <ul id="tile-reminder-list" class="text-sm text-stone-600 space-y-1.5">
-                            <li class="text-stone-400">Noch keine Reminder.</li>
-                        </ul>
-                    </a>
-
-                    <!-- Tile: Check-Log -->
-                    <a href="checklog.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Check-Log</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Letzter Eintrag</h2>
-                            </div>
-                            <span class="text-base" id="tile-checklog-mood"></span>
-                        </div>
-                        <div id="tile-checklog-body" class="text-sm text-stone-600">
-                            <p class="text-stone-400">Noch kein Eintrag.</p>
-                        </div>
-                    </a>
-
-                    <!-- Tile: Heute / Zeit -->
-                    <a href="zeit.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Heute</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Zeiteinträge</h2>
-                            </div>
-                            <span class="font-mono text-xs text-stone-400" id="tile-today-hours">—</span>
-                        </div>
-                        <ul id="tile-today-list" class="text-sm text-stone-600 space-y-1.5">
-                            <li class="text-stone-400">Noch keine Einträge heute.</li>
-                        </ul>
-                    </a>
-
-                    <!-- Tile: Wochenziele -->
-                    <a href="ziele.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Diese Woche</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Wochenziele</h2>
-                            </div>
-                            <span class="font-mono text-xs text-stone-400" id="tile-goals-progress">—</span>
-                        </div>
-                        <ul id="tile-goals-list" class="text-sm text-stone-600 space-y-1.5">
-                            <li class="text-stone-400">Keine Wochenziele gesetzt.</li>
-                        </ul>
-                    </a>
-                </div>
-            </section>
-
-            <!-- KARRIERE & VERDIENEN -->
-            <section class="mt-12">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Karriere &amp; Verdienen</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                    <!-- Tile: Bewerbungen -->
-                    <a href="bewerbungen.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Bewerbungen</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Pipeline</h2>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-4 gap-2 text-center">
-                            <div>
-                                <div class="font-mono text-xl text-stone-900" id="tile-app-entwurf">0</div>
-                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Entwurf</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-xl text-stone-900" id="tile-app-versendet">0</div>
-                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Sent</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-xl text-stone-900" id="tile-app-gespraech">0</div>
-                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Gespräch</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-xl text-stone-400" id="tile-app-abgelaufen">0</div>
-                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Abgel.</div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Tile: Angebote -->
-                    <a href="angebote.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Angebote</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Services</h2>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 text-center">
-                            <div>
-                                <div class="font-mono text-2xl text-stone-900">4</div>
-                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Live</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-2xl text-stone-900">2</div>
-                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Versteckt</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-            <!-- PUBLIKATIONEN -->
-            <section class="mt-12">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Publikationen</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                    <!-- Tile: Blog -->
-                    <a href="blog.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Blog</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Pipeline</h2>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-3 gap-2 text-center">
-                            <div>
-                                <div class="font-mono text-2xl text-stone-900" id="tile-blog-drafts">3</div>
-                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Drafts</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-2xl" style="color: #6b5691;" id="tile-blog-ready">0</div>
-                                <div class="text-[0.68rem] uppercase tracking-wide" style="color: #6b5691;">Ready</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-2xl text-stone-900" id="tile-blog-live">23</div>
-                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Live</div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Tile: Promo Queue -->
-                    <a href="promo.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Promo</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Substack + LinkedIn</h2>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 text-center">
-                            <div>
-                                <div class="font-mono text-2xl text-stone-900" id="tile-promo-substack-open">11</div>
-                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Substack</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-2xl text-stone-900" id="tile-promo-linkedin-open">11</div>
-                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">LinkedIn</div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Tile: Vortrag Netzwerkabend -->
-                    <a href="netzwerkabend/index.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all md:col-span-2" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Vortrag · Netzwerkabend NRW</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Vier Stunden Setup</h2>
-                            </div>
-                            <span class="font-mono text-[0.6rem] uppercase tracking-wide text-stone-400 mt-1">Q1 2027</span>
-                        </div>
-                        <div class="grid grid-cols-3 gap-2 text-center">
-                            <div>
-                                <div class="font-mono text-2xl text-stone-900">34</div>
-                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Folien</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-2xl" style="color: #6b5691;">55</div>
-                                <div class="text-[0.68rem] uppercase tracking-wide" style="color: #6b5691;">Minuten</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-2xl text-stone-900">3</div>
-                                <div class="text-[0.68rem] text-stone-400 uppercase tracking-wide">Dokumente</div>
-                            </div>
-                        </div>
-                    </a>
-
-                </div>
-            </section>
-
-            <!-- WISSEN -->
-            <section class="mt-12">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Wissen</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                    <!-- Tile: Lernplan -->
-                    <a href="lernplan.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Lernplan</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Now · Next · Later</h2>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-3 gap-2 text-center">
-                            <div>
-                                <div class="font-mono text-xl text-stone-900" id="tile-learn-now">0</div>
-                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Now</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-xl text-stone-900" id="tile-learn-next">0</div>
-                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Next</div>
-                            </div>
-                            <div>
-                                <div class="font-mono text-xl text-stone-400" id="tile-learn-later">0</div>
-                                <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide">Later</div>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- Tile: Skills -->
-                    <a href="skills.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Skills</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Claude-Skills</h2>
-                            </div>
-                        </div>
-                        <p class="text-sm text-stone-500 mb-3">25 Skills in 6 Rubriken</p>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/jtbd</span>
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/ost</span>
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/rice</span>
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">/prototyp</span>
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-stone-100 text-stone-500">+9</span>
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-            <!-- ARBEITSPROBEN -->
-            <section class="mt-12">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Arbeitsproben</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-                    <!-- Tile: eprimo -->
-                    <a href="eprimo/pitch/index.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">eprimo · Bermuda</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Energiekompass</h2>
-                            </div>
-                        </div>
-                        <p class="text-sm text-stone-500 mb-3">Case Study: Pitch, Produktkonzept, Landing- und App-Prototyp.</p>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-stone-100 text-stone-500">4 Ansichten</span>
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">intern</span>
-                        </div>
-                    </a>
-
-                    <!-- Tile: Uni-Vortrag -->
-                    <a href="ki-studium/index.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">Uni-Vortrag</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">KI im Studium</h2>
-                            </div>
-                        </div>
-                        <p class="text-sm text-stone-500 mb-3">Foliendeck mit Sprechernotizen, Setup- und Mitnahme-Handout.</p>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-stone-100 text-stone-500">25 Slides</span>
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">intern</span>
-                        </div>
-                    </a>
-
-                    <!-- Tile: Hero -->
-                    <a href="casestudy-hero-onepager.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">HERO Software</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Hero Daily</h2>
-                            </div>
-                        </div>
-                        <p class="text-sm text-stone-500 mb-3">AI-Feature-Proposal als Onepager, dazu die Volltext-Fassung.</p>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-stone-100 text-stone-500">2 Fassungen</span>
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">intern</span>
-                        </div>
-                    </a>
-
-                    <!-- Tile: PropertyExpert -->
-                    <a href="propertyexpert/index.html" class="bg-white border rounded-xl p-5 md:p-6 hover:border-violet-200 transition-all" style="border-color: #E5E2DB;">
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-400">PropertyExpert</p>
-                                <h2 class="source-serif text-lg text-stone-900 mt-1">Empathy Maps</h2>
-                            </div>
-                        </div>
-                        <p class="text-sm text-stone-500 mb-3">Vier Zielgruppen, Prävention Wohngebäude, plus Vorgehens-Angebot.</p>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-stone-100 text-stone-500">4 Zielgruppen</span>
-                            <span class="font-mono text-[0.6rem] px-2 py-1 rounded bg-violet-50 text-violet-400">intern</span>
-                        </div>
-                    </a>
-                </div>
-            </section>
-
-            <!-- ACTIONS -->
-            <section class="mt-12">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-4 text-stone-400">Quick Actions</p>
-                <div class="bg-white border rounded-xl p-5 md:p-6" style="border-color: #E5E2DB;">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <a href="zeit.html#neu" class="block w-full text-center bg-violet-400 hover:bg-violet-500 text-white font-medium py-2.5 rounded-lg text-sm transition-all">+ Zeit-Eintrag</a>
-                        <a href="ziele.html#neu" class="block w-full text-center border hover:border-violet-300 text-stone-700 font-medium py-2.5 rounded-lg text-sm transition-all" style="border-color: #E5E2DB;">+ Wochenziel</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Meta-Links -->
-            <section class="mt-12 pt-8 text-center" style="border-top: 1px solid #E5E2DB;">
-                <div class="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8">
-                    <a href="struktur.html" class="inline-flex items-center gap-2 font-mono text-[0.7rem] tracking-wider uppercase text-stone-400 hover:text-violet-500 transition-all">
-                        <span>Struktur · Was liegt wo</span>
-                        <span>→</span>
-                    </a>
-                    <a href="roadmap.html" class="inline-flex items-center gap-2 font-mono text-[0.7rem] tracking-wider uppercase text-stone-400 hover:text-violet-500 transition-all">
-                        <span>Roadmap · Now · Next · Later</span>
-                        <span>→</span>
-                    </a>
-                </div>
-            </section>
-
         </main>
     </div>
 
-    <script src="office.js?v=2" data-active="dashboard"></script>
+    <script src="office.js?v=3" data-active="dashboard"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Populate dashboard tiles from LocalStorage
-            var now = new Date();
-            var dateEl = document.getElementById('today-date');
-            if (dateEl) dateEl.textContent = now.toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: 'long' });
-
             if (!window.officeStore) return;
+            var S = window.officeStore, U = window.officeUtils;
+            var today = U.today();
 
-            // Today tile: latest time entries
-            var log = window.officeStore.get('time-log', []);
-            var today = window.officeUtils.today();
-            var todays = log.filter(function (e) { return e.date === today; });
-            var todayHours = todays.reduce(function (sum, e) { return sum + Number(e.hours); }, 0);
-            var todayListEl = document.getElementById('tile-today-list');
-            var todayHoursEl = document.getElementById('tile-today-hours');
-            if (todays.length > 0 && todayListEl && todayHoursEl) {
-                todayListEl.innerHTML = todays.slice(-3).map(function (e) {
-                    return '<li class="flex justify-between"><span>' + e.project + '</span><span class="font-mono text-stone-400">' + e.hours + 'h</span></li>';
-                }).join('');
-                todayHoursEl.textContent = todayHours.toFixed(2) + 'h';
+            document.getElementById('today-date').textContent =
+                new Date().toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' });
+
+            // Countdown Jobstart
+            var start = new Date(2026, 8, 1);
+            var now = new Date(); now.setHours(0, 0, 0, 0);
+            var days = Math.round((start - now) / 86400000);
+            var cd = document.getElementById('d-countdown');
+            if (days > 1) cd.textContent = 'in ' + days + ' Tagen';
+            else if (days === 1) cd.textContent = 'morgen';
+            else if (days === 0) cd.textContent = 'heute';
+            else cd.textContent = 'seit ' + Math.abs(days) + ' Tagen';
+
+            // Aufgaben heute
+            var tasks = S.get('today-' + today, []);
+            document.getElementById('d-tasks').textContent =
+                tasks.filter(function (t) { return t.done; }).length + '/' + tasks.length;
+
+            // Zeit heute
+            var log = S.get('time-log', []);
+            var h = log.filter(function (e) { return e.date === today; })
+                .reduce(function (s, e) { return s + Number(e.hours); }, 0);
+            document.getElementById('d-hours').textContent = h.toFixed(2) + 'h';
+
+            // Timer
+            var t = S.get('timer', null);
+            var tEl = document.getElementById('d-timer');
+            if (t && t.startedAt) {
+                var mins = Math.floor((Date.now() - new Date(t.startedAt).getTime()) / 60000);
+                tEl.textContent = mins + ' min';
+                tEl.classList.add('text-violet-500');
+            } else {
+                tEl.textContent = 'aus';
             }
 
-            // Weekly goals tile
-            var wkKey = 'kw' + window.officeUtils.weekOf();
-            var goals = window.officeStore.get('goals-' + wkKey, []);
-            var goalsListEl = document.getElementById('tile-goals-list');
-            var goalsProgressEl = document.getElementById('tile-goals-progress');
-            if (goals.length > 0 && goalsListEl && goalsProgressEl) {
-                var done = goals.filter(function (g) { return g.done; }).length;
-                goalsProgressEl.textContent = done + '/' + goals.length;
-                goalsListEl.innerHTML = goals.slice(0, 4).map(function (g) {
-                    var check = g.done ? '✓' : '○';
-                    var cls = g.done ? 'text-stone-400 line-through' : 'text-stone-700';
-                    return '<li class="flex items-start gap-2"><span class="font-mono text-xs ' + (g.done ? 'text-violet-400' : 'text-stone-300') + '">' + check + '</span><span class="' + cls + '">' + g.text + '</span></li>';
-                }).join('');
+            // Inbox
+            var rem = S.get('reminders', []);
+            document.getElementById('d-inbox').textContent =
+                rem.filter(function (r) { return !r.done; }).length;
+
+            // Wochenziele
+            var goals = S.get('goals-kw' + U.weekOf(), []);
+            document.getElementById('d-goals').textContent =
+                goals.filter(function (g) { return g.done; }).length + '/' + goals.length;
+
+            // Check-Log
+            var cl = S.get('checklog', []);
+            if (cl.length) {
+                var last = cl.slice().sort(function (a, b) { return (a.date < b.date) ? 1 : -1; })[0];
+                var el = document.getElementById('d-checklog');
+                el.textContent = last.date === today ? 'heute' : last.date;
+                el.classList.add('text-lg');
             }
-
-            // Reminder tile: count fällig heute / diese Woche
-            var reminders = window.officeStore.get('reminders', []);
-            var openRem = reminders.filter(function (r) { return !r.done; });
-            var dueToday = openRem.filter(function (r) { return r.dueDate <= today; });
-            (function () {
-                var d = new Date(); d.setHours(0,0,0,0);
-                var dayNr = (d.getDay() + 6) % 7;
-                d.setDate(d.getDate() + (6 - dayNr));
-                var weekEnd = d.toISOString().slice(0, 10);
-                var dueWeek = openRem.filter(function (r) { return r.dueDate > today && r.dueDate <= weekEnd; });
-                var sumEl = document.getElementById('tile-reminder-summary');
-                var listEl = document.getElementById('tile-reminder-list');
-                if (sumEl) sumEl.textContent = dueToday.length + ' heute · ' + dueWeek.length + ' Woche';
-                if (listEl && (dueToday.length + dueWeek.length) > 0) {
-                    var preview = dueToday.concat(dueWeek).slice(0, 4);
-                    listEl.innerHTML = preview.map(function (r) {
-                        var overdue = r.dueDate < today;
-                        var dot = overdue ? 'text-red-400' : 'text-violet-400';
-                        return '<li class="flex items-start gap-2"><span class="font-mono text-xs ' + dot + '">·</span><span class="text-stone-700 truncate">' + r.title + '</span></li>';
-                    }).join('');
-                }
-            })();
-
-            // Check-Log tile: latest entry
-            var checklog = window.officeStore.get('checklog', []);
-            if (checklog.length > 0) {
-                var latest = checklog.slice().sort(function (a, b) {
-                    var d = b.date.localeCompare(a.date);
-                    return d !== 0 ? d : (b.createdAt || '').localeCompare(a.createdAt || '');
-                })[0];
-                var moodEl = document.getElementById('tile-checklog-mood');
-                var bodyEl = document.getElementById('tile-checklog-body');
-                if (moodEl) moodEl.textContent = latest.mood || '';
-                if (bodyEl) {
-                    var dateStr = new Date(latest.date).toLocaleDateString('de-DE', { weekday: 'short', day: '2-digit', month: 'short' });
-                    var typeStr = latest.type === 'checkin' ? 'Check-in' : 'Check-out';
-                    bodyEl.innerHTML = '<p class="font-mono text-[0.65rem] tracking-wider uppercase text-stone-400 mb-1">' + dateStr + ' · ' + typeStr + '</p>'
-                        + (latest.focus ? '<p class="text-stone-700 mb-1">' + latest.focus + '</p>' : '')
-                        + (latest.openPoints && latest.openPoints.length > 0 ? '<p class="text-xs text-stone-500">' + latest.openPoints.length + ' offen</p>' : '');
-                }
-            }
-
-            // Bewerbungen tile: counts per status
-            var apps = window.officeStore.get('applications', []);
-            ['entwurf', 'versendet', 'gespraech', 'abgelaufen'].forEach(function (s) {
-                var cnt = apps.filter(function (a) { return a.status === s; }).length;
-                var el = document.getElementById('tile-app-' + s);
-                if (el) el.textContent = cnt;
-            });
-
-            // Lernplan tile: counts per lane
-            var learn = window.officeStore.get('learningplan', []);
-            ['now', 'next', 'later'].forEach(function (l) {
-                var cnt = learn.filter(function (a) { return a.lane === l; }).length;
-                var el = document.getElementById('tile-learn-' + l);
-                if (el) el.textContent = cnt;
-            });
         });
     </script>
 </body>

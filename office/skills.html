@@ -10,13 +10,13 @@
     <title>Office · Skills – Linja</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: {
-            fontFamily: { sans: ['Fraunces','Georgia','serif'], serif: ['Fraunces','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
-            colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691' } },
-        } } }
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Fraunces', 'Georgia', 'serif'], serif: ['Fraunces', 'Georgia', 'serif'], mono: ['Geist Mono', 'monospace'] },
+                colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } } } }
+        }
     </script>
     <style>.source-serif { font-family: "Fraunces", Georgia, serif; color: #472E56 !important; }</style>
 </head>
@@ -29,410 +29,310 @@
 
         <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
 
-            <header class="mb-10">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Skills</p>
-                <h1 class="source-serif text-3xl text-stone-900 mb-2">Alle Claude-Skills</h1>
-                <p class="text-sm text-stone-500">Per <code class="font-mono text-xs">/command</code> in Claude auslösbar. Sortiert nach Rubrik. Jeder Skill ist mit Quelle markiert:
-                    <span class="inline-block font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded" style="background: #f5f3ef; color: #78716c;">Linja</span> = mein Vault (<code class="font-mono text-xs">.claude/commands/</code> oder <code class="font-mono text-xs">.claude/skills/</code>),
-                    <span class="inline-block font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Panoptia</span> = Team-Lab <a href="https://github.com/panoptia/backoffice-lab" class="underline hover:text-violet-500">panoptia/backoffice-lab</a> (private, für Linja/David/Jan),
-                    <span class="inline-block font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded" style="background: #fbeae0; color: #b85d3a;">Claude</span> = Cowork-Plugin von Anthropic (knowledge-work-plugins).
-                </p>
+
+            <header class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Wissen · Skills &amp; Commands · geprüft 30.08.2026</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Was Claude kann.</h1>
+                <p class="text-sm text-stone-500 max-w-2xl">Aufgenommen aus den tatsächlich vorhandenen Verzeichnissen, nicht aus dem Gedächtnis. Was hier steht, existiert.</p>
             </header>
 
-            <!-- Quick-Overview / Counts -->
-            <div class="grid grid-cols-2 md:grid-cols-7 gap-3 mb-10">
-                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-2xl text-stone-900">12</div>
-                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Methodik</div>
+            <section class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+                <div class="bg-white border rounded-xl p-5" style="border-color: #d9d1e5; background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%);">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-violet-500 mb-1">Methoden-Skills</p>
+                    <p class="font-mono text-2xl text-stone-900">13</p>
+                    <p class="text-[0.7rem] text-stone-500 mt-1">überall verfügbar</p>
                 </div>
-                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-2xl text-stone-900">9</div>
-                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Rituale</div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-violet-400 mb-1">Vault-Skills</p>
+                    <p class="font-mono text-2xl text-stone-900">4</p>
+                    <p class="text-[0.7rem] text-stone-500 mt-1">nur in diesem Vault</p>
                 </div>
-                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-2xl text-stone-900">1</div>
-                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Writing</div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-violet-400 mb-1">Commands</p>
+                    <p class="font-mono text-2xl text-stone-900">15</p>
+                    <p class="text-[0.7rem] text-stone-500 mt-1">Vault-Workflows</p>
                 </div>
-                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-2xl text-stone-900">3</div>
-                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Jobsuche</div>
-                </div>
-                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-2xl text-stone-900">1</div>
-                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Persona</div>
-                </div>
-                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-2xl text-stone-900">1</div>
-                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Lernen</div>
-                </div>
-                <div class="bg-white border rounded-lg p-4 text-center" style="border-color: #E5E2DB;">
-                    <div class="font-mono text-2xl text-stone-900" style="color: #b85d3a;">8</div>
-                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Plugin</div>
-                </div>
-            </div>
-
-            <!-- Methodik & Frameworks -->
-            <section class="mb-10">
-                <div class="flex items-center gap-3 mb-4">
-                    <h2 class="source-serif text-xl text-stone-900">Methodik & Frameworks</h2>
-                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded bg-violet-50 text-violet-500">Produkt & Strategie</span>
-                </div>
-                <p class="text-sm text-stone-500 mb-4">Diskovery, Priorisierung, Strategie, Prototyping.</p>
-
-                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
-                    <table class="w-full text-sm">
-                        <thead style="background: #F5F3EF;">
-                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
-                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
-                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
-                                <th class="px-4 py-3 font-medium">Nutzen</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y" style="border-color: #E5E2DB;">
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/prototyp</td>
-                                <td class="px-4 py-3 text-stone-800">Product Prototyping Starter Kit<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Next.js + shadcn App-Prototyp in 7 Phasen (Context → Deploy)</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/storymap</td>
-                                <td class="px-4 py-3 text-stone-800">Story-Map + DACI-Matrix<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Interaktive Scope-Map + Rollen-Matrix als eigener Vercel-Link fürs Team</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/jtbd</td>
-                                <td class="px-4 py-3 text-stone-800">Jobs to Be Done<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #e0ede6; color: #476f5b;">Panoptia</span></td>
-                                <td class="px-4 py-3 text-stone-500">Funktionale, emotionale, soziale Jobs + Switching Forces</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/ost</td>
-                                <td class="px-4 py-3 text-stone-800">Opportunity Solution Tree<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #e0ede6; color: #476f5b;">Panoptia</span></td>
-                                <td class="px-4 py-3 text-stone-500">Outcome → Opportunities → Solutions → Experiments (Torres)</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/problemframing</td>
-                                <td class="px-4 py-3 text-stone-800">Problem Framing<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #e0ede6; color: #476f5b;">Panoptia</span></td>
-                                <td class="px-4 py-3 text-stone-500">Nutzer · Business · Tech · Daten · Stakeholder · Kontext</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/designsprint</td>
-                                <td class="px-4 py-3 text-stone-800">Design Sprint (komprimiert)<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #e0ede6; color: #476f5b;">Panoptia</span></td>
-                                <td class="px-4 py-3 text-stone-500">5 Phasen in einer Session (Knapp)</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/rice</td>
-                                <td class="px-4 py-3 text-stone-800">RICE-Bewertung<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #e0ede6; color: #476f5b;">Panoptia</span></td>
-                                <td class="px-4 py-3 text-stone-500">Feature-Priorisierung: Reach · Impact · Confidence · Effort</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/kano</td>
-                                <td class="px-4 py-3 text-stone-800">Kano-Modell<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #e0ede6; color: #476f5b;">Panoptia</span></td>
-                                <td class="px-4 py-3 text-stone-500">Features in Basic · Performance · Delight klassifizieren</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/roadmap</td>
-                                <td class="px-4 py-3 text-stone-800">Now · Next · Later + OST<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #e0ede6; color: #476f5b;">Panoptia</span></td>
-                                <td class="px-4 py-3 text-stone-500">Feature-Listen in moderne Roadmap transformieren</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/northstar</td>
-                                <td class="px-4 py-3 text-stone-800">North Star Metrik<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #e0ede6; color: #476f5b;">Panoptia</span></td>
-                                <td class="px-4 py-3 text-stone-500">NSM + Input-Metriken + AARRR + OKR-Ableitung</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/businesscase</td>
-                                <td class="px-4 py-3 text-stone-800">Business Case<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #e0ede6; color: #476f5b;">Panoptia</span></td>
-                                <td class="px-4 py-3 text-stone-500">Marktgröße, Unit Economics, ROI, Go/No-Go</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/planning</td>
-                                <td class="px-4 py-3 text-stone-800">Epic-Planning<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Issues zerlegen, Abhängigkeiten mappen, Sync-Points definieren</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #f0ddd0; background: #fdf8f4;">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider mb-1" style="color: #a86340;">Karteileichen entfernt</p>
+                    <p class="font-mono text-2xl text-stone-900">11</p>
+                    <p class="text-[0.7rem] text-stone-500 mt-1">standen hier, gab es nicht</p>
                 </div>
             </section>
 
-            <!-- Cowork-Plugins · Product Management -->
             <section class="mb-10">
-                <div class="flex items-center gap-3 mb-4">
-                    <h2 class="source-serif text-xl text-stone-900">Cowork-Plugins · Product Management</h2>
-                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #fbeae0; color: #b85d3a;">Plugin</span>
-                </div>
-                <p class="text-sm text-stone-500 mb-4">8 Skills aus dem <code class="font-mono text-xs">product-management</code>-Plugin von Anthropic (<code class="font-mono text-xs">knowledge-work-plugins</code>). Install-ready via Cowork — ergänzen die Panoptia-Methodik um PRD-, Stakeholder- und Metrics-Workflows.</p>
-
-                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
-                    <table class="w-full text-sm">
-                        <thead style="background: #F5F3EF;">
-                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
-                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
-                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
-                                <th class="px-4 py-3 font-medium">Nutzen</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y" style="border-color: #E5E2DB;">
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/write-spec</td>
-                                <td class="px-4 py-3 text-stone-800">Feature-Spec / PRD<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
-                                <td class="px-4 py-3 text-stone-500">Vage Idee in strukturiertes Spec: Goals, Non-Goals, Success-Metriken, Acceptance</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/synthesize-research</td>
-                                <td class="px-4 py-3 text-stone-800">Research-Synthese<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
-                                <td class="px-4 py-3 text-stone-500">Interview-Notes, Surveys, Tickets → Themen, Frequenz, Impact, Roadmap-Input</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/stakeholder-update</td>
-                                <td class="px-4 py-3 text-stone-800">Stakeholder-Update<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
-                                <td class="px-4 py-3 text-stone-500">Weekly/Monthly-Status für Leadership, Launch, Risk-Escalation (Exec vs. Eng)</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/sprint-planning</td>
-                                <td class="px-4 py-3 text-stone-800">Sprint-Planning<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
-                                <td class="px-4 py-3 text-stone-500">Backlog gegen Capacity, P0 vs. Stretch, Carryover, PTO/Meetings einrechnen</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/roadmap-update</td>
-                                <td class="px-4 py-3 text-stone-800">Roadmap-Update<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
-                                <td class="px-4 py-3 text-stone-500">Neue Initiative einbauen, Prios verschieben, Now/Next/Later von Grund auf</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/brainstorm</td>
-                                <td class="px-4 py-3 text-stone-800">Product Brainstorming<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
-                                <td class="px-4 py-3 text-stone-500">Sharp Sparring zu Opportunities, Solutions, Stress-Test von Annahmen</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/metrics-review</td>
-                                <td class="px-4 py-3 text-stone-800">Metrics-Review<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
-                                <td class="px-4 py-3 text-stone-500">Trend-Analyse, Spike/Drop-Investigation, Scorecard mit Empfehlungen</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/competitive-brief</td>
-                                <td class="px-4 py-3 text-stone-800">Competitive Brief<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #fbeae0; color: #b85d3a;">Claude</span></td>
-                                <td class="px-4 py-3 text-stone-500">Wettbewerbs-Analyse für Strategie, Battle Cards, Parität vs. Differenzierung</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Arbeitsorganisation & Rituale -->
-            <section class="mb-10">
-                <div class="flex items-center gap-3 mb-4">
-                    <h2 class="source-serif text-xl text-stone-900">Arbeitsorganisation & Rituale</h2>
-                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #e0ede6; color: #476f5b;">Alltag</span>
-                </div>
-                <p class="text-sm text-stone-500 mb-4">Check-ins, Reflexion, Sparring, Vault-Hygiene, autonome Arbeit.</p>
-
-                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
-                    <table class="w-full text-sm">
-                        <thead style="background: #F5F3EF;">
-                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
-                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
-                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
-                                <th class="px-4 py-3 font-medium">Nutzen</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y" style="border-color: #E5E2DB;">
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/checkin</td>
-                                <td class="px-4 py-3 text-stone-800">Morgen-Check-in<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Tagesstart mit Prioritäten, Reminders, offenen Punkten</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/checkout</td>
-                                <td class="px-4 py-3 text-stone-800">Tages-Check-out<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Tagesabschluss, Freitags inkl. Wochenreview + Skill-Beobachtung</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/retro</td>
-                                <td class="px-4 py-3 text-stone-800">Persönlicher Coach<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Retrospektive zu Muster, Fortschritt, nächsten Schritten</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/sparring</td>
-                                <td class="px-4 py-3 text-stone-800">Strategie-Sparringspartner<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Gedanken schärfen, Blind Spots finden, Gegenposition</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/challenge</td>
-                                <td class="px-4 py-3 text-stone-800">Business Analyst / Devil's Advocate<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Annahmen in Frage stellen, Schwachstellen aufdecken</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/captures</td>
-                                <td class="px-4 py-3 text-stone-800">Captures verarbeiten<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Lose Notizen sortieren, verschlagworten, in Vault einordnen</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/cleanup</td>
-                                <td class="px-4 py-3 text-stone-800">Vault Cleanup<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Duplikate, verwaiste Dateien, unklare Namen aufräumen</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/autowork</td>
-                                <td class="px-4 py-3 text-stone-800">Autowork<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Claude-ready Issues autonom bearbeiten (keine Rückfragen)</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/session-retro</td>
-                                <td class="px-4 py-3 text-stone-800">Session-Retro<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Implizite Muster aus alten Sessions extrahieren + Archivieren (monatlich)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Writing & Content -->
-            <section class="mb-10">
-                <div class="flex items-center gap-3 mb-4">
-                    <h2 class="source-serif text-xl text-stone-900">Writing & Content</h2>
-                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #fdf5f0; color: #c27a52;">Publishing</span>
-                </div>
-                <p class="text-sm text-stone-500 mb-4">Artikel-Pipeline für linja.me/blog.</p>
-
-                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
-                    <table class="w-full text-sm">
-                        <thead style="background: #F5F3EF;">
-                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
-                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
-                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
-                                <th class="px-4 py-3 font-medium">Nutzen</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y" style="border-color: #E5E2DB;">
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/artikel</td>
-                                <td class="px-4 py-3 text-stone-800">Blog-Workflow<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">5-Block-Schema + Template + Listing-Update für linja.me/blog</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Jobsuche & Interview -->
-            <section class="mb-10">
-                <div class="flex items-center gap-3 mb-4">
-                    <h2 class="source-serif text-xl text-stone-900">Jobsuche & Interview</h2>
-                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #ddeef7; color: #2d4d63;">Karriere</span>
-                </div>
-                <p class="text-sm text-stone-500 mb-4">Bewerbungen, Case-Study-Vorbereitung, Job-Screening.</p>
-
-                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
-                    <table class="w-full text-sm">
-                        <thead style="background: #F5F3EF;">
-                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
-                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
-                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
-                                <th class="px-4 py-3 font-medium">Nutzen</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y" style="border-color: #E5E2DB;">
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/anschreiben</td>
-                                <td class="px-4 py-3 text-stone-800">Cover Letter Generator<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Maßgeschneidertes Anschreiben im controlexpert-Schema + PDF</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/casestudy</td>
-                                <td class="px-4 py-3 text-stone-800">PM Case Study<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #e0ede6; color: #476f5b;">Panoptia</span></td>
-                                <td class="px-4 py-3 text-stone-500">Interview-Vorbereitung: Problem · Priorisierung · Metriken</td>
-                            </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/jobscreening</td>
-                                <td class="px-4 py-3 text-stone-800">Job-Screening<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Stellenausschreibung auf Passung und Red Flags prüfen</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Persona-Reviews -->
-            <section class="mb-10">
-                <div class="flex items-center gap-3 mb-4">
-                    <h2 class="source-serif text-xl text-stone-900">Persona-Reviews</h2>
-                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #fae8de; color: #a86340;">Perspektive</span>
-                </div>
-                <p class="text-sm text-stone-500 mb-4">Texte und Messaging aus Zielgruppen-Sicht bewerten.</p>
-
-                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
-                    <table class="w-full text-sm">
-                        <thead style="background: #F5F3EF;">
-                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
-                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
-                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
-                                <th class="px-4 py-3 font-medium">Nutzen</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y" style="border-color: #E5E2DB;">
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/dachdecker</td>
-                                <td class="px-4 py-3 text-stone-800">Dachdecker-Persona<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">MatGrid-Messaging aus Dachdecker-Sicht auf Glaubwürdigkeit prüfen</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Lernen & Wachstum -->
-            <section class="mb-10">
-                <div class="flex items-center gap-3 mb-4">
-                    <h2 class="source-serif text-xl text-stone-900">Lernen & Wachstum</h2>
-                    <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-1 rounded" style="background: #f6f4f9; color: #463863;">Entwicklung</span>
-                </div>
-                <p class="text-sm text-stone-500 mb-4">Lernplan-Pflege und Kompetenz-Entwicklung.</p>
-
-                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
-                    <table class="w-full text-sm">
-                        <thead style="background: #F5F3EF;">
-                            <tr class="text-left text-[0.7rem] text-stone-500 uppercase tracking-wider">
-                                <th class="px-4 py-3 font-medium w-[160px]">Trigger</th>
-                                <th class="px-4 py-3 font-medium w-[220px]">Name</th>
-                                <th class="px-4 py-3 font-medium">Nutzen</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y" style="border-color: #E5E2DB;">
-                            <tr class="hover:bg-stone-50">
-                                <td class="px-4 py-3 font-mono text-violet-500">/lerncheck</td>
-                                <td class="px-4 py-3 text-stone-800">Lernplan Review<span class="ml-2 inline-flex items-center font-mono text-[0.55rem] tracking-wider uppercase px-1.5 py-0.5 rounded whitespace-nowrap" style="background: #f5f3ef; color: #78716c;">Linja</span></td>
-                                <td class="px-4 py-3 text-stone-500">Lernziele reviewen, anreichern, nächste Schritte planen</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Meta -->
-            <section class="mt-12 pt-8" style="border-top: 1px solid #E5E2DB;">
-                <h3 class="source-serif text-base text-stone-900 mb-3">Skill-Pflege</h3>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-sm">
-                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
-                        <div class="font-medium text-stone-800 mb-1">Vault-Workflows</div>
-                        <div class="text-stone-500 text-xs">Slash-Commands in <code class="font-mono">.claude/commands/{name}.md</code> – vault-gebundene Workflows</div>
-                    </div>
-                    <div class="p-4 rounded-lg" style="background: #f2f7f4;">
-                        <div class="font-medium text-stone-800 mb-1">Shared Methoden</div>
-                        <div class="text-stone-500 text-xs"><a href="https://github.com/panoptia/backoffice-lab" class="underline hover:text-violet-500">panoptia/backoffice-lab</a> → symlinked auf <code class="font-mono">~/.claude/skills/</code></div>
-                    </div>
-                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
-                        <div class="font-medium text-stone-800 mb-1">Methoden-Inventar</div>
-                        <div class="text-stone-500 text-xs">Vollständige Zuordnung in <code class="font-mono">methodik_und_handwerk.md</code></div>
-                    </div>
-                    <div class="p-4 rounded-lg" style="background: #F5F3EF;">
-                        <div class="font-medium text-stone-800 mb-1">Proaktive Beobachtung</div>
-                        <div class="text-stone-500 text-xs">Freitags-Check-out (<code class="font-mono">/checkout</code>) schlägt neue Skills vor; <code class="font-mono">/session-retro</code> erstellt monatlich Muster-Report</div>
+                <div class="border rounded-xl p-6" style="border-color: #f0ddd0; background: #fdf8f4;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase mb-2" style="color: #a86340;">Befund der Prüfung vom 30.08.2026</p>
+                    <p class="text-sm text-stone-700 leading-relaxed mb-4">Die Seite war <strong>nicht aktuell</strong>. Elf Einträge zeigten auf Skills, die es nicht mehr gibt — Reste aus der Panoptia-Zeit und aus einer Namensumstellung. Fünf vorhandene Skills fehlten ganz. Beides ist jetzt korrigiert.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <p class="font-mono text-[0.6rem] uppercase tracking-wider text-stone-400 mb-2">Entfernt, weil nicht vorhanden</p>
+                            <p class="text-[0.78rem] text-stone-600 font-mono leading-relaxed">/backoffice-lab · /brainstorm · /blog · /command · /competitive-brief · /metrics-review · /roadmap-update · /sprint-planning · /stakeholder-update · /synthesize-research · /write-spec</p>
+                        </div>
+                        <div>
+                            <p class="font-mono text-[0.6rem] uppercase tracking-wider text-stone-400 mb-2">Neu aufgenommen, weil vorhanden</p>
+                            <p class="text-[0.78rem] text-stone-600 font-mono leading-relaxed">/designthinking · /folien · /nutzertest · /publish-mobile · /analytics</p>
+                        </div>
                     </div>
                 </div>
+            </section>
+
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">Methoden-Skills · ~/.claude/skills</p>
+                <p class="text-[0.78rem] text-stone-500 mb-3">Privates Repo Linja261/claude-skills, lokal unter ~/Projects/claude-skills. Der Ordner ~/.claude/skills ist ein Symlink dorthin. Auf Arbeitgeber-Geräten immer als Kopie, nie als Symlink.</p>
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm" style="min-width: 560px;">
+                            <thead><tr style="background: #FAFAF8; border-bottom: 1px solid #E5E2DB;">
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Befehl</th>
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Methode</th>
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Was er tut</th>
+                            </tr></thead>
+                            <tbody class="divide-y" style="border-color: #F5F3EF;">
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/businesscase</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Business Case</td>
+                                    <td class="px-5 py-3 text-stone-500">Marktgröße, Unit Economics, ROI, Go/No-Go-Empfehlung</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/casestudy</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Case Study</td>
+                                    <td class="px-5 py-3 text-stone-500">PM-Case strukturiert durchgehen: Problem, Priorisierung, Lösung, Metriken</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/designsprint</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Design Sprint</td>
+                                    <td class="px-5 py-3 text-stone-500">Fünf Knapp-Phasen komprimiert in eine Session</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/designthinking</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Design Thinking</td>
+                                    <td class="px-5 py-3 text-stone-500">Die klassischen fünf Phasen, iterativ und nutzerzentriert</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/folien</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Foliendeck</td>
+                                    <td class="px-5 py-3 text-stone-500">Komplettes Präsentationspaket: Deck, Sprechertext, Handout, 1-Pager</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/jtbd</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Jobs to Be Done</td>
+                                    <td class="px-5 py-3 text-stone-500">Funktionale, emotionale und soziale Jobs formulieren</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/kano</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Kano-Modell</td>
+                                    <td class="px-5 py-3 text-stone-500">Features in Basic, Performance, Delight klassifizieren</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/northstar</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">North Star</td>
+                                    <td class="px-5 py-3 text-stone-500">Metrik mit Input-Metriken, Metrik-Baum, Tracking-Empfehlung</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/ost</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Opportunity Solution Tree</td>
+                                    <td class="px-5 py-3 text-stone-500">Outcome mit Opportunities, Solutions und Experimenten verbinden</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/problemframing</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Problem Framing</td>
+                                    <td class="px-5 py-3 text-stone-500">Ein Problem aus allen Perspektiven beleuchten, bevor Lösungen kommen</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/rice</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">RICE</td>
+                                    <td class="px-5 py-3 text-stone-500">Priorisierte Tabelle mit Score und Empfehlung</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/roadmap</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Roadmap</td>
+                                    <td class="px-5 py-3 text-stone-500">Feature-Listen ins Now-Next-Later-Format mit OST überführen</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/storymap</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Story Map</td>
+                                    <td class="px-5 py-3 text-stone-500">Interaktive Story-Map plus DACI-Matrix, als eigenes Vercel-Projekt deployt</td>
+                                </tr>
+                            </tbody></table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">Vault-Skills · .claude/skills</p>
+                <p class="text-[0.78rem] text-stone-500 mb-3">Gebunden an dieses Repo. Enthalten Wissen, das nur hier gilt.</p>
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm" style="min-width: 560px;">
+                            <thead><tr style="background: #FAFAF8; border-bottom: 1px solid #E5E2DB;">
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Befehl</th>
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Skill</th>
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Was er tut</th>
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Status</th>
+                            </tr></thead>
+                            <tbody class="divide-y" style="border-color: #F5F3EF;">
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/anschreiben</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Anschreiben</td>
+                                    <td class="px-5 py-3 text-stone-500">Maßgeschneidertes Anschreiben im kanonischen Schema plus PDF</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">ruht</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/dachdecker</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Dachdecker-Persona</td>
+                                    <td class="px-5 py-3 text-stone-500">MatGrid-Messaging aus Handwerkersicht prüfen</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" style="background: #e8f0ea; color: #476f5b;">aktiv</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/planning</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Epic-Planning</td>
+                                    <td class="px-5 py-3 text-stone-500">Issues zerlegen, Abhängigkeiten mappen, Sync-Points definieren</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" style="background: #e8f0ea; color: #476f5b;">aktiv</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/prototyp</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Prototyp-Start</td>
+                                    <td class="px-5 py-3 text-stone-500">Neuer App-Prototyp nach Starter-Kit: Next.js, shadcn, Vercel</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" style="background: #e8f0ea; color: #476f5b;">aktiv</span></td>
+                                </tr>
+                            </tbody></table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-1 text-violet-400">Commands · .claude/commands</p>
+                <p class="text-[0.78rem] text-stone-500 mb-3">Wiederkehrende Vault-Workflows. Nicht Methode, sondern Routine.</p>
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm" style="min-width: 560px;">
+                            <thead><tr style="background: #FAFAF8; border-bottom: 1px solid #E5E2DB;">
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Befehl</th>
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Workflow</th>
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Was er tut</th>
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Takt</th>
+                            </tr></thead>
+                            <tbody class="divide-y" style="border-color: #F5F3EF;">
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/checkin</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Morgen-Check-in</td>
+                                    <td class="px-5 py-3 text-stone-500">Tagesstart: was ansteht, was liegen blieb</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" style="background: #e8f0ea; color: #476f5b;">täglich</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/checkout</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Tages-Check-out</td>
+                                    <td class="px-5 py-3 text-stone-500">Tagesabschluss: geschafft, gelernt, offen, morgen</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" style="background: #e8f0ea; color: #476f5b;">täglich</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/captures</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Captures verarbeiten</td>
+                                    <td class="px-5 py-3 text-stone-500">Inbox aus 00_INBOX sortieren und einsortieren</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">regelmäßig</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/artikel</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Blog-Workflow</td>
+                                    <td class="px-5 py-3 text-stone-500">Artikel von Draft bis Live, zweisprachig, mit Reader-Audio</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">regelmäßig</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/publish-mobile</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Publish Mobile</td>
+                                    <td class="px-5 py-3 text-stone-500">Draft zu Live in einem Rutsch, vom Handy aus</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">regelmäßig</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/analytics</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Wochen-Report</td>
+                                    <td class="px-5 py-3 text-stone-500">Umami-Zahlen für linja.me aufbereiten</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">wöchentlich</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/retro</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Persönlicher Coach</td>
+                                    <td class="px-5 py-3 text-stone-500">Rückblick mit Coaching-Haltung</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">monatlich</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/session-retro</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Session-Retro</td>
+                                    <td class="px-5 py-3 text-stone-500">Muster aus alten Sessions extrahieren</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">monatlich</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/lerncheck</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Lerncheck</td>
+                                    <td class="px-5 py-3 text-stone-500">Lernplan reviewen und anreichern</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">monatlich</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/cleanup</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Vault Cleanup</td>
+                                    <td class="px-5 py-3 text-stone-500">Aufräumen: Redundanz, tote Links, Struktur</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">quartalsweise</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/sparring</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Strategie-Sparring</td>
+                                    <td class="px-5 py-3 text-stone-500">Sparringspartner für Entscheidungen</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">bei Bedarf</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/challenge</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Devil's Advocate</td>
+                                    <td class="px-5 py-3 text-stone-500">Business-Analyst, der die Idee angreift</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">bei Bedarf</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/autowork</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Autowork</td>
+                                    <td class="px-5 py-3 text-stone-500">Agent-ready Pakete autonom abarbeiten</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">bei Bedarf</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/nutzertest</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Nutzertest</td>
+                                    <td class="px-5 py-3 text-stone-500">MatGrid-Interview-Begleiter</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" class="bg-stone-100 text-stone-500">bei Bedarf</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-5 py-3 font-mono text-violet-500 whitespace-nowrap">/jobscreening</td>
+                                    <td class="px-5 py-3 font-medium text-stone-900">Job-Screening</td>
+                                    <td class="px-5 py-3 text-stone-500">Stellenanzeige gegen das eigene Profil prüfen</td>
+                                    <td class="px-5 py-3"><span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded" style="background: #fae8de; color: #a86340;">ruht</span></td>
+                                </tr>
+                            </tbody></table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Was gehört wohin</p>
+                <div class="bg-white border rounded-xl overflow-hidden" style="border-color: #E5E2DB;">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm" style="min-width: 560px;">
+                            <thead><tr style="background: #FAFAF8; border-bottom: 1px solid #E5E2DB;">
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">Wenn es …</th>
+                                <th class="text-left px-5 py-3 font-mono text-[0.6rem] uppercase tracking-wider text-stone-500">dann …</th>
+                            </tr></thead>
+                            <tbody class="divide-y" style="border-color: #F5F3EF;">
+                                <tr><td class="px-5 py-3 text-stone-700">Claude immer wissen muss</td><td class="px-5 py-3 text-stone-500">CLAUDE.md, kurz halten</td></tr>
+                                <tr><td class="px-5 py-3 text-stone-700">Claude bei Tätigkeit X wissen muss</td><td class="px-5 py-3 text-stone-500">Rule in 00_SYSTEM/01_RULES/</td></tr>
+                                <tr><td class="px-5 py-3 text-stone-700">eine Routine in diesem Vault ist</td><td class="px-5 py-3 text-stone-500">Command in .claude/commands/</td></tr>
+                                <tr><td class="px-5 py-3 text-stone-700">eine Methode ist, die überall gilt</td><td class="px-5 py-3 text-stone-500">Methoden-Skill in ~/.claude/skills/</td></tr>
+                                <tr><td class="px-5 py-3 text-stone-700">für die Zukunft gemerkt werden soll</td><td class="px-5 py-3 text-stone-500">Memory</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <p class="text-[0.75rem] text-stone-500 mt-3">Volles Ebenenmodell und Skill-Hygiene: <a href="obsidian://open?vault=KnowledgeOS&amp;file=00_SYSTEM%2F01_RULES%2FKI_Infrastruktur" class="text-violet-500 hover:text-violet-700">KI_Infrastruktur im Vault</a></p>
             </section>
 
         </main>
     </div>
 
-    <script src="office.js?v=2" data-active="skills"></script>
+    <script src="office.js?v=3" data-active="skills"></script>
 </body>
 </html>
