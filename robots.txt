@@ -7,7 +7,6 @@ Disallow: /publikationen/
 Disallow: /projekte/
 Disallow: /skills/
 Disallow: /brandkit/
-Disallow: /empathy-maps/
 Disallow: /blog/drafts/
 Disallow: /blog/verworfen/
 Disallow: /ag-service/

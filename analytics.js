@@ -27,7 +27,7 @@
     if (WEBSITE_ID.indexOf('__') === 0) return;
 
     // Interne, nicht indexierte Bereiche nie tracken
-    var INTERN = ['/publikationen/', '/projekte/', '/skills/', '/brandkit/', '/empathy-maps/'];
+    var INTERN = ['/publikationen/', '/projekte/', '/skills/', '/brandkit/'];
     for (var i = 0; i < INTERN.length; i++) {
         if (location.pathname.indexOf(INTERN[i]) === 0) return;
     }
