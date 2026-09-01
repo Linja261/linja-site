@@ -4,9 +4,9 @@
  * Einbinden: <script src="ag-service.js" data-active="dashboard"></script>
  * data-active = dashboard | idee | pitch | hypothesen | personas | markt | interviews | pilot
  *
- * Im HTML: <div id="ag-gate"></div><div id="ag-content" style="display:none">...</div>
+ * Im HTML: <div id="ag-content">...</div>
  *
- * Auth-Muster aus office.js übernommen (sessionStorage, eigener Storage-Key ag-service-auth).
+ * Kein Passwortschutz: die Seiten sind nicht indexiert, aber offen erreichbar.
  */
 (function () {
     // Cookieloses Tracking laden (no-op solange in analytics.js keine ID gesetzt ist)
@@ -16,9 +16,6 @@
         trk.src = '/analytics.js';
         document.head.appendChild(trk);
     }
-
-    var PASS = 'REDACTED';
-    var AUTH_KEY = 'ag-service-auth';
 
     var scripts = document.querySelectorAll('script[src*="ag-service.js"]');
     var scriptTag = scripts[scripts.length - 1];
@@ -64,70 +61,25 @@
             + '</div>'
             + '<div class="flex items-center gap-5 text-[0.8rem] overflow-x-auto flex-1 min-w-0">' + items + '</div>'
             + tools
-            + '<button onclick="agLogout()" class="text-[0.7rem] text-stone-400 hover:text-stone-600 font-mono tracking-wide hidden lg:inline shrink-0">LOGOUT</button>'
             + '</div></nav>';
     }
 
-    // === GATE ===
-    function buildGate() {
-        return ''
-            + '<div class="min-h-screen flex items-center justify-center px-6">'
-            + '<div class="max-w-sm w-full text-center">'
-            + '<p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">AG Service · intern</p>'
-            + '<h1 class="source-serif text-2xl text-stone-900 mb-2">AG Service.</h1>'
-            + '<p class="text-sm text-stone-400 mb-6">Prototyp — nur für Eingeweihte.</p>'
-            + '<form onsubmit="return agCheckPass()">'
-            + '<input type="password" id="ag-pass" placeholder="Passwort" autofocus '
-            + 'class="w-full px-5 py-4 rounded-2xl border text-sm bg-white focus:outline-none focus:border-violet-300 mb-3" '
-            + 'style="border-color: #E5E2DB;">'
-            + '<button type="submit" class="w-full bg-violet-400 hover:bg-violet-500 text-white font-semibold px-6 py-4 rounded-2xl text-sm transition-all">Öffnen</button>'
-            + '</form>'
-            + '<p id="ag-error" class="text-xs text-red-400 mt-3 hidden">Falsches Passwort.</p>'
-            + '</div></div>';
-    }
-
-    // === AUTH FLOW ===
-    function isAuthed() {
-        return sessionStorage.getItem(AUTH_KEY) === 'true';
-    }
-
-    function mountGate() {
-        var gate = document.getElementById('ag-gate');
+    // === NAV MOUNTING ===
+    // Kein Passwort-Gate mehr: es war clientseitig und damit wirkungslos.
+    // Die Seiten tragen <meta name="robots" content="noindex, nofollow">.
+    function mountNav() {
         var content = document.getElementById('ag-content');
-        if (!gate || !content) return;
-
-        if (isAuthed()) {
-            gate.style.display = 'none';
-            content.style.display = 'block';
-            var navPlaceholder = document.getElementById('ag-nav');
-            if (navPlaceholder) navPlaceholder.outerHTML = buildNav();
-        } else {
-            gate.innerHTML = buildGate();
-            gate.style.display = 'block';
-            content.style.display = 'none';
-        }
+        if (content) content.style.display = 'block';
+        var gate = document.getElementById('ag-gate');
+        if (gate) gate.remove();
+        var navPlaceholder = document.getElementById('ag-nav');
+        if (navPlaceholder) navPlaceholder.outerHTML = buildNav();
     }
-
-    window.agCheckPass = function () {
-        var input = document.getElementById('ag-pass').value;
-        if (input === PASS) {
-            sessionStorage.setItem(AUTH_KEY, 'true');
-            location.reload();
-        } else {
-            document.getElementById('ag-error').classList.remove('hidden');
-        }
-        return false;
-    };
-
-    window.agLogout = function () {
-        sessionStorage.removeItem(AUTH_KEY);
-        location.reload();
-    };
 
     // Mount on DOM ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', mountGate);
+        document.addEventListener('DOMContentLoaded', mountNav);
     } else {
-        mountGate();
+        mountNav();
     }
 })();

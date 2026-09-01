@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Lernplan – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Fraunces', 'Georgia', 'serif'], serif: ['Fraunces', 'Georgia', 'serif'], mono: ['Geist Mono', 'monospace'] },
+                colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } } } }
+        }
+    </script>
+    <style>.source-serif { font-family: "Fraunces", Georgia, serif; color: #472E56 !important; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+
+            <header class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Wissen · Lernplan · 01.09. bis 30.11.2026</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Die ersten 90 Tage.</h1>
+                <p class="text-sm text-stone-500 max-w-2xl">Sechzehn Fragen, die sich an der Arbeit beantworten. Kein Stoff, der zusätzlich zu lernen wäre.</p>
+            </header>
+
+            <section class="mb-10">
+                <div class="border rounded-xl p-6" style="border-color: #d9d1e5; background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%);">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase text-violet-500 mb-2">Warum dieser Plan anders ist</p>
+                    <p class="text-sm text-stone-700 leading-relaxed mb-4">Die Lernpläne von Februar, März und Q2 sind alle daran gescheitert, dass sie <strong>Extra-Aufgaben</strong> waren. Ein Lernplan, der Zeit kostet, überlebt eine volle Arbeitswoche nicht. Ein Lernplan, der nur die Aufmerksamkeit lenkt, schon.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Im Check-in</p>
+                            <p class="text-[0.78rem] text-stone-600">Claude nennt <strong>eine</strong> Frage, die zum heutigen Tag passt: als Beobachtungsauftrag, nicht als Aufgabe.</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Freitags im Check-out</p>
+                            <p class="text-[0.78rem] text-stone-600">Abhaken, ergänzen, streichen.</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border" style="border-color: #E5E2DB;">
+                            <p class="font-mono text-[0.6rem] uppercase text-violet-400 mb-1">Fragen dürfen sterben</p>
+                            <p class="text-[0.78rem] text-stone-600">Was sich als irrelevant erweist, wird gestrichen statt mitgeschleppt.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-violet-400 mb-1">Beantwortet</p>
+                    <p class="font-mono text-2xl text-stone-900"><span id="lp-done">0</span>/16</p>
+                </div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-violet-400 mb-1">Aktuelle Phase</p>
+                    <p class="font-medium text-stone-900 text-sm mt-1" id="lp-phase">—</p>
+                </div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-violet-400 mb-1">Tag im Job</p>
+                    <p class="font-mono text-2xl text-stone-900" id="lp-day">—</p>
+                </div>
+                <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-violet-400 mb-1">Review</p>
+                    <p class="font-medium text-stone-900 text-sm mt-1">freitags</p>
+                    <p class="text-[0.7rem] text-stone-500 mt-1">im /checkout, Schritt b</p>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+                    <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-400">Phase 1 · Orientierung · September</p>
+                    <p class="font-mono text-[0.6rem] text-stone-400" id="p1-count">0/7</p>
+                </div>
+                <div class="border rounded-xl overflow-hidden" style="border-color: #E5E2DB; background: #ffffff;">
+                    <div class="px-6 py-4" style="background: #FAFAF8; border-bottom: 1px solid #E5E2DB;">
+                        <p class="source-serif text-lg text-stone-900">Leitfrage: Wie tickt dieses Haus?</p>
+                    </div>
+                    <div class="divide-y" style="border-color: #F5F3EF;">
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="1">
+                            <button onclick="toggleQ(1)" data-box="1" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="1">Wer entscheidet über Priorisierung, formal und faktisch?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Refinements, Roadmap-Runden</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">01</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="2">
+                            <button onclick="toggleQ(2)" data-box="2" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="2">Wie kommt eine Idee zur Umsetzung? Welche Gates gibt es?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Erstes eigenes Vorhaben</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">02</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="3">
+                            <button onclick="toggleQ(3)" data-box="3" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="3">Welche Daten stehen zur Verfügung, wer besitzt sie?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Erste Datenfrage</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">03</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="4">
+                            <button onclick="toggleQ(4)" data-box="4" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="4">Wonach wird Produkterfolg gemessen? Gibt es eine North Star?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Metriken-Gespräch</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">04</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="5">
+                            <button onclick="toggleQ(5)" data-box="5" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="5">Wer sind die fünf Menschen, die ich für meine Arbeit brauche?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Stakeholder-Rotation</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">05</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="6">
+                            <button onclick="toggleQ(6)" data-box="6" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="6">Wie wird hier geschrieben? Welches Format liest die Führung?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Erste eigene Vorlage</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">06</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="7">
+                            <button onclick="toggleQ(7)" data-box="7" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="7">Wie ist die KI- und Datenrichtlinie? Was darf ein Assistent sehen?<span class="font-mono text-[0.55rem] uppercase tracking-wider px-1.5 py-0.5 rounded ml-2" style="background: #fae8de; color: #a86340;">Gate</span></p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Woche 1, aktiv fragen</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">07</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4" style="background: #fdf8f4; border-top: 1px solid #f0ddd0;">
+                        <p class="text-[0.78rem] text-stone-700">Frage 7 ist ein Gate, keine Beobachtung. Sie wird aktiv gestellt, bevor irgendein Agent auf Firmendaten zeigt.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+                    <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-400">Phase 2 · Domäne · Oktober</p>
+                    <p class="font-mono text-[0.6rem] text-stone-400" id="p2-count">0/5</p>
+                </div>
+                <div class="border rounded-xl overflow-hidden" style="border-color: #E5E2DB; background: #ffffff;">
+                    <div class="px-6 py-4" style="background: #FAFAF8; border-bottom: 1px solid #E5E2DB;">
+                        <p class="source-serif text-lg text-stone-900">Leitfrage: Verstehe ich das Geschäft gut genug, um zu widersprechen?</p>
+                    </div>
+                    <div class="divide-y" style="border-color: #F5F3EF;">
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="8">
+                            <button onclick="toggleQ(8)" data-box="8" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="8">Wie verteilen sich Schäden im Bestand? Wann zahlt die Versicherung am häufigsten?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Datenanalyse, Fachgespräche</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">08</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="9">
+                            <button onclick="toggleQ(9)" data-box="9" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="9">Welches der vier Segmente trägt wirtschaftlich wirklich?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Business-Zahlen</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">09</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="10">
+                            <button onclick="toggleQ(10)" data-box="10" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="10">Wo endet die Zahlungsbereitschaft für Prävention? Und warum?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Nutzergespräche</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">10</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="11">
+                            <button onclick="toggleQ(11)" data-box="11" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="11">Wer ist Wettbewerb und worin sind sie besser?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Wettbewerbsrecherche</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">11</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="12">
+                            <button onclick="toggleQ(12)" data-box="12" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="12">Welche regulatorischen Randbedingungen begrenzen den Lösungsraum?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Fachabteilung</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">12</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4" style="background: #fdf8f4; border-top: 1px solid #f0ddd0;">
+                        <p class="text-[0.78rem] text-stone-700">Startkapital ist die eigene Vorarbeit: Empathy Maps für vier Zielgruppen, JTBD-Use-Cases je Segment, Zielgruppenanalyse Hausverwalter aus der Masterthesis. Frage 9 prüft ausdrücklich, ob die Segment-Einschätzung von damals gegen echte Zahlen standhält.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+                    <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-400">Phase 3 · Wirksamkeit · November</p>
+                    <p class="font-mono text-[0.6rem] text-stone-400" id="p3-count">0/4</p>
+                </div>
+                <div class="border rounded-xl overflow-hidden" style="border-color: #E5E2DB; background: #ffffff;">
+                    <div class="px-6 py-4" style="background: #FAFAF8; border-bottom: 1px solid #E5E2DB;">
+                        <p class="source-serif text-lg text-stone-900">Leitfrage: Welche meiner Methoden greifen hier, welche nicht?</p>
+                    </div>
+                    <div class="divide-y" style="border-color: #F5F3EF;">
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="13">
+                            <button onclick="toggleQ(13)" data-box="13" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="13">Welche Methode hat hier tatsächlich getragen?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Rückblick auf 10 Wochen</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">13</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="14">
+                            <button onclick="toggleQ(14)" data-box="14" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="14">Wo bin ich gegen eine Wand gelaufen und was war die Ursache?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Ehrlicher Rückblick</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">14</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="15">
+                            <button onclick="toggleQ(15)" data-box="15" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="15">Was kann ich delegieren, das ich noch selbst mache?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Aufgaben-Inventur</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">15</span>
+                        </div>
+                        <div class="flex items-start gap-4 px-6 py-4" data-q="16">
+                            <button onclick="toggleQ(16)" data-box="16" class="w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300"></button>
+                            <div class="flex-1">
+                                <p class="text-sm text-stone-800" data-text="16">Welche Entscheidung habe ich zu lange liegen lassen?</p>
+                                <p class="text-[0.72rem] text-stone-500 mt-1">beantwortet sich an: Entscheidungslog</p>
+                            </div>
+                            <span class="font-mono text-[0.6rem] text-stone-300 mt-1">16</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Methodische Lernstränge · laufend, ohne Frist</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-medium text-stone-900 text-sm mb-2">Agentische Arbeitsweise</p>
+                        <p class="text-[0.78rem] text-stone-600 leading-relaxed">Welcher Paketschnitt funktioniert im Konzernkontext, wo bricht er. Fortsetzung des Strangs aus dem privaten Vault.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-medium text-stone-900 text-sm mb-2">Lateral Leadership</p>
+                        <p class="text-[0.78rem] text-stone-600 leading-relaxed">Wirkung ohne Weisungsbefugnis. War schon Thema im Q2-Plan, wird hier zum ersten Mal ernst.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <p class="font-medium text-stone-900 text-sm mb-2">Domänentiefe Versicherung</p>
+                        <p class="text-[0.78rem] text-stone-600 leading-relaxed">Der Unterschied zwischen „kennt sich aus" und „wird gefragt".</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Eigene Beobachtungen</p>
+                <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <ul id="obs-list" class="space-y-3 mb-4"></ul>
+                    <form id="obs-form" class="flex gap-2">
+                        <input type="text" id="obs-input" maxlength="200" placeholder="Was ist dir aufgefallen?"
+                            class="flex-1 px-4 py-2.5 rounded-lg border text-sm bg-white focus:outline-none focus:border-violet-300" style="border-color: #E5E2DB;">
+                        <button type="submit" class="bg-violet-400 hover:bg-violet-500 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-all">+</button>
+                    </form>
+                    <p class="text-[0.72rem] text-stone-400 mt-3">Konferenz-Probe gilt auch hier: keine Internas, keine Namen mit Bewertung.</p>
+                </div>
+            </section>
+
+            <section>
+                <div class="border rounded-xl p-6" style="border-color: #E5E2DB; background: #ffffff;">
+                    <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Was hier bewusst nicht steht</p>
+                    <p class="text-sm text-stone-600 leading-relaxed">Keine Kurse, keine Bücher, keine Zertifikate. In den ersten 90 Tagen ist die Lernquelle die Arbeit selbst. Wenn nach November eine echte Lücke bleibt, wird sie dann gezielt geschlossen: mit einer benannten Lücke, nicht auf Verdacht.</p>
+                    <p class="text-[0.75rem] text-stone-500 mt-4">Quelle: <a href="obsidian://open?vault=KnowledgeOS&amp;file=17_PROPERTYEXPERT%2Fvault-starter%2F50_LERNEN%2FLernplan_erste_90_Tage" class="text-violet-500 hover:text-violet-700">Lernplan_erste_90_Tage im Vault</a> · Die Pläne von Februar, März und Q2 liegen in <span class="font-mono">20_IDENTITY/05_Growth/</span> und sind Archiv.</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="/nav.js" data-active="lernplan"></script>
+    <script>
+        var PHASES = { p1: [1,2,3,4,5,6,7], p2: [8,9,10,11,12], p3: [13,14,15,16] };
+        var CHECK = '<svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>';
+
+        function escO(s) {
+            return String(s).replace(/[&<>"']/g, function (m) {
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+            });
+        }
+
+        function renderQ() {
+            var done = window.officeStore.get('lernplan-90', {});
+            var total = 0;
+            Object.keys(PHASES).forEach(function (p) {
+                var n = 0;
+                PHASES[p].forEach(function (q) {
+                    var box = document.querySelector('[data-box="' + q + '"]');
+                    var txt = document.querySelector('[data-text="' + q + '"]');
+                    if (!box) return;
+                    if (done[q]) {
+                        n++; total++;
+                        box.className = 'w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-violet-400 border-violet-400';
+                        box.innerHTML = CHECK;
+                        txt.classList.add('text-stone-400', 'line-through');
+                    } else {
+                        box.className = 'w-5 h-5 rounded border flex items-center justify-center flex-shrink-0 mt-0.5 transition-all bg-white border-stone-300';
+                        box.innerHTML = '';
+                        txt.classList.remove('text-stone-400', 'line-through');
+                    }
+                });
+                var el = document.getElementById(p + '-count');
+                if (el) el.textContent = n + '/' + PHASES[p].length;
+            });
+            document.getElementById('lp-done').textContent = total;
+        }
+
+        window.toggleQ = function (n) {
+            var done = window.officeStore.get('lernplan-90', {});
+            if (done[n]) delete done[n]; else done[n] = new Date().toISOString();
+            window.officeStore.set('lernplan-90', done);
+            renderQ();
+        };
+
+        function renderObs() {
+            var items = window.officeStore.get('lernplan-obs', []);
+            var el = document.getElementById('obs-list');
+            if (!items.length) {
+                el.innerHTML = '<li class="text-sm text-stone-400 italic">Noch nichts notiert.</li>';
+                return;
+            }
+            el.innerHTML = items.map(function (o, i) {
+                return '<li class="flex items-start gap-3 group">'
+                    + '<span class="font-mono text-[0.6rem] text-stone-300 mt-1 flex-shrink-0">' + (o.date || '').slice(5) + '</span>'
+                    + '<span class="flex-1 text-sm text-stone-700">' + escO(o.text) + '</span>'
+                    + '<button onclick="delObs(' + i + ')" class="opacity-0 group-hover:opacity-100 text-stone-300 hover:text-red-400 transition-all text-xs">&#10005;</button>'
+                    + '</li>';
+            }).join('');
+        }
+        window.delObs = function (i) {
+            var items = window.officeStore.get('lernplan-obs', []);
+            items.splice(i, 1);
+            window.officeStore.set('lernplan-obs', items);
+            renderObs();
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            if (!window.officeStore) return;
+
+            var start = new Date(2026, 8, 1);
+            var now = new Date(); now.setHours(0, 0, 0, 0);
+            var day = Math.floor((now - start) / 86400000) + 1;
+            var dayEl = document.getElementById('lp-day');
+            var phEl = document.getElementById('lp-phase');
+            if (day < 1) { dayEl.textContent = 'noch ' + (1 - day) + 'd'; phEl.textContent = 'startet 01.09.'; }
+            else {
+                dayEl.textContent = day;
+                var m = now.getMonth();
+                phEl.textContent = m === 8 ? 'Orientierung' : m === 9 ? 'Domäne' : m === 10 ? 'Wirksamkeit' : 'nach dem Plan';
+            }
+
+            document.getElementById('obs-form').addEventListener('submit', function (ev) {
+                ev.preventDefault();
+                var inp = document.getElementById('obs-input');
+                var t = inp.value.trim();
+                if (!t) return;
+                var items = window.officeStore.get('lernplan-obs', []);
+                items.push({ text: t, date: window.officeUtils.today() });
+                window.officeStore.set('lernplan-obs', items);
+                inp.value = '';
+                renderObs();
+            });
+
+            renderQ();
+            renderObs();
+        });
+    </script>
+</body>
+</html>

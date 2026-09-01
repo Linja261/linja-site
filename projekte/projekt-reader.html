@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Reader – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { fontFamily: { sans: ['Fraunces', 'Georgia', 'serif'], serif: ['Fraunces', 'Georgia', 'serif'], mono: ['Geist Mono', 'monospace'] },
+                colors: { violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' } } } }
+        }
+    </script>
+    <style>.source-serif { font-family: "Fraunces", Georgia, serif; color: #472E56 !important; }</style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[1100px] mx-auto px-6 pt-28 pb-20">
+
+
+            <header class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Werkzeug · 90-Sekunden-Audio</p>
+                <div class="flex items-center gap-3 flex-wrap mb-3">
+                    <h1 class="source-serif text-3xl text-stone-900">Reader</h1>
+                    <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded text-white" style="background: #7b6ba5;">Prototyp</span> <span class="font-mono text-[0.6rem] uppercase tracking-wider px-2 py-0.5 rounded bg-stone-100 text-stone-500">Eigenbedarf</span>
+                </div>
+                <p class="text-sm text-stone-600 max-w-3xl">Lange Artikel werden zu 90-Sekunden-Audio. Warme deutsche Stimme, neutraler TLDR-Stil, ADHS-freundlich. Zwei Ausbaustufen: Widget unter Blogartikeln und persönliche Web-App.</p>
+            </header>
+
+            <section class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+                <div class="bg-white border rounded-xl p-4" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-violet-400 mb-1">Status</p>
+                    <p class="font-medium text-stone-900 text-sm">Prototyp</p>
+                    <p class="text-[0.72rem] text-stone-500 mt-1">One-Night-Build April 2026</p>
+                </div>
+                <div class="bg-white border rounded-xl p-4" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-violet-400 mb-1">Meine Rolle</p>
+                    <p class="font-medium text-stone-900 text-sm">Alles</p>
+                    <p class="text-[0.72rem] text-stone-500 mt-1">Sprint, Bau, Nutzung</p>
+                </div>
+                <div class="bg-white border rounded-xl p-4" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-violet-400 mb-1">Technik</p>
+                    <p class="font-medium text-stone-900 text-sm">Next.js 15</p>
+                    <p class="text-[0.72rem] text-stone-500 mt-1">Reader-App + Widget-Builder-API</p>
+                </div>
+                <div class="bg-white border rounded-xl p-4" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-violet-400 mb-1">Nächster Schritt</p>
+                    <p class="font-medium text-stone-900 text-sm">Widget in den Blog</p>
+                    <p class="text-[0.72rem] text-stone-500 mt-1">unter linja.me-Artikel hängen</p>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Kern-Job to be done</p>
+                <div class="border rounded-xl p-6" style="border-color: #d9d1e5; background: linear-gradient(135deg, #f6f4f9 0%, #ffffff 60%);">
+                    <p class="source-serif text-lg leading-relaxed">Wenn ich einen langen Artikel gespeichert habe, aber keinen Kopf zum Lesen, will ich den Kern in 90 Sekunden gehört haben, damit die Leseliste nicht zum Vorwurf wird.</p>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Kernzielgruppen</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <div class="flex items-center gap-2 mb-2 flex-wrap">
+                            <p class="font-medium text-stone-900 text-sm">Ich selbst</p>
+                            <span class="font-mono text-[0.55rem] uppercase tracking-wider px-1.5 py-0.5 rounded bg-stone-100 text-stone-500">Primär</span>
+                        </div>
+                        <p class="text-[0.78rem] text-stone-600 leading-relaxed">Der ehrliche Hauptnutzer. Das Projekt ist als Eigenbedarf gebaut.</p>
+                    </div>
+                    <div class="bg-white border rounded-xl p-5" style="border-color: #E5E2DB;">
+                        <div class="flex items-center gap-2 mb-2 flex-wrap">
+                            <p class="font-medium text-stone-900 text-sm">Blog-Leserinnen</p>
+                            <span class="font-mono text-[0.55rem] uppercase tracking-wider px-1.5 py-0.5 rounded bg-stone-100 text-stone-500">Sekundär</span>
+                        </div>
+                        <p class="text-[0.78rem] text-stone-600 leading-relaxed">90 Sek hören statt zehn Minuten lesen, direkt unter dem Artikel.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Use Cases</p>
+                <div class="bg-white border rounded-xl divide-y" style="border-color: #E5E2DB;">
+                    <div class="p-5" style="border-color: #F5F3EF;">
+                        <p class="font-medium text-stone-900 text-sm mb-1">Blog-Widget</p>
+                        <p class="text-[0.78rem] text-stone-600">Audio-Player unter linja.me-Artikeln.</p>
+                    </div>
+                    <div class="p-5" style="border-color: #F5F3EF;">
+                        <p class="font-medium text-stone-900 text-sm mb-1">Personal Web-App</p>
+                        <p class="text-[0.78rem] text-stone-600">URL einfügen, Audio hören. Geplant unter reader.linja.me.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Umsatzpotenzial &amp; Geschäftsmodell</p>
+                <div class="bg-white border rounded-xl p-6" style="border-color: #E5E2DB;">
+                    <p class="source-serif text-2xl mb-3">Kein Umsatzziel</p>
+                    <p class="text-sm text-stone-600 leading-relaxed mb-4">Als Werkzeug für den Eigenbedarf gebaut. Die Wettbewerbssicht zeigt zwar eine Lücke: kein deutsches Tool kombiniert 90-Sekunden-Audio-Summary, Widget für statische Seiten und warme deutsche Stimme. Aber daraus ein Produkt zu machen ist bewusst nicht verfolgt.</p>
+                    <ul class="space-y-2">
+                        <li class="text-[0.8rem] text-stone-600 flex gap-2"><span class="text-violet-400">·</span><span>Speechify und NaturalReader lesen vor, statt zu verdichten</span></li>
+                        <li class="text-[0.8rem] text-stone-600 flex gap-2"><span class="text-violet-400">·</span><span>Snipd ist podcast-only, Beyondwords hat Publisher-Preise</span></li>
+                        <li class="text-[0.8rem] text-stone-600 flex gap-2"><span class="text-violet-400">·</span><span>Wenn überhaupt Produkt, dann als 1-Person-Lösung für Blog plus privat</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Sites &amp; Apps</p>
+                    <div class="bg-white border rounded-xl divide-y" style="border-color: #E5E2DB;">
+                        <div class="p-4"><p class="text-[0.78rem] text-stone-400">Nichts öffentlich erreichbar. Läuft nur lokal.</p></div>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Marketingmaterial</p>
+                    <div class="bg-white border rounded-xl divide-y" style="border-color: #E5E2DB;">
+                        <div class="p-4">
+                            <p class="font-medium text-stone-900 text-sm mb-0.5">Blog-Widget-Snippet</p>
+                            <p class="text-[0.75rem] text-stone-500">HTML/CSS zum Einhängen unter Artikel</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3 text-violet-400">Im Vault</p>
+                    <div class="bg-white border rounded-xl divide-y" style="border-color: #E5E2DB;">
+                        <a href="obsidian://open?vault=KnowledgeOS&amp;file=16_READER%2FREADME" class="block p-4 hover:bg-stone-50 transition-colors">
+                            <p class="text-sm text-stone-700">README</p>
+                        </a>
+                        <a href="obsidian://open?vault=KnowledgeOS&amp;file=16_READER%2F03_ideate" class="block p-4 hover:bg-stone-50 transition-colors">
+                            <p class="text-sm text-stone-700">Ideate (Value Prop, JTBD)</p>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #a86340;">Offene Entscheidungen</p>
+                    <div class="border rounded-xl p-5" style="border-color: #f0ddd0; background: #fdf8f4;">
+                        <ul class="space-y-2">
+                            <li class="text-[0.8rem] text-stone-700 flex gap-2"><span style="color: #a86340;">&#9633;</span><span>Widget tatsächlich unter die Blogartikel hängen</span></li>
+                            <li class="text-[0.8rem] text-stone-700 flex gap-2"><span style="color: #a86340;">&#9633;</span><span>reader.linja.me aufsetzen oder bewusst lassen</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="/nav.js" data-active="p-reader"></script>
+</body>
+</html>
