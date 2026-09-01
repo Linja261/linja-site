@@ -26,8 +26,11 @@
     // Noch nicht konfiguriert -> nichts laden (Seite bleibt tracking-frei)
     if (WEBSITE_ID.indexOf('__') === 0) return;
 
-    // Office-Cockpit (Linjas private Seiten) nie tracken
-    if (location.pathname.indexOf('/office/') !== -1) return;
+    // Interne, nicht indexierte Bereiche nie tracken
+    var INTERN = ['/publikationen/', '/projekte/', '/skills/', '/brandkit/', '/empathy-maps/'];
+    for (var i = 0; i < INTERN.length; i++) {
+        if (location.pathname.indexOf(INTERN[i]) === 0) return;
+    }
 
     // Respektiere "Do Not Track" und eine lokale Opt-out-Flag
     if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;

@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Office · Promo-Queue – Linja</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: {
+            fontFamily: { sans: ['Fraunces','Georgia','serif'], serif: ['Fraunces','Georgia','serif'], mono: ['Geist Mono','ui-monospace','monospace'] },
+            colors: {
+                violet: { 50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5', 300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863' },
+                emerald: { 50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa', 500: '#5b8a72', 700: '#31493d' },
+            },
+        } } }
+    </script>
+    <style>
+        .source-serif { font-family: "Fraunces", Georgia, serif; color: #472E56 !important; }
+        .channel[data-posted="true"] { opacity: 0.4; }
+        .channel[data-posted="true"] .channel-actions { display: none; }
+        .channel[data-posted="true"] .posted-badge { display: inline-flex !important; }
+    </style>
+</head>
+<body style="background: #FAFAF8;" class="font-sans text-stone-700">
+
+    <div id="office-gate"></div>
+
+    <div id="office-content" style="display:none">
+        <div id="office-nav"></div>
+
+        <main class="max-w-[760px] mx-auto px-5 pt-24 pb-20">
+
+            <header class="mb-8">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-2 text-violet-400">Promo</p>
+                <h1 class="source-serif text-3xl text-stone-900 mb-2">Promo-Queue</h1>
+                <p class="text-sm text-stone-500">Artikel live auf linja.me. Teaser für Substack Note und LinkedIn Post zum Kopieren. Der Traffic fließt auf linja.me zurück, damit dein Blog SEO-Juice und Reichweite behält.</p>
+            </header>
+
+            <!-- Quick-Action Bar -->
+            <div class="grid grid-cols-2 gap-2 mb-6 sticky top-16 z-10 py-2" style="background: #FAFAF8;">
+                <a href="https://substack.com/home" target="_blank" rel="noopener" class="text-center bg-violet-400 hover:bg-violet-500 text-white text-sm font-medium py-3 px-4 rounded-xl transition-all">
+                    Substack-Dashboard &rarr;
+                </a>
+                <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="text-center bg-violet-400 hover:bg-violet-500 text-white text-sm font-medium py-3 px-4 rounded-xl transition-all">
+                    LinkedIn-Feed &rarr;
+                </a>
+            </div>
+
+            <!-- Counter -->
+            <div class="grid grid-cols-4 gap-2 mb-6">
+                <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-xl text-stone-900" id="count-substack-open">9</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Substack offen</div>
+                </div>
+                <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-xl text-stone-900" id="count-substack-posted">0</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">Substack geteilt</div>
+                </div>
+                <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-xl text-stone-900" id="count-linkedin-open">9</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">LinkedIn offen</div>
+                </div>
+                <div class="bg-white border rounded-xl p-3 text-center" style="border-color: #E5E2DB;">
+                    <div class="font-mono text-xl text-stone-900" id="count-linkedin-posted">0</div>
+                    <div class="text-[0.6rem] text-stone-400 uppercase tracking-wide mt-1">LinkedIn geteilt</div>
+                </div>
+            </div>
+
+            <button id="show-posted-toggle" onclick="togglePosted()" class="text-xs text-stone-500 hover:text-stone-800 px-3 py-2 mb-4">
+                Erledigte ausblenden
+            </button>
+
+            <!-- Queue -->
+            <div id="queue-list" class="space-y-6">
+
+                <!-- ========= ENTRY: muehe-ist-kein-wertmasstab (LIVE seit 26.08., Promo offen) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="muehe-ist-kein-wertmasstab">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Produktarbeit</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Publiziert: 26.08.</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Live</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Mühe ist kein Wertmaßstab. Was der Streit über KI und Kreativarbeit für Produktteams bedeutet.</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/muehe-ist-kein-wertmasstab.html" target="_blank" class="hover:text-violet-400">linja.me/blog/muehe-ist-kein-wertmasstab &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Kreative Arbeit hat ein Bewertungsproblem, das lange vor KI existierte: Je besser sie ist, desto weniger sieht sie nach Arbeit aus. Richard Jung hat das anhand einer Studie des Brand Science Institute beschrieben, in der identische Texte und Bilder unterschiedlich bewertet werden, je nachdem ob ein Mensch, eine KI oder beide gemeinsam als Urheber ausgewiesen sind. Am schlechtesten schneidet ausgerechnet die Zusammenarbeit ab, weil sie wie eine Abkürzung wirkt.
+
+Für Produktarbeit ist das direkt anschlussfähig, denn gute Produktarbeit erzeugt Abwesenheit: den Schritt, den niemand mehr gehen muss, das Feature, das nie gebaut wurde, die Rückfrage, die im Support nicht mehr aufläuft. Gemessen wird derweil Aufwand. Velocity, gelieferte Tickets und die Anzahl der Features sind Aufwandsindikatoren, keine Wertindikatoren.
+
+Der konkrete Take-away: Wer Produktarbeit über sichtbaren Aufwand verteidigt, macht sich von genau der Wahrnehmung abhängig, die gute Arbeit unsichtbar macht. Die Alternative ist, die Entscheidung zu erzählen statt den Aufwand. Welches Problem als das eigentliche erkannt wurde, welche Option verworfen wurde und was das bewirkt hat.
+
+Eine Einschränkung gehört dazu: Die Studie ist selbst publiziert, nicht begutachtet und berichtet Mittelwerte ohne Streuungsmaße. Belastbarer ist eine präregistrierte Untersuchung mit 4.439 Teilnehmenden, 2025 in PNAS erschienen: Wer bei der Arbeit KI einsetzt, wird als fauler und weniger kompetent eingeschätzt, auch wenn die KI die Leistung messbar verbessert hat. Beides ordne ich im Artikel ein: linja.me/blog/muehe-ist-kein-wertmasstab</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="30" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Gute Produkte wirken am Ende selbstverständlich. Genau das ist ihr Bewertungsproblem.
+
+Richard Jung hat beschrieben, warum kreative Arbeit so oft schlecht bezahlt wird, obwohl Kreativität überall beschworen wird. Sein Ausgangspunkt ist eine Studie des Brand Science Institute: Menschen bewerten identische Texte und Bilder unterschiedlich, je nachdem ob ein Mensch, eine KI oder beide gemeinsam als Urheber ausgewiesen sind. Die Zusammenarbeit schneidet am schlechtesten ab, weil sie wie eine Abkürzung wirkt.
+
+Das beschreibt Produktarbeit genauso gut wie Agenturarbeit.
+
+Was gute Produktarbeit hervorbringt, ist häufig etwas, das nicht da ist. Der Schritt, den niemand mehr gehen muss. Das Feature, das nie gebaut wurde. Ein Onboarding von fünf auf zwei Schritte zu kürzen ist mehr Arbeit, als eines mit fünf Schritten zu bauen, und sieht nach weniger aus.
+
+Gemessen wird derweil das Gegenteil. Velocity, gelieferte Tickets, Anzahl der Features im Release: Das sind Aufwandsindikatoren, keine Wertindikatoren. Discovery, die verhindert, dass ein Team ein halbes Jahr in das falsche Problem investiert, hinterlässt kein Artefakt fürs Review.
+
+Daraus folgt für mich zweierlei.
+
+Erstens: Wer Produktarbeit über sichtbaren Aufwand verteidigt, macht sich von genau der Wahrnehmung abhängig, die gute Arbeit unsichtbar macht. Besser ist, die Entscheidung zu erzählen. Welches Problem war das eigentliche, welche Option haben wir verworfen, was hat das bewirkt.
+
+Zweitens: Wenn die zugeschriebene Herkunft die Bewertung verschiebt, ist ein KI-Hinweis auf einer Produktseite kein neutraler Funktionshinweis, sondern ein Wertsignal. Gerade dort, wo Vertrauen und Handwerklichkeit die Kaufentscheidung tragen, kann er den wahrgenommenen Wert senken statt heben. Das Framing gehört getestet, nicht geraten.
+
+Zur Ehrlichkeit gehört: Die Studie des Brand Science Institute ist selbst publiziert, nicht begutachtet und berichtet Mittelwerte ohne Streuungsmaße. Belastbarer ist eine präregistrierte Untersuchung mit 4.439 Teilnehmenden, 2025 in PNAS erschienen: Wer bei der Arbeit KI einsetzt, gilt als fauler und weniger kompetent, auch wenn die KI die Leistung messbar verbessert hat. Die Replikation der Effort Heuristic fand 2023 zudem Stützung für den Effekt auf wahrgenommene Qualität, aber keine auf den Geldwert. Das ordne ich im Artikel ein.
+
+linja.me/blog/muehe-ist-kein-wertmasstab
+
+#ProductManagement #KI #Kreativwirtschaft</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: context-engineering-geschichtetes-wissen (Hero, Vorlesungs-Woche: Schichten x KI-Gedaechtnisse) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="context-engineering-geschichtetes-wissen">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Wissensarbeit</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">30.06.2026</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Drei Schichten, drei Gedächtnisse: wie ich die KI gezielt steuere</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/context-engineering-geschichtetes-wissen.html" target="_blank" class="hover:text-violet-400">linja.me/blog/context-engineering-geschichtetes-wissen &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Über KI wird oft geredet, als entscheide die Formulierung der Frage über die Qualität der Antwort. Mein Hebel liegt woanders: in dem, was die KI als Arbeitsgrundlage bekommt. Diesen Kontext ordne ich in drei Schichten. Knowledge ist Fachwissen, das unabhängig von mir existiert. Identity ist meine Rolle, meine Projekte und meine Analysen. Sensemaking ist das Deuten und Schlussfolgern.
+
+Der eigentliche Punkt ist aber, wozu diese Ordnung dient. Eine KI hat nicht ein Gedächtnis, sondern drei. Das Kontextfenster ist das Arbeitsgedächtnis der laufenden Aufgabe und lässt sich direkt füllen. Die Memory-Dateien sind ein Langzeitgedächtnis über alle Sessions und lassen sich dauerhaft formen. Das antrainierte Wissen ist nur Rückfallebene und entzieht sich der Steuerung. Zwei dieser Speicher steuere ich aktiv, den dritten nicht.
+
+Das Modell ist die Brücke zwischen den Schichten und diesen Speichern. Pro Aufgabe gebe ich gezielt die passende Schicht ins Arbeitsgedächtnis, statt alles auf einmal. So verschiebt sich die KI von der Erstquelle, die erfindet, zur Kritikerin, die meine Vorarbeit schärft. Genau diese Kombination aus Wissensschichten und KI-Gedächtnissen mache ich im Artikel sichtbar: linja.me/blog/context-engineering-geschichtetes-wissen</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="26" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Am Samstag habe ich an der Hochschule einen Vortrag über den bewussten Umgang mit KI im Studium gehalten. Der Kern war eine unbequeme Einsicht.
+
+Nicht wie man die KI fragt entscheidet über die Qualität des Ergebnisses, sondern was man ihr als Arbeitsgrundlage gibt. Und guten Kontext kann nur geben, wer das Thema selbst durchdrungen hat.
+
+Dahinter steht ein Modell, das ich täglich nutze. Drei Wissensschichten in einem System-Rahmen: Knowledge (Fachwissen, das unabhängig von mir existiert), Identity (meine Rolle, Projekte, Analysen) und Sensemaking (das Deuten und Schlussfolgern).
+
+Der eigentliche Hebel ist die Verbindung zu den Gedächtnissen der KI. Eine KI hat nämlich nicht eines, sondern drei. Das Kontextfenster als Arbeitsgedächtnis der Aufgabe, das ich direkt fülle. Die Memory-Dateien als Langzeitgedächtnis über alle Sessions, das ich dauerhaft forme. Das antrainierte Wissen als Rückfallebene, die ich nicht steuere. Zwei davon bediene ich aktiv, das dritte nicht.
+
+Pro Aufgabe schiebe ich gezielt die passende Schicht ins Arbeitsgedächtnis, statt alles auf einmal hineinzukippen. So wird die KI von der Erstquelle, die erfindet, zur Kritikerin, die meine Vorarbeit schärft. Das Ergebnis ist ein Output, den ich verantworten und weiterverwenden kann.
+
+Wie die drei Schichten und die drei Gedächtnisse genau zusammenspielen, habe ich hier aufgeschrieben:
+linja.me/blog/context-engineering-geschichtetes-wissen
+
+#KI #Wissensarbeit #ProductManagement</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: context-engineering-geschichtetes-wissen (Drei Schichten, drei Gedaechtnisse) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="context-engineering-geschichtetes-wissen">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Wissensarbeit</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">30.06.2026</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Drei Schichten, drei Gedächtnisse: wie ich die KI gezielt steuere</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/context-engineering-geschichtetes-wissen.html" target="_blank" class="hover:text-violet-400">linja.me/blog/context-engineering-geschichtetes-wissen &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Die meiste Ratgeberliteratur zu KI dreht sich um Prompts: die richtige Formulierung, das clevere Rollenspiel. Das greift zu kurz. Über die Qualität eines Ergebnisses entscheidet nicht, wie ich frage, sondern was ich der KI als Arbeitsgrundlage gebe.
+
+Dahinter steht ein Modell mit drei Wissensschichten in einem System-Rahmen: Knowledge, also Fachwissen, das unabhängig von mir existiert. Identity, also meine Rolle, Projekte und Analysen. Und Sensemaking, meine eigene Deutung. Der eigentliche Hebel ist, dass diese Schichten gezielt die Speicher der KI bedienen. Das Arbeitsgedächtnis fülle ich pro Aufgabe, das Langzeitgedächtnis forme ich einmal über Regeln, und das antrainierte Wissen aus den Modellgewichten bleibt nur Fallback. Genau dort erfindet die KI.
+
+Der konkrete Take-away: Wer steuert, welche Schicht in welchen Speicher wandert, verschiebt die KI aus der Rolle der erfindenden Erstquelle in die Rolle der Kritikerin der eigenen Vorarbeit. Das Ergebnis wird belastbar und weiterverwendbar.
+
+Ein Haken bleibt ehrlich: Guten Kontext kann nur geben, wer das Thema selbst durchdrungen hat. Kontext bauen und selbst denken sind dieselbe Handlung.
+
+Das ganze Modell mit Visualisierungen: linja.me/blog/context-engineering-geschichtetes-wissen</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="30" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Die meisten Tipps zur Arbeit mit KI drehen sich um den perfekten Prompt. Ich halte das für die falsche Stellschraube.
+
+Über die Qualität eines KI-Ergebnisses entscheidet nicht, wie ich frage, sondern was ich der KI als Grundlage gebe.
+
+Dafür nutze ich ein Modell aus drei Wissensschichten in einem System-Rahmen:
+
+Knowledge: Fachwissen, das unabhängig von mir existiert. Methoden, Marktdaten, Quellen.
+
+Identity: meine Rolle, meine Projekte, meine bisherigen Analysen. Das, was so nur ich weiß.
+
+Sensemaking: meine eigene Deutung und Strategie.
+
+Der eigentliche Hebel liegt darunter. Eine KI hat grob drei Speicher: das Arbeitsgedächtnis im laufenden Chat, das ich pro Aufgabe direkt fülle. Das Langzeitgedächtnis über Regeln und Memory, das ich einmal forme. Und das antrainierte Wissen aus den Modellgewichten, das sich meiner Steuerung entzieht. Genau dort, im trainierten Wissen, erfindet die KI.
+
+Wenn ich gezielt steuere, welche Schicht in welchen Speicher wandert, verschiebt sich die Rolle der KI. Sie wird von der erfindenden Erstquelle zur Kritikerin meiner Vorarbeit. Das Ergebnis kann ich verantworten und weiterverwenden, statt es hinterher geradezuziehen.
+
+Ein Haken bleibt ehrlich: Guten Kontext kann nur geben, wer das Thema selbst durchdrungen hat. Kontext bauen und selbst denken sind dieselbe Handlung. Die KI ersetzt das Denken nicht, sie schärft es.
+
+Das ganze Modell, mit Visualisierungen und den Quellen dahinter:
+linja.me/blog/context-engineering-geschichtetes-wissen
+
+#KI #Wissensarbeit #ProductManagement</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: denkmodelle-hinter-ki-kontext (Deep-Dive: sechs Modelle erklaert) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="denkmodelle-hinter-ki-kontext">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Wissensarbeit</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">30.06.2026</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Meine KI-Wissensbasis fußt auf etablierten Modellen der Wissenstheorie</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/denkmodelle-hinter-ki-kontext.html" target="_blank" class="hover:text-violet-400">linja.me/blog/denkmodelle-hinter-ki-kontext &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="14" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Guter Kontext macht die Arbeit mit KI verlässlicher. Aber was heißt guter Kontext eigentlich, und warum funktioniert eine geschichtete Wissensbasis? Die Antwort steht nicht in der KI-Literatur, sondern in sechs etablierten Modellen aus Wissenstheorie und Wissensmanagement.
+
+Die DIKW-Pyramide zeigt, wie aus Daten über Information und Wissen am Ende Urteil wird, und dass jede Stufe menschliche Arbeit verlangt. Polanyis implizites Wissen erklärt, warum die KI nur das nutzen kann, was ich tatsächlich in Worte fasse. Weicks Sensemaking beschreibt das Deuten als aktive Leistung, die der Plausibilität folgt, nicht automatisch der Wahrheit. Luhmanns Zettelkasten und Fortes Second Brain liefern das Ordnungsprinzip, jede Information genau einmal an einer Stelle. Anthropics Context Engineering bildet den Rahmen.
+
+Das Bemerkenswerte: Die alten Theorien und das junge KI-Feld landen unabhängig voneinander bei fast derselben Ordnung. Jedes Modell einzeln erklärt, was es für die tägliche Arbeit mit KI bedeutet, im Artikel: linja.me/blog/denkmodelle-hinter-ki-kontext</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="24" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Mein Setup für die Arbeit mit KI hat lange einfach funktioniert. Erst als ich erklären wollte, warum, bin ich auf sechs Modelle gestoßen, die alle älter sind als das KI-Zeitalter.
+
+Guter Kontext ist strukturiertes Wissen. Und wie man Wissen ordnet, beschäftigt das Wissensmanagement seit Jahrzehnten:
+
+Die DIKW-Pyramide trennt Daten, Information, Wissen und Urteil. Jede Stufe entsteht erst durch menschliche Arbeit, nicht von allein.
+
+Polanyis implizites Wissen erinnert daran, dass die KI nur nutzen kann, was ich aufschreibe. Mein Bauchgefühl bekommt sie nicht.
+
+Weicks Sensemaking beschreibt Deutung als aktive Leistung, die der Plausibilität folgt. Genau das ist auch die Schwäche der KI, sie erzeugt das Plausible, nicht zwingend das Wahre.
+
+Luhmanns Zettelkasten und Fortes Second Brain liefern das Prinzip, jede Information genau einmal abzulegen.
+
+Anthropics Context Engineering bildet den Rahmen darüber.
+
+Das Spannende: Die alten Wissenstheorien und das junge KI-Feld landen unabhängig voneinander bei fast derselben Ordnung. Ein starkes Indiz, dass die Ordnung trägt.
+
+Jedes Modell einzeln erklärt, mit der Frage, was es konkret für die Arbeit mit KI bedeutet, steht hier:
+linja.me/blog/denkmodelle-hinter-ki-kontext
+
+#KI #Wissensmanagement #ProductManagement</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: ki-aufdecker-statt-ersatz (Fokus: Muster statt viraler Zahl - Subtraktion vs Addition, 3 Schritte) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="ki-aufdecker-statt-ersatz">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Einordnung</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Publiziert: 06.07.</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Live</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">KI als Aufdecker, nicht als Ersatz</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/ki-aufdecker-statt-ersatz.html" target="_blank" class="hover:text-violet-400">linja.me/blog/ki-aufdecker-statt-ersatz &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Die IKEA-Zahl ist durch die Feeds gelaufen: 8.500 Servicekräfte umgeschult, 1,3 Milliarden Euro Umsatz. Meist als Applaus. Interessanter als die Zahl ist die Logik dahinter.
+
+IKEA führte den Chatbot Billie ein, der rund 47 Prozent der Serviceanfragen löste. Der naheliegende Reflex wäre gewesen, die Abteilung zu verkleinern und die Einsparung zu melden. Stattdessen stellte das Unternehmen eine andere Frage: nicht wen die KI ersetzt, sondern welcher Wert brachliegt, wenn die Routine wegfällt. Die umgeschulten Kräfte wurden zu Beraterinnen für Wohnraumgestaltung, ein Kanal, der über Jahre trägt.
+
+Das ist der Unterschied zwischen zwei Logiken. Subtraktion entfernt Kosten und liefert eine Zeile im Quartalsbericht. Addition nutzt dieselbe Automatisierung, um Kapazität für etwas Neues freizusetzen. Der Unterschied liegt nicht in der Technik, sondern in der Frage, die man vor der Technik stellt. Wer Tätigkeiten zuerst sortiert in automatisierbar, menschlich-nicht-skalierbar und freiwerdende Kompetenz, entscheidet über Stellen zuletzt statt zuerst.
+
+Die ganze Einordnung, inklusive kritischem Blick auf die viel zitierte Milliarden-Zahl, steht im Artikel: linja.me/blog/ki-aufdecker-statt-ersatz</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="22" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Die IKEA-Zahl ist durch alle Feeds gelaufen: 8.500 Servicekräfte umgeschult, 1,3 Milliarden Euro Umsatz. Meist als Applaus, selten mit der Frage, was daraus eigentlich zu lernen ist.
+
+Die spannende Stelle ist nicht die Zahl, sondern die Umkehrung dahinter. IKEA führte den Chatbot Billie ein, der löste rund 47 Prozent der Anfragen und sparte knapp 13 Millionen. Der Standardreflex wäre gewesen: Abteilung verkleinern, Einsparung melden. Stattdessen stellte das Unternehmen eine andere Frage. Nicht "wen ersetzt die KI", sondern "welcher Wert liegt brach, wenn die Routine wegfällt".
+
+Das ist der Unterschied zwischen zwei Logiken. Subtraktion entfernt Kosten und liefert eine Zeile im Quartalsbericht. Addition nutzt dieselbe Automatisierung, um Kapazität für etwas Neues freizusetzen, und baut einen Kanal, der über Jahre trägt. Der Unterschied liegt nicht in der Technik, sondern in der Frage, die man vor der Technik stellt.
+
+Genau das lässt sich nachbauen, in drei Schritten, die aufeinander aufbauen:
+
+Aufdecken: Tätigkeiten sortieren in automatisierbar, menschlich-nicht-skalierbar und freiwerdende Kompetenz.
+Umbauen: die freigewordene Kompetenz auf einen zahlungsbereiten Kundenbedarf richten.
+Befähigen: den Lernpfad bauen und ehrlich rechnen, dass Halten und Umschulen oft günstiger ist als Entlassen und neu Aufbauen.
+
+Entscheidend ist die Reihenfolge. Wer so vorgeht, entscheidet über Stellen zuletzt statt zuerst.
+
+Die ganze Einordnung, inklusive kritischem Blick auf die viel zitierte Milliarden-Zahl, steht im Artikel:
+linja.me/blog/ki-aufdecker-statt-ersatz
+
+#ProductManagement #KI #Transformation</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+
+                <!-- ========= ENTRY: braucht-ki-pm-ein-backlog-tool ========= -->
+                <!-- ========= ENTRY: ki-teams-wisdom-stack (Fokus: NBA-ifikation + Vertrauen im Team) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="ki-teams-wisdom-stack">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Einordnung</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">25.06.2026</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Wissen reicht nicht mehr: Vier Skills, die in KI-Teams entscheiden</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/ki-teams-wisdom-stack.html" target="_blank" class="hover:text-violet-400">linja.me/blog/ki-teams-wisdom-stack &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="5" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Joe Hudson, Coach bei OpenAI, beschreibt KI-Teams als NBA-ifikation: wenige Leute, hoher Hebel pro Kopf, jede Reibung zählt. Damit rückt Vertrauen in den Mittelpunkt, mehr als Wissen. Welche vier trainierbaren Fähigkeiten darüber entscheiden, steht im Artikel: linja.me/blog/ki-teams-wisdom-stack</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="18" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Die meiste Aufregung um KI und Arbeit dreht sich um Prompts. Der Punkt, der mich wirklich gepackt hat, liegt woanders.
+
+Joe Hudson, Executive Coach bei OpenAI, beschreibt mit einem Bild, wie KI Teams verändert: NBA-ifikation. Teams funktionieren weniger wie Fabriken und mehr wie Profi-Basketball-Rosters. Wenige Leute, jeder mit hohem Hebel, jede Reibung zählt.
+
+Wenn jede Person mehr bewegt, multipliziert sich auch jede ungelöste Spannung. Ein Konflikt, der in einer großen Organisation über Hierarchieebenen gedämpft wird, läuft in einem kleinen Team direkt durch die Struktur. Genau deshalb rückt Vertrauen in den Mittelpunkt. Nicht als weicher Wert, sondern als harte Voraussetzung dafür, dass ein Team ehrlich miteinander arbeiten kann.
+
+Was darüber entscheidet, wer wirksam bleibt, verschiebt sich vom Wissen zum Urteilsvermögen. Hudson nennt vier emotionale Fähigkeiten, die sich trainieren lassen: Urteilsvermögen, Konfliktbereitschaft, Fehlerbereitschaft und ein konstruktiver innerer Monolog.
+
+Das Spannende für mich: Diese Ehrlichkeit ist fragil. Sie wächst über Zeit und gemeinsame Erfahrung, und jeder Wechsel im Team setzt sie zurück. Der eigentliche Hebel liegt damit weniger im einzelnen Skill als im Team-Set-up und im Mut, sich und andere zu hinterfragen.
+
+Meine Einordnung steht im Artikel:
+linja.me/blog/ki-teams-wisdom-stack
+
+#ProductManagement #KI #Leadership</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="braucht-ki-pm-ein-backlog-tool">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">11.06.2026</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Brauche ich noch ein Backlog-Tool, wenn ich mit KI arbeite?</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/braucht-ki-pm-ein-backlog-tool.html" target="_blank" class="hover:text-violet-400">linja.me/blog/braucht-ki-pm-ein-backlog-tool &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="4" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Ich hatte Linear für mein Solo-Projekt aufgesetzt und zwei Wochen nicht geöffnet. Nicht aus Faulheit, sondern weil der aktuelle Stand längst woanders lag: im Dialog mit der KI, in lebenden Dokumenten, im Git-Verlauf. Wann ein Backlog-Tool trotzdem zählt, steht im Artikel: linja.me/blog/braucht-ki-pm-ein-backlog-tool</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="14" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Ich hatte Linear aufgesetzt, weil man das eben so macht. Dann blieb es zwei Wochen ungeöffnet.
+
+Nicht aus Nachlässigkeit. Der Stand meines Solo-Projekts lag längst woanders: im Dialog mit dem KI-Assistenten, in ein paar lebenden Dokumenten, im Git-Verlauf. Das Ticket-Board hätte nur Pflege erzeugt, die niemand liest.
+
+Daraus wurde eine Frage, die ich vorher nie gestellt hatte: Was leistet ein Backlog-Tool eigentlich, das ein KI-Assistent nicht übernimmt?
+
+Meine Antwort hatte am Ende weniger mit KI zu tun als gedacht und mehr mit der Zahl der Köpfe, die denselben Stand sehen müssen. Wo ich gelandet bin, steht im Artikel.
+
+Vorher interessiert mich aber eure Praxis: Backlog-Tool oder ohne, und warum?
+
+linja.me/blog/braucht-ki-pm-ein-backlog-tool
+
+#ProductManagement #KI</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: design-thinking-ki (Fokus: Mamahood-Prototyp) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="design-thinking-ki">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Design Thinking &amp; KI</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Live seit 17.04.2026</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #ece8f2; color: #6b5691;">Produkt-Teaser</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Mamahood: Prototyp einer App für Mütter, die mehr als nur Windeln wollen.</h2>
+                        <p class="text-xs text-stone-500 mt-1">
+                            <a href="https://linja261.github.io/mamahood/" target="_blank" class="hover:text-violet-400">linja261.github.io/mamahood &rarr; (Prototyp)</a>
+                            &middot;
+                            <a href="https://linja.me/blog/design-thinking-ki.html" target="_blank" class="hover:text-violet-400">Blog-Artikel (Making-of)</a>
+                        </p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="5" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Liebe Mamas, hat das Potenzial? Prototyp einer App, um andere Mütter zu finden, die mehr als nur über Windeln reden wollen. Interessenbasiert, in der Nähe, zeitlich flexibel. Klickt euch durch: linja261.github.io/mamahood
+
+Wie ich das an einem Abend mit Claude gebaut habe, steht im Blog: linja.me/blog/design-thinking-ki</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Liebe Mamas in meinem Netzwerk, hat das Potenzial?
+
+Ich habe einen Prototyp gebaut für eine App, die Müttern hilft, andere Mütter zu finden, mit denen man über mehr als Windeln reden kann. Interessenbasiert, zeitlich flexibel, in der Nähe.
+
+Die erste Krabbelgruppe war gold wert, weil man gemeinsam durch das Baby-Chaos stolpert. Aber sobald die Kinder älter werden, fehlt mir der Austausch über das, was mich sonst noch interessiert: Produkt, KI, Gründung, Bücher, Kunst. Nicht nur Schlaf und Schnullerketten.
+
+Zehn Screens, klickbar, unfertig: linja261.github.io/mamahood
+
+Meine Bitte an euch: Schaut drauf, klickt durch, sagt mir ehrlich, ob ihr das nutzen würdet. Feedback und Kritik sind willkommen.
+
+Side-Note für die PMs unter euch: Der Prototyp ist in 65 Minuten an einem Abend entstanden, mit Claude als Co-Pilot, von Empathize bis Test. Wie das ging, habe ich hier dokumentiert: linja.me/blog/design-thinking-ki
+
+#mamahood #ProductManagement #DesignThinking</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: pm-beziehungsarbeit ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="pm-beziehungsarbeit">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">22.04.2026</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Product Work Is Relationship Work. Warum die PM-Rolle im KI-Zeitalter nicht verschwindet.</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/pm-beziehungsarbeit.html" target="_blank" class="hover:text-violet-400">linja.me/blog/pm-beziehungsarbeit &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="3" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">KI macht das Bauen schneller. Das Alignment nicht. Meine These: PMs, die ihre Rolle als Feature-Spezifikation verstehen, werden ersetzt. PMs, die Alignment schaffen, werden wichtiger. Warum, im Artikel: linja.me/blog/pm-beziehungsarbeit</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="14" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">KI macht das Bauen schneller. Das Alignment nicht.
+
+Ein Prototyp in zwei Stunden, klar, das geht. Aber die Frage, was gebaut werden soll, wird dadurch nicht schneller beantwortet. Weil sie keine technische Frage ist, sondern eine Beziehungsfrage.
+
+Seit ich KI-Tools für das Bauen nutze, fällt mir auf: Die gesparte Bauzeit sollte nicht in mehr Features fließen, sondern in Pre-Alignment. Die Frage klären, bevor der Prototyp kommt.
+
+Teresa Torres und Petra Wille nennen das Product Work Is Relationship Work. Chris Argyris zeigt dieselbe Dynamik im organisationalen Lernen: Double-Loop-Learning braucht Dialog, nicht Diskussion. Dialog sucht Verständnis, Diskussion sucht Überzeugung.
+
+Meine These: PMs, die ihre Rolle als Feature-Spezifikation verstehen, werden ersetzt. PMs, die Alignment schaffen, werden wichtiger. Weil schnelleres Bauen mehr Entscheidungspunkte erzeugt, und jeder Entscheidungspunkt Alignment fordert.
+
+Ganzer Artikel mit Quellen und Praxis-Beispielen: linja.me/blog/pm-beziehungsarbeit
+
+#ProductManagement #KI</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: shape-up-statt-scrum (Draft) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="shape-up-statt-scrum">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Publiziert: 25.05.</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Live</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Shape Up statt Scrum</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/shape-up-statt-scrum.html" target="_blank" class="hover:text-violet-400">linja.me/blog/shape-up-statt-scrum &rarr; (aktiv ab Publish)</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="3" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Scrum wird nach 25 Jahren stumpf: Meeting-Overhead, Backlog-Inflation, Scope Creep, Zombie-Projekte. Shape Up von Basecamp adressiert genau diese Stellen mit Fixed Time und Variable Scope. Warum ich den Ansatz jetzt in eigener Produktarbeit teste, im Artikel: linja.me/blog/shape-up-statt-scrum</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Scrum verliert nach 25 Jahren an Kraft. Meeting-Overhead, Backlog-Inflation, Scope Creep, Zombie-Projekte.
+
+Ryan Singer und Basecamp haben mit Shape Up eine Methode formuliert, die genau an diesen Stellen ansetzt. Nicht als Scrum-Patch, sondern als Gegenentwurf. Ich habe sie in einem Gespräch mit einem Scale-up kennengelernt und will die Kernidee in der eigenen Produktarbeit testen, bevor ich sie weiterempfehle.
+
+Die Grundlogik: Fixed Time, Variable Scope. Sechs Wochen sind heilig, der Scope wird klein geschnitten, nicht umgekehrt. Shaping passiert vor dem Zyklus, nicht währenddessen. Ein Pitch enthält Problem, Appetite und Lösungsrichtung. Am Betting Table entscheidet die Leitung, was in den nächsten Zyklus kommt. Kein Backlog, der sich selbst immer weiter füllt.
+
+Nach dem Zyklus folgen zwei Wochen Cool-Down für Bugs, Exploration, Rekreation. Und der Circuit Breaker, der den Kern ausmacht: ist ein Projekt nach sechs Wochen nicht fertig, fliegt es. Kein Weiterlaufen, kein Nachkartieren. Das erzeugt Outcome-Druck auf der richtigen Ebene und klares Team-Ownership.
+
+John Cutler hat dagegen kritisch eingewandt, dass Shape Up Shipping stärker optimiert als Discovery. Trustpair hat die Methode nach einem Jahr wieder abgeschafft. Beide Stimmen helfen, nüchtern zu bleiben: Shape Up ist kein Allheilmittel, aber ein scharfer Gegenpol zu Scrum-Routinen, die niemand mehr hinterfragt.
+
+Ganzer Artikel mit den vier Scrum-Nebenwirkungen, Shape-Up-Bausteinen und offenen Fragen: linja.me/blog/shape-up-statt-scrum
+
+#ProductManagement #ShapeUp</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: zeigen-statt-erklaeren (Live 27.04.2026) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="zeigen-statt-erklaeren">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Live seit 27.04.2026</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Live</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Zeigen statt erklären. Wie KI meine Rolle als Product Managerin verschiebt.</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/zeigen-statt-erklaeren.html" target="_blank" class="hover:text-violet-400">linja.me/blog/zeigen-statt-erklaeren &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="3" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Mit Claude baue ich in dreißig Minuten einen Prototyp, der eine Idee funktional zeigt. Der Mehrwert liegt nicht im Prototyp selbst, sondern im Gespräch danach. Was sich für mich als PM verschiebt und was bleibt, im Artikel: linja.me/blog/zeigen-statt-erklaeren</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="22" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Mit Claude baue ich heute in dreißig Minuten einen Prototyp, der eine Idee funktional zeigt. Das ist neu. Die Verschiebung ist aber nicht im Tool, sondern im Gespräch danach.
+
+Ich war schon vor KI eine operative Schnittstelle. Strategien in operative Tätigkeiten zu übersetzen, ist mein Job. Daran hat KI nichts geändert. Was sich geändert hat, ist die Art, wie ich übersetze.
+
+Drei Verschiebungen erlebe ich.
+
+Erstens rücke ich näher an den Code, nicht weil ich programmiere, sondern weil ich am Prototyp diskutiere statt strategisch zu argumentieren. Ein roher klickbarer Stand reicht oft, weil alle dasselbe sehen, statt sich Verschiedenes vorzustellen.
+
+Zweitens lehne ich mich stärker an Design-Kompetenz an, nicht weniger. Mit KI baue ich schnell etwas Funktionales, und für viele Diskussionen reicht das. Aber funktional ist nicht dasselbe wie gestaltet. Ob ein Kunde einer Oberfläche vertraut, entscheidet sich an genau den Details, die ein Designer sieht und ich nicht. Das ist keine Geschmacksfrage, sondern Handwerk. Die Kernkompetenz von UX liegt beim Designer, und KI macht den Unterschied sichtbarer, nicht kleiner.
+
+Drittens wird das Pflegen von Regelwerken zur Daueraufgabe. Nur ein Mensch kann beurteilen, ob etwas Output oder Outcome ist.
+
+Eine Kernkompetenz wird auch mit KI immer wichtig bleiben: Intuition. Sie wächst nicht aus Prompts, sondern aus Zuhören, Austausch mit Menschen, Gesprächen mit Marktakteuren. Punkte zu Linien zusammenführen, das ist nicht delegierbar.
+
+Die Werkzeuge sind neu, die Grundfragen sind dieselben wie vor zehn Jahren: wer entscheidet was, wer versteht den Kunden, wer hält das Team zusammen. Methoden wie DACI helfen, Verantwortlichkeiten klar zu halten. KI lässt es so aussehen, als könne jeder alles übernehmen. Kann er nicht. Es gibt aus guten Gründen klare Perspektiven und Kompetenzen, und die verschwinden nicht, sie werden nur leichter übersehen.
+
+Ganzer Artikel: linja.me/blog/zeigen-statt-erklaeren
+
+#ProductManagement #KI #PMRolle</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: ergebnis-first (Draft) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="ergebnis-first">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Publiziert: 18.05.</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Live</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Beim Ergebnis anfangen. Warum sichtbare Prototypen bessere Entscheidungen erzeugen.</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/ergebnis-first.html" target="_blank" class="hover:text-violet-400">linja.me/blog/ergebnis-first &rarr; (aktiv ab Publish)</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="3" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Bau zuerst das Sichtbare, dann den Rest. Klingt kontraintuitiv, weil Softwareentwicklung jahrzehntelang andersherum funktioniert hat. KI dreht die Gleichung: ein klickbarer Prototyp in zwei Stunden ersetzt ein Konzeptpapier in sechs Wochen. Im Artikel: linja.me/blog/ergebnis-first</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Die meisten Teams bauen von innen nach außen: Datenmodell, Services, API, irgendwann UI. KI dreht die Gleichung um.
+
+Wenn ein klickbarer Prototyp in zwei Stunden entsteht und nicht in sechs Wochen, verschiebt sich der richtige Einstieg. Jenny Wen hat die passende Analogie formuliert: wie bei der IKEA-Anleitung fängt man mit dem fertigen Bild an. Das Endergebnis steuert die Entscheidung, welche Teile wirklich gebaut werden müssen.
+
+Die kognitive Seite ist dabei kein Randeffekt. Allan Paivio beschreibt mit der Dual Coding Theory, dass visuelle Information andere Verarbeitungswege aktiviert als sprachliche. Ein sichtbarer Prototyp erzeugt Rückfragen, die ein Konzept nicht erzeugt, weil Stakeholder etwas Konkretes vor sich haben, an dem sich Widerspruch andocken lässt.
+
+Amazon hat das Muster mit Working Backwards lange vor KI etabliert: Press Release und FAQ werden geschrieben, bevor eine Zeile Code entsteht. Das Ergebnis steht zuerst. Teresa Torres nennt den Mechanismus in Continuous Discovery Opportunity Solution Mapping: schneller durch viele kleine Experimente, nicht durch ein großes Konzept.
+
+Der Punkt ist nicht, Architektur zu verachten. Er ist, die Reihenfolge umzudrehen. Das Sichtbare zuerst, weil es die teuersten Entscheidungen zuerst sichtbar macht.
+
+Ganzer Artikel mit IKEA-Analogie, Working Backwards und Dual Coding Theory: linja.me/blog/ergebnis-first
+
+#ProductManagement #Prototyping</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: intuition-pm (Draft) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="intuition-pm">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">29.04.2026</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Intuition als Produkt Managerin. Wann Bauchgefühl bessere Entscheidungen trifft als Daten.</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/intuition-pm.html" target="_blank" class="hover:text-violet-400">linja.me/blog/intuition-pm &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="4" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Intuition ist kein Bauchgefühl, sondern trainierte Mustererkennung. Du darfst ihr trauen, wenn die Entscheidung reversibel ist, du die Domäne wirklich kennst und das Feedback schnell kommt. Fehlt eine Bedingung, übernimmt besser die Analyse. Wie du Intuition trainierst und wann sie der Tabelle überlegen ist: linja.me/blog/intuition-pm</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="26" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Intuition hat in der Produktarbeit einen schlechten Ruf. Dabei ist sie keine Abkürzung, sondern komprimierte Erfahrung.
+
+Was sich wie Bauchgefühl anfühlt, ist trainierte Mustererkennung: dein Gehirn verarbeitet tausende kleine Datenpunkte schneller als jede Tabelle.
+
+Die nützliche Frage ist nicht "Intuition oder Daten", sondern "wann welche". Drei Bedingungen, unter denen du deiner Intuition trauen kannst:
+
+1. Die Entscheidung ist reversibel. Eine Tür, durch die du wieder zurück kannst, braucht keine Wochen Analyse.
+2. Du kennst die Domäne wirklich. Mustererkennung funktioniert nur in einem Feld mit regelmäßigen Mustern.
+3. Das Feedback kommt schnell und klar. Ohne schnelle Rückmeldung lernt deine Intuition die falschen Muster.
+
+Fehlt eine dieser Bedingungen, übernimmt besser die Analyse.
+
+Das Beste daran: Intuition lässt sich trainieren. Nicht durch Methodenkunde, sondern durch Nähe.
+- Regelmäßige Kundengespräche
+- Den Wettbewerb beobachten
+- Das eigene Produkt täglich nutzen
+- Feedback-Schleifen kurz halten
+
+Jede Supportanfrage, jedes Interview ist ein Datenpunkt fürs Bauchgefühl.
+
+Warum das gerade jetzt zählt: Wenn KI die Analyse übernimmt, wird das, was sie nicht kann, zum Unterschied. Das trainierte Urteil, der Product Sense, ist die Fähigkeit, die bleibt.
+
+Wie ich mir diese Intuition systematisch erarbeite, mit Entscheidungsraster und den Quellen dahinter: linja.me/blog/intuition-pm
+
+#ProductManagement #ProductSense #Entscheidungsfindung</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: ki-zeitmanagement (Draft) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="ki-zeitmanagement">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Gesundheit</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Publiziert: 21.05.</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Live</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Wie KI ein gesünderes Zeitmanagement fördern kann. Das Smartphone-Paradox.</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/ki-zeitmanagement.html" target="_blank" class="hover:text-violet-400">linja.me/blog/ki-zeitmanagement &rarr; (aktiv ab Publish)</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="3" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Das Smartphone ist Fluch und Werkzeug zugleich. Passiver Konsum kostet Stunden, aktive Nutzung strukturiert den Tag. Wie KI dabei als Scaffolding hilft statt als Ersatz fürs Denken, im Artikel: linja.me/blog/ki-zeitmanagement</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Das Smartphone kostet mich Stunden pro Tag. Gleichzeitig organisiert es meinen Alltag. Beides ist wahr.
+
+Gloria Mark hat an der UC Irvine gemessen, was eine Unterbrechung wirklich kostet: im Schnitt 23 Minuten, bis jemand in eine konzentrierte Aufgabe zurückfindet. Wer das mehrmals am Tag erlebt, verliert ohne es zu merken den Großteil produktiver Zeit. Die Technik ist dabei nicht der Feind, aber auch nicht neutral.
+
+Andrew Przybylski hat mit der Goldilocks-Hypothese gezeigt, dass nicht die Bildschirmzeit über Wohlbefinden entscheidet, sondern die Art der Nutzung. Passiver Konsum, gefangen in Variable Reward Schedules, schadet. Aktive Nutzung, bei der ich etwas suche, klären oder planen will, richtet weniger Schaden an.
+
+Genau hier setze ich KI ein: nicht als Ersatz fürs Denken, sondern als Scaffolding für Routinen. Claude hilft mir beim täglichen Check-in, beim Feedback-Loop am Tagesende, beim strukturierten Spaced-Repetition-Lernen. Anders Ericsson hat in der Forschung zu Deliberate Practice gezeigt, wie viel Unterschied bewusste Struktur macht. KI übernimmt nicht das Üben, aber sie nimmt die Reibung weg, überhaupt zu starten.
+
+Roy Baumeister hat Decision Fatigue beschrieben: jede kleine Entscheidung zehrt am selben Willenskontingent. Wer Routinen auslagert, spart Entscheidungen für das, was wirklich zählt.
+
+Ganzer Artikel mit Studien und praktischen Routinen: linja.me/blog/ki-zeitmanagement
+
+#DigitalWellbeing #KI</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: ki-agenten-kategorien (geplant 26.04.) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="ki-agenten-kategorien">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Product Management</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Publiziert: 15.05.</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Live</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Nicht jeder Agent ist gleich. Ein Framework für PMs, die KI-Agenten priorisieren müssen.</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/ki-agenten-kategorien.html" target="_blank" class="hover:text-violet-400">linja.me/blog/ki-agenten-kategorien &rarr; (aktiv ab Trigger)</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="3" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">60 bis 70 Prozent aller "KI-Agent"-Ideen in Product Backlogs sind in Wahrheit deterministische Workflows mit einem LLM-Knoten. Teams bauen LangGraph, was n8n in Tagen löst. Ein Triage-Framework im Artikel: linja.me/blog/ki-agenten-kategorien</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="14" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Die meisten "KI-Agent"-Ideen in Product Backlogs sind keine Agenten.
+
+Sie sind deterministische Workflows mit einem LLM-Knoten. 60 bis 70 Prozent aller Opportunities, die Teams als "Agent" priorisieren, würden sich in n8n oder Zapier in Tagen lösen lassen. Stattdessen werden Wochen in LangGraph-Setups investiert.
+
+Hamza Farooq und Jaya Rajwani haben in Lenny's Newsletter ein Framework vorgestellt, das drei Kategorien unterscheidet: Deterministic Automation (Kategorie 1, 60 bis 70 Prozent der Fälle), ReAct Agents mit Tool-Use und Reasoning (Kategorie 2, 25 bis 30 Prozent) und Multi-Agent-Netzwerke (Kategorie 3, unter 5 Prozent).
+
+Die Triage-Frage ist simpel: Kannst du ein Flussdiagramm zeichnen? Wenn ja, ist es Kategorie 1. LLM an die Stellen setzen, wo Klassifikation oder Zusammenfassung nötig ist. Kein Agent-Framework, kein Reasoning-Overhead. Nur wenn der Lösungsweg nicht vorhersagbar ist, brauchst du Kategorie 2.
+
+Der häufigste Fehler: Teams sehen "Agent" im Backlog und greifen zu LangGraph oder AutoGen. Aber die Idee ist ein Workflow mit einem LLM-Knoten. Das Over-Engineering kostet Wochen, die ein simpler Workflow in Tagen gelöst hätte.
+
+Ganzer Artikel mit Triage-Tabelle und Beispielen: linja.me/blog/ki-agenten-kategorien
+
+#ProductManagement #KIAgenten</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: storymap-eigenbau (Draft) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="storymap-eigenbau">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Methodik &amp; KI</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Publiziert: 19.05.</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Live</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Story-Map als Eigenbau. Wie zwei Stunden mit Claude und ein Vercel-Deploy mein Team aufs MVP eingeschworen haben.</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/storymap-eigenbau.html" target="_blank" class="hover:text-violet-400">linja.me/blog/storymap-eigenbau &rarr; (aktiv ab Publish)</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="3" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Statt Miro-Lizenz habe ich mir mit Claude in zwei Stunden eine Story-Map und eine DACI-Matrix selbst gebaut, auf Vercel deployt, mit Realtime-Sync. In der Team-Session hat das Tool ohne Methodendiskussion getragen: linja.me/blog/storymap-eigenbau</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="18" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Als PM brauche ich für eine MVP-Session eine Story-Map und eine DACI-Matrix. Früher hieß das: Miro-Lizenz, fünfzig Sticky-Notes, eine Stunde aufräumen.
+
+Jetzt habe ich mir das Tool in zwei Stunden mit Claude selbst gebaut. Auf Vercel deployt. Realtime-Sync über Supabase. Hypothesen, Swim-Lanes, Decision-Log, alles in einem Stand. Snapshot für Claude und JSON-Export sind eingebaut, damit das Tool weiterredet, statt am Freitag-Stand zu enden.
+
+Was im Team-Workshop passiert ist: weniger Methodendiskussion, mehr inhaltliche Diskussion. Niemand hat über Spalten und Stickies geredet. Wir haben über die Reihenfolge der Hypothesen gestritten, das war der Punkt. Am Ende waren alle aufs MVP eingeschworen, ohne dass ich es hätte ankündigen müssen.
+
+Was ich daraus mitnehme: PMs können sich Tools heute selbst formen, statt sich an SaaS anzupassen. Das senkt die Methoden-Reibung und macht den Team-Output sichtbarer. Story-Map und DACI sind dabei modulare Bausteine, die ich beim nächsten Projekt forken werde, statt von Null anzufangen.
+
+Offen bleibt die Wartungslast: Wie behalte ich diese Bausteine sortiert, ohne dass die Tool-Sammlung selbst zur neuen Last wird.
+
+Ganzer Erfahrungsbericht mit Tech-Stack und Lessons Learned: linja.me/blog/storymap-eigenbau
+
+#ProductManagement #ClaudeCode #StoryMap #DACI</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: backlog-war-gestern (Draft, Kollab mit David Latz) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="backlog-war-gestern">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; Teamdynamik</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Geplant: tbd</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #f5f3ef; color: #78716c;">Draft</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #f6f4f9; color: #6b5691;">Kollab</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Backlog war gestern. Kollaboration mit David Latz.</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/backlog-war-gestern.html" target="_blank" class="hover:text-violet-400">linja.me/blog/backlog-war-gestern &rarr; (aktiv ab Publish)</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="3" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Wenn Design ausführbar wird und Engineering-Handoffs verschwinden, verschiebt sich die Last auf das Product Management. PMs, die Backlog verwalten, werden austauschbar. PMs, die Entscheidungsräume strukturieren, werden teuer. Gemeinsam mit David Latz: linja.me/blog/backlog-war-gestern</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Wenn Design ausführbar wird und Engineering-Handoffs verschwinden, verschiebt sich die Last nicht auf Designer oder Engineers. Sie verschiebt sich auf das Product Management.
+
+Diese These haben David Latz und ich gemeinsam zu Ende gedacht. David als Design Lead, ich aus der PM-Perspektive. Was wir beobachten: Backlog-Pflege wird billig, Entscheidungsklarheit wird teuer.
+
+Konkret. KI macht Mockups in Minuten, Code in Stunden. Wo früher zwischen Designern, Engineers und PM ständig Übergaben passierten, fließt das Material heute durch. Was bleibt, ist die Frage, was überhaupt gebaut werden soll und warum. Diese Frage stellen sich Designer und Engineers nicht reflexhaft, das ist auch nicht ihr Job. Sie fällt auf das Product Management zurück.
+
+PMs, die Backlog-Tickets verwalten, werden in dieser Welt austauschbar. PMs, die Entscheidungsräume strukturieren, Hypothesen scharf machen und Trade-offs explizit verhandeln, werden knapp und teuer. Das ist keine Komfort-Botschaft, das ist eine Marktverschiebung.
+
+Was es konkret bedeutet, wie Design und PM zusammenrücken können, und wo die Rolle ihre Substanz behält, im Artikel mit David: linja.me/blog/backlog-war-gestern
+
+#ProductManagement #Design #KI #PMRolle</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ========= ENTRY: prototyping-pm (Live 09.07., Rework) ========= -->
+                <article class="entry bg-white border rounded-xl p-5" style="border-color: #E5E2DB;" data-slug="prototyping-pm">
+                    <div class="mb-4">
+                        <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span class="text-[0.62rem] font-medium px-2 py-0.5 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                            <span class="font-mono text-[0.6rem] text-stone-400">Publiziert: 09.07.</span>
+                            <span class="font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded" style="background: #e0ede6; color: #476f5b;">Live</span>
+                        </div>
+                        <h2 class="source-serif text-base text-stone-900 leading-snug">Was ist ein PM-Prototyp? Hypothese, Framing, Scope.</h2>
+                        <p class="text-xs text-stone-500 mt-1"><a href="https://linja.me/blog/prototyping-pm.html" target="_blank" class="hover:text-violet-400">linja.me/blog/prototyping-pm &rarr;</a></p>
+                    </div>
+
+                    <!-- Substack Note Channel -->
+                    <div class="channel mb-4 p-4 rounded-lg" style="background: #f6f4f9;" data-channel="substack">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="3" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Mit KI kann jede PM Prototypen bauen. Der Wert liegt nicht im Bauen, sondern in der Frage: Welche Hypothese teste ich, und was lasse ich bewusst weg, damit eine Antwort sichtbar wird? Das ist der PM-Prototyp: linja.me/blog/prototyping-pm</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://substack.com/home" target="_blank" rel="noopener" class="flex-1 text-center bg-violet-100 hover:bg-violet-200 text-violet-700 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                Open Substack
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Post Channel -->
+                    <div class="channel p-4 rounded-lg" style="background: #f2f7f4;" data-channel="linkedin">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
+                            <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
+                        </div>
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Mit Claude Code kann jede PM heute einen Prototyp bauen. Das verändert nicht, was ein PM-Prototyp ist. Es legt nur frei, was er schon immer war.
+
+Ein PM-Prototyp ist die billigste Form, eine Geschäftshypothese sichtbar zu machen. Er muss nicht schön sein. Er muss eine falsifizierbare Aussage testen: "Wenn wir X zeigen, erwarten wir Y."
+
+Konkrete Formate. Eine Fake-Door-Landing-Page, die misst, ob jemand klickt. Ein Wizard-of-Oz-Test, bei dem ein Mensch hinter dem Vorhang das tut, was später eine Maschine tun soll. Ein klickbarer Rohbau, der einen Flow durchspielt, ohne Backend. Alle drei beantworten die teuerste Frage in der Discovery: würde das überhaupt jemand wollen.
+
+Marty Cagan unterscheidet vier Risiken in der Product Discovery: Value, Usability, Feasibility, Viability. Die PM verantwortet Value und Viability. Der Designer verantwortet Usability. Engineering verantwortet Feasibility. Der PM-Prototyp adressiert gezielt die ersten zwei, nicht alle vier. Genau diese Fokussierung ist der Wert.
+
+Die eigentliche Superkraft heißt nicht Bauen, sondern Framing. Welche Frage stelle ich, für wen, in welchem Kontext, und was lasse ich bewusst weg, damit eine Antwort sichtbar wird. Das ist das Handwerk.
+
+Ganze Definition mit Cagan-Framework und kritischer Einordnung: linja.me/blog/prototyping-pm
+
+#ProductManagement #Prototyping #ClaudeCode</textarea>
+                        <div class="channel-actions flex gap-2 mt-2">
+                            <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
+                                <span class="copy-label">Copy</span>
+                            </button>
+                            <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-medium py-2 px-3 rounded-lg transition-all" style="background: #e0ede6; color: #31493d;">
+                                Open LinkedIn
+                            </a>
+                            <button onclick="markPosted(this)" class="bg-emerald-100 hover:bg-emerald-200 text-emerald-700 text-xs font-medium py-2 px-3 rounded-lg transition-all" title="Als gepostet markieren">
+                                &check;
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- /ENTRIES -->
+            </div>
+
+            <!-- Empty state -->
+            <div id="empty-state" class="text-center py-12 hidden">
+                <p class="text-stone-400 text-sm">Keine offenen Promos. &#x2728;</p>
+            </div>
+
+            <!-- Meta -->
+            <section class="mt-12 pt-8" style="border-top: 1px solid #E5E2DB;">
+                <h3 class="source-serif text-base text-stone-900 mb-3">Wie das funktioniert</h3>
+                <ol class="text-sm text-stone-500 space-y-2 list-decimal pl-5">
+                    <li>Artikel publiziert auf linja.me (SSOT). Scheduled Task oder manuell fügt Eintrag in diese Queue ein.</li>
+                    <li>Pro Artikel gibt es zwei Teaser: <strong>Substack Note</strong> (kurz, kein voller Crosspost) und <strong>LinkedIn Post</strong> (länger, mit Hook).</li>
+                    <li><strong>Copy</strong> → <strong>Open Substack</strong> oder <strong>Open LinkedIn</strong> → Einfügen, Headline ggf. setzen, posten.</li>
+                    <li>Haken-Button markiert den Channel als gepostet (lokal gespeichert, pro Channel unabhängig).</li>
+                </ol>
+                <div class="mt-4 p-4 rounded-lg text-xs text-stone-500" style="background: #fdf5f0;">
+                    <strong class="text-stone-700">Warum kein voller Crosspost mehr?</strong> Substack-Volltext-Posts konkurrieren mit linja.me um SEO-Ranking. Note + Link hält den Traffic auf deiner Website, nutzt Substack nur als Verteiler.
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        function copyChannel(btn) {
+            var ta = btn.closest('.channel').querySelector('textarea');
+            ta.select();
+            try {
+                navigator.clipboard.writeText(ta.value).then(function () {
+                    var label = btn.querySelector('.copy-label');
+                    var orig = label.textContent;
+                    label.textContent = 'Kopiert!';
+                    setTimeout(function () { label.textContent = orig; }, 1800);
+                });
+            } catch (e) {
+                document.execCommand('copy');
+            }
+        }
+
+        function storageKey(channel) {
+            return 'promo-posted-' + channel;
+        }
+
+        function markPosted(btn) {
+            var channel = btn.closest('.channel');
+            var channelName = channel.getAttribute('data-channel');
+            var slug = channel.closest('.entry').getAttribute('data-slug');
+            channel.setAttribute('data-posted', 'true');
+            var posted = JSON.parse(localStorage.getItem(storageKey(channelName)) || '[]');
+            if (posted.indexOf(slug) === -1) {
+                posted.push(slug);
+                localStorage.setItem(storageKey(channelName), JSON.stringify(posted));
+            }
+            updateCounters();
+            applyHideFilter();
+        }
+
+        function applyPostedState() {
+            ['substack', 'linkedin'].forEach(function (channelName) {
+                var posted = JSON.parse(localStorage.getItem(storageKey(channelName)) || '[]');
+                document.querySelectorAll('.entry').forEach(function (entry) {
+                    var slug = entry.getAttribute('data-slug');
+                    var channel = entry.querySelector('.channel[data-channel="' + channelName + '"]');
+                    if (channel && posted.indexOf(slug) !== -1) {
+                        channel.setAttribute('data-posted', 'true');
+                    }
+                });
+            });
+            updateCounters();
+        }
+
+        function updateCounters() {
+            ['substack', 'linkedin'].forEach(function (channelName) {
+                var channels = document.querySelectorAll('.channel[data-channel="' + channelName + '"]');
+                var posted = 0, open = 0;
+                channels.forEach(function (c) {
+                    if (c.getAttribute('data-posted') === 'true') posted++;
+                    else open++;
+                });
+                document.getElementById('count-' + channelName + '-open').textContent = open;
+                document.getElementById('count-' + channelName + '-posted').textContent = posted;
+            });
+            var anyOpen = document.querySelectorAll('.channel:not([data-posted="true"])').length;
+            document.getElementById('empty-state').classList.toggle('hidden', anyOpen > 0);
+        }
+
+        var hidePosted = false;
+        function togglePosted() {
+            hidePosted = !hidePosted;
+            applyHideFilter();
+            document.getElementById('show-posted-toggle').textContent = hidePosted ? 'Erledigte einblenden' : 'Erledigte ausblenden';
+        }
+        function applyHideFilter() {
+            document.querySelectorAll('.entry').forEach(function (entry) {
+                var allPosted = true;
+                entry.querySelectorAll('.channel').forEach(function (c) {
+                    if (c.getAttribute('data-posted') !== 'true') allPosted = false;
+                });
+                entry.style.display = (hidePosted && allPosted) ? 'none' : '';
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            applyPostedState();
+        });
+    </script>
+
+    <script src="/nav.js" data-active="promo"></script>
+</body>
+</html>

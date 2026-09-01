@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+  <meta name="theme-color" content="#7B6BA5">
+  <title>Handout zum Setup · KI im Studium — Linja Scharffetter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Brand: Midnight = Struktur/Überschriften · Heidelbeer = Labels */
+      --midnight:   #472E56;
+      --heidelbeer: #7b6ba5;
+      --lilac-br:   #D4C4EC;
+      --lilac-tint: rgba(212,196,236,0.32);
+      --bg:         #FAFAF8;
+      --body:       #3A3540;
+      --muted:      #6F6877;
+      --border:     #E2DEE8;
+      /* Semantik — nur wo Bedeutung (Gefahr / gut / Ampel), im Druck neutralisiert */
+      --red:   #B0341F; --red-bg:  #FBF1EE; --red-br:  #E7C7BD;
+      --green: #1D6B45; --green-bg:#EDF5F0; --green-br:#BFD9CC;
+      --amber: #8A6312; --amber-bg:#F8F2E6; --amber-br:#E3D3B0;
+      /* Type-Scale — bewusst nur 6 Stufen + Badge */
+      --fs-h1:    2.2rem;
+      --fs-h2:    1.2rem;
+      --fs-title: 0.9rem;
+      --fs-body:  0.84rem;
+      --fs-sm:    0.78rem;
+      --fs-label: 0.6rem;
+      --fs-badge: 0.8rem;
+      --serif:    'Fraunces', Georgia, serif;
+      --mono:     ui-monospace, 'Courier New', monospace;
+    }
+
+    html { font-size: 16px; }
+    body {
+      font-family: var(--serif); color: var(--body);
+      background: var(--bg); line-height: 1.55;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+
+    .sheet {
+      max-width: 880px; margin: 2.2rem auto; background: #fff;
+      border: 1px solid var(--border); border-radius: 14px;
+      padding: 2.8rem 3rem 2.4rem;
+      box-shadow: 0 1px 36px rgba(71,46,86,0.07);
+    }
+
+    /* ── Type-Rollen ── */
+    .label { font-family: var(--mono); font-size: var(--fs-label); letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--heidelbeer); }
+    h1 { font-size: var(--fs-h1); font-weight: 300; line-height: 1.1; color: var(--midnight); text-wrap: balance; }
+    h2 { font-size: var(--fs-h2); font-weight: 500; line-height: 1.2; color: var(--midnight); }
+    h3 { font-size: var(--fs-title); font-weight: 600; line-height: 1.3; color: var(--midnight); }
+    p  { font-size: var(--fs-body); line-height: 1.55; color: var(--body); }
+    strong { color: var(--body); font-weight: 600; }
+    .lead { font-size: var(--fs-body); color: var(--muted); line-height: 1.5; }
+
+    /* ── Kopf ── */
+    .head { border-bottom: 3px solid var(--midnight); padding-bottom: 1.3rem; margin-bottom: 0.6rem; }
+    .head .eyebrow { font-family: var(--mono); font-size: var(--fs-label); letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--heidelbeer); }
+    .head h1 { margin: 0.5rem 0 0.55rem; }
+
+    /* ── Sektion: klare Trennung ── */
+    section { margin-top: 1.7rem; padding-top: 1.5rem; border-top: 1px solid var(--border); break-inside: avoid; }
+    section:first-of-type { border-top: none; }
+    .sec-head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.95rem; }
+    .sec-no { font-family: var(--mono); font-size: var(--fs-badge); font-weight: 700; color: #fff;
+      background: var(--midnight); width: 1.85rem; height: 1.85rem; border-radius: 7px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .sec-head h2 { flex: 1; }
+    .kicker { font-size: var(--fs-body); color: var(--muted); font-style: italic; margin: -0.5rem 0 0.85rem 2.55rem; }
+
+    /* ── Sub-Nummer (2a / 2b) — gleiches Badge-Design, kleiner ── */
+    .sub-head { display: flex; align-items: center; gap: 0.55rem; margin: 1.25rem 0 0.5rem; }
+    .sub-no { font-family: var(--mono); font-size: var(--fs-label); font-weight: 700; color: #fff;
+      background: var(--midnight); border-radius: 6px; padding: 0.22rem 0.5rem; flex-shrink: 0; letter-spacing: 0.04em; }
+    .sub-head h3 { font-size: var(--fs-title); }
+
+    /* gemeinsames Mono-Label (Tag/Merk-Label/Prompt-Label) */
+    .merk .ml, .prompt .pl {
+      font-family: var(--mono); font-size: var(--fs-label); letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--heidelbeer); display: block; margin-bottom: 0.28rem; }
+
+    .subhead { font-size: var(--fs-title); font-weight: 600; color: var(--midnight); margin: 1.1rem 0 0.55rem; }
+    .micro { font-size: var(--fs-sm); color: var(--muted); margin-top: 0.45rem; line-height: 1.4; }
+    .step-intro { font-size: var(--fs-body); color: var(--body); margin-bottom: 0.1rem; }
+
+    /* ── Mapping-Tabelle (neutral, brand-lila) ── */
+    table { width: 100%; border-collapse: separate; border-spacing: 0.4rem 0; table-layout: fixed; margin-top: 0.2rem; }
+    th, td { text-align: left; vertical-align: top; }
+    th { font-family: var(--mono); font-size: var(--fs-label); text-transform: uppercase; letter-spacing: 0.06em;
+      font-weight: 700; padding: 0.45rem 0.7rem; border-radius: 7px 7px 0 0;
+      color: var(--midnight); background: var(--lilac-tint); border: 1px solid var(--lilac-br); border-bottom: none; }
+    td { padding: 0.45rem 0.7rem; font-size: var(--fs-sm); line-height: 1.42; color: var(--body);
+      border-left: 1px solid var(--lilac-br); border-right: 1px solid var(--lilac-br); }
+    tbody tr:last-child td { border-bottom: 1px solid var(--lilac-br); border-radius: 0 0 7px 7px; }
+    td.row-h { color: var(--midnight); }
+    td.row-h strong { color: var(--midnight); }
+
+    /* ── Karten-Paar (Einrichten ChatGPT / Claude) ── */
+    .cards2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-top: 0.4rem; }
+    .card { border: 1px solid var(--border); border-radius: 9px; padding: 0.75rem 0.9rem; background: #fff; }
+    .card h3 { font-size: var(--fs-title); margin-bottom: 0.35rem; }
+    .card ol { margin: 0 0 0 1.05rem; padding: 0; }
+    .card li { font-size: var(--fs-sm); line-height: 1.4; margin: 0.32rem 0; padding-left: 0.15rem; }
+    .card li::marker { color: var(--heidelbeer); font-weight: 700; }
+
+    /* ── Listen ── */
+    ol.routine { margin: 0.2rem 0 0 1.15rem; padding: 0; }
+    ol.routine li { font-size: var(--fs-body); line-height: 1.5; margin: 0.3rem 0; padding-left: 0.2rem; }
+    ol.routine li::marker { color: var(--heidelbeer); font-weight: 700; }
+    ul.plain { margin: 0.3rem 0 0 1.15rem; padding: 0; }
+    ul.plain li { font-size: var(--fs-body); line-height: 1.45; margin: 0.28rem 0; }
+    ul.plain li::marker { color: var(--heidelbeer); }
+
+    /* ── Plus-Hinweis ── */
+    .plus { display: flex; align-items: flex-start; gap: 0.55rem; margin-top: 0.8rem;
+      font-size: var(--fs-body); line-height: 1.45; color: var(--body); }
+    .plus .ic { flex-shrink: 0; width: 1.2rem; height: 1.2rem; border-radius: 50%;
+      background: var(--heidelbeer); color: #fff; font-weight: 600; font-size: var(--fs-badge);
+      display: flex; align-items: center; justify-content: center; margin-top: 0.06rem; }
+
+    /* ── Merksatz ── */
+    .merk { border-left: 4px solid var(--midnight); background: var(--lilac-tint);
+      padding: 0.8rem 1rem; border-radius: 0 8px 8px 0; margin-top: 0.95rem; }
+    .merk p { font-size: var(--fs-body); color: var(--midnight); }
+    .merk .ml { margin-bottom: 0.2rem; }
+
+    /* ── Prompt-Box (kurz) ── */
+    .prompt { font-family: var(--mono); font-size: var(--fs-sm); line-height: 1.5; color: var(--body);
+      background: #F7F6F9; border: 1px solid var(--lilac-br); border-radius: 7px;
+      padding: 0.55rem 0.7rem; margin-top: 0.5rem; white-space: pre-wrap; }
+    .prompt .pl { margin-bottom: 0.28rem; }
+
+    /* ── Voll-Vorlage (langer Copy-Prompt mit Button) ── */
+    .vorlage { position: relative; margin-top: 0.7rem; border: 1px solid var(--lilac-br);
+      border-radius: 9px; background: #F7F6F9; overflow: hidden; break-inside: avoid; }
+    .vorlage .vl { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
+      padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--lilac-br); background: #F1ECF6; }
+    .vorlage .vl b { font-family: var(--mono); font-size: var(--fs-label); letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--heidelbeer); font-weight: 700; }
+    .vorlage .copy { font-family: var(--mono); font-size: var(--fs-label); letter-spacing: 0.04em;
+      color: #fff; background: var(--heidelbeer); border: none; border-radius: 6px;
+      padding: 0.32rem 0.65rem; cursor: pointer; flex-shrink: 0; }
+    .vorlage .copy:hover { background: var(--midnight); }
+    .vorlage .copy.done { background: var(--green); }
+    .vorlage pre { font-family: var(--mono); font-size: var(--fs-sm); line-height: 1.5; color: var(--body);
+      padding: 0.7rem 0.8rem; white-space: pre-wrap; word-break: break-word; overflow-x: auto; }
+    @media print { .vorlage .copy { display: none; } }
+
+    /* ── FAQ ── */
+    .faq { margin-top: 0.3rem; }
+    .faq-item { padding: 0.55rem 0; border-top: 1px solid var(--border); }
+    .faq-item:first-child { border-top: none; padding-top: 0.2rem; }
+    .faq-q { font-size: var(--fs-body); font-weight: 600; color: var(--midnight); margin-bottom: 0.12rem; }
+    .faq-a { font-size: var(--fs-sm); color: var(--body); line-height: 1.45; }
+
+    /* ── Druck-Leiste ── */
+    .bar { max-width: 880px; margin: 1.4rem auto -0.6rem; display: flex; justify-content: flex-end; padding: 0 3rem; }
+    .bar button { font-family: var(--mono); font-size: var(--fs-label); letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--midnight); background: #fff; border: 1px solid var(--lilac-br); border-radius: 6px;
+      padding: 0.45rem 0.9rem; cursor: pointer; }
+    .bar button:hover { background: var(--lilac-tint); }
+
+    /* ── Responsive ── */
+    @media (max-width: 680px) {
+      .sheet { padding: 1.8rem 1.4rem; }
+      .cards2 { grid-template-columns: 1fr; }
+      table, thead, tbody, th, td, tr { display: block; width: 100%; }
+      th { margin-top: 0.6rem; }
+    }
+
+    /* ════════ DRUCK — wenig Farbe, A4 ════════ */
+    @media print {
+      @page { size: A4 portrait; margin: 11mm 13mm; }
+      html { font-size: 8.8pt; }
+      body { background: #fff; }
+      .bar { display: none; }
+      .sheet { max-width: none; margin: 0; border: none; border-radius: 0; padding: 0; box-shadow: none; }
+      :root {
+        --midnight: #2B2430; --heidelbeer: #5a5165; --body: #1f1f22; --muted: #555; --border: #C7C7C7;
+        --lilac-tint: #F4F2F6; --lilac-br: #BDBDBD;
+        --red: #2B2430; --red-bg: #F6F5F7; --red-br: #BDBDBD;
+        --green: #2B2430; --green-bg: #F6F5F7; --green-br: #BDBDBD;
+        --amber: #2B2430; --amber-bg: #F6F5F7; --amber-br: #BDBDBD;
+      }
+      h1,h2,h3 { color: #241F29; }
+      .sec-no, .sub-no { background: #241F29 !important; }
+      .merk { background: #F2F1F4; border-left-color: #241F29; }
+      .plus .ic { background: #555; }
+      .pagebreak { break-before: page; }
+      section { break-inside: avoid; padding-top: 0.5rem; margin-top: 0.65rem; }
+      .merk, .plus, .cards2 { margin-top: 0.6rem; }
+      .subhead { margin: 0.7rem 0 0.4rem; }
+      .kicker { margin-bottom: 0.55rem; }
+    }
+  </style>
+</head>
+<body>
+<a href="/publikationen/index.html" id="office-back" style="position:fixed;left:1.25rem;bottom:1.25rem;z-index:9999;display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .85rem;border-radius:999px;background:rgba(250,250,248,.94);border:1px solid #E5E2DB;backdrop-filter:blur(8px);color:#78716c;font:500 .68rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;box-shadow:0 1px 3px rgba(0,0,0,.06)">&larr; Office</a>
+
+  <div class="bar"><button onclick="window.print()">Drucken / PDF</button></div>
+
+  <div class="sheet">
+
+    <!-- ── KOPF ── -->
+    <header class="head">
+      <div class="eyebrow">Handout zum Setup · KI im Studium · Linja Scharffetter · 27.06.2026</div>
+      <h1>Dein eigenes KI-Setup fürs Studium aufsetzen</h1>
+      <p class="lead">Praxisteil zum Mitmachen: wohin Dein Kontext kommt, wie Du Profil und Arbeitsvertrag aufsetzt und wie Du danach mit Deinem Material arbeitest. Einmal Zeit investieren, danach pro Arbeit nur noch die Quellen nachtragen. Alles in der Gratis-Version von ChatGPT und Claude, im Browser.</p>
+    </header>
+
+    <!-- ── 01 ── -->
+    <section>
+      <div class="sec-head"><span class="sec-no">01</span><h2>Wohin kommt der Kontext?</h2></div>
+      <p class="kicker">Beide Tools haben dauerhafte Speicher plus den Chat. Ordne Dein Wissen wie im Vortrag in Schichten.</p>
+
+      <div class="subhead">So richtest Du es ein</div>
+      <div class="cards2">
+        <div class="card">
+          <h3>ChatGPT (gratis)</h3>
+          <ol>
+            <li><strong>Personalisierung</strong> öffnen. Profil (2a) in die Felder „Beruf" + „Mehr über dich", Arbeitsvertrag (2b) in „Individuelle Hinweise". Lädt in jeden Chat.</li>
+            <li><strong>Memory</strong> ist an. „Merk dir: …" speichert Fakten dauerhaft, jederzeit editierbar.</li>
+            <li><strong>Projects</strong> anlegen (eins pro Hausarbeit). Dateien hochladen, Projektkontext ins Feld „Hinweise".</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h3>Claude (gratis)</h3>
+          <ol>
+            <li><strong>„Anweisungen für Claude"</strong> öffnen (ein Feld). Profil (2a) + Arbeitsvertrag (2b) kommen zusammen hier rein. Lädt in jeden Chat.</li>
+            <li><strong>Memory</strong> (seit März 2026 gratis) merkt sich Deinen Kontext über Chats hinweg.</li>
+            <li><strong>Projects</strong> anlegen (bis 5). Projektkontext ins Feld „Beschreibung", Quellen als „Anweisungen" / Dateien hochladen.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="subhead">Welches Tool für mich?</div>
+      <ul class="plain">
+        <li><strong>ChatGPT:</strong> sehr verbreitet, starker Allrounder, viele Integrationen, schnelles Hin und Her. Gut, wenn Du ein Tool für vieles willst.</li>
+        <li><strong>Claude:</strong> stark bei langen Texten und Dokumenten, sorgfältig beim Schreiben, Argumentieren und beim Befolgen genauer Vorgaben. Gut für Hausarbeiten mit viel Lektüre.</li>
+      </ul>
+      <div class="plus"><span class="ic">+</span><span><strong>App oder Browser?</strong> Beides läuft komplett in der Webversion (chatgpt.com bzw. claude.ai), inklusive Personalisierung, Memory und Projects. Eine App brauchst Du nicht, sie ist nur Komfort fürs Handy.</span></div>
+
+      <div class="merk"><span class="ml">Faustregel · Drei Schichten</span>
+        <p><strong>Wer Du bist</strong> → einmal zentral: Personalisierung (ChatGPT) bzw. „Anweisungen für Claude", plus Memory.</p>
+        <p style="margin-top:0.4rem"><strong>Quellen pro Thema</strong> → ins Projekt: Dateien hochladen, Kontext ins Feld „Hinweise" (ChatGPT) / „Beschreibung" (Claude).</p>
+        <p style="margin-top:0.4rem"><strong>Die konkrete Frage</strong> → in den Chat im Projekt.</p>
+      </div>
+    </section>
+
+    <!-- ── 02 ── -->
+    <section>
+      <div class="sec-head"><span class="sec-no">02</span><h2>Setup bauen: Dein Profil + Dein Arbeitsvertrag</h2></div>
+      <p class="kicker">Zwei Dinge einmal zentral ablegen, beide an dieselbe Stelle: wer Du bist (Identity) und wie die KI arbeiten soll (Arbeitsvertrag). Lädt danach in jeden Chat.</p>
+
+      <div class="sub-head"><span class="sub-no">2a</span><h3>Identity-Profil per Interview-Prompt</h3></div>
+      <p>In einen <strong>neuen Chat</strong> einfügen. Die KI interviewt Dich und baut am Ende einen sauberen Block, den Du in die Einstellungen kopierst. Zwei Versionen, weil ChatGPT und Claude die Felder unterschiedlich aufteilen: <strong>nimm die Vorlage zu Deinem Tool</strong>.</p>
+
+      <div class="vorlage"><div class="vl"><b>Vorlage · Profil-Interview · ChatGPT</b><button class="copy" onclick="copyVorlage(this)">Kopieren</button></div><pre>Du bist mein Onboarding-Assistent für wissenschaftliches Arbeiten mit KI.
+Ziel: Hilf mir, ein kompaktes Profil zu erstellen, das ich dauerhaft in Deiner
+Personalisierung speichere, damit Du mich in jeder zukünftigen Unterhaltung kennst.
+
+Gehe so vor:
+1. Stelle mir die folgenden Fragen EINZELN, eine nach der anderen, und warte jeweils
+   auf meine Antwort. Frag nach, wenn etwas unklar oder zu knapp ist.
+2. Themenblöcke:
+   - Studium: Studiengang, Fachsemester, Hochschule, Schwerpunkt.
+   - Stärken und Schwächen beim wissenschaftlichen Arbeiten (Strukturieren,
+     Argumentieren, Literatur, Schreiben, Zeitmanagement).
+   - Arbeitsweise: Wie arbeitest Du am liebsten? Was hilft Dir, was blockiert Dich?
+   - Schreibstil: Wie klingen Deine Texte? (Gib mir gern ein, zwei Beispielsätze von Dir.)
+   - Aktuelles Projekt: Um welche Arbeit/welches Thema geht es gerade? Gibt es schon
+     eine These oder Fragestellung?
+   - Vorgaben: Welche Regeln gibt der Lehrstuhl vor (Zitierstil, Umfang, Sprache)?
+   - Was die KI für Dich tun und NICHT tun soll.
+
+Am Ende des Interviews:
+3. Prüfe, ob ich die neue Personalisierung oder die klassischen Benutzerdefinierten
+   Anweisungen nutze. Frag mich, falls unklar.
+4. Falls ich die neue Personalisierung nutze, gib das Ergebnis in vier getrennten
+   Abschnitten aus:
+
+   ### Beruf
+   (Kurzer Text für das Feld „Beruf".)
+
+   ### Mehr über dich
+   (Kompakter Fließtext für das Feld „Mehr über dich".)
+
+   ### Individuelle Hinweise
+   (Konkrete Anweisungen an ChatGPT für Verhalten, Stil und Zusammenarbeit.)
+
+   ### Projektkontext
+   (Alles, was NICHT dauerhaft gespeichert werden sollte, sondern nur für die aktuelle
+   wissenschaftliche Arbeit gilt: Forschungsfrage, Gliederung, Quellen, Betreuerhinweise,
+   Bewertungsbogen.)
+
+5. Falls ich noch die klassischen Benutzerdefinierten Anweisungen nutze, gib stattdessen
+   einen einzigen Markdown-Block unter der Überschrift „## Mein Kontext" aus.
+6. Halte alle Texte möglichst kompakt und auf den Punkt, direkt einfügbar, ohne
+   Füllwörter, Einleitung oder Erklärung. Stichpunkte statt Fließtext, wo möglich.
+7. Erkläre mir anschließend in einem Satz, welche Informationen dauerhaft in die
+   Personalisierung gehören und welche besser in einem Projekt gespeichert werden.
+
+Starte jetzt mit der ersten Frage.</pre></div>
+
+      <div class="vorlage"><div class="vl"><b>Vorlage · Profil-Interview · Claude</b><button class="copy" onclick="copyVorlage(this)">Kopieren</button></div><pre>Du bist mein Onboarding-Assistent für wissenschaftliches Arbeiten mit KI.
+Ziel: Hilf mir, ein kompaktes „Über mich"-Profil zu erstellen, das ich dauerhaft in
+Deinem Feld „Anweisungen für Claude" speichere, damit Du mich in jeder zukünftigen Unterhaltung kennst.
+
+Gehe so vor:
+1. Stelle mir die folgenden Fragen EINZELN, eine nach der anderen, und warte jeweils
+   auf meine Antwort. Frag nach, wenn etwas unklar oder zu knapp ist.
+2. Themenblöcke:
+   - Studium: Studiengang, Fachsemester, Hochschule, Schwerpunkt.
+   - Stärken und Schwächen beim wissenschaftlichen Arbeiten (Strukturieren,
+     Argumentieren, Literatur, Schreiben, Zeitmanagement).
+   - Arbeitsweise: Wie arbeitest Du am liebsten? Was hilft Dir, was blockiert Dich?
+   - Schreibstil: Wie klingen Deine Texte? (Gib mir gern ein, zwei Beispielsätze von Dir.)
+   - Aktuelles Projekt: Um welche Arbeit/welches Thema geht es gerade? Gibt es schon
+     eine These oder Fragestellung?
+   - Vorgaben: Welche Regeln gibt der Lehrstuhl vor (Zitierstil, Umfang, Sprache)?
+   - Was die KI für Dich tun und NICHT tun soll.
+
+Am Ende des Interviews:
+3. Trenne dauerhaften Kontext und Projektkontext strikt und gib mir zwei Blöcke aus:
+
+   ## Mein Kontext (dauerhaft)
+   (Studium, Arbeitsweise, Schreibstil, Stärken/Schwächen, bevorzugte Rolle der KI.
+   Kommt in „Anweisungen für Claude", gilt immer.)
+
+   ## Projektkontext (pro Arbeit)
+   (Thema, Forschungsfrage, Exposé, Gliederung, Quellen, Bewertungsbogen, Zitierstil
+   dieses Lehrstuhls, Deadlines. Kommt ins jeweilige Projekt, nicht in die Präferenzen.)
+
+4. Halte beide Texte möglichst kompakt und auf den Punkt, direkt einfügbar, ohne
+   Füllwörter, Einleitung oder Erklärung. Kurze Stichpunkte statt Romane.
+5. Erkläre mir anschließend in einem Satz, was dauerhaft in „Anweisungen für Claude"
+   gehört und was besser in ein Projekt kommt.
+6. Zeige mir außerdem, wo ich die beiden Blöcke in Claude konkret abspeichere, mit
+   klickbaren Schritten für „Anweisungen für Claude" und Projekte.
+
+Starte jetzt mit der ersten Frage.</pre></div>
+
+      <div class="plus"><span class="ic">+</span><span><strong>Speichern:</strong> ChatGPT → „Beruf" und „Mehr über dich" in die gleichnamigen Personalisierungs-Felder, „Individuelle Hinweise" ebenso; den Projektkontext ins Projekt-Feld „Hinweise". (Bei klassischen Custom Instructions stattdessen der „## Mein Kontext"-Block.) Claude → „## Mein Kontext" in „Anweisungen für Claude", „## Projektkontext" ins Projekt-Feld „Beschreibung". Optional zusätzlich ins Memory.</span></div>
+      <div class="merk"><span class="ml">Faustregel · Trennung</span><p>Trenne dauerhaften Kontext und Projektkontext von Anfang an. <strong>Dauerhaft</strong> (Personalisierung/Profil): Studium, Arbeitsweise, Schreibstil, Stärken/Schwächen, Rolle der KI. <strong>Projekt</strong>: Thema, Forschungsfrage, Exposé, Quellen, Bewertungsbogen, Zitierstil, Gliederung, Deadlines. So machst Du das Interview nur einmal und ergänzt pro Arbeit nur den Projektteil.</p></div>
+
+      <div class="sub-head"><span class="sub-no">2b</span><h3>Arbeitsvertrag mit der KI</h3></div>
+      <p>Für wissenschaftliches Arbeiten. Je eine knappe Fassung pro Tool: kopiere sie in ChatGPTs Feld „Individuelle Hinweise" (max. 1500 Zeichen) bzw. in Claudes Feld „Anweisungen für Claude".</p>
+
+      <div class="vorlage"><div class="vl"><b>Vorlage · Arbeitsvertrag · ChatGPT (kurz, &lt;1500 Zeichen)</b><button class="copy" onclick="copyVorlage(this)">Kopieren</button></div><pre>Arbeite als mein wissenschaftlicher Sparringspartner, nicht als Ghostwriter. Hilf mir zu denken, statt für mich zu denken.
+
+Arbeite ehrlich und transparent:
+
+* Erfinde niemals Quellen, Zitate oder Fakten.
+* Kennzeichne Unsicherheiten und Vermutungen klar.
+* Sage lieber, dass Du etwas nicht weißt oder nicht prüfen kannst.
+
+Arbeite kritisch:
+
+* Stelle Rückfragen, bevor Du Annahmen triffst.
+* Hinterfrage meine Argumentation, zeige Gegenargumente und alternative Perspektiven.
+* Hilf mir, Forschungsfragen zu schärfen, den roten Faden zu sichern und auf logische Schwächen, Inkonsistenzen oder einen zu großen Umfang hinzuweisen.
+* Gib bevorzugt Denkimpulse, Strukturvorschläge und Feedback, bevor Du Formulierungen lieferst.
+
+Arbeite wissenschaftlich:
+
+* Verfasse keine fertigen Abgabetexte, sofern ich das nicht ausdrücklich wünsche.
+* Ersetze keine Literaturrecherche durch Vermutungen und weise auf nötige Quellenprüfung hin.
+* Begründe Empfehlungen nachvollziehbar und weise auf mögliche Denkfehler oder Wissenslücken hin.
+
+Antworte auf Deutsch, prägnant und strukturiert. Stelle lieber eine gute Rückfrage als vorschnell zu antworten. Zustimmung ist kein Selbstzweck; sachliche Kritik ist ausdrücklich erwünscht.</pre></div>
+
+      <div class="vorlage"><div class="vl"><b>Vorlage · Arbeitsvertrag · Claude</b><button class="copy" onclick="copyVorlage(this)">Kopieren</button></div><pre>Rolle: kritischer Sparringspartner, nicht Ghostwriter. Hilf mir zu denken, denk nicht für mich.
+
+* Keine erfundenen Quellen, Zitate oder Fakten – Unsicherheiten explizit benennen
+* Rückfragen vor Annahmen; Gegenargumente vor Zustimmung
+* Denkimpulse und Strukturvorschläge vor Formulierungen
+* Keine fertigen Abgabetexte; auf Quellenprüfung verweisen statt spekulieren
+* Deutsch, knapp, lieber eine klare Rückfrage als zehn Optionen</pre></div>
+    </section>
+
+    <div class="pagebreak"></div>
+
+    <!-- ── 03 ── -->
+    <section>
+      <div class="sec-head"><span class="sec-no">03</span><h2>Mit Deinem Kontext weiterarbeiten</h2></div>
+      <p class="kicker">Ab hier arbeitest Du im Projekt, damit Profil, Arbeitsvertrag und Quellen automatisch dabei sind.</p>
+
+      <div class="subhead">So arbeitest Du (Routine)</div>
+      <ol class="routine">
+        <li><strong>Im Projekt arbeiten</strong>, nicht im leeren Chat. Dann sind Deine Dateien und der Arbeitsvertrag automatisch dabei.</li>
+        <li><strong>Pro Aufgabe nur die relevante Schicht geben:</strong> die konkrete These + die 1–2 Quellen, um die es geht. Nicht „alles" auf einmal.</li>
+        <li><strong>Rolle setzen:</strong> „Sei mein Kritiker. Greif diese These an: …" statt „Schreib mir …".</li>
+        <li><strong>Quellen-Disziplin:</strong> jede genannte Quelle selbst prüfen (Katalog / Scholar / DOI). Link ≠ gelesen ≠ sagt das ≠ passende Quelle.</li>
+        <li><strong>Iterieren:</strong> Antwort zerlegen, nachschärfen, Gegenfragen stellen. Das beste Ergebnis entsteht im Dialog.</li>
+        <li><strong>Kontext pflegen:</strong> Neues über Dich oder das Thema ins Memory/Projekt nachtragen, Veraltetes löschen.</li>
+      </ol>
+
+      <div class="subhead">Prompts, die auf Deinen hinterlegten Kontext zugreifen</div>
+      <p class="step-intro">Sie funktionieren gut, <strong>weil</strong> Du vorher Profil, Arbeitsvertrag und Quellen abgelegt hast. Vier Muster zum Kopieren:</p>
+      <div class="prompt"><span class="pl">These angreifen</span>Du kennst aus meinem Profil mein Thema und meine Schwächen beim wissenschaftlichen Arbeiten. Hier ist meine These: [...]. Greif sie auf Basis der Quellen in diesem Projekt an: Wo ist sie zu breit, wo nicht gedeckt? Nenne nur Quellen, die du sicher belegen kannst.</div>
+      <div class="prompt"><span class="pl">Quelle prüfen</span>Nutze die Dateien in diesem Projekt. Ich habe [Quelle] gelesen und so verstanden: [...]. Wo widerspreche ich der Quelle oder überdehne ich sie? Frag nach, wenn Dir mein Verständnis unklar ist.</div>
+      <div class="prompt"><span class="pl">Gutachter-Fragen</span>Auf Basis meiner hochgeladenen Gliederung und meiner These: Wo springt meine Argumentation? Stell mir vor Deiner Antwort die drei Fragen, die ein Gutachter stellen würde.</div>
+      <div class="prompt"><span class="pl">Annahmen finden</span>Vergleiche meine Notizen im Projekt mit meiner aktuellen These. Welche unausgesprochene Annahme steckt drin, die ich aus meiner Lektüre noch nicht belegt habe?</div>
+
+      <div class="merk"><span class="ml">Merksatz</span><p>Ein guter Prompt erklärt nicht alles neu, er <strong>zeigt auf Deinen Kontext</strong>: „Greif <strong>meine</strong> These an" schlägt „Erkläre mir das Thema".</p></div>
+    </section>
+
+    <!-- ── 04 ── -->
+    <section>
+      <div class="sec-head"><span class="sec-no">04</span><h2>Häufige Fragen</h2></div>
+      <div class="faq">
+        <div class="faq-item"><p class="faq-q">Darf ich KI überhaupt für Hausarbeiten nutzen?</p><p class="faq-a">Ja, sofern Lehrstuhl/Prüfungsordnung es erlauben und Du es kenntlich machst. Vorab klären. Es geht um das Wie, nicht das Ob.</p></div>
+        <div class="faq-item"><p class="faq-q">Ist das nicht Schummeln?</p><p class="faq-a">Schummeln heißt, fremde Leistung als eigene auszugeben. Hier baust Du den Kontext selbst und triffst die Urteile. Die KI ist Werkzeug, nicht Autor.</p></div>
+        <div class="faq-item"><p class="faq-q">Brauche ich die Bezahlversion?</p><p class="faq-a">Nein. Custom Instructions, Memory und Projects gibt es in beiden Gratis-Versionen. Bezahlung bringt nur höhere Limits und Komfort.</p></div>
+        <div class="faq-item"><p class="faq-q">Wie viel Zeit kostet das Setup?</p><p class="faq-a">Einmal Zeit investieren für Profil + Arbeitsvertrag. Danach pro Arbeit nur noch ein Projekt mit den jeweiligen Quellen.</p></div>
+        <div class="faq-item"><p class="faq-q">Halluziniert die KI dann nicht mehr?</p><p class="faq-a">Doch, sie kann weiter halluzinieren. Guter Kontext senkt das Risiko, ersetzt aber nicht das Prüfen. Quellen immer selbst checken.</p></div>
+        <div class="faq-item"><p class="faq-q">Was ist mit Datenschutz/Urheberrecht beim Hochladen?</p><p class="faq-a">Eigene Notizen: unkritisch. Fremde Volltexte: sparsam, Lizenz/AGB beachten. Keine sensiblen personenbezogenen Daten hochladen. Im Zweifel Lehrstuhl fragen.</p></div>
+        <div class="faq-item"><p class="faq-q">Nutzt die KI meine Texte zum Training?</p><p class="faq-a">Bei kostenlosen Accounts je nach Anbieter möglich. In den Datenschutz-Einstellungen lässt sich das meist deaktivieren. Keine Geheimnisse/sensiblen Daten reingeben.</p></div>
+        <div class="faq-item"><p class="faq-q">Muss ich das für jede Hausarbeit neu machen?</p><p class="faq-a">Nein. Profil + Arbeitsvertrag gelten dauerhaft. Pro Arbeit nur ein neues Projekt mit den passenden Quellen.</p></div>
+        <div class="faq-item"><p class="faq-q">Was, wenn der Lehrstuhl KI verbietet?</p><p class="faq-a">Respektieren. Das Profil hilft trotzdem beim Lernen und Verstehen, nur nicht an der Abgabe selbst.</p></div>
+        <div class="faq-item"><p class="faq-q">Welches Tool soll ich nehmen?</p><p class="faq-a">Egal, beide können es. Nimm das, mit dem Du Dich wohler fühlst. Das Prinzip ist dasselbe.</p></div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function copyVorlage(btn){
+      var pre = btn.closest('.vorlage').querySelector('pre');
+      var text = pre.innerText;
+      function done(){ btn.textContent='Kopiert ✓'; btn.classList.add('done'); setTimeout(function(){btn.textContent='Kopieren';btn.classList.remove('done');},1600); }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(function(){fallback(text);done();});
+      } else { fallback(text); done(); }
+    }
+    function fallback(text){
+      var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{document.execCommand('copy');}catch(e){}
+      document.body.removeChild(ta);
+    }
+  </script>
+</body>
+</html>

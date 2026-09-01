@@ -124,26 +124,12 @@
     </div>
 
     <script>
-        // Simple client-side gate — not real security, just keeps casual visitors out
-        const PASS = 'REDACTED';
-
-        // Check if already authenticated
-        if (sessionStorage.getItem('verworfen-auth') === 'true') {
-            document.getElementById('gate').classList.add('hidden');
-            document.getElementById('articles').classList.remove('hidden');
-        }
-
-        function checkPass() {
-            const input = document.getElementById('pass').value;
-            if (input === PASS) {
-                sessionStorage.setItem('verworfen-auth', 'true');
-                document.getElementById('gate').classList.add('hidden');
-                document.getElementById('articles').classList.remove('hidden');
-            } else {
-                document.getElementById('error').classList.remove('hidden');
-            }
-            return false;
-        }
+        // Kein Passwortschutz mehr: er war clientseitig und damit wirkungslos.
+        // Diese Seite ist nicht indexiert (robots noindex) und sonst offen.
+        var gate = document.getElementById('gate');
+        if (gate) gate.remove();
+        var el_articles = document.getElementById('articles');
+        if (el_articles) el_articles.classList.remove('hidden');
     </script>
 </body>
 </html>
