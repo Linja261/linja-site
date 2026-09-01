@@ -11,9 +11,9 @@
 (function () {
     var AUTH_KEY = 'office-auth';
 
-    var scripts = document.querySelectorAll('script[src*="office.js"]');
+    var scripts = document.querySelectorAll('script[src*="nav.js"]');
     var scriptTag = scripts[scripts.length - 1];
-    var activePage = scriptTag.getAttribute('data-active') || 'dashboard';
+    var activePage = (scriptTag && scriptTag.getAttribute('data-active')) || 'dashboard';
 
     // === MOBILE-FEINSCHLIFF (<640px, Desktop unberührt) ===
     (function () {
