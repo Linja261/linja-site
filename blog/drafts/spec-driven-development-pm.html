@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Die Spezifikation ist der Rahmen – Linja Scharffetter</title>
+    <meta name="description" content="Spec-Driven Development macht die Spezifikation zur verbindlichen Quelle. Der wirksame Teil daran ist die Abnahmebedingung, und genau sie entscheidet, wie autonom eine KI arbeiten darf.">
+    <meta property="og:title" content="Die Spezifikation ist der Rahmen. Was Produktteams aufschreiben müssen, damit KI allein arbeiten darf.">
+    <meta property="og:description" content="Spec-Driven Development macht die Spezifikation zur verbindlichen Quelle. Der wirksame Teil daran ist die Abnahmebedingung, und genau sie entscheidet, wie autonom eine KI arbeiten darf.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Fraunces', 'Georgia', 'serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .lang-hidden { display: none !important; }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles.
+           Spacing-Werte: siehe ../../brand-kit.md → Spacing-Tokens (Blog). */
+        .prose h2 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p {
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="/components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+                <span class="text-[0.72rem] text-stone-400">2. September 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 8 Min Lesezeit</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; Teil 2 von 2</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Die Spezifikation ist der Rahmen. Was Produktteams aufschreiben müssen, damit KI allein arbeiten darf.
+            </h1>
+        </header>
+
+        <!-- ══════════════════════════════════════════════
+             OPTIONAL: 90-SEK-AUDIO-PILL
+             Aktivieren, sobald blog/audio/spec-driven-development-pm.mp3 existiert.
+             ══════════════════════════════════════════════ -->
+        <!--
+        <div class="reader-audio-slot my-4" data-audio-src="/blog/audio/spec-driven-development-pm.mp3"></div>
+        -->
+
+        <!-- ══ PFLICHT-BLOCK: TL;DR ══ -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Kontext, Harness und Loop sagen, wo ein Problem sitzt. Womit man sie füllt, sagt die Spezifikation. Spec-Driven Development macht sie zur verbindlichen Quelle statt zur Vorstufe, und der wirksame Teil daran ist nicht die Beschreibung, sondern die Abnahmebedingung. Wer sie nicht formulieren kann, kann nicht delegieren, an keinen Agenten und an keinen Menschen. Die Grenze des Ansatzes liegt dort, wo Verstehen erst beim Bauen entsteht.
+            </p>
+        </div>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+            <!-- ══ BLOCK 1: KERNBOTSCHAFT + PROBLEM ══ -->
+
+            <p>Der erste Teil dieses Zweiteilers hat drei Ebenen sortiert: Kontext legt fest, was ein Modell für einen einzelnen Aufruf sieht, das Harness legt die Umgebung eines Agenten fest, der Loop legt fest, wer ihn anstößt.<sup>1</sup> Die Sortierung hilft bei der Fehlersuche, sie beantwortet aber nicht die praktisch drängendere Frage. Wer eine KI-gestützte Funktion beschreiben soll, sitzt nicht vor einem Ebenenmodell, sondern vor einem leeren Dokument. Die Ebenen sagen, wo etwas hingehört. Sie sagen nicht, was hineingeschrieben werden muss, damit ein Agent ohne ständige Rückfragen arbeiten kann.</p>
+
+
+            <!-- ══ BLOCK 2: FUNDIERUNG ══ -->
+
+            <h2>Was Spec-Driven Development umdreht</h2>
+
+            <p>Seit 2025 hat sich für diese Lücke ein Ansatz etabliert, der die übliche Reihenfolge umkehrt. Vor der Umsetzung steht eine Spezifikation und diese Spezifikation ist nicht der Entwurf der Wahrheit, sondern die Wahrheit selbst. GitHub beschreibt die Verschiebung als Wechsel von „Code ist die Quelle der Wahrheit" zu „Absicht ist die Quelle der Wahrheit" und schlägt einen Ablauf in vier Schritten vor: spezifizieren, planen, in Aufgaben zerlegen, umsetzen.<sup>2</sup> Jeder Schritt erzeugt ein Dokument, das den nächsten speist.</p>
+
+            <p>Birgitta Böckeler beschreibt das Artefakt genauer: ein strukturiertes, verhaltensorientiertes Dokument in natürlicher Sprache, das Mensch und Agent gemeinsam als Bezugspunkt nutzen.<sup>3</sup> Sie unterscheidet außerdem drei Ausbaustufen, die in der Diskussion oft vermischt werden. Bei der ersten stößt die Spezifikation die Arbeit an, danach wird der Code gepflegt. Bei der zweiten laufen Spezifikation und Umsetzung nebeneinander weiter und werden synchron gehalten. Bei der dritten ist die Spezifikation das einzige Artefakt, das noch von Hand bearbeitet wird. Die meisten Teams arbeiten in den ersten beiden Stufen, und der Unterschied ist keine Feinheit: Er entscheidet darüber, welches Dokument bei einem Widerspruch gewinnt.</p>
+
+            <h3>Warum das eine Produktfrage ist</h3>
+
+            <p>Kief Morris beschreibt drei Haltungen, die ein Team gegenüber einem Agenten einnehmen kann.<sup>4</sup> <strong>Außerhalb der Schleife</strong> heißt, ein Ziel zu nennen und das Ergebnis nicht zu prüfen. <strong>In der Schleife</strong> heißt, jedes Ergebnis einzeln abzunehmen, womit der Mensch selbst zum Engpass wird, weil Agenten schneller erzeugen als Menschen lesen. <strong>An der Schleife</strong> heißt, nicht einzelne Ergebnisse abzunehmen, sondern die Spezifikationen und Prüfungen zu bauen, an denen sich jedes Ergebnis messen lassen muss.</p>
+
+            <p>Nur die dritte Haltung skaliert. Sie verschiebt die Arbeit dorthin, wo Produktleute ohnehin arbeiten. Wer an der Schleife steht, schreibt keine Prompts, sondern Bedingungen. Das ist dieselbe Tätigkeit wie das Formulieren einer Definition of Done, nur mit einem Adressaten, der nicht nachfragt, wenn etwas unklar bleibt.</p>
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Autonomie entsteht nicht dadurch, dass ein Agent mehr darf, sondern dadurch, dass vorher feststeht, woran sein Ergebnis scheitern kann.
+                </p>
+            </div>
+
+            <h3>Die vier Felder, die eine Spezifikation tragen</h3>
+
+            <p>Aus den drei Quellen und der Ebenenlogik aus Teil 1 lässt sich ein knapper Satz an Feldern ableiten. Er ist bewusst kurz, weil Vollständigkeit hier kein Qualitätsmerkmal ist. Eine lange Spezifikation erhöht die Prüflast, ohne die Ergebnisse besser zu machen.</p>
+
+            <!-- ══ DATENTABELLE: VIER FELDER ══ -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feld</th>
+                        <th>Beantwortet</th>
+                        <th>Ohne dieses Feld passiert</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Absicht</strong></td>
+                        <td>Was soll gelten, und wogegen argumentiert das Ergebnis</td>
+                        <td>Der Agent liefert etwas Plausibles, das die eigentliche These verfehlt</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Geltungsbereich</strong></td>
+                        <td>Was gehört dazu und was ausdrücklich nicht</td>
+                        <td>Themenwanderung, der Umfang wächst während der Ausführung</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zulieferung</strong></td>
+                        <td>Welche Quellen, Daten und Vorgaben verwendet werden dürfen</td>
+                        <td>Der Agent füllt Lücken mit Plausiblem statt mit Belegtem</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Abnahmebedingung</strong></td>
+                        <td>Woran das Ergebnis geprüft wird und woran es scheitern darf</td>
+                        <td>Autonomie ist nicht begrenzt, sondern nur unbeobachtet</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Das vierte Feld trägt die anderen drei. Absicht, Geltungsbereich und Zulieferung wirken vor der Ausführung und lassen sich beliebig ausschmücken, ohne dass sich am Ergebnis etwas ändert. Die Abnahmebedingung wirkt danach und ist das einzige Feld, das den Agenten tatsächlich korrigiert. Ein Ablauf mit ausführlicher Beschreibung und ohne Abnahmebedingung produziert zuverlässig gut aussehende Ergebnisse, die niemand geprüft hat.</p>
+
+            <p>Der Test dafür ist einfach und unbequem: Lässt sich zu jeder Bedingung sagen, welche Beobachtung sie verletzen würde? „Gut geschrieben" besteht diesen Test nicht. „Jede genannte Quelle existiert in der Kombination aus Autor, Titel und Jahr" besteht ihn.</p>
+
+
+            <!-- ══ BLOCK 3: KRITISCHE EINORDNUNG ══ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Der schwerwiegendste Einwand kommt nicht von außen, sondern aus der Nachbarschaft. Martin Fowler gibt Kent Becks Kritik wieder: Die Annahme, Anforderungen ließen sich vor der Umsetzung vollständig festlegen, ignoriert, dass beim Bauen Erkenntnisse entstehen, die die Spezifikation verändern würden.<sup>5</sup> Wer die Spezifikation zur alleinigen Wahrheit erklärt, riskiert, genau dieses Lernen wegzudefinieren. Der Einwand trifft die dritte Ausbaustufe härter als die ersten beiden.</p>
+
+            <p>Dazu kommen zwei praktische Beobachtungen von Böckeler.<sup>3</sup> Die Menge an Spezifikationsdokumenten kann die Prüflast erhöhen statt sie zu senken, weil am Ende jemand alle lesen muss. Und Agenten ignorieren Vorgaben auch dann, wenn diese ausführlich niedergeschrieben sind. Beides zeigt in dieselbe Richtung: Eine Spezifikation ersetzt die Prüfung nicht, sie macht sie erst möglich.</p>
+
+            <p>Bleibt die Frage der Dosierung. Ein Rahmen kann Prüfungen so lange stapeln, bis die Autonomie, für die er gebaut wurde, wieder aufgezehrt ist. Gartner sagt für Ende 2027 voraus, dass über 40 Prozent der agentischen KI-Projekte abgebrochen werden, unter anderem wegen steigender Kosten und unklaren Geschäftsnutzens.<sup>6</sup> Ein Teil dieser Kosten entsteht nicht im Modell, sondern im Drumherum.</p>
+
+
+            <!-- ══ BLOCK 4: DER ÜBERTRAG ══ -->
+
+            <h2>Der Übertrag in den Produktalltag</h2>
+
+            <p>Der Ansatz ist nicht auf Softwareentwicklung beschränkt. Übertragen auf Produktarbeit heißt er: Bevor eine wiederkehrende Aufgabe an eine KI abgegeben wird, wird sie einmal spezifiziert, mit einer Bedingung, an der das Ergebnis scheitern darf.</p>
+
+            <p><strong>Der Aufwand fällt einmal an, die Prüfung dauerhaft weg.</strong> Eine Spezifikation, die einmal geschrieben und danach nur nachgeschärft wird, ersetzt die Rückfragen, die sonst bei jedem einzelnen Durchlauf anfallen. Der Bruch liegt dort, wo die Spezifikation nur im Kopf existiert oder in einem Dokument, das niemand findet.</p>
+
+            <p><strong>Die Bedingung gehört vor die Arbeit, nicht dahinter.</strong> Eine Abnahmebedingung, die erst formuliert wird, wenn das Ergebnis vorliegt, ist keine Bedingung, sondern eine nachträgliche Begründung. Das gilt für Agenten wie für Teams, nur fällt es bei Agenten schneller auf.</p>
+
+            <p><strong>Kurz schlägt vollständig.</strong> Vier Felder, die jemand tatsächlich befüllt, sind mehr wert als ein Formular mit zwanzig, das niemand ausfüllt. Wer ergänzt, sollte den Punkt streichen können, der dadurch überflüssig wird.</p>
+
+
+            <!-- ══ BLOCK 5: WAS BLEIBT FÜR JEDEN TAG ══ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Erst die Abnahmebedingung, dann die Beschreibung</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wer nicht sagen kann, woran ein Ergebnis scheitern darf, hat keine Aufgabe formuliert, sondern einen Wunsch.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Prüfbar heißt: es gibt eine Beobachtung, die sie verletzt</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Der Test funktioniert auch für menschliche Abnahmen und deckt schwammige Kriterien in Sekunden auf.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Die Spezifikation ist kein Ersatz für das Prüfen</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Sie macht das Prüfen möglich und billig. Wer sie schreibt und dann nicht hinsieht, hat den Aufwand umsonst betrieben.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ QUELLEN ══ -->
+
+            <div class="mt-12 pt-6" id="quellen" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="/blog/harness-engineering-pm.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). Kontext, Harness, Loop. Drei Ebenen, die Produktteams gerade durcheinanderbringen. linja.me (Teil 1 dieses Zweiteilers).</a></li>
+                    <li><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Delimarsky, D. (2025). Spec-driven development with AI: Get started with a new open source toolkit. The GitHub Blog, 2. September 2025.</a></li>
+                    <li><a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Böckeler, B. (2025). Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl. martinfowler.com, 15. Oktober 2025.</a></li>
+                    <li><a href="https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Morris, K. (2026). Humans and Agents in Software Engineering Loops. martinfowler.com, 4. März 2026.</a></li>
+                    <li><a href="https://martinfowler.com/fragments/2026-01-08.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Fowler, M. (2026). Fragments: January 8. martinfowler.com, 8. Januar 2026. (Gibt Kent Becks Einwand gegen vorab vollständige Spezifikationen wieder.)</a></li>
+                    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gartner (2025). Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027. 25. Juni 2025.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSAR ══ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Spec-Driven Development</span> <span class="text-stone-400">— Arbeitsweise, bei der eine Spezifikation vor der Umsetzung steht und als verbindliche Quelle gilt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Spezifikation</span> <span class="text-stone-400">— strukturiertes Dokument in natürlicher Sprache, das beschreibt, was gelten soll, nicht wie es hergestellt wird.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Abnahmebedingung</span> <span class="text-stone-400">— vorab formuliertes, prüfbares Kriterium, an dem ein Ergebnis scheitern kann.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Definition of Done</span> <span class="text-stone-400">— im agilen Arbeiten die verbindliche Liste, wann eine Aufgabe als fertig gilt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agent</span> <span class="text-stone-400">— ein Sprachmodell, das über mehrere Schritte hinweg Werkzeuge benutzt und Zustand behält.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Harness</span> <span class="text-stone-400">— alles an einem KI-Agenten, was nicht das Modell ist: Werkzeuge, Rechte, Zustand, Prüfungen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Loop</span> <span class="text-stone-400">— das System, das einen Agenten wiederholt anstößt, prüft und weiterlaufen lässt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Kontext</span> <span class="text-stone-400">— die Informationen, die ein Modell für einen einzelnen Aufruf sieht.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agentische KI</span> <span class="text-stone-400">— KI-Systeme, die eigenständig Handlungsschritte ausführen statt nur zu antworten.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Prüflast</span> <span class="text-stone-400">— der Aufwand, den Menschen aufbringen müssen, um Ergebnisse eines Systems zu kontrollieren.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== VERWEIS TEIL 1 ======== -->
+        <div class="my-8 py-5 px-6 rounded-lg" style="background: #f2f7f4;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #476f5b;">Teil 1</p>
+            <p class="text-[0.9rem] text-stone-700 leading-relaxed mb-0">Die Ebenen, auf die sich dieser Teil bezieht, stehen in <a href="/blog/harness-engineering-pm.html" style="color: #472E56; text-decoration: underline;">Kontext, Harness, Loop</a>: was die drei Begriffe trennt, wie sie aufeinander aufbauen und woran man erkennt, auf welcher Ebene ein Problem sitzt.</p>
+        </div>
+
+        <!-- ======== ZURÜCK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="/blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; Alle Artikel</a>
+        </div>
+
+    </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; AI</span>
+                <span class="text-[0.72rem] text-stone-400">September 2, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 8 min read</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; Part 2 of 2</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                The specification is the frame. What product teams have to write down before AI is allowed to work alone.
+            </h1>
+        </header>
+
+        <!-- ══ MANDATORY: TL;DR ══ -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Context, harness and loop say where a problem sits. What fills them is the specification. Spec-driven development turns it into the binding source rather than a draft, and the part that actually works is not the description but the acceptance condition. Anyone who cannot state one cannot delegate, to an agent or to a person. The limit of the approach sits where understanding only emerges while building.
+            </p>
+        </div>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+            <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
+
+            <p>Part one of this pair sorted three layers: context settles what a model sees for a single call, the harness settles the environment an agent acts in, the loop settles who triggers it.<sup>1</sup> That sorting helps with debugging, but it does not answer the more pressing practical question. Anyone asked to describe an AI supported feature is not sitting in front of a layer model. They are sitting in front of an empty document. The layers say where something belongs. They do not say what has to go in so an agent can work without constant questions.</p>
+
+
+            <!-- ══ BLOCK 2: FOUNDATION ══ -->
+
+            <h2>What spec-driven development reverses</h2>
+
+            <p>Since 2025 an approach has taken hold that inverts the usual order. A specification comes before the build, and that specification is not a draft of the truth but the truth itself. GitHub frames the shift as moving from "code is the source of truth" to "intent is the source of truth" and proposes four steps: specify, plan, break into tasks, implement.<sup>2</sup> Each step produces a document that feeds the next.</p>
+
+            <p>Birgitta Böckeler describes the artefact more precisely: a structured, behaviour oriented document in natural language that human and agent share as a reference point.<sup>3</sup> She also separates three levels of ambition that the debate tends to blur. At the first, the specification kicks off the work and the code is what you maintain afterwards. At the second, specification and code evolve side by side and are kept in sync. At the third, the specification is the only artefact anyone edits by hand. Most teams work in the first two, and the difference is not a detail. It settles which document wins when the two contradict each other.</p>
+
+            <h3>Why this is a product question</h3>
+
+            <p>Kief Morris describes three stances a team can take towards an agent.<sup>4</sup> <strong>Outside the loop</strong> means naming a goal and not checking the result. <strong>In the loop</strong> means signing off every output individually, which makes the human the bottleneck, because agents generate faster than humans read. <strong>On the loop</strong> means not signing off individual outputs but building the specifications and checks every output has to survive.</p>
+
+            <p>Only the third stance scales, and it moves the work to where product people already are. Standing on the loop means writing conditions rather than prompts. That is the same activity as writing a definition of done, except the recipient never asks a follow-up question when something stays unclear.</p>
+
+            <!-- ══ KEY INSIGHT QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Autonomy does not come from allowing an agent more. It comes from settling beforehand what its result is allowed to fail against.
+                </p>
+            </div>
+
+            <h3>The four fields that carry a specification</h3>
+
+            <p>From those sources and the layer logic of part one, a short set of fields follows. It is deliberately short, because completeness is not a quality marker here. A long specification raises the review load without improving the output.</p>
+
+            <!-- ══ TABLE: FOUR FIELDS ══ -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Answers</th>
+                        <th>Without it you get</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Intent</strong></td>
+                        <td>What should hold, and what the result argues against</td>
+                        <td>Something plausible that misses the actual claim</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Scope</strong></td>
+                        <td>What belongs in and what explicitly does not</td>
+                        <td>Topic drift, scope growing during the run</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inputs</strong></td>
+                        <td>Which sources, data and constraints may be used</td>
+                        <td>Gaps filled with the plausible instead of the evidenced</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Acceptance condition</strong></td>
+                        <td>What the result is checked against and may fail against</td>
+                        <td>Autonomy that is not bounded, merely unobserved</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>The fourth field carries the other three. Intent, scope and inputs act before the run and can be embellished endlessly without changing the output. The acceptance condition acts afterwards and is the only field that actually corrects the agent. A workflow with a rich description and no acceptance condition reliably produces good looking results nobody has checked.</p>
+
+            <p>The test for it is simple and uncomfortable: can you name, for every condition, the observation that would violate it? "Well written" fails that test. "Every source named exists in that combination of author, title and year" passes it.</p>
+
+
+            <!-- ══ BLOCK 3: A CRITICAL LOOK ══ -->
+
+            <h2>A critical look</h2>
+
+            <p>The heaviest objection comes from close by rather than from outside. Martin Fowler relays Kent Beck's criticism: assuming requirements can be settled fully before implementation ignores that building produces insights which would change the specification.<sup>5</sup> Declaring the specification the sole truth risks defining that learning away. The objection hits the third level of ambition harder than the first two.</p>
+
+            <p>Two practical observations from Böckeler point the same way.<sup>3</sup> The volume of specification documents can raise the review load instead of lowering it, because somebody ends up reading all of them. And agents ignore instructions even when those are written out in detail. A specification does not replace the check. It is what makes the check possible.</p>
+
+            <p>That leaves the question of dosage. A frame can stack checks until the autonomy it was built for is consumed again. Gartner predicts that more than 40 percent of agentic AI projects will be cancelled by the end of 2027, among other reasons because of escalating costs and unclear business value.<sup>6</sup> Part of that cost sits not in the model but in everything around it.</p>
+
+
+            <!-- ══ BLOCK 4: WHAT THIS CHANGES ══ -->
+
+            <h2>What this changes in product work</h2>
+
+            <p>The approach is not limited to software engineering. Carried into product work it reads: before a recurring task is handed to an AI, it gets specified once, with a condition the result is allowed to fail against.</p>
+
+            <p><strong>The effort lands once, the questions go away permanently.</strong> A specification written once and only sharpened afterwards replaces the follow-ups that otherwise recur on every single run. It breaks down where the specification exists only in someone's head, or in a document nobody finds.</p>
+
+            <p><strong>The condition belongs before the work, not after it.</strong> An acceptance condition written once the result is in is not a condition. It is a retrospective justification. That holds for teams as much as for agents, it just shows up faster with agents.</p>
+
+            <p><strong>Short beats complete.</strong> Four fields somebody actually fills in are worth more than a twenty field form nobody touches. Anyone adding a field should be able to name the one it makes redundant.</p>
+
+
+            <!-- ══ BLOCK 5: WHAT STAYS WITH YOU EVERY DAY ══ -->
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Acceptance condition first, description second</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">If you cannot say what a result is allowed to fail against, you have not stated a task. You have stated a wish.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Checkable means there is an observation that violates it</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">The test works for human sign-off too and exposes vague criteria in seconds.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">A specification is not a substitute for checking</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">It makes checking possible and cheap. Writing one and then not looking wastes the whole effort.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SOURCES ══ -->
+
+            <div class="mt-12 pt-6" id="sources" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="/blog/harness-engineering-pm.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). Context, harness, loop. Three layers product teams keep confusing. linja.me (part one of this pair).</a></li>
+                    <li><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Delimarsky, D. (2025). Spec-driven development with AI: Get started with a new open source toolkit. The GitHub Blog, September 2, 2025.</a></li>
+                    <li><a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Böckeler, B. (2025). Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl. martinfowler.com, October 15, 2025.</a></li>
+                    <li><a href="https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Morris, K. (2026). Humans and Agents in Software Engineering Loops. martinfowler.com, March 4, 2026.</a></li>
+                    <li><a href="https://martinfowler.com/fragments/2026-01-08.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Fowler, M. (2026). Fragments: January 8. martinfowler.com, January 8, 2026. (Relays Kent Beck's objection to fully upfront specifications.)</a></li>
+                    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gartner (2025). Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027. June 25, 2025.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSARY ══ -->
+
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Spec-driven development</span> <span class="text-stone-400">— working from a specification written before the build and treated as the binding source.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Specification</span> <span class="text-stone-400">— a structured natural language document stating what should hold, not how it gets built.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Acceptance condition</span> <span class="text-stone-400">— a checkable criterion stated up front that a result is allowed to fail against.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Definition of done</span> <span class="text-stone-400">— in agile work, the binding list of what makes a task finished.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agent</span> <span class="text-stone-400">— a language model that uses tools across several steps and keeps state.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Harness</span> <span class="text-stone-400">— everything about an AI agent that is not the model: tools, permissions, state, checks.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Loop</span> <span class="text-stone-400">— the system that triggers an agent repeatedly, verifies it and keeps it running.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context</span> <span class="text-stone-400">— the information a model sees for a single call.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agentic AI</span> <span class="text-stone-400">— AI systems that carry out steps on their own instead of only answering.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Review load</span> <span class="text-stone-400">— the effort humans have to spend checking what a system produced.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== PART 1 LINK ======== -->
+        <div class="my-8 py-5 px-6 rounded-lg" style="background: #f2f7f4;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #476f5b;">Part 1</p>
+            <p class="text-[0.9rem] text-stone-700 leading-relaxed mb-0">The layers this part builds on are in <a href="/blog/harness-engineering-pm.html" style="color: #472E56; text-decoration: underline;">Context, harness, loop</a>: what separates the three terms, how they stack, and how to tell which layer a problem sits on.</p>
+        </div>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="/blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; All articles</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+
+    <!-- ======== LANGUAGE TOGGLE (controlled by components.js nav) ======== -->
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+
+</html>

@@ -10,9 +10,9 @@
     <meta name="theme-color" content="#7B6BA5">
     <meta name="robots" content="noindex, nofollow">
     <title>Kontext, Harness, Loop – Linja Scharffetter</title>
-    <meta name="description" content="Context, Harness und Loop Engineering sind drei Ebenen, keine Synonyme. Was sie trennt, wie sie aufeinander aufbauen und warum jede davon Produktentscheidungen enthält.">
+    <meta name="description" content="Context, Harness und Loop Engineering sind drei Ebenen, keine Synonyme. Was sie trennt, wie sie aufeinander aufbauen und warum Spec-Driven Development der Rahmen ist, der autonomes Arbeiten erst trägt.">
     <meta property="og:title" content="Kontext, Harness, Loop. Drei Ebenen, die Produktteams gerade durcheinanderbringen.">
-    <meta property="og:description" content="Context, Harness und Loop Engineering sind drei Ebenen, keine Synonyme. Was sie trennt, wie sie aufeinander aufbauen und warum jede davon Produktentscheidungen enthält.">
+    <meta property="og:description" content="Context, Harness und Loop Engineering sind drei Ebenen, keine Synonyme. Was sie trennt, wie sie aufeinander aufbauen und warum Spec-Driven Development der Rahmen ist, der autonomes Arbeiten erst trägt.">
     <meta property="og:type" content="article">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
@@ -141,7 +141,8 @@
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
                 <span class="text-[0.72rem] text-stone-400">27. August 2026</span>
-                <span class="text-[0.72rem] text-stone-400">&middot; 8 Min Lesezeit</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 9 Min Lesezeit</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; Teil 1 von 2</span>
             </div>
             <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
                 Kontext, Harness, Loop. Drei Ebenen, die Produktteams gerade durcheinanderbringen.
@@ -160,7 +161,7 @@
         <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
             <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
-                Context, Harness und Loop Engineering sind keine Synonyme, sondern drei aufeinander aufbauende Ebenen: Kontext legt fest, was ein Modell für einen einzelnen Aufruf sieht, das Harness legt die Umgebung eines Agenten fest, der Loop legt fest, wer ihn anstößt. Jede Ebene erbt die Schwächen der darunterliegenden. Alle drei enthalten Entscheidungen, die auf den Produkttisch gehören und nicht in die Implementierung.
+                Context, Harness und Loop Engineering sind keine Synonyme, sondern drei aufeinander aufbauende Ebenen: Kontext legt fest, was ein Modell für einen einzelnen Aufruf sieht, das Harness legt die Umgebung eines Agenten fest, der Loop legt fest, wer ihn anstößt. Jede Ebene erbt die Schwächen der darunterliegenden. Alle drei enthalten Entscheidungen, die auf den Produkttisch gehören und nicht in die Implementierung. Gefüllt werden sie über eine Spezifikation, die vorher festlegt, woran ein Ergebnis gemessen wird.
             </p>
         </div>
 
@@ -211,15 +212,13 @@
                 </tbody>
             </table>
 
-            <h2>Woher der Begriff Harness kommt</h2>
+            <h2>Woher der Begriff kommt und was er verrät</h2>
 
-            <p>Mitchell Hashimoto beschrieb am 5. Februar 2026 sechs Stufen seiner eigenen KI-Nutzung.<sup>3</sup> Auf Stufe fünf steht die Gewohnheit, für die er den Namen prägte: „I've grown to calling this 'harness engineering'". Die Regel dahinter passt in eine Zeile. Sobald ein Agent einen Fehler macht, investiert man die Zeit, eine Lösung zu bauen, damit er genau diesen Fehler nie wieder macht.</p>
+            <p>Der Name entstand nicht am Reißbrett, sondern als Beschreibung einer Gewohnheit. Mitchell Hashimoto hielt Anfang 2026 eine Stufe seiner KI-Nutzung fest, auf der er einen Agentenfehler nicht mehr korrigiert, sondern eine Vorkehrung baut, damit genau dieser Fehler nicht wiederkommt.<sup>3</sup> Kurz darauf berichtete OpenAI von einem Projekt nach derselben Logik, in dem über Monate kein Code von Hand getippt wurde.<sup>4</sup></p>
 
-            <p>Wenige Wochen später beschrieb Ryan Lopopolo für OpenAI ein Projekt nach dieser Logik, nach eigener Darstellung fünf Monate, rund eine Million Zeilen Code und etwa 1.500 gemergte Pull Requests von drei Engineers, ohne von Hand getippten Code.<sup>4</sup> Die Menschen schrieben dort nicht den Code, sondern die Umgebung, in der Code entstehen konnte.</p>
+            <p>Aus dieser Herkunft lässt sich mehr ableiten als eine Arbeitstechnik. <strong>Ein Harness wächst aus Fehlern, nicht aus einem Konzept.</strong> Wer es vorab durchplant, baut Vorkehrungen gegen Probleme, die er noch nicht hat. <strong>Jede Vorkehrung ist eine Annahme darüber, was das Modell nicht allein kann</strong>, und diese Annahmen altern, weil mit jedem Modellwechsel ein Stück Gerüst überflüssig werden kann, das vorher getragen hat.<sup>5</sup> <strong>Und die wirksamen Vorkehrungen sind unspektakulär.</strong> Gegen die typischen Fehlmuster langlaufender Agenten, alles auf einmal zu versuchen, sich vorschnell für fertig zu erklären und Ungetestetes als erledigt zu markieren, hilft kein besseres Modell, sondern eine maschinenlesbare Anforderungsliste, eine Fortschrittsdatei und ein fester Startpunkt.<sup>6</sup></p>
 
-            <p>Anthropic hat im März 2026 einen Aspekt nachgeschoben, der in der Begeisterung leicht untergeht. Jede Komponente eines Harness kodiert eine Annahme darüber, was das Modell nicht allein kann, und diese Annahmen gehören regelmäßig auf den Prüfstand.<sup>5</sup> Mit jedem neuen Modell kann ein Stück Gerüst überflüssig werden, das vorher nötig war.</p>
-
-            <p>Wie so ein Gerüst konkret aussieht, zeigt ein früherer Beitrag von Justin Young.<sup>6</sup> Er beschreibt drei wiederkehrende Fehlermuster von Agenten, die über mehrere Sitzungen arbeiten: Sie versuchen alles auf einmal, sie erklären ein Projekt für fertig, weil sie irgendeinen Fortschritt sehen, und sie markieren Funktionen als erledigt, ohne sie wirklich getestet zu haben. Die Gegenmittel sind unspektakulär und genau deshalb lehrreich: eine Anforderungsliste als JSON, an der der Agent nur ein Statusfeld umstellen darf, eine Fortschrittsdatei, saubere Commits und ein Startskript. Selbst das Dateiformat ist bewusst gewählt, weil das Modell JSON seltener eigenmächtig überschreibt als Markdown.</p>
+            <p>Das ist der eigentliche Befund hinter dem Begriff. Ein Harness ist keine Modellarbeit, sondern Buchführung über den Zustand einer Aufgabe.</p>
 
             <h2>Warum das Produktentscheidungen sind</h2>
 
@@ -227,9 +226,15 @@
 
             <p>Auf der Kontextebene ist ein endliches Aufmerksamkeitsbudget zu verteilen. Jedes Token verbraucht Kapazität und die Genauigkeit sinkt messbar, je voller das Fenster wird.<sup>1</sup> Zu entscheiden, was hineindarf und was draußen bleibt, ist Priorisierung unter Knappheit, also der Kern von Produktarbeit.</p>
 
-            <p>Auf der Harness-Ebene entscheidet der Zuschnitt der Werkzeuge über den Funktionsumfang. Ken Aizawa argumentiert, dass gute Agentenwerkzeuge nicht die vorhandene Schnittstelle spiegeln, sondern entlang der Arbeitsabläufe geschnitten werden, die ein Agent wirklich braucht.<sup>7</sup> Benjamin Font Pera sortiert die Bausteine zusätzlich nach Wirkungsrichtung: Guides wirken vor der Generierung und geben Regeln, Spezifikationen und Vorlagen mit, Sensors wirken danach und prüfen das Ergebnis, damit der Agent sich selbst korrigieren kann.<sup>8</sup> Diese Trennung lässt sich direkt in eine Spezifikation übernehmen, weil sie zwei Fragen erzwingt, die sonst untergehen: was der Agent vorher weiß und woran sein Ergebnis hinterher scheitert.</p>
+            <p>Auf der Harness-Ebene entscheidet der Zuschnitt der Werkzeuge über den Funktionsumfang. Ken Aizawa argumentiert, dass gute Agentenwerkzeuge nicht die vorhandene Schnittstelle spiegeln, sondern entlang der Arbeitsabläufe geschnitten werden, die ein Agent wirklich braucht.<sup>7</sup> Wer die Werkzeuge zuschneidet, legt damit fest, welche Aufgaben überhaupt in Reichweite liegen. Das ist eine Scope-Entscheidung, auch wenn sie in einer technischen Definition steht.</p>
 
             <p>Auf der Loop-Ebene entscheidet die Abbruchbedingung. Ein Loop ohne erreichbares Ziel, ohne Budget und ohne Prüfung, die ihn beendet, ist kein autonomes System, sondern ein unbeaufsichtigter Kostenposten.</p>
+
+            <h2>Der Rahmen, der Autonomie erst trägt</h2>
+
+            <p>Die drei Ebenen sagen, wo ein Problem sitzt. Sie sagen noch nicht, womit man sie füllt. Genau diese Lücke bearbeitet ein Ansatz, der seit 2025 unter dem Namen <strong>Spec-Driven Development</strong> läuft. Er dreht die übliche Reihenfolge um: Vor der Umsetzung steht eine Spezifikation und diese ist nicht die Vorstufe der Wahrheit, sondern die Wahrheit selbst. GitHub beschreibt die Verschiebung als Wechsel von „Code ist die Quelle der Wahrheit" zu „Absicht ist die Quelle der Wahrheit".<sup>8</sup> Birgitta Böckeler fasst das Artefakt schärfer: ein strukturiertes, verhaltensorientiertes Dokument in natürlicher Sprache, das Mensch und Agent gemeinsam als Bezugspunkt nutzen.<sup>9</sup> Eine solche Spezifikation vergrößert den Raum, in dem ein Agent allein arbeiten darf, weil sie beschreibt was gelten soll statt wie es hergestellt wird. Kief Morris nennt die tragfähige Haltung dazu „an der Schleife": nicht jedes Ergebnis einzeln abnehmen, sondern die Prüfungen bauen, an denen sich jedes Ergebnis messen lassen muss.<sup>10</sup></p>
+
+            <p>Damit schließt sich der Kreis zur Harness-Ebene. Eine Spezifikation ist Rahmen und Prüfmaßstab in einem: Sie sagt vorher, was gelten soll und liefert hinterher das Kriterium, an dem ein Ergebnis scheitern darf. Autonomie entsteht deshalb nicht dadurch, dass man einem Agenten mehr erlaubt, sondern dadurch, dass vorher genauer feststeht, woran sein Ergebnis gemessen wird. Wer keine prüfbare Abnahmebedingung formulieren kann, kann nicht delegieren. Neu ist nur, wie schnell sich das rächt, wenn am anderen Ende niemand sitzt, der stutzt.</p>
 
             <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
@@ -238,41 +243,29 @@
                 </p>
             </div>
 
-            <!-- ══ KENNZAHL-HIGHLIGHTS ══ -->
-            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
-                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
-                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">5.194</p>
-                    <p class="text-[0.78rem] text-stone-500 leading-snug">Ausführungspfade in Harness-Bench. Befund: Leistung variiert erheblich je Modell-Harness-Paarung.</p>
-                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#quellen" style="color: inherit;">Yao et al. 2026</a></p>
-                </div>
-                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
-                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">1,1 : 3,1</p>
-                    <p class="text-[0.78rem] text-stone-500 leading-snug">Wartbarkeit von 5 Punkten: Code allein vom Agenten gegenüber Code mit menschlicher Kontrolle im Ablauf.</p>
-                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#quellen" style="color: inherit;">SIG 2026</a></p>
-                </div>
-            </div>
-
 
             <!-- ══ BLOCK 3: KRITISCHE EINORDNUNG ══ -->
 
             <h2>Kritische Einordnung</h2>
 
-            <p>Das Vokabular ist Monate alt und noch nicht gesetzt. codecentric beschreibt offen, dass im eigenen Haus tagelang darüber gestritten wurde, was Loop Engineering überhaupt meint.<sup>8</sup> Wer die Begriffe benutzt, beschreibt deshalb besser die Ebene, statt sich auf das Etikett zu verlassen.</p>
+            <p>Das Vokabular ist Monate alt und nicht gesetzt. Dieselben drei Wörter werden je nach Sprecher unterschiedlich weit gefasst. In Diskussionen darüber geht mehr Zeit verloren als in der Sache selbst. Wer die Begriffe benutzt, beschreibt deshalb besser die Ebene, statt sich auf das Etikett zu verlassen.</p>
 
-            <p>Bei den Zahlen lohnt Zurückhaltung. Der OpenAI-Bericht ist die Erfahrungsbeschreibung eines Anbieters über sein eigenes Werkzeug, kein kontrollierter Vergleich, und die Anthropic-Beiträge stammen von der Firma, deren Modelle darin laufen. Belastbar bleibt vor allem der Befund von Harness-Bench, weil dort verschiedene Modelle und Harness-Konfigurationen unter gleichen Bedingungen gegeneinander antreten.</p>
+            <p>Bei den Belegen lohnt Zurückhaltung. Der OpenAI-Bericht ist die Erfahrungsbeschreibung eines Anbieters über sein eigenes Werkzeug, kein kontrollierter Vergleich. Die Anthropic-Beiträge stammen von der Firma, deren Modelle darin laufen. Belastbarer ist der Befund von Harness-Bench, weil dort verschiedene Modelle und Harness-Konfigurationen unter gleichen Bedingungen gegeneinander antreten. Die Leistung variiert dort erheblich je nach Paarung von Modell und Harness, was die Grundthese stützt, aber eben nur sie.<sup>11</sup></p>
 
-            <p>Der ernstere Einwand kommt von Osmani selbst. Er nennt drei Risiken: fehlende Verifikation („A loop running unattended is also a loop making mistakes unattended"), schleichenden Verständnisverlust und die Bequemlichkeit, zu den Ergebnissen keine eigene Meinung mehr zu haben.<sup>2</sup> Dazu kommt die Gegenrichtung: Ein Harness kann Prüfungen so lange stapeln, bis von der Autonomie nichts übrig bleibt. Gartner sagt für Ende 2027 voraus, dass über 40 Prozent der agentischen KI-Projekte abgebrochen werden, unter anderem wegen steigender Kosten und unklaren Geschäftsnutzens.<sup>9</sup> Wo die Grenze zwischen genug und zu viel verläuft, muss sich erst zeigen.</p>
+            <p>Der ernstere Einwand kommt von Osmani selbst. Er nennt drei Risiken: fehlende Verifikation („A loop running unattended is also a loop making mistakes unattended"), schleichenden Verständnisverlust und die Bequemlichkeit, zu den Ergebnissen keine eigene Meinung mehr zu haben.<sup>2</sup> Dazu kommt die Gegenrichtung: Ein Harness kann Prüfungen so lange stapeln, bis von der Autonomie nichts übrig bleibt. Gartner sagt für Ende 2027 voraus, dass über 40 Prozent der agentischen KI-Projekte abgebrochen werden, unter anderem wegen steigender Kosten und unklaren Geschäftsnutzens.<sup>12</sup> Wo die Grenze zwischen genug und zu viel verläuft, muss sich erst zeigen.</p>
 
 
             <!-- ══ BLOCK 4: WAS ICH VERÄNDERT HABE UND WAS NOCH FEHLT ══ -->
 
-            <h2>Was ich verändert habe und was noch fehlt</h2>
+            <h2>Der Übertrag in den Produktalltag</h2>
 
-            <p>Mein persönliches Wissenssystem läuft seit Monaten auf den unteren beiden Ebenen, ohne dass ich Namen dafür hatte. Auf der Kontextebene eine Regeldatei im Wurzelverzeichnis und thematische Regelwerke, die nur bei Bedarf geladen werden. Auf der Harness-Ebene wiederverwendbare Kommandos als Werkzeuge und ein Pre-Commit-Hook als Sensor, der einen Commit blockiert, wenn versehentlich eine Datei mit Zugangsdaten darin liegt. Jedes dieser Teile ist als Reaktion auf einen konkreten Fehler entstanden, keines aus einem Konzept heraus. Es geht dabei um meine eigene Struktur wie Wochenplan, Artikelentwürfe und Lernziele, nicht um vertrauliche Firmendaten.</p>
+            <p>Die Sortierung ist kein Modell für die Wand. Sie wird in drei Situationen konkret, die in jedem Team vorkommen, in dem KI-gestützte Abläufe laufen.</p>
 
-            <p>Die Bruchstelle sitzt an einer unerwarteten Stelle. Die Hooks liegen außerhalb der Versionierung. Auf einem neuen Rechner ist der Schutz weg und das Wissen darüber steht nur in einer Anleitung, die jemand lesen muss. Ein Sensor, den man von Hand wieder anschließen muss, ist kein Sensor.</p>
+            <p><strong>Bei der Fehlersuche.</strong> Wenn ein Ablauf nicht liefert, ist die erste Frage nicht, wie man den Prompt umformuliert, sondern auf welcher Ebene das Problem sitzt. Ein Agent, der schon bei einer einzelnen Aufgabe daneben liegt, hat ein Kontextproblem. Keine Prüfschleife der Welt repariert das. Ein Agent, der liefert und dabei Standards verfehlt, ohne es zu merken, hat ein Harness-Problem. Ein Ablauf, den jemand jedes Mal von Hand starten muss, hat ein Loop-Problem. Drei verschiedene Ebenen, drei verschiedene Budgets, drei verschiedene Zuständigkeiten.</p>
 
-            <p>Drei Dinge nehme ich mir vor. Die Hooks so ablegen, dass sie mitwandern statt in einer Anleitung zu überleben. Bei jedem Problem mit einer KI zuerst die Ebene bestimmen, statt sofort am Prompt zu drehen. Und für jede KI-Funktion, die ich künftig spezifiziere, Guides und Sensors getrennt aufschreiben. Ob das die Spezifikationen wirklich besser macht oder nur länger, wird sich in den nächsten Monaten zeigen.</p>
+            <p><strong>Bei der Spezifikation.</strong> Wer eine KI-gestützte Funktion beschreibt, muss zwei Fragen beantworten, die in klassischen Anforderungen oft implizit bleiben: Was weiß das System vorher, und woran scheitert sein Ergebnis hinterher. Die erste Frage ist eine Kontextentscheidung, die zweite eine Abnahmebedingung. Solange beide fehlen, ist die Autonomie eines Agenten nicht begrenzt, sondern nur unbeobachtet.</p>
+
+            <p><strong>Bei der Wartung.</strong> Jede Vorkehrung, die als Reaktion auf einen Fehler entstand, hat ein Verfallsdatum, das niemand notiert. Dazu kommt eine Schwachstelle, die oft übersehen wird: Prüfungen, die nur auf einem Rechner oder in einer Anleitung existieren, wandern nicht mit. Eine Prüfung, die jemand von Hand wieder anschließen muss, ist keine Prüfung, sondern eine Absichtserklärung.</p>
 
 
             <!-- ══ BLOCK 5: WAS BLEIBT FÜR JEDEN TAG ══ -->
@@ -285,8 +278,8 @@
                         <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Unzuverlässig bei einer einzelnen Aufgabe heißt Kontext. Verfehlt die Standards heißt Harness. Braucht ständig einen Anstoß heißt Loop.</p>
                     </div>
                     <div class="pl-5">
-                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Guides und Sensors getrennt aufschreiben</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Was der Agent vorher weiß und woran sein Ergebnis geprüft wird, sind zwei Fragen und gehören beide in die Spezifikation.</p>
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Die Abnahmebedingung vor die Ausführung schreiben</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Autonomie entsteht nicht durch mehr Erlaubnis, sondern dadurch, dass vorher feststeht, woran das Ergebnis gemessen wird.</p>
                     </div>
                     <div class="pl-5">
                         <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Jede Harness-Komponente ist eine Annahme</p>
@@ -307,10 +300,11 @@
                     <li><a href="https://www.anthropic.com/engineering/harness-design-long-running-apps" class="hover:text-stone-600 transition-colors" style="color: inherit;">Rajasekaran, P. (2026). Harness design for long-running application development. Anthropic, 24. März 2026.</a></li>
                     <li><a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">Young, J. (2025). Effective harnesses for long-running agents. Anthropic, 26. November 2025.</a></li>
                     <li><a href="https://www.anthropic.com/engineering/writing-tools-for-agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">Aizawa, K. (2025). Writing effective tools for AI agents with AI agents. Anthropic, 11. September 2025.</a></li>
-                    <li><a href="https://www.codecentric.de/wissens-hub/blog/loop-harness-context-engineering-erklaert" class="hover:text-stone-600 transition-colors" style="color: inherit;">Font Pera, B. (2026). Loop Engineering, Harness Engineering, Context Engineering: was bedeutet was? codecentric, 5. Juli 2026.</a></li>
-                    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gartner (2025). Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027. 25. Juni 2025.</a></li>
+                    <li><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Delimarsky, D. (2025). Spec-driven development with AI: Get started with a new open source toolkit. The GitHub Blog, 2. September 2025.</a></li>
+                    <li><a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Böckeler, B. (2025). Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl. martinfowler.com, 15. Oktober 2025.</a></li>
+                    <li><a href="https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Morris, K. (2026). Humans and Agents in Software Engineering Loops. martinfowler.com, 4. März 2026.</a></li>
                     <li><a href="https://arxiv.org/abs/2605.27922" class="hover:text-stone-600 transition-colors" style="color: inherit;">Yao, Y. et al. (2026). Harness-Bench: Measuring Harness Effects across Models in Realistic Agent Workflows. arXiv:2605.27922.</a></li>
-                    <li><a href="https://www.softwareimprovementgroup.com/blog/what-is-harness-engineering/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Heijstek, W. (2026). What is harness engineering? Software Improvement Group, 24. April 2026.</a></li>
+                    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gartner (2025). Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027. 25. Juni 2025.</a></li>
                 </ol>
             </div>
 
@@ -322,8 +316,8 @@
                     <p class="mb-0"><span class="text-stone-700 font-medium">Context Engineering</span> <span class="text-stone-400">— das Kuratieren der Informationen, die ein Modell für einen einzelnen Aufruf sieht.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Harness</span> <span class="text-stone-400">— alles an einem KI-Agenten, was nicht das Modell ist: Werkzeuge, Rechte, Zustand, Prüfungen.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Loop Engineering</span> <span class="text-stone-400">— das System, das einen Agenten wiederholt anstößt, prüft und weiterlaufen lässt.</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Guides</span> <span class="text-stone-400">— Bausteine, die vor der Generierung wirken: Regeln, Spezifikationen, Vorlagen, Beispiele.</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Sensors</span> <span class="text-stone-400">— Bausteine, die nach der Generierung prüfen und Rückmeldung zur Selbstkorrektur geben.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Spec-Driven Development</span> <span class="text-stone-400">— Arbeitsweise, bei der eine Spezifikation vor der Umsetzung steht und als verbindliche Quelle gilt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Abnahmebedingung</span> <span class="text-stone-400">— vorab formuliertes, prüfbares Kriterium, an dem ein Ergebnis scheitern kann.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Agent</span> <span class="text-stone-400">— ein Sprachmodell, das über mehrere Schritte hinweg Werkzeuge benutzt und Zustand behält.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Systemprompt</span> <span class="text-stone-400">— die feste Anweisung, die vor jedem Gespräch gilt und Rolle sowie Regeln setzt.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Kontextfenster</span> <span class="text-stone-400">— die begrenzte Textmenge, die ein Modell pro Anfrage gleichzeitig verarbeiten kann.</span></p>
@@ -342,6 +336,12 @@
 
         </article>
 
+        <!-- ======== AUSBLICK TEIL 2 ======== -->
+        <div class="my-8 py-5 px-6 rounded-lg" style="background: #f2f7f4;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #476f5b;">Teil 2</p>
+            <p class="text-[0.9rem] text-stone-700 leading-relaxed mb-0">Der zweite Teil nimmt sich die Spezifikation vor, die diese Ebenen füllt: welche vier Felder sie tragen, warum die Abnahmebedingung die anderen drei trägt und woran der Ansatz in der Praxis scheitert.</p>
+        </div>
+
         <!-- ======== ZURÜCK ======== -->
         <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
             <a href="/blog.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; Alle Artikel</a>
@@ -359,7 +359,8 @@
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; AI</span>
                 <span class="text-[0.72rem] text-stone-400">August 27, 2026</span>
-                <span class="text-[0.72rem] text-stone-400">&middot; 8 min read</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 9 min read</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; Part 1 of 2</span>
             </div>
             <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
                 Context, harness, loop. Three layers product teams keep confusing.
@@ -370,7 +371,7 @@
         <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
             <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
-                Context, harness and loop engineering are not synonyms but three layers stacked on each other: context settles what a model sees for a single call, the harness settles the environment an agent acts in, the loop settles who triggers it. Every layer inherits the weaknesses of the one below. All three hold decisions that belong on the product table rather than in the implementation.
+                Context, harness and loop engineering are not synonyms but three layers stacked on each other: context settles what a model sees for a single call, the harness settles the environment an agent acts in, the loop settles who triggers it. Every layer inherits the weaknesses of the one below. All three hold decisions that belong on the product table rather than in the implementation. What fills them is a specification that settles up front what the result will be measured against.
             </p>
         </div>
 
@@ -378,7 +379,7 @@
         <article class="prose pb-12">
             <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
 
-            <p>Product teams argue about models even though the model is rarely the bottleneck. Since early 2026 one formula has taken hold: <strong>Agent = Model + Harness</strong>. Within months that turned into three terms used side by side although they name different layers. Teams that do not separate them treat a failed agent run as a prompt problem instead of a system fault, and end up buying help for the top layer while the problem sits at the bottom. Sorting the terms is therefore not pedantry. It is what makes the right lever findable.</p>
+            <p>Product teams argue about models even though the model is rarely the bottleneck. Since early 2026 one formula has taken hold: <strong>Agent = Model + Harness</strong>. Within months that turned into three terms used side by side although they name different layers. Teams that do not separate them treat a failed agent run as a prompt problem instead of a system fault, and buy help for the top layer while the problem sits at the bottom. Sorting them is what makes the right lever findable.</p>
 
 
             <!-- ══ BLOCK 2: FOUNDATION ══ -->
@@ -391,7 +392,7 @@
 
             <p><strong>Loop engineering</strong> sits one floor higher and covers the system that triggers an agent repeatedly, spawns helpers, verifies results and carries state forward without a human prompting turn by turn. Addy Osmani coined the term on June 7, 2026, prompted by Boris Cherny's line: "I don't prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops".<sup>2</sup></p>
 
-            <p>The order is not a matter of taste. Every layer inherits the weaknesses of the one below it, and a loop that keeps calling an incomplete harness does not shrink the mistake. It only repeats it faster.</p>
+            <p>The order is not a matter of taste. Every layer inherits the weaknesses of the one below, and a loop calling an incomplete harness does not shrink the mistake. It repeats it faster.</p>
 
             <!-- ══ TABLE: THREE LAYERS ══ -->
             <table>
@@ -421,25 +422,29 @@
                 </tbody>
             </table>
 
-            <h2>Where the term harness came from</h2>
+            <h2>Where the term came from and what it reveals</h2>
 
-            <p>Mitchell Hashimoto described six stages of his own AI adoption on February 5, 2026.<sup>3</sup> Stage five holds the habit he named: "I've grown to calling this 'harness engineering'". The rule behind it fits in one line. As soon as an agent makes a mistake, you spend the time to engineer a fix so it never makes that specific mistake again.</p>
+            <p>The name did not come from a whiteboard. It described a habit. In early 2026 Mitchell Hashimoto wrote down a stage of his own AI use where he no longer fixes an agent's mistake but builds a safeguard so that specific mistake does not return.<sup>3</sup> Shortly after, OpenAI reported a project on the same logic, where for months nobody typed code by hand.<sup>4</sup></p>
 
-            <p>Weeks later Ryan Lopopolo described a project at OpenAI built on that logic, by its own account five months, roughly a million lines of code and about 1,500 merged pull requests from three engineers, with no code typed by hand.<sup>4</sup> The people there did not write the code. They wrote the environment the code could come from.</p>
+            <p>That origin carries more than a working technique. <strong>A harness grows out of mistakes, not out of a concept.</strong> Planning one in advance means building safeguards against problems you do not have yet. <strong>Every safeguard is an assumption about what the model cannot do alone</strong>, and those assumptions age, because each new model can make a piece of scaffolding redundant.<sup>5</sup> <strong>And the safeguards that work are unspectacular.</strong> Against the typical failure patterns of long running agents, attempting everything at once, declaring themselves finished too early and marking untested work as done, a better model does not help. A machine readable requirements list, a progress file and a fixed starting point do.<sup>6</sup></p>
 
-            <p>In March 2026 Anthropic added a point that tends to get lost in the enthusiasm. Every component of a harness encodes an assumption about what the model cannot do on its own, and those assumptions deserve regular stress testing.<sup>5</sup> Each new model can render a piece of scaffolding unnecessary that used to be load bearing.</p>
-
-            <p>An earlier piece by Justin Young shows what such scaffolding looks like in practice.<sup>6</sup> He describes three recurring failure patterns of agents working across multiple sessions: they try to do everything at once, they declare a project finished because they see some progress, and they mark features as done without really testing them. The remedies are unspectacular and instructive for exactly that reason: a requirements list in JSON where the agent may only flip a status field, a progress file, clean commits and a start script. Even the file format is a deliberate choice, because the model overwrites JSON less readily than Markdown.</p>
+            <p>A harness, then, is not model work. It is bookkeeping about the state of a task.</p>
 
             <h2>Why these are product decisions</h2>
 
             <p>The components sound technical. The decisions inside them are not.</p>
 
-            <p>At the context layer a finite attention budget has to be allocated. Every token consumes capacity and accuracy measurably drops as the window fills.<sup>1</sup> Deciding what gets in and what stays out is prioritisation under scarcity, which is the core of product work.</p>
+            <p>At the context layer a finite attention budget has to be allocated. Every token consumes capacity and accuracy measurably drops as the window fills.<sup>1</sup> Deciding what gets in and what stays out is prioritisation under scarcity, the core of product work.</p>
 
-            <p>At the harness layer the shape of the tools decides the scope of the product. Ken Aizawa argues that good agent tools do not mirror an existing interface but are cut along the workflows an agent actually needs.<sup>7</sup> Benjamin Font Pera adds a second axis by sorting the parts by direction of effect: guides act before generation and supply rules, specs and templates, sensors act afterwards and check the result so the agent can correct itself.<sup>8</sup> That split transfers straight into a spec, because it forces two questions that otherwise go missing: what the agent knows beforehand, and what its result fails against afterwards.</p>
+            <p>At the harness layer the shape of the tools decides the scope of the product. Ken Aizawa argues that good agent tools do not mirror an existing interface but are cut along the workflows an agent actually needs.<sup>7</sup> Cutting the tools settles which tasks are in reach at all, which is a scope decision even when it lives inside a technical definition.</p>
 
             <p>At the loop layer the stop condition decides. A loop with no reachable target, no budget and no check that ends it is not an autonomous system. It is an unattended cost item.</p>
+
+            <h2>The frame that makes autonomy work</h2>
+
+            <p>The three layers say where a problem sits. They do not yet say what fills them. That gap is what an approach called <strong>spec-driven development</strong> has been working on since 2025. It reverses the usual order: a specification comes before the build, and it is not a draft of the truth but the truth itself. GitHub frames the shift as moving from "code is the source of truth" to "intent is the source of truth".<sup>8</sup> Birgitta Böckeler sharpens the artefact: a structured, behaviour oriented document in natural language that human and agent share as a reference point.<sup>9</sup> Such a specification widens the space an agent can work in alone, because it describes what should hold rather than how it gets built. Kief Morris calls the workable stance "on the loop": not signing off each output individually, but building the checks every output has to survive.<sup>10</sup></p>
+
+            <p>Which closes the circle back to the harness layer. A specification is frame and yardstick at once: it states beforehand what should hold and supplies afterwards the criterion a result may fail against. Autonomy therefore does not come from permitting an agent more. It comes from settling up front what its result is measured against. Anyone who cannot state a checkable acceptance condition cannot delegate. What is new is how fast that costs you when nobody at the other end pauses to ask.</p>
 
             <!-- ══ KEY INSIGHT QUOTE ══ -->
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
@@ -448,41 +453,29 @@
                 </p>
             </div>
 
-            <!-- ══ KEY NUMBERS ══ -->
-            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
-                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
-                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">5,194</p>
-                    <p class="text-[0.78rem] text-stone-500 leading-snug">Execution trajectories in Harness-Bench. Finding: performance varies substantially by model-harness pairing.</p>
-                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#sources" style="color: inherit;">Yao et al. 2026</a></p>
-                </div>
-                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
-                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">1.1 : 3.1</p>
-                    <p class="text-[0.78rem] text-stone-500 leading-snug">Maintainability out of 5: agent-only code against code with a human in the loop.</p>
-                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase"><a href="#sources" style="color: inherit;">SIG 2026</a></p>
-                </div>
-            </div>
-
 
             <!-- ══ BLOCK 3: A CRITICAL LOOK ══ -->
 
             <h2>A critical look</h2>
 
-            <p>The vocabulary is months old and not settled. codecentric describes openly that its own consultants argued for days about what loop engineering even means.<sup>8</sup> Anyone using these terms is better off describing the layer than relying on the label.</p>
+            <p>The vocabulary is months old and not settled. The same three words are drawn wider or narrower depending on who is speaking, and arguing about the labels burns more time than the substance does. Anyone using these terms is better off describing the layer.</p>
 
-            <p>The numbers deserve restraint. The OpenAI piece is a vendor describing its own tool rather than a controlled comparison, and the Anthropic posts come from the company whose models run inside them. What holds up best is the Harness-Bench finding, because there different models and harness configurations compete under identical conditions.</p>
+            <p>The evidence deserves restraint. The OpenAI piece is a vendor describing its own tool, not a controlled comparison, and the Anthropic posts come from the company whose models run inside them. The Harness-Bench finding holds up better, because different models and harness configurations compete under identical conditions there. Performance varies substantially by pairing, which supports the core claim and nothing beyond it.<sup>11</sup></p>
 
-            <p>The more serious objection comes from Osmani himself. He names three risks: missing verification ("A loop running unattended is also a loop making mistakes unattended"), a slow erosion of understanding, and the comfort of no longer holding an opinion about the output.<sup>2</sup> The opposite failure exists as well. A harness can stack checks until nothing autonomous is left. Gartner predicts that more than 40 percent of agentic AI projects will be cancelled by the end of 2027, among other reasons because of escalating costs and unclear business value.<sup>9</sup> Where the line between enough and too much sits still has to become clear.</p>
+            <p>The more serious objection comes from Osmani himself. He names three risks: missing verification ("A loop running unattended is also a loop making mistakes unattended"), a slow erosion of understanding, and the comfort of no longer holding an opinion about the output.<sup>2</sup> The opposite failure exists too. A harness can stack checks until nothing autonomous is left. Gartner predicts more than 40 percent of agentic AI projects will be cancelled by the end of 2027, among other reasons because of escalating costs and unclear business value.<sup>12</sup> Where the line between enough and too much sits is still open.</p>
 
 
             <!-- ══ BLOCK 4: WHAT I CHANGED AND WHAT IS STILL MISSING ══ -->
 
-            <h2>What I changed and what is still missing</h2>
+            <h2>What this changes in product work</h2>
 
-            <p>My personal knowledge system has run on the lower two layers for months without my having names for them. At the context layer, a guide file at the root and topic specific rule sets loaded only when needed. At the harness layer, reusable commands as tools and a pre-commit hook as a sensor that blocks a commit when a file with credentials slipped in. Every one of those pieces came from a concrete mistake, none from a concept. It covers my own structure such as weekly plans, article drafts and learning goals, never confidential company data.</p>
+            <p>The sorting is not a diagram for the wall. It gets concrete in three situations that occur in every team running AI supported workflows.</p>
 
-            <p>The weak point sits somewhere I did not expect. The hooks live outside version control. On a new machine the protection is gone, and the knowledge about it survives only in a document someone has to read. A sensor you have to reconnect by hand is not a sensor.</p>
+            <p><strong>In debugging.</strong> When a workflow fails, the first question is not how to rephrase the prompt but which layer the problem sits on. An agent failing a single task has a context problem, and no amount of checking repairs that. An agent that delivers while silently missing standards has a harness problem. A workflow someone starts by hand every time has a loop problem.</p>
 
-            <p>So I am taking on three things. Storing the hooks so they travel with the repository instead of surviving in a manual. Identifying the layer first whenever an AI misbehaves, instead of reaching for the prompt. And writing guides and sensors down separately for every AI feature I specify from now on. Whether that makes specs better or merely longer will show over the coming months.</p>
+            <p><strong>In specification.</strong> Describing an AI supported feature means answering two questions classic requirements often leave implicit: what the system knows beforehand, and what its result fails against afterwards. The first is a context decision, the second an acceptance condition. While both are missing, an agent's autonomy is not bounded. It is merely unobserved.</p>
+
+            <p><strong>In maintenance.</strong> Every safeguard built in response to a mistake carries an expiry date nobody writes down. And a weak point teams often miss: checks living only on one machine or in a manual do not travel. A check someone reconnects by hand is not a check. It is a statement of intent.</p>
 
 
             <!-- ══ BLOCK 5: WHAT STAYS WITH YOU EVERY DAY ══ -->
@@ -495,8 +488,8 @@
                         <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Unreliable on a single task means context. Misses your standards means harness. Needs constant triggering means loop.</p>
                     </div>
                     <div class="pl-5">
-                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Write guides and sensors down separately</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">What the agent knows beforehand and what its result is checked against are two questions and both belong in the spec.</p>
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Write the acceptance condition before the run</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Autonomy does not come from granting more permission. It comes from settling up front what the result is measured against.</p>
                     </div>
                     <div class="pl-5">
                         <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Every harness component is an assumption</p>
@@ -517,10 +510,11 @@
                     <li><a href="https://www.anthropic.com/engineering/harness-design-long-running-apps" class="hover:text-stone-600 transition-colors" style="color: inherit;">Rajasekaran, P. (2026). Harness design for long-running application development. Anthropic, March 24, 2026.</a></li>
                     <li><a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">Young, J. (2025). Effective harnesses for long-running agents. Anthropic, November 26, 2025.</a></li>
                     <li><a href="https://www.anthropic.com/engineering/writing-tools-for-agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">Aizawa, K. (2025). Writing effective tools for AI agents with AI agents. Anthropic, September 11, 2025.</a></li>
-                    <li><a href="https://www.codecentric.de/wissens-hub/blog/loop-harness-context-engineering-erklaert" class="hover:text-stone-600 transition-colors" style="color: inherit;">Font Pera, B. (2026). Loop Engineering, Harness Engineering, Context Engineering: was bedeutet was? codecentric, July 5, 2026.</a></li>
-                    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gartner (2025). Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027. June 25, 2025.</a></li>
+                    <li><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Delimarsky, D. (2025). Spec-driven development with AI: Get started with a new open source toolkit. The GitHub Blog, September 2, 2025.</a></li>
+                    <li><a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Böckeler, B. (2025). Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl. martinfowler.com, October 15, 2025.</a></li>
+                    <li><a href="https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Morris, K. (2026). Humans and Agents in Software Engineering Loops. martinfowler.com, March 4, 2026.</a></li>
                     <li><a href="https://arxiv.org/abs/2605.27922" class="hover:text-stone-600 transition-colors" style="color: inherit;">Yao, Y. et al. (2026). Harness-Bench: Measuring Harness Effects across Models in Realistic Agent Workflows. arXiv:2605.27922.</a></li>
-                    <li><a href="https://www.softwareimprovementgroup.com/blog/what-is-harness-engineering/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Heijstek, W. (2026). What is harness engineering? Software Improvement Group, April 24, 2026.</a></li>
+                    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gartner (2025). Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027. June 25, 2025.</a></li>
                 </ol>
             </div>
 
@@ -532,8 +526,8 @@
                     <p class="mb-0"><span class="text-stone-700 font-medium">Context engineering</span> <span class="text-stone-400">— curating the information a model sees for a single call.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Harness</span> <span class="text-stone-400">— everything about an AI agent that is not the model: tools, permissions, state, checks.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Loop engineering</span> <span class="text-stone-400">— the system that triggers an agent repeatedly, verifies it and keeps it running.</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Guides</span> <span class="text-stone-400">— parts that act before generation: rules, specs, templates, examples.</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Sensors</span> <span class="text-stone-400">— parts that check after generation and feed back so the agent can self-correct.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Spec-driven development</span> <span class="text-stone-400">— working from a specification written before the build and treated as the binding source.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Acceptance condition</span> <span class="text-stone-400">— a checkable criterion stated up front that a result is allowed to fail against.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Agent</span> <span class="text-stone-400">— a language model that uses tools across several steps and keeps state.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">System prompt</span> <span class="text-stone-400">— the standing instruction before every conversation that sets role and rules.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Context window</span> <span class="text-stone-400">— the limited amount of text a model can process at once per request.</span></p>
@@ -551,6 +545,12 @@
             </div>
 
         </article>
+
+        <!-- ======== PART 2 TEASER ======== -->
+        <div class="my-8 py-5 px-6 rounded-lg" style="background: #f2f7f4;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #476f5b;">Part 2</p>
+            <p class="text-[0.9rem] text-stone-700 leading-relaxed mb-0">Part two takes on the specification that fills these layers: the four fields that carry it, why the acceptance condition carries the other three, and where the approach fails in practice.</p>
+        </div>
 
         <!-- ======== BACK ======== -->
         <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
