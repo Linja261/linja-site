@@ -1,9 +1,12 @@
 <!--
-  linja.me/blog/drafts/backlog-war-gestern – Kollaboration mit David Latz & Jan M.
-  Struktur: Davids 6-Block-Skelett
-  Perspektiven: David (Design Lead), Jan M. (Head of Product matgrid), Linja (PM Team Lead)
-  Entwurf: 2026-04-21
-  Status: Erster kombinierter Entwurf — offene Stellen sichtbar markiert
+  linja.me/blog/drafts/backlog-war-gestern
+  Solo-Neufassung vom 02.09.2026. Ersetzt den Kollaborations-Entwurf vom 21.04.2026
+  (drei Stimmen, 17 offene Stellen, vier Monate unverändert).
+  Alte Fassung wiederherstellbar: git show d97f745:blog/drafts/backlog-war-gestern.html
+  Schema: artikel_baukasten.md (TL;DR + 5 Blöcke + Quellen + Glossar, Blockreihenfolge ab 26.08.)
+  Bilingual: DE + EN
+  Quellen: alle drei am 02.09.2026 per WebFetch geprüft (Autor, Titel, Jahr, Link, Kernaussage).
+  Offen: Reader-Audio (MP3 unter blog/audio/backlog-war-gestern.mp3), Slot daher auskommentiert.
 -->
 <!DOCTYPE html>
 <html lang="de">
@@ -15,15 +18,15 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
     <meta name="theme-color" content="#7B6BA5">
-    <title>Backlog war gestern. Kollaboration mit David Latz. – Linja Scharffetter</title>
+    <title>Backlog war gestern. Was vier Monate später davon übrig ist. – Linja Scharffetter</title>
     <meta name="robots" content="noindex, nofollow">
-    <meta name="description" content="Wenn Design ausführbar wird und Engineering-Handoffs verschwinden, verschiebt sich die Last aufs Product Management. Kombinierter Entwurf mit David Latz und Jan M.">
-    <meta property="og:title" content="Backlog war gestern.">
-    <meta property="og:description" content="PMs, die Backlog verwalten, werden austauschbar. PMs, die Entscheidungsräume strukturieren, werden knapp und teuer.">
+    <meta name="description" content="Im April war die These, dass PMs, die Backlog verwalten, austauschbar werden. Vier Monate später ist klar: Was an die Stelle des Backlogs tritt, ist Zuschnitt und Nachprüfung, nicht Entscheidungsarchitektur.">
+    <meta property="og:title" content="Backlog war gestern. Was vier Monate später davon übrig ist.">
+    <meta property="og:description" content="Der Backlog ist nicht verschwunden. Er ist von der Liste in den Auftrag gewandert und dort fällt er weniger auf.">
     <meta property="og:type" content="article">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Geist+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -31,8 +34,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        serif: ['Source Serif 4', 'Georgia', 'serif'],
+                        sans: ['Fraunces', 'Georgia', 'serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
                         mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
                     },
                     colors: {
@@ -54,15 +57,19 @@
         }
     </script>
     <style>
-        .source-serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 500; }
+        .source-serif {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 500;
+        }
 
         html { scroll-behavior: smooth; }
-
+        .lang-hidden { display: none !important; }
         #mobile-menu { display: none; }
         #mobile-menu.open { display: block; }
 
+        /* Article prose styles. Spacing-Werte: siehe brand-kit.md → Spacing-Tokens (Blog). */
         .prose h2 {
-            font-family: "Source Serif 4", Georgia, serif;
+            font-family: "Fraunces", Georgia, serif;
             font-weight: 600;
             font-size: 1.4rem;
             color: #1A1A1A;
@@ -70,7 +77,7 @@
             margin-bottom: 1rem;
         }
         .prose h3 {
-            font-family: "Source Serif 4", Georgia, serif;
+            font-family: "Fraunces", Georgia, serif;
             font-weight: 600;
             font-size: 1.15rem;
             color: #1A1A1A;
@@ -80,303 +87,390 @@
         .prose p { margin-bottom: 2rem; line-height: 1.75; }
         .prose strong { color: #1A1A1A; font-weight: 600; }
         .prose em { font-style: italic; }
-        .prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.85rem; }
-        .prose th { text-align: left; font-weight: 600; color: #1A1A1A; border-bottom: 2px solid #E5E2DB; padding: 0.5rem 0.75rem; }
-        .prose td { border-bottom: 1px solid #E5E2DB; padding: 0.5rem 0.75rem; vertical-align: top; }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
         .prose ol { list-style: decimal; padding-left: 1.5rem; margin: 1rem 0; }
         .prose ul { list-style: disc; padding-left: 1.5rem; margin: 1rem 0; }
         .prose li { margin-bottom: 0.5rem; }
-
-        /* Autor-Tags */
-        .author-tag {
-            display: inline-block;
-            font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 0.62rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.15rem 0.5rem;
-            border-radius: 3px;
-            margin-right: 0.5rem;
-            vertical-align: 2px;
-        }
-        .author-linja { background: #f6f4f9; color: #6b5691; }
-        .author-david { background: #f2f7f4; color: #476f5b; }
-        .author-jan { background: #fdf5f0; color: #a86340; }
-
-        /* Offene Stellen — sichtbarer Marker */
-        .open-stub {
-            margin: 1.5rem 0;
-            padding: 1rem 1.25rem;
-            background: #fdf5f0;
-            border: 1px dashed #ecb08e;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: #73402e;
-        }
-        .open-stub .stub-label {
-            display: inline-block;
-            font-family: 'Geist Mono', ui-monospace, monospace;
-            font-size: 0.6rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.15rem 0.5rem;
-            border-radius: 3px;
-            background: #D4714E;
-            color: white;
-            margin-right: 0.5rem;
-        }
     </style>
 </head>
 
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
     <div id="site-nav"></div>
-    <script src="../../components.js" data-active="blog"></script>
+    <script src="/components.js" data-active="blog" data-bilingual="true"></script>
 
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
     <div class="max-w-[680px] mx-auto px-5 sm:px-8">
 
         <!-- Draft-Banner -->
         <div class="mt-24 mb-4 py-3 px-4 rounded-lg flex items-center gap-3" style="background: #fae8de; border-left: 3px solid #D4714E;">
-            <span class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #73402e;">Entwurf · Kollaboration</span>
-            <span class="text-[0.82rem]" style="color: #73402e;">Erster kombinierter Entwurf — offene Stellen markiert.</span>
+            <span class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #73402e;">Entwurf</span>
+            <span class="text-[0.82rem]" style="color: #73402e;">Solo-Fassung. Quellen geprüft, Reader-Audio fehlt noch.</span>
         </div>
 
         <!-- ======== ARTIKEL-HEADER ======== -->
         <header class="pt-4 pb-8">
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; Teamdynamik</span>
-                <span class="text-[0.72rem] text-stone-400">21. April 2026</span>
-                <span class="text-[0.72rem] text-stone-400">&middot; 10 Min Lesezeit</span>
+                <span class="text-[0.72rem] text-stone-400">2. September 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
             </div>
-            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-3">
-                Backlog war gestern.
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Backlog war gestern. Was vier Monate später davon übrig ist.
             </h1>
-            <p class="text-[0.92rem] text-stone-500 mb-0">Kollaboration mit <strong class="text-stone-700">David Latz</strong> (Design Lead) und <strong class="text-stone-700">Jan M.</strong> (Head of Product matgrid).</p>
         </header>
+
+        <!-- ══ OPTIONAL: 90-SEK-AUDIO-PILL (aktivieren, sobald MP3 existiert) ══ -->
+        <!--
+        <div class="reader-audio-slot my-4" data-audio-src="/blog/audio/backlog-war-gestern.mp3"></div>
+        -->
+
+        <!-- ══ PFLICHT-BLOCK: TL;DR ══ -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Im April hielt ich fest, dass Produktmanagerinnen, die Backlog verwalten, austauschbar werden. Der Satz stimmt noch, aber er beschreibt die uninteressantere Hälfte. Was an die Stelle des Backlogs tritt, ist keine Entscheidungsarchitektur im Organigramm. Es sind zwei kleine, unglamouröse Tätigkeiten: einen Auftrag so zuschneiden, dass genau eine Entscheidung offen bleibt, und ein Ergebnis nachprüfen, das selbstbewusst falsch sein kann.
+            </p>
+        </div>
 
         <!-- ======== ARTIKEL-CONTENT ======== -->
         <article class="prose pb-12">
 
-            <!-- TLDR -->
-            <div class="my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
-                <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
-                <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
-                    Wenn Design ausführbar wird und Engineering-Handoffs verschwinden, verschiebt sich die Last nicht auf Designer oder Engineers — sondern auf Product Management. PMs, die Backlog verwalten, werden austauschbar. PMs, die Entscheidungsräume strukturieren, werden knapp und teuer.
-                </p>
+            <!-- BLOCK 1: KERNBOTSCHAFT + PROBLEM -->
+            <p>Am 21. April 2026 habe ich einen Artikel begonnen, der drei Perspektiven auf dieselbe Verschiebung zusammenbringen sollte. Er hatte eine klare These: Wenn Entwürfe ausführbar werden und Übergaben zwischen Rollen verschwinden, verlagert sich die Last auf das Product Management.</p>
+
+            <p>Der Entwurf steht bis heute genau so da, wie ich ihn verlassen habe, mit siebzehn markierten Leerstellen. In den vier Monaten dazwischen habe ich zwei andere Artikel zum selben Thema veröffentlicht und dabei gemerkt, dass die ursprüngliche These zu groß gefasst war. Nicht falsch, aber an der interessanten Stelle unscharf.</p>
+
+            <!-- BLOCK 2: FUNDIERUNG -->
+            <h2>Der Backlog verschwindet nicht, er wechselt den Ort</h2>
+
+            <p>Die Ablehnung des Backlogs ist keine Erkenntnis aus der Arbeit mit KI. Ryan Singer hat sie 2019 in <em>Shape Up</em> formuliert, in einem Kapitel, das schlicht „Bets, Not Backlogs" heißt.<sup>1</sup> Sein Argument ist ökonomisch: Eine Liste, die schneller wächst als die Kapazität, erzeugt Pflegeaufwand und ein dauerhaftes Gefühl des Rückstands, ohne dass dadurch eine einzige Entscheidung besser wird.</p>
+
+            <p>Was KI daran ändert, ist nicht die Diagnose, sondern der Schwellenwert. In der Solo-Arbeit mit einem Assistenten habe ich das Ticket-Tool im Juni abgeschafft, weil der aktuelle Stand ohnehin in lebenden Dateien lag und der Verlauf in Git. Sobald ein zweiter Mensch denselben Stand sehen muss, ohne dass ich ihn erzähle, kommt ein geteiltes Artefakt zurück.</p>
+
+            <p>An seine Stelle traten drei Dateien, die immer den aktuellen Stand zeigen statt einer Historie aus Tickets: eine Produktdokumentation, eine geordnete Liste offener Arbeit und ein Entscheidungsprotokoll. Den Verlauf übernimmt Git, weil jede Änderung ohnehin ein datierter Commit ist. Die Pflege verschwindet dabei nicht, sie wandert vom Ticketstatus zur Lesbarkeit der Dateien.</p>
+
+            <p>Die Frage ist damit nicht KI gegen Werkzeug, sondern wie viele Köpfe asynchron dieselbe Lage lesen müssen. Der Backlog verschwindet als Speicher und bleibt als Kommunikationsmittel.</p>
+
+            <h2>Der Engpass ist kleiner und langweiliger als gedacht</h2>
+
+            <p>Im April habe ich das, was an die Stelle des Backlogs tritt, Entscheidungsarchitektur genannt. Das Wort ist zu groß für das, was tatsächlich passiert ist.</p>
+
+            <p>Am 17. August habe ich die Arbeit an einem eigenen Produktprojekt in neunzehn Pakete zerlegt und als Tickets angelegt. Sieben davon habe ich am selben Tag wieder geschlossen. Vier waren Verfeinerungen ohne echten Auftrag, eines war dauerhaft blockiert und zwei waren bereits erledigt, weil eine Recherche vier Tage vorher die Frage schon beantwortet hatte.</p>
+
+            <p>Das ist kein Architekturproblem, sondern ein Zuschnittproblem. Ein Paket ist dann richtig geschnitten, wenn genau eine Entscheidung offen ist und diese Entscheidung vor der Arbeit fällt statt mitten darin. Bei einer menschlichen Kollegin ist die Rückfrage ein normaler Teil der Zusammenarbeit. Bei einem Agenten ist sie ein Abbruch: Er wartet nicht sinnvoll, er rät oder liefert ein halbes Ergebnis mit vollem Selbstbewusstsein.</p>
+
+            <!-- ══ KENNZAHL-HIGHLIGHTS ══ -->
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">7 / 19</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Arbeitspakete am Tag ihrer Anlage wieder geschlossen</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Eigenes Projekt, 17.08.2026</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">7 / 10</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Negativaussagen fielen bei der Nachprüfung</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Eigene Recherche, 18.08.2026</p>
+                </div>
             </div>
 
-            <!-- BLOCK 1: DREI SZENEN -->
-            <h2>Drei Szenen</h2>
+            <h2>Die schwächste Stelle ist die Aussage über das, was fehlt</h2>
 
-            <h3>Szene A: Der Prototyp, der niemand gehört</h3>
-            <p><span class="author-tag author-linja">Linja</span>Letzte Woche in der Sprint-Planung. Normalerweise hätte ich zwanzig Minuten erklärt, warum wir ein Feature anders priorisieren sollten. Stattdessen habe ich einen Prototyp aufgemacht — in dreißig Minuten mit Claude Code gebaut, nicht schön, aber funktional — und gesagt: Schaut euch das an, dann reden wir. Die Diskussion war in zehn Minuten durch. Nicht weil der Prototyp perfekt war, sondern weil alle dasselbe gesehen haben.</p>
+            <p>Einen Tag später habe ich eine Rechercheaufgabe nachgeprüft, die an zehn Stellen protokolliert hatte, es gebe keine belastbare Quelle. Sieben dieser zehn Negativaussagen fielen bei der Nachprüfung. Die positiven Funde waren dagegen sauber.</p>
 
-            <p>Was danach passiert ist, zeigt die Verschiebung: Engineering fragte — halb ernst, halb verunsichert — "Und das ist jetzt das Design?" Niemand trug die Entscheidung formal. Der Prototyp war da, aber die Zuständigkeit war es nicht.</p>
+            <p>Diese Asymmetrie hat inzwischen eine Erklärung, die über meinen Einzelfall hinausreicht. Kalai, Nachum, Vempala und Zhang führen Halluzinationen darauf zurück, dass Training und Bewertung das Raten belohnen und das Eingeständnis von Unsicherheit bestrafen.<sup>2</sup> Ein Modell, das auf gute Testergebnisse optimiert ist, rät bei Unsicherheit, weil Raten im Schnitt besser abschneidet als Schweigen. Genau dieser Mechanismus trifft die Negativaussage am härtesten, denn dort ist die Behauptung ihre eigene Belegführung.</p>
 
-            <div class="open-stub">
-                <span class="stub-label">Offen · David</span>
-                <strong>Szene A ausbauen</strong> — Davids Perspektive auf diesen Moment: Was passiert, wenn PM mit generativem Design drei Varianten in die Sprint-Planung bringt? Wer trägt die Entscheidung, wenn der Prototyp vom PM kommt statt vom Designer? → David formuliert hier die Design-Lead-Sicht auf den Autoritätsverlust/-gewinn.
-            </div>
+            <p>Für die tägliche Arbeit folgt daraus eine unbequeme Arbeitsteilung. Herstellen kann ich abgeben: bauen, aufbereiten, recherchieren. Bewerten kann ich nicht abgeben und am wenigsten die Bewertung einer Abwesenheit.</p>
 
-            <h3>Szene B: Die Designerin als Richterin</h3>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · David</span>
-                David formuliert: Eine Designerin evaluiert Generator-Ausgabe kriterienbasiert. Sie sortiert nicht mehr Pixel, sie sortiert Urteilskriterien. PM muss vor dem Sprint entscheiden, welcher Entwurf weitergeht — aber auf Basis welcher Logik?
-            </div>
-
-            <p><span class="author-tag author-linja">Linja ergänzt</span>Klarheit wird für mich teurer, wenn ich alle Varianten selbst bewerten muss. Sie wird günstiger, wenn Designer vorsortieren — mit ihrem Regelwerk und ihrer Expertise priorisieren und ich einen Extrakt bekomme. Das ist der Unterschied: Ich brauche nicht drei Optionen auf dem Tisch. Ich brauche eine Einschätzung, warum Option B die richtige ist, und dann diskutieren wir darüber.</p>
-
-            <h3>Szene C: Die Reorganisations-Frage</h3>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · David</span>
-                David formuliert: Eine Organisation reorganisiert sich. Die Kernfrage ist nicht "brauchen wir noch Designer?" sondern "welche Urteilsarbeit machen wir wo?" — wer evaluiert, wer entscheidet, wer trägt das Risiko einer falschen Bewertung?
-            </div>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · Jan M.</span>
-                <strong>Perspektive des Head of Product</strong> — Wie sieht er die Reorganisations-Frage aus matgrid-Sicht? Welche Urteilsarbeit verlagert sich in der Praxis?
-            </div>
-
-            <!-- BLOCK 2: DREI VERSCHIEBUNGEN -->
-            <h2>Drei Verschiebungen</h2>
-
-            <p class="text-[0.88rem] text-stone-500"><em>David liefert das analytische Rahmenwerk. Linja ergänzt aus der operativen Praxis, in ihrer Sprache.</em></p>
-
-            <h3>(1) Von Backlog-Verwaltung zu Entscheidungsarchitektur</h3>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · David</span>
-                These: Das Backlog als zentrales Artefakt verliert an Bedeutung. Was an seine Stelle tritt, ist eine Architektur von Entscheidungsräumen — wer darf was wann bewerten, auf welcher Grundlage?
-            </div>
-
-            <p><span class="author-tag author-linja">Linja</span>Ich war schon vor KI eine operative Schnittstelle. Ich übersetze Strategien in operative Tätigkeiten — mein ehemaliger Chef denkt in Flughöhe, die Entwickler und UXler wollen schaffen, und ich bin dazwischen. Das hat sich nicht geändert. Was sich geändert hat: Ich muss nicht mehr erklären, warum etwas sinnvoll ist. Ich kann beim Ergebnis anfangen. Ein Prototyp, und sei er noch so roh, verändert die Gesprächsdynamik. PM rückt näher an den Code — nicht weil ich programmiere, sondern weil ich direkt am Prototyp diskutieren kann, statt strategisch zu erklären.</p>
-
-            <p>Das ist weniger "Entscheidungsarchitektur" als vielmehr: Wer zeigen kann, muss weniger verhandeln. Die Machtverschiebung passiert nicht in Organigrammen, sondern in Meetings.</p>
-
-            <h3>(2) Von User-Story zu Kontext-Bündel</h3>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · David</span>
-                These: User Stories als Format reichen nicht mehr. Was Generatoren brauchen, sind reich kontextualisierte Bündel aus Nutzerverhalten, Constraints, Brand-Regeln und Bewertungskriterien.
-            </div>
-
-            <p><span class="author-tag author-linja">Linja</span>Davids These stimmt. Was ich einem Generator mitgebe, ist mehr als eine Story. Es ist ein Bündel aus Nutzerverhalten, Constraints, Brand-Regeln und Bewertungskriterien, das gleichzeitig gelesen werden muss. Der Generator braucht Antworten auf alles auf einmal: Was soll der Nutzer erreichen, wo liegen die Grenzen, was gehört zur Marke, woran erkennt man ein gutes Ergebnis. Eine User Story allein liefert davon nur einen Ausschnitt. Deshalb produziert sie als alleinige Grundlage auch nur Ausschnittergebnisse.</p>
-
-            <p>Und genau hier liegt die eigentliche Arbeit: Dieses Bündel ist kein Artefakt, das einmal aufgesetzt und vergessen wird. Es muss permanent beobachtet, nachjustiert und hinterfragt werden. Das Ergebnis der KI ist nur so gut wie die Regeln, die der Mensch dahinter definiert hat. Und die Regeln veralten, während man sie schreibt.</p>
-
-            <p>Die Arbeit verschwindet nicht, sie verschiebt sich. Das gilt für mein persönliches Wissenssystem genauso wie für Produktteams: Wer glaubt, KI einmal konfigurieren zu können und dann laufen zu lassen, wird schnell merken, dass der Output veraltet, bevor er ankommt.</p>
-
-            <h3>(3) Von Priorisierung zu Urteils-Moderation</h3>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · David</span>
-                These: Priorisierung im klassischen Sinn — Reihenfolge festlegen — wird weniger relevant, weil Generatoren parallel arbeiten. Was bleibt, ist die Moderation der Bewertung: Welches Ergebnis ist gut genug? Wer beurteilt das?
-            </div>
-
-            <p><span class="author-tag author-linja">Linja</span>Der Mensch sollte Beurteiler des Ergebnisses bleiben. Er allein kann beurteilen, ob etwas Output oder Outcome ist. Das ist die menschliche Kernkompetenz, die nicht automatisierbar ist — nicht weil es technisch unmöglich wäre, sondern weil die Frage "Hat das einen Unterschied gemacht?" immer einen menschlichen Maßstab braucht.</p>
-
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
                 <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
-                    Es braucht weiterhin alle Blickwinkel für ein gutes Produkt, weil jeder gelernte Muster mitbringt. KI verstärkt, was da ist. Wer gutes Handwerk gelernt hat, liefert mit KI bessere Ergebnisse. Wer es nicht gelernt hat, bekommt schnellere Ergebnisse — aber nicht unbedingt die richtigen.
+                    Der Backlog ist nicht verschwunden. Er ist von der Liste in den Auftrag gewandert und dort fällt er weniger auf.
                 </p>
             </div>
 
-            <!-- BLOCK 3: DISCOVERY -->
-            <h2>Discovery: Nicht tot, sondern wertvoller</h2>
+            <!-- BLOCK 3: KRITISCHE EINORDNUNG -->
+            <h2>Kritische Einordnung</h2>
 
-            <div class="open-stub">
-                <span class="stub-label">Offen · David</span>
-                These: Discovery stirbt nicht durch KI. Sie wird wertvoller, weil sich ihr Output verändert: nicht mehr Insights→Specs, sondern Insights→Generator-Kontexte. Discovery liefert das Material, aus dem Generatoren sinnvolle Ergebnisse produzieren.
+            <p>Meine Belegdichte ist dünn. Hinter den Beobachtungen stehen eine Arbeitswoche und ein einzelnes Projekt, keine Serie über Monate. Ich hatte mir vorgenommen, pro Sitzung eine Zeile mitzuschreiben. Nach zehn Wochen standen zwei Einträge in der Datei, beide nachträglich notiert.</p>
+
+            <p>Dazu kommt ein Befund, den ich lieber übergangen hätte. Was tatsächlich gemessen wurde, spricht gegen die euphorische Lesart. In einer randomisierten Studie von Becker, Rush, Barnes und Rein bearbeiteten sechzehn erfahrene Open-Source-Entwickler 246 Aufgaben, teils mit, teils ohne KI-Werkzeuge.<sup>3</sup> Vorher erwarteten sie eine Zeitersparnis von 24 Prozent, hinterher schätzten sie 20 Prozent. Gemessen wurden sie 19 Prozent langsamer. Die Selbstwahrnehmung lag also nicht knapp daneben, sondern im Vorzeichen falsch. Für meine eigenen Beobachtungen habe ich keine vergleichbare Messung und ich muss annehmen, dass mein Eindruck denselben Fehler machen kann.</p>
+
+            <p>Der Kontext begrenzt das Ganze zusätzlich. Ich arbeite allein an eigenen Projekten, nicht in einem Team mit geteilter Ticketkultur. Was bei mir als sauberer Zuschnitt gilt, kann dort längst Standard sein und die Grenze zwischen Herstellen und Bewerten ist keine Eigenschaft der Technik, sondern ein Stand, der sich mit jedem Modellsprung verschiebt.</p>
+
+            <p>Der stärkste Einwand gegen den April-Text steht aber im Text selbst. Er war als Integrationsleistung angelegt, mit mehreren Stimmen und siebzehn markierten Leerstellen. Vier Monate später ist keine davon gefüllt. Nicht weil die Technik nicht mitgekommen wäre, sondern weil geteilte Aufmerksamkeit der knappe Rohstoff war, nicht Rechenzeit.</p>
+
+            <!-- BLOCK 4: WAS ICH VERÄNDERT HABE -->
+            <h2>Was ich verändert habe</h2>
+
+            <p>Drei Dinge hängen jetzt am Ablauf statt am Vorsatz.</p>
+
+            <p>Erstens enthält jedes Arbeitspaket, das ich anlege, genau eine offene Entscheidung und ein prüfbares Akzeptanzkriterium. Nicht „gut gemacht", sondern eine Bedingung, an der sich der Abschluss ablesen lässt. Muss unterwegs jemand fragen, war der Zuschnitt falsch. Dann korrigiere ich den Zuschnitt, nicht die Antwort.</p>
+
+            <p>Zweitens hängt die Bestandsprüfung am Anlegen eines Pakets, nicht an meiner Aufmerksamkeit. Bevor ein Ticket entsteht, wird der vorhandene Recherchestand durchsucht. Das kostet eine Minute und hätte mir am 17. August zwei Pakete erspart.</p>
+
+            <p>Drittens gilt jede Negativaussage als ungeprüft, bis ich sie selbst geprüft habe. „Ich habe nichts gefunden" ist kein Befund, sondern eine offene Frage.</p>
+
+            <p>Und ich schreibe Artikel nicht mehr auf Zusagen hin. Dieser Text erscheint mit einer Stimme. Kommt eine zweite dazu, wird sie ein eigener Text mit eigenem Datum, statt vier Monate lang in siebzehn Leerstellen zu warten.</p>
+
+            <!-- BLOCK 5: WAS BLEIBT FÜR JEDEN TAG -->
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Der Zuschnitt entscheidet, nicht das Modell.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Ein Auftrag mit zwei offenen Entscheidungen liefert ein halbes Ergebnis, egal wie gut die Maschine ist.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">„Ich habe nichts gefunden" ist kein Befund.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wer eine Abwesenheit behauptet, muss sie belegen. Das gilt für Menschen wie für Maschinen.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Ein Text, der auf Zusagen wartet, wartet unbegrenzt.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Veröffentliche die Stimme, die da ist. Die zweite kann später ein eigener Text werden.</p>
+                    </div>
+                </div>
             </div>
 
-            <p><span class="author-tag author-linja">Linja</span>Ich bleibe bei Verstehen vor Handeln. Aber ich nutze KI, um besser zu verstehen. Und verstehen kann man wunderbar, indem man ein Ergebnis baut aus dem, was man befunden hat.</p>
-
-            <p>Bei meinem neuen Arbeitgeber setze ich das gerade um. Nicht als Methode, die ich verkünde, sondern als persönliche Arbeitsweise, die ich teste. Wenn ich ein neues Thema durchdringe, baue ich früher als vorher etwas Sichtbares daraus. Nicht um es fertig zu haben, sondern um zu prüfen, ob ich es verstanden habe. Der Prototyp als Erkenntnistool, nicht als Lieferobjekt.</p>
-
-            <p>Discovery wird also nicht weniger wichtig — sie bekommt ein anderes Prüfverfahren. Statt zu fragen "Haben wir genug verstanden, um ein Ticket zu schreiben?" frage ich: "Haben wir genug verstanden, um etwas zu bauen, das uns zeigt, ob wir richtig liegen?"</p>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · Jan M.</span>
-                <strong>Wie verändert sich Discovery bei matgrid konkret?</strong> Hat Jan Beispiele, in denen Insights direkt in Generator-Kontexte fließen? Oder ist das bei ihm noch Zukunftsmusik?
-            </div>
-
-            <!-- BLOCK 4: TEAM-ORGANISATION -->
-            <h2>Team-Organisation: Vom Handoff zum Evaluations-Ritual</h2>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · David</span>
-                David formuliert: Handoff-Rituale (Design→Dev, PM→Design) verschwinden, weil Generatoren die Übergabe ersetzen. Was an ihre Stelle tritt, sind Evaluations-Rituale: gemeinsames Bewerten von Ergebnissen. Die Frage ist, ob PM zur Governance-Trägerin wird oder ob eine neue Rolle entsteht.
-            </div>
-
-            <p><span class="author-tag author-linja">Linja</span>Das verändert auch meine Rolle im Team. Früher war ich eher Trägerin — ich musste alles kontrollieren, alles durchsteuern. Jetzt versuche ich bewusst, Facilitatorin zu sein. Ich schaffe den Rahmen, in dem alle selbst laufen können. Ein System, das auch ohne mich funktioniert.</p>
-
-            <p>Ich bin ersetzbar — zur Not auch durch gute Struktur. Aber nicht beim Zusammenbringen von Menschen. Zwischen den Zeilen lesen, Gruppendynamik verstehen, den richtigen Ton finden — das bleibt menschlich.</p>
-
-            <p>Und wenn KI irgendwann Machtlinien dokumentiert oder Konflikte sichtbar macht, kann ich das als Werkzeug für mehr Transparenz nutzen. Stell dir vor, eine KI zeigt mir, dass in den letzten vier Retrospektiven dasselbe Thema ungelöst blieb. Das ist kein Ersatz für meine Einschätzung — aber ein besserer Ausgangspunkt, als mich nur auf mein Gedächtnis zu verlassen. Wer solche Transparenz-Tools bedient, sieht mehr. Aber die Interpretation, was man damit macht — das bleibt beim Menschen, der die Gruppendynamik liest.</p>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · David</span>
-                <strong>Governance-Frage schärfen</strong> — Wird PM zur Governance-Trägerin der Evaluations-Rituale? Oder braucht es eine neue Rolle, die quer zu den bestehenden Funktionen liegt?
-            </div>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · Jan M.</span>
-                <strong>Praxis-Perspektive</strong> — Wie organisiert matgrid die Evaluations-Arbeit? Hat er bereits Rituale eingeführt, die Handoffs ersetzen?
-            </div>
-
-            <!-- BLOCK 5: PM-NACHWUCHS -->
-            <h2>PM-Nachwuchs: Intuition vor Methodik</h2>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · David</span>
-                These: PM-Nachwuchs braucht dokumentierte Entscheidungsräume und neue Lernumgebungen. Wenn Juniors keine Entscheidungen mehr beobachten können, weil KI sie unsichtbar macht, fehlt die Lerngrundlage.
-            </div>
-
-            <p><span class="author-tag author-linja">Linja</span>Die Gefahr, die ich bei Nachwuchs-PMs sehe, ist keine fehlende Tool-Kompetenz. Es ist die fehlende Intuition. Das Zwischen-den-Zeilen-Lesen, wenn man immer nur KI-Output liest, aber nie mit Menschen und Kunden spricht.</p>
-
-            <p>Zuhören — wirklich zuhören — ist eine Kernkompetenz von Product Management. Punkte zu Linien zusammenführen. Das will ich mir bewahren, auch wenn die Verlockung groß ist, stattdessen noch einen Prompt abzusetzen.</p>
-
-            <p>Was Junior-PMs lernen sollten, ist nicht eine Fülle an Wissen oder eine Fülle an Methodik oder das Gefühl, sich positionieren zu müssen. Sondern demütig versuchen, gute Strukturen zu schaffen — mit KI als Werkzeug, nicht als Ersatz für Denken.</p>
-
-            <p>Und es gibt eine echte Gefahr, über die wenig gesprochen wird: Wenn junge PMs mit KI sozialisiert werden, bevor sie gelernt haben, echten Kunden zuzuhören, fehlt die Grundlage. Man liest KI-Output, aber nie die Unsicherheit im Gesicht eines Nutzers. Man kennt Daten, aber nicht die Geschichte dahinter. Intuition entsteht nicht am Bildschirm, sie entsteht in Gesprächen, in wiederholter Erfahrung, im langsamen Aufbau von Mustererkennung. Wer diesen Schritt überspringt, wird effizient, aber nicht klug.</p>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · Jan M.</span>
-                <strong>Wie bildet matgrid PM-Nachwuchs aus?</strong> Gibt es bereits Ansätze, die Entscheidungskontexte dokumentieren, damit Juniors nachvollziehen können, warum was entschieden wurde?
-            </div>
-
-            <!-- BLOCK 6: EINORDNUNG -->
-            <h2>Einordnung: Integrations-Kapazität als neuer Engpass</h2>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · David</span>
-                Zentrale These: Integrations-Kapazität — die Fähigkeit, verschiedene Perspektiven, Daten und Bewertungen zusammenzuführen — wird zum neuen Engpass in Produktteams. Nicht Execution, nicht Ideation, sondern Integration.
-            </div>
-
-            <div class="open-stub">
-                <span class="stub-label">Offen · Jan M.</span>
-                Jans Perspektive als Head of Product: Sieht er denselben Engpass? Wie geht matgrid damit um? Was ist seine Prognose?
-            </div>
-
-            <p><span class="author-tag author-linja">Linja</span>Ob das alles eine echte Transformation ist oder eine gefühlte — das weiß ich nicht. Kann gut sein, dass wir es überschätzen, wie stark die Rollen tatsächlich miteinander verwachsen. Dass PM, Design und Engineering durch KI so nah zusammenrücken, wie es gerade diskutiert wird, muss sich erst zeigen. Vielleicht bleibt am Ende mehr beim Alten, als wir denken.</p>
-
-            <p>Die Werkzeuge sind neu, aber die Grundfragen — Wer entscheidet was? Wer versteht den Kunden? Wer hält das Team zusammen? — sind dieselben wie vor zehn Jahren.</p>
-
-            <p>Trotzdem: Besser überschätzen als unterschätzen und sich kritisch damit auseinandersetzen. Die Verschiebungen, die ich beschrieben habe, sind real — zumindest in meinem Alltag. Ob sie sich in anderen Kontexten genauso zeigen, ob die Prototyping-Fähigkeit von PMs wirklich die Teamdynamik verändert oder nur eine nette Ergänzung bleibt, wird sich in den nächsten Monaten klären. Was ich sicher sagen kann: Die Fähigkeit, beim Ergebnis anzufangen statt bei der Idee, hat meine Gespräche verändert. Der Rest bleibt abzuwarten.</p>
-
-            <!-- OFFENE STELLEN ÜBERSICHT -->
+            <!-- QUELLEN -->
             <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #D4714E;">Offene Stellen — Übersicht</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 40px;">#</th>
-                            <th>Was fehlt</th>
-                            <th style="width: 110px;">Wer liefert</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Szene A — Design-Lead-Perspektive auf PM-Prototyp in der Sprint-Planung</td><td>David</td></tr>
-                        <tr><td>2</td><td>Szene B — Designerin evaluiert Generator-Ausgabe, ausformuliert</td><td>David</td></tr>
-                        <tr><td>3</td><td>Szene C — Reorganisations-Szene, ausformuliert</td><td>David</td></tr>
-                        <tr><td>4</td><td>Block 2.1 — These Backlog→Entscheidungsarchitektur</td><td>David</td></tr>
-                        <tr><td>5</td><td>Block 2.2 — These User-Story→Kontext-Bundle</td><td>David</td></tr>
-                        <tr><td>6</td><td>Block 2.3 — These Priorisierung→Urteils-Moderation</td><td>David</td></tr>
-                        <tr><td>7</td><td>Block 3 — Discovery-These: Insights→Generator-Kontexte</td><td>David</td></tr>
-                        <tr><td>8</td><td>Block 3 — Discovery-Praxis bei matgrid</td><td>Jan M.</td></tr>
-                        <tr><td>9</td><td>Block 4 — Handoff→Evaluations-Rituale, ausformuliert</td><td>David</td></tr>
-                        <tr><td>10</td><td>Block 4 — Governance-Frage schärfen</td><td>David</td></tr>
-                        <tr><td>11</td><td>Block 4 — Evaluations-Praxis bei matgrid</td><td>Jan M.</td></tr>
-                        <tr><td>12</td><td>Block 5 — These dokumentierte Entscheidungsräume</td><td>David</td></tr>
-                        <tr><td>13</td><td>Block 5 — PM-Nachwuchs bei matgrid</td><td>Jan M.</td></tr>
-                        <tr><td>14</td><td>Block 6 — Zentrale Integrations-These, ausformuliert</td><td>David</td></tr>
-                        <tr><td>15</td><td>Block 6 — Head-of-Product-Perspektive</td><td>Jan M.</td></tr>
-                        <tr><td>16</td><td>Abgleich: Davids Jargon mit Linjas Sprache harmonisieren</td><td>Alle</td></tr>
-                        <tr><td>17</td><td>Quellen und Glossar konsolidieren</td><td>Alle</td></tr>
-                    </tbody>
-                </table>
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://basecamp.com/shapeup/2.1-chapter-07" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ryan Singer (2019). Shape Up: Stop Running in Circles and Ship Work that Matters. Basecamp, Kapitel 7: Bets, Not Backlogs.</a></li>
+                    <li><a href="https://arxiv.org/abs/2509.04664" class="hover:text-stone-600 transition-colors" style="color: inherit;">Adam Tauman Kalai, Ofir Nachum, Santosh S. Vempala &amp; Edwin Zhang (2025). Why Language Models Hallucinate. arXiv:2509.04664.</a></li>
+                    <li><a href="https://arxiv.org/abs/2507.09089" class="hover:text-stone-600 transition-colors" style="color: inherit;">Joel Becker, Nate Rush, Elizabeth Barnes &amp; David Rein (2025). Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity. arXiv:2507.09089.</a></li>
+                </ol>
             </div>
 
-            <!-- NOTIZEN ZUR TONALITÄT -->
-            <div class="mt-10 pt-6" style="border-top: 1px solid #e5e2db;">
-                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #7b6ba5;">Notizen zur Tonalität</p>
-                <p class="text-[0.85rem]"><span class="author-tag author-linja">Linja</span><strong>Direkt, konkret, erfahrungsbasiert.</strong> Kurze Sätze. Szenen aus dem Arbeitsalltag. "Ich" statt "man". Keine Frameworks-Sprache, sondern beobachtete Veränderungen. Selbstkritisch ohne kokettieren. Beispiel: <em>"Ich bin ersetzbar — zur Not auch durch gute Struktur. Aber nicht beim Zusammenbringen von Menschen."</em></p>
-                <p class="text-[0.85rem]"><span class="author-tag author-david">David</span><strong>Analytisch, strukturierend.</strong> Denkt in Verschiebungen und Systemen. Abstrakte Begriffe (Entscheidungsarchitektur, Kontext-Bundle, Urteils-Moderation), die er mit Szenen erdet. <em>→ David: Bitte prüfen, ob das passt.</em></p>
-                <p class="text-[0.85rem]"><span class="author-tag author-jan">Jan M.</span><span class="text-stone-500"><em>Offen — Tonalitäts-Probe von Jan benötigt, bevor seine Passagen geschrieben werden.</em></span></p>
-                <p class="text-[0.85rem] text-stone-500"><strong>Harmonisierung:</strong> Linjas Passagen nutzen bewusst ihre eigene Sprache. Davids Fachbegriffe tauchen in ihren Abschnitten nicht auf — stattdessen beschreibt sie dasselbe Phänomen in ihrer Sprache ("Regeln", "beim Ergebnis anfangen", "Rahmen schaffen"). Das ist kein Bruch, sondern zeigt drei Perspektiven auf dasselbe Thema.</p>
+            <!-- GLOSSAR -->
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agent</span> <span class="text-stone-400">— KI-System, das eine Aufgabe mehrschrittig und ohne Zwischensteuerung bearbeitet.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Akzeptanzkriterium</span> <span class="text-stone-400">— Prüfbare Bedingung, an der ablesbar ist, ob ein Arbeitspaket fertig ist.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Arbeitspaket</span> <span class="text-stone-400">— Abgegrenzte Aufgabe mit Ziel, Begründung und Abnahmebedingung.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Backlog</span> <span class="text-stone-400">— Geordnete Liste offener Arbeit, klassisch das zentrale Artefakt der Produktplanung.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Halluzination</span> <span class="text-stone-400">— Selbstbewusst formulierte, sachlich falsche Ausgabe eines Sprachmodells.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Lebende Datei</span> <span class="text-stone-400">— Dokument, das den aktuellen Stand zeigt statt einer Historie einzelner Tickets.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Negativaussage</span> <span class="text-stone-400">— Behauptung, dass etwas nicht existiert oder nicht auffindbar ist.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Zuschnitt</span> <span class="text-stone-400">— Art und Weise, wie eine Aufgabe in ein bearbeitbares Paket geschnitten wird.</span></p>
+                </div>
             </div>
 
         </article>
 
-        <!-- ZURÜCK -->
+        <!-- ======== ZURÜCK ======== -->
         <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
-            <a href="index.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #7b6ba5;">&larr; Alle Entwürfe</a>
+            <a href="index.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; Alle Entwürfe</a>
         </div>
 
     </div>
+    </div><!-- /site-de -->
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- Draft banner -->
+        <div class="mt-24 mb-4 py-3 px-4 rounded-lg flex items-center gap-3" style="background: #fae8de; border-left: 3px solid #D4714E;">
+            <span class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #73402e;">Draft</span>
+            <span class="text-[0.82rem]" style="color: #73402e;">Solo version. Sources verified, reader audio still missing.</span>
+        </div>
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-4 pb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; Team Dynamics</span>
+                <span class="text-[0.72rem] text-stone-400">September 2, 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Backlogs are yesterday. What is left of that claim four months on.
+            </h1>
+        </header>
+
+        <!-- ══ MANDATORY: TL;DR ══ -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                In April I wrote that product managers who administer a backlog become replaceable. The sentence still holds, but it describes the less interesting half. What takes the backlog's place is not decision architecture on an org chart. It is two small, unglamorous jobs: cutting a task so that exactly one decision stays open, and checking a result that can be confidently wrong.
+            </p>
+        </div>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+
+            <!-- BLOCK 1: CORE MESSAGE + PROBLEM -->
+            <p>On April 21, 2026 I started an article meant to bring three perspectives together on the same shift. It had a clear claim: once designs become executable and handoffs between roles disappear, the load moves to product management.</p>
+
+            <p>The draft still sits exactly where I left it, with seventeen marked gaps. In the four months since, I published two other articles on the same subject and realised the original claim was cut too wide. Not wrong, but blurry in the place that matters.</p>
+
+            <!-- BLOCK 2: FOUNDATION -->
+            <h2>The backlog does not disappear, it changes location</h2>
+
+            <p>Rejecting the backlog is not an insight that came out of working with AI. Ryan Singer wrote it down in 2019 in <em>Shape Up</em>, in a chapter simply called "Bets, Not Backlogs".<sup>1</sup> His argument is economic: a list that grows faster than capacity produces maintenance work and a permanent sense of falling behind, without making a single decision better.</p>
+
+            <p>What AI changes is not the diagnosis but the threshold. Working solo with an assistant, I dropped the ticket tool in June, because the current state already lived in living files and the history lived in Git. The moment a second person needs to see that state without me narrating it, a shared artefact comes back.</p>
+
+            <p>Three files took its place, each showing the current state rather than a history of tickets: a product document, an ordered list of open work and a decision log. Git carries the history, because every change is a dated commit anyway. The maintenance does not vanish, it moves from ticket status to the readability of those files.</p>
+
+            <p>So the question is not AI versus tool. It is how many heads have to read the same situation asynchronously. The backlog disappears as storage and survives as a means of communication.</p>
+
+            <h2>The bottleneck is smaller and duller than I assumed</h2>
+
+            <p>In April I called what replaces the backlog decision architecture. That word is too large for what actually happened.</p>
+
+            <p>On August 17 I broke the work on one of my own product projects into nineteen packages and filed them as tickets. Seven of them I closed again the same day. Four were refinements without a real task, one was permanently blocked and two were already done, because a piece of research four days earlier had answered the question.</p>
+
+            <p>That is not an architecture problem, it is a cutting problem. A package is cut correctly when exactly one decision is open and that decision falls before the work rather than in the middle of it. With a human colleague, a clarifying question is a normal part of working together. With an agent it is an abort: it does not wait usefully, it guesses or it delivers half a result with full confidence.</p>
+
+            <!-- ══ KEY FIGURES ══ -->
+            <div class="grid grid-cols-2 gap-4 my-8" style="max-width: 100%;">
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">7 / 19</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Work packages closed on the day they were created</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Own project, Aug 17, 2026</p>
+                </div>
+                <div class="bg-white border rounded-lg p-5 text-center" style="border-color: #e5e2db;">
+                    <p class="font-mono text-[1.8rem] font-medium text-stone-900 mb-1">7 / 10</p>
+                    <p class="text-[0.78rem] text-stone-500 leading-snug">Negative claims that collapsed on re-checking</p>
+                    <p class="font-mono text-[0.65rem] text-stone-300 mt-2 tracking-wider uppercase">Own research, Aug 18, 2026</p>
+                </div>
+            </div>
+
+            <h2>The weakest point is any claim about what is missing</h2>
+
+            <p>A day later I re-checked a research task that had recorded in ten places that no reliable source existed. Seven of those ten negative claims collapsed. The positive findings, by contrast, held up.</p>
+
+            <p>This asymmetry now has an explanation that reaches beyond my single case. Kalai, Nachum, Vempala and Zhang trace hallucinations back to training and evaluation rewarding guesswork and punishing the admission of uncertainty.<sup>2</sup> A model optimised for good test scores guesses when unsure, because guessing scores better on average than staying silent. That mechanism hits the negative claim hardest, because there the assertion is its own evidence.</p>
+
+            <p>For daily work this produces an uncomfortable division of labour. Producing can be handed over: building, preparing, researching. Judging cannot be handed over, and least of all judging an absence.</p>
+
+            <!-- ══ KEY INSIGHT QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    The backlog has not gone away. It moved from the list into the task, and there it draws less attention.
+                </p>
+            </div>
+
+            <!-- BLOCK 3: A CRITICAL LOOK -->
+            <h2>A critical look</h2>
+
+            <p>My evidence is thin. Behind these observations sit one working week and a single project, not a series over months. I had planned to write one line per session, and after ten weeks the file held two entries, both noted after the fact.</p>
+
+            <p>There is also a finding I would rather have skipped. What has actually been measured argues against the euphoric reading. In a randomised trial by Becker, Rush, Barnes and Rein, sixteen experienced open-source developers worked through 246 tasks, some with and some without AI tools.<sup>3</sup> Beforehand they expected a 24 percent time saving, afterwards they estimated 20 percent. Measured, they were 19 percent slower. Their self-assessment was not slightly off, it had the sign wrong. I have no comparable measurement for my own observations, and I have to assume my impression can make the same error.</p>
+
+            <p>The context limits all of this further. I work alone on my own projects, not in a team with a shared ticket culture. What counts as a clean cut for me may be standard practice there, and the line between producing and judging is not a property of the technology but a snapshot that moves with every model release.</p>
+
+            <p>The strongest objection to the April text, though, sits inside the text itself. It was designed as an act of integration, with several voices and seventeen marked gaps. Four months later not one of them is filled. Not because the technology fell short, but because shared attention was the scarce resource, not compute.</p>
+
+            <!-- BLOCK 4: WHAT I CHANGED -->
+            <h2>What I changed</h2>
+
+            <p>Three things now hang on the process instead of on good intentions.</p>
+
+            <p>First, every work package I create carries exactly one open decision and a checkable acceptance criterion. Not "done well", but a condition you can read completion off. If someone has to ask mid-task, the cut was wrong. Then I fix the cut, not the answer.</p>
+
+            <p>Second, the check against existing material hangs on creating a package, not on my attention. Before a ticket exists, the current research is searched. That costs a minute and would have saved me two packages on August 17.</p>
+
+            <p>Third, every negative claim counts as unverified until I have verified it myself. "I found nothing" is not a finding, it is an open question.</p>
+
+            <p>And I no longer write articles against promises. This text goes out with one voice. If a second one joins, it becomes its own text with its own date, instead of waiting four months inside seventeen gaps.</p>
+
+            <!-- BLOCK 5: WHAT STAYS WITH YOU -->
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The cut decides, not the model.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">A task with two open decisions returns half a result, however good the machine is.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">"I found nothing" is not a finding.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Anyone claiming an absence has to evidence it. That applies to people and to machines.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">A text waiting on promises waits forever.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Publish the voice you have. The second one can become its own piece later.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOURCES -->
+            <div class="mt-12 pt-6" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://basecamp.com/shapeup/2.1-chapter-07" class="hover:text-stone-600 transition-colors" style="color: inherit;">Ryan Singer (2019). Shape Up: Stop Running in Circles and Ship Work that Matters. Basecamp, chapter 7: Bets, Not Backlogs.</a></li>
+                    <li><a href="https://arxiv.org/abs/2509.04664" class="hover:text-stone-600 transition-colors" style="color: inherit;">Adam Tauman Kalai, Ofir Nachum, Santosh S. Vempala &amp; Edwin Zhang (2025). Why Language Models Hallucinate. arXiv:2509.04664.</a></li>
+                    <li><a href="https://arxiv.org/abs/2507.09089" class="hover:text-stone-600 transition-colors" style="color: inherit;">Joel Becker, Nate Rush, Elizabeth Barnes &amp; David Rein (2025). Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity. arXiv:2507.09089.</a></li>
+                </ol>
+            </div>
+
+            <!-- GLOSSARY -->
+            <div class="mt-6 pt-4" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Acceptance criterion</span> <span class="text-stone-400">— Checkable condition that shows whether a work package is finished.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agent</span> <span class="text-stone-400">— AI system that works a task through several steps without intermediate steering.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Backlog</span> <span class="text-stone-400">— Ordered list of open work, classically the central artefact of product planning.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Cut</span> <span class="text-stone-400">— The way a task is sliced into a workable package.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Hallucination</span> <span class="text-stone-400">— Confidently phrased but factually wrong output of a language model.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Living file</span> <span class="text-stone-400">— Document that shows the current state instead of a history of tickets.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Negative claim</span> <span class="text-stone-400">— Assertion that something does not exist or cannot be found.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Work package</span> <span class="text-stone-400">— Bounded task with a goal, a rationale and a condition for acceptance.</span></p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ======== BACK ======== -->
+        <div class="pb-20 pt-8" style="border-top: 1px solid #e5e2db;">
+            <a href="index.html" class="text-[0.88rem] transition-colors hover:text-stone-800" style="color: #472E56;">&larr; All drafts</a>
+        </div>
+
+    </div>
+    </div><!-- /site-en -->
+
+    <div id="site-footer"></div>
+
+    <!-- ======== LANGUAGE TOGGLE (controlled by components.js nav) ======== -->
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
 
 </body>
-
-</html>
