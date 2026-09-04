@@ -165,18 +165,56 @@
             </p>
         </div>
 
+
+        <!-- ══ ENTFERNBAR: EINSTIEGS-PROMPT (Selbsttest drei Ebenen) ══ -->
+        <div class="my-8 rounded-lg overflow-hidden" style="border: 1px solid #d9d1e5; background: #fcfbfe;">
+            <div class="px-6 pt-5 pb-4">
+                <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">Selbsttest zum Start</p>
+                <p class="source-serif text-[1.02rem] text-stone-800 leading-relaxed mb-2">Bevor du weiterliest: prüf dein eigenes Setup.</p>
+                <p class="text-[0.85rem] text-stone-500 mb-0">Kopier diesen Prompt in dein KI-Werkzeug. Er sortiert dein Setup auf die drei Ebenen, die dieser Artikel beschreibt, und endet mit genau einer Optimierung für die schwächste davon. Die Antwort ist deine Landkarte für den Rest des Textes.</p>
+            </div>
+            <div class="px-6 pb-5">
+                <pre id="prompt-selbsttest-de" class="font-mono text-[0.72rem] leading-[1.7] text-stone-700 rounded-md px-4 py-4 mb-3" style="background: #f6f4f9; white-space: pre-wrap; overflow-x: auto;">Du bist mein Sparringspartner für den Aufbau meiner KI-Zusammenarbeit.
+Wir sortieren mein Setup auf drei Ebenen:
+
+1. Kontext: was du für einen einzelnen Aufruf siehst (Dateien, Regeln,
+   Beispiele, Verlauf).
+2. Harness: die Umgebung, in der du arbeitest (Werkzeuge, Rechte,
+   Gedächtnis, automatische Prüfungen).
+3. Loop: wer dich anstößt, wie oft, mit welchem Budget und mit welcher
+   Abbruchbedingung.
+
+Geh so vor:
+1. Stell mir pro Ebene höchstens drei Fragen, eine nach der anderen, und
+   warte jeweils auf meine Antwort.
+2. Fasse danach je Ebene in einem Satz zusammen, was bei mir steht und
+   was fehlt.
+3. Ordne meine drei häufigsten Probleme jeweils genau einer Ebene zu und
+   begründe die Zuordnung.
+4. Nenne für die schwächste Ebene genau eine Optimierung, die ich in unter
+   30 Minuten umsetzen kann, mit einem prüfbaren Kriterium, woran ich
+   erkenne, dass sie wirkt.
+
+Rate nicht. Wenn dir etwas fehlt, frag nach.</pre>
+                <button type="button" class="prompt-copy font-mono text-[0.62rem] tracking-wider uppercase px-3 py-1.5 rounded transition-colors"
+                        style="border: 1px solid #d9d1e5; color: #6b5691; background: #ffffff;"
+                        data-copy-target="prompt-selbsttest-de" data-copied-label="Kopiert">Prompt kopieren</button>
+            </div>
+        </div>
+        <!-- ══ /ENTFERNBAR: EINSTIEGS-PROMPT ══ -->
+
         <!-- ======== ARTIKEL-CONTENT ======== -->
         <article class="prose pb-12">
             <!-- ══ BLOCK 1: KERNBOTSCHAFT + PROBLEM ══ -->
 
-            <p>In Produktteams wird über Modelle diskutiert, obwohl das Modell selten der Engpass ist. Seit Anfang 2026 hat sich dafür eine Formel durchgesetzt: <strong>Agent = Modell + Harness</strong>. Innerhalb weniger Monate sind daraus drei Begriffe geworden, die nebeneinander benutzt werden, obwohl sie verschiedene Ebenen meinen. Wer sie nicht trennt, behandelt einen falschen Agentenlauf als Prompt-Problem statt als Systemfehler und kauft im Zweifel Beratung für die oberste Ebene ein, während das Problem ganz unten sitzt. Die Sortierung ist deshalb keine Begriffsklauberei, sondern die Voraussetzung dafür, den richtigen Hebel zu finden.</p>
+            <p>KI ist ein starkes Werkzeug, wenn ein sauberer Rahmen für die Zusammenarbeit geschaffen wird. Context, Harness und Loop Engineering sind drei Begriffe, die die verschiedenen Ebenen beschreiben, die nahtlos ineinander greifen sollten, um den größtmöglichen Outcome in der Zusammenarbeit mit KI zu erreichen. Prompt Engineering, also die Optimierung des Befehls, wird dabei zweitrangig. Wer die Ebenen nicht trennt, behandelt einen falschen Agentenlauf als Prompt-Problem statt als Systemfehler und nimmt schwächere Ergebnisse in Kauf. Die Sortierung ist deshalb keine Begriffsklauberei, sondern die Voraussetzung dafür, den richtigen Hebel zu finden.</p>
 
 
             <!-- ══ BLOCK 2: FUNDIERUNG ══ -->
 
             <h2>Drei Ebenen, die ständig verwechselt werden</h2>
 
-            <p><strong>Context Engineering</strong> ist die unterste Ebene. Anthropics Applied-AI-Team definiert sie als die Menge an Strategien, mit denen während der Inferenz die optimale Auswahl an Token kuratiert und gepflegt wird.<sup>1</sup> Der Unterschied zum Prompt Engineering liegt darin, dass diese Kuratierung nicht einmal stattfindet, sondern vor jedem einzelnen Aufruf neu. Die Regel dazu ist ein Weglass-Auftrag: die kleinstmögliche Menge hochwertiger Token finden, die das gewünschte Ergebnis wahrscheinlich macht.</p>
+            <p><strong>Context Engineering</strong> ist die unterste Ebene. Anthropics Applied-AI-Team beschreibt sie als die Arbeit, für jede einzelne Antwort genau die Informationen auszuwählen und aktuell zu halten, die das Modell dafür braucht, und alles andere wegzulassen.<sup>1</sup> Der Unterschied zum Prompt Engineering liegt darin, dass diese Kuratierung nicht einmal stattfindet, sondern vor jedem einzelnen Aufruf neu. Die Regel dazu ist ein Weglass-Auftrag: die kleinstmögliche Menge hochwertiger Token finden, die das gewünschte Ergebnis wahrscheinlich macht.</p>
 
             <p><strong>Harness Engineering</strong> sitzt darüber und beschreibt die Umgebung, in der ein einzelner Agent handelt: Systemprompt, Werkzeuge, Skills, MCP-Anbindungen, Sandbox, Rechte, Hooks, Dateigedächtnis und die Prüfungen, an denen ein Ergebnis scheitern kann.</p>
 
@@ -212,9 +250,72 @@
                 </tbody>
             </table>
 
-            <h2>Woher der Begriff kommt und was er verrät</h2>
 
-            <p>Der Name entstand nicht am Reißbrett, sondern als Beschreibung einer Gewohnheit. Mitchell Hashimoto hielt Anfang 2026 eine Stufe seiner KI-Nutzung fest, auf der er einen Agentenfehler nicht mehr korrigiert, sondern eine Vorkehrung baut, damit genau dieser Fehler nicht wiederkommt.<sup>3</sup> Kurz darauf berichtete OpenAI von einem Projekt nach derselben Logik, in dem über Monate kein Code von Hand getippt wurde.<sup>4</sup></p>
+            <!-- ══════════════════════════════════════════════════════════
+                 ENTFERNBAR: ABBILDUNG DREI EBENEN
+                 Erweitert die System-Abbildung aus dem Context-Engineering-
+                 Artikel um Harness und Loop. Block bis zum Schluss-Marker
+                 loeschen, dann ist der Artikel wieder abbildungsfrei.
+                 ══════════════════════════════════════════════════════════ -->
+            <div class="my-10" style="max-width: 100%;">
+
+                <!-- EBENE 3: LOOP -->
+                <div class="rounded-2xl p-4 sm:p-5" style="border: 1.5px dashed #9a82b5; background: #faf8fd;">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="source-serif text-[1.05rem] font-semibold" style="color: #472E56;">Loop</span>
+                        <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #9a82b5;">Ebene 3</span>
+                    </div>
+                    <p class="text-[0.8rem] text-stone-500" style="margin-bottom: 0.9rem; line-height: 1.55;">Wer den Agenten anstößt, wie oft, mit welchem Budget und mit welcher Abbruchbedingung.</p>
+
+                    <!-- EBENE 2: HARNESS -->
+                    <div class="rounded-xl p-4" style="border: 1.5px solid #b9a8d4; background: #fcfbfe;">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="source-serif text-[1.05rem] font-semibold" style="color: #472E56;">Harness</span>
+                            <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #9a82b5;">Ebene 2</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-500" style="margin-bottom: 0.9rem; line-height: 1.55;">Die Umgebung, in der ein Agent handelt. Sie umschließt den Kontext, statt ihn zu ersetzen.</p>
+
+                        <!-- EBENE 1: KONTEXT = das System aus dem Context-Engineering-Artikel -->
+                        <div class="rounded-xl p-4" style="border: 1.5px solid #d9d1e5; background: #ffffff;">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="source-serif text-[1.05rem] font-semibold" style="color: #472E56;">Kontext</span>
+                                <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #9a82b5;">Ebene 1</span>
+                            </div>
+                            <p class="text-[0.8rem] text-stone-500" style="margin-bottom: 0.7rem; line-height: 1.55;">Was das Modell für einen einzelnen Aufruf sieht. Hier sitzt das System aus dem Context-Engineering-Artikel unverändert weiter.</p>
+
+                            <div class="rounded-t-lg px-4 py-2.5" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                                <div class="flex items-center justify-between">
+                                    <span class="source-serif text-[0.95rem] text-stone-900">Sensemaking</span>
+                                    <span class="text-[0.75rem] text-stone-500">Muster, Schlüsse, Strategie</span>
+                                </div>
+                            </div>
+                            <div class="px-4 py-2.5" style="background: #ece8f2; border-left: 1px solid #d9d1e5; border-right: 1px solid #d9d1e5;">
+                                <div class="flex items-center justify-between">
+                                    <span class="source-serif text-[0.95rem] text-stone-900">Identity</span>
+                                    <span class="text-[0.75rem] text-stone-500">Rolle, Projekte, eigene Arbeiten</span>
+                                </div>
+                            </div>
+                            <div class="rounded-b-lg px-4 py-2.5" style="background: #d9d1e5; border: 1px solid #c9bcdf; border-top: none;">
+                                <div class="flex items-center justify-between">
+                                    <span class="source-serif text-[0.95rem] text-stone-900">Knowledge</span>
+                                    <span class="text-[0.75rem] text-stone-600">Methoden, Frameworks, Quellen</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="font-mono text-[0.6rem] tracking-wide text-stone-400" style="margin-top: 0.75rem; margin-bottom: 0; line-height: 1.4;">Werkzeuge&nbsp;&middot;&nbsp;Rechte&nbsp;&middot;&nbsp;Sandbox&nbsp;&middot;&nbsp;Gedächtnis&nbsp;&middot;&nbsp;Prüfungen</p>
+                    </div>
+
+                    <p class="font-mono text-[0.6rem] tracking-wide text-stone-400" style="margin-top: 0.75rem; margin-bottom: 0; line-height: 1.4;">Anstoß&nbsp;&middot;&nbsp;Wiederholung&nbsp;&middot;&nbsp;Budget&nbsp;&middot;&nbsp;Verifikation&nbsp;&middot;&nbsp;Abbruch</p>
+                </div>
+
+                <p class="text-[0.78rem] text-stone-500" style="margin-top: 0.75rem; margin-bottom: 0; line-height: 1.6;">Die drei Wissensschichten und ihr Regelwerk aus <a href="/blog/context-engineering-geschichtetes-wissen.html" class="underline hover:text-stone-900" style="color: #6b5691;">dem Context-Engineering-Artikel</a> sitzen vollständig auf Ebene 1. Harness und Loop legen sich darum, ohne etwas daran zu ändern. Deshalb erbt jede äußere Ebene die Schwächen der inneren.</p>
+            </div>
+            <!-- ══ /ENTFERNBAR: ABBILDUNG DREI EBENEN ══ -->
+
+            <h2>Woher Harness Engineering kommt und was der Begriff verrät</h2>
+
+            <p>Harness Engineering entstand nicht am Reißbrett, sondern als Beschreibung einer Gewohnheit. Mitchell Hashimoto hielt Anfang 2026 eine Stufe seiner KI-Nutzung fest, auf der er einen Agentenfehler nicht mehr korrigiert, sondern eine Vorkehrung baut, damit genau dieser Fehler nicht wiederkommt.<sup>3</sup> Kurz darauf berichtete OpenAI von einem Projekt nach derselben Logik, in dem über Monate kein Code von Hand getippt wurde.<sup>4</sup></p>
 
             <p>Aus dieser Herkunft lässt sich mehr ableiten als eine Arbeitstechnik. <strong>Ein Harness wächst aus Fehlern, nicht aus einem Konzept.</strong> Wer es vorab durchplant, baut Vorkehrungen gegen Probleme, die er noch nicht hat. <strong>Jede Vorkehrung ist eine Annahme darüber, was das Modell nicht allein kann</strong>, und diese Annahmen altern, weil mit jedem Modellwechsel ein Stück Gerüst überflüssig werden kann, das vorher getragen hat.<sup>5</sup> <strong>Und die wirksamen Vorkehrungen sind unspektakulär.</strong> Gegen die typischen Fehlmuster langlaufender Agenten, alles auf einmal zu versuchen, sich vorschnell für fertig zu erklären und Ungetestetes als erledigt zu markieren, hilft kein besseres Modell, sondern eine maschinenlesbare Anforderungsliste, eine Fortschrittsdatei und ein fester Startpunkt.<sup>6</sup></p>
 
@@ -235,6 +336,8 @@
             <p>Die drei Ebenen sagen, wo ein Problem sitzt. Sie sagen noch nicht, womit man sie füllt. Genau diese Lücke bearbeitet ein Ansatz, der seit 2025 unter dem Namen <strong>Spec-Driven Development</strong> läuft. Er dreht die übliche Reihenfolge um: Vor der Umsetzung steht eine Spezifikation und diese ist nicht die Vorstufe der Wahrheit, sondern die Wahrheit selbst. GitHub beschreibt die Verschiebung als Wechsel von „Code ist die Quelle der Wahrheit" zu „Absicht ist die Quelle der Wahrheit".<sup>8</sup> Birgitta Böckeler fasst das Artefakt schärfer: ein strukturiertes, verhaltensorientiertes Dokument in natürlicher Sprache, das Mensch und Agent gemeinsam als Bezugspunkt nutzen.<sup>9</sup> Eine solche Spezifikation vergrößert den Raum, in dem ein Agent allein arbeiten darf, weil sie beschreibt was gelten soll statt wie es hergestellt wird. Kief Morris nennt die tragfähige Haltung dazu „an der Schleife": nicht jedes Ergebnis einzeln abnehmen, sondern die Prüfungen bauen, an denen sich jedes Ergebnis messen lassen muss.<sup>10</sup></p>
 
             <p>Damit schließt sich der Kreis zur Harness-Ebene. Eine Spezifikation ist Rahmen und Prüfmaßstab in einem: Sie sagt vorher, was gelten soll und liefert hinterher das Kriterium, an dem ein Ergebnis scheitern darf. Autonomie entsteht deshalb nicht dadurch, dass man einem Agenten mehr erlaubt, sondern dadurch, dass vorher genauer feststeht, woran sein Ergebnis gemessen wird. Wer keine prüfbare Abnahmebedingung formulieren kann, kann nicht delegieren. Neu ist nur, wie schnell sich das rächt, wenn am anderen Ende niemand sitzt, der stutzt.</p>
+
+            <p>Hier endet dieser Artikel bewusst beim Prinzip. Die operative Ableitung, also wie eine solche Spezifikation im Produktalltag konkret aussieht, welche Felder sie trägt und wie man sie in Auftragspakete übersetzt, mit denen ein Agent allein arbeiten kann, nimmt sich der zweite Teil dieser Reihe vor.</p>
 
             <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
@@ -339,7 +442,7 @@
         <!-- ======== AUSBLICK TEIL 2 ======== -->
         <div class="my-8 py-5 px-6 rounded-lg" style="background: #f2f7f4;">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #476f5b;">Teil 2</p>
-            <p class="text-[0.9rem] text-stone-700 leading-relaxed mb-0">Der zweite Teil nimmt sich die Spezifikation vor, die diese Ebenen füllt: welche vier Felder sie tragen, warum die Abnahmebedingung die anderen drei trägt und woran der Ansatz in der Praxis scheitert.</p>
+            <p class="text-[0.9rem] text-stone-700 leading-relaxed mb-0">Der zweite Teil macht aus Spec-Driven Development eine Arbeitsweise: welche vier Felder eine Spezifikation trägt, warum die Abnahmebedingung die anderen drei trägt, wie daraus Auftragspakete für einen Agenten werden und woran der Ansatz in der Praxis scheitert.</p>
         </div>
 
         <!-- ======== ZURÜCK ======== -->
@@ -375,18 +478,55 @@
             </p>
         </div>
 
+
+        <!-- ══ ENTFERNBAR: EINSTIEGS-PROMPT (Selbsttest drei Ebenen) ══ -->
+        <div class="my-8 rounded-lg overflow-hidden" style="border: 1px solid #d9d1e5; background: #fcfbfe;">
+            <div class="px-6 pt-5 pb-4">
+                <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">Self-check first</p>
+                <p class="source-serif text-[1.02rem] text-stone-800 leading-relaxed mb-2">Before you read on: test your own setup.</p>
+                <p class="text-[0.85rem] text-stone-500 mb-0">Paste this prompt into your AI tool. It sorts your setup into the three layers this article describes and ends with exactly one improvement for the weakest of them. The answer is your map for the rest of the text.</p>
+            </div>
+            <div class="px-6 pb-5">
+                <pre id="prompt-selbsttest-en" class="font-mono text-[0.72rem] leading-[1.7] text-stone-700 rounded-md px-4 py-4 mb-3" style="background: #f6f4f9; white-space: pre-wrap; overflow-x: auto;">You are my sparring partner for setting up how I work with AI.
+We sort my setup into three layers:
+
+1. Context: what you see for a single call (files, rules, examples,
+   history).
+2. Harness: the environment you act in (tools, permissions, memory,
+   automatic checks).
+3. Loop: who triggers you, how often, on what budget and with what stop
+   condition.
+
+Work like this:
+1. Ask me at most three questions per layer, one at a time, and wait for
+   my answer each time.
+2. Then summarise per layer, in one sentence, what I have in place and
+   what is missing.
+3. Assign my three most frequent problems to exactly one layer each and
+   justify the assignment.
+4. For the weakest layer, name exactly one improvement I can implement in
+   under 30 minutes, with a checkable criterion that tells me it worked.
+
+Do not guess. If something is missing, ask.</pre>
+                <button type="button" class="prompt-copy font-mono text-[0.62rem] tracking-wider uppercase px-3 py-1.5 rounded transition-colors"
+                        style="border: 1px solid #d9d1e5; color: #6b5691; background: #ffffff;"
+                        data-copy-target="prompt-selbsttest-en" data-copied-label="Copied">Copy prompt</button>
+            </div>
+        </div>
+        <!-- ══ /ENTFERNBAR: EINSTIEGS-PROMPT ══ -->
+
         <!-- ======== ARTICLE CONTENT ======== -->
         <article class="prose pb-12">
             <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
 
-            <p>Product teams argue about models even though the model is rarely the bottleneck. Since early 2026 one formula has taken hold: <strong>Agent = Model + Harness</strong>. Within months that turned into three terms used side by side although they name different layers. Teams that do not separate them treat a failed agent run as a prompt problem instead of a system fault, and buy help for the top layer while the problem sits at the bottom. Sorting them is what makes the right lever findable.</p>
+            <p>AI is a powerful tool once you build a clean frame for working with it. Context, harness and loop engineering are three terms for the different layers of that frame, and they have to mesh if you want the largest possible outcome from working with AI. Prompt engineering, meaning the optimisation of the individual instruction, becomes secondary. Teams that do not separate the layers treat a failed agent run as a prompt problem instead of a system fault and settle for weaker results. Sorting them is not pedantry about words. It is what makes the right lever findable.</p>
 
 
             <!-- ══ BLOCK 2: FOUNDATION ══ -->
 
             <h2>Three layers that keep getting confused</h2>
 
-            <p><strong>Context engineering</strong> is the bottom layer. Anthropic's Applied AI team defines it as the set of strategies for curating and maintaining the optimal set of tokens during inference.<sup>1</sup> What separates it from prompt engineering is that this curation does not happen once but before every single call. The rule attached to it is an instruction to leave things out: find the smallest possible set of high signal tokens that makes the desired outcome likely.</p>
+            <p><strong>Context engineering</strong> is the bottom layer. Anthropic's Applied AI team describes it as the work of picking and maintaining exactly the information a model needs for one single answer, and leaving out everything else.<sup>1</sup> What separates it from prompt engineering is that this curation does not happen once but before every single call. The rule attached to it is an instruction to leave things out: find the smallest possible set of high signal tokens that makes the desired outcome likely.</p>
 
             <p><strong>Harness engineering</strong> sits above it and covers the environment a single agent acts in: system prompt, tools, skills, MCP connections, sandbox, permissions, hooks, file based memory and the checks a result has to survive.</p>
 
@@ -422,9 +562,72 @@
                 </tbody>
             </table>
 
-            <h2>Where the term came from and what it reveals</h2>
 
-            <p>The name did not come from a whiteboard. It described a habit. In early 2026 Mitchell Hashimoto wrote down a stage of his own AI use where he no longer fixes an agent's mistake but builds a safeguard so that specific mistake does not return.<sup>3</sup> Shortly after, OpenAI reported a project on the same logic, where for months nobody typed code by hand.<sup>4</sup></p>
+            <!-- ══════════════════════════════════════════════════════════
+                 ENTFERNBAR: ABBILDUNG DREI EBENEN
+                 Erweitert die System-Abbildung aus dem Context-Engineering-
+                 Artikel um Harness und Loop. Block bis zum Schluss-Marker
+                 loeschen, dann ist der Artikel wieder abbildungsfrei.
+                 ══════════════════════════════════════════════════════════ -->
+            <div class="my-10" style="max-width: 100%;">
+
+                <!-- EBENE 3: LOOP -->
+                <div class="rounded-2xl p-4 sm:p-5" style="border: 1.5px dashed #9a82b5; background: #faf8fd;">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="source-serif text-[1.05rem] font-semibold" style="color: #472E56;">Loop</span>
+                        <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #9a82b5;">Layer 3</span>
+                    </div>
+                    <p class="text-[0.8rem] text-stone-500" style="margin-bottom: 0.9rem; line-height: 1.55;">Who triggers the agent, how often, on what budget and with what stop condition.</p>
+
+                    <!-- EBENE 2: HARNESS -->
+                    <div class="rounded-xl p-4" style="border: 1.5px solid #b9a8d4; background: #fcfbfe;">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="source-serif text-[1.05rem] font-semibold" style="color: #472E56;">Harness</span>
+                            <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #9a82b5;">Layer 2</span>
+                        </div>
+                        <p class="text-[0.8rem] text-stone-500" style="margin-bottom: 0.9rem; line-height: 1.55;">The environment an agent acts in. It wraps around the context rather than replacing it.</p>
+
+                        <!-- EBENE 1: KONTEXT = das System aus dem Context-Engineering-Artikel -->
+                        <div class="rounded-xl p-4" style="border: 1.5px solid #d9d1e5; background: #ffffff;">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="source-serif text-[1.05rem] font-semibold" style="color: #472E56;">Context</span>
+                                <span class="font-mono text-[0.58rem] tracking-wider uppercase" style="color: #9a82b5;">Layer 1</span>
+                            </div>
+                            <p class="text-[0.8rem] text-stone-500" style="margin-bottom: 0.7rem; line-height: 1.55;">What the model sees for a single call. The system from the context engineering article sits here unchanged.</p>
+
+                            <div class="rounded-t-lg px-4 py-2.5" style="background: #f6f4f9; border: 1px solid #d9d1e5;">
+                                <div class="flex items-center justify-between">
+                                    <span class="source-serif text-[0.95rem] text-stone-900">Sensemaking</span>
+                                    <span class="text-[0.75rem] text-stone-500">Patterns, conclusions, strategy</span>
+                                </div>
+                            </div>
+                            <div class="px-4 py-2.5" style="background: #ece8f2; border-left: 1px solid #d9d1e5; border-right: 1px solid #d9d1e5;">
+                                <div class="flex items-center justify-between">
+                                    <span class="source-serif text-[0.95rem] text-stone-900">Identity</span>
+                                    <span class="text-[0.75rem] text-stone-500">Role, projects, own work</span>
+                                </div>
+                            </div>
+                            <div class="rounded-b-lg px-4 py-2.5" style="background: #d9d1e5; border: 1px solid #c9bcdf; border-top: none;">
+                                <div class="flex items-center justify-between">
+                                    <span class="source-serif text-[0.95rem] text-stone-900">Knowledge</span>
+                                    <span class="text-[0.75rem] text-stone-600">Methods, frameworks, sources</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="font-mono text-[0.6rem] tracking-wide text-stone-400" style="margin-top: 0.75rem; margin-bottom: 0; line-height: 1.4;">Tools&nbsp;&middot;&nbsp;Permissions&nbsp;&middot;&nbsp;Sandbox&nbsp;&middot;&nbsp;Memory&nbsp;&middot;&nbsp;Checks</p>
+                    </div>
+
+                    <p class="font-mono text-[0.6rem] tracking-wide text-stone-400" style="margin-top: 0.75rem; margin-bottom: 0; line-height: 1.4;">Trigger&nbsp;&middot;&nbsp;Repetition&nbsp;&middot;&nbsp;Budget&nbsp;&middot;&nbsp;Verification&nbsp;&middot;&nbsp;Stop</p>
+                </div>
+
+                <p class="text-[0.78rem] text-stone-500" style="margin-top: 0.75rem; margin-bottom: 0; line-height: 1.6;">The three knowledge layers and their rulebook from <a href="/blog/context-engineering-geschichtetes-wissen.html" class="underline hover:text-stone-900" style="color: #6b5691;">the context engineering article</a> sit entirely on layer 1. Harness and loop wrap around them without changing anything inside. That is why every outer layer inherits the weaknesses of the inner one.</p>
+            </div>
+            <!-- ══ /ENTFERNBAR: ABBILDUNG DREI EBENEN ══ -->
+
+            <h2>Where harness engineering came from and what the term reveals</h2>
+
+            <p>Harness engineering did not come from a whiteboard. It described a habit. In early 2026 Mitchell Hashimoto wrote down a stage of his own AI use where he no longer fixes an agent's mistake but builds a safeguard so that specific mistake does not return.<sup>3</sup> Shortly after, OpenAI reported a project on the same logic, where for months nobody typed code by hand.<sup>4</sup></p>
 
             <p>That origin carries more than a working technique. <strong>A harness grows out of mistakes, not out of a concept.</strong> Planning one in advance means building safeguards against problems you do not have yet. <strong>Every safeguard is an assumption about what the model cannot do alone</strong>, and those assumptions age, because each new model can make a piece of scaffolding redundant.<sup>5</sup> <strong>And the safeguards that work are unspectacular.</strong> Against the typical failure patterns of long running agents, attempting everything at once, declaring themselves finished too early and marking untested work as done, a better model does not help. A machine readable requirements list, a progress file and a fixed starting point do.<sup>6</sup></p>
 
@@ -445,6 +648,8 @@
             <p>The three layers say where a problem sits. They do not yet say what fills them. That gap is what an approach called <strong>spec-driven development</strong> has been working on since 2025. It reverses the usual order: a specification comes before the build, and it is not a draft of the truth but the truth itself. GitHub frames the shift as moving from "code is the source of truth" to "intent is the source of truth".<sup>8</sup> Birgitta Böckeler sharpens the artefact: a structured, behaviour oriented document in natural language that human and agent share as a reference point.<sup>9</sup> Such a specification widens the space an agent can work in alone, because it describes what should hold rather than how it gets built. Kief Morris calls the workable stance "on the loop": not signing off each output individually, but building the checks every output has to survive.<sup>10</sup></p>
 
             <p>Which closes the circle back to the harness layer. A specification is frame and yardstick at once: it states beforehand what should hold and supplies afterwards the criterion a result may fail against. Autonomy therefore does not come from permitting an agent more. It comes from settling up front what its result is measured against. Anyone who cannot state a checkable acceptance condition cannot delegate. What is new is how fast that costs you when nobody at the other end pauses to ask.</p>
+
+            <p>This article deliberately stops at the principle. How that turns into practice, what such a specification looks like in day to day product work, which fields carry it and how you translate it into work packages an agent can handle alone, is what part two of this series takes on.</p>
 
             <!-- ══ KEY INSIGHT QUOTE ══ -->
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
@@ -549,7 +754,7 @@
         <!-- ======== PART 2 TEASER ======== -->
         <div class="my-8 py-5 px-6 rounded-lg" style="background: #f2f7f4;">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #476f5b;">Part 2</p>
-            <p class="text-[0.9rem] text-stone-700 leading-relaxed mb-0">Part two takes on the specification that fills these layers: the four fields that carry it, why the acceptance condition carries the other three, and where the approach fails in practice.</p>
+            <p class="text-[0.9rem] text-stone-700 leading-relaxed mb-0">Part two turns spec-driven development into a working practice: the four fields that carry a specification, why the acceptance condition carries the other three, how it becomes work packages an agent can take on, and where the approach fails in practice.</p>
         </div>
 
         <!-- ======== BACK ======== -->
@@ -561,6 +766,21 @@
     </div><!-- /site-en -->
 
     <div id="site-footer"></div>
+
+    <!-- ══ ENTFERNBAR MIT DEM EINSTIEGS-PROMPT: Copy-Button ══ -->
+    <script>
+    document.querySelectorAll('.prompt-copy').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var src = document.getElementById(btn.getAttribute('data-copy-target'));
+            if (!src || !navigator.clipboard) return;
+            navigator.clipboard.writeText(src.innerText).then(function () {
+                var label = btn.textContent;
+                btn.textContent = btn.getAttribute('data-copied-label');
+                setTimeout(function () { btn.textContent = label; }, 2000);
+            });
+        });
+    });
+    </script>
 
     <!-- ======== LANGUAGE TOGGLE (controlled by components.js nav) ======== -->
     <script>
