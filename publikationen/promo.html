@@ -96,15 +96,17 @@
                             <p class="font-mono text-[0.65rem] tracking-wider uppercase text-violet-500">Substack Note</p>
                             <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
                         </div>
-                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Seit Anfang 2026 kursieren drei Begriffe nebeneinander, als wären sie Synonyme: Context, Harness und Loop Engineering. Sie meinen drei verschiedene Ebenen, und wer sie nicht trennt, sucht den Fehler an der falschen Stelle.
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Wenn ein KI-Ablauf bei mir nicht das liefert, was ich erwartet hatte, ist der erste Reflex oft, den Prompt umzuschreiben, mehr Agenten drauf zu werfen oder ganz viel nachträglich zu korrigieren. Inzwischen schaue ich vorher, wo es überhaupt klemmt.
 
-Context ist die unterste Ebene: was ein Modell für einen einzelnen Aufruf sieht. Das Harness sitzt darüber und beschreibt die Umgebung eines Agenten, also Werkzeuge, Rechte, Sandbox, Gedächtnis und die Prüfungen, an denen ein Ergebnis scheitern darf. Der Loop sitzt ganz oben und beschreibt, wer den Agenten wiederholt anstößt, die Ergebnisse verifiziert und den Zustand weiterträgt.
+Meistens ist es eine von drei Stellen:
 
-Jede Ebene erbt die Schwächen der darunterliegenden. Ein Loop, der ein lückenhaftes Harness immer wieder aufruft, macht den Fehler nicht kleiner, sondern nur schneller.
+1. Das Modell sieht für den einzelnen Aufruf nicht das Richtige, dann liegt es am Context.
+2. Es liefert etwas, das an meinen Standards vorbeigeht, ohne das selbst zu merken, dann liegt es an der Umgebung drumherum: Werkzeuge, Rechte, Prüfungen.
+3. Ich habe die Aufgabe und das erwartete Ergebnis nicht ausreichend spezifiziert.
 
-Der Grund, warum das Produktarbeit ist und keine Implementierungsfrage: Auf der Context-Ebene wird ein endliches Aufmerksamkeitsbudget verteilt, das ist Priorisierung unter Knappheit. Auf der Harness-Ebene legt der Zuschnitt der Werkzeuge fest, welche Aufgaben überhaupt in Reichweite liegen, das ist eine Scope-Entscheidung. Auf der Loop-Ebene entscheidet die Abbruchbedingung, ob ein autonomes System entsteht oder ein unbeaufsichtigter Kostenposten.
+Wenn das Setup von Anfang an sauber ist, spare ich bei der Verifikation des Ergebnisses Zeit. Ich habe versucht aufzuschreiben, woran es liegt. Wie stellt ihr sicher, dass ihr mit KI als Werkzeug das Ergebnis bekommt, das ihr erwartet?
 
-Im Artikel steht ein Prompt, mit dem sich das eigene Setup auf die drei Ebenen prüfen lässt, samt einer Optimierung für die schwächste davon: linja.me/blog/harness-engineering-pm</textarea>
+#ProductManagement #KI #AgenticAI</textarea>
                         <div class="channel-actions flex gap-2 mt-2">
                             <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
                                 <span class="copy-label">Copy</span>
@@ -124,29 +126,17 @@ Im Artikel steht ein Prompt, mit dem sich das eigene Setup auf die drei Ebenen p
                             <p class="font-mono text-[0.65rem] tracking-wider uppercase" style="color: #476f5b;">LinkedIn Post</p>
                             <span class="posted-badge font-mono text-[0.6rem] tracking-wider uppercase px-2 py-0.5 rounded items-center hidden" style="background: #e0ede6; color: #476f5b;">Gepostet</span>
                         </div>
-                        <textarea readonly rows="30" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Wenn ein KI-Ablauf nicht liefert, ist die erste Reaktion fast immer dieselbe: am Prompt schrauben.
+                        <textarea readonly rows="16" class="w-full p-3 text-xs font-mono border rounded-lg bg-white leading-relaxed" style="border-color: #E5E2DB;">Wenn ein KI-Ablauf bei mir nicht das liefert, was ich erwartet hatte, ist der erste Reflex oft, den Prompt umzuschreiben, mehr Agenten drauf zu werfen oder ganz viel nachträglich zu korrigieren. Inzwischen schaue ich vorher, wo es überhaupt klemmt.
 
-Meistens sitzt das Problem woanders. Seit Anfang 2026 haben sich drei Begriffe etabliert, die nebeneinander benutzt werden, obwohl sie verschiedene Ebenen meinen.
+Meistens ist es eine von drei Stellen:
 
-Context Engineering ist die unterste Ebene. Sie legt fest, was ein Modell für einen einzelnen Aufruf sieht: ausgewählte Dokumente, Beispiele, Regeln, Verlauf.
+1. Das Modell sieht für den einzelnen Aufruf nicht das Richtige, dann liegt es am Context.
+2. Es liefert etwas, das an meinen Standards vorbeigeht, ohne das selbst zu merken, dann liegt es an der Umgebung drumherum: Werkzeuge, Rechte, Prüfungen.
+3. Ich habe die Aufgabe und das erwartete Ergebnis nicht ausreichend spezifiziert.
 
-Harness Engineering sitzt darüber und beschreibt die Umgebung eines Agenten. Systemprompt, Werkzeuge, Skills, Sandbox, Rechte, Gedächtnis und die Prüfungen, an denen ein Ergebnis scheitern kann.
+Wenn das Setup von Anfang an sauber ist, spare ich bei der Verifikation des Ergebnisses Zeit. Ich habe versucht aufzuschreiben, woran es liegt. Wie stellt ihr sicher, dass ihr mit KI als Werkzeug das Ergebnis bekommt, das ihr erwartet?
 
-Loop Engineering sitzt ganz oben. Es beschreibt das System, das einen Agenten wiederholt anstößt, Helfer startet, Ergebnisse verifiziert und den Zustand weiterträgt, ohne dass ein Mensch Zug um Zug promptet.
-
-Die Reihenfolge ist keine Geschmacksfrage. Jede Ebene erbt die Schwächen der darunterliegenden.
-
-Praktisch heißt das für die Fehlersuche: Ein Agent, der schon bei einer einzelnen Aufgabe daneben liegt, hat ein Context-Problem. Keine Prüfschleife der Welt repariert das. Ein Agent, der liefert und dabei Standards verfehlt, ohne es zu merken, hat ein Harness-Problem. Ein Ablauf, den jemand jedes Mal von Hand starten muss, hat ein Loop-Problem. Drei Ebenen, drei Budgets, drei Zuständigkeiten.
-
-Was mich daran als Produktmanagerin interessiert: Das sind keine Implementierungsdetails. Auf der Context-Ebene wird ein endliches Aufmerksamkeitsbudget verteilt, also priorisiert. Der Zuschnitt der Werkzeuge legt fest, welche Aufgaben überhaupt in Reichweite liegen, also der Scope. Und die Abbruchbedingung entscheidet, ob ein Loop ein autonomes System ist oder ein unbeaufsichtigter Kostenposten.
-
-Zur Ehrlichkeit gehört: Das Vokabular ist Monate alt und nicht gesetzt. Ein Teil der Belege stammt von Anbietern über ihre eigenen Werkzeuge. Und Osmani selbst warnt vor dem Loop, der unbeaufsichtigt Fehler macht. Das ordne ich im Artikel ein.
-
-Im Artikel steht auch ein Prompt, mit dem du dein eigenes Setup auf die drei Ebenen prüfen kannst.
-
-linja.me/blog/harness-engineering-pm
-
-#ProductManagement #KI #AgenticAI #ContextEngineering</textarea>
+#ProductManagement #KI #AgenticAI</textarea>
                         <div class="channel-actions flex gap-2 mt-2">
                             <button onclick="copyChannel(this)" class="flex-1 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium py-2 px-3 rounded-lg transition-all">
                                 <span class="copy-label">Copy</span>
