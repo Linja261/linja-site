@@ -27,6 +27,22 @@
         .lang-hidden { display: none !important; }
         #mobile-menu { display: none; }
         #mobile-menu.open { display: block; }
+        /* Flag-Filter: Ruhezustand neutral, Aktivzustand in der Familienfarbe.
+           Thema = Stein (dunkel), Format = Brand-Violett. Siehe Blog_Pflege.md, Abschnitt "Flags". */
+        .flag-filterbar { flex-wrap: wrap; }
+        .flag-filter { background: #FAFAF8; color: #78716c; border: 1px solid #e5e2db; cursor: pointer; }
+        .flag-filter:hover { background: var(--flag-bg, #F5F3EF); color: var(--flag-fg, #44403c); border-color: var(--flag-bg, #F5F3EF); }
+        .flag-filter.is-active { background: var(--flag-active-bg, #44403c); color: #FAFAF8; border-color: transparent; }
+        .flag-filter:focus-visible { outline: 2px solid #7b6ba5; outline-offset: 2px; }
+        .flag-trenner { width: 1px; height: 1.1rem; background: #e5e2db; margin: 0 0.15rem; }
+        .blog-card[hidden] { display: none !important; }
+        /* Mobil: eine scrollbare Zeile statt vier Button-Reihen ueber dem ersten Artikel. */
+        @media (max-width: 639px) {
+            .flag-filterbar { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+            .flag-filterbar::-webkit-scrollbar { display: none; }
+            .flag-filter { white-space: nowrap; flex: 0 0 auto; }
+            .flag-trenner { flex: 0 0 auto; }
+        }
     </style>
 </head>
 
@@ -47,10 +63,26 @@
             <a href="glossar.html" class="inline-block mt-4 text-[0.78rem] hover:text-stone-800 transition-colors" style="color: #472E56;">Glossar &rarr;</a>
         </header>
 
+                <div class="flag-filterbar flex items-center gap-2 mb-8 pb-6" style="border-bottom: 1px solid #e5e2db;">
+                <button type="button" class="flag-filter is-active text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="alle">Alle</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="ki" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">KI</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="product-management" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Product Management</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="methodik" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Methodik</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="wissensarbeit" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Wissensarbeit</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="organisation" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Organisation</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="strategie" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Strategie</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="gesundheit" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Gesundheit</button>
+                <span class="flag-trenner" aria-hidden="true"></span>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="einordnung" style="--flag-bg: #ece8f2; --flag-fg: #6b5691; --flag-active-bg: #6b5691;">Einordnung</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="experiment" style="--flag-bg: #ece8f2; --flag-fg: #6b5691; --flag-active-bg: #6b5691;">Experiment</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="meinung" style="--flag-bg: #ece8f2; --flag-fg: #6b5691; --flag-active-bg: #6b5691;">Meinung</button>
+        </div>
+        <p class="flag-empty text-[0.88rem] text-stone-500 py-8" hidden>Keine Artikel mit dieser Kombination.</p>
         <section class="pb-20">
-            <a href="blog/harness-engineering-pm.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+            <a href="blog/harness-engineering-pm.html" data-flags="ki product-management" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.72rem] text-stone-400">4. September 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 8 Min</span>
                 </div>
@@ -61,9 +93,11 @@
                     Context, Harness und Loop Engineering sind keine Synonyme, sondern drei aufeinander aufbauende Ebenen. Jede erbt die Schw&auml;chen der darunterliegenden, und alle drei enthalten Entscheidungen, die auf den Produkttisch geh&ouml;ren. Mit Selbsttest-Prompt f&uuml;r das eigene Setup.
                 </p>
             </a>
-            <a href="blog/muehe-ist-kein-wertmasstab.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Produktarbeit</span>
+            <a href="blog/muehe-ist-kein-wertmasstab.html" data-flags="ki product-management meinung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Meinung</span>
                     <span class="text-[0.72rem] text-stone-400">26. August 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
                 </div>
@@ -74,9 +108,10 @@
                     Dieselbe Arbeit wird unterschiedlich bewertet, je nachdem welche Entstehungsgeschichte ihr zugeschrieben wird. Gute Produktarbeit erzeugt Abwesenheit, und Abwesenheit l&auml;sst sich schlecht in Rechnung stellen. Eine Einordnung von Richard Jungs These, samt Pr&uuml;fung der Belege.
                 </p>
             </a>
-            <a href="blog/prototyping-pm.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/prototyping-pm.html" data-flags="product-management methodik" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
                     <span class="text-[0.72rem] text-stone-400">9. Juli 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 5 Min</span>
                 </div>
@@ -87,9 +122,11 @@
                     Mit KI-Tools kann jede PM heute Prototypen bauen. Der eigentliche Wert liegt nicht im Bauen, sondern in Hypothese, Framing und Scope. Gezeigt an mamabande, einem Produkt, das ich von der ersten Hypothese bis zum Go-to-Market selbst gebaut habe.
                 </p>
             </a>
-            <a href="blog/ki-aufdecker-statt-ersatz.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Strategie</span>
+            <a href="blog/ki-aufdecker-statt-ersatz.html" data-flags="ki strategie einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Strategie</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Einordnung</span>
                     <span class="text-[0.72rem] text-stone-400">6. Juli 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
                 </div>
@@ -100,9 +137,10 @@
                     Wie IKEA aus dem Billie-Chatbot einen Milliardenkanal machte. Drei aufeinander aufbauende Stufen, mit denen Unternehmen freigesetztes Potenzial heben: aufdecken, umbauen, bef&auml;higen.
                 </p>
             </a>
-            <a href="blog/context-engineering-geschichtetes-wissen.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Wissensarbeit</span>
+            <a href="blog/context-engineering-geschichtetes-wissen.html" data-flags="ki wissensarbeit" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Wissensarbeit</span>
                     <span class="text-[0.72rem] text-stone-400">30. Juni 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
                 </div>
@@ -113,9 +151,11 @@
                     Nicht wie man fragt entscheidet, sondern was man der KI mitgibt. Drei Wissensschichten in einem System-Rahmen, mit dem ich die drei Ged&auml;chtnisse der KI gezielt bediene und belastbaren Output bekomme.
                 </p>
             </a>
-            <a href="blog/denkmodelle-hinter-ki-kontext.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Wissensarbeit</span>
+            <a href="blog/denkmodelle-hinter-ki-kontext.html" data-flags="ki wissensarbeit einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Wissensarbeit</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Einordnung</span>
                     <span class="text-[0.72rem] text-stone-400">29. Juni 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 9 Min</span>
                 </div>
@@ -126,9 +166,11 @@
                     Guter Kontext schl&auml;gt jeden Prompt. Sechs etablierte Modelle (DIKW, Polanyi, Weick, Luhmann, Forte, Anthropic) erkl&auml;ren, warum eine geschichtete Wissensbasis die Arbeit mit KI verl&auml;sslich macht.
                 </p>
             </a>
-            <a href="blog/ki-teams-wisdom-stack.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Einordnung</span>
+            <a href="blog/ki-teams-wisdom-stack.html" data-flags="ki organisation einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Organisation</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Einordnung</span>
                     <span class="text-[0.72rem] text-stone-400">25. Juni 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
                 </div>
@@ -139,9 +181,10 @@
                     In kleinen KI-Teams entscheidet Vertrauen mehr &uuml;ber Wirksamkeit als Wissen. Vier trainierbare F&auml;higkeiten und der Mut, sich und andere zu hinterfragen, machen den Unterschied.
                 </p>
             </a>
-            <a href="blog/braucht-ki-pm-ein-backlog-tool.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+            <a href="blog/braucht-ki-pm-ein-backlog-tool.html" data-flags="ki product-management" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.72rem] text-stone-400">11. Juni 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 8 Min</span>
                 </div>
@@ -152,8 +195,9 @@
                     Solo mit KI-Assistent ersetzt ein Ticket-Tool. Sobald mehrere Menschen asynchron arbeiten, kippt die Antwort: dann z&auml;hlen geteilte Artefakte f&uuml;r Alignment und Sichtbarkeit.
                 </p>
             </a>
-            <a href="blog/shape-up-statt-scrum.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/shape-up-statt-scrum.html" data-flags="product-management methodik" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
                     <span class="text-[0.72rem] text-stone-400">25. Mai 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
@@ -165,9 +209,11 @@
                     Sechs-Wochen-Zyklen statt Zwei-Wochen-Sprints. Warum Shape Up genau die Stellen adressiert, an denen Scrum nach 25 Jahren stumpf wird, und was ich davon in meiner eigenen Produktarbeit teste.
                 </p>
             </a>
-            <a href="blog/ki-zeitmanagement.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Gesundheit</span>
+            <a href="blog/ki-zeitmanagement.html" data-flags="ki methodik gesundheit" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Gesundheit</span>
                     <span class="text-[0.72rem] text-stone-400">21. Mai 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
                 </div>
@@ -178,9 +224,11 @@
                     Dasselbe Ger&auml;t lenkt ab und strukturiert. Decision Fatigue, die 23-Minuten-Regel von Gloria Mark, und wie KI als Tagesstruktur-Partner ein ges&uuml;nderes Zeitmanagement f&ouml;rdern kann.
                 </p>
             </a>
-            <a href="blog/storymap-eigenbau.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+            <a href="blog/storymap-eigenbau.html" data-flags="ki product-management experiment" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Experiment</span>
                     <span class="text-[0.72rem] text-stone-400">19. Mai 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
                 </div>
@@ -191,8 +239,9 @@
                     Story-Mapping nach Jeff Patton, aber als eigenes Tool: Hypothesen explizit verkn&uuml;pft, Decision-Log automatisch, MVP-Karten per Klick ins Backlog. Ein Eigenbau mit Claude, der die Session selbst getragen hat.
                 </p>
             </a>
-            <a href="blog/ergebnis-first.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/ergebnis-first.html" data-flags="ki methodik" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
                     <span class="text-[0.72rem] text-stone-400">18. Mai 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
@@ -204,9 +253,10 @@
                     Die meisten Teams bauen von innen nach au&szlig;en. KI dreht das um. Wer am sichtbaren Ergebnis anf&auml;ngt, iteriert schneller und trifft bessere Entscheidungen: Working Backwards, IKEA-Effekt, Dual Coding.
                 </p>
             </a>
-            <a href="blog/ki-agenten-kategorien.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI &amp; Product Management</span>
+            <a href="blog/ki-agenten-kategorien.html" data-flags="ki product-management einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Einordnung</span>
                     <span class="text-[0.72rem] text-stone-400">15. Mai 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
@@ -218,8 +268,8 @@
                     60-70% der Agent-Ideen sind in Wahrheit deterministische Workflows. Ein Framework zur Triage in drei Kategorien und ein Test, was es wirklich im PM-Alltag &auml;ndert.
                 </p>
             </a>
-            <a href="blog/intuition-pm.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/intuition-pm.html" data-flags="product-management" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.72rem] text-stone-400">29. April 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
@@ -231,9 +281,10 @@
                     Intuition ist kein Bauchgef&uuml;hl, sondern komprimierte Erfahrung. Gary Klein nennt es Recognition-Primed Decision Making: trainierbar durch Kundenn&auml;he, Marktbeobachtung, Dogfooding. Wann PMs ihrer Mustererkennung vertrauen d&uuml;rfen.
                 </p>
             </a>
-            <a href="blog/zeigen-statt-erklaeren.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; KI</span>
+            <a href="blog/zeigen-statt-erklaeren.html" data-flags="ki product-management" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.72rem] text-stone-400">27. April 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
                 </div>
@@ -244,9 +295,11 @@
                     Drei Verschiebungen im PM-Alltag: Diskussionen am Prototyp ersetzen Argumente am Whiteboard, Design bleibt Sache der Designer, Regelwerke werden Daueraufgabe. Was bleibt, ist Zuh&ouml;ren.
                 </p>
             </a>
-            <a href="blog/pm-beziehungsarbeit.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/pm-beziehungsarbeit.html" data-flags="ki product-management meinung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Meinung</span>
                     <span class="text-[0.72rem] text-stone-400">22. April 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
                 </div>
@@ -257,9 +310,10 @@
                     KI macht das Bauen schneller, aber kann Beziehungsarbeit nicht ersetzen: Stakeholder-Alignment, gemeinsames Verst&auml;ndnis, Curiosity. Warum PMs im KI-Zeitalter wichtiger werden &mdash; nicht ersetzt.
                 </p>
             </a>
-            <a href="blog/teams-ohne-vertrag.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Organisation &amp; Remote</span>
+            <a href="blog/teams-ohne-vertrag.html" data-flags="ki organisation" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Organisation</span>
                     <span class="text-[0.72rem] text-stone-400">19. April 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
                 </div>
@@ -270,8 +324,9 @@
                     Lose Teams in der KI-Zeit brauchen keine Hierarchie, aber klare Rollen und Rituale. Was KI am Koordinieren &uuml;bernimmt, was menschlich bleibt, und warum sechs leichte Rituale den Arbeitsvertrag ersetzen k&ouml;nnen.
                 </p>
             </a>
-            <a href="blog/design-thinking-ki.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/design-thinking-ki.html" data-flags="ki methodik experiment" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodik</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Experiment</span>
                     <span class="text-[0.72rem] text-stone-400">17. April 2026</span>
@@ -284,9 +339,10 @@
                     Design Thinking braucht normalerweise Tage, ein Team und einen Raum voller Post-its. Mit KI-Co-Creation habe ich den kompletten Zyklus an einem Abend durchlaufen. Was funktioniert, was fehlt, und was PMs daraus f&uuml;r den Alltag mitnehmen k&ouml;nnen.
                 </p>
             </a>
-            <a href="blog/ki-kontext-teilen.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI & Produktivit&auml;t</span>
+            <a href="blog/ki-kontext-teilen.html" data-flags="ki wissensarbeit" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Wissensarbeit</span>
                     <span class="text-[0.72rem] text-stone-400">16. April 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
                 </div>
@@ -297,9 +353,10 @@
                     Kontext und Skills sind die Investition, das Teilen ist die Infrastruktur. Obsidian Sync, Git und die Claude-App im Vergleich &mdash; und warum mein KnowledgeOS einen anderen Weg geht.
                 </p>
             </a>
-            <a href="blog/vibe-coding-ist-produktdenken.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI & Produktivit&auml;t</span>
+            <a href="blog/vibe-coding-ist-produktdenken.html" data-flags="ki product-management einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Einordnung</span>
                     <span class="text-[0.72rem] text-stone-400">3. April 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
@@ -311,9 +368,10 @@
                     Teresa Torres zeigt: Wer mit KI Software baut, braucht keine Code-Kenntnisse, aber Produktdisziplin. Warum Vibe Coding die gleichen Feedback-Loops braucht wie gute Discovery.
                 </p>
             </a>
-            <a href="blog/hierarchie-intelligenz.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI in Organisationen</span>
+            <a href="blog/hierarchie-intelligenz.html" data-flags="ki organisation einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Organisation</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Einordnung</span>
                     <span class="text-[0.72rem] text-stone-400">1. April 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 8 Min</span>
@@ -325,9 +383,10 @@
                     Jack Dorsey und Sequoia beschreiben, wie Block seine Organisation umstellt: von Hierarchie zu KI-gesteuerter Koordination. Was das f&uuml;r Product Management bedeutet.
                 </p>
             </a>
-            <a href="blog/knowledgeos.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI & Produktivität</span>
+            <a href="blog/knowledgeos.html" data-flags="ki wissensarbeit" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Wissensarbeit</span>
                     <span class="text-[0.72rem] text-stone-400">23. März 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 10 Min</span>
                 </div>
@@ -338,9 +397,10 @@
                     Wie ich mit Obsidian, Git und Claude ein persönliches Betriebssystem für mein berufliches Wissen gebaut habe — und wie du dein eigenes an einem Nachmittag starten kannst.
                 </p>
             </a>
-            <a href="blog/ki-routinen.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI & Produktivität</span>
+            <a href="blog/ki-routinen.html" data-flags="ki wissensarbeit" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Wissensarbeit</span>
                     <span class="text-[0.72rem] text-stone-400">26. März 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 Min</span>
                 </div>
@@ -351,9 +411,11 @@
                     Eine KI, die den Wochenplan kennt, Prioritäten prüft und offene Aufgaben verfolgt. Fünf Routinen, die aus einem Chatbot einen echten Arbeitspartner machen.
                 </p>
             </a>
-            <a href="blog/ki-produktivfalle.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI & Produktivität</span>
+            <a href="blog/ki-produktivfalle.html" data-flags="ki wissensarbeit meinung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Wissensarbeit</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Meinung</span>
                     <span class="text-[0.72rem] text-stone-400">9. März 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 Min</span>
                 </div>
@@ -381,10 +443,26 @@
             <a href="glossar.html" class="inline-block mt-4 text-[0.78rem] hover:text-stone-800 transition-colors" style="color: #472E56;">Glossary &rarr;</a>
         </header>
 
+                <div class="flag-filterbar flex items-center gap-2 mb-8 pb-6" style="border-bottom: 1px solid #e5e2db;">
+                <button type="button" class="flag-filter is-active text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="alle">All</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="ki" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">AI</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="product-management" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Product Management</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="methodik" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Methodology</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="wissensarbeit" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Knowledge Work</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="organisation" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Organization</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="strategie" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Strategy</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="gesundheit" style="--flag-bg: #F5F3EF; --flag-fg: #44403c; --flag-active-bg: #44403c;">Health</button>
+                <span class="flag-trenner" aria-hidden="true"></span>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="einordnung" style="--flag-bg: #ece8f2; --flag-fg: #6b5691; --flag-active-bg: #6b5691;">Analysis</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="experiment" style="--flag-bg: #ece8f2; --flag-fg: #6b5691; --flag-active-bg: #6b5691;">Experiment</button>
+                <button type="button" class="flag-filter text-[0.68rem] font-medium px-2.5 py-1 rounded transition-colors" data-filter="meinung" style="--flag-bg: #ece8f2; --flag-fg: #6b5691; --flag-active-bg: #6b5691;">Opinion</button>
+        </div>
+        <p class="flag-empty text-[0.88rem] text-stone-500 py-8" hidden>No articles match this combination.</p>
         <section class="pb-20">
-            <a href="blog/harness-engineering-pm.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; AI</span>
+            <a href="blog/harness-engineering-pm.html" data-flags="ki product-management" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.72rem] text-stone-400">September 4, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 8 min</span>
                 </div>
@@ -395,9 +473,11 @@
                     Context, harness and loop engineering are not synonyms but three layers stacked on each other. Every one inherits the weaknesses of the layer below, and all three hold decisions that belong on the product table. With a self-check prompt for your own setup.
                 </p>
             </a>
-            <a href="blog/muehe-ist-kein-wertmasstab.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Product Work</span>
+            <a href="blog/muehe-ist-kein-wertmasstab.html" data-flags="ki product-management meinung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Opinion</span>
                     <span class="text-[0.72rem] text-stone-400">August 26, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
                 </div>
@@ -408,9 +488,10 @@
                     The same work gets judged differently depending on the origin story attached to it. Good product work produces absence, and absence is hard to bill for. A close look at Richard Jung's argument, including a check of the evidence behind it.
                 </p>
             </a>
-            <a href="blog/prototyping-pm.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/prototyping-pm.html" data-flags="product-management methodik" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodology</span>
                     <span class="text-[0.72rem] text-stone-400">July 9, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 5 min</span>
                 </div>
@@ -421,9 +502,11 @@
                     AI tools let any PM build prototypes today. The real value is not in the building, but in hypothesis, framing and scope. Shown with mamabande, a product I took from the first hypothesis to go-to-market myself.
                 </p>
             </a>
-            <a href="blog/ki-aufdecker-statt-ersatz.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Strategy</span>
+            <a href="blog/ki-aufdecker-statt-ersatz.html" data-flags="ki strategie einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Strategy</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Analysis</span>
                     <span class="text-[0.72rem] text-stone-400">July 6, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
                 </div>
@@ -434,9 +517,10 @@
                     How IKEA turned the Billie chatbot into a billion-euro channel. Three stages that build on each other, letting companies lift the potential automation sets free: reveal, redesign, enable.
                 </p>
             </a>
-            <a href="blog/context-engineering-geschichtetes-wissen.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Knowledge Work</span>
+            <a href="blog/context-engineering-geschichtetes-wissen.html" data-flags="ki wissensarbeit" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Knowledge Work</span>
                     <span class="text-[0.72rem] text-stone-400">June 30, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
                 </div>
@@ -447,9 +531,11 @@
                     What decides quality is not how you ask but what you give the AI to work from. Three knowledge layers in a system frame that lets me serve the AI's three memories on purpose and get output I can stand behind.
                 </p>
             </a>
-            <a href="blog/denkmodelle-hinter-ki-kontext.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Knowledge Work</span>
+            <a href="blog/denkmodelle-hinter-ki-kontext.html" data-flags="ki wissensarbeit einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Knowledge Work</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Analysis</span>
                     <span class="text-[0.72rem] text-stone-400">June 29, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 9 min</span>
                 </div>
@@ -460,9 +546,11 @@
                     Good context beats any prompt. Six established models (DIKW, Polanyi, Weick, Luhmann, Forte, Anthropic) explain why a layered knowledge base makes working with AI reliable.
                 </p>
             </a>
-            <a href="blog/ki-teams-wisdom-stack.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Perspective</span>
+            <a href="blog/ki-teams-wisdom-stack.html" data-flags="ki organisation einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Organization</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Analysis</span>
                     <span class="text-[0.72rem] text-stone-400">June 25, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
                 </div>
@@ -473,9 +561,10 @@
                     In small AI teams, trust decides effectiveness more than knowledge. Four trainable skills, and the courage to question yourself and others, make the difference.
                 </p>
             </a>
-            <a href="blog/braucht-ki-pm-ein-backlog-tool.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; AI</span>
+            <a href="blog/braucht-ki-pm-ein-backlog-tool.html" data-flags="ki product-management" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.72rem] text-stone-400">June 11, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 8 min</span>
                 </div>
@@ -486,8 +575,9 @@
                     Solo with an AI assistant replaces a ticket tool. As soon as several people work asynchronously, the answer flips: then shared artifacts matter for alignment and visibility.
                 </p>
             </a>
-            <a href="blog/shape-up-statt-scrum.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/shape-up-statt-scrum.html" data-flags="product-management methodik" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodology</span>
                     <span class="text-[0.72rem] text-stone-400">May 25, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
@@ -499,9 +589,11 @@
                     Six-week cycles instead of two-week sprints. Why Shape Up targets exactly where Scrum has become dull after 25 years, and what I am testing from it in my own product work.
                 </p>
             </a>
-            <a href="blog/ki-zeitmanagement.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Health</span>
+            <a href="blog/ki-zeitmanagement.html" data-flags="ki methodik gesundheit" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodology</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Health</span>
                     <span class="text-[0.72rem] text-stone-400">May 21, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
                 </div>
@@ -512,9 +604,11 @@
                     The same device distracts and structures. Decision fatigue, Gloria Mark's 23-minute rule, and how AI as a daily structure partner can support healthier time management.
                 </p>
             </a>
-            <a href="blog/storymap-eigenbau.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; AI</span>
+            <a href="blog/storymap-eigenbau.html" data-flags="ki product-management experiment" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Experiment</span>
                     <span class="text-[0.72rem] text-stone-400">May 19, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
                 </div>
@@ -525,8 +619,9 @@
                     Story mapping in Jeff Patton's tradition, but as my own tool: hypotheses explicitly linked, decision log automatic, MVP cards into the backlog with one click. A self-build with Claude that carried the session itself.
                 </p>
             </a>
-            <a href="blog/ergebnis-first.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/ergebnis-first.html" data-flags="ki methodik" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodology</span>
                     <span class="text-[0.72rem] text-stone-400">May 18, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
@@ -538,9 +633,10 @@
                     Most teams build from the inside out. AI flips this around. Starting at the visible result means faster iteration and better decisions: Working Backwards, IKEA effect, dual coding.
                 </p>
             </a>
-            <a href="blog/ki-agenten-kategorien.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Product Management</span>
+            <a href="blog/ki-agenten-kategorien.html" data-flags="ki product-management einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Analysis</span>
                     <span class="text-[0.72rem] text-stone-400">May 15, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
@@ -552,8 +648,8 @@
                     60-70% of agent ideas are really deterministic workflows. A framework to triage them into three categories, and a test for what actually changes in daily PM work.
                 </p>
             </a>
-            <a href="blog/intuition-pm.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/intuition-pm.html" data-flags="product-management" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.72rem] text-stone-400">April 29, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
@@ -565,9 +661,10 @@
                     Intuition is not a hunch. It is compressed experience. Gary Klein calls it Recognition-Primed Decision Making: trainable through customer proximity, market observation, dogfooding. When PMs can trust their pattern recognition.
                 </p>
             </a>
-            <a href="blog/zeigen-statt-erklaeren.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">PM &amp; AI</span>
+            <a href="blog/zeigen-statt-erklaeren.html" data-flags="ki product-management" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.72rem] text-stone-400">April 27, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
                 </div>
@@ -578,9 +675,11 @@
                     Three shifts in a PM's day: discussions at a prototype replace arguments at a whiteboard, design stays the designers' craft, rule sets turn into ongoing work. What stays is listening.
                 </p>
             </a>
-            <a href="blog/pm-beziehungsarbeit.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/pm-beziehungsarbeit.html" data-flags="ki product-management meinung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Opinion</span>
                     <span class="text-[0.72rem] text-stone-400">April 22, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
                 </div>
@@ -591,9 +690,10 @@
                     AI makes building faster, but it cannot replace relationship work: stakeholder alignment, shared understanding, curiosity. Why PMs become more important in the AI age, not replaced.
                 </p>
             </a>
-            <a href="blog/teams-ohne-vertrag.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Organization &amp; Remote</span>
+            <a href="blog/teams-ohne-vertrag.html" data-flags="ki organisation" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Organization</span>
                     <span class="text-[0.72rem] text-stone-400">April 19, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
                 </div>
@@ -604,8 +704,9 @@
                     Loose teams in the AI age do not need hierarchy, but clear roles and rituals. What AI takes over in coordination, what stays human, and why six light rituals can replace the employment contract.
                 </p>
             </a>
-            <a href="blog/design-thinking-ki.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
+            <a href="blog/design-thinking-ki.html" data-flags="ki methodik experiment" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Methodology</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Experiment</span>
                     <span class="text-[0.72rem] text-stone-400">April 17, 2026</span>
@@ -618,9 +719,10 @@
                     Design thinking normally needs days, a team, and a room full of Post-its. With AI co-creation I ran the full cycle in a single evening. What works, what is missing, and what PMs can take into their daily practice.
                 </p>
             </a>
-            <a href="blog/ki-kontext-teilen.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Productivity</span>
+            <a href="blog/ki-kontext-teilen.html" data-flags="ki wissensarbeit" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Knowledge Work</span>
                     <span class="text-[0.72rem] text-stone-400">April 16, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
                 </div>
@@ -631,9 +733,10 @@
                     Context and skills are the investment, sharing them is the infrastructure. Obsidian Sync, Git, and the Claude app compared, and why my KnowledgeOS takes a different path.
                 </p>
             </a>
-            <a href="blog/vibe-coding-ist-produktdenken.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI &amp; Productivity</span>
+            <a href="blog/vibe-coding-ist-produktdenken.html" data-flags="ki product-management einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Analysis</span>
                     <span class="text-[0.72rem] text-stone-400">April 3, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
@@ -645,9 +748,10 @@
                     Teresa Torres shows: building software with AI doesn't require coding skills, but product discipline. Why vibe coding needs the same feedback loops as good discovery.
                 </p>
             </a>
-            <a href="blog/hierarchie-intelligenz.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI in Organizations</span>
+            <a href="blog/hierarchie-intelligenz.html" data-flags="ki organisation einordnung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Organization</span>
                     <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Analysis</span>
                     <span class="text-[0.72rem] text-stone-400">April 1, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 8 min</span>
@@ -659,9 +763,10 @@
                     Jack Dorsey and Sequoia describe how Block is restructuring: from hierarchy to AI-driven coordination. What this means for product management.
                 </p>
             </a>
-            <a href="blog/knowledgeos.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI & Productivity</span>
+            <a href="blog/knowledgeos.html" data-flags="ki wissensarbeit" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Knowledge Work</span>
                     <span class="text-[0.72rem] text-stone-400">March 23, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 10 min</span>
                 </div>
@@ -672,9 +777,10 @@
                     How I built a personal operating system for professional knowledge with Obsidian, Git, and Claude — and how you can start your own in an afternoon.
                 </p>
             </a>
-            <a href="blog/ki-routinen.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI & Productivity</span>
+            <a href="blog/ki-routinen.html" data-flags="ki wissensarbeit" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Knowledge Work</span>
                     <span class="text-[0.72rem] text-stone-400">March 26, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 6 min</span>
                 </div>
@@ -685,9 +791,11 @@
                     An AI that knows your weekly plan, checks priorities, and tracks open tasks. Five routines that turn a chatbot into a real work partner.
                 </p>
             </a>
-            <a href="blog/ki-produktivfalle.html" class="block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI & Productivity</span>
+            <a href="blog/ki-produktivfalle.html" data-flags="ki wissensarbeit meinung" class="blog-card block group -mx-4 px-4 py-6 rounded-lg hover:bg-white transition-colors" style="border-bottom: 1px solid #e5e2db;">
+                <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-2">
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Knowledge Work</span>
+                    <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Opinion</span>
                     <span class="text-[0.72rem] text-stone-400">March 9, 2026</span>
                     <span class="text-[0.72rem] text-stone-400">&middot; 7 min</span>
                 </div>
@@ -702,6 +810,31 @@
 
     </div>
     </div><!-- /site-en -->
+
+
+    <!-- ======== FLAG-FILTER (DE + EN, je Section unabhaengig) ======== -->
+    <script>
+        document.querySelectorAll('.flag-filterbar').forEach(function (bar) {
+            var wrap = bar.parentElement;
+            var karten = wrap.querySelectorAll('.blog-card');
+            var leer = wrap.querySelector('.flag-empty');
+            bar.addEventListener('click', function (e) {
+                var btn = e.target.closest('.flag-filter');
+                if (!btn) return;
+                var f = btn.dataset.filter;
+                bar.querySelectorAll('.flag-filter').forEach(function (b) {
+                    b.classList.toggle('is-active', b === btn);
+                });
+                var treffer = 0;
+                karten.forEach(function (k) {
+                    var passt = f === 'alle' || (k.dataset.flags || '').split(' ').indexOf(f) > -1;
+                    k.hidden = !passt;
+                    if (passt) treffer++;
+                });
+                if (leer) leer.hidden = treffer > 0;
+            });
+        });
+    </script>
 
     <div id="site-footer"></div>
 
