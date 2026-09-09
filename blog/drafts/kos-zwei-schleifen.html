@@ -88,7 +88,7 @@
         <article class="prose pb-12">
 
             <!-- BLOCK 1: KERNBOTSCHAFT + PROBLEM -->
-            <p>Vor drei Monaten habe ich angefangen, meine Zusammenarbeit mit einer KI systematisch zu trainieren, über gespeicherte Fakten, Regeln und kleine Workflows. Es funktioniert gut. Aber es hat eine blinde Stelle. Alles, was im Speicher steht, musste ich vorher aussprechen. Die Dinge, die ich nie ausspreche, wie ich Sätze anfange, welche Formate ich kommentarlos wegklicke, wann ich knapp werde, tauchen dort nie auf. Also trainiert sich die Assistenz auf der halben Datenmenge. Ein persönliches Wissenssystem speichert nämlich zwei verschiedene Dinge: was ich weiß und wie ich arbeite. Das Erste ist einfach. Das Zweite ist die eigentliche Arbeit. Lange hat mir dafür eine Materialquelle gefehlt, aus der sich das Zweite überhaupt ablesen lässt.</p>
+            <p>Seitdem ich meine KI systematisch trainiere, optimiere ich laufend Fakten, Regeln und Systeme. Im Resultat führt das zu starken Ergebnissen. Aber es hat eine blinde Stelle: Alles, was im Speicher steht, musste ich explizit festlegen, proaktiv analysieren, optimieren. Dinge, die ich nie ausspreche, tauchen dort nie auf. Das könnten Verhaltensmuster sein wie Formate, die ich ständig wegklicke oder die Art, wie ich Sätze anfange. Unbewusste Muster, die ich der KI nicht proaktiv mitgebe. Und somit nur aus der halben Datenmenge meines täglichen Verhaltens Regeln formuliere. Aber für ein starkes, persönliches Wissenssystem brauche ich nicht nur Erkenntnisse, was ich weiß. Sondern auch, wie ich arbeite. Das Erste ist einfacher, weil ich es explizit formulieren muss, damit das System sauber funktioniert. Das Zweite ist die eigentliche Arbeit, denn das Wissen liegt versteckt in meinen gewohnten Verhaltensmustern. Lange hat mir dafür eine Materialquelle gefehlt, aus der sich das Zweite überhaupt ablesen lässt.</p>
 
             <!-- BLOCK 2: FUNDIERUNG -->
             <h2>Zwei Sorten Wissen, nur eine landet im Speicher</h2>
@@ -116,6 +116,8 @@
 
             <p>Gegen diesen Maßstab sieht mein eigenes System einseitig aus. Es besteht aus 16 Workflow-Commands, 15 Regelwerken und einer Steuerdatei, zusammen rund 12.500 Wörter. Alles davon habe ich geschrieben. Genau eine Routine liest aus der gelebten Praxis zurück und sie läuft zwölfmal im Jahr gegen etwa 250 Arbeitstage. Ich pflege das System, das System pflegt sich nicht.</p>
 
+            <p>Damit ändert sich, was die implizite Schleife überhaupt tut. Sie durchsucht nicht mehr Gesprächsverläufe nach etwas, das nach Muster aussieht, sondern vergleicht zwei Fassungen desselben Textes, von denen eine nachweislich getragen hat. Aus einer Suche wird ein Abgleich und aus einer Vermutung über mich eine belegbare Differenz. Genau das ist die Version, die ich haben will: keine KI, die Hypothesen über meinen Arbeitsstil aufstellt, sondern eine Routine, die eine tatsächlich stattgefundene Korrektur auswertet und mir das Ergebnis zur Entscheidung vorlegt.</p>
+
             <!-- KERNERKENNTNIS-QUOTE -->
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
                 <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
@@ -126,7 +128,26 @@
             <!-- BLOCK 3: KRITISCHE EINORDNUNG -->
             <h2>Kritische Einordnung</h2>
 
-            <p>Vier Vorbehalte gehören dazu. Erstens der Beobachter-Bias: Ein Agent, der nach Mustern sucht, findet welche. Ob sie echt sind, zeigt erst die Bestätigung. Deshalb die harte Regel, nur zu übernehmen, was ich selbst bestätige, niemals automatisch zu speichern. Zweitens der Survivor-Bias: Nicht jede Session ist gleich aussagekräftig. Ob das Mining sinnvoll gewichtet, bleibt offen. Drittens der Meta-Overhead: Jede Review-Schleife kostet Zeit. Wenn der Retro monatlich länger als dreißig Minuten dauert, zahlt er sich vermutlich nicht aus. Viertens die Übertragbarkeit: Das hier ist Solo-Arbeit. Im Team verschwimmen implizite Muster, weil mehrere Menschen dieselbe KI unterschiedlich prägen.</p>
+            <p>Vier Vorbehalte gehören dazu.</p>
+
+            <div class="my-8 space-y-5">
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">1</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Beobachter-Bias.</span> Ein Agent, der nach Mustern sucht, findet welche. Ob sie echt sind, zeigt erst die Bestätigung. Deshalb die harte Regel, nur zu übernehmen, was ich selbst bestätige, niemals automatisch zu speichern.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Survivor-Bias.</span> Nicht jede Session ist gleich aussagekräftig. Ob das Mining sinnvoll gewichtet, bleibt offen.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Meta-Overhead.</span> Jede Review-Schleife kostet Zeit. Wenn der Retro monatlich länger als dreißig Minuten dauert, zahlt er sich vermutlich nicht aus.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">4</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Übertragbarkeit.</span> Das hier ist Solo-Arbeit. Im Team verschwimmen implizite Muster, weil mehrere Menschen dieselbe KI unterschiedlich prägen.</p>
+                </div>
+            </div>
 
             <p>Zu Blums Aufbau kommen eigene Vorbehalte. Seine Zahlen sind Selbstauskunft: Für die 70 bis 80 Prozent seines Arbeitstages nennt die Folge keine Messmethode und keinen Ausgangswert. Und sein System hängt an den Werkzeugen seines Arbeitgebers. Wer privat arbeitet, hat diese Anbindung nicht und sollte sie auch nicht herstellen, denn Firmendaten gehören nicht in eine private Umgebung. Übertragbar ist die Mechanik, nicht die Datenlage. Bleibt der unangenehmste Einwand: Ein System, das aus meinen Korrekturen lernt, übernimmt auch meine Inkonsistenzen. Nicht jede Änderung an einem Entwurf ist eine Verbesserung, manche ist Tagesform.</p>
 
@@ -143,7 +164,22 @@
 
             <p>Ob der Workflow echte Muster findet oder nur Rauschen produziert, muss sich erst zeigen. Genau das ist der Punkt eines Experiments: Ich behaupte nicht, dass es funktioniert. Ich baue es so, dass ich es sehe, wenn es nicht funktioniert.</p>
 
-            <p>Dazu kommen zwei kleinere Experimente aus Blums Aufbau. <strong>Die Diff-Notiz:</strong> Wenn ich einen Entwurf überarbeite, halte ich in einem Satz fest, was ich geändert habe und warum. Der Freitags-Review sammelt diese Sätze ein, nicht um sie zu lesen, sondern um nach vier Wochen zu sehen, welche Korrektur sich wiederholt. <strong>Die gemeldete Lücke:</strong> Im Morgen-Check-in soll die KI drei Begriffe oder Vorhaben nennen, die sie nicht einordnen kann, statt sie stillschweigend zu überspringen. Beides ist ungetestet. Ich will wissen, ob die Fragen echte Lücken treffen oder nur Rauschen erzeugen.</p>
+            <p>Dazu kommen zwei kleinere Experimente aus Blums Aufbau.</p>
+
+            <div class="my-8 space-y-4">
+                <div class="p-5 rounded-lg bg-white border" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #9a82b5; margin-bottom: 0.4rem;">Experiment 1</p>
+                    <p class="source-serif text-[1.02rem] text-stone-900" style="margin-bottom: 0.5rem;">Die Diff-Notiz</p>
+                    <p class="text-[0.88rem] text-stone-600" style="margin-bottom: 0; line-height: 1.65;">Wenn ich einen Entwurf überarbeite, halte ich in einem Satz fest, was ich geändert habe und warum. Der Freitags-Review sammelt diese Sätze ein, nicht um sie zu lesen, sondern um nach vier Wochen zu sehen, welche Korrektur sich wiederholt.</p>
+                </div>
+                <div class="p-5 rounded-lg bg-white border" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #9a82b5; margin-bottom: 0.4rem;">Experiment 2</p>
+                    <p class="source-serif text-[1.02rem] text-stone-900" style="margin-bottom: 0.5rem;">Die gemeldete Lücke</p>
+                    <p class="text-[0.88rem] text-stone-600" style="margin-bottom: 0; line-height: 1.65;">Im Morgen-Check-in soll die KI drei Begriffe oder Vorhaben nennen, die sie nicht einordnen kann, statt sie stillschweigend zu überspringen. Eine gemeldete Lücke kostet eine Rückfrage, eine geratene kostet einen Entwurf.</p>
+                </div>
+            </div>
+
+            <p>Beides ist ungetestet. Ich will wissen, ob die Fragen echte Lücken treffen oder nur Rauschen erzeugen.</p>
 
             <!-- BLOCK 5: WAS BLEIBT FÜR JEDEN TAG -->
             <div class="my-10">
@@ -235,7 +271,7 @@
 
         <article class="prose pb-12">
 
-            <p>Three months ago I started training my collaboration with an AI in a systematic way, through stored facts, rules, and small workflows. It works well. But it has a blind spot. Everything in memory is something I had to say out loud first. The things I never say, how I start sentences, which formats I dismiss without a word, when I get terse, never show up there. So the assistant trains on half the data. A personal knowledge system stores two different things: what I know and how I work. The first is easy. The second is the actual work. For a long time I had no source of material to read that second half from at all.</p>
+            <p>Ever since I started training my AI systematically, I have been refining facts, rules, and systems. The results are strong. But there is a blind spot: everything sitting in memory is something I had to define explicitly, analyze proactively, optimize. The things I never say out loud never show up there. Those could be behavioral patterns like the formats I dismiss again and again, or the way I start sentences. Unconscious patterns I never hand to the system on my own. Which means I write rules from half the data of my daily behavior. A strong personal knowledge system needs more than what I know. It needs how I work. The first is easier, because I have to state it explicitly for the system to run cleanly. The second is the actual work, because that knowledge sits hidden in my habits. For a long time I had no source of material to read it from at all.</p>
 
             <h2>Two kinds of knowledge, only one lands in memory</h2>
 
@@ -262,6 +298,8 @@
 
             <p>Measured against that, my own system looks one-directional. It consists of 16 workflow commands, 15 rule sets and one steering file, about 12,500 words in total. I wrote all of it. Exactly one routine reads back from lived practice and it runs twelve times a year against roughly 250 working days. I maintain the system, the system does not maintain itself.</p>
 
+            <p>That changes what the implicit loop actually does. It no longer mines conversations for something that looks like a pattern, it compares two versions of the same text, one of which demonstrably held up. A search becomes a comparison and a guess about me becomes a documented difference: not an AI forming hypotheses about how I work, but a routine that evaluates a correction that actually happened.</p>
+
             <!-- QUOTE -->
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; border-left: 3px solid #7b6ba5;">
                 <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
@@ -271,7 +309,26 @@
 
             <h2>A critical look</h2>
 
-            <p>Four caveats belong here. First, observer bias: an agent looking for patterns will find some. Whether they are real only shows in the confirmation. That is why the hard rule is to keep only what I confirm myself, never to save automatically. Second, survivor bias: not every session is equally telling. Whether the mining weights this sensibly stays open. Third, meta overhead: every review loop costs time. If the retro takes more than thirty minutes a month, it probably does not pay off. Fourth, transferability: this is solo work. In a team, implicit patterns blur, because several people shape the same AI in different ways.</p>
+            <p>Four caveats belong here.</p>
+
+            <div class="my-8 space-y-5">
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">1</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Observer bias.</span> An agent looking for patterns will find some. Whether they are real only shows in the confirmation. That is why the hard rule is to keep only what I confirm myself, never to save automatically.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Survivor bias.</span> Not every session is equally telling. Whether the mining weights this sensibly stays open.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Meta overhead.</span> Every review loop costs time. If the retro takes more than thirty minutes a month, it probably does not pay off.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">4</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Transferability.</span> This is solo work. In a team, implicit patterns blur, because several people shape the same AI in different ways.</p>
+                </div>
+            </div>
 
             <p>Blum&#39;s setup brings caveats of its own. His numbers are self-reported: for the 70 to 80 percent of his working day, the episode names no measurement method and no baseline. And his system depends on the tools his employer licenses. Anyone running a private system does not have that connection and should not build one, because company data does not belong in a private environment. What transfers is the mechanism, not the data situation. The most uncomfortable objection remains: a system that learns from my corrections also inherits my inconsistencies. Not every change I make to a draft is an improvement, some of it is just the day I am having.</p>
 
@@ -287,7 +344,22 @@
 
             <p>Whether the workflow finds real patterns or just produces noise has to prove itself. That is the whole point of an experiment: I am not claiming it works. I am building it so I notice when it does not.</p>
 
-            <p>Two smaller experiments come from Blum&#39;s setup. <strong>The diff note:</strong> when I revise a draft, I record in one sentence what I changed and why. The Friday review collects those sentences, not to read them, but to see after four weeks which correction keeps repeating. <strong>The reported gap:</strong> in the morning check-in the AI should name three terms or initiatives it cannot place, instead of skipping them silently. Both are untested. I want to know whether the questions hit real gaps or just produce noise.</p>
+            <p>Two smaller experiments come from Blum&#39;s setup.</p>
+
+            <div class="my-8 space-y-4">
+                <div class="p-5 rounded-lg bg-white border" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #9a82b5; margin-bottom: 0.4rem;">Experiment 1</p>
+                    <p class="source-serif text-[1.02rem] text-stone-900" style="margin-bottom: 0.5rem;">The diff note</p>
+                    <p class="text-[0.88rem] text-stone-600" style="margin-bottom: 0; line-height: 1.65;">When I revise a draft, I record in one sentence what I changed and why. The Friday review collects those sentences, not to read them, but to see after four weeks which correction keeps repeating.</p>
+                </div>
+                <div class="p-5 rounded-lg bg-white border" style="border-color: #E5E2DB;">
+                    <p class="font-mono text-[0.6rem] tracking-wider uppercase" style="color: #9a82b5; margin-bottom: 0.4rem;">Experiment 2</p>
+                    <p class="source-serif text-[1.02rem] text-stone-900" style="margin-bottom: 0.5rem;">The reported gap</p>
+                    <p class="text-[0.88rem] text-stone-600" style="margin-bottom: 0; line-height: 1.65;">In the morning check-in the AI should name three terms or initiatives it cannot place, instead of skipping them silently. A reported gap costs one question, a guessed one costs a draft.</p>
+                </div>
+            </div>
+
+            <p>Both are untested. I want to know whether the questions hit real gaps or just produce noise.</p>
 
             <div class="my-10">
                 <h2>What stays with you every day</h2>
