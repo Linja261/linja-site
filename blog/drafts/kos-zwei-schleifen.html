@@ -137,7 +137,7 @@
                 </div>
                 <div class="flex gap-4 items-start">
                     <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
-                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Survivor-Bias.</span> Nicht jede Session ist gleich aussagekräftig. Ob das Mining sinnvoll gewichtet, bleibt offen.</p>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Survivor-Bias.</span> Nicht jede Session ist gleich aussagekräftig. Ob die Mustersuche sinnvoll gewichtet, bleibt offen.</p>
                 </div>
                 <div class="flex gap-4 items-start">
                     <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
@@ -156,15 +156,24 @@
 
             <p><strong>Reifegrad: Experiment.</strong> Gestartet, Wirkung offen. Ich teste einen monatlichen Session-Retro. Er läuft bewusst im Morgen-Check-in, weil ich da Zeit habe und nicht unter Druck stehe. Drei Schritte:</p>
 
-            <ol>
-                <li><strong>Muster extrahieren.</strong> Ein Sub-Agent liest alte Sessions und sucht nach impliziten Signalen, die nicht im Speicher stehen.</li>
-                <li><strong>Kandidaten zeigen.</strong> Höchstens sieben Muster pro Lauf, jedes mit Beleg. Ich entscheide pro Kandidat: speichern, ergänzen oder verwerfen.</li>
-                <li><strong>Aufräumen.</strong> Sessions, die älter als 30 Tage sind, wandern ins Archiv. Die Liste bleibt übersichtlich.</li>
-            </ol>
+            <div class="my-8 space-y-5">
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">1</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Muster extrahieren.</span> Ein Sub-Agent liest alte Sessions und sucht nach impliziten Signalen, die nicht im Speicher stehen.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Kandidaten zeigen.</span> Höchstens sieben Muster pro Lauf, jedes mit Beleg. Ich entscheide pro Kandidat: speichern, ergänzen oder verwerfen.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Aufräumen.</span> Sessions, die älter als 30 Tage sind, wandern ins Archiv. Die Liste bleibt übersichtlich.</p>
+                </div>
+            </div>
 
             <p>Ob der Workflow echte Muster findet oder nur Rauschen produziert, muss sich erst zeigen. Genau das ist der Punkt eines Experiments: Ich behaupte nicht, dass es funktioniert. Ich baue es so, dass ich es sehe, wenn es nicht funktioniert.</p>
 
-            <p>Dazu kommen zwei kleinere Experimente aus Blums Aufbau.</p>
+            <p>Dazu kommen zwei kleinere Experimente aus Blums Aufbau. Beide sind noch ungetestet. Ich will wissen, ob die Fragen echte Lücken treffen oder nur Rauschen erzeugen.</p>
 
             <div class="my-8 space-y-4">
                 <div class="p-5 rounded-lg bg-white border" style="border-color: #E5E2DB;">
@@ -178,8 +187,6 @@
                     <p class="text-[0.88rem] text-stone-600" style="margin-bottom: 0; line-height: 1.65;">Im Morgen-Check-in soll die KI drei Begriffe oder Vorhaben nennen, die sie nicht einordnen kann, statt sie stillschweigend zu überspringen. Eine gemeldete Lücke kostet eine Rückfrage, eine geratene kostet einen Entwurf.</p>
                 </div>
             </div>
-
-            <p>Beides ist ungetestet. Ich will wissen, ob die Fragen echte Lücken treffen oder nur Rauschen erzeugen.</p>
 
             <!-- BLOCK 5: WAS BLEIBT FÜR JEDEN TAG -->
             <div class="my-10">
@@ -226,6 +233,7 @@
                     <p class="mb-0"><span class="text-stone-700 font-medium">Implizite Schleife</span> <span class="text-stone-400">— Monatliche Mustersuche in alten Sessions durch die KI.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Implizites Feedback</span> <span class="text-stone-400">— Rückmeldung aus dem Arbeitsverhalten (Korrektur, Abbruch), ohne ausgesprochene Bewertung.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Feedback-Telemetrie</span> <span class="text-stone-400">— Protokollieren von Reibungsmomenten in einem Werkzeug, um wiederkehrende Schwachstellen sichtbar zu machen.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Sub-Agent</span> <span class="text-stone-400">— Eigenständiger Arbeitslauf der KI mit klar begrenztem Auftrag, dessen Ergebnis zurück in die Hauptsitzung geht.</span></p>
                 </div>
             </div>
 
@@ -318,7 +326,7 @@
                 </div>
                 <div class="flex gap-4 items-start">
                     <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
-                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Survivor bias.</span> Not every session is equally telling. Whether the mining weights this sensibly stays open.</p>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Survivor bias.</span> Not every session is equally telling. Whether the pattern search weights this sensibly stays open.</p>
                 </div>
                 <div class="flex gap-4 items-start">
                     <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
@@ -336,15 +344,24 @@
 
             <p><strong>Maturity: experiment.</strong> Started, effect open. I am testing a monthly session retro. It runs deliberately in the morning check-in, because that is when I have time and no pressure. Three steps:</p>
 
-            <ol>
-                <li><strong>Extract patterns.</strong> A sub-agent reads old sessions and looks for implicit signals that are not in memory.</li>
-                <li><strong>Present candidates.</strong> At most seven patterns per run, each with evidence. I decide per candidate: save, refine, or discard.</li>
-                <li><strong>Clean up.</strong> Sessions older than 30 days move to the archive. The list stays readable.</li>
-            </ol>
+            <div class="my-8 space-y-5">
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">1</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Extract patterns.</span> A sub-agent reads old sessions and looks for implicit signals that are not in memory.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Present candidates.</span> At most seven patterns per run, each with evidence. I decide per candidate: save, refine, or discard.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Clean up.</span> Sessions older than 30 days move to the archive. The list stays readable.</p>
+                </div>
+            </div>
 
             <p>Whether the workflow finds real patterns or just produces noise has to prove itself. That is the whole point of an experiment: I am not claiming it works. I am building it so I notice when it does not.</p>
 
-            <p>Two smaller experiments come from Blum&#39;s setup.</p>
+            <p>Two smaller experiments come from Blum&#39;s setup. Both are still untested. I want to know whether the questions hit real gaps or just produce noise.</p>
 
             <div class="my-8 space-y-4">
                 <div class="p-5 rounded-lg bg-white border" style="border-color: #E5E2DB;">
@@ -358,8 +375,6 @@
                     <p class="text-[0.88rem] text-stone-600" style="margin-bottom: 0; line-height: 1.65;">In the morning check-in the AI should name three terms or initiatives it cannot place, instead of skipping them silently. A reported gap costs one question, a guessed one costs a draft.</p>
                 </div>
             </div>
-
-            <p>Both are untested. I want to know whether the questions hit real gaps or just produce noise.</p>
 
             <div class="my-10">
                 <h2>What stays with you every day</h2>
@@ -402,6 +417,7 @@
                     <p class="mb-0"><span class="text-stone-700 font-medium">Implicit loop</span> <span class="text-stone-400">— A monthly pattern search through old sessions by the AI.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Implicit feedback</span> <span class="text-stone-400">— Feedback that emerges from working behavior (a correction, an abort), without a stated rating.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Feedback telemetry</span> <span class="text-stone-400">— Logging moments of friction in a tool to make recurring weak spots visible.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Sub-agent</span> <span class="text-stone-400">— A separate AI run with a clearly bounded task whose result feeds back into the main session.</span></p>
                 </div>
             </div>
 
