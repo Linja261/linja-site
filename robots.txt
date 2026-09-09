@@ -1,12 +1,6 @@
 # linja.me
 User-agent: *
 
-# Interne Arbeitsbereiche: nicht indexieren.
+# Entwuerfe: noch nicht veroeffentlicht, deshalb nicht indexieren.
 # Hinweis: Das verhindert Indexierung, keinen Abruf. Nichts Vertrauliches hierher.
-Disallow: /publikationen/
-Disallow: /projekte/
-Disallow: /skills/
-Disallow: /brandkit/
 Disallow: /blog/drafts/
-Disallow: /blog/verworfen/
-Disallow: /ag-service/

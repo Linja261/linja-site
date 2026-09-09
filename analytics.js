@@ -3,7 +3,6 @@
  *
  * Eingebunden über:
  *   - components.js  (alle öffentlichen Seiten + Blog)
- *   - ag-service.js  (MatGrid-Pilot-Mini-Site)
  *   - Direkt-Snippet  (Recht-Seiten, Einzel-Ausreißer)  ->  <script defer src="/analytics.js"></script>
  *
  * Prinzip:
@@ -26,11 +25,8 @@
     // Noch nicht konfiguriert -> nichts laden (Seite bleibt tracking-frei)
     if (WEBSITE_ID.indexOf('__') === 0) return;
 
-    // Interne, nicht indexierte Bereiche nie tracken
-    var INTERN = ['/publikationen/', '/projekte/', '/skills/', '/brandkit/'];
-    for (var i = 0; i < INTERN.length; i++) {
-        if (location.pathname.indexOf(INTERN[i]) === 0) return;
-    }
+    // Nicht veroeffentlichte Entwuerfe nie tracken
+    if (location.pathname.indexOf('/blog/drafts/') === 0) return;
 
     // Respektiere "Do Not Track" und eine lokale Opt-out-Flag
     if (navigator.doNotTrack === '1' || window.doNotTrack === '1') return;
