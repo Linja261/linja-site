@@ -37,11 +37,11 @@ EOF
 ```
 
 Fertig. Ab dann: Daten laufen ein, und im Freitags-Check-out (oder per `/analytics`) baue ich das
-Dashboard unter **linja.me/office/analytics.html** und melde dir die Funnel-Trends.
+Dashboard im geschützten Office (**office.linja.me**) und melde dir die Funnel-Trends.
 
 ## Was getrackt wird
 - **Alle** öffentlichen + versteckten Seiten (Blog, Angebote, ag-service-Pilot, Recht-Seiten).
-- **Ausgenommen:** dein privates `office/`-Cockpit (verfälscht die Zahlen sonst).
+- **Ausgenommen:** das Office. Es liegt seit dem 01.09.2026 nicht mehr unter `linja.me/office`, sondern als eigenes Projekt auf `office.linja.me` und ist damit ohnehin außerhalb dieser Messung.
 - Events: Kontakt-Klicks (Mail/Tel/CTA), Angebots-CTAs, Reader-Audio-Play, DE/EN-Wechsel,
   Artikel-zu-Ende-gelesen (75%), Termin-Buchung, Outbound (LinkedIn/Substack).
 - **Cookieless** → kein Consent-Banner nötig. Datenschutzerklärung ist bereits angepasst.
