@@ -102,7 +102,7 @@
 <body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
 
     <div id="site-nav"></div>
-    <script src="../components.js" data-active="blog" data-bilingual="true"></script>
+    <script src="/components.js" data-active="blog" data-bilingual="true"></script>
 
     <!-- ==================== GERMAN VERSION ==================== -->
     <div id="site-de">
@@ -123,7 +123,10 @@
         </header>
 
         <!-- 90-SEK-AUDIO-PILL (schlank, emerald) — deaktiviert bis MP3 erzeugt ist (ElevenLabs-Abrechnung offen, Stand 25.06.2026). Summary liegt in 16_READER/blog-widget/summary-ki-teams-wisdom-stack.txt; nach Fix: generate-audio.sh laufen lassen und diesen Block einkommentieren.
-        <div class="reader-audio-slot my-4" data-audio-src="audio/ki-teams-wisdom-stack.mp3"></div>
+        <!-- OPTIONAL: 90-SEK-AUDIO-PILL — aktivieren, sobald blog/audio/ki-teams-wisdom-stack.mp3 existiert.
+         Bis dahin auskommentiert, sonst rendert eine Pille, die auf eine 404 zeigt.
+    <div class="reader-audio-slot my-4" data-audio-src="/blog/audio/ki-teams-wisdom-stack.mp3"></div>
+    -->
         -->
 
         <!-- TL;DR -->
