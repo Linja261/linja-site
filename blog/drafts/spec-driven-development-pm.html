@@ -162,7 +162,7 @@
         <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
             <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
-                Kontext, Harness und Loop sagen, wo ein Problem sitzt. Womit man sie füllt, sagt die Spezifikation. Spec-Driven Development macht sie zur verbindlichen Quelle statt zur Vorstufe, und der wirksame Teil daran ist nicht die Beschreibung, sondern die Abnahmebedingung. Wer sie nicht formulieren kann, kann nicht delegieren, an keinen Agenten und an keinen Menschen. Die Grenze des Ansatzes liegt dort, wo Verstehen erst beim Bauen entsteht.
+                Kontext, Harness und Loop sagen, wo ein Problem sitzt. Womit man sie füllt, sagt die Spezifikation. Spec-Driven Development macht sie zur verbindlichen Quelle statt zur Vorstufe, und der wirksame Teil daran ist nicht die Beschreibung, sondern die Abnahmebedingung. Wer sie nicht formulieren kann, kann nicht delegieren, an keinen Agenten und an keinen Menschen. Die Grenze liegt dort, wo Verstehen erst beim Bauen entsteht: Für Erkundung gehört kein Kriterium auf den Zettel, sondern ein Lernziel.
             </p>
         </div>
 
@@ -170,7 +170,7 @@
         <article class="prose pb-12">
             <!-- ══ BLOCK 1: KERNBOTSCHAFT + PROBLEM ══ -->
 
-            <p>Der erste Teil dieses Zweiteilers hat drei Ebenen sortiert: Kontext legt fest, was ein Modell für einen einzelnen Aufruf sieht, das Harness legt die Umgebung eines Agenten fest, der Loop legt fest, wer ihn anstößt.<sup>1</sup> Die Sortierung hilft bei der Fehlersuche, sie beantwortet aber nicht die praktisch drängendere Frage. Wer eine KI-gestützte Funktion beschreiben soll, sitzt nicht vor einem Ebenenmodell, sondern vor einem leeren Dokument. Die Ebenen sagen, wo etwas hingehört. Sie sagen nicht, was hineingeschrieben werden muss, damit ein Agent ohne ständige Rückfragen arbeiten kann.</p>
+            <p>Der erste Teil hat drei Ebenen sortiert: Kontext legt fest, was ein Modell für einen einzelnen Aufruf sieht, das Harness die Umgebung eines Agenten, der Loop, wer ihn anstößt.<sup>1</sup> Die Sortierung hilft bei der Fehlersuche, die drängendere Frage beantwortet sie nicht. Wer eine KI-gestützte Funktion beschreiben soll, sitzt nicht vor einem Ebenenmodell, sondern vor einem leeren Dokument. Die Ebenen sagen, wo etwas hingehört. Sie sagen nicht, was hineingeschrieben werden muss, damit ein Agent ohne ständige Rückfragen arbeiten kann.</p>
 
 
             <!-- ══ BLOCK 2: FUNDIERUNG ══ -->
@@ -179,7 +179,7 @@
 
             <p>Seit 2025 hat sich für diese Lücke ein Ansatz etabliert, der die übliche Reihenfolge umkehrt. Vor der Umsetzung steht eine Spezifikation und diese Spezifikation ist nicht der Entwurf der Wahrheit, sondern die Wahrheit selbst. GitHub beschreibt die Verschiebung als Wechsel von „Code ist die Quelle der Wahrheit" zu „Absicht ist die Quelle der Wahrheit" und schlägt einen Ablauf in vier Schritten vor: spezifizieren, planen, in Aufgaben zerlegen, umsetzen.<sup>2</sup> Jeder Schritt erzeugt ein Dokument, das den nächsten speist.</p>
 
-            <p>Birgitta Böckeler beschreibt das Artefakt genauer: ein strukturiertes, verhaltensorientiertes Dokument in natürlicher Sprache, das Mensch und Agent gemeinsam als Bezugspunkt nutzen.<sup>3</sup> Sie unterscheidet außerdem drei Ausbaustufen, die in der Diskussion oft vermischt werden. Bei der ersten stößt die Spezifikation die Arbeit an, danach wird der Code gepflegt. Bei der zweiten laufen Spezifikation und Umsetzung nebeneinander weiter und werden synchron gehalten. Bei der dritten ist die Spezifikation das einzige Artefakt, das noch von Hand bearbeitet wird. Die meisten Teams arbeiten in den ersten beiden Stufen, und der Unterschied ist keine Feinheit: Er entscheidet darüber, welches Dokument bei einem Widerspruch gewinnt.</p>
+            <p>Birgitta Böckeler beschreibt das Artefakt genauer: ein strukturiertes, verhaltensorientiertes Dokument in natürlicher Sprache, das Mensch und Agent gemeinsam als Bezugspunkt nutzen.<sup>3</sup> Sie unterscheidet außerdem drei Ausbaustufen, die in der Diskussion oft vermischt werden: Die Spezifikation stößt die Arbeit nur an, sie läuft synchron mit dem Code weiter oder sie ist das einzige Artefakt, das noch von Hand bearbeitet wird. Die meisten Teams stehen auf den ersten beiden Stufen. Der Unterschied ist keine Feinheit, er entscheidet, welches Dokument bei einem Widerspruch gewinnt.</p>
 
             <h3>Warum das eine Produktfrage ist</h3>
 
@@ -200,7 +200,9 @@
                 </div>
             </div>
 
-            <p>Nur die dritte Haltung skaliert. Sie verschiebt die Arbeit dorthin, wo Produktleute ohnehin arbeiten. Wer an der Schleife steht, schreibt keine Prompts, sondern Bedingungen. Das ist dieselbe Tätigkeit wie das Formulieren einer Definition of Done, nur mit einem Adressaten, der nicht nachfragt, wenn etwas unklar bleibt.</p>
+            <p>Nur die dritte Haltung skaliert. Sie verschiebt die Arbeit dorthin, wo Produktleute ohnehin arbeiten. Wer an der Schleife steht, schreibt keine Prompts, sondern Bedingungen. Das ist dieselbe Tätigkeit wie das Formulieren einer Definition of Done.</p>
+
+            <p>Neu ist daran nichts, außer den drei Dingen, die alles ändern. Der Adressat fragt nicht nach, wenn etwas unklar bleibt. Die Bedingung greift bei jeder einzelnen Ausführung statt einmal pro Story. Und sie steht vor der Arbeit statt im Kommentarfeld darunter.</p>
 
             <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
@@ -246,7 +248,7 @@
                 </tbody>
             </table>
 
-            <p>Das vierte Feld trägt die anderen drei. Absicht, Geltungsbereich und Zulieferung wirken vor der Ausführung und lassen sich beliebig ausschmücken, ohne dass sich am Ergebnis etwas ändert. Die Abnahmebedingung wirkt danach und ist das einzige Feld, das den Agenten tatsächlich korrigiert. Ein Ablauf mit ausführlicher Beschreibung und ohne Abnahmebedingung produziert zuverlässig gut aussehende Ergebnisse, die niemand geprüft hat.</p>
+            <p>Das vierte Feld trägt die anderen drei. Absicht, Geltungsbereich und Zulieferung wirken vor der Ausführung und lassen sich beliebig ausschmücken, ohne dass sich am Ergebnis etwas ändert. Die Abnahmebedingung wirkt danach und korrigiert als einzige den Agenten. Eine ausführliche Beschreibung ohne sie produziert zuverlässig gut aussehende Ergebnisse, die niemand geprüft hat.</p>
 
             <p>Der Test dafür ist einfach und unbequem: Lässt sich zu jeder Bedingung sagen, welche Beobachtung sie verletzen würde? „Gut geschrieben" besteht diesen Test nicht. „Jede genannte Quelle existiert in der Kombination aus Autor, Titel und Jahr" besteht ihn.</p>
 
@@ -277,17 +279,26 @@
                     </div>
                     </div>
                     <div class="mt-7 pt-5" style="border-top: 1px dashed #ddd4ec;">
-                        <p class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478; margin: 0 0 0.8rem 0;">Ausgefüllt</p>
+                        <p class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478; margin: 0 0 0.8rem 0;">Ausgefüllt, erstes Beispiel: ein Rechercheauftrag</p>
                         <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Ziel</span> <span class="text-[0.82rem] text-stone-600">Die Wettbewerbsübersicht zeigt für fünf Anbieter Preis, Zielgruppe und Alleinstellung.</span></p>
                         <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Nicht dabei</span> <span class="text-[0.82rem] text-stone-600">Bewertung, Empfehlung, Priorisierung.</span></p>
                         <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Grundlage</span> <span class="text-[0.82rem] text-stone-600">Nur die öffentlichen Preisseiten der fünf Anbieter, mit Abrufdatum.</span></p>
                         <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Fertig, wenn</span> <span class="text-[0.82rem] text-stone-600">Jede Zahl trägt einen Link auf die Seite, auf der sie steht. Der Link führt tatsächlich dorthin.</span></p>
                     </div>
-                    <p class="text-[0.8rem] text-stone-500" style="margin: 1.5rem 0 0 0;">Die vierte Zeile ist die einzige, die Arbeit spart. Wer sie nicht hinbekommt, hat noch keine Aufgabe, sondern eine Stimmung.</p>
+                    <div class="mt-7 pt-5" style="border-top: 1px dashed #ddd4ec;">
+                        <p class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478; margin: 0 0 0.8rem 0;">Ausgefüllt, zweites Beispiel: ein Gesprächsleitfaden</p>
+                        <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Ziel</span> <span class="text-[0.82rem] text-stone-600">Der Leitfaden bringt eine Person dazu, von ihrem letzten echten Fall zu erzählen, in ihrer eigenen Reihenfolge.</span></p>
+                        <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Nicht dabei</span> <span class="text-[0.82rem] text-stone-600">Fragen nach Lösungen, Fragen nach Wünschen und jede Formulierung, die eine meiner Hypothesen schon enthält.</span></p>
+                        <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Grundlage</span> <span class="text-[0.82rem] text-stone-600">Die Rolle der Person und die zwei Annahmen, die das Gespräch kippen könnten. Fehlt die Rolle, wird der Leitfaden nicht gebaut.</span></p>
+                        <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Fertig, wenn</span> <span class="text-[0.82rem] text-stone-600">Keine Frage lässt sich mit ja oder nein beantworten, und keine nennt einen Begriff, den die Person nicht selbst benutzt hat.</span></p>
+                    </div>
+                    <p class="text-[0.8rem] text-stone-500" style="margin: 1.5rem 0 0 0;">Bei diesem Beispiel tut die zweite Zeile weh. Genau deshalb steht es hier. Die eigenen Ideen draußen zu lassen ist die schwerste Zeile, die ein Produktmensch schreiben kann. Ich habe das an einem Dienstag im September gelernt, an dem zwei fertige Leitfäden in den Papierkorb gingen, weil ich die Rolle des Gegenübers nicht mitgeliefert hatte.</p>
+                    <p class="text-[0.8rem] text-stone-500" style="margin: 1rem 0 0 0;">Die vierte Zeile ist die einzige, die Arbeit spart. Wer sie nicht hinbekommt, hat noch keine Aufgabe, sondern eine Stimmung.</p>
                 </div>
             </div>
 
-            <p>Vier Zeilen tragen nur, was sich von Aufgabe zu Aufgabe ändert. Alles, was für jede Aufgabe gleich gilt, gehört nicht auf dieses Blatt, sondern einmal daneben: welche Quellenregeln gelten, wie Belege ausgewiesen werden, wohin Ergebnisse abgelegt werden, was zu tun ist, wenn etwas fehlt. Dieser Regelkopf darf ruhig zehn Abschnitte haben. Er wird einmal geschrieben und bei jedem Auftrag mitgelesen. Wer ihn stattdessen in jede einzelne Aufgabe hineinschreibt, schreibt ihn bei jeder Aufgabe neu und pflegt ihn nie.</p>
+            <p><strong>Und die vierte Zeile hat eine Verschärfung, die leicht zu übersehen ist.</strong> Eine Abnahmebedingung, die nur ein Mensch prüfen kann, verschiebt die Prüflast. Sie senkt sie nicht. Die Frage hinter der vierten Zeile lautet deshalb nicht nur „woran scheitert das Ergebnis", sondern „wer stellt das fest, ohne dass ich hinsehe".</p>
+
 
 
 
@@ -297,22 +308,30 @@
 
             <p>Der schwerwiegendste Einwand kommt nicht von außen, sondern aus der Nachbarschaft. Martin Fowler gibt Kent Becks Kritik wieder: Die Annahme, Anforderungen ließen sich vor der Umsetzung vollständig festlegen, ignoriert, dass beim Bauen Erkenntnisse entstehen, die die Spezifikation verändern würden.<sup>5</sup> Wer die Spezifikation zur alleinigen Wahrheit erklärt, riskiert, genau dieses Lernen wegzudefinieren. Der Einwand trifft die dritte Ausbaustufe härter als die ersten beiden.</p>
 
-            <p>Dazu kommen zwei praktische Beobachtungen von Böckeler.<sup>3</sup> Die Menge an Spezifikationsdokumenten kann die Prüflast erhöhen statt sie zu senken, weil am Ende jemand alle lesen muss. Und Agenten ignorieren Vorgaben auch dann, wenn diese ausführlich niedergeschrieben sind. Beides zeigt in dieselbe Richtung: Eine Spezifikation ersetzt die Prüfung nicht, sie macht sie erst möglich.</p>
+            <h3>Wann keine Abnahmebedingung</h3>
 
-            <p>Bleibt die Frage der Dosierung. Ein Rahmen kann Prüfungen so lange stapeln, bis die Autonomie, für die er gebaut wurde, wieder aufgezehrt ist. Gartner sagt für Ende 2027 voraus, dass über 40 Prozent der agentischen KI-Projekte abgebrochen werden, unter anderem wegen steigender Kosten und unklaren Geschäftsnutzens.<sup>6</sup> Ein Teil dieser Kosten entsteht nicht im Modell, sondern im Drumherum.</p>
+            <p>Becks Einwand lässt sich auflösen, aber nicht durch eine bessere Spezifikation. Er lässt sich auflösen, indem man aufhört, alles gleich zu behandeln.</p>
+
+            <p>Für wiederkehrende Aufgaben mit bekanntem Ergebnis schreibt man Abnahmebedingungen. Für Erkundung schreibt man Lernziele. Das ist kein Kompromiss zwischen beidem, es sind zwei verschiedene Dokumente für zwei verschiedene Lagen.</p>
+
+            <p>Wer eine Discovery mit einer Abnahmebedingung belegt, hat sie zur Lieferung erklärt und bekommt genau das zurück: ein Ergebnis, das die Bedingung erfüllt, und keine einzige Überraschung. Das ist bei einer Wettbewerbsübersicht genau richtig und bei fünf Nutzergesprächen ein Eigentor. Die Bedingung „drei Muster identifiziert" erzeugt drei Muster. Sie erzeugt sie auch dann, wenn keine da sind.</p>
+
+            <p>Ein Lernziel sieht anders aus. Es nennt die Annahme, die geprüft wird, und den Satz, der sie kippen würde. Es nennt kein Ergebnis, weil das Ergebnis der Punkt der Übung ist. Die Prüfung liegt nicht darin, ob geliefert wurde, sondern ob ich hinterher weiß, was ich vorher nicht wusste.</p>
+
+            <p>Die Unterscheidung ist leicht zu treffen und wird trotzdem selten getroffen: Weiß ich, wie das Ergebnis aussehen muss? Dann Abnahmebedingung. Will ich wissen, wie es aussieht? Dann Lernziel. Wer im Zweifel ist, behandelt es als Erkundung, denn eine überflüssige Abnahmebedingung kostet nur Zeit, eine falsche kostet die Erkenntnis.</p>
+
+            <p>Dazu kommen zwei praktische Beobachtungen von Böckeler.<sup>3</sup> Die Menge an Spezifikationsdokumenten kann die Prüflast erhöhen statt sie zu senken, weil am Ende jemand alle lesen muss. Und Agenten ignorieren Vorgaben auch dann, wenn diese ausführlich niedergeschrieben sind.</p>
 
 
             <!-- ══ BLOCK 4: DER ÜBERTRAG ══ -->
 
             <h2>Der Übertrag in den Produktalltag</h2>
 
-            <p>Der Ansatz ist nicht auf Softwareentwicklung beschränkt. Übertragen auf Produktarbeit heißt er: Bevor eine wiederkehrende Aufgabe an eine KI abgegeben wird, wird sie einmal spezifiziert, mit einer Bedingung, an der das Ergebnis scheitern darf.</p>
+            <p>Der Ansatz ist nicht auf Softwareentwicklung beschränkt. Für Produktarbeit heißt er: Bevor eine wiederkehrende Aufgabe an eine KI geht, wird sie einmal spezifiziert, mit einer Bedingung, an der das Ergebnis scheitern darf.</p>
 
-            <p><strong>Der Aufwand fällt einmal an, die Prüfung dauerhaft weg.</strong> Eine Spezifikation, die einmal geschrieben und danach nur nachgeschärft wird, ersetzt die Rückfragen, die sonst bei jedem einzelnen Durchlauf anfallen. Der Bruch liegt dort, wo die Spezifikation nur im Kopf existiert oder in einem Dokument, das niemand findet.</p>
+            <p><strong>Der Aufwand fällt einmal an, die Prüfung dauerhaft weg.</strong> Eine Spezifikation, die einmal geschrieben und danach nachgeschärft wird, ersetzt die Rückfragen aus jedem Durchlauf. Der Bruch liegt dort, wo sie nur im Kopf existiert oder in einem Dokument, das niemand findet.</p>
 
-            <p><strong>Die Bedingung gehört vor die Arbeit, nicht dahinter.</strong> Eine Abnahmebedingung, die erst formuliert wird, wenn das Ergebnis vorliegt, ist keine Bedingung, sondern eine nachträgliche Begründung. Das gilt für Agenten wie für Teams, nur fällt es bei Agenten schneller auf.</p>
-
-            <p><strong>Kurz schlägt vollständig.</strong> Vier Felder, die jemand tatsächlich befüllt, sind mehr wert als ein Formular mit zwanzig, das niemand ausfüllt. Wer ergänzt, sollte den Punkt streichen können, der dadurch überflüssig wird.</p>
+            <p><strong>Die Bedingung gehört vor die Arbeit, nicht dahinter.</strong> Eine Abnahmebedingung, die erst formuliert wird, wenn das Ergebnis vorliegt, ist keine Bedingung, sondern eine nachträgliche Begründung.</p>
 
 
             <!-- ══ BLOCK 5: WAS BLEIBT FÜR JEDEN TAG ══ -->
@@ -327,6 +346,10 @@
                     <div class="pl-5">
                         <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Prüfbar heißt: es gibt eine Beobachtung, die sie verletzt</p>
                         <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Der Test funktioniert auch für menschliche Abnahmen und deckt schwammige Kriterien in Sekunden auf.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Und dann die Gegenprobe: ist das hier überhaupt eine Lieferung?</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wenn ich noch nicht weiß, wie das Ergebnis aussehen muss, brauche ich kein Kriterium, sondern ein Lernziel.</p>
                     </div>
                     <div class="pl-5">
                         <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Die Spezifikation ist kein Ersatz für das Prüfen</p>
@@ -345,7 +368,6 @@
                     <li><a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Böckeler, B. (2025). Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl. martinfowler.com, 15. Oktober 2025.</a></li>
                     <li><a href="https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Morris, K. (2026). Humans and Agents in Software Engineering Loops. martinfowler.com, 4. März 2026.</a></li>
                     <li><a href="https://martinfowler.com/fragments/2026-01-08.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Fowler, M. (2026). Fragments: January 8. martinfowler.com, 8. Januar 2026. (Gibt Kent Becks Einwand gegen vorab vollständige Spezifikationen wieder.)</a></li>
-                    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gartner (2025). Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027. 25. Juni 2025.</a></li>
                 </ol>
             </div>
 
@@ -364,7 +386,8 @@
                     <p class="mb-0"><span class="text-stone-700 font-medium">Kontext</span> <span class="text-stone-400">— die Informationen, die ein Modell für einen einzelnen Aufruf sieht.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Agentische KI</span> <span class="text-stone-400">— KI-Systeme, die eigenständig Handlungsschritte ausführen statt nur zu antworten.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Prüflast</span> <span class="text-stone-400">— der Aufwand, den Menschen aufbringen müssen, um Ergebnisse eines Systems zu kontrollieren.</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Regelkopf</span> <span class="text-stone-400">— der Teil einer Spezifikation, der für jede Aufgabe gleich gilt und deshalb einmal geschrieben statt je Auftrag wiederholt wird.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Lernziel</span> <span class="text-stone-400">— Gegenstück zur Abnahmebedingung: benennt die Annahme, die geprüft wird, und den Befund, der sie kippen würde, statt ein Ergebnis vorzugeben.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— die Phase der Produktarbeit, in der ein Problem noch untersucht und nicht bereits umgesetzt wird.</span></p>
                 </div>
             </div>
 
@@ -406,7 +429,7 @@
         <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
             <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
             <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
-                Context, harness and loop say where a problem sits. What fills them is the specification. Spec-driven development turns it into the binding source rather than a draft, and the part that actually works is not the description but the acceptance condition. Anyone who cannot state one cannot delegate, to an agent or to a person. The limit of the approach sits where understanding only emerges while building.
+                Context, harness and loop say where a problem sits. What fills them is the specification. Spec-driven development makes it binding rather than a draft, and the part that works is not the description but the acceptance condition. Anyone who cannot state one cannot delegate, to an agent or a person. The limit sits where understanding only emerges while building: exploration needs a learning goal, not a criterion.
             </p>
         </div>
 
@@ -414,16 +437,16 @@
         <article class="prose pb-12">
             <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
 
-            <p>Part one of this pair sorted three layers: context settles what a model sees for a single call, the harness settles the environment an agent acts in, the loop settles who triggers it.<sup>1</sup> That sorting helps with debugging, but it does not answer the more pressing practical question. Anyone asked to describe an AI supported feature is not sitting in front of a layer model. They are sitting in front of an empty document. The layers say where something belongs. They do not say what has to go in so an agent can work without constant questions.</p>
+            <p>Part one sorted three layers: context settles what a model sees for a single call, the harness the environment an agent acts in, the loop who triggers it.<sup>1</sup> That sorting helps with debugging but leaves the more pressing question open. Anyone asked to describe an AI supported feature sits in front of an empty document, not a model. The layers say where something belongs. They do not say what goes in so an agent can work without constant questions.</p>
 
 
             <!-- ══ BLOCK 2: FOUNDATION ══ -->
 
             <h2>What spec-driven development reverses</h2>
 
-            <p>Since 2025 an approach has taken hold that inverts the usual order. A specification comes before the build, and that specification is not a draft of the truth but the truth itself. GitHub frames the shift as moving from "code is the source of truth" to "intent is the source of truth" and proposes four steps: specify, plan, break into tasks, implement.<sup>2</sup> Each step produces a document that feeds the next.</p>
+            <p>Since 2025 an approach has taken hold that inverts the usual order: the specification comes before the build, and it is not a draft of the truth but the truth itself. GitHub frames the shift as moving from "code is the source of truth" to "intent is the source of truth", in four steps: specify, plan, break into tasks, implement.<sup>2</sup> Each step produces a document feeding the next.</p>
 
-            <p>Birgitta Böckeler describes the artefact more precisely: a structured, behaviour oriented document in natural language that human and agent share as a reference point.<sup>3</sup> She also separates three levels of ambition that the debate tends to blur. At the first, the specification kicks off the work and the code is what you maintain afterwards. At the second, specification and code evolve side by side and are kept in sync. At the third, the specification is the only artefact anyone edits by hand. Most teams work in the first two, and the difference is not a detail. It settles which document wins when the two contradict each other.</p>
+            <p>Böckeler describes the artefact more precisely: a structured, behaviour oriented document in natural language that human and agent share as a reference point.<sup>3</sup> She also separates three levels of ambition the debate tends to blur: the specification only kicks the work off, it evolves in sync with the code, or it is the only artefact edited by hand. Most teams sit on the first two. The difference settles which document wins when they contradict.</p>
 
             <h3>Why this is a product question</h3>
 
@@ -444,7 +467,9 @@
                 </div>
             </div>
 
-            <p>Only the third stance scales, and it moves the work to where product people already are. Standing on the loop means writing conditions rather than prompts. That is the same activity as writing a definition of done, except the recipient never asks a follow-up question when something stays unclear.</p>
+            <p>Only the third stance scales: it moves the work to where product people already are. Standing on the loop means writing conditions, not prompts. That is the same activity as writing a definition of done.</p>
+
+            <p>Nothing about that is new, apart from three things that change everything. The recipient never asks a follow-up when something stays unclear. The condition applies to every run instead of once per story. And it sits before the work, not in the comment field below it.</p>
 
             <!-- ══ KEY INSIGHT QUOTE ══ -->
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
@@ -455,7 +480,7 @@
 
             <h3>The four fields that carry a specification</h3>
 
-            <p>From those sources and the layer logic of part one, a short set of fields follows. It is deliberately short, because completeness is not a quality marker here. A long specification raises the review load without improving the output.</p>
+            <p>From those sources and the layer logic of part one, a short set of fields follows, deliberately short because completeness is not a quality marker here. A long specification raises the review load without improving the output.</p>
 
             <!-- ══ TABLE: FOUR FIELDS ══ -->
             <table>
@@ -490,9 +515,9 @@
                 </tbody>
             </table>
 
-            <p>The fourth field carries the other three. Intent, scope and inputs act before the run and can be embellished endlessly without changing the output. The acceptance condition acts afterwards and is the only field that actually corrects the agent. A workflow with a rich description and no acceptance condition reliably produces good looking results nobody has checked.</p>
+            <p>The fourth field carries the other three. Intent, scope and inputs act before the run and can be embellished endlessly without changing the output. The acceptance condition acts afterwards and is the only one correcting the agent. A rich description without it reliably produces good looking results nobody has checked.</p>
 
-            <p>The test for it is simple and uncomfortable: can you name, for every condition, the observation that would violate it? "Well written" fails that test. "Every source named exists in that combination of author, title and year" passes it.</p>
+            <p>The test for it is simple and uncomfortable: name, for every condition, the observation that would violate it. "Well written" fails that test. "Every source named exists in that combination of author, title and year" passes it.</p>
 
             <!-- ══ NOTIZBLATT: DER VIER-ZEILER ══ -->
             <div class="my-10 rounded-lg overflow-hidden" style="background: #FCFBF7; border: 1px solid #e3dcef;">
@@ -501,7 +526,7 @@
                     <span class="source-serif text-[1rem] text-stone-800">The four-liner</span>
                 </div>
                 <div class="px-6 sm:px-7 py-6">
-                    <p class="text-[0.85rem] text-stone-500" style="margin: 0 0 1.5rem 0;">The four fields fit on a single sheet. Fill them in, in this order, before the task goes out, to an AI as much as to a person.</p>
+                    <p class="text-[0.85rem] text-stone-500" style="margin: 0 0 1.5rem 0;">The four fields fit on one sheet. Fill them in, in this order, before the task goes out, to an AI as much as to a person.</p>
                     <div class="space-y-4">
                     <div style="border-left: 2px solid #ddd4ec; padding-left: 1rem;">
                         <p class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #7b6ba5; margin: 0 0 0.3rem 0;">Goal</p>
@@ -521,17 +546,26 @@
                     </div>
                     </div>
                     <div class="mt-7 pt-5" style="border-top: 1px dashed #ddd4ec;">
-                        <p class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478; margin: 0 0 0.8rem 0;">Filled in</p>
+                        <p class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478; margin: 0 0 0.8rem 0;">Filled in, first example: a research assignment</p>
                         <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Goal</span> <span class="text-[0.82rem] text-stone-600">The competitor overview shows price, target group and differentiator for five vendors.</span></p>
                         <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Not included</span> <span class="text-[0.82rem] text-stone-600">Assessment, recommendation, prioritisation.</span></p>
                         <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Basis</span> <span class="text-[0.82rem] text-stone-600">Only the public pricing pages of those five vendors, with the date they were retrieved.</span></p>
                         <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Done when</span> <span class="text-[0.82rem] text-stone-600">Every number carries a link to the page it sits on. That link actually leads there.</span></p>
                     </div>
-                    <p class="text-[0.8rem] text-stone-500" style="margin: 1.5rem 0 0 0;">The fourth line is the only one that saves work. Anyone who cannot write it does not yet have a task, only a mood.</p>
+                    <div class="mt-7 pt-5" style="border-top: 1px dashed #ddd4ec;">
+                        <p class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478; margin: 0 0 0.8rem 0;">Filled in, second example: an interview guide</p>
+                        <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Goal</span> <span class="text-[0.82rem] text-stone-600">The guide gets a person to tell the story of their last real case, in their own order.</span></p>
+                        <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Not included</span> <span class="text-[0.82rem] text-stone-600">Questions about solutions, questions about wishes, and any wording that already carries one of my hypotheses.</span></p>
+                        <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Basis</span> <span class="text-[0.82rem] text-stone-600">The person's role and the two assumptions the conversation could overturn. Without the role, the guide does not get built.</span></p>
+                        <p style="margin: 0 0 0.4rem 0;"><span class="font-mono text-[0.6rem] tracking-[0.12em] uppercase" style="color: #8d8478;">Done when</span> <span class="text-[0.82rem] text-stone-600">No question can be answered with yes or no, and none uses a term the person has not used themselves.</span></p>
+                    </div>
+                    <p class="text-[0.8rem] text-stone-500" style="margin: 1.5rem 0 0 0;">In this example the second line hurts, which is why it is here. Leaving your own ideas out is the hardest line a product person can write. I learned that on a Tuesday in September, when two finished interview guides went in the bin because I had not supplied the role of the person opposite.</p>
+                    <p class="text-[0.8rem] text-stone-500" style="margin: 1rem 0 0 0;">The fourth line is the only one that saves work. Anyone who cannot write it does not yet have a task, only a mood.</p>
                 </div>
             </div>
 
-            <p>Four lines carry only what changes from task to task. Everything that holds for every task does not belong on this sheet but next to it, written once: which source rules apply, how evidence is marked, where results are filed, what to do when something is missing. That rule header may well run to ten sections. It gets written once and read along with every assignment. Writing it into each individual task instead means rewriting it every time and maintaining none of the copies.</p>
+            <p><strong>And the fourth line carries a sharpening that is easy to miss.</strong> An acceptance condition only a human can check moves the review load, it does not lower it. The question is not just what the result fails against, but who establishes that without me looking.</p>
+
 
 
 
@@ -539,24 +573,32 @@
 
             <h2>A critical look</h2>
 
-            <p>The heaviest objection comes from close by rather than from outside. Martin Fowler relays Kent Beck's criticism: assuming requirements can be settled fully before implementation ignores that building produces insights which would change the specification.<sup>5</sup> Declaring the specification the sole truth risks defining that learning away. The objection hits the third level of ambition harder than the first two.</p>
+            <p>The heaviest objection comes from close by. Martin Fowler relays Kent Beck's criticism: assuming requirements can be settled fully before implementation ignores that building produces insights that would change the specification.<sup>5</sup> Declaring it the sole truth risks defining that learning away. The objection hits the third level of ambition hardest.</p>
 
-            <p>Two practical observations from Böckeler point the same way.<sup>3</sup> The volume of specification documents can raise the review load instead of lowering it, because somebody ends up reading all of them. And agents ignore instructions even when those are written out in detail. A specification does not replace the check. It is what makes the check possible.</p>
+            <h3>When not to write an acceptance condition</h3>
 
-            <p>That leaves the question of dosage. A frame can stack checks until the autonomy it was built for is consumed again. Gartner predicts that more than 40 percent of agentic AI projects will be cancelled by the end of 2027, among other reasons because of escalating costs and unclear business value.<sup>6</sup> Part of that cost sits not in the model but in everything around it.</p>
+            <p>Beck's objection can be resolved, but not by a better specification. It resolves once you stop treating every task the same way.</p>
+
+            <p>For recurring tasks with a known result, write acceptance conditions. For exploration, write learning goals. Not a compromise between the two, but two documents for two situations.</p>
+
+            <p>Putting an acceptance condition on a discovery declares it a delivery, and that is what comes back: a result that meets the condition, and no surprises. Right for a competitor overview, an own goal for five user interviews. The condition "three patterns identified" produces three patterns, even when there are none.</p>
+
+            <p>A learning goal looks different. It names the assumption under test and the sentence that would overturn it, but no result, because the result is the point. The check is not whether something was delivered, but whether I know afterwards what I did not before.</p>
+
+            <p>The distinction is easy and still rarely made. If you know what the result has to look like, write an acceptance condition. If you want to find out, write a learning goal. When in doubt, treat it as exploration: a redundant condition costs time, a wrong one the insight.</p>
+
+            <p>Two practical observations from Böckeler point the same way.<sup>3</sup> The volume of specification documents can raise the review load instead of lowering it, because somebody has to read all of them. And agents ignore instructions even when those are written out in detail.</p>
 
 
             <!-- ══ BLOCK 4: WHAT THIS CHANGES ══ -->
 
             <h2>What this changes in product work</h2>
 
-            <p>The approach is not limited to software engineering. Carried into product work it reads: before a recurring task is handed to an AI, it gets specified once, with a condition the result is allowed to fail against.</p>
+            <p>The approach is not limited to software engineering. For product work it reads: before a recurring task goes to an AI, it gets specified once, with a condition the result is allowed to fail against.</p>
 
-            <p><strong>The effort lands once, the questions go away permanently.</strong> A specification written once and only sharpened afterwards replaces the follow-ups that otherwise recur on every single run. It breaks down where the specification exists only in someone's head, or in a document nobody finds.</p>
+            <p><strong>The effort lands once, the questions go away permanently.</strong> A specification written once and sharpened afterwards replaces the follow-ups from every run. It breaks down where it exists only in someone's head or in a document nobody finds.</p>
 
-            <p><strong>The condition belongs before the work, not after it.</strong> An acceptance condition written once the result is in is not a condition. It is a retrospective justification. That holds for teams as much as for agents, it just shows up faster with agents.</p>
-
-            <p><strong>Short beats complete.</strong> Four fields somebody actually fills in are worth more than a twenty field form nobody touches. Anyone adding a field should be able to name the one it makes redundant.</p>
+            <p><strong>The condition belongs before the work, not after it.</strong> An acceptance condition written once the result is in is not a condition but a retrospective justification.</p>
 
 
             <!-- ══ BLOCK 5: WHAT STAYS WITH YOU EVERY DAY ══ -->
@@ -566,15 +608,19 @@
                 <div class="space-y-5">
                     <div class="pl-5">
                         <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Acceptance condition first, description second</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">If you cannot say what a result is allowed to fail against, you have not stated a task. You have stated a wish.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">If you cannot say what a result is allowed to fail against, you have not stated a task but a wish.</p>
                     </div>
                     <div class="pl-5">
                         <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Checkable means there is an observation that violates it</p>
                         <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">The test works for human sign-off too and exposes vague criteria in seconds.</p>
                     </div>
                     <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Then the counter-check: is this a delivery at all</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">If you do not yet know what the result has to look like, you need a learning goal, not a criterion.</p>
+                    </div>
+                    <div class="pl-5">
                         <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">A specification is not a substitute for checking</p>
-                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">It makes checking possible and cheap. Writing one and then not looking wastes the whole effort.</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">It makes checking possible and cheap. Writing one and not looking wastes the effort.</p>
                     </div>
                 </div>
             </div>
@@ -589,7 +635,6 @@
                     <li><a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Böckeler, B. (2025). Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl. martinfowler.com, October 15, 2025.</a></li>
                     <li><a href="https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Morris, K. (2026). Humans and Agents in Software Engineering Loops. martinfowler.com, March 4, 2026.</a></li>
                     <li><a href="https://martinfowler.com/fragments/2026-01-08.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Fowler, M. (2026). Fragments: January 8. martinfowler.com, January 8, 2026. (Relays Kent Beck's objection to fully upfront specifications.)</a></li>
-                    <li><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" class="hover:text-stone-600 transition-colors" style="color: inherit;">Gartner (2025). Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027. June 25, 2025.</a></li>
                 </ol>
             </div>
 
@@ -608,7 +653,8 @@
                     <p class="mb-0"><span class="text-stone-700 font-medium">Context</span> <span class="text-stone-400">— the information a model sees for a single call.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Agentic AI</span> <span class="text-stone-400">— AI systems that carry out steps on their own instead of only answering.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Review load</span> <span class="text-stone-400">— the effort humans have to spend checking what a system produced.</span></p>
-                    <p class="mb-0"><span class="text-stone-700 font-medium">Rule header</span> <span class="text-stone-400">— the part of a specification that holds for every task and is therefore written once instead of repeated per assignment.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Learning goal</span> <span class="text-stone-400">— the counterpart to an acceptance condition: it names the assumption under test and the finding that would overturn it, instead of prescribing a result.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— the phase of product work in which a problem is still being investigated rather than built.</span></p>
                 </div>
             </div>
 
