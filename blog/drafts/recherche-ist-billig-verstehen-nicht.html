@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Recherche ist billig geworden. Verstehen nicht. – Linja Scharffetter</title>
+    <meta name="description" content="In elf Tagen sind 166.000 Woerter Recherche entstanden. Geholfen hat nicht der bessere Prompt, sondern das Verdichten: ein Gespraech, eine Zusammenfassung, ein Leitfaden ohne eigene Hypothesen.">
+    <meta property="og:title" content="Recherche ist billig geworden. Verstehen nicht. Was gegen die Ergebnisflut aus KI-Recherche hilft.">
+    <meta property="og:description" content="In elf Tagen sind 166.000 Woerter Recherche entstanden. Geholfen hat nicht der bessere Prompt, sondern das Verdichten: ein Gespraech, eine Zusammenfassung, ein Leitfaden ohne eigene Hypothesen.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Fraunces', 'Georgia', 'serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .lang-hidden { display: none !important; }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles.
+           Spacing-Werte: siehe ../../brand-kit.md → Spacing-Tokens (Blog). */
+        .prose h2 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p {
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="/components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ======== ARTIKEL-HEADER ======== -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Experiment</span>
+                <span class="text-[0.72rem] text-stone-400">16. September 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Recherche ist billig geworden. Verstehen nicht.
+            </h1>
+        </header>
+
+        <!-- ══════════════════════════════════════════════
+             OPTIONAL: 90-SEK-AUDIO-PILL
+             Aktivieren, sobald blog/audio/recherche-ist-billig-verstehen-nicht.mp3 existiert.
+             ══════════════════════════════════════════════ -->
+        <!--
+        <div class="reader-audio-slot my-4" data-audio-src="/blog/audio/recherche-ist-billig-verstehen-nicht.mp3"></div>
+        -->
+
+        <!-- ======== TL;DR ======== -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Mit KI entsteht in elf Tagen mehr Recherche, als ein Mensch in elf Tagen lesen kann. Der Engpass sitzt nicht mehr im Herstellen, sondern im Verdichten, und Verdichten ist die eine Tätigkeit, die sich nicht delegieren lässt. Was geholfen hat, war kein besserer Prompt: ein Gespräch, in dem jemand widerspricht, eine Zusammenfassung am Ende statt am Anfang, und ein Interviewleitfaden, aus dem die eigenen Hypothesen wieder herausfliegen.
+            </p>
+        </div>
+
+        <!-- ======== ARTIKEL-CONTENT ======== -->
+        <article class="prose pb-12">
+            <!-- ══ BLOCK 1: KERNBOTSCHAFT + PROBLEM ══ -->
+
+            <p>In elf Tagen ist in einem einzigen Themenordner Material entstanden, das ich nachgemessen habe, weil ich es nicht glauben wollte: 31 Dateien, 166.000 Wörter. Das ist der Umfang von zwei Sachbüchern, über ein Feld, das ich zwei Wochen vorher nicht kannte. Nichts davon war falsch und fast nichts davon nutzlos. Trotzdem war der Zustand am Ende der Woche nicht Klarheit, sondern Erschöpfung. Die Recherche hatte alles geliefert außer der Fähigkeit, sie zu benutzen.</p>
+
+            <!-- ══ BLOCK 2: FUNDIERUNG ══ -->
+
+            <h2>Der Engpass ist umgezogen</h2>
+
+            <p>Die alte Rechnung für Produktarbeit lautete: Herstellen ist teuer, Entscheiden ist billig. Marktschau, Wettbewerbsanalyse, Wirkungsketten, all das kostete Tage. Lag es endlich vor, war die Entscheidung darüber eine Sache von Stunden. Mit einem Agenten kehrt sich das um. Das Herstellen kostet fast nichts mehr, und genau deshalb entsteht zu viel davon.</p>
+
+            <p>Was dabei knapp wird, ist nicht Rechenzeit, sondern Prüfzeit. Jedes Dokument, das entsteht, will gelesen, gegen die anderen gehalten und eingeordnet werden. Diese Arbeit skaliert nicht mit. Sie bleibt bei einem Menschen und wächst linear mit dem Berg, den der Agent produziert. Zwei Sachbücher Recherche sind kein Vorsprung, wenn niemand zwei Sachbücher lesen kann.</p>
+
+            <p>Zweimal in dieser Woche sind wir an die Grenze dessen gelaufen, was ein Modell an Kontext halten kann. Beide Male war die naheliegende Antwort falsch. Die naheliegende Antwort heißt: mehr Kapazität, neue Sitzung, weiterarbeiten. Die Antwort, die funktioniert hat, war: verdichten. Nicht das nächste Dokument erzeugen, sondern die vorhandenen auf das reduzieren, was trägt.</p>
+
+            <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Eine Kontextgrenze ist keine technische Störung. Sie ist die Stelle, an der auffällt, dass man aufgehört hat zu verstehen und nur noch gesammelt hat.
+                </p>
+            </div>
+
+            <h2>Drei Dinge, die tatsächlich geholfen haben</h2>
+
+            <p>Keines davon ist ein Werkzeug oder eine Formulierung. Alle drei sind Eingriffe in den Ablauf.</p>
+
+            <div class="my-8 space-y-5">
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">1</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Das Gespräch statt des Berichts.</span> Eine Stunde im Dialog über eine einzige Frage hat mehr geklärt als drei fertige Dokumente zum selben Thema. Widerspruch entsteht im Gespräch, in einem Bericht steht er nicht.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Die Zusammenfassung ans Ende.</span> Nicht über den Tag verteilt, sondern einmal am Schluss über alles. Wer zwischendurch zusammenfasst, fasst Zwischenstände zusammen und muss es später noch einmal tun.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Verdichten als eigener Auftrag.</span> Zusammenfassen ist eine Aufgabe mit eigenem Ergebnis, kein Nebenprodukt. Sie bekommt einen eigenen Durchlauf, sonst findet sie nicht statt.</p>
+                </div>
+            </div>
+
+            <p>Der Unterschied zwischen den dreien und dem, was ich vorher gemacht habe, ist eine Richtungsumkehr. Vorher lief die Arbeit von der Frage zum Material. Jetzt läuft sie vom Material zurück zur Frage, bevor neues Material entsteht.</p>
+
+            <h2>Vom Berg zum Gesprächsleitfaden</h2>
+
+            <p>Die Probe darauf, ob Recherche etwas wert ist, kommt beim ersten Kundengespräch. Und dort verhält sich der Berg tückisch: Er liefert genau die Sätze, die man im Interview nicht sagen darf.</p>
+
+            <p>Ein gut recherchierter Mensch geht mit Thesen ins Gespräch. Ein gutes Gespräch braucht das Gegenteil. Die Recherche liefert nicht die Fragen, sie liefert die Annahmen, die geprüft werden. Aus einem Wirkungsmechanismus, den ich für plausibel halte, wird keine Frage nach diesem Mechanismus, sondern die Bitte, den letzten echten Fall zu erzählen, in dem er hätte greifen müssen.</p>
+
+            <p>Das Erste, was ich in dieser Woche im Gespräch gelernt habe, hat keine Hypothese bestätigt. Es hat die Zielgruppe verschoben. Wer den Zahler sucht statt den Nutzer, findet ihn in einem anderen Segment als dem, für das die gesamte Vorarbeit gemacht wurde. Zwei Wochen Recherche. Der erste Satz eines echten Menschen hat die Grundannahme darunter weggezogen. Genau dafür führt man Gespräche. Genau das kann keine Recherche leisten.</p>
+
+            <p>Aus elf Tagen Material wandern am Ende drei Dinge in die Vorbereitung. Alle drei sind kurz. Die Rolle der Person, weil ohne sie jede Frage ins Leere geht. Zwei Annahmen, die das Gespräch kippen könnten, weil ein Gespräch, das nichts kippen kann, nur Bestätigung einsammelt. Und die Begriffe, die in diesem Feld tatsächlich benutzt werden, damit ich nicht in meiner eigenen Sprache frage. Der Rest bleibt im Ordner. Er war nicht umsonst, denn ohne ihn wüsste ich nicht, welche zwei Annahmen die riskanten sind, aber er gehört nicht mit ins Gespräch.</p>
+
+            <p>Praktisch heißt das: Der Leitfaden entsteht nicht aus der Recherche, er entsteht gegen sie. Was hineingehört, ist die Rolle der Person und die zwei Annahmen, die das Gespräch kippen könnten. Was draußen bleibt, sind Lösungen, Wünsche und jede Formulierung, die eine eigene These schon enthält. In derselben Woche sind mir zwei fertige Leitfäden in den Papierkorb gegangen, weil die Rolle des Gegenübers nicht feststand, bevor sie geschrieben wurden.</p>
+
+            <!-- ══ BLOCK 3: KRITISCHE EINORDNUNG ══ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Der ehrlichste Einwand: Ein Teil dieser Flut war meine eigene Bestellung. Wer einem Agenten elf Tage lang Aufträge gibt, bekommt elf Tage Ergebnisse. Es ist bequem, das hinterher als Eigenschaft der Technik zu beschreiben. Ein Teil des Bergs wäre nie entstanden, wenn ich vorher hätte sagen müssen, wofür ich das jeweilige Dokument brauche.</p>
+
+            <p>Dazu kommt: Die Zahl 166.000 ist ein schlechtes Maß. Sie sagt nichts über Qualität und wenig über Nutzen. Ein Teil des Materials war Zwischenstand, der seine Arbeit getan hat und danach zu Recht liegen blieb. Der Aufwand ist trotzdem real, weil auch ein Zwischenstand gelesen werden will, bevor man ihn als solchen erkennt.</p>
+
+            <p>Und die Gegenprobe fehlt. Ich habe nicht geprüft, ob dieselbe Woche ohne KI zu einem schlechteren Ergebnis geführt hätte. Wahrscheinlich zu einem schmaleren, sicher zu einem langsameren. Ob es das bessere gewesen wäre, weiß ich nicht.</p>
+
+            <!-- ══ BLOCK 4: WAS ICH VERÄNDERT HABE ══ -->
+
+            <h2>Was ich jetzt anders mache</h2>
+
+            <p>Ich schließe längere Recherche-Sitzungen mit einem eigenen Auftrag ab, der nur zusammenfasst. Nicht als Bitte am Rand, sondern als letzter Arbeitsschritt mit eigenem Ergebnis. Das Dokument, das dabei entsteht, ist inzwischen das einzige, das ich am nächsten Morgen wirklich öffne.</p>
+
+            <p>Ich lege bei Gesprächsvorbereitung die Rolle des Gegenübers fest, bevor eine einzige Frage geschrieben wird. Die Rückfrage dauert eine halbe Minute. Ein Leitfaden, der ohne sie entsteht, ist beim Termin wertlos. Das merkt man erst im Termin.</p>
+
+            <p>Und ich behandle eine Kontextgrenze nicht mehr als Störung, die man umgeht, sondern als Signal. Wenn das Material nicht mehr in einen Zusammenhang passt, ist der Zusammenhang das Problem, nicht die Kapazität.</p>
+
+            <!-- ══ BLOCK 5: WAS BLEIBT FÜR JEDEN TAG ══ -->
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Verdichten ist eine Aufgabe, kein Nebenprodukt</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Sie bekommt einen eigenen Durchlauf und ein eigenes Ergebnis, sonst findet sie nicht statt.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Die Recherche liefert Annahmen, nicht Fragen</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Was ich zu wissen glaube, gehört auf die Prüfliste, nicht in den Leitfaden.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Ein Gespräch schlägt drei Dokumente</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Widerspruch entsteht im Dialog. Ein Bericht widerspricht nicht, er liefert.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ QUELLEN ══ -->
+
+            <div class="mt-12 pt-6" id="quellen" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="/blog/harness-engineering-pm.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). Kontext, Harness, Loop. Drei Ebenen, die Produktteams gerade durcheinanderbringen. linja.me.</a></li>
+                    <li><a href="/blog/spec-driven-development-pm.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). Die Spezifikation ist der Rahmen. Was Produktteams aufschreiben müssen, damit KI allein arbeiten darf. linja.me.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSAR ══ -->
+
+            <div class="mt-8 pt-6" id="glossar" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Kontextgrenze</span> <span class="text-stone-400">— die Obergrenze dessen, was ein Modell in einem Arbeitsgang gleichzeitig berücksichtigen kann.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Prüflast</span> <span class="text-stone-400">— der Aufwand, den Menschen aufbringen müssen, um Ergebnisse eines Systems zu kontrollieren.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Wirkungsmechanismus</span> <span class="text-stone-400">— die nachvollziehbare Kette, über die eine Maßnahme zu einer Wirkung führt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— die Phase der Produktarbeit, in der ein Problem noch untersucht und nicht bereits umgesetzt wird.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Gesprächsleitfaden</span> <span class="text-stone-400">— der vorbereitete Fragenrahmen für ein Nutzer- oder Kundeninterview.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agent</span> <span class="text-stone-400">— ein Sprachmodell, das über mehrere Schritte hinweg Werkzeuge benutzt und Zustand behält.</span></p>
+                </div>
+            </div>
+
+        </article>
+    </div>
+    </div>
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <!-- ======== ARTICLE HEADER ======== -->
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Experiment</span>
+                <span class="text-[0.72rem] text-stone-400">16 September 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Research got cheap. Understanding did not.
+            </h1>
+        </header>
+
+        <!-- ======== TL;DR ======== -->
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                With AI, eleven days produce more research than a person can read in eleven days. The bottleneck has moved from producing to condensing, and condensing is the one task that cannot be delegated. What helped was not a better prompt: a conversation where somebody pushes back, a summary at the end rather than along the way, and an interview guide with my own hypotheses taken back out.
+            </p>
+        </div>
+
+        <!-- ======== ARTICLE CONTENT ======== -->
+        <article class="prose pb-12">
+            <!-- ══ BLOCK 1: CORE MESSAGE AND PROBLEM ══ -->
+
+            <p>In eleven days one folder filled up with material I measured because I did not want to believe it: 31 documents, 166,000 words. That is the length of two non-fiction books, about a field I had not heard of two weeks earlier. None of it was wrong and almost none of it was useless. Yet the state at the end of the week was not clarity. It was exhaustion. The research had delivered everything except the ability to use it.</p>
+
+            <!-- ══ BLOCK 2: GROUNDING ══ -->
+
+            <h2>The bottleneck moved</h2>
+
+            <p>The old arithmetic of product work said: producing is expensive, deciding is cheap. Market scans, competitor analysis, chains of cause and effect, all of that took days, and once it finally existed, deciding on it took hours. With an agent the ratio inverts. Producing costs almost nothing, which is exactly why too much of it appears.</p>
+
+            <p>What gets scarce is not compute but review time. Every document that appears wants to be read, held against the others and placed. That work does not scale with the machine. It stays with one person and grows linearly with the pile the agent produces. Two books of research are not a head start if nobody can read two books.</p>
+
+            <p>Twice that week we hit the limit of what a model can hold in context. Both times the obvious answer was the wrong one. The obvious answer is more capacity, a fresh session, carry on. The answer that worked was to condense: not produce the next document, but reduce the existing ones to what carries.</p>
+
+            <!-- ══ KEY INSIGHT QUOTE ══ -->
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    A context limit is not a technical fault. It is the point where it shows that you stopped understanding and only kept collecting.
+                </p>
+            </div>
+
+            <h2>Three things that actually helped</h2>
+
+            <p>None of them is a tool or a phrasing. All three change the sequence of the work.</p>
+
+            <div class="my-8 space-y-5">
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">1</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">The conversation over the report.</span> An hour of dialogue on a single question settled more than three finished documents on the same topic. Pushback happens in conversation. A report does not push back.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">The summary at the end.</span> Once over everything at the close, not spread across the day. Summarising in between summarises interim states and has to be redone later.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Condensing as its own assignment.</span> Summarising is a task with its own output, not a by-product. It gets its own run, otherwise it does not happen.</p>
+                </div>
+            </div>
+
+            <p>The difference between those three and what I did before is a reversal of direction. Before, the work ran from the question to the material. Now it runs from the material back to the question, before new material appears.</p>
+
+            <h2>From the pile to the interview guide</h2>
+
+            <p>The test of whether research is worth anything comes at the first customer conversation. And there the pile turns treacherous: it hands you exactly the sentences you must not say in an interview.</p>
+
+            <p>A well researched person walks in with theses. A good conversation needs the opposite. Research does not supply the questions, it supplies the assumptions to be tested. A mechanism I find plausible does not become a question about that mechanism. It becomes a request to tell me about the last real case where it should have worked.</p>
+
+            <p>The first thing I learned in conversation that week confirmed no hypothesis. It moved the target group. Look for who pays rather than who uses, and you find them in a different segment from the one all the preparation was built for. Two weeks of research, and one sentence from a real person pulled the assumption out from under it. That is what conversations are for, and it is exactly what research cannot do.</p>
+
+            <p>Out of eleven days of material, three things end up in the preparation, and all three are short. The role of the person, because without it every question misses. Two assumptions the conversation could overturn, because a conversation that can overturn nothing only collects agreement. And the words actually used in that field, so I do not ask in my own language. The rest stays in the folder. It was not wasted, because without it I would not know which two assumptions are the risky ones, but it does not come into the room.</p>
+
+            <p>In practice: the guide does not grow out of the research, it grows against it. What belongs in it is the person's role and the two assumptions the conversation could overturn. What stays out are solutions, wishes and any wording that already carries a thesis of mine. In that same week two finished guides went in the bin because the role of the person opposite had not been settled before they were written.</p>
+
+            <!-- ══ BLOCK 3: A CRITICAL LOOK ══ -->
+
+            <h2>A critical look</h2>
+
+            <p>The most honest objection: part of that flood was my own order. Give an agent assignments for eleven days and you get eleven days of results, and it is convenient to describe that afterwards as a property of the technology. Part of the pile would never have existed if I had been made to say beforehand what each document was for.</p>
+
+            <p>On top of that, 166,000 is a poor measure. It says nothing about quality and little about use. Some of the material was an interim state that did its job and was then rightly left behind. The effort is still real, because an interim state also has to be read before you can recognise it as one.</p>
+
+            <p>And the control is missing. I did not test whether the same week without AI would have produced a worse result. Narrower, probably. Slower, certainly. Whether it would have been better, I do not know.</p>
+
+            <!-- ══ BLOCK 4: WHAT I CHANGED ══ -->
+
+            <h2>What I do differently now</h2>
+
+            <p>I close longer research sessions with an assignment that only summarises. Not as an aside, but as the final step with its own output. The document that comes out of it is now the only one I actually open the next morning.</p>
+
+            <p>When preparing a conversation I settle the role of the person before a single question gets written. Asking takes half a minute. A guide built without it is worthless at the meeting, and you only notice that at the meeting.</p>
+
+            <p>And I no longer treat a context limit as an obstacle to route around. It is a signal. When the material no longer fits into one coherent picture, the picture is the problem, not the capacity.</p>
+
+            <!-- ══ BLOCK 5: WHAT STAYS WITH YOU EVERY DAY ══ -->
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Condensing is a task, not a by-product</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">It gets its own run and its own output, otherwise it does not happen.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Research supplies assumptions, not questions</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">What I think I know belongs on the test list, not in the guide.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">One conversation beats three documents</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Pushback happens in dialogue. A report does not argue, it delivers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SOURCES ══ -->
+
+            <div class="mt-12 pt-6" id="sources" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="/blog/harness-engineering-pm.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). Context, harness, loop. Three layers product teams are currently confusing. linja.me.</a></li>
+                    <li><a href="/blog/spec-driven-development-pm.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). The specification is the frame. What product teams have to write down before AI can work on its own. linja.me.</a></li>
+                </ol>
+            </div>
+
+            <!-- ══ GLOSSARY ══ -->
+
+            <div class="mt-8 pt-6" id="glossary" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Context limit</span> <span class="text-stone-400">— the ceiling on what a model can take into account at once in a single pass.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Review load</span> <span class="text-stone-400">— the effort humans have to spend checking what a system produced.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Mechanism of effect</span> <span class="text-stone-400">— the traceable chain by which a measure leads to an outcome.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— the phase of product work in which a problem is still being investigated rather than built.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Interview guide</span> <span class="text-stone-400">— the prepared frame of questions for a user or customer interview.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Agent</span> <span class="text-stone-400">— a language model that uses tools across several steps and keeps state.</span></p>
+                </div>
+            </div>
+
+        </article>
+    </div>
+    </div>
+
+    <div id="site-footer"></div>
+
+
+    <!-- ======== LANGUAGE TOGGLE (controlled by components.js nav) ======== -->
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+
+</html>
