@@ -160,6 +160,47 @@
             </p>
         </div>
 
+        <!-- ══ ENTFERNBAR: EINSTIEGS-PROMPT (Vier-Zeiler als Dauerregel) ══ -->
+        <div class="my-8 rounded-lg overflow-hidden" style="border: 1px solid #d9d1e5; background: #fcfbfe;">
+            <div class="px-6 pt-5 pb-4">
+                <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">Regel zum Start</p>
+                <p class="source-serif text-[1.02rem] text-stone-800 leading-relaxed mb-2">Bevor du weiterliest: mach den Vier-Zeiler zur Regel.</p>
+                <p class="text-[0.85rem] text-stone-500 mb-0">Kopier diesen Prompt in die Dauereinstellungen deines KI-Werkzeugs, also Custom Instructions, Projektregeln oder CLAUDE.md. Er verlangt vor jeder Aufgabe vier ausgefüllte Zeilen und fragt nach, solange eine fehlt. Warum die vierte Zeile die anderen drei trägt, steht weiter unten.</p>
+            </div>
+            <div class="px-6 pb-5">
+                <pre id="prompt-vierzeiler-de" class="font-mono text-[0.72rem] leading-[1.7] text-stone-700 rounded-md px-4 py-4 mb-3" style="background: #f6f4f9; white-space: pre-wrap; overflow-x: auto;">Dauerregel für unsere Zusammenarbeit: Bevor du eine Aufgabe ausführst,
+stehen vier Zeilen.
+
+1. Ziel: ein Satz im Präsens, der den Zustand beschreibt statt der
+   Tätigkeit. Bei Bewertungen gehört die Ergebnisform hinein, also
+   Optionen mit Empfehlung statt fertiger Entscheidung.
+2. Nicht dabei: zwei bis drei Dinge, die naheliegen und trotzdem
+   draußen bleiben.
+3. Grundlage: Quellen, Daten, Vorgaben. Was fehlt, benennst du als
+   Lücke und füllst es nicht.
+4. Fertig, wenn: eine Beobachtung, die das Gegenteil beweisen würde.
+   Sonst ist es kein Kriterium.
+
+Geh so vor:
+1. Schreib die vier Zeilen aus meiner Aufgabe heraus, bevor du anfängst.
+   Was ich nicht gesagt habe, bleibt leer. Rate es nicht.
+2. Frag nach den leeren Zeilen, höchstens zwei Fragen auf einmal.
+3. Prüf die vierte Zeile gegen zwei Tests: Gibt es eine Beobachtung, die
+   sie verletzt? Und kann das jemand anderes feststellen als ich? Wenn
+   einer der beiden Tests durchfällt, schlag eine schärfere Fassung vor.
+4. Erst wenn die vier Zeilen stehen, fängst du an. Am Ende prüfst du dein
+   Ergebnis gegen die vierte Zeile und sagst mir, woran es scheitert.
+
+Ausnahme: Wenn ich noch nicht weiß, wie das Ergebnis aussehen muss, ist
+es Erkundung. Dann tritt an die Stelle der vierten Zeile ein Lernziel und
+du fragst mich, was ich danach entscheiden können will.</pre>
+                <button type="button" class="prompt-copy font-mono text-[0.62rem] tracking-wider uppercase px-3 py-1.5 rounded transition-colors"
+                        style="border: 1px solid #d9d1e5; color: #6b5691; background: #ffffff;"
+                        data-copy-target="prompt-vierzeiler-de" data-copied-label="Kopiert">Prompt kopieren</button>
+            </div>
+        </div>
+        <!-- ══ /ENTFERNBAR: EINSTIEGS-PROMPT ══ -->
+
         <!-- ======== ARTIKEL-CONTENT ======== -->
         <article class="prose pb-12">
             <!-- ══ BLOCK 1: KERNBOTSCHAFT + PROBLEM ══ -->
@@ -427,6 +468,47 @@
             </p>
         </div>
 
+        <!-- ══ ENTFERNBAR: EINSTIEGS-PROMPT (Vier-Zeiler als Dauerregel) ══ -->
+        <div class="my-8 rounded-lg overflow-hidden" style="border: 1px solid #d9d1e5; background: #fcfbfe;">
+            <div class="px-6 pt-5 pb-4">
+                <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">Rule first</p>
+                <p class="source-serif text-[1.02rem] text-stone-800 leading-relaxed mb-2">Before you read on: turn the four-liner into a rule.</p>
+                <p class="text-[0.85rem] text-stone-500 mb-0">Paste this prompt into the standing settings of your AI tool, meaning custom instructions, project rules or CLAUDE.md. It requires four filled lines before any task and keeps asking while one is missing. Why the fourth line carries the other three is further down.</p>
+            </div>
+            <div class="px-6 pb-5">
+                <pre id="prompt-vierzeiler-en" class="font-mono text-[0.72rem] leading-[1.7] text-stone-700 rounded-md px-4 py-4 mb-3" style="background: #f6f4f9; white-space: pre-wrap; overflow-x: auto;">Standing rule for how we work: before you carry out a task, four lines
+are in place.
+
+1. Goal: one sentence in the present tense describing the state rather
+   than the activity. For assessments the output form belongs in it,
+   meaning options with a recommendation instead of a finished decision.
+2. Not included: two or three things that suggest themselves and stay
+   out anyway.
+3. Basis: sources, data, constraints. Whatever is missing you name as a
+   gap instead of filling it.
+4. Done when: an observation that would prove the opposite. Without one
+   it is not a criterion.
+
+Work like this:
+1. Write the four lines out of my task before you start. Whatever I did
+   not say stays empty. Do not guess it.
+2. Ask me about the empty lines, at most two questions at a time.
+3. Put the fourth line through two tests: is there an observation that
+   violates it? And can anyone other than me establish that? If either
+   test fails, propose a sharper version.
+4. Only start once the four lines stand. At the end, check your result
+   against the fourth line and tell me where it fails.
+
+Exception: if I do not yet know what the result has to look like, this is
+exploration. Then a learning goal takes the place of the fourth line and
+you ask me what I want to be able to decide afterwards.</pre>
+                <button type="button" class="prompt-copy font-mono text-[0.62rem] tracking-wider uppercase px-3 py-1.5 rounded transition-colors"
+                        style="border: 1px solid #d9d1e5; color: #6b5691; background: #ffffff;"
+                        data-copy-target="prompt-vierzeiler-en" data-copied-label="Copied">Copy prompt</button>
+            </div>
+        </div>
+        <!-- ══ /ENTFERNBAR: EINSTIEGS-PROMPT ══ -->
+
         <!-- ======== ARTICLE CONTENT ======== -->
         <article class="prose pb-12">
             <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
@@ -670,6 +752,21 @@
 
     <div id="site-footer"></div>
 
+
+    <!-- ══ ENTFERNBAR MIT DEM EINSTIEGS-PROMPT: Copy-Button ══ -->
+    <script>
+    document.querySelectorAll('.prompt-copy').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var src = document.getElementById(btn.getAttribute('data-copy-target'));
+            if (!src || !navigator.clipboard) return;
+            navigator.clipboard.writeText(src.innerText).then(function () {
+                var label = btn.textContent;
+                btn.textContent = btn.getAttribute('data-copied-label');
+                setTimeout(function () { btn.textContent = label; }, 2000);
+            });
+        });
+    });
+    </script>
 
     <!-- ======== LANGUAGE TOGGLE (controlled by components.js nav) ======== -->
     <script>
