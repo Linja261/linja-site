@@ -205,20 +205,22 @@ du fragst mich, was ich danach entscheiden können will.</pre>
         <article class="prose pb-12">
             <!-- ══ BLOCK 1: KERNBOTSCHAFT + PROBLEM ══ -->
 
-            <p>Der erste Teil hat drei Ebenen sortiert: Kontext legt fest, was ein Modell für einen einzelnen Aufruf sieht, das Harness die Umgebung eines Agenten, der Loop, wer ihn anstößt.<sup>1</sup> Die Sortierung hilft bei der Fehlersuche, die drängendere Frage beantwortet sie nicht. Wer eine KI-gestützte Funktion beschreiben soll, sitzt nicht vor einem Ebenenmodell, sondern vor einem leeren Dokument. Die Ebenen sagen, wo etwas hingehört. Sie sagen nicht, was hineingeschrieben werden muss, damit ein Agent ohne ständige Rückfragen arbeiten kann.</p>
+            <p>Der erste Teil hat drei Ebenen sortiert: Kontext legt fest, was ein Modell für einen einzelnen Aufruf sieht, das Harness die Umgebung eines Agenten, der Loop, wer ihn anstößt.<sup>1</sup> Das hilft bei der Fehlersuche und beantwortet die drängendere Frage nicht. Wer eine KI-gestützte Funktion beschreiben soll, sitzt vor einem leeren Dokument. Die Ebenen sagen, wo etwas hingehört. Sie sagen nicht, was hineingehört.</p>
 
 
             <!-- ══ BLOCK 2: FUNDIERUNG ══ -->
 
             <h2>Was Spec-Driven Development umdreht</h2>
 
-            <p>Seit 2025 hat sich für diese Lücke ein Ansatz etabliert, der die übliche Reihenfolge umkehrt. Vor der Umsetzung steht eine Spezifikation und diese Spezifikation ist nicht der Entwurf der Wahrheit, sondern die Wahrheit selbst. GitHub beschreibt die Verschiebung als Wechsel von „Code ist die Quelle der Wahrheit" zu „Absicht ist die Quelle der Wahrheit" und schlägt einen Ablauf in vier Schritten vor: spezifizieren, planen, in Aufgaben zerlegen, umsetzen.<sup>2</sup> Jeder Schritt erzeugt ein Dokument, das den nächsten speist.</p>
+            <p>Für diese Lücke gibt es einen Ansatz, der die übliche Reihenfolge umkehrt. Der Gedanke selbst ist alt. Anforderungsdokumente, Design Docs und Design by Contract stellen die Beschreibung seit langem vor die Umsetzung.<sup>2</sup> Neu ist nicht der Gedanke, sondern sein Adressat. Die Spezifikation richtet sich nicht mehr an Menschen, die nachfragen können, sondern an Agenten, die es nicht tun.</p>
 
-            <p>Birgitta Böckeler beschreibt das Artefakt genauer: ein strukturiertes, verhaltensorientiertes Dokument in natürlicher Sprache, das Mensch und Agent gemeinsam als Bezugspunkt nutzen.<sup>3</sup> Sie unterscheidet außerdem drei Ausbaustufen, die in der Diskussion oft vermischt werden: Die Spezifikation stößt die Arbeit nur an, sie läuft synchron mit dem Code weiter oder sie ist das einzige Artefakt, das noch von Hand bearbeitet wird. Die meisten Teams stehen auf den ersten beiden Stufen. Der Unterschied ist keine Feinheit, er entscheidet, welches Dokument bei einem Widerspruch gewinnt.</p>
+            <p>Vor der Umsetzung steht eine Spezifikation und diese Spezifikation ist nicht der Entwurf der Wahrheit, sondern die Wahrheit selbst. GitHub beschreibt die Verschiebung als Wechsel von „Code ist die Quelle der Wahrheit" zu „Absicht ist die Quelle der Wahrheit" und schlägt einen Ablauf in vier Schritten vor: spezifizieren, planen, in Aufgaben zerlegen, umsetzen.<sup>3</sup> Jeder Schritt erzeugt ein Dokument, das den nächsten speist.</p>
+
+            <p>Birgitta Böckeler beschreibt das Artefakt genauer: ein strukturiertes, verhaltensorientiertes Dokument in natürlicher Sprache, das Mensch und Agent gemeinsam als Bezugspunkt nutzen.<sup>4</sup> Sie unterscheidet drei Ausbaustufen, die oft vermischt werden: Die Spezifikation stößt die Arbeit nur an, sie läuft synchron mit dem Code weiter oder sie ist das einzige Artefakt, das noch von Hand bearbeitet wird. Der Unterschied entscheidet, welches Dokument bei einem Widerspruch gewinnt.</p>
 
             <h3>Warum das eine Produktfrage ist</h3>
 
-            <p>Kief Morris beschreibt drei Haltungen, die ein Team gegenüber einem Agenten einnehmen kann.<sup>4</sup></p>
+            <p>Kief Morris beschreibt drei Haltungen, die ein Team gegenüber einem Agenten einnehmen kann.<sup>5</sup></p>
 
             <div class="my-8 space-y-5">
                 <div class="flex gap-4 items-start">
@@ -237,7 +239,7 @@ du fragst mich, was ich danach entscheiden können will.</pre>
 
             <p>Nur die dritte Haltung skaliert. Sie verschiebt die Arbeit dorthin, wo Produktleute ohnehin arbeiten. Wer an der Schleife steht, schreibt keine Prompts, sondern Bedingungen. Das ist dieselbe Tätigkeit wie das Formulieren einer Definition of Done.</p>
 
-            <p>Neu ist daran nichts, außer den drei Dingen, die alles ändern. Der Adressat fragt nicht nach, wenn etwas unklar bleibt. Die Bedingung greift bei jeder einzelnen Ausführung statt einmal pro Story. Und sie steht vor der Arbeit statt im Kommentarfeld darunter.</p>
+            <p>Zwei Dinge ändern trotzdem alles. Die Bedingung greift bei jeder einzelnen Ausführung statt einmal pro Story. Und sie steht vor der Arbeit statt im Kommentarfeld darunter.</p>
 
             <!-- ══ KERNERKENNTNIS-QUOTE ══ -->
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
@@ -248,7 +250,7 @@ du fragst mich, was ich danach entscheiden können will.</pre>
 
             <h3>Die vier Felder, die eine Spezifikation tragen</h3>
 
-            <p>Aus den drei Quellen und der Ebenenlogik aus Teil 1 lässt sich ein knapper Satz an Feldern ableiten. Er ist bewusst kurz, weil Vollständigkeit hier kein Qualitätsmerkmal ist. Eine lange Spezifikation erhöht die Prüflast, ohne die Ergebnisse besser zu machen.</p>
+            <p>Daraus lässt sich ein knapper Satz an Feldern ableiten. Er ist bewusst kurz, weil Vollständigkeit hier kein Qualitätsmerkmal ist. Eine lange Spezifikation erhöht die Prüflast, ohne die Ergebnisse besser zu machen.</p>
 
             <!-- ══ DATENTABELLE: VIER FELDER ══ -->
             <table>
@@ -341,7 +343,7 @@ du fragst mich, was ich danach entscheiden können will.</pre>
 
             <h2>Kritische Einordnung</h2>
 
-            <p>Der schwerwiegendste Einwand kommt nicht von außen, sondern aus der Nachbarschaft. Martin Fowler gibt Kent Becks Kritik wieder: Die Annahme, Anforderungen ließen sich vor der Umsetzung vollständig festlegen, ignoriert, dass beim Bauen Erkenntnisse entstehen, die die Spezifikation verändern würden.<sup>5</sup> Wer die Spezifikation zur alleinigen Wahrheit erklärt, riskiert, genau dieses Lernen wegzudefinieren. Der Einwand trifft die dritte Ausbaustufe härter als die ersten beiden.</p>
+            <p>Der schwerwiegendste Einwand kommt aus der Nachbarschaft. Martin Fowler gibt Kent Becks Kritik wieder: Die Annahme, Anforderungen ließen sich vor der Umsetzung vollständig festlegen, ignoriert, dass beim Bauen Erkenntnisse entstehen, die die Spezifikation verändern würden.<sup>6</sup> Wer sie zur alleinigen Wahrheit erklärt, definiert genau dieses Lernen weg. Der Einwand trifft die dritte Ausbaustufe härter als die ersten beiden.</p>
 
             <h3>Wann keine Abnahmebedingung</h3>
 
@@ -349,13 +351,25 @@ du fragst mich, was ich danach entscheiden können will.</pre>
 
             <p>Für wiederkehrende Aufgaben mit bekanntem Ergebnis schreibt man Abnahmebedingungen. Für Erkundung schreibt man Lernziele. Das ist kein Kompromiss zwischen beidem, es sind zwei verschiedene Dokumente für zwei verschiedene Lagen.</p>
 
-            <p>Wer eine Discovery mit einer Abnahmebedingung belegt, hat sie zur Lieferung erklärt und bekommt genau das zurück: ein Ergebnis, das die Bedingung erfüllt, und keine einzige Überraschung. Das ist bei einer Wettbewerbsübersicht genau richtig und bei fünf Nutzergesprächen ein Eigentor. Die Bedingung „drei Muster identifiziert" erzeugt drei Muster. Sie erzeugt sie auch dann, wenn keine da sind.</p>
+            <p>Wer eine Discovery mit einer Abnahmebedingung belegt, hat sie zur Lieferung erklärt und bekommt genau das zurück: ein Ergebnis, das die Bedingung erfüllt, und keine einzige Überraschung. Bei einer Wettbewerbsübersicht ist das richtig, bei fünf Nutzergesprächen ein Eigentor. Die Bedingung „drei Muster identifiziert" erzeugt drei Muster, auch wenn keine da sind.</p>
 
-            <p>Ein Lernziel sieht anders aus. Es nennt die Annahme, die geprüft wird, und den Satz, der sie kippen würde. Es nennt kein Ergebnis, weil das Ergebnis der Punkt der Übung ist. Die Prüfung liegt nicht darin, ob geliefert wurde, sondern ob ich hinterher weiß, was ich vorher nicht wusste.</p>
+            <p>Ein Lernziel sieht anders aus. Es nennt die Annahme, die geprüft wird, und den Satz, der sie kippen würde. Es nennt kein Ergebnis, weil das Ergebnis der Punkt der Übung ist. Geprüft wird nicht, ob geliefert wurde, sondern ob ich hinterher mehr weiß.</p>
 
-            <p>Die Unterscheidung ist leicht zu treffen und wird trotzdem selten getroffen: Weiß ich, wie das Ergebnis aussehen muss? Dann Abnahmebedingung. Will ich wissen, wie es aussieht? Dann Lernziel. Wer im Zweifel ist, behandelt es als Erkundung, denn eine überflüssige Abnahmebedingung kostet nur Zeit, eine falsche kostet die Erkenntnis.</p>
+            <p>Die Unterscheidung ist leicht und wird trotzdem selten getroffen: Weiß ich, wie das Ergebnis aussehen muss? Dann Abnahmebedingung. Will ich es herausfinden? Dann Lernziel. Im Zweifel Erkundung, denn eine überflüssige Bedingung kostet Zeit, eine falsche die Erkenntnis.</p>
 
-            <p>Dazu kommen zwei praktische Beobachtungen von Böckeler.<sup>3</sup> Die Menge an Spezifikationsdokumenten kann die Prüflast erhöhen statt sie zu senken, weil am Ende jemand alle lesen muss. Und Agenten ignorieren Vorgaben auch dann, wenn diese ausführlich niedergeschrieben sind.</p>
+            <p>Dazu kommen zwei praktische Beobachtungen von Böckeler.<sup>4</sup> Die Menge an Spezifikationsdokumenten kann die Prüflast erhöhen statt sie zu senken, weil am Ende jemand alle lesen muss. Und Agenten ignorieren Vorgaben auch dann, wenn diese ausführlich niedergeschrieben sind.</p>
+
+            <p>Wie weit sich das treiben lässt, zeigt BMAD-METHOD. Die Werkzeugsammlung verteilt die Arbeit auf benannte Agenten-Personas, darunter einen Product Manager namens John, dessen Arbeitsablauf „create-prd“ heißt.<sup>7</sup> Die Produktrolle ist dort als Prompt implementiert. Damit lautet die Frage nicht mehr, wie man eine Spezifikation schreibt, sondern wer für sie geradesteht.</p>
+
+            <h3>Wie das Feld den Ansatz einordnet</h3>
+
+            <p>Der schärfste Einwand trifft nicht die Substanz, sondern den Neuheitsanspruch. Brandon Kindred führt den Ansatz auf den Teil des Entwicklungszyklus zurück, den die meisten Organisationen seit Jahren überspringen. Sein Fazit: KI habe Spec-Driven Development nicht erfunden, sondern das Überspringen teuer gemacht.<sup>2</sup></p>
+
+            <p>Roger Wong<sup>8</sup> und Yuval Yeret<sup>9</sup> antworten beide auf den Wasserfall-Vorwurf statt auf die Frage, ob der Ansatz trägt.</p>
+
+            <p>Der nüchternste Befund kommt aus dem Haus der hier zweimal zustimmend zitierten Quelle. Böckeler arbeitet bei Thoughtworks. Thoughtworks führt den Ansatz im eigenen Technology Radar unter „Assess“ statt unter „Adopt“.<sup>10</sup> Das ist die Einstufung für Ansehen, nicht für Einsetzen.</p>
+
+            <p>Den Rest sagt das Tempo, mit dem der Ansatz durch die Disziplinen wandert. Das Design beansprucht ihn bereits für sich,<sup>11</sup> die Wissenschaft für reproduzierbare Datenanalyse.<sup>12</sup> Wer ihn für die Produktarbeit reklamiert, reiht sich ein, statt etwas zu eröffnen.</p>
 
 
             <!-- ══ BLOCK 4: DER ÜBERTRAG ══ -->
@@ -399,10 +413,17 @@ du fragst mich, was ich danach entscheiden können will.</pre>
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Quellen</p>
                 <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
                     <li><a href="/blog/harness-engineering-pm.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). Kontext, Harness, Loop. Drei Ebenen, die Produktteams gerade durcheinanderbringen. linja.me (Teil 1 dieses Zweiteilers).</a></li>
+                    <li><a href="https://brandonkindred.medium.com/same-patterns-new-hype-spec-driven-development-5183d8e8f704" class="hover:text-stone-600 transition-colors" style="color: inherit;">Kindred, B. (2026). Same Patterns, New Hype: Spec-Driven Development. Medium, 20. April 2026.</a></li>
                     <li><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Delimarsky, D. (2025). Spec-driven development with AI: Get started with a new open source toolkit. The GitHub Blog, 2. September 2025.</a></li>
                     <li><a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Böckeler, B. (2025). Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl. martinfowler.com, 15. Oktober 2025.</a></li>
                     <li><a href="https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Morris, K. (2026). Humans and Agents in Software Engineering Loops. martinfowler.com, 4. März 2026.</a></li>
                     <li><a href="https://martinfowler.com/fragments/2026-01-08.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Fowler, M. (2026). Fragments: January 8. martinfowler.com, 8. Januar 2026. (Gibt Kent Becks Einwand gegen vorab vollständige Spezifikationen wieder.)</a></li>
+                    <li><a href="https://mintlify.wiki/bmad-code-org/BMAD-METHOD/concepts/agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">BMad Method (o. J.). Agents. Projektdokumentation, bmad-code-org/BMAD-METHOD. Abgerufen am 16. September 2026.</a></li>
+                    <li><a href="https://rogerwong.me/2026/03/spec-driven-development" class="hover:text-stone-600 transition-colors" style="color: inherit;">Wong, R. (2026). Spec-Driven Development: It Looks Like Waterfall (And I Feel Fine). rogerwong.me, 4. März 2026.</a></li>
+                    <li><a href="https://yuvalyeret.com/blog/is-spec-driven-development-a-step-forward-or-back-for-product-development/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Yeret, Y. (2026). Is Spec-Driven Development a Step Forward or Back? yuvalyeret.com, 5. Juni 2026.</a></li>
+                    <li><a href="https://www.thoughtworks.com/en-us/radar/techniques/spec-driven-development" class="hover:text-stone-600 transition-colors" style="color: inherit;">Thoughtworks (2025). Spec-driven development. Technology Radar Vol. 34, November 2025, Ring „Assess“.</a></li>
+                    <li><a href="https://www.futurice.com/blog/spec-driven-design" class="hover:text-stone-600 transition-colors" style="color: inherit;">Härkönen, T. (2026). Faster prototypes miss the point: The case for spec-driven design. futurice.com, 11. August 2026.</a></li>
+                    <li><a href="https://arxiv.org/abs/2510.11143" class="hover:text-stone-600 transition-colors" style="color: inherit;">Chen, C., Luo, B., Li, N., Wang, B., Yang, H., Guo, J. & Xu, M. (2025). Spec-Driven AI for Science: The ARIA Framework for Automated and Reproducible Data Analysis. arXiv:2510.11143, 13. Oktober 2025.</a></li>
                 </ol>
             </div>
 
@@ -423,6 +444,10 @@ du fragst mich, was ich danach entscheiden können will.</pre>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Prüflast</span> <span class="text-stone-400">— der Aufwand, den Menschen aufbringen müssen, um Ergebnisse eines Systems zu kontrollieren.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Lernziel</span> <span class="text-stone-400">— Gegenstück zur Abnahmebedingung: benennt die Annahme, die geprüft wird, und den Befund, der sie kippen würde, statt ein Ergebnis vorzugeben.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— die Phase der Produktarbeit, in der ein Problem noch untersucht und nicht bereits umgesetzt wird.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Design by Contract</span> <span class="text-stone-400">— Entwurfsprinzip, bei dem ein Bauteil vorab zusichert, was es erwartet und was es garantiert.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">RFC</span> <span class="text-stone-400">— Request for Comments: Vorschlagsdokument, das eine geplante Änderung beschreibt und zur Kommentierung stellt.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">PRD</span> <span class="text-stone-400">— Product Requirements Document: das klassische Dokument, in dem Produktanforderungen festgehalten werden.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Technology Radar</span> <span class="text-stone-400">— halbjährliche Einordnung von Technologien durch Thoughtworks in die Ringe Adopt, Trial, Assess und Hold.</span></p>
                 </div>
             </div>
 
@@ -513,20 +538,22 @@ you ask me what I want to be able to decide afterwards.</pre>
         <article class="prose pb-12">
             <!-- ══ BLOCK 1: CORE MESSAGE + PROBLEM ══ -->
 
-            <p>Part one sorted three layers: context settles what a model sees for a single call, the harness the environment an agent acts in, the loop who triggers it.<sup>1</sup> That sorting helps with debugging but leaves the more pressing question open. Anyone asked to describe an AI supported feature sits in front of an empty document, not a model. The layers say where something belongs. They do not say what goes in so an agent can work without constant questions.</p>
+            <p>Part one sorted three layers: context settles what a model sees for a single call, the harness the environment an agent acts in, the loop who triggers it.<sup>1</sup> That helps with debugging and leaves the more pressing question open. Anyone asked to describe an AI supported feature sits in front of an empty document. The layers say where something belongs. They do not say what goes in.</p>
 
 
             <!-- ══ BLOCK 2: FOUNDATION ══ -->
 
             <h2>What spec-driven development reverses</h2>
 
-            <p>Since 2025 an approach has taken hold that inverts the usual order: the specification comes before the build, and it is not a draft of the truth but the truth itself. GitHub frames the shift as moving from "code is the source of truth" to "intent is the source of truth", in four steps: specify, plan, break into tasks, implement.<sup>2</sup> Each step produces a document feeding the next.</p>
+            <p>There is an approach that inverts the usual order, and the idea itself is old. Requirements documents, design docs and design by contract have long put the description before the build.<sup>2</sup> What is new is not the idea but its addressee. The specification no longer speaks to people who can ask, but to agents that will not.</p>
 
-            <p>Böckeler describes the artefact more precisely: a structured, behaviour oriented document in natural language that human and agent share as a reference point.<sup>3</sup> She also separates three levels of ambition the debate tends to blur: the specification only kicks the work off, it evolves in sync with the code, or it is the only artefact edited by hand. Most teams sit on the first two. The difference settles which document wins when they contradict.</p>
+            <p>The specification comes before the build, and it is not a draft of the truth but the truth itself. GitHub frames the shift as moving from "code is the source of truth" to "intent is the source of truth", in four steps: specify, plan, break into tasks, implement.<sup>3</sup> Each step produces a document feeding the next.</p>
+
+            <p>Böckeler describes the artefact more precisely: a structured, behaviour oriented document in natural language that human and agent share as a reference point.<sup>4</sup> She separates three levels of ambition the debate tends to blur: the specification only kicks the work off, it evolves in sync with the code, or it is the only artefact edited by hand. The difference settles which document wins when they contradict.</p>
 
             <h3>Why this is a product question</h3>
 
-            <p>Kief Morris describes three stances a team can take towards an agent.<sup>4</sup></p>
+            <p>Kief Morris describes three stances a team can take towards an agent.<sup>5</sup></p>
 
             <div class="my-8 space-y-5">
                 <div class="flex gap-4 items-start">
@@ -545,7 +572,7 @@ you ask me what I want to be able to decide afterwards.</pre>
 
             <p>Only the third stance scales: it moves the work to where product people already are. Standing on the loop means writing conditions, not prompts. That is the same activity as writing a definition of done.</p>
 
-            <p>Nothing about that is new, apart from three things that change everything. The recipient never asks a follow-up when something stays unclear. The condition applies to every run instead of once per story. And it sits before the work, not in the comment field below it.</p>
+            <p>Two things change everything anyway. The condition applies to every run instead of once per story. And it sits before the work, not in the comment field below it.</p>
 
             <!-- ══ KEY INSIGHT QUOTE ══ -->
             <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
@@ -649,7 +676,7 @@ you ask me what I want to be able to decide afterwards.</pre>
 
             <h2>A critical look</h2>
 
-            <p>The heaviest objection comes from close by. Martin Fowler relays Kent Beck's criticism: assuming requirements can be settled fully before implementation ignores that building produces insights that would change the specification.<sup>5</sup> Declaring it the sole truth risks defining that learning away. The objection hits the third level of ambition hardest.</p>
+            <p>The heaviest objection comes from close by. Martin Fowler relays Kent Beck's criticism: assuming requirements can be settled fully before implementation ignores that building produces insights that would change the specification.<sup>6</sup> Declaring it the sole truth risks defining that learning away. The objection hits the third level of ambition hardest.</p>
 
             <h3>When not to write an acceptance condition</h3>
 
@@ -659,11 +686,23 @@ you ask me what I want to be able to decide afterwards.</pre>
 
             <p>Putting an acceptance condition on a discovery declares it a delivery, and that is what comes back: a result that meets the condition, and no surprises. Right for a competitor overview, an own goal for five user interviews. The condition "three patterns identified" produces three patterns, even when there are none.</p>
 
-            <p>A learning goal looks different. It names the assumption under test and the sentence that would overturn it, but no result, because the result is the point. The check is not whether something was delivered, but whether I know afterwards what I did not before.</p>
+            <p>A learning goal looks different. It names the assumption under test and the sentence that would overturn it, but no result, because the result is the point. The check is not whether something was delivered, but whether I know more afterwards.</p>
 
-            <p>The distinction is easy and still rarely made. If you know what the result has to look like, write an acceptance condition. If you want to find out, write a learning goal. When in doubt, treat it as exploration: a redundant condition costs time, a wrong one the insight.</p>
+            <p>The distinction is easy and still rarely made. If you know what the result has to look like, write an acceptance condition. If you want to find out, write a learning goal. In doubt, treat it as exploration: a redundant condition costs time, a wrong one the insight.</p>
 
-            <p>Two practical observations from Böckeler point the same way.<sup>3</sup> The volume of specification documents can raise the review load instead of lowering it, because somebody has to read all of them. And agents ignore instructions even when those are written out in detail.</p>
+            <p>Two practical observations from Böckeler point the same way.<sup>4</sup> The volume of specification documents can raise the review load instead of lowering it, because somebody has to read all of them. And agents ignore instructions even when those are written out in detail.</p>
+
+            <p>How far that can be taken shows in BMAD-METHOD. The toolkit splits the work across named agent personas, among them a product manager called John, whose workflow is named “create-prd”.<sup>7</sup> The product role is implemented there as a prompt. The question stops being how to write a specification and becomes who answers for it.</p>
+
+            <h3>How the field rates the approach</h3>
+
+            <p>The sharpest objection misses the substance and hits the claim to novelty. Brandon Kindred traces the approach back to the part of the development lifecycle most organisations have been skipping for years. His verdict: AI did not invent spec-driven development but made skipping it expensive.<sup>2</sup></p>
+
+            <p>Roger Wong<sup>8</sup> and Yuval Yeret<sup>9</sup> both answer the waterfall charge rather than the question of whether the approach holds.</p>
+
+            <p>The soberest reading comes from the house of the source quoted approvingly twice above. Böckeler works at Thoughtworks. Thoughtworks lists the approach in its own Technology Radar under “Assess” rather than “Adopt”.<sup>10</sup> That is the rating for looking, not for using.</p>
+
+            <p>The rest is said by how fast the approach travels across disciplines. Design already claims it,<sup>11</sup> science claims it for reproducible data analysis.<sup>12</sup> Claiming it for product work means joining a queue, not opening a door.</p>
 
 
             <!-- ══ BLOCK 4: WHAT THIS CHANGES ══ -->
@@ -707,10 +746,17 @@ you ask me what I want to be able to decide afterwards.</pre>
                 <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Sources</p>
                 <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
                     <li><a href="/blog/harness-engineering-pm.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). Context, harness, loop. Three layers product teams keep confusing. linja.me (part one of this pair).</a></li>
+                    <li><a href="https://brandonkindred.medium.com/same-patterns-new-hype-spec-driven-development-5183d8e8f704" class="hover:text-stone-600 transition-colors" style="color: inherit;">Kindred, B. (2026). Same Patterns, New Hype: Spec-Driven Development. Medium, April 20, 2026.</a></li>
                     <li><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Delimarsky, D. (2025). Spec-driven development with AI: Get started with a new open source toolkit. The GitHub Blog, September 2, 2025.</a></li>
                     <li><a href="https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Böckeler, B. (2025). Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl. martinfowler.com, October 15, 2025.</a></li>
                     <li><a href="https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Morris, K. (2026). Humans and Agents in Software Engineering Loops. martinfowler.com, March 4, 2026.</a></li>
                     <li><a href="https://martinfowler.com/fragments/2026-01-08.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Fowler, M. (2026). Fragments: January 8. martinfowler.com, January 8, 2026. (Relays Kent Beck's objection to fully upfront specifications.)</a></li>
+                    <li><a href="https://mintlify.wiki/bmad-code-org/BMAD-METHOD/concepts/agents" class="hover:text-stone-600 transition-colors" style="color: inherit;">BMad Method (n.d.). Agents. Project documentation, bmad-code-org/BMAD-METHOD. Retrieved September 16, 2026.</a></li>
+                    <li><a href="https://rogerwong.me/2026/03/spec-driven-development" class="hover:text-stone-600 transition-colors" style="color: inherit;">Wong, R. (2026). Spec-Driven Development: It Looks Like Waterfall (And I Feel Fine). rogerwong.me, March 4, 2026.</a></li>
+                    <li><a href="https://yuvalyeret.com/blog/is-spec-driven-development-a-step-forward-or-back-for-product-development/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Yeret, Y. (2026). Is Spec-Driven Development a Step Forward or Back? yuvalyeret.com, June 5, 2026.</a></li>
+                    <li><a href="https://www.thoughtworks.com/en-us/radar/techniques/spec-driven-development" class="hover:text-stone-600 transition-colors" style="color: inherit;">Thoughtworks (2025). Spec-driven development. Technology Radar Vol. 34, November 2025, “Assess” ring.</a></li>
+                    <li><a href="https://www.futurice.com/blog/spec-driven-design" class="hover:text-stone-600 transition-colors" style="color: inherit;">Härkönen, T. (2026). Faster prototypes miss the point: The case for spec-driven design. futurice.com, August 11, 2026.</a></li>
+                    <li><a href="https://arxiv.org/abs/2510.11143" class="hover:text-stone-600 transition-colors" style="color: inherit;">Chen, C., Luo, B., Li, N., Wang, B., Yang, H., Guo, J. & Xu, M. (2025). Spec-Driven AI for Science: The ARIA Framework for Automated and Reproducible Data Analysis. arXiv:2510.11143, October 13, 2025.</a></li>
                 </ol>
             </div>
 
@@ -731,6 +777,10 @@ you ask me what I want to be able to decide afterwards.</pre>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Review load</span> <span class="text-stone-400">— the effort humans have to spend checking what a system produced.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Learning goal</span> <span class="text-stone-400">— the counterpart to an acceptance condition: it names the assumption under test and the finding that would overturn it, instead of prescribing a result.</span></p>
                     <p class="mb-0"><span class="text-stone-700 font-medium">Discovery</span> <span class="text-stone-400">— the phase of product work in which a problem is still being investigated rather than built.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Design by contract</span> <span class="text-stone-400">— a design principle where a component states up front what it expects and what it guarantees.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">RFC</span> <span class="text-stone-400">— request for comments: a proposal document describing a planned change and opening it up for comment.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">PRD</span> <span class="text-stone-400">— product requirements document: the classic artefact recording what a product needs to do.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Technology Radar</span> <span class="text-stone-400">— Thoughtworks' twice yearly placement of technologies into the rings adopt, trial, assess and hold.</span></p>
                 </div>
             </div>
 
