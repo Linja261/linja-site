@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <meta name="theme-color" content="#7B6BA5">
+    <title>Das Urteil bleibt bei mir. Verantwortung behalten in der KI-gestützten Product Research – Linja Scharffetter</title>
+    <meta name="description" content="Wenn KI-Agenten für eine neue Produktidee recherchieren, entsteht mehr Material, als ein Mensch lesen kann. Wie ich in 15 Ländermärkten das Urteil bei mir behalten habe: den Zweck vor die Form, ein Exemplar vor allen, die Highlights selbst setzen.">
+    <meta property="og:title" content="Das Urteil bleibt bei mir. Verantwortung behalten in der KI-gestützten Product Research">
+    <meta property="og:description" content="Wenn KI-Agenten für eine neue Produktidee recherchieren, entsteht mehr Material, als ein Mensch lesen kann. Wie ich in 15 Ländermärkten das Urteil bei mir behalten habe: den Zweck vor die Form, ein Exemplar vor allen, die Highlights selbst setzen.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Geist+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Fraunces', 'Georgia', 'serif'],
+                        serif: ['Fraunces', 'Georgia', 'serif'],
+                        mono: ['Geist Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        violet: {
+                            50: '#f6f4f9', 100: '#ece8f2', 200: '#d9d1e5',
+                            300: '#9a82b5', 400: '#7b6ba5', 500: '#6b5691', 700: '#463863',
+                        },
+                        amber: {
+                            50: '#fdf5f0', 100: '#fae8de', 200: '#ecb08e',
+                            400: '#c27a52', 500: '#D4714E', 600: '#a86340', 700: '#73402e',
+                        },
+                        emerald: {
+                            50: '#f2f7f4', 100: '#e0ede6', 300: '#96bfaa',
+                            500: '#5b8a72', 600: '#476f5b', 700: '#31493d',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .source-serif {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 500;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .lang-hidden { display: none !important; }
+
+        #mobile-menu {
+            display: none;
+        }
+        #mobile-menu.open {
+            display: block;
+        }
+
+        /* Article prose styles.
+           Spacing-Werte: siehe ../../brand-kit.md → Spacing-Tokens (Blog). */
+        .prose h2 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #1A1A1A;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+        }
+        .prose h3 {
+            font-family: "Fraunces", Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1A1A1A;
+            margin-top: 2.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .prose p {
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+        .prose strong {
+            color: #1A1A1A;
+            font-weight: 600;
+        }
+        .prose em {
+            font-style: italic;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        .prose th {
+            text-align: left;
+            font-weight: 600;
+            color: #1A1A1A;
+            border-bottom: 2px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose td {
+            border-bottom: 1px solid #E5E2DB;
+            padding: 0.5rem 0.75rem;
+        }
+        .prose ol {
+            list-style: decimal;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body style="background: #FAFAF8;" class="font-sans text-stone-700 text-[0.95rem] leading-relaxed">
+
+    <div id="site-nav"></div>
+    <script src="/components.js" data-active="blog" data-bilingual="true"></script>
+
+    <!-- ==================== GERMAN VERSION ==================== -->
+    <div id="site-de">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">KI</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Experiment</span>
+                <span class="text-[0.72rem] text-stone-400">20. Oktober 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 Min Lesezeit</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                Das Urteil bleibt bei mir. Verantwortung behalten in der KI-gestützten Product Research
+            </h1>
+        </header>
+
+        <!-- OPTIONAL: 90-SEK-AUDIO-PILL (aktivieren, sobald MP3 existiert)
+        <div class="reader-audio-slot my-4" data-audio-src="/blog/audio/ki-product-research-verantwortung.mp3"></div>
+        -->
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                Wenn eine KI für eine neue Produktidee breit recherchiert, entsteht in kurzer Zeit mehr Material, als ein Mensch lesen kann. Dann bleiben zwei schlechte Wege: alles lesen oder alles durchwinken. Wer durchwinkt, gibt das Urteil ab und damit die Ownership für das, was am Ende entsteht. Welches Produkt herauskommt, weiß ich vor einer Erkundung nicht. Wozu ich die Recherche brauche, weiß ich aber sehr wohl. Den Rahmen für das Ergebnis finde ich am ersten fertigen Exemplar, Schritt für Schritt, statt alles parallel vorzubereiten. Das ist langsamer bis zum fertigen Ergebnis, aber schneller bis zum Verstehen.
+            </p>
+        </div>
+
+        <div class="my-8 rounded-lg overflow-hidden" style="border: 1px solid #d9d1e5; background: #fcfbfe;">
+            <div class="px-6 pt-5 pb-4">
+                <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">Zum Mitnehmen</p>
+                <p class="source-serif text-[1.02rem] text-stone-800 leading-relaxed mb-2">Bevor du weiterliest: gib das deiner KI vor der nächsten Erkundung.</p>
+                <p class="text-[0.85rem] text-stone-500 mb-0">Kopier diesen Block und stell ihn jeder Markt- oder Feldrecherche voran. Er klärt den Zweck, bevor gesammelt wird, und sorgt dafür, dass nur Abgenommenes dort landet, wo du urteilen musst.</p>
+            </div>
+            <div class="px-6 pb-5">
+                <pre id="prompt-urteil-de" class="font-mono text-[0.72rem] leading-[1.7] text-stone-700 rounded-md px-4 py-4 mb-3" style="background: #f6f4f9; white-space: pre-wrap; overflow-x: auto;">Bevor du eine Recherche oder Erkundung anfängst, kläre mit mir drei Dinge
+und fang erst danach an.
+
+1. Frag mich, wozu ich die Recherche brauche: was ich danach entscheiden
+   oder tun können will. Ist die Antwort unklar, schlag mir zwei bis drei
+   mögliche Antworten vor. Welches Produkt am Ende herauskommt, muss ich
+   dafür noch nicht wissen.
+2. Such im vorhandenen Material nach allem, was es zu diesem Thema schon
+   gibt. Nenne mir die Dateien, die du für aktuell hältst, und die, die du
+   für überholt hältst. Bau auf den aktuellen auf. Wenn du nicht erkennen
+   kannst, welche gilt, frag.
+3. Bau zuerst ein einziges Exemplar des Ergebnisses vollständig fertig und
+   leg es mir vor. Sag mir dazu, welche Wissenslücken es zeigt. Erst wenn
+   ich es abgenommen habe, recherchierst du die Lücken für alle Fälle nach
+   und ziehst das Schema für die übrigen.
+
+Breit sammeln darfst du jederzeit, aber in deinem Arbeitsmaterial. In das,
+was ich lesen muss, kommen nur abgenommene Exemplare oder Vorschläge mit
+höchstens drei Optionen und deiner Empfehlung. Auffälligkeiten darfst du
+markieren, die Auswahl der Highlights triffst du nicht für mich.</pre>
+                <button type="button" class="prompt-copy font-mono text-[0.62rem] tracking-wider uppercase px-3 py-1.5 rounded transition-colors"
+                        style="border: 1px solid #d9d1e5; color: #6b5691; background: #ffffff;"
+                        data-copy-target="prompt-urteil-de" data-copied-label="Kopiert">Prompt kopieren</button>
+            </div>
+        </div>
+
+        <article class="prose pb-12">
+            <!-- ══ BLOCK 1: KERNBOTSCHAFT + PROBLEM ══ -->
+
+            <p>Um neue Geschäftsmodelle und Produktideen zu entwickeln, braucht es eine gründliche Marktrecherche. Design Thinking als Arbeitsmethode hilft dabei, mit guten Werkzeugen den Blick für den Problemraum zu weiten. KI kann dabei helfen, diesen Raum schneller zu durchforsten und Markt, Wettbewerb und bereits funktionierende Mechanismen in Rekordzeit zu durchdringen.</p>
+
+            <p>Doch das kann schnell zu einer Herausforderung werden, bei der der Mensch den Überblick verliert. Denn KI erledigt die Recherche im ersten Diamanten des Design Thinking<sup>1</sup> in einer Geschwindigkeit, die kein Team erreicht. Am Ende steht ein Fundus an Informationen, der für einen einzelnen Menschen so breit und so undurchdringlich ist, dass er nicht hilft, sondern hindert.</p>
+
+            <p>Wenn das Versprechen ist, alle existierenden Probleme, Wettbewerber und Marktmechanismen zu kennen, müsste der Mensch wirklich alles lesen, was die KI ihm bereitstellt. Das ist in kurzer Zeit unmöglich.<sup>2</sup> Schnell führt das dazu, dass der Mensch die Ergebnisse durchwinkt, ohne sie wirklich zu verstehen. Dann entsteht am Ende ein Produkt auf ungeprüften Annahmen, das vielleicht gar kein Disruptionspotenzial hat. Und das ist doch das eigentliche Ziel von Innovation.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    Eine KI darf so breit sammeln, wie sie will. Was davon zählt, entscheide ich.
+                </p>
+            </div>
+
+            <!-- ══ BLOCK 2: FUNDIERUNG ══ -->
+
+            <h2>Das Produkt ist offen, der Zweck nicht</h2>
+
+            <p>Ich brauchte schnell einen Rundumblick über Kundenprobleme, Markt, Wettbewerb und Wirkungsmechanismen. Die Zeit war knapp, die Produktidee unklar und ein KI-Agent ist stark im schnellen Recherchieren. Also habe ich ihn mit einem möglichst breiten Suchauftrag losgeschickt: fundiert, mit vielen Sub-Agenten und doppelter Quellenprüfung. Doch das Ziel war unscharf. Wo noch keine Produktidee als Bezugspunkt feststeht, kann jede Information relevant sein.</p>
+
+            <p>So hat ein Vergleich über 15 Ländermärkte in einer Woche mehr Material erzeugt, als ich lesen konnte. Ich stand vor der Entscheidung, alles genau zu lesen oder es blind durchzuwinken. Die KI hat gründlich gearbeitet, mein Arbeitsrahmen ist gut aufgebaut. Aber wenn ich die Entscheidung dem Agenten überlasse, was ist dann noch mein Anteil an der Produktentwicklung? Traue ich ihm zu, die Erkenntnisse im Hinblick auf eine disruptive Produktinnovation zu bewerten und zwischen den Zeilen zu lesen? Meine Antwort: nein. KI baut auf dem auf, was schon existiert, und übersieht möglicherweise genau die Lücke, die ich finden würde. Außerdem verliere ich so die Ownership für das Recherche- und damit auch für das Produktergebnis.</p>
+
+            <p>Also habe ich geschaut, was fehlt, um die Ergebnisse sauber zu bewerten und selbst Ableitungen zu ziehen. Die Antwort war simpel und komplex zugleich. Ich konnte nicht sagen, welches Produkt am Ende herauskommt, denn für eine neue Idee gibt es noch kein Produkt zum Gegenprüfen. Was ich aber hätte sagen können: wozu ich die Recherche brauche. Ich wollte aus jedem Markt ableiten, was sich auf andere übertragen lässt, und die Märkte so gut verstehen, dass daraus eigene Ideen entstehen. Dieser Satz stand nirgends. Lautet der Auftrag salopp „recherchiere mal möglichst breit“, recherchiert die KI eben möglichst breit und überholt sich dabei selbst.</p>
+
+            <p>Festlegen konnte ich außerdem den Rahmen, in den der Agent sein Wissen einliefert. Die Produktidee entsteht verlässlich erst nach der Recherche, auch wenn meine Intuition mir schon vorher einige Ideen in den Kopf gepflanzt hat. Weil in dieser Phase aber laufend neues Wissen dazukommt, muss sich der Rahmen iterativ an den Ergebnissen ausrichten, in kleinen Paketen. In die Spezifikation einer Erkundung gehört deshalb ein Lernziel statt eines fertigen Abnahmekriteriums.<sup>3</sup></p>
+
+            <h2>Erst ein Exemplar, dann alle</h2>
+
+            <p>Mein Fehler lag in der Reihenfolge. Zuerst hat die KI alle Länder parallel als Entwurf vorbereitet, bevor ein einziges Exemplar abgenommen war. Jede spätere Formentscheidung musste an vielen Stellen nachgezogen werden. Am besten funktioniert hat am Ende ein iteratives Zusammenspiel von KI und mir.</p>
+
+            <p>So bin ich bei der Länderrecherche vorgegangen.</p>
+
+            <div class="my-8 space-y-5">
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">1</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Ein Land zuerst.</span> Ausreichend Informationen zu einem der Ländermärkte sammeln.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Design am Exemplar.</span> Das Ergebnisdesign am ersten Ländermarkt ausprobieren.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Lücken für alle schließen.</span> Wissenslücken am ersten Land definieren und vom KI-Assistenten für alle Ländermärkte nachrecherchieren lassen.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">4</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Exemplar finalisieren.</span> Das Ergebnis für den ersten Ländermarkt fertigstellen.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">5</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Schema übertragen.</span> Die Ergebnispräsentation für alle Ländermärkte nach diesem Design erstellen lassen.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">6</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Land für Land prüfen.</span> Besonderheiten und Mechanismen verstehen und dabei selbst die Highlights festlegen.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">7</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Design-Check über alle.</span> Unterschiede in Darstellung und Ausrichtung angleichen, damit alle Onepager wie aus einem Guss aussehen.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">8</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Highlights verdichten.</span> Eine Präsentation über alle Märkte hinweg bauen, aus den Highlights, die ich selbst festgelegt habe.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">9</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Produktideen ableiten.</span> Die Highlights nutzen, um Produktideen weiterzuentwickeln.</p>
+                </div>
+            </div>
+
+            <p>Herausgekommen sind detaillierte Onepager pro Land als fertige Inkremente und ein intensives Verständnis jedes Markts. Genau das brauche ich als Basis für Produktideen. Den letzten Schliff übernimmt die KI sehr gut. Geprüft habe ich vorher trotzdem jedes Land einzeln.</p>
+
+            <h2>Eine KI baut nicht von selbst auf Bestand auf</h2>
+
+            <p>Die Fülle an Wissen ließ sich nicht in einer Session bewerten. Auch die Frage, wie sich die Ergebnisse zusammenfassen lassen, braucht mehrere Anläufe: am Montag eine Session, nicht fertig geworden, am Mittwoch die nächste.</p>
+
+            <p>Bekommt der Agent keinen Hinweis, vorhandene Ergebnisse oder Formate zu verwenden, erzeugt er neue. So wurde das Problem immer größer. Ich hatte nicht nur zu viel Wissen zu bewerten, sondern auch mehrere Ansätze, wie das Ergebnis aussehen und was es hervorheben soll, samt neuem Wissen, das wiederum geprüft werden wollte. Gleichzeitig fragte ich mich, ob ich diese Fragen nicht längst beantwortet hatte. An diesem Punkt wird es maximal ineffizient, obwohl KI uns doch so schön effizient machen kann.</p>
+
+            <p>Der Grund ist banal. Jede Sitzung beginnt ohne Erinnerung an die vorige, das einzige Gedächtnis sind die Dateien. Zum selben Land lagen am Ende sechs Arten von Dokumenten nebeneinander: Recherche, Vergleich, Länderseite, Länderprofil, Layout-Entwürfe, Onepager. Für eine KI, die in diesen Ordner schaut, ist nicht erkennbar, welches davon gilt. Neu anfangen ist für sie der kürzere Weg, als dreißig Dateien zu lesen und zu raten, welche überholt sind.</p>
+
+            <!-- ══ BLOCK 3: KRITISCHE EINORDNUNG ══ -->
+
+            <h2>Kritische Einordnung</h2>
+
+            <p>Mein Nein ist eine Momentaufnahme. KI-Agenten werden besser darin, zwischen den Zeilen zu lesen. Vielleicht traue ich ihnen in einem Jahr zu, was ich ihnen heute nicht zutraue. Die Frage nach der Ownership bleibt trotzdem, denn sie ist keine Frage der Fähigkeit, sondern der Verantwortung. Wer eine Produktidee vertritt, muss erklären können, warum sie trägt.</p>
+
+            <p>Iterativ kostet außerdem Zeit. Neun Schritte mit mir in der Schleife sind langsamer als ein einziger großer Auftrag. Bis zum fertigen Ergebnis stimmt das, bis zum Verstehen nicht. Nach fünf Tagen konnte ich auf Augenhöhe über Markt und Produktansätze diskutieren. Nach vier Wochen hatte ich Übersichten aus 15 Märkten, die zu denselben Ableitungen kommen wie die Gespräche mit Kollegen. Daraus sind drei starke erste Produktideen entstanden, jede mit Belegen dafür, wie sie anderswo schon funktioniert.</p>
+
+            <p>Und die Regel gab es schon. Lernziel statt Kriterium stand seit Wochen in meinen eigenen Anweisungen, aber nur für das Zuschneiden von Aufgaben, nicht für das Herstellen von Inhalten. Bei einer Bitte, die nach Kleinkram klang, hat sie niemand angewendet. Schließlich erzeugt die Lösung neue Pflege: Eine Datei, die festhält, welches Dokument gilt, ist nur so gut wie ihr letzter Stand.</p>
+
+            <!-- ══ BLOCK 4: WAS ICH VERÄNDERE ══ -->
+
+            <h2>Wie ich es nächstes Mal besser machen will</h2>
+
+            <p>Die Stand-Datei läuft seit Kurzem, die anderen drei Änderungen setze ich beim nächsten Rechercheauftrag ein. Ob sie tragen, zeigt sich erst dann.</p>
+
+            <div class="my-8 space-y-5">
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">1</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Erst der Zweck.</span> Vor jeder Erkundung fragt die KI, wozu ich die Recherche brauche. Habe ich keine Antwort, schlägt sie zwei bis drei vor.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Ein Exemplar, dann das Schema.</span> Erst ein Land vollständig, dann die Abnahme, dann der Rest. Die Lücken, die das erste Exemplar zeigt, werden für alle nachrecherchiert.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Eine Stand-Datei je Thema.</span> Sie sagt in wenigen Zeilen, welche Dokumente gelten und was entschieden ist. Jede Sitzung liest sie zuerst und aktualisiert sie zuletzt.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">4</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Die Highlights setze ich.</span> Die KI darf Auffälligkeiten markieren, was zählt, entscheide ich nach eigener Prüfung. Den Design-Check übernimmt sie erst danach.</p>
+                </div>
+            </div>
+
+            <div class="my-10">
+                <h2>Was bleibt für jeden Tag</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Den Zweck vor die Form</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Wozu du recherchierst, lässt sich fast immer vorab sagen. Welches Produkt herauskommt, oft nicht.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Ein fertiges Exemplar schlägt jedes Schema</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Die Vorlage entsteht am ersten abgenommenen Stück, nicht vor dem ersten Entwurf.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Das Urteil bleibt bei dir</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Die KI darf breit sammeln. Was davon zählt, entscheidest du.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Gedächtnis ist eine Datei</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">Eine KI baut auf Bestand nur auf, wenn irgendwo steht, welcher Bestand gilt.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" id="quellen" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Quellen</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.designcouncil.org.uk/our-resources/the-double-diamond/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Design Council. The Double Diamond. designcouncil.org.uk.</a></li>
+                    <li><a href="/blog/recherche-ist-billig-verstehen-nicht.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). Recherche ist billig geworden. Verstehen nicht. Was gegen die Ergebnisflut aus KI-Recherche hilft. linja.me.</a></li>
+                    <li><a href="/blog/spec-driven-development-pm.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). Die Spezifikation ist der Rahmen. Was Produktteams aufschreiben müssen, damit KI allein arbeiten darf. linja.me.</a></li>
+                </ol>
+            </div>
+
+            <div class="mt-8 pt-6" id="glossar" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossar</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Erkundung</span> <span class="text-stone-400">— Arbeit, deren Ergebnisform erst während der Arbeit klar wird.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Lernziel</span> <span class="text-stone-400">— was man nach einer Erkundung entscheiden oder tun können will, an Stelle eines Abnahmekriteriums.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Exemplar</span> <span class="text-stone-400">— ein einzelnes, vollständig fertiges Stück eines Ergebnisses, aus dem das Schema für die übrigen abgeleitet wird.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Inkrement</span> <span class="text-stone-400">— ein fertiges Teilergebnis, das für sich allein nutzbar ist.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Ownership</span> <span class="text-stone-400">— die Verantwortung für ein Ergebnis, die man nur behält, wenn man es selbst versteht und beurteilen kann.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Stand-Datei</span> <span class="text-stone-400">— kurzes Dokument je Thema, das festhält, welche Dateien gelten und was entschieden ist.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Double Diamond</span> <span class="text-stone-400">— Prozessmodell des Design Council mit zwei Phasen aus Öffnen und Eingrenzen, erst für das Problem, dann für die Lösung.</span></p>
+                </div>
+            </div>
+
+        </article>
+    </div>
+    </div>
+
+    <!-- ==================== ENGLISH VERSION ==================== -->
+    <div id="site-en" class="lang-hidden">
+    <div class="max-w-[680px] mx-auto px-5 sm:px-8">
+
+        <header class="pt-24 sm:pt-28 pb-8">
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-4">
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">AI</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #F5F3EF; color: #44403c;">Product Management</span>
+                <span class="text-[0.68rem] font-medium px-2.5 py-1 rounded" style="background: #ece8f2; color: #6b5691;">Experiment</span>
+                <span class="text-[0.72rem] text-stone-400">20 October 2026</span>
+                <span class="text-[0.72rem] text-stone-400">&middot; 7 min read</span>
+            </div>
+            <h1 class="source-serif text-[1.5rem] sm:text-[2rem] text-stone-900 leading-[1.2] mb-0">
+                The judgement stays with me. Keeping ownership in AI-assisted product research
+            </h1>
+        </header>
+
+        <div class="article-tldr my-6 py-5 px-6 rounded-lg" style="background: #f6f4f9; ">
+            <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">TL;DR</p>
+            <p class="source-serif text-[1.05rem] text-stone-800 leading-relaxed mb-0">
+                When an AI researches broadly for a new product idea, it produces more material in a short time than a person can read. That leaves two bad options: read everything or wave it all through. Waving it through means handing over judgement, and with it ownership of whatever comes out at the end. I do not know before an exploration which product will come out of it. I do know what I need the research for. I find the frame for the result on the first finished example, step by step, instead of preparing everything in parallel. That is slower to a finished result and faster to understanding.
+            </p>
+        </div>
+
+        <div class="my-8 rounded-lg overflow-hidden" style="border: 1px solid #d9d1e5; background: #fcfbfe;">
+            <div class="px-6 pt-5 pb-4">
+                <p class="font-mono text-[0.62rem] tracking-wider uppercase mb-2" style="color: #6b5691;">Take this with you</p>
+                <p class="source-serif text-[1.02rem] text-stone-800 leading-relaxed mb-2">Before you read on: give this to your AI before your next exploration.</p>
+                <p class="text-[0.85rem] text-stone-500 mb-0">Copy this block and put it in front of every market or field research request. It settles the purpose before anything gets collected, and it makes sure only approved work lands where you have to judge.</p>
+            </div>
+            <div class="px-6 pb-5">
+                <pre id="prompt-urteil-en" class="font-mono text-[0.72rem] leading-[1.7] text-stone-700 rounded-md px-4 py-4 mb-3" style="background: #f6f4f9; white-space: pre-wrap; overflow-x: auto;">Before you start any research or exploration, settle three things with me
+and only then begin.
+
+1. Ask me what I need the research for: what I want to be able to decide
+   or do afterwards. If the answer is unclear, suggest two or three
+   possible answers. I do not need to know yet which product will come out
+   of it.
+2. Search the existing material for everything already there on this
+   topic. Name the files you consider current and the ones you consider
+   outdated. Build on the current ones. If you cannot tell which one
+   applies, ask.
+3. First build a single example of the result, fully finished, and show it
+   to me. Tell me which knowledge gaps it reveals. Only once I have
+   approved it do you research those gaps for all cases and derive the
+   template for the rest.
+
+You may collect broadly at any time, but in your working material. What I
+have to read only gets approved examples or proposals with at most three
+options and your recommendation. You may flag what stands out. You do not
+pick the highlights for me.</pre>
+                <button type="button" class="prompt-copy font-mono text-[0.62rem] tracking-wider uppercase px-3 py-1.5 rounded transition-colors"
+                        style="border: 1px solid #d9d1e5; color: #6b5691; background: #ffffff;"
+                        data-copy-target="prompt-urteil-en" data-copied-label="Copied">Copy prompt</button>
+            </div>
+        </div>
+
+        <article class="prose pb-12">
+            <!-- ══ BLOCK 1: CORE MESSAGE AND PROBLEM ══ -->
+
+            <p>Developing new business models and product ideas takes thorough market research. Design Thinking helps with good tools to widen the view of the problem space. AI can help search that space faster and get to grips with markets, competitors and mechanisms that already work in record time.</p>
+
+            <p>That can quickly turn into a problem where the human loses the overview. AI does the research in the first diamond of Design Thinking<sup>1</sup> at a speed no team can match. What you end up with is a body of information so broad and so dense for a single person that it gets in the way instead of helping.</p>
+
+            <p>If the promise is to know every existing problem, competitor and market mechanism, the person would really have to read everything the AI hands over. In a short time that is impossible.<sup>2</sup> Very quickly the person starts waving results through without really understanding them. What comes out at the end is a product built on untested assumptions that may have no disruptive potential at all. And that is the actual point of innovation.</p>
+
+            <div class="my-10 py-6 px-8 rounded-lg" style="background: #f6f4f9; ">
+                <p class="source-serif text-[1.15rem] text-stone-800 leading-relaxed mb-0">
+                    An AI may collect as broadly as it likes. What counts is my call.
+                </p>
+            </div>
+
+            <!-- ══ BLOCK 2: GROUNDING ══ -->
+
+            <h2>The product is open, the purpose is not</h2>
+
+            <p>I needed a quick all-round view of customer problems, market, competition and mechanisms of effect. Time was short, the product idea unclear and an AI agent is good at fast research. So I sent it out with the broadest possible brief: thorough, with many sub-agents and double source checks. But the goal was blurry. Where no product idea exists yet as a point of reference, any piece of information might matter.</p>
+
+            <p>That is how a comparison across 15 country markets produced more material in one week than I could read. I had to choose between reading all of it closely and waving it through blind. The AI had worked thoroughly and my working setup is solid. But if I leave the decision to the agent, what is left of my part in developing the product? Do I trust it to judge the findings for a possible disruptive innovation and to read between the lines? My answer is no. AI builds on what already exists and may miss exactly the gap I would find. And I lose ownership of the research and with it of the product.</p>
+
+            <p>So I looked at what was missing to judge the results properly and draw my own conclusions. The answer was simple and complicated at once. I could not say which product would come out, because a new idea has no product yet to test against. What I could have said is what I needed the research for. I wanted to pull out of every market what transfers to others, and to understand the markets well enough for my own ideas to grow from them. That sentence was written down nowhere. If the brief is a casual "research this as broadly as you can", the AI researches as broadly as it can and outruns itself.</p>
+
+            <p>What I could also set was the frame the agent delivers its knowledge into. A reliable product idea only emerges after the research, even if my intuition planted a few ideas earlier. Because new knowledge keeps arriving in this phase, the frame has to follow the results iteratively, in small packages. That is why the specification of an exploration carries a learning goal rather than a finished acceptance criterion.<sup>3</sup></p>
+
+            <h2>One example first, then all of them</h2>
+
+            <p>My mistake was the order. At first the AI prepared every country in parallel as a draft before a single example had been approved. Every later decision about form then had to be carried through in many places. What worked best in the end was an iterative back and forth between the AI and me.</p>
+
+            <p>This is how I ran the country research.</p>
+
+            <div class="my-8 space-y-5">
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">1</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">One country first.</span> Gather enough information on one of the country markets.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Design on the example.</span> Try out the result design on the first market.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Close gaps for all.</span> Define the knowledge gaps on the first country and have the AI assistant research them for every market.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">4</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Finish the example.</span> Complete the result for the first market.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">5</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Carry the template over.</span> Have the presentation built for every market in that design.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">6</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Check country by country.</span> Understand the particularities and mechanisms and set the highlights myself along the way.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">7</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Design check across all.</span> Even out differences in layout and alignment so every one-pager looks like it was made in one piece.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">8</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Condense the highlights.</span> Build one presentation across all markets from the highlights I chose myself.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">9</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Derive product ideas.</span> Use the highlights to develop product ideas further.</p>
+                </div>
+            </div>
+
+            <p>What came out are detailed one-pagers per country as finished increments and a deep understanding of each market. That is exactly the basis I need for product ideas. The AI is very good at the final polish. I still checked every country on my own first.</p>
+
+            <h2>An AI does not build on what exists by itself</h2>
+
+            <p>The amount of knowledge could not be judged in one session. Working out how to summarise the results also takes several attempts: one session on Monday, not finished, the next on Wednesday.</p>
+
+            <p>If the agent gets no hint to use existing results or formats, it produces new ones. So the problem kept growing. I did not just have too much knowledge to judge. I also had several approaches to what the result should look like and what it should highlight, along with new knowledge that needed checking in turn. At the same time I wondered whether I had not answered these questions already. That is where it gets as inefficient as it can, even though AI is supposed to make us so nicely efficient.</p>
+
+            <p>The reason is mundane. Every session starts without memory of the last one, and the only memory is the files. By the end, six kinds of documents sat side by side for the same country: research, comparison, country page, country profile, layout drafts, one-pager. An AI looking into that folder cannot tell which one applies. Starting over is the shorter path for it than reading thirty files and guessing which are outdated.</p>
+
+            <!-- ══ BLOCK 3: A CRITICAL LOOK ══ -->
+
+            <h2>A critical look</h2>
+
+            <p>My no is a snapshot. AI agents are getting better at reading between the lines. Maybe in a year I will trust them with what I do not trust them with today. The ownership question stays anyway, because it is not about capability but about responsibility. Whoever stands behind a product idea has to be able to explain why it holds.</p>
+
+            <p>Iterating also costs time. Nine steps with me in the loop are slower than one big assignment. That is true up to the finished result, not up to understanding. After five days I could discuss the market and product approaches on equal terms. After four weeks I had overviews of 15 markets that reach the same conclusions as my conversations with colleagues. Out of that came three strong first product ideas, each with evidence of how it already works elsewhere.</p>
+
+            <p>And the rule already existed. Learning goal instead of criterion had been in my own instructions for weeks, but only for cutting tasks, not for producing content. On a request that sounded like a small thing, nobody applied it. Finally, the fix creates new upkeep: a file that records which document applies is only as good as its last update.</p>
+
+            <!-- ══ BLOCK 4: WHAT I AM CHANGING ══ -->
+
+            <h2>How I want to do it better next time</h2>
+
+            <p>The status file has been running for a short while. The other three changes go into the next research assignment, and only then will it show whether they hold.</p>
+
+            <div class="my-8 space-y-5">
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">1</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">Purpose first.</span> Before every exploration the AI asks what I need the research for. If I have no answer, it suggests two or three.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">2</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">One example, then the template.</span> One country complete, then approval, then the rest. The gaps the first example reveals get researched for all.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">3</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">A status file per topic.</span> It says in a few lines which documents apply and what has been decided. Every session reads it first and updates it last.</p>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <span class="flex-none flex items-center justify-center rounded-full font-mono text-[0.72rem] font-medium" style="width: 1.75rem; height: 1.75rem; background: #ece8f2; color: #6b5691;">4</span>
+                    <p class="text-[0.92rem] text-stone-700" style="margin-bottom: 0; line-height: 1.65;"><span class="text-stone-900 font-semibold">I set the highlights.</span> The AI may flag what stands out. What counts is my call after my own review, and the design check comes after that.</p>
+                </div>
+            </div>
+
+            <div class="my-10">
+                <h2>What stays with you every day</h2>
+                <div class="space-y-5">
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Purpose before form</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">What you research for can almost always be said up front. Which product comes out, often not.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">A finished example beats any template</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">The template comes from the first approved piece, not from before the first draft.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">The judgement stays with you</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">The AI may collect broadly. What counts is your call.</p>
+                    </div>
+                    <div class="pl-5">
+                        <p class="text-[0.92rem] text-stone-800 font-semibold" style="margin-bottom: -0.15rem;">Memory is a file</p>
+                        <p class="text-[0.82rem] text-stone-500" style="margin-bottom: 0; margin-top: 0;">An AI only builds on what exists if something says which of it applies.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-6" id="sources" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Sources</p>
+                <ol class="text-[0.75rem] text-stone-400 space-y-1 mb-0" style="line-height: 1.5; padding-left: 1.2rem;">
+                    <li><a href="https://www.designcouncil.org.uk/our-resources/the-double-diamond/" class="hover:text-stone-600 transition-colors" style="color: inherit;">Design Council. The Double Diamond. designcouncil.org.uk.</a></li>
+                    <li><a href="/blog/recherche-ist-billig-verstehen-nicht.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). Research got cheap. Understanding did not. What helps against the flood of AI research. linja.me.</a></li>
+                    <li><a href="/blog/spec-driven-development-pm.html" class="hover:text-stone-600 transition-colors" style="color: inherit;">Scharffetter, L. (2026). The specification is the frame. What product teams have to write down before AI can work on its own. linja.me.</a></li>
+                </ol>
+            </div>
+
+            <div class="mt-8 pt-6" id="glossary" style="border-top: 1px solid #e5e2db;">
+                <p class="font-mono text-[0.65rem] tracking-wider uppercase mb-3" style="color: #472E56;">Glossary</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-[0.75rem]">
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Exploration</span> <span class="text-stone-400">— work whose result only takes shape while doing it.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Learning goal</span> <span class="text-stone-400">— what you want to be able to decide or do after an exploration, in place of an acceptance criterion.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Example</span> <span class="text-stone-400">— a single, fully finished piece of a result from which the template for the rest is derived.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Increment</span> <span class="text-stone-400">— a finished partial result that is usable on its own.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Ownership</span> <span class="text-stone-400">— responsibility for a result, which you only keep if you understand and can judge it yourself.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Status file</span> <span class="text-stone-400">— a short document per topic that records which files apply and what has been decided.</span></p>
+                    <p class="mb-0"><span class="text-stone-700 font-medium">Double Diamond</span> <span class="text-stone-400">— the Design Council's process model with two phases of opening up and narrowing down, first for the problem, then for the solution.</span></p>
+                </div>
+            </div>
+
+        </article>
+    </div>
+    </div>
+
+    <div id="site-footer"></div>
+
+
+    <!-- ══ ENTFERNBAR MIT DEM EINSTIEGS-PROMPT: Copy-Button ══ -->
+    <script>
+    document.querySelectorAll('.prompt-copy').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var src = document.getElementById(btn.getAttribute('data-copy-target'));
+            if (!src || !navigator.clipboard) return;
+            navigator.clipboard.writeText(src.innerText).then(function () {
+                var label = btn.textContent;
+                btn.textContent = btn.getAttribute('data-copied-label');
+                setTimeout(function () { btn.textContent = label; }, 2000);
+            });
+        });
+    });
+    </script>
+
+    <!-- ======== LANGUAGE TOGGLE (controlled by components.js nav) ======== -->
+    <script>
+    function getLang() { return localStorage.getItem('site-lang') || 'de'; }
+    function setLang(lang) { localStorage.setItem('site-lang', lang); }
+    function applyLanguage(lang) {
+        var de = document.getElementById('site-de'); var en = document.getElementById('site-en');
+        var label = document.getElementById('lang-label'); var labelMobile = document.getElementById('lang-label-mobile');
+        var navDe = document.querySelectorAll('.nav-de'); var navEn = document.querySelectorAll('.nav-en');
+        if (lang === 'en') {
+            de.classList.add('lang-hidden'); en.classList.remove('lang-hidden');
+            if (label) label.textContent = 'DE'; if (labelMobile) labelMobile.textContent = 'DE';
+            navDe.forEach(function(el) { el.classList.add('lang-hidden'); }); navEn.forEach(function(el) { el.classList.remove('lang-hidden'); });
+        } else {
+            de.classList.remove('lang-hidden'); en.classList.add('lang-hidden');
+            if (label) label.textContent = 'EN'; if (labelMobile) labelMobile.textContent = 'EN';
+            navDe.forEach(function(el) { el.classList.remove('lang-hidden'); }); navEn.forEach(function(el) { el.classList.add('lang-hidden'); });
+        }
+        document.documentElement.lang = lang;
+    }
+    function toggleLanguage() { var c = getLang(); var n = c === 'de' ? 'en' : 'de'; setLang(n); applyLanguage(n); }
+    applyLanguage(getLang());
+    </script>
+
+</body>
+
+</html>
